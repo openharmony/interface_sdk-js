@@ -17,8 +17,17 @@ const fs = require('fs');
 const path = require('path');
 const { exportDiffInfo } = require('../../api_diff/src/api_diff');
 const { StatusCode } = require('../../api_diff/src/reporter');
-const { parseJsDoc, requireTypescriptModule, ErrorType, LogType, ErrorLevel, ErrorValueInfo, getCheckApiVersion,
-  FUNCTION_TYPES } = require('./utils');
+const {
+  parseJsDoc,
+  requireTypescriptModule,
+  ErrorType,
+  LogType,
+  ErrorLevel,
+  ErrorValueInfo,
+  getCheckApiVersion,
+  FUNCTION_TYPES,
+  DIFF_INFO,
+} = require('./utils');
 const ts = requireTypescriptModule();
 const { addAPICheckErrorLogs } = require('./compile_info');
 
@@ -43,8 +52,13 @@ function checkHistoryJSDoc(newNodeJSDocs, oldNodeJSDocs) {
     for (let j = 0; j < oldTags.length; j++) {
       const oldTag = oldTags[j];
       const newTag = newTags[j];
-      if (oldTag.tag !== newTag.tag || oldTag.name !== newTag.name || oldTag.type !== newTag.type ||
-        oldTag.optional !== newTag.optional || oldTag.description !== newTag.description) {
+      if (
+        oldTag.tag !== newTag.tag ||
+        oldTag.name !== newTag.name ||
+        oldTag.type !== newTag.type ||
+        oldTag.optional !== newTag.optional ||
+        oldTag.description !== newTag.description
+      ) {
         return false;
       }
     }
@@ -54,7 +68,7 @@ function checkHistoryJSDoc(newNodeJSDocs, oldNodeJSDocs) {
 
 /**
  * 根据JSDoc获取版本号
- * @param {JSDoc} JSDoc 
+ * @param {JSDoc} JSDoc
  * @returns {number}
  */
 function getJSDocVersion(JSDoc) {
@@ -82,7 +96,7 @@ function checkApiChangeVersion(currentJSDoc, lastJSDoc, node) {
     changeErrors.push({
       node: node,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_VERSION,
-      LogType: LogType.LOG_JSDOC
+      LogType: LogType.LOG_JSDOC,
     });
   }
 }
@@ -123,8 +137,8 @@ function checkJSDocChange(tagName, currentJSDoc, lastJSDoc, customCheckCallback)
 
 /**
  * 检查权限变化
- * @param { string } newPermission 
- * @param { string } oldPermission 
+ * @param { string } newPermission
+ * @param { string } oldPermission
  * @returns { boolean }
  */
 function checkPermissionChange(newPermission, oldPermission) {
@@ -140,9 +154,10 @@ function checkPermissionChange(newPermission, oldPermission) {
  */
 function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
   const currentJSDoc = newNodeJSDocs[newNodeJSDocs.length - 1];
-  const NEW_JSDOCS_LENGTH = 1;
-  const NEW_JSDOC_INDEX = 2;
-  const lastJSDoc = newNodeJSDocs.length === NEW_JSDOCS_LENGTH ? null : newNodeJSDocs[newNodeJSDocs.length - NEW_JSDOC_INDEX];
+  const lastJSDoc =
+    newNodeJSDocs.length === DIFF_INFO.NEW_JSDOCS_LENGTH
+      ? null
+      : newNodeJSDocs[newNodeJSDocs.length - DIFF_INFO.NEW_JSDOC_INDEX];
 
   checkApiChangeVersion(currentJSDoc, lastJSDoc, node);
 
@@ -152,7 +167,7 @@ function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
         changeErrors.push({
           node: node,
           errorInfo: ErrorValueInfo.ERROR_CHANGES_JSDOC_TRROWS,
-          LogType: LogType.LOG_JSDOC
+          LogType: LogType.LOG_JSDOC,
         });
       }
     });
@@ -176,7 +191,7 @@ function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
         changeErrors.push({
           node: node,
           errorInfo: ErrorValueInfo.ERROR_CHANGES_JSDOC_PERMISSION,
-          LogType: LogType.LOG_JSDOC
+          LogType: LogType.LOG_JSDOC,
         });
       }
     });
@@ -185,7 +200,7 @@ function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
 
 /**
  * 检查API历史版本JSDoc是否包含废弃标签
- * 
+ *
  * @param {array} historyJSDocs 历史接口JSDoc信息
  * @returns {boolean}
  */
@@ -213,20 +228,20 @@ function checkJSDocChangeInfo(newNodeJSDocs, oldNodeJSDocs, change) {
     changeErrors.push({
       node: change.newNode,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_DEPRECATED,
-      LogType: LogType.LOG_JSDOC
+      LogType: LogType.LOG_JSDOC,
     });
   }
   if (newNodeJSDocs.length !== oldNodeJSDocs.length + 1 && !isNewApi(oldNodeJSDocs)) {
     changeErrors.push({
       node: change.newNode,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_JSDOC_NUMBER,
-      LogType: LogType.LOG_JSDOC
+      LogType: LogType.LOG_JSDOC,
     });
   } else if (!checkHistoryJSDoc(newNodeJSDocs, oldNodeJSDocs)) {
     changeErrors.push({
       node: change.newNode,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_JSDOC_CHANGE,
-      LogType: LogType.LOG_JSDOC
+      LogType: LogType.LOG_JSDOC,
     });
   } else {
     checkCurrentJSDocChange(newNodeJSDocs, change.statusCode, change.newNode);
@@ -276,7 +291,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
       changeErrors.push({
         node: change.newNode,
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_REQUIRED_CHANGE,
-        LogType: LogType.LOG_API
+        LogType: LogType.LOG_API,
       });
     }
 
@@ -285,7 +300,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
       changeErrors.push({
         node: change.newNode,
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE,
-        LogType: LogType.LOG_API
+        LogType: LogType.LOG_API,
       });
       // 变更后参数范围大于等于变更前
     } else if (currentParamType.length >= historyParamType.length) {
@@ -294,7 +309,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
           changeErrors.push({
             node: change.newNode,
             errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_TYPE_CHANGE,
-            LogType: LogType.LOG_API
+            LogType: LogType.LOG_API,
           });
         }
       }
@@ -303,7 +318,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
       changeErrors.push({
         node: change.newNode,
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_RANGE_CHANGE,
-        LogType: LogType.LOG_API
+        LogType: LogType.LOG_API,
       });
     }
   }
@@ -311,11 +326,14 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
   // 拦截参数位置变更
   for (let i = 0; i < currentParameters.length; i++) {
     for (let j = 0; j < lastParameters.length; j++) {
-      if (currentParameters[i].paramName === lastParameters[j].paramName && currentParameters[i].order !== lastParameters[j].order) {
+      if (
+        currentParameters[i].paramName === lastParameters[j].paramName &&
+        currentParameters[i].order !== lastParameters[j].order
+      ) {
         changeErrors.push({
           node: change.newNode,
           errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_POSITION_CHANGE,
-          LogType: LogType.LOG_API
+          LogType: LogType.LOG_API,
         });
       }
     }
@@ -332,7 +350,7 @@ function checkCurrentParameters(parameters, change) {
       changeErrors.push({
         node: change.newNode,
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_NEW_REQUIRED_PARAM,
-        LogType: LogType.LOG_API
+        LogType: LogType.LOG_API,
       });
       break;
     }
@@ -351,7 +369,7 @@ function analysisParameters(params) {
       paramName: param.name ? param.name.getText() : '',
       order: index,
       isRequired: param.questionToken && param.questionToken.kind === ts.SyntaxKind.QuestionToken ? false : true,
-      type: param.type
+      type: param.type,
     };
     paramInfoData.push(data);
   });
@@ -401,7 +419,7 @@ function checkApiChangeEntry(change) {
     changeErrors.push({
       node: change.newNode,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_API_DELETE_PARAM,
-      LogType: LogType.LOG_API
+      LogType: LogType.LOG_API,
     });
   }
 }
@@ -413,11 +431,17 @@ function checkApiChangeEntry(change) {
 function analyseChanges(changes) {
   const functionTypeSet = new Set(FUNCTION_TYPES);
   changes.forEach(change => {
-    if (change.statusCode === StatusCode.ERRORCODE_CHANGES || change.statusCode === StatusCode.NEW_ERRORCODE ||
-      change.statusCode === StatusCode.PERMISSION_CHANGES) {
+    if (
+      change.statusCode === StatusCode.ERRORCODE_CHANGES ||
+      change.statusCode === StatusCode.NEW_ERRORCODE ||
+      change.statusCode === StatusCode.PERMISSION_CHANGES
+    ) {
       checkJSDocChangeEntry(change);
-    } else if (change.statusCode === StatusCode.FUNCTION_CHANGES && functionTypeSet.has(change.oldNode.kind) &&
-      functionTypeSet.has(change.newNode.kind)) {
+    } else if (
+      change.statusCode === StatusCode.FUNCTION_CHANGES &&
+      functionTypeSet.has(change.oldNode.kind) &&
+      functionTypeSet.has(change.newNode.kind)
+    ) {
       checkApiChangeEntry(change);
     }
   });
@@ -429,8 +453,15 @@ function analyseChanges(changes) {
 function logChangeErrors() {
   changeErrors.forEach(error => {
     const sourceFileNode = ts.getSourceFileOfNode(error.node);
-    addAPICheckErrorLogs(error.node, sourceFileNode, sourceFileNode.fileName, ErrorType.API_CHANGE_ERRORS,
-      error.errorInfo, error.LogType, ErrorLevel.MIDDLE);
+    addAPICheckErrorLogs(
+      error.node,
+      sourceFileNode,
+      sourceFileNode.fileName,
+      ErrorType.API_CHANGE_ERRORS,
+      error.errorInfo,
+      error.LogType,
+      ErrorLevel.MIDDLE
+    );
   });
 }
 

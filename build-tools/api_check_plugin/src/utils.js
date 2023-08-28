@@ -350,6 +350,12 @@ const ErrorValueInfo = {
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
+const DIFF_INFO  = {
+  NEW_JSDOCS_LENGTH:1,
+  NEW_JSDOC_INDEX:2,
+};
+exports.DIFF_INFO  = DIFF_INFO;
+
 /**
  * link error message
  */
