@@ -717,6 +717,18 @@ declare namespace osAccount {
     getOsAccountLocalIdForUid(uid: number): Promise<number>;
 
     /**
+     * Gets the local ID of the OS account associated with the specified UID synchronously.
+     *
+     * @param { number } uid - Indicates the process UID.
+     * @returns { number } Returns the local ID of the OS account associated with the specified UID.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300002 - Invalid uid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
+    getOsAccountLocalIdForUidSync(uid: number): number;
+
+    /**
      * Queries the local ID of an OS account which is bound to the specified domain account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1503,6 +1515,20 @@ declare namespace osAccount {
      * @since 9
      */
     getBundleIdForUid(uid: number): Promise<number>;
+
+    /**
+     * Gets the bundle ID associated with the specified UID synchronously.
+     *
+     * @param { number } uid - Indicates the target uid.
+     * @returns { number } Returns the bundle ID associated with the specified UID.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300002 - Invalid uid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getBundleIdForUidSync(uid: number): number;
 
     /**
      * Check whether current process belongs to the main account.
