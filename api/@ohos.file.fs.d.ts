@@ -551,6 +551,19 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
  * @param { number } mode - mode.
  * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -574,6 +587,19 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @since 10
  */
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { number } mode - mode.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Copy file.
@@ -1959,8 +1985,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900013 - Bad address
  * @throws { BusinessError } 13900014 - Device or resource busy
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900015 - Cross-device link
+ * @throws { BusinessError } 13900016 - Cross-device link
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1981,6 +2006,18 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
  * @param { number } mode - move mode when duplicate file name exists.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1990,8 +2027,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900013 - Bad address
  * @throws { BusinessError } 13900014 - Device or resource busy
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900015 - Cross-device link
+ * @throws { BusinessError } 13900016 - Cross-device link
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -2006,6 +2042,19 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @since 10
  */
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } mode - move mode when duplicate file name exists.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move file.
