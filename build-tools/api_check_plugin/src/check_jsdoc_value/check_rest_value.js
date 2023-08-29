@@ -15,7 +15,7 @@
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
 const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
-  createErrorInfo, OptionalSymbols, parseJsDoc } = require('../../src/utils');
+  createErrorInfo, OptionalSymbols, parseJsDoc, getDeclareValue } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 function checkExtendsValue(tag, node, fileName) {
@@ -75,17 +75,24 @@ function checkReturnsValue(tag, node, fileName) {
     errorInfo: '',
   };
   const voidArr = ['void'];
-  const tagValue = tag.type;
-  if (commentNodeWhiteList.includes(node.kind)) {
-    const apiReturnsValue = node.type?.getText();
-    if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
-      returnsResult.checkResult = false;
-      returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_RETURNS;
-    } else if (tagValue !== apiReturnsValue) {
-      returnsResult.checkResult = false;
-      returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_RETURNS;
-    }
+  const tagValue = tag.type.replace(/\n|\r|\s/g, '');
+  if (!commentNodeWhiteList.includes(node.kind)) {
+    return returnsResult;
   }
+  let apiReturnsValue = getDeclareValue(node.type);
+  if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
+    returnsResult.checkResult = false;
+    returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_RETURNS;
+    return returnsResult;
+  }
+  if (tagValue === apiReturnsValue) {
+    return returnsResult;
+  }
+  if (apiReturnsValue === 'Function' && tagValue === 'function') {
+    return returnsResult;
+  }
+  returnsResult.checkResult = false;
+  returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_RETURNS;
   return returnsResult;
 }
 exports.checkReturnsValue = checkReturnsValue;
@@ -97,37 +104,34 @@ function checkParamValue(tag, node, fileName, tagIndex) {
     checkResult: true,
     errorInfo: '',
   };
-  if (node.parameters) {
-    const apiParamInfos = node.parameters;
-    if (apiParamInfos[tagIndex]) {
-      const apiName = apiParamInfos[tagIndex].name.escapedText;
-      let apiType = '';
-      if (apiParamInfos[tagIndex].type) {
-        if (ts.isFunctionTypeNode(apiParamInfos[tagIndex].type)) {
-          apiType = 'function';
-        } else if (ts.isTypeLiteralNode(apiParamInfos[tagIndex].type)) {
-          apiType = 'object';
-        } else {
-          apiType = apiParamInfos[tagIndex].type?.getText().replace(/\n|\r|\s/g, '');
-        }
-      }
-      let errorInfo = '';
-      if (apiType !== tagTypeValue) {
-        paramResult.checkResult = false;
-        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [tagIndex + 1, tagIndex + 1]);
-      }
-      if (apiName !== tagNameValue) {
-        paramResult.checkResult = false;
-        if (errorInfo !== '') {
-          errorInfo += '\n';
-        }
-        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PARAM, [tagIndex + 1, tagIndex + 1]);
-      }
-      if (!paramResult.checkResult) {
-        paramResult.errorInfo = errorInfo;
-      }
-    }
+  if (!node.parameters) {
+    return paramResult;
   }
+  const apiParamInfos = node.parameters;
+  if (!apiParamInfos[tagIndex]) {
+    return paramResult;
+  }
+  const apiName = apiParamInfos[tagIndex].name.escapedText;
+  let apiType = getDeclareValue(apiParamInfos[tagIndex].type);
+  let errorInfo = '';
+  if (apiType === tagTypeValue) {
+    return paramResult;
+  }
+  if (apiType === 'Function' && tagTypeValue === 'function') {
+    return paramResult;
+  }
+  if (apiName !== tagNameValue) {
+    paramResult.checkResult = false;
+    if (errorInfo !== '') {
+      errorInfo += '\n';
+    }
+    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PARAM, [tagIndex + 1, tagIndex + 1]);
+  }
+  if (!paramResult.checkResult) {
+    paramResult.errorInfo = errorInfo;
+  }
+  paramResult.checkResult = false;
+  errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [tagIndex + 1, tagIndex + 1]);
   return paramResult;
 }
 exports.checkParamValue = checkParamValue;
@@ -262,23 +266,23 @@ function checkTypeValue(tag, node, fileName) {
     errorInfo: '',
   };
   const tagTypeValue = tag.type.replace(/\n|\r|\s/g, '');
-  let apiTypeValue = '';
-  if (commentNodeWhiteList.includes(node.kind)) {
-    if (node.type) {
-      if (ts.isFunctionTypeNode(node.type)) {
-        apiTypeValue = 'function';
-      } else if (ts.isTypeLiteralNode(node.type)) {
-        apiTypeValue = 'object';
-      } else {
-        apiTypeValue = node.type?.getText();
-      }
-    }
-    apiTypeValue = node.questionToken ? OptionalSymbols.QUERY.concat(apiTypeValue) : apiTypeValue;
-    if (apiTypeValue.replace(/\n|\r|\s/g, '') !== tagTypeValue) {
-      typeResult.checkResult = false;
-      typeResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPE;
-    }
+  if (!commentNodeWhiteList.includes(node.kind)) {
+    return typeResult;
   }
+  let apiTypeValue = getDeclareValue(node.type);
+  if (node.questionToken) {
+    apiTypeValue = ts.isUnionTypeNode(node.type) ? OptionalSymbols.LEFT_PARENTHESES + apiTypeValue +
+      OptionalSymbols.RIGHT_PARENTHESES : apiTypeValue;
+    apiTypeValue = OptionalSymbols.QUERY.concat(apiTypeValue);
+  }
+  if (apiTypeValue === tagTypeValue) {
+    return typeResult;
+  }
+  if ((apiTypeValue === 'Function' && tagTypeValue === 'function') || (apiTypeValue === '?Function' && tagTypeValue === '?function')) {
+    return typeResult;
+  }
+  typeResult.checkResult = false;
+  typeResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPE;
   return typeResult;
 }
 exports.checkTypeValue = checkTypeValue;

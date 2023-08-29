@@ -287,6 +287,22 @@ function parseJsDoc(node) {
 }
 exports.parseJsDoc = parseJsDoc;
 
+function getDeclareValue(declareValue) {
+  let apiDeclareValue = '';
+  if (!declareValue) {
+    return apiDeclareValue;
+  }
+  if (ts.isFunctionTypeNode(declareValue)) {
+    apiDeclareValue = 'Function';
+  } else if (ts.isTypeLiteralNode(declareValue)) {
+    apiDeclareValue = 'object';
+  } else {
+    apiDeclareValue = declareValue.getText().replace(/\n|\r|\s/g, '');
+  }
+  return apiDeclareValue;
+}
+exports.getDeclareValue = getDeclareValue;
+
 const systemPermissionFile = path.resolve(__dirname, '../../../../../',
   'base/global/system_resources/systemres/main/config.json');
 
@@ -412,6 +428,8 @@ const OptionalSymbols = {
   RIGHT_BRACKET: ']',
   LEFT_BRACE: '{',
   RIGHT_BRACE: '}',
+  LEFT_PARENTHESES: '(',
+  RIGHT_PARENTHESES: ')'
 };
 exports.OptionalSymbols = OptionalSymbols;
 
