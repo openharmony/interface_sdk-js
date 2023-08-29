@@ -18,40 +18,45 @@ import { Callback } from './@ohos.base';
 /**
  * Declares the APIs for dragging management.
  *
- * @since 10
+ * @namespace dragInteraction
  * @syscap SystemCapability.Msdp.DeviceStatus.Drag
  * @systemapi Hide this for inner system use.
+ * @since 10
  */
 declare namespace dragInteraction {
   /**
    * Enumerates the dragging states.
    *
-   * @since 10
+   * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
+   * @since 10
    */
   enum DragState {
     /**
      * Dragging starts.
      *
-     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
+     * @since 10
      */
     MSG_DRAG_STATE_START = 1,
 
     /**
      * Dragging ends.
      *
-     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
+     * @since 10
      */
     MSG_DRAG_STATE_STOP = 2,
 
     /**
      * Dragging is canceled.
      *
-     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
+     * @since 10
      */
     MSG_DRAG_STATE_CANCEL = 3,
   }
@@ -59,24 +64,25 @@ declare namespace dragInteraction {
   /**
    * Listens for dragging state change events.
    *
-   * @since 10
+   * @param { 'drag' } type Indicates the event type.
+   * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
+   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @param type Indicates the event type.
-   * @param callback Indicates the callback to receive the changed dragging state.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 10
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
 
   /**
    * Disables listening for dragging state change events.
    *
-   * @since 10
+   * @param { 'drag' } type Indicates the event type.
+   * @param { Callback<DragState> }callback Indicates the callback for which listening is disabled. If this parameter
+   * is not specified, listening will be disabled for all registered callbacks.
+   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @param type Indicates the event type.
-   * @param callback Indicates the callback for which listening is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @since 10
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
 }
