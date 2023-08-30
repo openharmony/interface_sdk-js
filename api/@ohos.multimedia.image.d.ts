@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import type colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type rpc from './@ohos.rpc';
 
 /**
