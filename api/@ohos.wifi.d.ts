@@ -523,7 +523,7 @@ declare namespace wifi {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @deprecated since 9
-   * @useinstead ohos.wifiManager/wifiManager.getCurrentP2pGroup
+   * @useinstead ohos.wifiManager/wifiManager.getCurrentGroup
    */
   function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
   function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
