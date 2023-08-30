@@ -653,7 +653,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiStateChange
    */
-  function on(type: "wifiStateChange", callback: Callback<number>): void;
+  function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi status change events.
@@ -666,7 +666,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiStateChange
    */
-  function off(type: "wifiStateChange", callback?: Callback<number>): void;
+  function off(type: 'wifiStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi connection change events.
@@ -678,7 +678,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiConnectionChange
    */
-  function on(type: "wifiConnectionChange", callback: Callback<number>): void;
+  function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi connection change events.
@@ -691,7 +691,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiConnectionChange
    */
-  function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
+  function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi scan status change events.
@@ -703,7 +703,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiScanStateChange
    */
-  function on(type: "wifiScanStateChange", callback: Callback<number>): void;
+  function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi scan status change events.
@@ -716,7 +716,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiScanStateChange
    */
-  function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
+  function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi rssi change events.
@@ -728,7 +728,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiRssiChange
    */
-  function on(type: "wifiRssiChange", callback: Callback<number>): void;
+  function on(type: 'wifiRssiChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi rssi change events.
@@ -741,7 +741,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiRssiChange
    */
-  function off(type: "wifiRssiChange", callback?: Callback<number>): void;
+  function off(type: 'wifiRssiChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi stream change events.
@@ -754,7 +754,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:streamChange
    */
-  function on(type: "streamChange", callback: Callback<number>): void;
+  function on(type: 'streamChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi stream change events.
@@ -768,7 +768,7 @@ declare namespace wifi {
    * @deprecated since 9
   * @useinstead ohos.wifiManager/wifiManager.off#event:streamChange
    */
-  function off(type: "streamChange", callback?: Callback<number>): void;
+  function off(type: 'streamChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi hotspot state change events.
@@ -780,7 +780,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:hotspotStateChange
    */
-  function on(type: "hotspotStateChange", callback: Callback<number>): void;
+  function on(type: 'hotspotStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot state change events.
@@ -793,7 +793,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:hotspotStateChange
    */
-  function off(type: "hotspotStateChange", callback?: Callback<number>): void;
+  function off(type: 'hotspotStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi hotspot sta join events.
@@ -806,7 +806,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:hotspotStaJoin
    */
-  function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
+  function on(type: 'hotspotStaJoin', callback: Callback<StationInfo>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot sta join events.
@@ -820,7 +820,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:hotspotStaJoin
    */
-  function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
+  function off(type: 'hotspotStaJoin', callback?: Callback<StationInfo>): void;
 
   /**
    * Subscribe Wi-Fi hotspot sta leave events.
@@ -833,7 +833,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:hotspotStaLeave
    */
-  function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
+  function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
@@ -846,7 +846,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:hotspotStaLeave
    */
-  function off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
+  function off(type: 'hotspotStaLeave', callback?: Callback<StationInfo>): void;
 
   /**
    * Subscribe P2P status change events.
@@ -858,7 +858,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pStateChange
    */
-  function on(type: "p2pStateChange", callback: Callback<number>): void;
+  function on(type: 'p2pStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe P2P status change events.
@@ -869,7 +869,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pStateChange
    */
-  function off(type: "p2pStateChange", callback?: Callback<number>): void;
+  function off(type: 'p2pStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe P2P connection change events.
@@ -881,7 +881,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pConnectionChange
    */
-  function on(type: "p2pConnectionChange", callback: Callback<WifiP2pLinkedInfo>): void;
+  function on(type: 'p2pConnectionChange', callback: Callback<WifiP2pLinkedInfo>): void;
 
   /**
    * Unsubscribe P2P connection change events.
@@ -892,7 +892,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pConnectionChange
    */
-  function off(type: "p2pConnectionChange", callback?: Callback<WifiP2pLinkedInfo>): void;
+  function off(type: 'p2pConnectionChange', callback?: Callback<WifiP2pLinkedInfo>): void;
 
   /**
    * Subscribe P2P local device change events.
@@ -904,7 +904,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pDeviceChange
    */
-  function on(type: "p2pDeviceChange", callback: Callback<WifiP2pDevice>): void;
+  function on(type: 'p2pDeviceChange', callback: Callback<WifiP2pDevice>): void;
 
   /**
    * Unsubscribe P2P local device change events.
@@ -916,7 +916,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pDeviceChange
    */
-  function off(type: "p2pDeviceChange", callback?: Callback<WifiP2pDevice>): void;
+  function off(type: 'p2pDeviceChange', callback?: Callback<WifiP2pDevice>): void;
 
   /**
    * Subscribe P2P peer device change events.
@@ -928,7 +928,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pPeerDeviceChange
    */
-  function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
+  function on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void;
 
   /**
    * Unsubscribe P2P peer device change events.
@@ -939,7 +939,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pPeerDeviceChange
    */
-  function off(type: "p2pPeerDeviceChange", callback?: Callback<WifiP2pDevice[]>): void;
+  function off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void;
 
   /**
    * Subscribe P2P persistent group change events.
@@ -951,7 +951,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pPersistentGroupChange
    */
-  function on(type: "p2pPersistentGroupChange", callback: Callback<void>): void;
+  function on(type: 'p2pPersistentGroupChange', callback: Callback<void>): void;
 
   /**
    * Unsubscribe P2P persistent group change events.
@@ -962,7 +962,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pPersistentGroupChange
    */
-  function off(type: "p2pPersistentGroupChange", callback?: Callback<void>): void;
+  function off(type: 'p2pPersistentGroupChange', callback?: Callback<void>): void;
 
   /**
    * Subscribe P2P discovery events.
@@ -974,7 +974,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pDiscoveryChange
    */
-  function on(type: "p2pDiscoveryChange", callback: Callback<number>): void;
+  function on(type: 'p2pDiscoveryChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe P2P discovery events.
@@ -985,7 +985,7 @@ declare namespace wifi {
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pDiscoveryChange
    */
-  function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
+  function off(type: 'p2pDiscoveryChange', callback?: Callback<number>): void;
 
   /**
    * Wi-Fi device configuration information.
@@ -1096,6 +1096,7 @@ declare namespace wifi {
   /**
    * Describes the wifi security type.
    *
+   * @enum { number } WifiSecurityType
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.Core
    * @deprecated since 9
@@ -1257,6 +1258,7 @@ declare namespace wifi {
   /**
    * Wi-Fi IP type enumeration.
    *
+   * @enum { number } IpType
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1277,6 +1279,7 @@ declare namespace wifi {
   /**
    * The state of the supplicant enumeration.
    *
+   * @enum { number } SuppState
    * @since 6
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1324,6 +1327,7 @@ declare namespace wifi {
   /**
    * The state of Wi-Fi connection enumeration.
    *
+   * @enum { number } ConnState
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
@@ -1448,6 +1452,7 @@ declare namespace wifi {
   /**
    * P2P connection status.
    *
+   * @enum { number } P2pConnectState
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
@@ -1480,6 +1485,7 @@ declare namespace wifi {
   /**
    * P2P device status.
    *
+   * @enum { number } P2pDeviceStatus
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
@@ -1496,8 +1502,9 @@ declare namespace wifi {
   /**
    * P2P group owner band.
    *
-   * @since 8
+   * @enum { number } GroupOwnerBand
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.GroupOwnerBand
    */
