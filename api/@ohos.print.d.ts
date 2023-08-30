@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * System print
@@ -1229,7 +1229,7 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    function on(type: 'printerStateChange', callback: Callback<printerState, printerInfo>): void;
+    function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
     /**
      * Unregister event callback for the state change of printer.
@@ -1255,7 +1255,7 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    function on(type: 'jobStateChange', callback: Callback<printJobState, printJob>): void;
+    function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
 
     /**
      * Unregister event callback for the state change of print job.
@@ -1281,7 +1281,7 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    function on(type: 'extInfoChange', callback: Callback<extensionId, info>): void;
+    function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
 
     /**
      * Unregister event callback for the information change of print extension.
