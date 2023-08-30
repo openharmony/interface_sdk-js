@@ -809,7 +809,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  function getCurrentP2pGroup(): Promise<WifiP2pGroupInfo>;
+  function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
 
   /**
    * Obtain information about the current p2p group.
@@ -831,7 +831,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  function getCurrentP2pGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
+  function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
   /**
    * Obtain the information about the found devices.
