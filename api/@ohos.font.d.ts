@@ -160,7 +160,7 @@ declare namespace font {
   /**
    * Register a customized font in the FontManager.
    *
-   * @param { FontOptions } options FontOptions
+   * @param { FontOptions } options - FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -178,7 +178,7 @@ declare namespace font {
   /**
    * Get font details according to the font name.
    *
-   * @param { string } fontName font name
+   * @param { string } fontName - font name
    * @returns { FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10

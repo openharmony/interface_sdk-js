@@ -296,14 +296,14 @@ declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?BadgePosition }
+   * @type { ?(BadgePosition | Position) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?BadgePosition }
+   * @type { ?(BadgePosition | Position) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -311,7 +311,7 @@ declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
    *
-   * @type { BadgePosition | Position }
+   * @type { ?(BadgePosition | Position) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

@@ -210,12 +210,12 @@ export interface TransformObject {
   /**
    * Defines a 2D transformation, using a matrix of six values..
    *
-   * @param { number } scaleX the scale value for x-axis
-   * @param { number } skewX the skew value for y-axis
-   * @param { number } skewY the skew value for x-axis
-   * @param { number } scaleY the scale value for y-axis
-   * @param { number } translateX the translate value for x-axis
-   * @param { number } translateY the translate value for y-axis
+   * @param { number } scaleX - the scale value for x-axis
+   * @param { number } skewX - the skew value for y-axis
+   * @param { number } skewY - the skew value for x-axis
+   * @param { number } scaleY - the scale value for y-axis
+   * @param { number } translateX - the translate value for x-axis
+   * @param { number } translateY - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -223,22 +223,22 @@ export interface TransformObject {
   /**
    * Defines a 3D transformation using a 4x4 matrix of 16 values.
    *
-   * @param { number } n00 the value of the 0 row and 0 column of the 4x4 matrix
-   * @param { number } n01 the value of the 0 row and 1 column of the 4x4 matrix
-   * @param { number } n02 the value of the 0 row and 2 column of the 4x4 matrix
-   * @param { number } n03 the value of the 0 row and 3 column of the 4x4 matrix
-   * @param { number } n10 the value of the 1 row and 0 column of the 4x4 matrix
-   * @param { number } n11 the value of the 1 row and 1 column of the 4x4 matrix
-   * @param { number } n12 the value of the 1 row and 2 column of the 4x4 matrix
-   * @param { number } n13 the value of the 1 row and 3 column of the 4x4 matrix
-   * @param { number } n20 the value of the 2 row and 0 column of the 4x4 matrix
-   * @param { number } n21 the value of the 2 row and 1 column of the 4x4 matrix
-   * @param { number } n22 the value of the 2 row and 2 column of the 4x4 matrix
-   * @param { number } n23 the value of the 2 row and 3 column of the 4x4 matrix
-   * @param { number } n30 the value of the 3 row and 0 column of the 4x4 matrix
-   * @param { number } n31 the value of the 3 row and 1 column of the 4x4 matrix
-   * @param { number } n32 the value of the 3 row and 2 column of the 4x4 matrix
-   * @param { number } n33 the value of the 3 row and 3 column of the 4x4 matrix
+   * @param { number } n00 - the value of the 0 row and 0 column of the 4x4 matrix
+   * @param { number } n01 - the value of the 0 row and 1 column of the 4x4 matrix
+   * @param { number } n02 - the value of the 0 row and 2 column of the 4x4 matrix
+   * @param { number } n03 - the value of the 0 row and 3 column of the 4x4 matrix
+   * @param { number } n10 - the value of the 1 row and 0 column of the 4x4 matrix
+   * @param { number } n11 - the value of the 1 row and 1 column of the 4x4 matrix
+   * @param { number } n12 - the value of the 1 row and 2 column of the 4x4 matrix
+   * @param { number } n13 - the value of the 1 row and 3 column of the 4x4 matrix
+   * @param { number } n20 - the value of the 2 row and 0 column of the 4x4 matrix
+   * @param { number } n21 - the value of the 2 row and 1 column of the 4x4 matrix
+   * @param { number } n22 - the value of the 2 row and 2 column of the 4x4 matrix
+   * @param { number } n23 - the value of the 2 row and 3 column of the 4x4 matrix
+   * @param { number } n30 - the value of the 3 row and 0 column of the 4x4 matrix
+   * @param { number } n31 - the value of the 3 row and 1 column of the 4x4 matrix
+   * @param { number } n32 - the value of the 3 row and 2 column of the 4x4 matrix
+   * @param { number } n33 - the value of the 3 row and 3 column of the 4x4 matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -263,8 +263,8 @@ export interface TransformObject {
   /**
    * Defines 2D transformations for translation of the X and Y axes
    *
-   * @param { number } x the translate value for x-axis
-   * @param { number } y the translate value for y-axis
+   * @param { number } x - the translate value for x-axis
+   * @param { number } y - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -272,9 +272,9 @@ export interface TransformObject {
   /**
    * Defines 3D transformations for translation of the X / Y / Z axes
    *
-   * @param { number } x the translate value for x-axis
-   * @param { number } y the translate value for y-axis
-   * @param { number } z the translate value for z-axis
+   * @param { number } x - the translate value for x-axis
+   * @param { number } y - the translate value for y-axis
+   * @param { number } z - the translate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -282,7 +282,7 @@ export interface TransformObject {
   /**
    * Defines 2D transformations for translation of the X axes
    *
-   * @param { number } x the translate value for x-axis
+   * @param { number } x - the translate value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -290,7 +290,7 @@ export interface TransformObject {
   /**
    * Defines 2D transformations for translation of the Y axes
    *
-   * @param { number } y the translate value for y-axis
+   * @param { number } y - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -306,8 +306,8 @@ export interface TransformObject {
   /**
    * Defines 2D transformations for scaling of the X and Y axes
    *
-   * @param { number } x the scale value for x-axis
-   * @param { number } y the scale value for y-axis
+   * @param { number } x - the scale value for x-axis
+   * @param { number } y - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -315,9 +315,9 @@ export interface TransformObject {
   /**
    * Defines 3D transformations for scaling of the X / Y / Z axes
    *
-   * @param { number } x the scale value for x-axis
-   * @param { number } y the scale value for y-axis
-   * @param { number } z the scale value for z-axis
+   * @param { number } x - the scale value for x-axis
+   * @param { number } y - the scale value for y-axis
+   * @param { number } z - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -325,7 +325,7 @@ export interface TransformObject {
   /**
    * Defines 2D transformations for scaling of the X axes
    *
-   * @param { number } x the scale value for x-axis
+   * @param { number } x - the scale value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -333,7 +333,7 @@ export interface TransformObject {
   /**
    * Defines 2D transformations for scaling of the Y axes
    *
-   * @param { number } y the scale value for y-axis
+   * @param { number } y - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -341,7 +341,7 @@ export interface TransformObject {
   /**
    * Defines 3D transformations for scaling of the Z axes
    *
-   * @param { number } z the scale value for z-axis
+   * @param { number } z - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -349,7 +349,7 @@ export interface TransformObject {
   /**
    * Define the 2D rotation and specify the angle in the parameters.
    *
-   * @param { number } angle the rotate value for z-axis
+   * @param { number } angle - the rotate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -357,10 +357,10 @@ export interface TransformObject {
   /**
    * Defines a 3D transformation for rotating the X / Y / Z axes.
    *
-   * @param { number } x the vector value of the x-axis
-   * @param { number } y the vector value of the y-axis
-   * @param { number } z the vector value of the z-axis
-   * @param { number } angle the rotate value for x&y&z vector.
+   * @param { number } x - the vector value of the x-axis
+   * @param { number } y - the vector value of the y-axis
+   * @param { number } z - the vector value of the z-axis
+   * @param { number } angle - the rotate value for x&y&z vector.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -368,7 +368,7 @@ export interface TransformObject {
   /**
    * Defines 3D transformations for rotating of the X axes.
    *
-   * @param { number } angle the scale value for x-axis
+   * @param { number } angle - the scale value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -376,7 +376,7 @@ export interface TransformObject {
   /**
    * Defines 3D transformations for rotating of the Y axes.
    *
-   * @param { number } angle the scale value for y-axis
+   * @param { number } angle - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -384,7 +384,7 @@ export interface TransformObject {
   /**
    * Defines 3D transformations for rotating of the Z axes.
    *
-   * @param { number } angle the scale value for z-axis
+   * @param { number } angle - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -392,8 +392,8 @@ export interface TransformObject {
   /**
    * Defines the 2D skew transition along the X and Y axes.
    *
-   * @param { number } xAngle the angle of inclination along the x axis.
-   * @param { number } yAngle the angle of inclination along the y axis.
+   * @param { number } xAngle - the angle of inclination along the x axis.
+   * @param { number } yAngle - the angle of inclination along the y axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -401,7 +401,7 @@ export interface TransformObject {
   /**
    * Defines the 2D skew transition along the X axes.
    *
-   * @param { number } angle the angle of inclination along the x axis.
+   * @param { number } angle - the angle of inclination along the x axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -409,7 +409,7 @@ export interface TransformObject {
   /**
    * Defines the 2D skew transition along the Y axes.
    *
-   * @param { number } angle the angle of inclination along the y axis.
+   * @param { number } angle - the angle of inclination along the y axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -417,7 +417,7 @@ export interface TransformObject {
   /**
    * Defines a perspective view for the 3D transformation element.
    *
-   * @param { number } verticalDistance the vertical distance from the observation point to the component plane.
+   * @param { number } verticalDistance - the vertical distance from the observation point to the component plane.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -639,7 +639,7 @@ export interface Element {
    * If focus is set to false, the focus is canceled for the component.
    * This attribute can be defaulted to true.
    *
-   * @param { FocusParamObj } obj { focus: true | false }
+   * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -651,7 +651,7 @@ export interface Element {
    * If focus is set to false, the crown event focus is canceled.
    * This attribute can be defaulted to true.
    *
-   * @param { FocusParamObj } obj { focus: true | false }
+   * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -660,8 +660,8 @@ export interface Element {
   /**
    * Creates and runs an animation shortcut on the component. Specify the keyframes and options required for the animation.
    *
-   * @param { Array<AnimateStyle> } keyframes keyframes is used to describe key frame parameters of the animation.
-   * @param { AnimateOptions } options Options. is used to describe animation parameters.
+   * @param { Array<AnimateStyle> } keyframes - keyframes is used to describe key frame parameters of the animation.
+   * @param { AnimateOptions } options - Options. is used to describe animation parameters.
    * @returns { AnimationResult } This method returns the animation object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -690,7 +690,7 @@ export interface Element {
   /**
    * If 0.5 is returned, 50% of the current component is visible.
    *
-   * @param { object } param Scope of Monitoring components.
+   * @param { object } param - Scope of Monitoring components.
    * @returns { observer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -700,7 +700,7 @@ export interface Element {
   /**
    * Adds a node to the end of the child node list of the current node.
    *
-   * @param { Element } child Subnode object to be added
+   * @param { Element } child - Subnode object to be added
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -709,8 +709,8 @@ export interface Element {
   /**
    * Sets the value of an attribute on a specified element. If the attribute already exists, update the value. Otherwise, a new attribute is added with the specified name and value.
    *
-   * @param { string } name attribute name
-   * @param { string } value attribute value¡¢
+   * @param { string } name - attribute name
+   * @param { string } value - attribute value¡¢
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -719,8 +719,8 @@ export interface Element {
   /**
    * Sets a style value on a specified element. If the style exists and the style value is valid, the setting is successful. Otherwise, the setting is invalid.
    *
-   * @param { string } name style name
-   * @param { string } value style value
+   * @param { string } name - style name
+   * @param { string } value - style value
    * @returns { boolean } If the setting is successful, true is returned. If the setting fails, false is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1098,7 +1098,7 @@ export interface CameraElement extends Element {
   /**
    * Take photos with specified parameters.
    *
-   * @param { CameraTakePhotoOptions } options the parameters of camera.
+   * @param { CameraTakePhotoOptions } options - the parameters of camera.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -1295,7 +1295,7 @@ export interface InputElement extends Element {
    * Obtains or loses the focus of a component.
    * When the component type is set to text, email, date, time, number, or password, the input method can be displayed or collapsed.
    *
-   * @param { object } param If focus is not passed, the default value true is used.
+   * @param { object } param - If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1353,7 +1353,7 @@ export interface TextAreaElement extends Element {
   /**
    * Obtains or loses the focus of a component, which can display or collapse the input method.
    *
-   * @param { object } param If focus is not passed, the default value true is used.
+   * @param { object } param - If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1503,7 +1503,7 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Sets the dotted spacing of a line.
    *
-   * @param { Array<number> } segments A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
+   * @param { Array<number> } segments - A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1512,11 +1512,11 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw an Image object.
    *
-   * @param { Image } image An element drawn to the context.
-   * @param { number } dx The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw Image The width drawn on the target canvas.
-   * @param { number } dh Image The height drawn on the target canvas.
+   * @param { Image } image - An element drawn to the context.
+   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param { number } dw - Image The width drawn on the target canvas.
+   * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1525,15 +1525,15 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw an Image object.
    *
-   * @param { Image } image An element drawn to the context.
-   * @param { number } sx The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sy The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } dx The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw Image The width drawn on the target canvas.
-   * @param { number } dh Image The height drawn on the target canvas.
+   * @param { Image } image - An element drawn to the context.
+   * @param { number } sx - The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param { number } sy - The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param { number } sw - The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @param { number } sh - The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param { number } dw - Image The width drawn on the target canvas.
+   * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1552,11 +1552,11 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw an Image object.
    *
-   * @param { image.PixelMap } image An element drawn to the context.
-   * @param { number } dx The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw Image The width drawn on the target canvas.
-   * @param { number } dh Image The height drawn on the target canvas.
+   * @param { image.PixelMap } image - An element drawn to the context.
+   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param { number } dw - Image The width drawn on the target canvas.
+   * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -1565,15 +1565,15 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw an Image object.
    *
-   * @param { image.PixelMap } image An element drawn to the context.
-   * @param { number } sx The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sy The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } dx The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw Image The width drawn on the target canvas.
-   * @param { number } dh Image The height drawn on the target canvas.
+   * @param { image.PixelMap } image - An element drawn to the context.
+   * @param { number } sx - The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param { number } sy - The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param { number } sw - The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @param { number } sh - The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param { number } dw - Image The width drawn on the target canvas.
+   * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -1616,8 +1616,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Check whether the specified coordinate point is on the Path.
    *
-   * @param { number } x The X coordinate of the detection point.
-   * @param { number } y The Y coordinate of the detection point.
+   * @param { number } x - The X coordinate of the detection point.
+   * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1627,9 +1627,9 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Check whether the specified coordinate point is on the Path.
    *
-   * @param { Path2D } path The Path2D path that needs to be populated.
-   * @param { number } x The X coordinate of the detection point.
-   * @param { number } y The Y coordinate of the detection point.
+   * @param { Path2D } path - The Path2D path that needs to be populated.
+   * @param { number } x - The X coordinate of the detection point.
+   * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1639,8 +1639,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Checks whether the specified coordinate point is on the stroke edge.
    *
-   * @param { number } x The X coordinate of the detection point.
-   * @param { number } y The Y coordinate of the detection point.
+   * @param { number } x - The X coordinate of the detection point.
+   * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1650,9 +1650,9 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Checks whether the specified coordinate point is on the stroke edge.
    *
-   * @param { Path2D } path Path2D path.
-   * @param { number } x The X coordinate of the detection point.
-   * @param { number } y The Y coordinate of the detection point.
+   * @param { Path2D } path - Path2D path.
+   * @param { number } x - The X coordinate of the detection point.
+   * @param { number } y - The Y coordinate of the detection point.
    * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1670,7 +1670,7 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Stroke draws the current path.
    *
-   * @param { Path2D } path The object of Path2D.
+   * @param { Path2D } path - The object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1679,12 +1679,12 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Create a radial tween object.
    *
-   * @param { number } x0 The x coordinate of the circle at the beginning.
-   * @param { number } y0 The y coordinate of the circle at the beginning.
-   * @param { number } r0 The radius of the starting circle.
-   * @param { number } x1 X-coordinate of the end point.
-   * @param { number } y1 Y-coordinate of the end point.
-   * @param { number } r1 The radius of End Circle.
+   * @param { number } x0 - The x coordinate of the circle at the beginning.
+   * @param { number } y0 - The y coordinate of the circle at the beginning.
+   * @param { number } r0 - The radius of the starting circle.
+   * @param { number } x1 - X-coordinate of the end point.
+   * @param { number } y1 - Y-coordinate of the end point.
+   * @param { number } r1 - The radius of End Circle.
    * @returns { CanvasGradient } RadialGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1694,8 +1694,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Create a drawing style template.
    *
-   * @param { Image } image The CanvasImageSource object that is the source of the duplicate image.
-   * @param { string } repetition Specify how to repeat images.
+   * @param { Image } image - The CanvasImageSource object that is the source of the duplicate image.
+   * @param { string } repetition - Specify how to repeat images.
    * @returns { CanvasPattern } CanvasPattern An opaque object that describes a schema.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1705,10 +1705,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Creates a linear gradient color.
    *
-   * @param { number } x0 X-coordinate of the start point.
-   * @param { number } y0 Y-coordinate of the start point.
-   * @param { number } x1 X-coordinate of the end point.
-   * @param { number } y1 Y-coordinate of the end point.
+   * @param { number } x0 - X-coordinate of the start point.
+   * @param { number } y0 - Y-coordinate of the start point.
+   * @param { number } x1 - X-coordinate of the end point.
+   * @param { number } y1 - Y-coordinate of the end point.
    * @returns { CanvasGradient } LinearGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1718,8 +1718,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Create an ImageData object.
    *
-   * @param { number } sw The width of the new object.
-   * @param { number } sh The height of the new object.
+   * @param { number } sw - The width of the new object.
+   * @param { number } sh - The height of the new object.
    * @returns { ImageData } ImageData New ImageData object with width and height specified.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1729,7 +1729,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Create an ImageData object.
    *
-   * @param { ImageData } imagedata Copy an object of the same width and height from an existing ImageData object The image itself is not allowed to be copied.
+   * @param { ImageData } imagedata - Copy an object of the same width and height from an existing ImageData object
+   * The image itself is not allowed to be copied.
    * @returns { ImageData } ImageData New ImageData object with width and height specified.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1739,7 +1740,7 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    *
-   * @param { Path2D } path another created Path2D object.
+   * @param { Path2D } [path] - another created Path2D object.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1749,7 +1750,7 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    *
-   * @param { string } cmds a string defined using the SVG path command.
+   * @param { string } [cmds] - a string defined using the SVG path command.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1759,10 +1760,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Get an ImageData object.
    *
-   * @param { number } sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
-   * @param { number } sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
-   * @param { number } sw The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh The height of the rectangular area of the image data to be extracted.
+   * @param { number } sx - The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param { number } sy - The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { ImageData } ImageData An ImageData object that contains the rectangular ImageData given by the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1772,10 +1773,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Get an PixelMap object.
    *
-   * @param { number } sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
-   * @param { number } sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
-   * @param { number } sw The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh The height of the rectangular area of the image data to be extracted.
+   * @param { number } sx - The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param { number } sy - The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { image.PixelMap } PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1785,9 +1786,9 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draws the specified ImageData object to the canvas.
    *
-   * @param { ImageData } imagedata An array object containing pixel values.
-   * @param { number } dx The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
-   * @param { number } dy The offset of the position of the source image data in the target canvas (the Y-axis offset).
+   * @param { ImageData } imagedata - An array object containing pixel values.
+   * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
+   * @param { number } dy - The offset of the position of the source image data in the target canvas (the Y-axis offset).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1796,15 +1797,15 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draws the specified ImageData object to the canvas.
    *
-   * @param { ImageData } imagedata An array object containing pixel values.
-   * @param { number } dx The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
-   * @param { number } dy The offset of the position of the source image data in the target canvas (the Y-axis offset).
-   * @param { number } dirtyX In the source image data,
+   * @param { ImageData } imagedata - An array object containing pixel values.
+   * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
+   * @param { number } dy - he offset of the position of the source image data in the target canvas (the Y-axis offset).
+   * @param { number } dirtyX - In the source image data,
    * the position of the upper left corner of the rectangular region Default is the upper left corner of the entire image data (x coordinate).
-   * @param { number } dirtyY In the source image data,
+   * @param { number } dirtyY - In the source image data,
    * the position of the upper left corner of the rectangular region Default is the top left corner (y coordinate) of the entire image data.
-   * @param { number } dirtyWidth In the source image data, the width of a rectangular region. Default is the width of the image data.
-   * @param { number } dirtyHeight In the source image data, the height of a rectangular region. Default is the height of the image data.
+   * @param { number } dirtyWidth - In the source image data, the width of a rectangular region. Default is the width of the image data.
+   * @param { number } dirtyHeight - In the source image data, the height of a rectangular region. Default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1821,12 +1822,12 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw an arc.
    *
-   * @param { number } radius Radius of an arc.
-   * @param { number } x The X-axis coordinates of the center of the circle.
-   * @param { number } y The Y-axis coordinates of the center of an arc (center of a circle).
-   * @param { number } startAngle The starting point of the arc, in the X-axis direction, is calculated in radians.
-   * @param { number } endAngle The end point of an arc, expressed in radians.
-   * @param { boolean } anticlockwise An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
+   * @param { number } radius - Radius of an arc.
+   * @param { number } x - The X-axis coordinates of the center of the circle.
+   * @param { number } y - The Y-axis coordinates of the center of an arc (center of a circle).
+   * @param { number } startAngle - The starting point of the arc, in the X-axis direction, is calculated in radians.
+   * @param { number } endAngle - The end point of an arc, expressed in radians.
+   * @param { boolean } [anticlockwise] - An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1835,11 +1836,11 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draws an arc from the beginning to the end.
    *
-   * @param { number } x1 The X-axis coordinates of the first control point.
-   * @param { number } x2 The X-axis coordinates of the second control point.
-   * @param { number } y1 The y-coordinate of the first control point.
-   * @param { number } y2 The Y-axis coordinates of the second control point.
-   * @param { number } radius Radius of an arc.
+   * @param { number } x1 - The X-axis coordinates of the first control point.
+   * @param { number } x2 - The X-axis coordinates of the second control point.
+   * @param { number } y1 - The y-coordinate of the first control point.
+   * @param { number } y2 - The Y-axis coordinates of the second control point.
+   * @param { number } radius - Radius of an arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1848,12 +1849,12 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw a third order Bezier curve.
    *
-   * @param { number } cp1x The X-axis coordinates of the first control point.
-   * @param { number } cp1y The y-coordinate of the first control point.
-   * @param { number } cp2x The X-axis coordinates of the second control point.
-   * @param { number } cp2y The Y-axis coordinates of the second control point.
-   * @param { number } x The x-coordinate of the end point.
-   * @param { number } y The y-coordinate of the end point
+   * @param { number } cp1x - The X-axis coordinates of the first control point.
+   * @param { number } cp1y - The y-coordinate of the first control point.
+   * @param { number } cp2x - The X-axis coordinates of the second control point.
+   * @param { number } cp2y - The Y-axis coordinates of the second control point.
+   * @param { number } x - The x-coordinate of the end point.
+   * @param { number } y - The y-coordinate of the end point
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1870,8 +1871,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw a straight line.
    *
-   * @param { number } x The X-axis coordinates at the end of the line.
-   * @param { number } y The Y-axis coordinates at the end of the line.
+   * @param { number } x - The X-axis coordinates at the end of the line.
+   * @param { number } y - The Y-axis coordinates at the end of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1880,14 +1881,14 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw an ellipse.
    *
-   * @param { number } x The X-axis coordinates of the center of the ellipse.
-   * @param { number } y The Y-axis coordinates of the center of the ellipse.
-   * @param { number } radiusX The radius of the major axis of an ellipse.
-   * @param { number } radiusY The radius of the short axis of an ellipse.
-   * @param { number } rotation The Angle of rotation of an ellipse, expressed in radians.
-   * @param { number } startAngle The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
-   * @param { number } endAngle The Angle, expressed in radians, at which the ellipse will be drawn.
-   * @param { boolean } anticlockwise If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
+   * @param { number } x - The X-axis coordinates of the center of the ellipse.
+   * @param { number } y - The Y-axis coordinates of the center of the ellipse.
+   * @param { number } radiusX - The radius of the major axis of an ellipse.
+   * @param { number } radiusY - The radius of the short axis of an ellipse.
+   * @param { number } rotation - The Angle of rotation of an ellipse, expressed in radians.
+   * @param { number } startAngle - The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
+   * @param { number } endAngle - The Angle, expressed in radians, at which the ellipse will be drawn.
+   * @param { boolean } [anticlockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1905,8 +1906,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Moves the current canvas to the specified coordinate point.
    *
-   * @param { number } x The x axis.
-   * @param { number } y The y axis.
+   * @param { number } x - The x axis.
+   * @param { number } y - The y axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1915,10 +1916,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw a second order Bezier curve.
    *
-   * @param { number } cpx The X-axis coordinates of the control points.
-   * @param { number } cpy The y-coordinate of the control point.
-   * @param { number } x The X-axis of the end point.
-   * @param { number } y The Y-axis of the end point.
+   * @param { number } cpx - The X-axis coordinates of the control points.
+   * @param { number } cpy - The y-coordinate of the control point.
+   * @param { number } x - The X-axis of the end point.
+   * @param { number } y - The Y-axis of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1927,10 +1928,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draw a rectangle.
    *
-   * @param { number } x The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w The width of a rectangle.
-   * @param { number } h The height of a rectangle.
+   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
+   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
+   * @param { number } w - The width of a rectangle.
+   * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1939,10 +1940,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Clears the contents of the specified rectangular area.
    *
-   * @param { number } x The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w The width of a rectangle.
-   * @param { number } h The height of a rectangle.
+   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
+   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
+   * @param { number } w - The width of a rectangle.
+   * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1951,10 +1952,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Fills a rectangular area.
    *
-   * @param { number } x The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w The width of a rectangle.
-   * @param { number } h The height of a rectangle.
+   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
+   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
+   * @param { number } w - The width of a rectangle.
+   * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1963,10 +1964,10 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Stroke a rectangular area.
    *
-   * @param { number } x The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w The width of the rectangle. Positive values on the right, negative values on the left.
-   * @param { number } h The height of the rectangle. Positive values are down, negative values are up.
+   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
+   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
+   * @param { number } w - The width of the rectangle. Positive values on the right, negative values on the left.
+   * @param { number } h - The height of the rectangle. Positive values are down, negative values are up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1975,9 +1976,9 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Stroke a rectangular area.
    *
-   * @param { string } text Render text using the current values of font, textAlign, textBaseline, and direction.
-   * @param { number } y The Y-axis coordinates of the starting point of the text.
-   * @param { number } x The X-axis coordinates of the starting point of the text.
+   * @param { string } text - Render text using the current values of font, textAlign, textBaseline, and direction.
+   * @param { number } y - The Y-axis coordinates of the starting point of the text.
+   * @param { number } x - The X-axis coordinates of the starting point of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1986,7 +1987,7 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Returns a TextMetrics object used to obtain the width of specified text.
    *
-   * @param { string } text Text to be measured.
+   * @param { string } text - Text to be measured.
    * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1996,9 +1997,9 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draws the stroke of a text string.
    *
-   * @param { string } text Text stroke to draw.
-   * @param { number } x X-coordinate of the lower left corner of the text stroke.
-   * @param { number } y Y-coordinate of the lower left corner of the text stroke.
+   * @param { string } text - Text stroke to draw.
+   * @param { number } x - X-coordinate of the lower left corner of the text stroke.
+   * @param { number } y - Y-coordinate of the lower left corner of the text stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2015,7 +2016,7 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Adds a rotation effect to the current canvas.
    *
-   * @param { number } angle The radian of clockwise rotation.
+   * @param { number } angle - The radian of clockwise rotation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2024,8 +2025,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Adds a zoom effect to the current canvas.
    *
-   * @param { number } x The horizontal scaling factor.
-   * @param { number } y The scaling factor in the vertical direction.
+   * @param { number } x - The horizontal scaling factor.
+   * @param { number } y - The scaling factor in the vertical direction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2034,12 +2035,12 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Set the rotation, pan, and zoom effects.
    *
-   * @param { number } a The level of zoom.
-   * @param { number } b Vertical tilt.
-   * @param { number } c Horizontal tilt.
-   * @param { number } d Vertical scaling.
-   * @param { number } e The level of mobile.
-   * @param { number } f Vertical movement.
+   * @param { number } a - The level of zoom.
+   * @param { number } b - Vertical tilt.
+   * @param { number } c - Horizontal tilt.
+   * @param { number } d - Vertical scaling.
+   * @param { number } e - The level of mobile.
+   * @param { number } f - Vertical movement.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2048,12 +2049,12 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Set the rotation, pan, and zoom effects.
    *
-   * @param { number } a The level of zoom.
-   * @param { number } b Vertical tilt.
-   * @param { number } c Horizontal tilt.
-   * @param { number } d Vertical scaling.
-   * @param { number } e The level of mobile.
-   * @param { number } f Vertical movement.
+   * @param { number } a - The level of zoom.
+   * @param { number } b - Vertical tilt.
+   * @param { number } c - Horizontal tilt.
+   * @param { number } d - Vertical scaling.
+   * @param { number } e - The level of mobile.
+   * @param { number } f - Vertical movement.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2062,8 +2063,8 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Adds a pan effect to the current canvas.
    *
-   * @param { number } x Horizontal movement distance.
-   * @param { number } y Vertical movement.
+   * @param { number } x - Horizontal movement distance.
+   * @param { number } y - Vertical movement.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2098,10 +2099,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Fills a rectangle on the canvas.
    *
-   * @param { number } x X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width Width of the rectangle.
-   * @param { number } height Height of the rectangle.
+   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
+   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
+   * @param { number } width - Width of the rectangle.
+   * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2122,10 +2123,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Clears the content in a rectangle on the canvas.
    *
-   * @param { number } x X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width Width of the rectangle.
-   * @param { number } height Height of the rectangle.
+   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
+   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
+   * @param { number } width - Width of the rectangle.
+   * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2134,10 +2135,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws a rectangle stroke on the canvas.
    *
-   * @param { number } x X-coordinate of the upper left corner of the rectangle stroke.
-   * @param { number } y Y-coordinate of the upper left corner of the rectangle stroke.
-   * @param { number } width Width of the rectangle stroke.
-   * @param { number } height Height of the rectangle stroke.
+   * @param { number } x - X-coordinate of the upper left corner of the rectangle stroke.
+   * @param { number } y - Y-coordinate of the upper left corner of the rectangle stroke.
+   * @param { number } width - Width of the rectangle stroke.
+   * @param { number } height - Height of the rectangle stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2146,9 +2147,9 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws filled text on the canvas.
    *
-   * @param { string } text Text to draw.
-   * @param { number } x X-coordinate of the lower left corner of the text.
-   * @param { number } y Y-coordinate of the lower left corner of the text.
+   * @param { string } text - Text to draw.
+   * @param { number } x - X-coordinate of the lower left corner of the text.
+   * @param { number } y - Y-coordinate of the lower left corner of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2157,9 +2158,9 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws a text stroke on the canvas.
    *
-   * @param { string } text Text stroke to draw.
-   * @param { number } x X-coordinate of the lower left corner of the text stroke.
-   * @param { number } y Y-coordinate of the lower left corner of the text stroke.
+   * @param { string } text - Text stroke to draw.
+   * @param { number } x - X-coordinate of the lower left corner of the text stroke.
+   * @param { number } y - Y-coordinate of the lower left corner of the text stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2168,7 +2169,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Returns a TextMetrics object used to obtain the width of specified text.
    *
-   * @param { string } text Text to be measured.
+   * @param { string } text - Text to be measured.
    * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2207,7 +2208,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws a path stroke.
    *
-   * @param { Path2D } path The object of Path2D.
+   * @param { Path2D } path - The object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2224,8 +2225,8 @@ export interface CanvasRenderingContext2D {
   /**
    * Moves a drawing path to a target position on the canvas.
    *
-   * @param { number } x X-coordinate of the target position.
-   * @param { number } y Y-coordinate of the target position.
+   * @param { number } x - X-coordinate of the target position.
+   * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2234,8 +2235,8 @@ export interface CanvasRenderingContext2D {
   /**
    * Connects the current point to a target position using a straight line.
    *
-   * @param { number } x X-coordinate of the target position.
-   * @param { number } y Y-coordinate of the target position.
+   * @param { number } x - X-coordinate of the target position.
+   * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2347,10 +2348,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates a linear gradient color.
    *
-   * @param { number } x0 X-coordinate of the start point.
-   * @param { number } y0 Y-coordinate of the start point.
-   * @param { number } x1 X-coordinate of the end point.
-   * @param { number } y1 Y-coordinate of the end point.
+   * @param { number } x0 - X-coordinate of the start point.
+   * @param { number } y0 - Y-coordinate of the start point.
+   * @param { number } x1 - X-coordinate of the end point.
+   * @param { number } y1 - Y-coordinate of the end point.
    * @returns { CanvasGradient } LinearGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -2360,12 +2361,12 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates a radial gradient color.
    *
-   * @param { number } x0 X-coordinate of the start point.
-   * @param { number } y0 Y-coordinate of the start point.
-   * @param { number } r0 The radius of the starting circle.
-   * @param { number } x1 X-coordinate of the end point.
-   * @param { number } y1 Y-coordinate of the end point.
-   * @param { number } r1 The radius of End Circle.
+   * @param { number } x0 - X-coordinate of the start point.
+   * @param { number } y0 - Y-coordinate of the start point.
+   * @param { number } r0 - The radius of the starting circle.
+   * @param { number } x1 - X-coordinate of the end point.
+   * @param { number } y1 - Y-coordinate of the end point.
+   * @param { number } r1 - The radius of End Circle.
    * @returns { CanvasGradient } RadialGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -2375,8 +2376,8 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates a pattern for image filling based on a specified source image and repetition mode.
    *
-   * @param { Image } image Source image.
-   * @param { string } repetition Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
+   * @param { Image } image - Source image.
+   * @param { string } repetition - Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
    * @returns { object } Pattern of image filling.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2386,7 +2387,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    *
-   * @param { Path2D } path another created Path2D object.
+   * @param { Path2D } [path] - another created Path2D object.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2396,7 +2397,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    *
-   * @param { string } cmds a string defined using the SVG path command.
+   * @param { string } [cmds] - a string defined using the SVG path command.
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2406,12 +2407,12 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws a cubic bezier curve on the canvas.
    *
-   * @param { number } cp1x X-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp1y Y-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp2x X-coordinate of the second parameter of the bezier curve.
-   * @param { number } cp2y Y-coordinate of the second parameter of the bezier curve.
-   * @param { number } x End point x-coordinate of the bezier curve.
-   * @param { number } y End point y-coordinate of the bezier curve.
+   * @param { number } cp1x - X-coordinate of the first parameter of the bezier curve.
+   * @param { number } cp1y - Y-coordinate of the first parameter of the bezier curve.
+   * @param { number } cp2x - X-coordinate of the second parameter of the bezier curve.
+   * @param { number } cp2y - Y-coordinate of the second parameter of the bezier curve.
+   * @param { number } x - End point x-coordinate of the bezier curve.
+   * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2420,10 +2421,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws a quadratic curve on the canvas.
    *
-   * @param { number } cpx X-coordinate of the bezier curve parameter.
-   * @param { number } cpy Y-coordinate of the bezier curve parameter.
-   * @param { number } x End point x-coordinate of the bezier curve.
-   * @param { number } y End point y-coordinate of the bezier curve.
+   * @param { number } cpx - X-coordinate of the bezier curve parameter.
+   * @param { number } cpy - Y-coordinate of the bezier curve parameter.
+   * @param { number } x - End point x-coordinate of the bezier curve.
+   * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2432,12 +2433,12 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an arc on the canvas.
    *
-   * @param { number } x X-coordinate of the center point of the arc.
-   * @param { number } y Y-coordinate of the center point of the arc.
-   * @param { number } radius Radius of the arc.
-   * @param { number } startAngle Start radian of the arc.
-   * @param { number } endAngel End radian of the arc.
-   * @param { boolean } anticlockwise Whether to draw the arc counterclockwise.
+   * @param { number } x - X-coordinate of the center point of the arc.
+   * @param { number } y - Y-coordinate of the center point of the arc.
+   * @param { number } radius - Radius of the arc.
+   * @param { number } startAngle - Start radian of the arc.
+   * @param { number } endAngel - End radian of the arc.
+   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2446,11 +2447,11 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an arc based on the radius and points on the arc.
    *
-   * @param { number } x1 X-coordinate of the first point on the arc.
-   * @param { number } y1 Y-coordinate of the first point on the arc.
-   * @param { number } x2 X-coordinate of the second point on the arc.
-   * @param { number } y2 Y-coordinate of the second point on the arc.
-   * @param { number } radius Radius of the arc.
+   * @param { number } x1 - X-coordinate of the first point on the arc.
+   * @param { number } y1 - Y-coordinate of the first point on the arc.
+   * @param { number } x2 - X-coordinate of the second point on the arc.
+   * @param { number } y2 - Y-coordinate of the second point on the arc.
+   * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2459,14 +2460,14 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an ellipse based on the coordinate and radius.
    *
-   * @param { number } x X-coordinate of the center point on the ellipse.
-   * @param { number } y Y-coordinate of the center point on the ellipse.
-   * @param { number } radiusX X-coordinate of the radius Length on the ellipse.
-   * @param { number } radiusY Y-coordinate of the radius Length on the ellipse.
-   * @param { number } rotation The rotation angle of the ellipse, in radians.
-   * @param { number } startAngle Angle of the start point for ellipse drawing.
-   * @param { number } endAngle End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise Indicates whether to draw an ellipse counterclockwise.
+   * @param { number } x - X-coordinate of the center point on the ellipse.
+   * @param { number } y - Y-coordinate of the center point on the ellipse.
+   * @param { number } radiusX - X-coordinate of the radius Length on the ellipse.
+   * @param { number } radiusY - Y-coordinate of the radius Length on the ellipse.
+   * @param { number } rotation - The rotation angle of the ellipse, in radians.
+   * @param { number } startAngle - Angle of the start point for ellipse drawing.
+   * @param { number } endAngle - End Point Angle for Ellipse Drawing.
+   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2485,10 +2486,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates a rectangular.
    *
-   * @param { number } x X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width Width of the rectangle.
-   * @param { number } height Height of the rectangle.
+   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
+   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
+   * @param { number } width - Width of the rectangle.
+   * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2513,7 +2514,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Rotates a canvas clockwise around its coordinate axes.
    *
-   * @param { number } rotate Clockwise rotation angle. You can use Math.PI / 180 to convert the angle to radian.
+   * @param { number } rotate - Clockwise rotation angle. You can use Math.PI / 180 to convert the angle to radian.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2522,8 +2523,8 @@ export interface CanvasRenderingContext2D {
   /**
    * Scales a canvas based on scaling factors.
    *
-   * @param { number } x Horizontal scale factor.
-   * @param { number } y Vertical scale factor.
+   * @param { number } x - Horizontal scale factor.
+   * @param { number } y - Vertical scale factor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2535,12 +2536,12 @@ export interface CanvasRenderingContext2D {
    * The coordinates of the corresponding graph are multiplied by the matrix values to obtain new coordinates of the transformed graph.
    * You can use the matrix to implement multiple transform effects.
    *
-   * @param { number } scaleX X-axis scale.
-   * @param { number } skewX X-axis skew.
-   * @param { number } skewY Y-axis skew.
-   * @param { number } scaleY Y-axis scale.
-   * @param { number } translateX X-axis translation.
-   * @param { number } translateY Y-axis translation.
+   * @param { number } scaleX - X-axis scale.
+   * @param { number } skewX - X-axis skew.
+   * @param { number } skewY - Y-axis skew.
+   * @param { number } scaleY - Y-axis scale.
+   * @param { number } translateX - X-axis translation.
+   * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2549,12 +2550,12 @@ export interface CanvasRenderingContext2D {
   /**
    * Uses same parameters as the transform() function to reset the existing transformation matrix and create a new transformation matrix.
    *
-   * @param { number } scaleX X-axis scale.
-   * @param { number } skewX X-axis skew.
-   * @param { number } skewY Y-axis skew.
-   * @param { number } scaleY Y-axis scale.
-   * @param { number } translateX X-axis translation.
-   * @param { number } translateY Y-axis translation.
+   * @param { number } scaleX - X-axis scale.
+   * @param { number } skewX - X-axis skew.
+   * @param { number } skewY - Y-axis skew.
+   * @param { number } scaleY - Y-axis scale.
+   * @param { number } translateX - X-axis translation.
+   * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2570,8 +2571,8 @@ export interface CanvasRenderingContext2D {
   /**
    * Moves the origin of the coordinate system.
    *
-   * @param { number } x X-axis translation.
-   * @param { number } y Y-axis translation.
+   * @param { number } x - X-axis translation.
+   * @param { number } y - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2591,11 +2592,11 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an image.
    *
-   * @param { Image } image Image resource.
-   * @param { number } dx X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth Width of the drawing area.
-   * @param { number } dHeight Height of the drawing area.
+   * @param { Image } image - Image resource.
+   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dWidth - Width of the drawing area.
+   * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2604,15 +2605,15 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an image.
    *
-   * @param { Image } image Image resource.
-   * @param { number } sx X-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sy Y-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sWidth Target width of the image to crop.
-   * @param { number } sHeight Target height of the image to crop.
-   * @param { number } dx X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth Width of the drawing area.
-   * @param { number } dHeight Height of the drawing area.
+   * @param { Image } image - Image resource.
+   * @param { number } sx - X-coordinate of the upper left corner of the rectangle used to crop the source image.
+   * @param { number } sy - Y-coordinate of the upper left corner of the rectangle used to crop the source image.
+   * @param { number } sWidth - Target width of the image to crop.
+   * @param { number } sHeight - Target height of the image to crop.
+   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dWidth - Width of the drawing area.
+   * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2631,11 +2632,11 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an image.
    *
-   * @param { image.PixelMap } image Image resource.
-   * @param { number } dx X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth Width of the drawing area.
-   * @param { number } dHeight Height of the drawing area.
+   * @param { image.PixelMap } image - Image resource.
+   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dWidth - Width of the drawing area.
+   * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -2644,15 +2645,15 @@ export interface CanvasRenderingContext2D {
   /**
    * Draws an image.
    *
-   * @param { image.PixelMap } image Image resource.
-   * @param { number } sx X-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sy Y-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sWidth Target width of the image to crop.
-   * @param { number } sHeight Target height of the image to crop.
-   * @param { number } dx X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth Width of the drawing area.
-   * @param { number } dHeight Height of the drawing area.
+   * @param { image.PixelMap } image - Image resource.
+   * @param { number } sx - X-coordinate of the upper left corner of the rectangle used to crop the source image.
+   * @param { number } sy - Y-coordinate of the upper left corner of the rectangle used to crop the source image.
+   * @param { number } sWidth - Target width of the image to crop.
+   * @param { number } sHeight - Target height of the image to crop.
+   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param { number } dWidth - Width of the drawing area.
+   * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -2687,8 +2688,8 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates an ImageData object.
    *
-   * @param { number } width Width of the ImageData object.
-   * @param { number } height Height of the ImageData object.
+   * @param { number } width - Width of the ImageData object.
+   * @param { number } height - Height of the ImageData object.
    * @returns { ImageData } Returns the newly created FunctionCallable object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2697,7 +2698,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates an ImageData object.
    *
-   * @param { ImageData } imagedata ImageData object with the same width and height copied from the original ImageData object.
+   * @param { ImageData } imagedata - ImageData object with the same width and height copied from the original ImageData object.
    * @returns { ImageData } Returns the newly created FunctionCallable object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2707,10 +2708,10 @@ export interface CanvasRenderingContext2D {
   /**
    * ImageData object created with pixels in the specified area on the canvas.
    *
-   * @param { number } sx X-coordinate of the upper left corner of the output area.
-   * @param { number } sy Y-coordinate of the upper left corner of the output area.
-   * @param { number } sw Width of the output area.
-   * @param { number } sh Height of the output area.
+   * @param { number } sx - X-coordinate of the upper left corner of the output area.
+   * @param { number } sy - Y-coordinate of the upper left corner of the output area.
+   * @param { number } sw - Width of the output area.
+   * @param { number } sh - Height of the output area.
    * @returns { ImageData } ImageData object that contains pixels in the specified area on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -2720,10 +2721,10 @@ export interface CanvasRenderingContext2D {
   /**
    * Get an PixelMap object.
    *
-   * @param { number } sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
-   * @param { number } sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
-   * @param { number } sw The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh The height of the rectangular area of the image data to be extracted.
+   * @param { number } sx - The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param { number } sy - The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { image.PixelMap } PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2733,9 +2734,9 @@ export interface CanvasRenderingContext2D {
   /**
    * Puts the ImageData onto a rectangular area on the canvas.
    *
-   * @param { ImageData } imageData ImageData object with pixels to put onto the canvas.
-   * @param { number } dx X-axis offset of the rectangle area on the canvas.
-   * @param { number } dy Y-axis offset of the rectangle area on the canvas.
+   * @param { ImageData } imageData - ImageData object with pixels to put onto the canvas.
+   * @param { number } dx - X-axis offset of the rectangle area on the canvas.
+   * @param { number } dy - Y-axis offset of the rectangle area on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2744,13 +2745,13 @@ export interface CanvasRenderingContext2D {
   /**
    * Puts the ImageData onto a rectangular area on the canvas.
    *
-   * @param { ImageData } imageData ImageData object with pixels to put onto the canvas.
-   * @param { number } dx X-axis offset of the rectangle area on the canvas.
-   * @param { number } dy Y-axis offset of the rectangle area on the canvas.
-   * @param { number } dirtyX X-axis offset of the upper left corner of the rectangle area relative to that of the source image.
-   * @param { number } dirtyY Y-axis offset of the upper left corner of the rectangle area relative to that of the source image.
-   * @param { number } dirtyWidth Width of the rectangle area to cop the source image.
-   * @param { number } dirtyHeight Height of the rectangle area to cop the source image.
+   * @param { ImageData } imageData - ImageData object with pixels to put onto the canvas.
+   * @param { number } dx - X-axis offset of the rectangle area on the canvas.
+   * @param { number } dy - Y-axis offset of the rectangle area on the canvas.
+   * @param { number } dirtyX - X-axis offset of the upper left corner of the rectangle area relative to that of the source image.
+   * @param { number } dirtyY - Y-axis offset of the upper left corner of the rectangle area relative to that of the source image.
+   * @param { number } dirtyWidth - Width of the rectangle area to cop the source image.
+   * @param { number } dirtyHeight - Height of the rectangle area to cop the source image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2767,7 +2768,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Sets the dash line style.
    *
-   * @param { Array<number> } segments Interval of alternate line segments and the length of spacing.
+   * @param { Array<number> } segments - Interval of alternate line segments and the length of spacing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2872,9 +2873,9 @@ export interface CanvasGradient {
   /**
    * Adds a color stop for the CanvasGradient object based on the specified offset and gradient color.
    *
-   * @param { number } offset Proportion of the distance between the color stop and the start point to the total length.
+   * @param { number } offset - Proportion of the distance between the color stop and the start point to the total length.
    * The value ranges from 0 to 1.
-   * @param { string } color Sets the gradient color.
+   * @param { string } color - Sets the gradient color.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2892,7 +2893,7 @@ export interface Path2D {
   /**
    * Add another path to current path.
    *
-   * @param { Path2D } path another created Path2D object.
+   * @param { Path2D } path - another created Path2D object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2901,12 +2902,12 @@ export interface Path2D {
   /**
    * Uses same parameters as the transform() function to reset the existing transformation matrix and create a new transformation matrix.
    *
-   * @param { number } scaleX X-axis scale.
-   * @param { number } skewX X-axis skew.
-   * @param { number } skewY Y-axis skew.
-   * @param { number } scaleY Y-axis scale.
-   * @param { number } translateX X-axis translation.
-   * @param { number } translateY Y-axis translation.
+   * @param { number } scaleX - X-axis scale.
+   * @param { number } skewX - X-axis skew.
+   * @param { number } skewY - Y-axis skew.
+   * @param { number } scaleY - Y-axis scale.
+   * @param { number } translateX - X-axis translation.
+   * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2930,8 +2931,8 @@ export interface Path2D {
   /**
    * Moves a drawing path to a target position on the canvas.
    *
-   * @param { number } x X-coordinate of the target position.
-   * @param { number } y Y-coordinate of the target position.
+   * @param { number } x - X-coordinate of the target position.
+   * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2940,8 +2941,8 @@ export interface Path2D {
   /**
    * Connects the current point to a target position using a straight line.
    *
-   * @param { number } x X-coordinate of the target position.
-   * @param { number } y Y-coordinate of the target position.
+   * @param { number } x - X-coordinate of the target position.
+   * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2950,12 +2951,12 @@ export interface Path2D {
   /**
    * Draws a cubic bezier curve on the canvas.
    *
-   * @param { number } cp1x X-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp1y Y-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp2x X-coordinate of the second parameter of the bezier curve.
-   * @param { number } cp2y Y-coordinate of the second parameter of the bezier curve.
-   * @param { number } x End point x-coordinate of the bezier curve.
-   * @param { number } y End point y-coordinate of the bezier curve.
+   * @param { number } cp1x - X-coordinate of the first parameter of the bezier curve.
+   * @param { number } cp1y - Y-coordinate of the first parameter of the bezier curve.
+   * @param { number } cp2x - X-coordinate of the second parameter of the bezier curve.
+   * @param { number } cp2y - Y-coordinate of the second parameter of the bezier curve.
+   * @param { number } x - End point x-coordinate of the bezier curve.
+   * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2964,10 +2965,10 @@ export interface Path2D {
   /**
    * Draws a quadratic curve on the canvas.
    *
-   * @param { number } cpx X-coordinate of the bezier curve parameter.
-   * @param { number } cpy Y-coordinate of the bezier curve parameter.
-   * @param { number } x End point x-coordinate of the bezier curve.
-   * @param { number } y End point y-coordinate of the bezier curve.
+   * @param { number } cpx - X-coordinate of the bezier curve parameter.
+   * @param { number } cpy - Y-coordinate of the bezier curve parameter.
+   * @param { number } x - End point x-coordinate of the bezier curve.
+   * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2976,12 +2977,12 @@ export interface Path2D {
   /**
    * Draws an arc on the canvas.
    *
-   * @param { number } x X-coordinate of the center point of the arc.
-   * @param { number } y Y-coordinate of the center point of the arc.
-   * @param { number } radius Radius of the arc.
-   * @param { number } startAngle Start radian of the arc.
-   * @param { number } endAngel End radian of the arc.
-   * @param { boolean } anticlockwise Whether to draw the arc counterclockwise.
+   * @param { number } x - X-coordinate of the center point of the arc.
+   * @param { number } y - Y-coordinate of the center point of the arc.
+   * @param { number } radius - Radius of the arc.
+   * @param { number } startAngle - Start radian of the arc.
+   * @param { number } endAngel - End radian of the arc.
+   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2990,11 +2991,11 @@ export interface Path2D {
   /**
    * Draws an arc based on the radius and points on the arc.
    *
-   * @param { number } x1 X-coordinate of the first point on the arc.
-   * @param { number } y1 Y-coordinate of the first point on the arc.
-   * @param { number } x2 X-coordinate of the second point on the arc.
-   * @param { number } y2 Y-coordinate of the second point on the arc.
-   * @param { number } radius Radius of the arc.
+   * @param { number } x1 - X-coordinate of the first point on the arc.
+   * @param { number } y1 - Y-coordinate of the first point on the arc.
+   * @param { number } x2 - X-coordinate of the second point on the arc.
+   * @param { number } y2 - Y-coordinate of the second point on the arc.
+   * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -3003,14 +3004,14 @@ export interface Path2D {
   /**
    * Draws an ellipse based on the coordinate and radius.
    *
-   * @param { number } x X-coordinate of the center point on the ellipse.
-   * @param { number } y Y-coordinate of the center point on the ellipse.
-   * @param { number } radiusX X-coordinate of the radius Length on the ellipse.
-   * @param { number } radiusY Y-coordinate of the radius Length on the ellipse.
-   * @param { number } rotation The rotation angle of the ellipse, in radians.
-   * @param { number } startAngle Angle of the start point for ellipse drawing.
-   * @param { number } endAngle End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise Indicates whether to draw an ellipse counterclockwise.
+   * @param { number } x - X-coordinate of the center point on the ellipse.
+   * @param { number } y - Y-coordinate of the center point on the ellipse.
+   * @param { number } radiusX - X-coordinate of the radius Length on the ellipse.
+   * @param { number } radiusY - Y-coordinate of the radius Length on the ellipse.
+   * @param { number } rotation - The rotation angle of the ellipse, in radians.
+   * @param { number } startAngle - Angle of the start point for ellipse drawing.
+   * @param { number } endAngle - End Point Angle for Ellipse Drawing.
+   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -3029,10 +3030,10 @@ export interface Path2D {
   /**
    * Creates a rectangular.
    *
-   * @param { number } x X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width Width of the rectangle.
-   * @param { number } height Height of the rectangle.
+   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
+   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
+   * @param { number } width - Width of the rectangle.
+   * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -3054,8 +3055,8 @@ export interface CanvasElement extends Element {
    * Only parameters related to 2D canvas drawing are supported.
    * The return value is a 2D drawing object that provides specific 2D drawing operations.
    *
-   * @param { "2d" } type identifier defining the drawing context associated to the canvas.
-   * @param { ContextAttrOptions } options use this context attributes to creating rendering context.
+   * @param { "2d" } type - identifier defining the drawing context associated to the canvas.
+   * @param { ContextAttrOptions } [options] - use this context attributes to creating rendering context.
    * @returns { CanvasRenderingContext2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -3067,8 +3068,8 @@ export interface CanvasElement extends Element {
    * Only parameters related to webgl canvas drawing are supported.
    * The return value is a webgl drawing object that provides specific webgl drawing operations.
    *
-   * @param { "webgl" } type identifier defining the drawing context associated to the canvas.
-   * @param { WebGLContextAttributes } options use this context attributes to creating rendering context.
+   * @param { "webgl" } type - identifier defining the drawing context associated to the canvas.
+   * @param { WebGLContextAttributes } [options] - use this context attributes to creating rendering context.
    * @returns { WebGLRenderingContext }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -3080,8 +3081,8 @@ export interface CanvasElement extends Element {
    * Only parameters related to webgl2 canvas drawing are supported.
    * The return value is a webgl2 drawing object that provides specific webgl2 drawing operations.
    *
-   * @param { "webgl2" } type identifier defining the drawing context associated to the canvas.
-   * @param { WebGLContextAttributes } options use this context attributes to creating rendering context.
+   * @param { "webgl2" } type - identifier defining the drawing context associated to the canvas.
+   * @param { WebGLContextAttributes } [options] - use this context attributes to creating rendering context.
    * @returns { WebGL2RenderingContext }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -3091,8 +3092,8 @@ export interface CanvasElement extends Element {
   /**
    * Creates a data URI that contains the image display.
    *
-   * @param { string } type A DOMString indicating the image format. The default type is image/png.
-   * @param { number } quality A Number between 0 and 1 indicating image quality if the type option
+   * @param { string } type - A DOMString indicating the image format. The default type is image/png.
+   * @param { number } [quality] - A Number between 0 and 1 indicating image quality if the type option
    * is image/jpeg or image/webp. If this argument is anything else,
    * the default value for image quality is used. Other arguments are ignored.
    * @returns { string }
@@ -3259,8 +3260,8 @@ export interface ViewModel {
   /**
    * Sets the parameters based on the system language, for example, this.$t('strings.hello').
    *
-   * @param { string } path Path of the language resource key.
-   * @param { object | Array<any> } params Content used to replace placeholders during runtime.
+   * @param { string } path - Path of the language resource key.
+   * @param { object | Array<any> } [params] - Content used to replace placeholders during runtime.
    * @returns { string } Content.
    * There are two types of placeholders available:Named placeholder, for example, {name}.
    * The actual content must be of the object type, for example, $t('strings.object', { name: 'Hello world' }).
@@ -3275,8 +3276,8 @@ export interface ViewModel {
    * NOTE
    * The resource content is distinguished by the following JSON keys: zero, one, two, few, many, and other.
    *
-   * @param { string } path Resource file path.
-   * @param { number } count Value.
+   * @param { string } path - Resource file path.
+   * @param { number } count - Value.
    * @returns { string } Content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -3286,7 +3287,7 @@ export interface ViewModel {
   /**
    * Replace the resource path based on the DPI of the current device: this.$r('image.tv').
    *
-   * @param { string } path Resource file path.
+   * @param { string } path - Resource file path.
    * @returns { string } Content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -3321,7 +3322,7 @@ export interface ViewModel {
    * this.$element('xxx'): Obtain the component whose ID is xxx.
    * this.$element(): Obtain the root component.
    *
-   * @param { string } id Component ID.
+   * @param { string } [id] - Component ID.
    * @returns {AnimationElement &CanvasElement &
    * object &WebElement &CameraElement &ListElement &
    * SwiperElement &DialogElement &ImageAnimatorElement &
@@ -3373,7 +3374,7 @@ export interface ViewModel {
    * Obtains the ViewModel instance of a custom child component with a specified ID.
    * Usage:this.$child('xxx'): Obtain the ViewModel instance of a custom child component whose ID is xxx.
    *
-   * @param { string } id Component ID.
+   * @param { string } id - Component ID.
    * @returns { ViewModel & object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
@@ -3383,8 +3384,8 @@ export interface ViewModel {
   /**
    * Listens for attribute changes. If the value of the data attribute changes, the bound event is triggered.
    *
-   * @param { string } data Attribute.
-   * @param { string } callback Function name.
+   * @param { string } data - Attribute.
+   * @param { string } callback - Function name.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -3402,8 +3403,8 @@ export interface ViewModel {
   /**
    * Custom events.
    *
-   * @param { string } event The name of event.
-   * @param { object } params The params of event.
+   * @param { string } event - The name of event.
+   * @param { object } [params] - The params of event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -3412,7 +3413,7 @@ export interface ViewModel {
   /**
    * Scroll the page to the destination.
    *
-   * @param { ScrollOptions } options The properties of event.
+   * @param { ScrollOptions } options - The properties of event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */

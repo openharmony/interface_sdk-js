@@ -440,7 +440,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * Called when judging whether it is selected.
    * This parameter supports $$ for two-way binding of variables.
    *
-   * @param { boolean } value if the listItem is selected.
+   * @param { boolean } value - if the listItem is selected.
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -452,7 +452,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    *
-   * @param { SwipeActionOptions } value items defines in the SwipeActionOption.
+   * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -460,7 +460,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    *
-   * @param { SwipeActionOptions } value items defines in the SwipeActionOption.
+   * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

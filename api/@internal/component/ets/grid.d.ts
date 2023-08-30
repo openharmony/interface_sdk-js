@@ -321,7 +321,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Sets the status of the scroll bar.
    *
-   * @param { function } event of grid scroll,
+   * @param { function } event - of grid scroll,
    * first is the index  of the starting sliding position, last is the index  of the ending sliding position.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -330,7 +330,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Sets the status of the scroll bar.
    *
-   * @param { function } event of grid scroll,
+   * @param { function } event - of grid scroll,
    * first is the index  of the starting sliding position, last is the index  of the ending sliding position,
    * return void to no return value.
    * @returns { GridAttribute }
@@ -639,7 +639,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called When sliding the grid.
    *
-   * @param { function } event callback of grid scroll,
+   * @param { function } event - callback of grid scroll,
    * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -695,7 +695,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { function } event callback of grid scroll,
+   * @param { function } event - callback of grid scroll,
    * offset is the amount of sliding that is about to occur, state is current sliding state,
    * return number to actual sliding offset.
    * @returns { GridAttribute }

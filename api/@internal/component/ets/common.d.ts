@@ -2042,6 +2042,7 @@ declare class TransitionEffect<
   /**
    * Defines an identity transition effect
    *
+   * @constant
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2052,6 +2053,7 @@ declare class TransitionEffect<
   /**
    * Defines an opacity transition effect
    *
+   * @constant
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2062,7 +2064,12 @@ declare class TransitionEffect<
   /**
    * Defines a slide transition effect
    *
-   * @type { TransitionEffect<"asymmetric"> }
+   * @constant
+   * @type { TransitionEffect<
+   * "asymmetric",
+   * {appear: TransitionEffect<"move", TransitionEdge>;
+   * disappear: TransitionEffect<"move", TransitionEdge>;
+   * }> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2078,6 +2085,7 @@ declare class TransitionEffect<
   /**
    * Defines a slide & switch transition effect
    *
+   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2088,7 +2096,7 @@ declare class TransitionEffect<
   /**
    * Creates a translate transition effect
    *
-   * @param { TranslateOptions } options translate options
+   * @param { TranslateOptions } options - translate options
    * @returns { TransitionEffect<"translate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2099,7 +2107,7 @@ declare class TransitionEffect<
   /**
    * Creates a rotation transition effect
    *
-   * @param { RotateOptions } options rotate options
+   * @param { RotateOptions } options - rotate options
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2110,7 +2118,7 @@ declare class TransitionEffect<
   /**
    * Creates a scale transition effect
    *
-   * @param { ScaleOptions } options scale options
+   * @param { ScaleOptions } options - scale options
    * @returns { TransitionEffect<"scale"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2121,7 +2129,7 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha opacity alpha value
+   * @param { number } alpha - opacity alpha value
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2132,7 +2140,7 @@ declare class TransitionEffect<
   /**
    * Creates a move transition effect
    *
-   * @param { TransitionEdge } edge the edge that component will move to
+   * @param { TransitionEdge } edge - the edge that component will move to
    * @returns { TransitionEffect<"move"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2143,8 +2151,8 @@ declare class TransitionEffect<
   /**
    * Creates an asymmetric transition effect
    *
-   * @param { TransitionEffect } appear the transition which will be attached when the component is appear
-   * @param { TransitionEffect } disappear the transition which will be attached when the component is disappear
+   * @param { TransitionEffect } appear - the transition which will be attached when the component is appear
+   * @param { TransitionEffect } disappear - the transition which will be attached when the component is disappear
    * @returns { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2158,8 +2166,8 @@ declare class TransitionEffect<
   /**
    * TransitionEffect constructor
    *
-   * @param { Type } type transition type
-   * @param { Effect } effect transition options
+   * @param { Type } type - transition type
+   * @param { Effect } effect - transition options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2169,7 +2177,7 @@ declare class TransitionEffect<
   /**
    * Set the animation of current transition effect
    *
-   * @param { AnimateParam } value animation parameters
+   * @param { AnimateParam } value - animation parameters
    * @returns { TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2180,7 +2188,7 @@ declare class TransitionEffect<
   /**
    * Combines another transition effect
    *
-   * @param { TransitionEffect } transitionEffect transition effect which is be combined
+   * @param { TransitionEffect } transitionEffect - transition effect which is be combined
    * @returns { TransitionEffect } combined transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5383,7 +5391,7 @@ declare interface PopupOptions {
    * When mask is set false, gesture events are not blocked.
    * When mask is set true, gesture events are blocked and mask color is transparent.
    *
-   * @type { ?(boolean | object) }
+   * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -5608,7 +5616,7 @@ declare interface CustomPopupOptions {
    * When mask is set false, gesture events are not blocked.
    * When mask is set true, gesture events are blocked and mask color is transparent.
    *
-   * @type { ?(boolean | object) }
+   * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -6587,7 +6595,7 @@ declare class CommonMethod<T> {
    * Provides the general foreground color capability of UI components, and assigns color values
    * according to the characteristics of components.
    *
-   * @param { ResourceColor | ColoringStrategy } value indicates the color or color selection strategy
+   * @param { ResourceColor | ColoringStrategy } value - indicates the color or color selection strategy
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -6825,7 +6833,7 @@ declare class CommonMethod<T> {
    */
   focusOnTouch(value: boolean): T;
 
-  /**
+  /**git 
    * animation
    *
    * @param { AnimateParam } value
@@ -6865,7 +6873,7 @@ declare class CommonMethod<T> {
   /**
    * Transition parameter
    *
-   * @param { TransitionOptions | TransitionEffect } value transition options
+   * @param { TransitionOptions | TransitionEffect } value - transition options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -6874,7 +6882,7 @@ declare class CommonMethod<T> {
   /**
    * Transition parameter
    *
-   * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
+   * @param { TransitionOptions | TransitionEffect } value - transition options or transition effect
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7316,7 +7324,7 @@ declare class CommonMethod<T> {
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
    *
-   * @param { boolean } value if this view and its children need to composite into an offscreen cache.
+   * @param { boolean } value - if this view and its children need to composite into an offscreen cache.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7540,7 +7548,7 @@ declare class CommonMethod<T> {
   /**
    * This callback is triggered when the size or position of this component change finished.
    *
-   * @param { function } event event callback.
+   * @param { function } event - event callback.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -7548,7 +7556,7 @@ declare class CommonMethod<T> {
   /**
    * This callback is triggered when the size or position of this component change finished.
    *
-   * @param { function } event event callback.
+   * @param { function } event - event callback.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8478,7 +8486,7 @@ declare class CommonMethod<T> {
   /**
    * Menu control
    *
-   * @param { object | CustomBuilder } content
+   * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
    * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options
    * @returns { T }
@@ -8488,7 +8496,7 @@ declare class CommonMethod<T> {
   /**
    * Menu control
    *
-   * @param { object | CustomBuilder } content
+   * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
    * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options - Indicates the options of menu.
    * @returns { T }
@@ -8677,7 +8685,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityGroup
    *
-   * @param { boolean } value , set group with accessibility
+   * @param { boolean } value - set group with accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8688,7 +8696,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityText
    *
-   * @param { string } value , set accessibility text
+   * @param { string } value - set accessibility text
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8699,7 +8707,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityDescription
    *
-   * @param { string } value , set description of accessibility
+   * @param { string } value - set description of accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8710,7 +8718,7 @@ declare class CommonMethod<T> {
   /**
    * Sets accessibilityLevel
    *
-   * @param { string } value , set accessibility level
+   * @param { string } value - set accessibility level
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8721,7 +8729,7 @@ declare class CommonMethod<T> {
   /**
    * Sets obscured
    *
-   * @param { Array<ObscuredReasons> } reasons , reasons of obscuration
+   * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
