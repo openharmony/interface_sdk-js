@@ -1971,6 +1971,9 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -1979,6 +1982,9 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2002,8 +2008,8 @@ declare namespace audio {
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2013,8 +2019,8 @@ declare namespace audio {
      * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the 
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
