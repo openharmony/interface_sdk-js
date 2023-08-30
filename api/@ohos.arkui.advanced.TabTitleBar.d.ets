@@ -23,7 +23,7 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type TabTitleBarMenuItem = {
+export declare class TabTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
@@ -52,7 +52,7 @@ export declare type TabTitleBarMenuItem = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type TabTitleBarTabItem = {
+export declare class TabTitleBarTabItem {
   /**
    * Text description for this tab item.
    * @type { ResourceStr }.

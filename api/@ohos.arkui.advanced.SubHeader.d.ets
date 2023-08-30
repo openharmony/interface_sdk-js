@@ -59,7 +59,7 @@ export declare enum OperationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperationOption = {
+export declare class OperationOption {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
@@ -81,7 +81,7 @@ export declare type OperationOption = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type SelectOptions = {
+export declare class SelectOptions {
   /**
    * SubOption array of the select.
    * @type { Array<SelectSubOption> }.
