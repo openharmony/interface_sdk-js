@@ -80,7 +80,7 @@ export declare enum IconType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateIcon = {
+export declare class OperateIcon {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
@@ -102,7 +102,7 @@ export declare type OperateIcon = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateCheck = {
+export declare class OperateCheck {
   /**
    * Whether is checked on default.
    * @type { ResourceStr }.
@@ -124,7 +124,7 @@ export declare type OperateCheck = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateButton = {
+export declare class OperateButton {
   /**
    * The text on the button.
    * @type { ResourceStr }.
@@ -138,7 +138,7 @@ export declare type OperateButton = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type ContentItem  ={
+export declare class ContentItem {
   /**
    * The type of icon.
    * type { IconType }
@@ -185,7 +185,7 @@ export declare type ContentItem  ={
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateItem = {
+export declare class OperateItem {
   /**
    * Sets the icon.
    * type { OperateIcon }

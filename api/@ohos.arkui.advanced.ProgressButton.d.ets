@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -57,4 +57,4 @@ export declare struct ProgressButton {
    * @since 10
    */
   @Prop enable: boolean;
-}
+}

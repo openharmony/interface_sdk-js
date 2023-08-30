@@ -35,4 +35,4 @@ export declare struct SwipeRefresher {
    * @since 10
    */
   @Prop isLoading: boolean;
-}
+}

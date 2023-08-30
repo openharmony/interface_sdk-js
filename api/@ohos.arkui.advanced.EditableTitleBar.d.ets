@@ -23,7 +23,7 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type EditableTitleBarMenuItem = {
+export declare class EditableTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.

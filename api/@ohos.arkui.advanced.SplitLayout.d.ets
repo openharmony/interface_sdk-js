@@ -29,7 +29,7 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-    @BuilderParam container!: () => void;
+    @BuilderParam container: () => void;
 
   /**
    * Image in the layout.
