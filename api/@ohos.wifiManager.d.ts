@@ -1089,7 +1089,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function on(type: "wifiStateChange", callback: Callback<number>): void;
+  function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi status change events.
@@ -1105,7 +1105,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function off(type: "wifiStateChange", callback?: Callback<number>): void;
+  function off(type: 'wifiStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi connection change events.
@@ -1119,7 +1119,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function on(type: "wifiConnectionChange", callback: Callback<number>): void;
+  function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi connection change events.
@@ -1134,7 +1134,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
+  function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi scan status change events.
@@ -1148,7 +1148,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function on(type: "wifiScanStateChange", callback: Callback<number>): void;
+  function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi scan status change events.
@@ -1163,7 +1163,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
+  function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi rssi change events.
@@ -1177,7 +1177,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function on(type: "wifiRssiChange", callback: Callback<number>): void;
+  function on(type: 'wifiRssiChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi rssi change events.
@@ -1192,7 +1192,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function off(type: "wifiRssiChange", callback?: Callback<number>): void;
+  function off(type: 'wifiRssiChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi stream change events.
@@ -1208,7 +1208,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: "streamChange", callback: Callback<number>): void;
+  function on(type: 'streamChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi stream change events.
@@ -1225,7 +1225,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function off(type: "streamChange", callback?: Callback<number>): void;
+  function off(type: 'streamChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi device config change events.
@@ -1241,7 +1241,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: "deviceConfigChange", callback: Callback<number>): void;
+  function on(type: 'deviceConfigChange', callback: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi device config change events.
@@ -1257,7 +1257,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function off(type: "deviceConfigChange", callback?: Callback<number>): void;
+  function off(type: 'deviceConfigChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi hotspot state change events.
@@ -1272,7 +1272,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 9
    */
-  function on(type: "hotspotStateChange", callback: Callback<number>): void;
+  function on(type: 'hotspotStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot state change events.
@@ -1288,7 +1288,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 9
    */
-  function off(type: "hotspotStateChange", callback?: Callback<number>): void;
+  function off(type: 'hotspotStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe Wi-Fi hotspot sta join events.
@@ -1304,7 +1304,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
+  function on(type: 'hotspotStaJoin', callback: Callback<StationInfo>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot sta join events.
@@ -1321,7 +1321,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
+  function off(type: 'hotspotStaJoin', callback?: Callback<StationInfo>): void;
 
   /**
    * Subscribe Wi-Fi hotspot sta leave events.
@@ -1338,7 +1338,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
+  function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
@@ -1354,7 +1354,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
+  function off(type: 'hotspotStaLeave', callback?: Callback<StationInfo>): void;
 
   /**
    * Subscribe P2P status change events.
@@ -1368,7 +1368,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function on(type: "p2pStateChange", callback: Callback<number>): void;
+  function on(type: 'p2pStateChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe P2P status change events.
@@ -1382,7 +1382,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function off(type: "p2pStateChange", callback?: Callback<number>): void;
+  function off(type: 'p2pStateChange', callback?: Callback<number>): void;
 
   /**
    * Subscribe P2P connection change events.
@@ -1396,7 +1396,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function on(type: "p2pConnectionChange", callback: Callback<WifiP2pLinkedInfo>): void;
+  function on(type: 'p2pConnectionChange', callback: Callback<WifiP2pLinkedInfo>): void;
 
   /**
    * Unsubscribe P2P connection change events.
@@ -1410,7 +1410,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function off(type: "p2pConnectionChange", callback?: Callback<WifiP2pLinkedInfo>): void;
+  function off(type: 'p2pConnectionChange', callback?: Callback<WifiP2pLinkedInfo>): void;
 
   /**
    * Subscribe P2P local device change events.
@@ -1436,7 +1436,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  function on(type: "p2pDeviceChange", callback: Callback<WifiP2pDevice>): void;
+  function on(type: 'p2pDeviceChange', callback: Callback<WifiP2pDevice>): void;
 
   /**
    * Unsubscribe P2P local device change events.
@@ -1461,7 +1461,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  function off(type: "p2pDeviceChange", callback?: Callback<WifiP2pDevice>): void;
+  function off(type: 'p2pDeviceChange', callback?: Callback<WifiP2pDevice>): void;
 
   /**
    * Subscribe P2P peer device change events.
@@ -1487,7 +1487,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
+  function on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void;
 
   /**
    * Unsubscribe P2P peer device change events.
@@ -1512,7 +1512,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  function off(type: "p2pPeerDeviceChange", callback?: Callback<WifiP2pDevice[]>): void;
+  function off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void;
 
   /**
    * Subscribe P2P persistent group change events.
@@ -1526,7 +1526,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function on(type: "p2pPersistentGroupChange", callback: Callback<void>): void;
+  function on(type: 'p2pPersistentGroupChange', callback: Callback<void>): void;
 
   /**
    * Unsubscribe P2P persistent group change events.
@@ -1540,7 +1540,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function off(type: "p2pPersistentGroupChange", callback?: Callback<void>): void;
+  function off(type: 'p2pPersistentGroupChange', callback?: Callback<void>): void;
 
   /**
    * Subscribe P2P discovery events.
@@ -1554,7 +1554,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function on(type: "p2pDiscoveryChange", callback: Callback<number>): void;
+  function on(type: 'p2pDiscoveryChange', callback: Callback<number>): void;
 
   /**
    * Unsubscribe P2P discovery events.
@@ -1568,7 +1568,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
+  function off(type: 'p2pDiscoveryChange', callback?: Callback<number>): void;
 
   /**
    * Wi-Fi device address( mac / bssid ) type.
@@ -2728,7 +2728,7 @@ declare namespace wifiManager {
     leaseDuration: number;
   }
 
-/**
+  /**
    * Wi-Fi IPv6 information.
    * @typedef Ipv6Info
    * @syscap SystemCapability.Communication.WiFi.STA
