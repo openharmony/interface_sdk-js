@@ -75,6 +75,7 @@ declare namespace wifiManagerExt {
   /**
    * Obtains the current Wi-Fi power mode.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<PowerMode> } 
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -85,8 +86,8 @@ declare namespace wifiManagerExt {
 
   /**
    * Obtains the current Wi-Fi power mode.
-   * @param { callback: AsyncCallback<PowerMode> } callback - the callback of model
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { callback: AsyncCallback<PowerMode> } callback - the callback of model
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -97,8 +98,8 @@ declare namespace wifiManagerExt {
 
   /**
    * Set the current Wi-Fi power mode.
-   * @param { mode } model --Wi-Fi power mode.
    * @permission ohos.permission.SET_WIFI_INFO
+   * @param { mode } model --Wi-Fi power mode.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -111,8 +112,8 @@ declare namespace wifiManagerExt {
    * The power Mode enumeration.
    * 
    * @enum { number } PowerMode
-   * @since 9
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
    */
   export enum PowerMode {
     /** 
