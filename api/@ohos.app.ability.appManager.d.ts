@@ -87,16 +87,14 @@ declare namespace appManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   export enum ProcessState {
     /**
      * The state that the process is in when it is being created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_CREATE,
 
@@ -104,8 +102,7 @@ declare namespace appManager {
      * The state in which the process is in when it switches to the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_FOREGROUND,
 
@@ -113,8 +110,7 @@ declare namespace appManager {
      * The state in which the process is in focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_ACTIVE,
 
@@ -122,8 +118,7 @@ declare namespace appManager {
      * The state in which a process is invisible in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_BACKGROUND,
 
@@ -131,8 +126,7 @@ declare namespace appManager {
      * The state that the process is in when it is destroyed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_DESTROY
   }
