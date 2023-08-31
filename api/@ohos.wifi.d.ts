@@ -24,7 +24,7 @@ declare namespace wifi {
   /**
    * Enables Wi-Fi.
    *
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -38,7 +38,7 @@ declare namespace wifi {
   /**
    * Disables Wi-Fi.
    *
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -52,7 +52,7 @@ declare namespace wifi {
   /**
    * Queries the Wi-Fi status
    *
-   * @returns Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -67,7 +67,6 @@ declare namespace wifi {
    *
    * <p>This API works in asynchronous mode.</p>
    *
-   * @returns Returns {@code true} if the scanning is successful, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -144,7 +143,7 @@ declare namespace wifi {
    * Connects to Wi-Fi network.
    *
    * @param networkId ID of the connected network.
-   * @returns Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -159,7 +158,7 @@ declare namespace wifi {
    * Connects to Wi-Fi network.
    *
    * @param config Indicates the device configuration for connection to the Wi-Fi network.
-   * @returns Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -174,7 +173,7 @@ declare namespace wifi {
   /**
    * Disconnect Wi-Fi network.
    *
-   * @returns Returns {@code true} for disconnecting network success, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} for disconnecting network success, returns {@code false} otherwise.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -190,7 +189,7 @@ declare namespace wifi {
    *
    * @param rssi Indicates the Wi-Fi RSSI.
    * @param and Indicates the Wi-Fi frequency band.
-   * @returns Returns Wi-Fi signal level ranging from 0 to 4.
+   * @returns { number } Returns Wi-Fi signal level ranging from 0 to 4.
    *
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -203,7 +202,6 @@ declare namespace wifi {
   /**
    * Obtains information about a Wi-Fi connection.
    *
-   * @returns Returns the Wi-Fi connection information.
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -216,7 +214,7 @@ declare namespace wifi {
   /**
    * Checks whether a Wi-Fi connection has been set up.
    *
-   * @returns Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -230,7 +228,7 @@ declare namespace wifi {
    *
    * <p>To check whether this device supports a specified feature.
    *
-   * @returns Returns the features supported by this device.
+   * @returns { number }Returns the features supported by this device.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.Core
    * @permission ohos.permission.GET_WIFI_INFO
@@ -244,7 +242,7 @@ declare namespace wifi {
    * Checks whether this device supports a specified feature.
    *
    * @param featureId Indicates the ID of the feature.
-   * @returns Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.Core
    * @permission ohos.permission.GET_WIFI_INFO
@@ -258,7 +256,7 @@ declare namespace wifi {
    *
    * <p>The MAC address is unique and cannot be changed.
    *
-   * @returns Returns the MAC address of the Wi-Fi device.
+   * @returns { string[] } Returns the MAC address of the Wi-Fi device.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
@@ -273,7 +271,7 @@ declare namespace wifi {
    *
    * <p>The IP information includes the host IP address, gateway address, and DNS information.
    *
-   * @returns Returns the IP information of the Wi-Fi connection.
+   * @returns { IpInfo } Returns the IP information of the Wi-Fi connection.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -285,7 +283,7 @@ declare namespace wifi {
   /**
    * Obtains the country code of this device.
    *
-   * @returns Returns the country code of this device.
+   * @returns { string } Returns the country code of this device.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.Core
    * @permission ohos.permission.GET_WIFI_INFO
@@ -297,7 +295,7 @@ declare namespace wifi {
   /**
    * Re-associate to current network.
    *
-   * @returns {@code true} if the Wi-Fi network is re-associate successfully.
+   * @returns { boolean } {@code true} if the Wi-Fi network is re-associate successfully.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
@@ -310,7 +308,7 @@ declare namespace wifi {
   /**
    * Re-connects to current network.
    *
-   * @returns {@code true} if the Wi-Fi network is re-connect successfully.
+   * @returns { boolean } {@code true} if the Wi-Fi network is re-connect successfully.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
@@ -325,7 +323,7 @@ declare namespace wifi {
    *
    * <p>You can obtain only the Wi-Fi configurations you created on your own application.
    *
-   * @returns Returns the list of all existing Wi-Fi configurations you created on your application.
+   * @returns { Array<WifiDeviceConfig> } sReturns the list of all existing Wi-Fi configurations you created on your application.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.GET_WIFI_CONFIG
@@ -340,7 +338,7 @@ declare namespace wifi {
    *
    * @param config Indicates the Wi-Fi configuration to update.
    *
-   * @returns Returns the network ID in the updated Wi-Fi configuration if the update is successful;
+   * @returns { number } Returns the network ID in the updated Wi-Fi configuration if the update is successful;
    *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -357,7 +355,7 @@ declare namespace wifi {
    * <p>The disabled network will not be associated with again.
    *
    * @param netId Identifies the network to disable.
-   * @returns Returns {@code true} if the specified network is disabled, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the specified network is disabled, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
@@ -370,7 +368,7 @@ declare namespace wifi {
   /**
    * Removes all the saved Wi-Fi configurations.
    *
-   * @returns Returns {@code true} if all the saved Wi-Fi configurations are removed;
+   * @returns { boolean } Returns {@code true} if all the saved Wi-Fi configurations are removed;
    *     returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -390,7 +388,7 @@ declare namespace wifi {
    *
    * @param id Indicates the ID of the Wi-Fi network,
    *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
-   * @returns Returns {@code true} if the Wi-Fi network is deleted successfully, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi network is deleted successfully, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
@@ -405,7 +403,7 @@ declare namespace wifi {
    *
    * <p>This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
    *
-   * @returns Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -420,7 +418,7 @@ declare namespace wifi {
    *
    * <p>This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
    *
-   * @returns Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -433,7 +431,7 @@ declare namespace wifi {
   /**
    * Checks whether a device serving as a Wi-Fi hotspot supports both the 2.4 GHz and 5 GHz Wi-Fi.
    *
-   * @returns Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -446,7 +444,7 @@ declare namespace wifi {
   /**
    * Checks whether Wi-Fi hotspot is active on a device.
    *
-   * @returns Returns {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.GET_WIFI_INFO
@@ -545,7 +543,7 @@ declare namespace wifi {
    * Creates a P2P group.
    *
    * @param config Indicates the configuration for creating a group.
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -557,7 +555,7 @@ declare namespace wifi {
   /**
    * Removes a P2P group.
    *
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -570,7 +568,7 @@ declare namespace wifi {
    * Initiates a P2P connection to a device with the specified configuration.
    *
    * @param config Indicates the configuration for connecting to a specific group.
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -582,7 +580,7 @@ declare namespace wifi {
   /**
    * Canceling a P2P connection.
    *
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -594,7 +592,7 @@ declare namespace wifi {
   /**
    * Discover Wi-Fi P2P devices.
    *
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -606,7 +604,7 @@ declare namespace wifi {
   /**
    * Stops discovering Wi-Fi P2P devices.
    *
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -619,7 +617,7 @@ declare namespace wifi {
    * Deletes the persistent P2P group with the specified network ID.
    *
    * @param netId Indicates the network ID of the group to be deleted.
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
@@ -633,7 +631,7 @@ declare namespace wifi {
    * Sets the name of the Wi-Fi P2P device.
    *
    * @param devName Indicates the name to be set.
-   * @returns Returns {@code true} if the operation is successful, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
@@ -646,7 +644,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi status change events.
    *
-   * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -671,7 +668,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi connection change events.
    *
-   * @returns Returns 0: disconnected, 1: connected
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -696,7 +692,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi scan status change events.
    *
-   * @returns Returns 0: scan fail, 1: scan success
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -721,7 +716,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi rssi change events.
    *
-   * @returns Returns RSSI value in dBm
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.GET_WIFI_INFO
@@ -746,7 +740,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi stream change events.
    *
-   * @returns Returns 0: stream none, 1: stream down, 2: stream up, 3: stream bidirectional
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
@@ -773,7 +766,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi hotspot state change events.
    *
-   * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.GET_WIFI_INFO
@@ -798,7 +790,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi hotspot sta join events.
    *
-   * @returns Returns StationInfo
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -825,7 +816,6 @@ declare namespace wifi {
   /**
    * Subscribe Wi-Fi hotspot sta leave events.
    *
-   * @returns Returns {@link #StationInfo} object
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -838,7 +828,6 @@ declare namespace wifi {
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
    *
-   * @returns Returns {@link #StationInfo} object
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -851,7 +840,6 @@ declare namespace wifi {
   /**
    * Subscribe P2P status change events.
    *
-   * @returns Returns 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -874,7 +862,6 @@ declare namespace wifi {
   /**
    * Subscribe P2P connection change events.
    *
-   * @returns Returns WifiP2pLinkedInfo
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -897,7 +884,6 @@ declare namespace wifi {
   /**
    * Subscribe P2P local device change events.
    *
-   * @returns Returns WifiP2pDevice
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -909,7 +895,6 @@ declare namespace wifi {
   /**
    * Unsubscribe P2P local device change events.
    *
-   * @returns Returns WifiP2pDevice
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.LOCATION
@@ -921,7 +906,6 @@ declare namespace wifi {
   /**
    * Subscribe P2P peer device change events.
    *
-   * @returns Returns WifiP2pDevice[]
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -944,7 +928,6 @@ declare namespace wifi {
   /**
    * Subscribe P2P persistent group change events.
    *
-   * @returns Returns void
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -967,7 +950,6 @@ declare namespace wifi {
   /**
    * Subscribe P2P discovery events.
    *
-   * @returns Returns 0: initial state, 1: discovery succeeded
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @permission ohos.permission.GET_WIFI_INFO
@@ -991,7 +973,6 @@ declare namespace wifi {
    * Wi-Fi device configuration information.
    *
    * @interface WifiDeviceConfig
-   * @typedef WifiDeviceConfig
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
@@ -1085,7 +1066,6 @@ declare namespace wifi {
    * Wi-Fi IP configuration information.
    *
    * @interface IpConfig
-   * @typedef IpConfig
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1103,7 +1083,6 @@ declare namespace wifi {
    * Describes the scanned Wi-Fi information.
    *
    * @interface WifiScanInfo
-   * @typedef WifiScanInfo
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
@@ -1214,7 +1193,6 @@ declare namespace wifi {
    * Wi-Fi connection information.
    *
    * @interface WifiLinkedInfo
-   * @typedef WifiLinkedInfo
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
@@ -1338,7 +1316,6 @@ declare namespace wifi {
    * Wi-Fi IP information.
    *
    * @interface IpInfo
-   * @typedef IpInfo
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
@@ -1400,7 +1377,6 @@ declare namespace wifi {
    * Wi-Fi hotspot configuration information.
    *
    * @interface HotspotConfig
-   * @typedef HotspotConfig
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1448,7 +1424,6 @@ declare namespace wifi {
    * Wi-Fi station information.
    *  
    * @interface StationInfo
-   * @typedef StationInfo
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1666,7 +1641,6 @@ declare namespace wifi {
    * P2P device information.
    *
    * @interface WifiP2pDevice
-   * @typedef WifiP2pDevice
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
@@ -1712,7 +1686,6 @@ declare namespace wifi {
   /**
    * P2P config.
    * @interface WifiP2PConfig
-   * @typedef WifiP2PConfig
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
@@ -1759,7 +1732,6 @@ declare namespace wifi {
   /**
    * P2P group information.
    * @interface WifiP2pGroupInfo
-   * @typedef WifiP2pGroupInfo
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
@@ -1838,7 +1810,6 @@ declare namespace wifi {
 
   /**
    * P2P linked information.
-   * @interface WifiP2pLinkedInfo
    * @typedef WifiP2pLinkedInfo
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P

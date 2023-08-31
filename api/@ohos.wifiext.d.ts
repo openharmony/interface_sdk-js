@@ -29,7 +29,7 @@ declare namespace wifiext {
   /**
    * Enables a Wi-Fi hotspot.
    *
-   * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
@@ -40,7 +40,7 @@ declare namespace wifiext {
 
   /**
    * Disables a Wi-Fi hotspot.
-   * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @since 8
    * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
@@ -51,7 +51,7 @@ declare namespace wifiext {
 
   /**
    * Obtains the supported power model.
-   * @returns Returns the array of supported power model.
+   * @returns { Promise<Array<PowerModel>> } Returns the array of supported power model.
    * @permission ohos.permission.GET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
@@ -63,7 +63,6 @@ declare namespace wifiext {
   /**
    * Obtains the supported power model.
    * @param { AsyncCallback<void> } callback - callback function, no return value.
-   * @returns Returns the array of supported power model.
    * @since 8
    * @permission ohos.permission.GET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
@@ -86,7 +85,6 @@ declare namespace wifiext {
   /**
    * Obtains the current Wi-Fi power mode.
    * @param { AsyncCallback<void> } callback - callback function, no return value.
-   * @returns { Promise<void> }
    * @permission ohos.permission.GET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
@@ -97,9 +95,9 @@ declare namespace wifiext {
 
   /**
    * Set the current Wi-Fi power mode.
-   * @param { number } model - model indicates model file description to be loaded.
-   * @returns Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @permission ohos.permission.SET_WIFI_INFO
+   * @param { number } model - model indicates model file description to be loaded.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
