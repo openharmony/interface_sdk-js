@@ -64,7 +64,7 @@ declare namespace wifiManagerExt {
     /**
    * Obtains the supported power Mode.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<PowerMode> } callback - the callback of model.
+   * @param { AsyncCallback<Array<PowerMode>> } callback - the callback of model.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.

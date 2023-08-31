@@ -74,7 +74,7 @@ declare namespace wifiext {
   /**
    * Obtains the current Wi-Fi power mode.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Promise<PowerModel> }Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
+   * @returns { Promise<PowerModel> } Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
@@ -85,7 +85,7 @@ declare namespace wifiext {
   /**
    * Obtains the current Wi-Fi power mode.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<<PowerModel> } callback - callback function, no return value.
+   * @param { AsyncCallback<PowerModel> } callback - callback function, no return value.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
