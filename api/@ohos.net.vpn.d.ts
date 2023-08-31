@@ -29,10 +29,14 @@ declare namespace vpn {
 
   /**
    * Create a VPN connection using the AbilityContext.
+   * @permission ohos.permission.MANAGE_VPN
    * @param { AbilityContext } context - Indicates the context of application or capability.
    * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   function createVpnConnection(context: AbilityContext): VpnConnection;
