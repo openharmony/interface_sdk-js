@@ -324,7 +324,7 @@ declare class CanvasGradient {
    * Add a breakpoint defined by offset and color to the gradient
    *
    * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
+   * @param { string } color - Set the gradient color.
    *    a SYNTAX_ERR error is thrown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
