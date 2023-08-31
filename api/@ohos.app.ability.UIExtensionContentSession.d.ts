@@ -29,6 +29,7 @@ export default class UIExtensionContentSession {
    * Send data from an ui extension to an ui extension component.
    *
    * @param { object } data - Indicates the data send to ui extension component.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -42,6 +43,7 @@ export default class UIExtensionContentSession {
    * Sets the callback for the ui extension to receive data from an ui extension component.
    *
    * @param { function } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -113,6 +115,7 @@ export default class UIExtensionContentSession {
    * Sets the background color of the UI extension.
    *
    * @param { string } color - the specified color.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
