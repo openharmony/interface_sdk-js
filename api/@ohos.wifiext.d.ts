@@ -62,6 +62,7 @@ declare namespace wifiext {
 
   /**
    * Obtains the supported power model.
+   * @param { AsyncCallback<void> } callback - callback function, no return value.
    * @returns Returns the array of supported power model.
    * @since 8
    * @permission ohos.permission.GET_WIFI_INFO
@@ -96,6 +97,7 @@ declare namespace wifiext {
 
   /**
    * Set the current Wi-Fi power mode.
+   * @param { number } model - model indicates model file description to be loaded.
    * @returns Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension

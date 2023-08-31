@@ -990,52 +990,93 @@ declare namespace wifi {
   /**
    * Wi-Fi device configuration information.
    *
+   * @interface WifiDeviceConfig
+   * @typedef WifiDeviceConfig
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig
    */
   interface WifiDeviceConfig {
-    /** Wi-Fi SSID: the maximum length is 32 */
+    /** Wi-Fi SSID: the maximum length is 32
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     ssid: string;
 
-    /** Wi-Fi bssid(MAC): the length is 6 */
+    /** Wi-Fi bssid(MAC): the length is 6
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     bssid: string;
 
-    /** Wi-Fi key: maximum length is 64 */
+    /** Wi-Fi key: maximum length is 64 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     preSharedKey: string;
 
-    /** Hide SSID or not, false(default): not hide */
+    /** Hide SSID or not, false(default): not hide
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     isHiddenSsid: boolean;
 
-    /** Security type: reference definition of WifiSecurityType */
+    /** Security type: reference definition of WifiSecurityType 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     securityType: WifiSecurityType;
 
-    /** The UID of the Wi-Fi configuration creator */
-    /* @systemapi */
+    /** The UID of the Wi-Fi configuration creator
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+    /* @systemapi 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     creatorUid: number;
 
-    /** Disable reason */
+    /** Disable reason 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     /* @systemapi */
     disableReason: number;
 
-    /** Allocated networkId */
+    /** Allocated networkId
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     /* @systemapi */
     netId: number;
 
-    /** Random mac type */
+    /** Random mac type
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     /* @systemapi */
     randomMacType: number;
 
-    /** Random mac address, the length is 6 */
+    /** Random mac address, the length is 6 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     /* @systemapi */
     randomMacAddr: string;
 
-    /** IP Type */
+    /** IP Type 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     /* @systemapi */
     ipType: IpType;
 
-    /** IP config of static */
+    /** IP config of static
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     /* @systemapi */
     staticIp: IpConfig;
   }
@@ -1043,6 +1084,8 @@ declare namespace wifi {
   /**
    * Wi-Fi IP configuration information.
    *
+   * @interface IpConfig
+   * @typedef IpConfig
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1059,37 +1102,67 @@ declare namespace wifi {
   /**
    * Describes the scanned Wi-Fi information.
    *
+   * @interface WifiScanInfo
+   * @typedef WifiScanInfo
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo
    */
   interface WifiScanInfo {
-    /** Wi-Fi SSID: the maximum length is 32 */
+    /** Wi-Fi SSID: the maximum length is 32 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     ssid: string;
 
-    /** Wi-Fi bssid(MAC): the length is 6 */
+    /** Wi-Fi bssid(MAC): the length is 6 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     bssid: string;
 
-    /** Hotspot capability */
+    /** Hotspot capability
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     capabilities: string;
 
-    /** Security type: reference definition of WifiSecurityType */
+    /** Security type: reference definition of WifiSecurityType
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     securityType: WifiSecurityType;
 
-    /** Received signal strength indicator (RSSI) */
+    /** Received signal strength indicator (RSSI)
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     rssi: number;
 
-    /** Frequency band, 1: 2.4G, 2: 5G */
+    /** Frequency band, 1: 2.4G, 2: 5G 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     band: number;
 
-    /** Frequency */
+    /** Frequency
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     */
     frequency: number;
 
-    /** Channel width */
+    /** Channel width 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+    */
     channelWidth: number;
 
-    /** Time stamp */
+    /** 
+     * Time stamp
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
     timestamp: number;
   }
 
@@ -1103,115 +1176,231 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType
    */
   enum WifiSecurityType {
-    /** Invalid security type */
+    /** Invalid security type
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.Core
+     */
     WIFI_SEC_TYPE_INVALID = 0,
 
-    /** Open */
+    /** Open
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.Core
+     */
     WIFI_SEC_TYPE_OPEN = 1,
 
-    /** Wired Equivalent Privacy (WEP) */
+    /** 
+     * Wired Equivalent Privacy (WEP) 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * */
     WIFI_SEC_TYPE_WEP = 2,
 
-    /** Pre-shared key (PSK) */
+    /** 
+     * Pre-shared key (PSK)
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.Core
+     *  */
     WIFI_SEC_TYPE_PSK = 3,
 
-    /** Simultaneous Authentication of Equals (SAE) */
+    /** 
+     * Simultaneous Authentication of Equals (SAE) 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * */
     WIFI_SEC_TYPE_SAE = 4,
   }
 
   /**
    * Wi-Fi connection information.
    *
+   * @interface WifiLinkedInfo
+   * @typedef WifiLinkedInfo
    * @since 6
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo
    */
   interface WifiLinkedInfo {
-    /** The SSID of the Wi-Fi hotspot */
+    /** 
+     * The SSID of the Wi-Fi hotspot 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     * */
     ssid: string;
 
-    /** The BSSID of the Wi-Fi hotspot */
+    /** 
+     *  The BSSID of the Wi-Fi hotspot 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     * */
     bssid: string;
 
-    /** The ID(uniquely identifies) of a Wi-Fi connection. */
+    /** 
+     * The ID(uniquely identifies) of a Wi-Fi connection. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     * */
     /* @systemapi */
     networkId: number;
 
-    /** The RSSI(dBm) of a Wi-Fi access point. */
+    /** 
+     * The RSSI(dBm) of a Wi-Fi access point. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     * */
     rssi: number;
 
-    /** The frequency band of a Wi-Fi access point. */
+    /** 
+     * The frequency band of a Wi-Fi access point.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     band: number;
 
-    /** The speed of a Wi-Fi access point. */
+    /** 
+     * The speed of a Wi-Fi access point.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     linkSpeed: number;
 
-    /** The frequency of a Wi-Fi access point. */
+    /** 
+     * The frequency of a Wi-Fi access point.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     frequency: number;
 
-    /** Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden. */
+    /** 
+     * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     isHidden: boolean;
 
-    /** Whether this Wi-Fi connection restricts the data volume. */
+    /** 
+     * Whether this Wi-Fi connection restricts the data volume. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+    */
     isRestricted: boolean;
 
-    /** The load value of this Wi-Fi connection. A greater value indicates a higher load. */
+    /** 
+     * 
+     * The load value of this Wi-Fi connection. A greater value indicates a higher load. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     * */
     /* @systemapi */
     chload: number;
 
-    /** The signal-to-noise ratio (SNR) of this Wi-Fi connection. */
+    /** 
+     * The signal-to-noise ratio (SNR) of this Wi-Fi connection.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     /* @systemapi */
     snr: number;
 
-    /** The Wi-Fi MAC address of a device. */
+    /** 
+     * 
+     * The Wi-Fi MAC address of a device.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     macAddress: string;
 
-    /** The IP address of this Wi-Fi connection. */
+    /** 
+     * The IP address of this Wi-Fi connection.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA  
+     *  */
     ipAddress: number;
 
-    /** The state of the supplicant of this Wi-Fi connection. */
+    /** 
+     * 
+     * The state of the supplicant of this Wi-Fi connection. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     /* @systemapi */
     suppState: SuppState;
 
-    /** The state of this Wi-Fi connection. */
+    /** 
+     * The state of this Wi-Fi connection. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     connState: ConnState;
   }
 
   /**
    * Wi-Fi IP information.
    *
+   * @interface IpInfo
+   * @typedef IpInfo
    * @since 7
    * @syscap SystemCapability.Communication.WiFi.STA
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.IpInfo
    */
   interface IpInfo {
-    /** The IP address of the Wi-Fi connection */
+    /** 
+     * The IP address of the Wi-Fi connection
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     *  */
     ipAddress: number;
 
-    /** The gateway of the Wi-Fi connection */
+    /** 
+     * The gateway of the Wi-Fi connection
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     *  */
     gateway: number;
 
-    /** The network mask of the Wi-Fi connection */
+    /** 
+     * The network mask of the Wi-Fi connection
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     *  */
     netmask: number;
 
-    /** The primary DNS server IP address of the Wi-Fi connection */
+    /** 
+     * 
+     * The primary DNS server IP address of the Wi-Fi connection
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     *  */
     primaryDns: number;
 
-    /** The secondary DNS server IP address of the Wi-Fi connection */
+    /** T
+     * he secondary DNS server IP address of the Wi-Fi connection
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     *  */
     secondDns: number;
 
-    /** The DHCP server IP address of the Wi-Fi connection */
+    /** 
+     * The DHCP server IP address of the Wi-Fi connection
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core  
+     *  */
     serverIp: number;
 
-    /** The IP address lease duration of the Wi-Fi connection */
+    /** 
+     * The IP address lease duration of the Wi-Fi connection 
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * */
     leaseDuration: number;
   }
 
   /**
    * Wi-Fi hotspot configuration information.
    *
+   * @interface HotspotConfig
+   * @typedef HotspotConfig
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1219,25 +1408,47 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.HotspotConfig
    */
   interface HotspotConfig {
-    /** The SSID of the Wi-Fi hotspot */
+    /** 
+     * The SSID of the Wi-Fi hotspot 
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * */
     ssid: string;
 
-    /** The encryption mode of the Wi-Fi hotspot */
+    /** 
+     * The encryption mode of the Wi-Fi hotspot 
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * */
     securityType: WifiSecurityType;
 
-    /** The frequency band of the Wi-Fi hotspot */
+    /** 
+     * The frequency band of the Wi-Fi hotspot
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     *  */
     band: number;
 
-    /** The password of the Wi-Fi hotspot */
+    /** 
+     * The password of the Wi-Fi hotspot
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     *  */
     preSharedKey: string;
 
-    /** The maximum number of connections allowed by the Wi-Fi hotspot */
+    /** 
+     * The maximum number of connections allowed by the Wi-Fi hotspot
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     *  */
     maxConn: number;
   }
 
   /**
    * Wi-Fi station information.
-   *
+   *  
+   * @interface StationInfo
+   * @typedef StationInfo
    * @since 7
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -1245,13 +1456,25 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.StationInfo
    */
   interface StationInfo {
-    /** the network name of the Wi-Fi client */
+    /** 
+     * the network name of the Wi-Fi client
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     *  */
     name: string;
 
-    /** The MAC address of the Wi-Fi client */
+    /** 
+     * The MAC address of the Wi-Fi client 
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * */
     macAddress: string;
 
-    /** The IP address of the Wi-Fi client */
+    /** 
+     * The IP address of the Wi-Fi client 
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * */
     ipAddress: string;
   }
 
@@ -1266,13 +1489,25 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.IpType
    */
   enum IpType {
-    /** Use statically configured IP settings */
+    /** 
+     * Use statically configured IP settings
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     *  */
     STATIC,
 
-    /** Use dynamically configured IP settings */
+    /** 
+     * Use dynamically configured IP settings 
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     DHCP,
 
-    /** No IP details are assigned */
+    /**
+     *  No IP details are assigned
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     UNKNOWN,
   }
 
@@ -1290,37 +1525,77 @@ declare namespace wifi {
     /** The supplicant is not associated with or is disconnected from the AP. */
     DISCONNECTED,
 
-    /** The network interface is disabled. */
+    /** 
+     * The network interface is disabled. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     INTERFACE_DISABLED,
 
-    /** The supplicant is disabled. */
+    /** 
+     * The supplicant is disabled. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     INACTIVE,
 
-    /** The supplicant is scanning for a Wi-Fi connection. */
+    /** 
+     * The supplicant is scanning for a Wi-Fi connection. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     SCANNING,
 
-    /** The supplicant is authenticating with a specified AP. */
+    /** 
+     * The supplicant is authenticating with a specified AP.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     AUTHENTICATING,
 
-    /** The supplicant is associating with a specified AP. */
+    /** 
+     * The supplicant is associating with a specified AP. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     ASSOCIATING,
 
-    /** The supplicant is associated with a specified AP. */
+    /** 
+     * The supplicant is associated with a specified AP. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     ASSOCIATED,
 
-    /** The four-way handshake is ongoing. */
+    /** 
+     * The four-way handshake is ongoing.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     FOUR_WAY_HANDSHAKE,
 
     /** The group handshake is ongoing. */
     GROUP_HANDSHAKE,
 
-    /** All authentication is completed. */
+    /** 
+     * All authentication is completed.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     COMPLETED,
 
-    /** Failed to establish a connection to the supplicant. */
+    /** 
+     * Failed to establish a connection to the supplicant.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     UNINITIALIZED,
 
-    /** The supplicant is in an unknown or invalid state. */
+    /** 
+     * The supplicant is in an unknown or invalid state.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     INVALID
   }
 
@@ -1334,106 +1609,196 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.ConnState
    */
   export enum ConnState {
-    /** The device is searching for an available AP. */
+    /** 
+     * The device is searching for an available AP. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     SCANNING,
 
-    /** The Wi-Fi connection is being set up. */
+    /** 
+     * The Wi-Fi connection is being set up. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     CONNECTING,
 
-    /** The Wi-Fi connection is being authenticated. */
+    /** 
+     * The Wi-Fi connection is being authenticated. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     AUTHENTICATING,
 
-    /** The IP address of the Wi-Fi connection is being obtained. */
+    /** 
+     * The IP address of the Wi-Fi connection is being obtained. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     OBTAINING_IPADDR,
 
-    /** The Wi-Fi connection has been set up. */
+    /** 
+     * The Wi-Fi connection has been set up.
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     *  */
     CONNECTED,
 
     /** The Wi-Fi connection is being torn down. */
     DISCONNECTING,
 
-    /** The Wi-Fi connection has been torn down. */
+    /** 
+     * The Wi-Fi connection has been torn down. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA 
+     * */
     DISCONNECTED,
 
-    /** Failed to set up the Wi-Fi connection. */
+    /** 
+     * Failed to set up the Wi-Fi connection. 
+     * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * */
     UNKNOWN
   }
 
   /**
    * P2P device information.
    *
+   * @interface WifiP2pDevice
+   * @typedef WifiP2pDevice
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice
    */
   interface WifiP2pDevice {
-    /** Device name */
+    /** 
+     * Device name
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P  
+     *  */
     deviceName: string;
 
-    /** Device mac address */
+    /** 
+     * Device mac address 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P 
+     * */
     deviceAddress: string;
 
-    /** Primary device type */
+    /**
+     *  Primary device type 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P 
+     * */
     primaryDeviceType: string;
 
-    /** Device status */
+    /** 
+     * Device status 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P 
+     * */
     deviceStatus: P2pDeviceStatus;
 
-    /** Device group capabilities */
+    /** 
+     * Device group capabilities
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     groupCapabilitys: number;
   }
 
   /**
    * P2P config.
-   *
+   * @interface WifiP2PConfig
+   * @typedef WifiP2PConfig
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig
    */
   interface WifiP2PConfig {
-    /** Device mac address */
+    /** 
+     * Device mac address s
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+    */
     deviceAddress: string;
 
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
      * -2: indicates creates a persistent group
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     netId: number;
 
-    /* The passphrase of this {@code WifiP2pConfig} instance */
+    /**
+     * The passphrase of this {@code WifiP2pConfig} instance
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     passphrase: string;
 
-    /** Group name */
+    /** 
+     * Group name
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     groupName: string;
 
-    /** Group owner band */
+    /** 
+     * Group owner band
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     goBand: GroupOwnerBand;
   }
 
   /**
    * P2P group information.
-   *
+   * @interface WifiP2pGroupInfo
+   * @typedef WifiP2pGroupInfo
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo
    */
   interface WifiP2pGroupInfo {
-    /** Indicates whether it is group owner */
+    /** 
+     * Indicates whether it is group owner
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     isP2pGo: boolean;
 
-    /** Group owner information */
+    /** 
+     * Group owner information
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P 
+     *  */
     ownerInfo: WifiP2pDevice;
 
-    /** The group passphrase */
+    /** 
+     * The group passphrase
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     passphrase: string;
 
-    /** Interface name */
+    /** 
+     * Interface name
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     interface: string;
 
-    /** Group name */
+    /** 
+     * Group name
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     groupName: string;
 
     /** Network ID */
@@ -1442,10 +1807,18 @@ declare namespace wifi {
     /** Frequency */
     frequency: number;
 
-    /** Client list */
+    /** 
+     * Client list 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * */
     clientDevices: WifiP2pDevice[];
 
-    /** Group owner IP address */
+    /** 
+     * Group owner IP address 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * */
     goIpAddress: string;
   }
 
@@ -1465,20 +1838,33 @@ declare namespace wifi {
 
   /**
    * P2P linked information.
-   *
+   * @interface WifiP2pLinkedInfo
+   * @typedef WifiP2pLinkedInfo
    * @since 8
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo
    */
   interface WifiP2pLinkedInfo {
-    /** Connection status */
+    /** 
+     * Connection status 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * */
     connectState: P2pConnectState;
 
-    /** Indicates whether it is group owner */
+    /** 
+     * Indicates whether it is group owner 
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P 
+     * */
     isGroupOwner: boolean;
 
-    /** Group owner address */
+    /** 
+     * Group owner address
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     *  */
     groupOwnerAddr: string;
   }
 

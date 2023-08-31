@@ -62,6 +62,8 @@ declare namespace wifiManagerExt {
 
     /**
    * Obtains the supported power Mode.
+   * @param { callback: AsyncCallback<PowerMode> } callback - the callback of model
+   * @returns { void }
    * @permission ohos.permission.GET_WIFI_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -84,6 +86,7 @@ declare namespace wifiManagerExt {
 
   /**
    * Obtains the current Wi-Fi power mode.
+   * @param { callback: AsyncCallback<PowerMode> } callback - the callback of model
    * @permission ohos.permission.GET_WIFI_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -95,6 +98,7 @@ declare namespace wifiManagerExt {
 
   /**
    * Set the current Wi-Fi power mode.
+   * @param { number } model --Wi-Fi power mode.
    * @permission ohos.permission.SET_WIFI_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -106,19 +110,32 @@ declare namespace wifiManagerExt {
 
   /**
    * The power Mode enumeration.
-   *
+   * 
    * @enum { number } PowerMode
    * @since 9
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    */
   export enum PowerMode {
-    /** Sleeping Mode. */
+    /** 
+     * Sleeping Mode. 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+    */
+    
     SLEEPING = 0,
 
-    /** General Mode. */
+    /** 
+     * General Mode. 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     * */
     GENERAL = 1,
 
-    /** Through wall Mode. */
+    /** 
+     * Through wall Mode. 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     * */
     THROUGH_WALL = 2,
   }
 }
