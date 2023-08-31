@@ -63,7 +63,7 @@ declare namespace wifiext {
   /**
    * Obtains the supported power model.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<void> } callback - callback function, no return value.
+   * @param { AsyncCallback<Array<PowerModel>> } callback - callback function, no return value.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
@@ -74,7 +74,7 @@ declare namespace wifiext {
   /**
    * Obtains the current Wi-Fi power mode.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
+   * @returns { Promise<PowerModel> }Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
@@ -85,7 +85,7 @@ declare namespace wifiext {
   /**
    * Obtains the current Wi-Fi power mode.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<void> } callback - callback function, no return value.
+   * @param { AsyncCallback<<PowerModel> } callback - callback function, no return value.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
@@ -96,7 +96,7 @@ declare namespace wifiext {
   /**
    * Set the current Wi-Fi power mode.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { number } model - model indicates model file description to be loaded.
+   * @param { PowerModel } model - model indicates model file description to be loaded.
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
