@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { DrawableDescriptor } from '../api/@ohos.arkui.drawableDescriptor';
+
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
