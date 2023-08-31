@@ -282,7 +282,6 @@ declare enum ChainEdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @since 10
  */
 declare enum ScrollSnapAlign {
@@ -291,7 +290,6 @@ declare enum ScrollSnapAlign {
    * list item will stop without limit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 10
    */
   NONE,
@@ -300,7 +298,6 @@ declare enum ScrollSnapAlign {
    * The first item in view will be aligned at the start of list.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 10
    */
   START,
@@ -309,7 +306,6 @@ declare enum ScrollSnapAlign {
    * The middle item in view will be aligned at the center of list.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 10
    */
   CENTER,
@@ -318,7 +314,6 @@ declare enum ScrollSnapAlign {
    * The last item in view will be aligned at the end of list.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 10
    */
   END,
@@ -786,7 +781,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @param { ScrollSnapAlign } value - options of the list alignment effect.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 10
    */
   scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
