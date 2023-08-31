@@ -77,7 +77,7 @@ declare namespace wifi {
    * Obtains the hotspot information that scanned.
    *
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
-   * @returns Returns information about scanned Wi-Fi hotspot if any.
+   * @returns { Promise<Array<WifiScanInfo>> } Returns information about scanned Wi-Fi hotspot if any.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6
    * @deprecated since 9
@@ -183,8 +183,8 @@ declare namespace wifi {
    * Calculates the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param rssi Indicates the Wi-Fi RSSI.
-   * @param and Indicates the Wi-Fi frequency band.
+   * @param { number } rssi Indicates the Wi-Fi RSSI.
+   * @param { number } band Indicates the Wi-Fi frequency band.
    * @returns { number } Returns Wi-Fi signal level ranging from 0 to 4.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6
@@ -454,7 +454,7 @@ declare namespace wifi {
    * <p>Only OPEN and WPA2 PSK hotspot can be configured.
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-   * @param { config } Indicates the Wi-Fi hotspot configuration.
+   * @param { HotspotConfig } Indicates the Wi-Fi hotspot configuration.
    *     The SSID and {@code securityType} must be available and correct.
    *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
    * @returns { boolean } Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
@@ -1508,6 +1508,7 @@ declare namespace wifi {
     /** 
      * The password of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * @systemapi
      * @since 7
      * @deprecated since 9
      *  */
