@@ -3113,6 +3113,24 @@ declare namespace call {
      * @since 8
      */
     EVENT_INVALID_FDN_NUMBER,
+
+    /**
+     * Indicates hold call fail.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_HOLD_CALL_FAILED,
+
+    /**
+     * Indicates swap call fail.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_SWAP_CALL_FAILED,
   }
 
   /**
