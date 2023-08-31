@@ -845,7 +845,7 @@ declare namespace print {
         * @systemapi
         * @since 10
         */
-        PRINT_JOB_BLOCK_UNKNOWN = 17,
+        PRINT_JOB_BLOCK_UNKNOWN = 99,
     }
 
     /**
