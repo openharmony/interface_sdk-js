@@ -28,6 +28,14 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
+/**
+ * This module provides the capability to manage web modules.
+ *
+ * @namespace webview
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
 declare namespace webview {
   /**
    * Defines the Web's request/response header.
@@ -36,17 +44,37 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Defines the Web's request/response header.
+   * 
+   * @interface WebHeader
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   interface WebHeader {
     /**
      * Gets the key of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Gets the key of the request/response header.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
+     */
     headerKey: string;
 
     /**
      * Gets the value of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    /**
+     * Gets the value of the request/response header.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 9
      */
     headerValue: string;
@@ -1023,6 +1051,12 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Provides methods for controlling the web controller.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   class WebviewController {
     /**
      * Initialize the web engine before loading the Web components.
@@ -1178,6 +1212,20 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Loads the data or URL.
+     *
+     * @param { string | Resource } url - The URL to load.
+     * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100003 - Invalid resource path or file type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
      */
     loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
