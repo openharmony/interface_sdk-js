@@ -42,7 +42,7 @@ declare enum BarMode {
    * @crossplatform
    * @since 10
    */
-  Scrollable,
+  Scrollable = 0,
 
   /**
    * The width of all TabBars is evenly allocated.
@@ -57,7 +57,7 @@ declare enum BarMode {
    * @crossplatform
    * @since 10
    */
-  Fixed,
+  Fixed = 1,
 }
 
 /**
