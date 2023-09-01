@@ -625,7 +625,7 @@ declare namespace wifi {
    * Sets the name of the Wi-Fi P2P device.
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param devName Indicates the name to be set.
+   * @param { string } devName Indicates the name to be set.
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
@@ -919,7 +919,7 @@ declare namespace wifi {
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @param { 'p2pDeviceChange' } type - event name.
-   * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
+   * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
    * @deprecated since 9
@@ -931,8 +931,8 @@ declare namespace wifi {
    * Unsubscribe P2P local device change events.
    *
    * @permission ohos.permission.LOCATION
-   * @param { "p2pPeerDeviceChange" } type - event name.
-   * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
+   * @param { 'p2pDeviceChange' } type - event name.
+   * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
    * @deprecated since 9

@@ -29,6 +29,17 @@ declare namespace wifiext {
   /**
    * Enables a Wi-Fi hotspot.
    *
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.enableHotspot
+   */
+   
+  /**
+   * Enables a Wi-Fi hotspot.
+   *
    * @permission ohos.permission.SET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
@@ -37,6 +48,16 @@ declare namespace wifiext {
    * @useinstead ohos.wifiManagerExt/wifiManagerExt.enableHotspot
    */
   function enableHotspot(): boolean;
+
+  /**
+   * Disables a Wi-Fi hotspot.
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
+   */
 
   /**
    * Disables a Wi-Fi hotspot.
@@ -94,6 +115,17 @@ declare namespace wifiext {
   function getPowerModel(callback: AsyncCallback<PowerModel>): void;
 
   /**
+   * Set the current Wi-Fi power mode.
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { PowerModel } model - model indicates model file description to be loaded.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
+   */
+   
+   /**
    * Set the current Wi-Fi power mode.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { PowerModel } model - model indicates model file description to be loaded.
