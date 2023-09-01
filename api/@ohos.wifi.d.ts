@@ -92,7 +92,7 @@ declare namespace wifi {
    * <p>The configuration will be updated when the configuration is added.</p>
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param config Indicates the device configuration for connection to the Wi-Fi network.
+   * @param { WifiDeviceConfig } config Indicates the device configuration for connection to the Wi-Fi network.
    * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -140,7 +140,7 @@ declare namespace wifi {
    * Connects to Wi-Fi network.
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param networkId ID of the connected network.
+   * @param { number } networkId ID of the connected network.
    * @returns { boolean } Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -156,7 +156,7 @@ declare namespace wifi {
    * 
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG and
    * ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param config Indicates the device configuration for connection to the Wi-Fi network.
+   * @param { WifiDeviceConfig } config Indicates the device configuration for connection to the Wi-Fi network.
    * @returns { boolean } Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -237,7 +237,7 @@ declare namespace wifi {
    * Checks whether this device supports a specified feature.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param featureId Indicates the ID of the feature.
+   * @param { number } featureId Indicates the ID of the feature.
    * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 7
@@ -332,7 +332,7 @@ declare namespace wifi {
    * Updates the specified Wi-Fi configuration.
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param config Indicates the Wi-Fi configuration to update.
+   * @param { WifiDeviceConfig } config Indicates the Wi-Fi configuration to update.
    * @returns { number } Returns the network ID in the updated Wi-Fi configuration if the update is successful;
    *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -349,7 +349,7 @@ declare namespace wifi {
    * <p>The disabled network will not be associated with again.
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param netId Identifies the network to disable.
+   * @param { number } netId Identifies the network to disable.
    * @returns { boolean } Returns {@code true} if the specified network is disabled, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -381,7 +381,7 @@ declare namespace wifi {
    * The application can only delete Wi-Fi networks it has created.
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param id Indicates the ID of the Wi-Fi network,
+   * @param { number } id Indicates the ID of the Wi-Fi network,
    *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
    * @returns { boolean } Returns {@code true} if the Wi-Fi network is deleted successfully, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -537,7 +537,7 @@ declare namespace wifi {
    * Creates a P2P group.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param config Indicates the configuration for creating a group.
+   * @param { WifiP2PConfig } config Indicates the configuration for creating a group.
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -562,7 +562,7 @@ declare namespace wifi {
    * Initiates a P2P connection to a device with the specified configuration.
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param config Indicates the configuration for connecting to a specific group.
+   * @param { WifiP2PConfig } config Indicates the configuration for connecting to a specific group.
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -611,7 +611,7 @@ declare namespace wifi {
    * Deletes the persistent P2P group with the specified network ID.
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param netId Indicates the network ID of the group to be deleted.
+   * @param { number } Indicates the network ID of the group to be deleted.
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
@@ -639,7 +639,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi status change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiStateChange" } type - event name.
+   * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -654,7 +654,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiStateChange" } type - event name.
+   * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -667,7 +667,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi connection change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiConnectionChange" } type - event name.
+   * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -682,7 +682,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiConnectionChange" } type - event name.
+   * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -695,7 +695,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi scan status change events.
    *  
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiScanStateChange" } type - event name.
+   * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -710,7 +710,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiScanStateChange" } type - event name.
+   * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -723,7 +723,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi rssi change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiRssiChange" } type - event name.
+   * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -738,7 +738,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "wifiRssiChange" } type - event name.
+   * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7
@@ -751,7 +751,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi stream change events.
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { "streamChange" } type - event name.
+   * @param { 'streamChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -767,7 +767,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { "streamChange" } type - event name.
+   * @param { 'streamChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -781,7 +781,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi hotspot state change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "hotspotStateChange" } type - event name.
+   * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 7
@@ -796,7 +796,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "hotspotStateChange" } type - event name.
+   * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 7
@@ -809,7 +809,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi hotspot sta join events.
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { "hotspotStaJoin" } type - event name.
+   * @param { 'hotspotStaJoin' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
@@ -825,7 +825,7 @@ declare namespace wifi {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { "hotspotStaJoin" } type - event name.
+   * @param { 'hotspotStaJoin' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
@@ -839,7 +839,7 @@ declare namespace wifi {
    * Subscribe Wi-Fi hotspot sta leave events.
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { "hotspotStaLeave" } type - event name.
+   * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
@@ -852,7 +852,7 @@ declare namespace wifi {
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { "hotspotStaLeave" } type - event name.
+   * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
@@ -866,7 +866,7 @@ declare namespace wifi {
    * Subscribe P2P status change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pStateChange" } type - event name.
+   * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -879,7 +879,7 @@ declare namespace wifi {
    * Unsubscribe P2P status change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pStateChange" } type - event name.
+   * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -892,7 +892,7 @@ declare namespace wifi {
    * Subscribe P2P connection change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pConnectionChange" } type - event name.
+   * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -905,7 +905,7 @@ declare namespace wifi {
    * Unsubscribe P2P connection change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pConnectionChange" } type - event name.
+   * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -918,7 +918,7 @@ declare namespace wifi {
    * Subscribe P2P local device change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { "p2pPeerDeviceChange" } type - event name.
+   * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -944,7 +944,7 @@ declare namespace wifi {
    * Subscribe P2P peer device change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { "p2pPeerDeviceChange" } type - event name.
+   * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -957,7 +957,7 @@ declare namespace wifi {
    * Unsubscribe P2P peer device change events.
    *
    * @permission ohos.permission.LOCATION
-   * @param { "p2pPeerDeviceChange" } type - event name.
+   * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -970,7 +970,7 @@ declare namespace wifi {
    * Subscribe P2P persistent group change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pPersistentGroupChange" } type - event name.
+   * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -983,7 +983,7 @@ declare namespace wifi {
    * Unsubscribe P2P persistent group change events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pPersistentGroupChange" } type - event name.
+   * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -996,7 +996,7 @@ declare namespace wifi {
    * Subscribe P2P discovery events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pDiscoveryChange" } type - event name.
+   * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
@@ -1009,7 +1009,7 @@ declare namespace wifi {
    * Unsubscribe P2P discovery events.
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { "p2pDiscoveryChange" } type - event name.
+   * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8
