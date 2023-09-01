@@ -114,7 +114,7 @@ declare namespace wifiext {
    * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
    */
    
-   /**
+  /**
    * Set the current Wi-Fi power mode.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { PowerModel } model - model indicates model file description to be loaded.

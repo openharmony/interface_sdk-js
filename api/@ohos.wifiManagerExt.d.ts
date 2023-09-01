@@ -62,7 +62,7 @@ declare namespace wifiManagerExt {
    */
   function getSupportedPowerMode(): Promise<Array<PowerMode>>;
 
-    /**
+  /**
    * Obtains the supported power Mode.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { AsyncCallback<Array<PowerMode>> } callback - the callback of model.
