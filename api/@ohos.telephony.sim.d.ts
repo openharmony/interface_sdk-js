@@ -2065,7 +2065,6 @@ declare namespace sim {
    *
    * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 7
    */
   export interface IccAccountInfo {
