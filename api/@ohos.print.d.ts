@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * System print
+ * 
+ * @namespace print
  * @syscap SystemCapability.Print.PrintFramework
  * @since 10
  */
@@ -32,7 +34,7 @@ declare namespace print {
         /**
          * Register event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { block } type - Indicates the print task has been blocked.
+         * @param { 'block' } type - Indicates the print task has been blocked.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -43,7 +45,7 @@ declare namespace print {
         /**
          * Register event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { succeed }type - Indicates the print task succeed.
+         * @param { 'succeed' } type - Indicates the print task succeed.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -54,7 +56,7 @@ declare namespace print {
         /**
          * Register event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { fail } type - Indicates the print task has completed with failure.
+         * @param { 'fail' } type - Indicates the print task has completed with failure.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -65,7 +67,7 @@ declare namespace print {
         /**
          * Register event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { cancel } type - Indicates the print task has been cancelled.
+         * @param { 'cancel' } type - Indicates the print task has been cancelled.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -76,7 +78,7 @@ declare namespace print {
         /**
          * Unregister event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { block } type - Indicates the print task has been blocked.
+         * @param { 'block' } type - Indicates the print task has been blocked.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -87,7 +89,7 @@ declare namespace print {
         /**
          * Unregister event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { succeed } type - Indicates the print task succeed.
+         * @param { 'succeed' } type - Indicates the print task succeed.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -98,7 +100,7 @@ declare namespace print {
         /**
          * Unregister event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { fail } type - Indicates the print task has completed with failure.
+         * @param { 'fail' } type - Indicates the print task has completed with failure.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -109,7 +111,7 @@ declare namespace print {
         /**
          * Unregister event callback when the current print task is in process.
          * @permission ohos.permission.PRINT
-         * @param { cancel } type - Indicates the print task has been cancelled.
+         * @param { 'cancel' } type - Indicates the print task has been cancelled.
          * @param { Callback<void> } callback - The callback function for print task change event
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          * @syscap SystemCapability.Print.PrintFramework
@@ -135,6 +137,7 @@ declare namespace print {
      * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
      * @returns { Promise<PrintTask> } the promise returned by the function.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @syscap SystemCapability.Print.PrintFramework
      * @since 10
      */
     function print(files: Array<string>): Promise<PrintTask>;
@@ -845,7 +848,7 @@ declare namespace print {
         * @systemapi
         * @since 10
         */
-        PRINT_JOB_BLOCK_UNKNOWN = 17,
+        PRINT_JOB_BLOCK_UNKNOWN = 99,
     }
 
     /**
@@ -1221,20 +1224,20 @@ declare namespace print {
     /**
      * Register event callback for the state change of printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @param { printerStateChange } type - Indicates state change of printer.
-     * @param { Callback<printerState, printerInfo> } callback - The callback function for state change of printer.
+     * @param { 'printerStateChange' } type - Indicates state change of printer.
+     * @param { function } callback - The callback function for state change of printer.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    function on(type: 'printerStateChange', callback: Callback<printerState, printerInfo>): void;
+    function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
     /**
      * Unregister event callback for the state change of printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @param { printerStateChange } type - Indicates state change of printer.
+     * @param { 'printerStateChange' } type - Indicates state change of printer.
      * @param { Callback<boolean> } callback - The callback function for state change of printer.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
@@ -1247,20 +1250,20 @@ declare namespace print {
     /**
      * Register event callback for the state change of print job.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @param { jobStateChange } type - Indicates state change of printer.
-     * @param { Callback<printJobState, printJob> } callback - The callback function for state change of printer.
+     * @param { 'jobStateChange' } type - Indicates state change of printer.
+     * @param { function } callback - The callback function for state change of printer.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    function on(type: 'jobStateChange', callback: Callback<printJobState, printJob>): void;
+    function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
 
     /**
      * Unregister event callback for the state change of print job.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @param { jobStateChange } type - Indicates state change of printer.
+     * @param { 'jobStateChange' } type - Indicates state change of printer.
      * @param { Callback<boolean> } callback - The callback function for state change of printer.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
@@ -1273,20 +1276,20 @@ declare namespace print {
     /**
      * Register event callback for the information change of print extension.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @param { extInfoChange } type - Indicates information change of print extension.
-     * @param { Callback<extensionId, info> } callback - The callback function for information change of print extension.
+     * @param { 'extInfoChange' } type - Indicates information change of print extension.
+     * @param { function } callback - The callback function for information change of print extension.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    function on(type: 'extInfoChange', callback: Callback<extensionId, info>): void;
+    function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
 
     /**
      * Unregister event callback for the information change of print extension.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @param { extInfoChange } type - Indicates state change of printer.
+     * @param { 'extInfoChange' } type - Indicates state change of printer.
      * @param { Callback<boolean> } callback - The callback function for state change of printer.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
