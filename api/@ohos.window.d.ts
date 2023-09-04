@@ -2602,6 +2602,53 @@ declare namespace window {
     setUIContent(path: string): Promise<void>;
 
     /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 11
+     */
+    loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
+
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 11
+     */
+    loadContentByName(name: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 11
+     */
+    loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
+
+    /**
      * Checks whether the window is displayed
      *
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
@@ -4215,6 +4262,54 @@ declare namespace window {
      * @since 10
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 11
+     */
+    loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
+
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 11
+     */
+    loadContentByName(name: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Loads content by named router
+     *
+     * @param { string } name - name of the page to which the content will be loaded.
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 11
+     */
+    loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
+
     /**
      * Window stage event callback on.
      *
