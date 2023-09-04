@@ -29,24 +29,26 @@ declare namespace wifiManagerExt {
   /**
    * Enable Wi-Fi hotspot function.
    * This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
+   * @deprecated since 11
    */
   function enableHotspot(): void;
    
   /**
    * Disable Wi-Fi hotspot function.
    * If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
+   * @deprecated since 11
    */
   function disableHotspot(): void;
 
@@ -100,13 +102,14 @@ declare namespace wifiManagerExt {
 
   /**
    * Set the current Wi-Fi power mode.
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @param { PowerMode } model --Wi-Fi power mode.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
+   * @deprecated since 11
    */
   function setPowerMode(mode: PowerMode): void;
 

@@ -84,6 +84,17 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.getScanInfoList
    */
   function getScanInfos(): Promise<Array<WifiScanInfo>>;
+
+  /**
+   * Obtains the hotspot information that scanned.
+   *
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
+   * @param { AsyncCallback<Array<WifiScanInfo>> } get information about scanned Wi-Fi hotspot if any.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.getScanInfoList
+   */
   function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
   /**
@@ -101,6 +112,21 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.addDeviceConfig
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
+
+  /**
+   * Adds Wi-Fi connection configuration to the device.
+   *
+   * <p>The configuration will be updated when the configuration is added.</p>
+   *
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
+   * @param { WifiDeviceConfig } config Indicates the device configuration for connection to the Wi-Fi network.
+   * @param { AsyncCallback<number> }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.addDeviceConfig
+   */
   function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
   /**
@@ -118,6 +144,21 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.addCandidateConfig
    */
   function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
+
+  /**
+   * Adds a specified untrusted hotspot configuration.
+   *
+   * <p>This method adds one configuration at a time. After this configuration is added,
+   *     your device will determine whether to connect to the hotspot.
+   *
+   * @permission ohos.permission.SET_WIFI_INFO
+   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
+   * @param { AsyncCallback<boolean> }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.addCandidateConfig
+   */
   function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -134,6 +175,20 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.removeCandidateConfig
    */
   function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
+
+  /**
+   * Removes a specified untrusted hotspot configuration.
+   *
+   * <p>This method removes one configuration at a time.
+   *
+   * @permission ohos.permission.SET_WIFI_INFO
+   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
+   * @param { AsyncCallback<boolean> }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.removeCandidateConfig
+   */
   function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -204,6 +259,17 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.getLinkedInfo
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
+
+  /**
+   * Obtains information about a Wi-Fi connection.
+   *
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiLinkedInfo> } get Wi-Fi linked information.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.getLinkedInfo
+   */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
@@ -505,6 +571,17 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.getP2pLinkedInfo
    */
   function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
+
+  /**
+   * Obtains information about a P2P connection.
+   *
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiP2pLinkedInfo> } get the P2P connection information.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.getP2pLinkedInfo
+   */
   function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
   /**
@@ -518,6 +595,17 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.getCurrentGroup
    */
   function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
+
+    /**
+   * Obtains information about the current group.
+   *
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
+   * @param { AsyncCallback<WifiP2pGroupInfo> } get the current group information.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.getCurrentGroup
+   */
   function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
   /**
@@ -531,6 +619,17 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.getP2pPeerDevices
    */
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
+
+  /**
+   * Obtains the information about the found devices.
+   *
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
+   * @param { AsyncCallback<WifiP2pDevice[]> } Returns the found devices list.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.wifiManager/wifiManager.getP2pPeerDevices
+   */
   function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
   /**
