@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Provides filesystem statistics APIs
+ * Provides filesystem statistics APIs.
  *
  * @namespace storageStatistics
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace storageStatistics {
   /**
-   * Get the totalSize of volume.
+   * Get the total size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
@@ -34,7 +34,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8
@@ -42,7 +42,7 @@ declare namespace storageStatistics {
   function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
 
   /**
-   * Get the totalSize of volume.
+   * Get the total size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
@@ -52,14 +52,14 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8
    */
   function getTotalSizeOfVolume(volumeUuid: string): Promise<number>;
   /**
-   * Get the free size Of volume.
+   * Get the free size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
@@ -69,7 +69,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8
@@ -77,7 +77,7 @@ declare namespace storageStatistics {
   function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
 
   /**
-   * Get the free size Of volume.
+   * Get the free size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
@@ -87,7 +87,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8
@@ -95,7 +95,7 @@ declare namespace storageStatistics {
   function getFreeSizeOfVolume(volumeUuid: string): Promise<number>;
 
   /**
-   * Get the bundlestat
+   * Get the bundle statistics.
    *
    * @interface BundleStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -127,7 +127,7 @@ declare namespace storageStatistics {
     dataSize: number;
   }
   /**
-   * Get the bundlestat
+   * Get the bundle statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } packageName - The name of the application
@@ -137,7 +137,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -145,7 +145,7 @@ declare namespace storageStatistics {
   function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>): void;
 
   /**
-   * Get the bundlestat
+   * Get the bundle statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } packageName - The name of the application
@@ -155,7 +155,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -163,31 +163,31 @@ declare namespace storageStatistics {
   function getBundleStats(packageName: string): Promise<BundleStats>;
 
   /**
-   * Get the Current BundleStats
+   * Get the current bundle statistics.
    *
    * @param { AsyncCallback<BundleStats> } callback - callback
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9
    */
   function getCurrentBundleStats(callback: AsyncCallback<BundleStats>): void;
 
   /**
-   * Get the Current BundleStats
+   * Get the current bundle statistics.
    *
    * @returns { Promise<BundleStats> } return Promise
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9
    */
   function getCurrentBundleStats(): Promise<BundleStats>;
 
   /**
-   * Get the systemsize
+   * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { AsyncCallback<number> } callback - callback
@@ -195,7 +195,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -203,7 +203,7 @@ declare namespace storageStatistics {
   function getSystemSize(callback: AsyncCallback<number>): void;
 
   /**
-   * Get the systemsize
+   * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @returns { Promise<number> } return Promise
@@ -211,7 +211,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -219,7 +219,7 @@ declare namespace storageStatistics {
   function getSystemSize(): Promise<number>;
 
   /**
-   * Get the UserStorageStats
+   * Get the user storage statistics.
    *
    * @interface StorageStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -283,7 +283,7 @@ declare namespace storageStatistics {
   }
 
   /**
-   * Get the UserStorageStats
+   * Get the user storage statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @returns { Promise<StorageStats> } return Promise
@@ -291,7 +291,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -299,7 +299,7 @@ declare namespace storageStatistics {
   function getUserStorageStats(): Promise<StorageStats>;
 
   /**
-   * Get the UserStorageStats
+   * Get the user storage statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { AsyncCallback<StorageStats> } callback - callback
@@ -307,7 +307,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -315,7 +315,7 @@ declare namespace storageStatistics {
   function getUserStorageStats(callback: AsyncCallback<StorageStats>): void;
 
   /**
-   * Get the UserStorageStats
+   * Get the user storage statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { number } userId - The id of the user
@@ -325,7 +325,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600009 - User if out of range.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -333,7 +333,7 @@ declare namespace storageStatistics {
   function getUserStorageStats(userId: number): Promise<StorageStats>;
 
   /**
-   * Get the UserStorageStats
+   * Get the user storage statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { number } userId - The id of the user
@@ -343,7 +343,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600009 - User if out of range.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -351,7 +351,7 @@ declare namespace storageStatistics {
   function getUserStorageStats(userId: number, callback: AsyncCallback<StorageStats>): void;
 
   /**
-   * Get the totalsize
+   * Get the total size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { AsyncCallback<number> } callback - callback
@@ -359,7 +359,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -367,7 +367,7 @@ declare namespace storageStatistics {
   function getTotalSize(callback: AsyncCallback<number>): void;
 
   /**
-   * Get the totalsize
+   * Get the total size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @returns { Promise<number> } return Promise
@@ -375,7 +375,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -383,7 +383,7 @@ declare namespace storageStatistics {
   function getTotalSize(): Promise<number>;
 
   /**
-   * Get the freesize
+   * Get the free size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { AsyncCallback<number> } callback - callback
@@ -391,7 +391,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
@@ -399,7 +399,7 @@ declare namespace storageStatistics {
   function getFreeSize(callback: AsyncCallback<number>): void;
 
   /**
-   * Get the freesize
+   * Get the free size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @returns { Promise<number> } return Promise
@@ -407,7 +407,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
