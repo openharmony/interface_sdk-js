@@ -2073,7 +2073,6 @@ declare namespace sim {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     simId: number;
@@ -2084,7 +2083,6 @@ declare namespace sim {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     slotIndex: number;
@@ -2094,7 +2092,6 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     isEsim: boolean;
@@ -2104,7 +2101,6 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     isActive: boolean;
@@ -2114,7 +2110,6 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     iccId: string;
@@ -2124,7 +2119,6 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     showName: string;
@@ -2134,7 +2128,6 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
      * @since 7
      */
     showNumber: string;
