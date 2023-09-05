@@ -2098,7 +2098,7 @@ declare namespace i18n {
     isHoliday(date?: Date): boolean;
 
     /**
-     * Obtains holiday info array for showing time zone list
+     * Obtains holiday info array for a specified year
      *
      * @param { number } [year] - specified holiday year. If the year is not given,
      *  the currnet year is used.
@@ -2167,7 +2167,7 @@ declare namespace i18n {
     constructor(locale?: String);
 
     /**
-     * Obtains holiday info array for showing time zone list
+     * Obtains holiday info array for a specified text
      *
      * @param { string } [text] - the text to find entities.
      * @returns { Array<EntityInfoItem> } entity information array found.
