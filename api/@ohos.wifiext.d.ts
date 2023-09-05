@@ -29,7 +29,7 @@ declare namespace wifiext {
   /**
    * Enables a Wi-Fi hotspot.
    *
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
@@ -40,7 +40,7 @@ declare namespace wifiext {
 
   /**
    * Disables a Wi-Fi hotspot.
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @returns { boolean } Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
@@ -95,7 +95,7 @@ declare namespace wifiext {
 
   /**
    * Set the current Wi-Fi power mode.
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @param { PowerModel } model - model indicates model file description to be loaded.
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
