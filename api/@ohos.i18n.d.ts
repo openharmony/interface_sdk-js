@@ -912,7 +912,7 @@ declare namespace i18n {
     /**
      * Returns days comparison result.
      *
-     * @param { Date } [date] - Date object whose attribute is desired.
+     * @param { Date } date - Date object to be compared.
      * @returns { number }  value of of the comparison result. A positive value indicates that the date is later, 
      * and a negative value indicates that the date is earlier.
      * @throws {BusinessError} 401 - check param failed.
@@ -920,7 +920,7 @@ declare namespace i18n {
      * @crossplatform
      * @since 11
      */
-    compareDays(date?: Date): number;
+    compareDays(date: Date): number;
   }
 
   /**
