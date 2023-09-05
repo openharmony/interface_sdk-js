@@ -378,7 +378,7 @@ function deleteSystemApi(url) {
     return (node) => {
       sourceFile = node;
       node = processSourceFile(node); // 处理最外层节点
-      node = ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
+      node = processVisitEachChild(context, node);
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
         const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
@@ -396,101 +396,166 @@ function deleteSystemApi(url) {
       }
       return node;
     };
-    /**
-     * 遍历每个文件下的所有节点，然后删除节点
-     * @param node
-     * @returns
-     */
-    function processAllNodes(node) {
-      if (ts.isInterfaceDeclaration(node)) {
-        const newMembers = [];
-        node.members.forEach((member) => {
-          if (!isSystemapi(member)) {
-            newMembers.push(member);
-          }
-        });
-        node = ts.factory.updateInterfaceDeclaration(
-          node,
-          node.modifiers,
-          node.name,
-          node.typeParameters,
-          node.heritageClauses,
-          newMembers
-        );
-      } else if (ts.isClassDeclaration(node)) {
-        const newMembers = [];
-        node.members.forEach((member) => {
-          if (!isSystemapi(member)) {
-            newMembers.push(member);
-          }
-        });
-        node = ts.factory.updateClassDeclaration(
-          node,
-          node.modifiers,
-          node.name,
-          node.typeParameters,
-          node.heritageClauses,
-          newMembers
-        );
-      } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
-        const newStatements = [];
-        node.body.statements.forEach((statement) => {
-          if (!isSystemapi(statement)) {
-            newStatements.push(statement);
-          }
-        });
-        const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
-        node = ts.factory.updateModuleDeclaration(node, node.modifiers, node.name, newModuleBody);
-      } else if (ts.isEnumDeclaration(node)) {
-        const newMembers = [];
-        node.members.forEach((member) => {
-          if (!isSystemapi(member)) {
-            newMembers.push(member);
-          }
-        });
-        node = ts.factory.updateEnumDeclaration(node, node.modifiers, node.name, newMembers);
-      }
-      return ts.visitEachChild(node, processAllNodes, context);
-    }
-
-    /**
-     * 处理最外层的节点看是否删除
-     * @param  node 解析过后的节点
-     * @returns
-     */
-    function processSourceFile(node) {
-      const stateNamesSet = new Set([]);
-      const newStatements = [];
-      const newStatementsWithoutExport = [];
-      node.statements.forEach((statement) => {
-        if (!isSystemapi(statement)) {
-          newStatements.push(statement);
-        } else if (ts.isModuleDeclaration(statement) && statement.name && ts.isIdentifier(statement.name)) {
-          stateNamesSet.add(statement.name.escapedText.toString());
-        }
-      });
-      newStatements.forEach((statement) => {
-        if (
-          !(
-            ts.isExportAssignment(statement) &&
-            statement.expression &&
-            ts.isIdentifier(statement.expression) &&
-            stateNamesSet.has(statement.expression.escapedText.toString())
-          )
-        ) {
-          newStatementsWithoutExport.push(statement);
-        }
-      });
-      return ts.factory.updateSourceFile(
-        node,
-        newStatementsWithoutExport,
-        node.isDeclarationFile,
-        node.referencedFiles
-      );
-    }
   };
 }
+
 exports.deleteSystemApi = deleteSystemApi;
+
+/**
+ * 遍历每个文件下的所有节点，然后删除节点
+ * @param node
+ * @returns
+ */
+
+/**
+ * 处理最外层的节点看是否删除
+ * @param  node 解析过后的节点
+ * @returns
+ */
+function processSourceFile(node) {
+  const newStatements = [];
+  const newStatementsWithoutExport = [];
+  const deleteSystemApiSet = new Set();
+  node.statements.forEach((statement) => {
+    if (isSystemapi(statement)) {
+      if (ts.isVariableStatement(statement)) {
+        deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
+      } else if (
+        ts.isModuleDeclaration(statement) ||
+        ts.isInterfaceDeclaration(statement) ||
+        ts.isClassDeclaration(statement) ||
+        ts.isEnumDeclaration(statement)
+      ) {
+        if (statement && statement.name && statement.name.escapedText) {
+          deleteSystemApiSet.add(statement.name.escapedText.toString());
+        }
+      }
+    } else {
+      newStatements.push(statement);
+    }
+  });
+  newStatements.forEach((statement) => {
+    const names = getExportIdentifierName(statement);
+    if (names.length === 0) {
+      newStatementsWithoutExport.push(statement);
+      return;
+    }
+    if (names.length === 1 && !deleteSystemApiSet.has(names[0])) {
+      //exports.name = test;
+      //export default test1
+      //export {test1}
+      newStatementsWithoutExport.push(statement);
+      return;
+    }
+    //export {test1 as test,testa as test2}
+    if (ts.isExportDeclaration(statement)) {
+      let needExport = false;
+      const newSpecifiers = [];
+      names.forEach((name, index) => {
+        if (!deleteSystemApiSet.has(name)) {
+          newSpecifiers.push(statement.exportClause.elements[index]);
+          needExport = true;
+        }
+      });
+      if (needExport) {
+        statement.exportClause = ts.factory.updateNamedExports(statement.exportClause, newSpecifiers);
+        newStatementsWithoutExport.push(statement);
+      }
+    }
+  });
+  return ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles);
+}
+/**
+ * 获取export节点的名字，只获取第一个关键词
+ * @param {ts.node} statement
+ * @returns {Array<string>}
+ */
+function getExportIdentifierName(statement) {
+  const names = [];
+  if (ts.isExpressionStatement(statement)) {
+    //exports.name = test;
+    if (ts.isBinaryExpression(statement.expression)) {
+      names.push(statement.expression.right.escapedText.toString());
+    }
+  } else if (ts.isExportAssignment(statement)) {
+    //export default test1
+    names.push(statement.expression.escapedText.toString());
+  } else if (ts.isExportDeclaration(statement)) {
+    //export {test1} 、export {test1 as test} 、export * from './featureability'
+    const exportClause = statement.exportClause;
+    if (exportClause) {
+      const specifiers = exportClause.elements;
+      specifiers.forEach((specifier) => {
+        if (ts.isExportSpecifier(specifier)) {
+          const name = specifier.propertyName ? specifier.propertyName : specifier.name;
+          names.push(name.escapedText.toString());
+        }
+      });
+    }
+  }
+  return names;
+}
+
+/**
+ * 遍历处理tsnode节点
+ * @param  context 解析过后的内容
+ * @param  node 解析过后的节点
+ * @returns ts.node
+ */
+function processVisitEachChild(context, node) {
+  return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
+  function processAllNodes(node) {
+    if (ts.isInterfaceDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member) => {
+        if (!isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateInterfaceDeclaration(
+        node,
+        node.modifiers,
+        node.name,
+        node.typeParameters,
+        node.heritageClauses,
+        newMembers
+      );
+    } else if (ts.isClassDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member) => {
+        if (!isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateClassDeclaration(
+        node,
+        node.modifiers,
+        node.name,
+        node.typeParameters,
+        node.heritageClauses,
+        newMembers
+      );
+    } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
+      const newStatements = [];
+      node.body.statements.forEach((statement) => {
+        if (!isSystemapi(statement)) {
+          newStatements.push(statement);
+        }
+      });
+      const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
+      node = ts.factory.updateModuleDeclaration(node, node.modifiers, node.name, newModuleBody);
+    } else if (ts.isEnumDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member) => {
+        if (!isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateEnumDeclaration(node, node.modifiers, node.name, newMembers);
+    }
+    return ts.visitEachChild(node, processAllNodes, context);
+  }
+}
 
 /**
  * 解析reference
@@ -565,20 +630,6 @@ function resolveCallback(url) {
         }
       });
     }
-    function variableStatementGetEscapedText(statement) {
-      let name = '';
-      if (
-        statement &&
-        statement.declarationList &&
-        statement.declarationList.declarations &&
-        statement.declarationList.declarations.length > 0 &&
-        statement.declarationList.declarations[0].name &&
-        statement.declarationList.declarations[0].name.escapedText
-      ) {
-        name = statement.declarationList.declarations[0].name.escapedText.toString();
-      }
-      return name;
-    }
     function collectAllIdentifier(node) {
       if (isSystemapi(node)) {
         return;
@@ -591,6 +642,21 @@ function resolveCallback(url) {
   };
 }
 
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (
+    statement &&
+    statement.declarationList &&
+    statement.declarationList.declarations &&
+    statement.declarationList.declarations.length > 0 &&
+    statement.declarationList.declarations[0].name &&
+    statement.declarationList.declarations[0].name.escapedText
+  ) {
+    name = statement.declarationList.declarations[0].name.escapedText.toString();
+  }
+  return name;
+}
+
 function isSystemapi(node) {
   const notesContent = node.getFullText().replace(node.getText(), '').replace(/[\s]/g, '');
   const notesArr = notesContent.split(/\/\*\*/);
@@ -600,7 +666,7 @@ function isSystemapi(node) {
       lastNodeName = node.name && node.name.escapedText ? node.name.escapedText.toString() : '';
       lastNoteStr = notesStr;
     }
-    return /\@systemapi/g.test(notesStr);
+    return /@systemapi/g.test(notesStr);
   } else {
     if (
       (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) &&
@@ -608,7 +674,7 @@ function isSystemapi(node) {
       node.name.escapedText.toString() !== '' &&
       node.name.escapedText.toString() === lastNodeName
     ) {
-      return /\@systemapi/g.test(lastNoteStr);
+      return /@systemapi/g.test(lastNoteStr);
     } else {
       return false;
     }
@@ -616,15 +682,18 @@ function isSystemapi(node) {
 }
 
 function isEmptyFile(node) {
+  let isEmpty = true;
   if (ts.isSourceFile(node) && node.statements) {
     for (let i = 0; i < node.statements.length; i++) {
       const statement = node.statements[i];
-      if (!ts.isImportDeclaration(statement)) {
-        return false;
+      if (ts.isImportDeclaration(statement)) {
+        continue;
       }
+      isEmpty = false;
+      break;
     }
   }
-  return true;
+  return isEmpty;
 }
 
 const apiSourcePath = '../api';
