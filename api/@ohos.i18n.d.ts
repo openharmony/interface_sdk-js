@@ -908,6 +908,19 @@ declare namespace i18n {
      * @since 11
      */
     getTimeInMillis(): number;
+
+    /**
+     * Returns days comparison result.
+     *
+     * @param { Date } [date] - Date object whose attribute is desired.
+     * @returns { number }  value of of the comparison result. A positive value indicates that the date is later, 
+     * and a negative value indicates that the date is earlier.
+     * @throws {BusinessError} 401 - check param failed.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
+    compareDays(date?: Date): number;
   }
 
   /**
