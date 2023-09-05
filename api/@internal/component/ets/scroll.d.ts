@@ -223,16 +223,6 @@ declare class Scroller {
    *
    * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   * @deprecated since 9
-   */
-  scrollPage(value: { next: boolean; direction?: Axis });
-
-  /**
-   * Called when page turning mode is set.
-   *
-   * @param { object } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
@@ -244,6 +234,16 @@ declare class Scroller {
    * @since 10
    */
   scrollPage(value: { next: boolean });
+
+  /**
+   * Called when page turning mode is set.
+   *
+   * @param { object } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   * @deprecated since 9
+   */
+  scrollPage(value: { next: boolean; direction?: Axis });
 
   /**
    * Called when viewing the scroll offset.
