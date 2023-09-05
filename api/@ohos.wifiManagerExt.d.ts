@@ -35,7 +35,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 10
    */
   function enableHotspot(): void;
    
@@ -48,7 +48,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 10
    */
   function disableHotspot(): void;
 
@@ -109,7 +109,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 10
    */
   function setPowerMode(mode: PowerMode): void;
 
