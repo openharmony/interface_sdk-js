@@ -596,7 +596,7 @@ declare namespace wifi {
    */
   function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
 
-    /**
+  /**
    * Obtains information about the current group.
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
