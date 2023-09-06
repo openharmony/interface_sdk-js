@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { BundleStatusCallback } from './bundle/bundleStatusCallback';
+import type { BundleStatusCallback as _BundleStatusCallback } from './bundle/bundleStatusCallback';
 import { LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
 import { ShortcutInfo } from './bundle/shortcutInfo';
 
@@ -175,5 +175,14 @@ declare namespace innerBundleManager {
    */
   function getShortcutInfos(bundleName: string): Promise<Array<ShortcutInfo>>;
 }
+
+/**
+ * Contains basic Ability information, which uniquely identifies a launcher StatusCallback.
+ *
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 8
+ * @deprecated since 9
+ */
+export type BundleStatusCallback = _BundleStatusCallback;
 
 export default innerBundleManager;
