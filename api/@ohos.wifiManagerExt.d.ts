@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-
 /**
  * Provides extended methods to operate or manage Wi-Fi.
  *
@@ -22,90 +21,126 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * These extended APIs are only used by some product types, such as routers. 
  * Common products should not use these APIs.</p>
  *
+ * @namespace wifiManagerExt
  * @since 9
- * @import import wifiManagerExt from '@ohos.wifiManagerExt';
  */
 declare namespace wifiManagerExt {
-  /**
-   * Enables a Wi-Fi hotspot.
-   *
-   * @since 9
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-   * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   */
-  function enableHotspot(): void;
 
   /**
-   * Disables a Wi-Fi hotspot.
-   *
-   * @since 9
+   * Enable Wi-Fi hotspot function.
+   * This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
+   * @deprecated since 10
+   */
+  function enableHotspot(): void;
+   
+  /**
+   * Disable Wi-Fi hotspot function.
+   * If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2701000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
+   * @deprecated since 10
    */
   function disableHotspot(): void;
 
   /**
    * Obtains the supported power Mode.
-   *
-   * @returns Returns the array of supported power Mode.
-   *
-    * @since 9
-    * @throws {BusinessError} 201 - Permission denied.
-    * @throws {BusinessError} 801 - Capability not supported.
-    * @throws {BusinessError} 2701000 - Operation failed.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<Array<PowerMode>> } Returns a list of application PowerMode.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
    */
   function getSupportedPowerMode(): Promise<Array<PowerMode>>;
+
+  /**
+   * Obtains the supported power Mode.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<Array<PowerMode>> } callback - the callback of model.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2701000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
+   */
   function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
   /**
    * Obtains the current Wi-Fi power mode.
-   *
-   * @returns Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
-   *
-   * @since 9
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<PowerMode> } 
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.GET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
    */
   function getPowerMode(): Promise<PowerMode>;
+
+  /**
+   * Obtains the current Wi-Fi power mode.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<PowerMode> } callback - the callback of model
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2701000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
+   */
   function getPowerMode(callback: AsyncCallback<PowerMode>): void;
 
   /**
    * Set the current Wi-Fi power mode.
-   *
-   * @since 9
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @param { PowerMode } model --Wi-Fi power mode.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
+   * @deprecated since 10
    */
-  function setPowerMode(mode: PowerMode): void
+  function setPowerMode(mode: PowerMode): void;
 
   /**
    * The power Mode enumeration.
-   *
-   * @since 9
+   * 
+   * @enum { number } PowerMode
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 9
    */
   export enum PowerMode {
-    /** Sleeping Mode. */
+    /** 
+     * Sleeping Mode. 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+    */
+    
     SLEEPING = 0,
 
-    /** General Mode. */
+    /** 
+     * General Mode. 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     * */
     GENERAL = 1,
 
-    /** Through wall Mode. */
+    /** 
+     * Through wall Mode. 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     * */
     THROUGH_WALL = 2,
   }
 }
