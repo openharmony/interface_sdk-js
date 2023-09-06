@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { DrawableDescriptor } from '../api/@ohos.arkui.drawableDescriptor';
+declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
  * @enum { number }
