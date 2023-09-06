@@ -1948,7 +1948,7 @@ declare namespace sim {
    *
    * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 10
    */
   export interface IccAccountInfo {
     /**
@@ -1956,7 +1956,7 @@ declare namespace sim {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     simId: number;
 
@@ -1966,7 +1966,7 @@ declare namespace sim {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     slotIndex: number;
 
@@ -1975,7 +1975,7 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     isEsim: boolean;
 
@@ -1984,7 +1984,7 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     isActive: boolean;
 
@@ -1993,7 +1993,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     iccId: string;
 
@@ -2002,7 +2002,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     showName: string;
 
@@ -2011,7 +2011,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 10
      */
     showNumber: string;
   }
