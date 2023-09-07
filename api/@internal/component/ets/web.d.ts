@@ -1136,7 +1136,8 @@ declare class WebContextMenuParam {
 
 /**
  * Defines the context menu result, related to {@link WebContextMenuResult} method.
- *
+ * 
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class WebContextMenuResult {
@@ -1551,6 +1552,7 @@ declare class WebResourceError {
 /**
  * Defines the js geolocation request.
  *
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class JsGeolocation {
@@ -1613,6 +1615,7 @@ declare class WebCookie {
 /**
  * Defines the Web controller.
  *
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  * @deprecated since 9
  * @useinstead ohos.web.webview.webview.WebviewController
@@ -1671,8 +1674,7 @@ declare class WebController {
   /**
    * Loads a piece of code and execute JS code in the context of the currently displayed page.
    *
-   * @param { { script: string;
-   * callback?: (result: string) => void } } options The options with a piece of code and a callback.
+   * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
@@ -1683,8 +1685,7 @@ declare class WebController {
   /**
    * Loads the data or URL.
    *
-   * @param { { data: string; mimeType: string; encoding: string; baseUrl?: string;
-   * historyUrl?: string } } options The options with the data or URL and other information.
+   * @param { object } options The options with the data or URL and other information.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
@@ -1695,7 +1696,7 @@ declare class WebController {
   /**
    * Loads the given URL.
    *
-   * @param { { url: string | Resource; headers?: Array<Header> } } options The options with the URL and other information.
+   * @param { object } options The options with the URL and other information.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
@@ -1726,7 +1727,7 @@ declare class WebController {
   /**
    * Registers the JavaScript object and method list.
    *
-   * @param { { object: object; name: string; methodList: Array<string> } } options - The option with the JavaScript object and method list.
+   * @param { object } options - The option with the JavaScript object and method list.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
@@ -1886,7 +1887,8 @@ interface WebInterface {
 /**
  * Defines the Web attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<WebAttribute>
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
@@ -1974,9 +1976,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    *
-   * @param { { object: object;
-   * name: string;methodList: Array<string>;
-   * controller: WebController } } javaScriptProxy - The JavaScript object to be injected.
+   * @param { object } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -1984,9 +1984,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    *
-   * @param { { object: object;
-   * name: string;methodList: Array<string>;
-   * controller: WebController | WebviewController } } javaScriptProxy - The JavaScript object to be injected.
+   * @param { object } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
