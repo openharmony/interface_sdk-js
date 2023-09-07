@@ -15,12 +15,12 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { ContinuableInfo as _ContinuableInfo } from './application/ContinuableInfo';
-import { ContinueCallback } from './application/ContinueCallback';
-import { ContinueDeviceInfo } from './application/ContinueDeviceInfo';
+import type { ContinueCallback as _ContinueCallback } from './application/ContinueCallback';
+import type { ContinueDeviceInfo as _ContinueDeviceInfo } from './application/ContinueDeviceInfo';
 import type { ContinueMissionInfo as _ContinueMissionInfo } from './application/ContinueMissionInfo';
-import { MissionCallback } from './application/MissionCallbacks';
-import { MissionDeviceInfo } from './application/MissionDeviceInfo';
-import { MissionParameter } from './application/MissionParameter';
+import type { MissionCallback as _MissionCallback } from './application/MissionCallbacks';
+import type { MissionDeviceInfo as _MissionDeviceInfo } from './application/MissionDeviceInfo';
+import type { MissionParameter as _MissionParameter } from './application/MissionParameter';
 
 /**
  * This module provides the capability to manage abilities and obtain system task information for distributed
@@ -325,5 +325,53 @@ declare namespace distributedMissionManager {
    * @since 10
    */
   export type ContinueMissionInfo = _ContinueMissionInfo;
+  
+  /**
+   * ContinueCallback registered for notify continue result.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type ContinueCallback = _ContinueCallback;
+
+  /**
+   * Parameters corresponding to continue mission.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type ContinueDeviceInfo = _ContinueDeviceInfo;
+
+  /**
+   * MissionCallback registered by app.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type MissionCallback = _MissionCallback;
+
+  /**
+   * Parameters corresponding to mission.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type MissionDeviceInfo = _MissionDeviceInfo;
+
+  /**
+   * Parameters corresponding to mission.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type MissionParameter = _MissionParameter;
 }
 export default distributedMissionManager;
