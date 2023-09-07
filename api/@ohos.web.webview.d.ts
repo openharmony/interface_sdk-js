@@ -1595,7 +1595,6 @@ declare namespace webview {
     /**
      * Query if current document has image.
      *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
      * @returns { Promise<boolean> } A promise resolved after query image has finished.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -1604,6 +1603,17 @@ declare namespace webview {
      * @since 9
      */
     hasImage(): Promise<boolean>;
+
+    /**
+     * Query if current document has image.
+     *
+     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
     hasImage(callback: AsyncCallback<boolean>): void;
 
     /**
