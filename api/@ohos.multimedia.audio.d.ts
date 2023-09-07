@@ -123,17 +123,6 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
   /**
-   * Obtains an {@link AudioCapturer} instance.
-   * @param { AudioCapturerOptions } options - Capturer configurations.
-   * @returns { AudioCapturer } The audio capturer instance.
-   * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-   * @throws { BusinessError } 6800101 - Invalid parameter error.
-   * @syscap SystemCapability.Multimedia.Audio.Capturer
-   * @since 10
-   */
-  function createAudioCapturerSync(options: AudioCapturerOptions): AudioCapturer;
-
-  /**
    * Obtains an {@link AudioRenderer} instance. This method uses an asynchronous callback to return the renderer instance.
    * @param { AudioRendererOptions } options - Renderer configurations.
    * @param { AsyncCallback<AudioRenderer> } callback - Callback used to return the audio renderer instance.
@@ -150,17 +139,6 @@ declare namespace audio {
    * @since 8
    */
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
-
-  /**
-   * Obtains an {@link AudioRenderer} instance.
-   * @param { AudioRendererOptions } options - Renderer configurations.
-   * @returns { AudioRenderer } The audio renderer instance.
-   * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-   * @throws { BusinessError } 6800101 - Invalid parameter error.
-   * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 10
-   */
-  function createAudioRendererSync(options: AudioRendererOptions): AudioRenderer;
 
   /**
    * Obtains a {@link TonePlayer} instance. This method uses an asynchronous callback to return the renderer instance.
@@ -181,18 +159,6 @@ declare namespace audio {
    * @since 9
    */
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
-
-  /**
-   * Obtains a {@link TonePlayer} instance.
-   * @param { AudioRendererInfo } options - Tone playing attribute.
-   * @returns { TonePlayer } The tone player instance.
-   * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-   * @throws { BusinessError } 6800101 - Invalid parameter error.
-   * @syscap SystemCapability.Multimedia.Audio.Tone
-   * @systemapi
-   * @since 10
-   */
-  function createTonePlayerSync(options: AudioRendererInfo): TonePlayer;
 
   /**
    * Enumerates the audio states.
