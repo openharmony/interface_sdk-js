@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
+
 /**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
