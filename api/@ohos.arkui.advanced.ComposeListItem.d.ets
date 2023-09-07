@@ -76,7 +76,6 @@ export declare enum IconType {
 
 /**
  * Declare type OperateIcon
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -98,14 +97,13 @@ export declare class OperateIcon {
 
 /**
  * Declare type OperateCheck
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 export declare class OperateCheck {
   /**
    * Whether is checked on default.
-   * @type { ResourceStr }.
+   * @type { boolean }.
    * @since 10
    */
   isCheck?: boolean,
@@ -120,7 +118,6 @@ export declare class OperateCheck {
 
 /**
  * Declare type OperateButton
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

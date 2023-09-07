@@ -19,7 +19,6 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declaration of the menu item on the right side.
- * @typedef ComposeTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
