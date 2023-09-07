@@ -15,8 +15,8 @@
 
 import { Callback } from './@ohos.base';
 import { AsyncCallback } from './@ohos.base';
-import { ContinuationResult } from './continuation/continuationResult';
-import { ContinuationExtraParams } from './continuation/continuationExtraParams';
+import type { ContinuationResult as _ContinuationResult } from './continuation/continuationResult';
+import type { ContinuationExtraParams as _ContinuationExtraParams } from './continuation/continuationExtraParams';
 
 /**
  * Provides methods for interacting with the continuation manager service, including methods for registering and
@@ -548,5 +548,21 @@ declare namespace continuationManager {
      */
     COLLABORATION_MULTIPLE = 1
   }
+
+  /**
+   * Indicates the description of transfer results for continuation.
+   *
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 10
+   */
+  export type ContinuationResult = _ContinuationResult;
+
+  /**
+   * Indicates the description of additional parameters for continuation.
+   *
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 10
+   */
+  export type ContinuationExtraParams = _ContinuationExtraParams;
 }
 export default continuationManager;
