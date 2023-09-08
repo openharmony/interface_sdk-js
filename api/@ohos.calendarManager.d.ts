@@ -361,11 +361,11 @@ declare namespace calendarManager {
 
     /**
      * Color of the calendar
-     * @type { ?ResourceColor }
+     * @type { ?(number | string) }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    color?: ResourceColor;
+    color?: number | string;
   }
 
   /**
