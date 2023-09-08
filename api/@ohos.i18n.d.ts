@@ -482,11 +482,10 @@ declare namespace i18n {
      *
      * @param { number } hour - the hour value.
      * @param { ?string } locale - specified the locale. If the locale is not given,
-     *  the currnet app locale is used.
-     * @returns { string } the string of time period name.
+     *  the current app locale is used.
+     * @returns { string } the string of time period name. the return value may be empty string
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
-     * not have a time period name, the return value may be empty string.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -886,7 +885,7 @@ declare namespace i18n {
     isWeekend(date?: Date): boolean;
 
     /**
-     * Adds or subtracts the specified amount of time to the given calendar field.
+     * Adds or subtract the specified amount of time to the given calendar field.
      *
      * @param { string } field - field values such as year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
      *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
@@ -2077,7 +2076,7 @@ declare namespace i18n {
     /**
      * A constructor used to create a HolidayManager object.
      *
-     * @param { String } icsPath - the path of the iCalendar formated file to create HolidayManager object.
+     * @param { String } icsPath - the path of the iCalendar format file to create HolidayManager object.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
@@ -2101,7 +2100,7 @@ declare namespace i18n {
      * Obtains holiday info array for a specified year
      *
      * @param { number } [year] - specified holiday year. If the year is not given,
-     *  the currnet year is used.
+     *  the current year is used.
      * @returns { Array<HolidayInfoItem> } holiday information array for one year.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
@@ -2157,8 +2156,8 @@ declare namespace i18n {
     /**
      * A constructor used to create a EntityRecognizer object.
      *
-     * @param { ?String } locale - specified the locale. If the locale is not given,
-     *  the currnet app locale is used.
+     * @param { ?string } locale - specified the locale. If the locale is not given,
+     *  the current app locale is used.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
