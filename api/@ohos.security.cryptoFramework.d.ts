@@ -485,7 +485,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
+    convertKey(pubKey: DataBlob | null, priKey: DataBlob | null, callback: AsyncCallback<KeyPair>): void;
 
     /**
      * Used to convert asymmetric key data to keypair object.
@@ -499,7 +499,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
+    convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
 
     /**
      * The algName of the AsyKeyGenerator.
@@ -911,7 +911,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    init(opMode: CryptoMode, key: Key, params: ParamsSpec, callback: AsyncCallback<void>): void;
+    init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback<void>): void;
 
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
@@ -927,7 +927,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    init(opMode: CryptoMode, key: Key, params: ParamsSpec): Promise<void>;
+    init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -972,7 +972,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    doFinal(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
+    doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -987,7 +987,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    doFinal(data: DataBlob): Promise<DataBlob>;
+    doFinal(data: DataBlob | null): Promise<DataBlob>;
 
     /**
      * Set the specified parameter to the cipher object.
@@ -1121,7 +1121,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
+    sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
     /**
      * Used to append the message need to be signed.
@@ -1135,7 +1135,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    sign(data: DataBlob): Promise<DataBlob>;
+    sign(data: DataBlob | null): Promise<DataBlob>;
 
     /**
      * Set the specified parameter to the sign object.
@@ -1255,7 +1255,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    verify(data: DataBlob, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
+    verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
     /**
      * Used to verify message, include the update data.
@@ -1270,7 +1270,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
+    verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
 
     /**
      * Set the specified parameter to the verify object.
@@ -1538,7 +1538,7 @@ declare namespace cryptoFramework {
     ECC_FIELD_TYPE_STR = 211,
 
     /**
-     * Indicates the field size in bits. 
+     * Indicates the field size in bits.
      * For Fp field (an elliptic curve prime finite field with prime p), the field size is the size of prime p.
      *
      * @syscap SystemCapability.Security.CryptoFramework
