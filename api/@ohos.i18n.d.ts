@@ -2161,7 +2161,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
-    constructor(locale?: String);
+    constructor(locale?: string);
 
     /**
      * Obtains holiday info array for a specified text
