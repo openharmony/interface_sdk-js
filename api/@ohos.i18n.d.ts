@@ -481,7 +481,7 @@ declare namespace i18n {
      * Get the time period name for the specified hour.
      *
      * @param { number } hour - the hour value.
-     * @param { ?string } locale - specified the locale. If the locale is not given,
+     * @param { ?string } [locale] - specified the locale. If the locale is not given,
      *  the current app locale is used.
      * @returns { string } the string of time period name. the return value may be empty string
      * @throws {BusinessError} 401 - check param failed.
@@ -2156,7 +2156,7 @@ declare namespace i18n {
     /**
      * A constructor used to create a EntityRecognizer object.
      *
-     * @param { ?string } locale - specified the locale. If the locale is not given,
+     * @param { ?string } [locale] - specified the locale. If the locale is not given,
      *  the current app locale is used.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
