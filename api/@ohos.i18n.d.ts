@@ -482,7 +482,7 @@ declare namespace i18n {
      *
      * @param { number } hour - the hour value.
      * @param { ?string } [locale] - specified the locale. Use current app locale by default.
-     * @returns { string } the string of time period name. the return value may be empty string
+     * @returns { string } the string of time period name. The return value may be empty string
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
