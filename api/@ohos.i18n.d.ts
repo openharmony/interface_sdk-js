@@ -481,7 +481,7 @@ declare namespace i18n {
      * Get the time period name for the specified hour.
      *
      * @param { number } hour - the hour value.
-     * @param { ?string } [locale] - specified the locale. Use current app locale by default.
+     * @param { string } [locale] - specified the locale. Use current app locale by default.
      * @returns { string } the string of time period name. The return value may be empty string
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
@@ -2155,7 +2155,7 @@ declare namespace i18n {
     /**
      * A constructor used to create a EntityRecognizer object.
      *
-     * @param { ?string } [locale] - specified the locale. Use current app locale by default.
+     * @param { string } [locale] - specified the locale. Use current app locale by default.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
@@ -2166,7 +2166,7 @@ declare namespace i18n {
     /**
      * Obtains holiday info array for a specified text
      *
-     * @param { string } [text] - the text to find entities.
+     * @param { string } text - the text to find entities.
      * @returns { Array<EntityInfoItem> } entity information array found.
      * @throws {BusinessError} 401 - check param failed.
      * @syscap SystemCapability.Global.I18n
