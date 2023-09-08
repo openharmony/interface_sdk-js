@@ -137,6 +137,7 @@ declare namespace uri {
 
     /**
      * Normalize the path of this URI.
+	 * Tip: Filtering uri encoded URIs is not secure.
      *
      * @returns { URI } URI Used to normalize the path of this URI and return a URI object whose path has been normalized.
      * @syscap SystemCapability.Utils.Lang
@@ -144,6 +145,7 @@ declare namespace uri {
      */
     /**
      * Normalize the path of this URI.
+	 * Tip: Filtering uri encoded URIs is not secure.
      *
      * @returns { URI } URI Used to normalize the path of this URI and return a URI object whose path has been normalized.
      * @syscap SystemCapability.Utils.Lang
