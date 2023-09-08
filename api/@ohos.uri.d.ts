@@ -136,16 +136,14 @@ declare namespace uri {
     checkIsAbsolute(): boolean;
 
     /**
-     * Normalize the path of this URI.
-	 * Tip: Filtering uri encoded URIs is not secure.
+     * Normalize the path of this URI, It is not safe to call the normalize interface with URI.
      *
      * @returns { URI } URI Used to normalize the path of this URI and return a URI object whose path has been normalized.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
-     * Normalize the path of this URI.
-	 * Tip: Filtering uri encoded URIs is not secure.
+     * Normalize the path of this URI, It is not safe to call the normalize interface with URI.
      *
      * @returns { URI } URI Used to normalize the path of this URI and return a URI object whose path has been normalized.
      * @syscap SystemCapability.Utils.Lang
