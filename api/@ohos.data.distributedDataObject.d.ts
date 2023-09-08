@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-import Context from './application/Context';
+import type Context from './application/BaseContext';
 
 /**
  * Provides interfaces to sync distributed object.
