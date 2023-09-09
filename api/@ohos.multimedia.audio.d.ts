@@ -2002,7 +2002,7 @@ declare namespace audio {
     getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors;
 
     /**
-     * Subscribes to preferred output device change events. When preferred device for target audio renderer info changes,
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
      * registered clients will receive the callback.
      * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
      * preferOutputDeviceChangeForRendererInfo event is supported.
@@ -2016,11 +2016,57 @@ declare namespace audio {
     on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
     /**
      * UnSubscribes to prefer output device change events.
-     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the 
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Get input device for target audio capturer info.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Get input device for target audio capturer info.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Subscribes to preferred input device change events. When preferred device for target audio capturer info changes,
+     * registered clients will receive the callback.
+     * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes to preferred input device change events.
+     * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
