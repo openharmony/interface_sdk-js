@@ -277,7 +277,7 @@ export default class UIAbility extends Ability {
    * Called back when an ability is started for initialization.
    *
    * @param { Want } want - Indicates the want info of the created ability.
-   * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -286,13 +286,13 @@ export default class UIAbility extends Ability {
    * Called back when an ability is started for initialization.
    *
    * @param { Want } want - Indicates the want info of the created ability.
-   * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
    * @since 10
    */
-  onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
    * Called back when an ability window stage is created.
@@ -409,7 +409,7 @@ export default class UIAbility extends Ability {
    * This happens when you re-launch an ability that has been at the top of the ability stack.
    *
    * @param { Want } want - Indicates the want info of ability.
-   * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -419,13 +419,13 @@ export default class UIAbility extends Ability {
    * This happens when you re-launch an ability that has been at the top of the ability stack.
    *
    * @param { Want } want - Indicates the want info of ability.
-   * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
    * @since 10
    */
-  onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;
+  onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
    * Called when dump client information is required.

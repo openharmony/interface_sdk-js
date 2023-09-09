@@ -304,7 +304,7 @@ declare interface PageTransitionOptions {
   duration?: number;
   /**
    * PageTransition animation curve.
-   * @type { ?(Curve | string) }
+   * @type { ?(Curve | string | ICurve) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -359,7 +359,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   /**
    * Called when page Jump animation is used.
    *
-   * @param { PageTransitionOptions } value pageTransition options
+   * @param { PageTransitionOptions } value - pageTransition options
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -370,7 +370,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   /**
    * Called when the incoming parameter is the normalized progress of the current incoming animation.
    *
-   * @param { (type?: RouteType, progress?: number) => void } event
+   * @param { function } event
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -379,7 +379,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * Called frame by frame to customize pageTransition animation when the page enters.
    * The incoming parameter is the normalized progress of the current incoming animation.
    *
-   * @param { (type?: RouteType, progress?: number) => void } event animation callback frame by frame
+   * @param { function } event - animation callback frame by frame
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -415,7 +415,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   /**
    * Called when page Jump animation is used.
    *
-   * @param { PageTransitionOptions } value pageTransition options
+   * @param { PageTransitionOptions } value - pageTransition options
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

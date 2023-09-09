@@ -20,7 +20,7 @@ import { LogUtil } from '../utils/logUtil';
 import { StringUtils } from '../utils/stringUtils';
 import { CommentHelper } from './coreImpls';
 import type { Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
-import { comment} from './typedef';
+import type { comment} from './typedef';
 
 export class OutputProcessor implements ISourceCodeProcessor {
   async process(context: Context, content: string): Promise<ProcessResult> {

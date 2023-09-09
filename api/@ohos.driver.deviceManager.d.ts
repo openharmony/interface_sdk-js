@@ -27,6 +27,7 @@ declare namespace deviceManager {
   /**
    * Query the external device list.
    *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } busType - The bus type of device to be queried.
    * @returns { Array<Readonly<Device>> } External device list.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -39,6 +40,7 @@ declare namespace deviceManager {
   /**
    * Bind the device based on the device information returned by queryDevices().
    *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
    * @param { AsyncCallback } callback - Indicates the bind result including device ID and remote object.
@@ -53,6 +55,7 @@ declare namespace deviceManager {
   /**
    * Bind the device based on the device information returned by queryDevices().
    *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
    * @returns { Promise } Indicates the bind result including device ID and remote object.
@@ -67,6 +70,7 @@ declare namespace deviceManager {
   /**
    * Unbind the device based on the device information returned by queryDevices().
    *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } callback - Indicates the unbind result invoked when unbind is finished.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -79,6 +83,7 @@ declare namespace deviceManager {
   /**
    * Unbind the device based on the device information returned by queryDevices().
    *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @returns { Promise } - Indicates the unbind result invoked when unbind is finished.
    * @throws { BusinessError } 401 - The parameter check failed.

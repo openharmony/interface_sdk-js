@@ -45,9 +45,50 @@ declare namespace taskpool {
    * @since 10
    */
   enum Priority {
-    HIGH,
-    MEDIUM,
-    LOW
+    /**
+     * set task priority to high.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @since 9
+     */
+    /**
+     * set task priority to high.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    HIGH = 0,
+
+    /**
+     * set task priority to medium.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @since 9
+     */
+    /**
+     * set task priority to medium.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    MEDIUM = 1,
+
+    /**
+     * set task priority to low.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @since 9
+     */
+    /**
+     * set task priority to low.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    LOW = 2
   }
 
   /**
@@ -91,6 +132,7 @@ declare namespace taskpool {
      * Check current running Task is canceled or not.
      *
      * @returns { boolean } Returns {@code true} if current running task is canceled; returns {@code false} otherwise.
+     * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -132,6 +174,7 @@ declare namespace taskpool {
     /**
      * The concurrent function arguments.
      *
+     * @type { ?unknown[] }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -180,6 +223,153 @@ declare namespace taskpool {
      * @since 10
      */
     addTask(task: Task): void;
+  }
+
+  /**
+   * The State defines the task state.
+   *
+   * @enum { number } State
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  enum State {
+    /**
+     * the task state is waiting.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    WAITING = 1,
+
+    /**
+     * the task state is running.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    RUNNING = 2,
+
+    /**
+     * the task state is canceled.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    CANCELED = 3
+  }
+
+  /**
+   * Indicates the internal information of the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  class TaskInfo {
+    /**
+     * Task identity.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    taskId: number;
+
+    /**
+     * Task state.
+     *
+     * @type { State }
+     * @default State::WAITING
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    state: State;
+
+    /**
+     * Duration of task execution.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    duration?: number;
+  }
+
+  /**
+   * Indicates the internal information of the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  class ThreadInfo {
+    /**
+     * Thread id.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    tid: number;
+
+    /**
+     * Task id list that running on current thread.
+     *
+     * @type { ?number[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    taskIds?: number[];
+
+    /**
+     * Thread priority.
+     *
+     * @type { ?Priority }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    priority?: Priority;
+  }
+
+  /**
+   * Indicates the internal information of the taskpool.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  class TaskPoolInfo {
+    /**
+     * An array of taskpool thread information.
+     *
+     * @type { ThreadInfo[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    threadInfos: ThreadInfo[];
+
+    /**
+     * An array of taskpool task information.
+     *
+     * @type { TaskInfo[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    taskInfos: TaskInfo[];
   }
 
   /**
@@ -287,6 +477,16 @@ declare namespace taskpool {
    * @since 10
    */
   function cancel(group: TaskGroup): void;
+
+  /**
+   * Get task pool internal information.
+   *
+   * @returns { TaskPoolInfo }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  function getTaskPoolInfo(): TaskPoolInfo;
 }
 
 export default taskpool;

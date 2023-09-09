@@ -26,8 +26,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time.
    *
+   * @permission ohos.permission.SET_TIME
    * @param { number } time - Indicates the target timestamp(in milliseconds)
    * @param { AsyncCallback<void> } callback - The callback of setTime
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -38,8 +40,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time.
    *
+   * @permission ohos.permission.SET_TIME
    * @param { number } time - Indicates the target timestamp(in milliseconds)
    * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -79,6 +83,16 @@ declare namespace systemDateTime {
    * @since 9
    */
   function getCurrentTime(isNano?: boolean): Promise<number>;
+
+  /**
+   * Obtains the number of timestamp that have elapsed since the Unix epoch.
+   *
+   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
+   * @returns { number } The timestamp returned of getTime.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  function getTime(isNanoseconds?: boolean): number;
 
   /**
    * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
@@ -145,28 +159,72 @@ declare namespace systemDateTime {
   function getRealTime(isNano?: boolean): Promise<number>;
 
   /**
+   * Indicates time type.
+   *
+   * @enum { number } TimeType
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  enum TimeType {
+    /**
+     * Indicates the time elapsed since the system was booted, including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @since 10
+     */
+    STARTUP,
+
+    /**
+     * Indicates the time elapsed since the system was booted, not including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @since 10
+     */
+    ACTIVE
+  }
+
+  /**
+   * Obtains the number of milliseconds since the system has been running.
+   *
+   * @param { TimeType } timeType - indicates the type of get uptime.
+   * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
+   * @returns { number } The timestamp returned of getUpTime.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  function getUptime(timeType: TimeType, isNanoseconds?: boolean): number;
+
+  /**
    * Sets the system time.
    *
+   * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date
    * @param { AsyncCallback<void> } callback - The callback of setDate
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9
+   * @deprecated since 10
+   * @useinstead systemDateTime.setTime
    */
   function setDate(date: Date, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the system time.
    * 
+   * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date
    * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9
+   * @deprecated since 10
+   * @useinstead systemDateTime.setTime
    */
   function setDate(date: Date): Promise<void>;
 
@@ -177,6 +235,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead new Date()
    */
   function getDate(callback: AsyncCallback<Date>): void;
 
@@ -187,14 +247,18 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead new Date()
    */
   function getDate(): Promise<Date>;
 
   /**
    * Sets the system time zone.
    *
+   * @permission ohos.permission.SET_TIME_ZONE
    * @param { string } timezone - The system time zone
    * @param { AsyncCallback<void> } callback - The callback of setTimezone
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -206,8 +270,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time zone.
    *
+   * @permission ohos.permission.SET_TIME_ZONE
    * @param { string } timezone -  The system time zone
    * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -235,6 +301,15 @@ declare namespace systemDateTime {
    * @since 9
    */
   function getTimezone(): Promise<string>;
+
+  /**
+   * Obtains the system time zone.
+   *
+   * @returns { string } The timezone returned of getTimezoneSync.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  function getTimezoneSync(): string;
 }
 
 export default systemDateTime;

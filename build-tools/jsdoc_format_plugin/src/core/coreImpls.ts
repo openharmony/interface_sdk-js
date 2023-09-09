@@ -26,7 +26,8 @@ import type {
   JSDocCheckErrorType, CommentData
 } from './typedef';
 import { comment, Options, sourceParser, rawInfo } from './typedef';
-import ts, { CommentRange, TransformationContext, TransformationResult } from 'typescript';
+import ts from 'typescript';
+import type { CommentRange, TransformationContext, TransformationResult } from 'typescript';
 
 export class ContextImpl implements Context {
   options: Options;
@@ -130,6 +131,17 @@ export class OutputFileHelper {
   }
 }
 
+function getCommentNode(node: ts.Node, parentNode: comment.CommentNode | undefined, sourceFile: ts.SourceFile): comment.CommentNode {
+  const leadingComments: comment.CommentInfo[] = CommentHelper.getNodeLeadingComments(node, sourceFile);
+  const currentCommentNode: comment.CommentNode = {
+    astNode: node,
+    parentNode: parentNode,
+    commentInfos: []
+  };
+  currentCommentNode.commentInfos?.push(...leadingComments);
+  return currentCommentNode;
+}
+
 export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
   options: Options;
 
@@ -164,17 +176,6 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     return true;
   }
 
-  private getCommentNode(node: ts.Node, parentNode: comment.CommentNode | undefined, sourceFile: ts.SourceFile): comment.CommentNode {
-    const leadingComments: comment.CommentInfo[] = CommentHelper.getNodeLeadingComments(node, sourceFile);
-    const currentCommentNode: comment.CommentNode = {
-      astNode: node,
-      parentNode: parentNode,
-      commentInfos: []
-    };
-    currentCommentNode.commentInfos?.push(...leadingComments);
-    return currentCommentNode;
-  }
-
   createSourceFile(content: string, name?: string | undefined): ts.SourceFile | undefined {
     const sourceFile = ts.createSourceFile(name ? name : 'memory', content, this.options.scriptTarget, true);
     // 没有解析成AST树，非代码文件
@@ -189,11 +190,10 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     if (!transformSourceFile) {
       return undefined;
     }
-    const thiz = this;
     function transformCallback(context: TransformationContext) {
       return (rootNode: ts.Node) => {
         function visitor(node: ts.Node): ts.Node {
-          const commentNode = thiz.getCommentNode(node, undefined, transformSourceFile!);
+          const commentNode = getCommentNode(node, undefined, transformSourceFile!);
           const newNode: ts.Node | undefined = callback.onTransformNode(commentNode);
           return ts.visitEachChild(newNode ? newNode : node, visitor, context);
         }
@@ -218,8 +218,8 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     }
     const thiz = this;
     const handledComments: Set<string> = new Set();
-    function nodeVisitor(node: ts.Node, parentNode: comment.CommentNode | undefined, sourceFile: ts.SourceFile) {
-      const currentCommentNode = thiz.getCommentNode(node, parentNode, sourceFile);
+    function nodeVisitor(node: ts.Node, parentNode: comment.CommentNode | undefined, sourceFile: ts.SourceFile): void {
+      const currentCommentNode = getCommentNode(node, parentNode, sourceFile);
       const NOTE_LENGTH = 0;
       thiz.skipHandledComments(handledComments, currentCommentNode);
       const hasComment: boolean = currentCommentNode.commentInfos ?

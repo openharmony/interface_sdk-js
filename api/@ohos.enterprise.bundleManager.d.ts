@@ -26,6 +26,37 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace bundleManager {
   /**
+   * Provides parameters required for installing an application.
+   *
+   * @typedef InstallParam
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface InstallParam {
+    /**
+     * Indicates the user id
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    userId?: number;
+
+    /**
+     * Indicates the install flag, which 0 for first install, 1 for cover install
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    installFlag?: number;
+  }
+
+  /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -674,6 +705,68 @@ declare namespace bundleManager {
    * @since 10
    */
   function uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise<void>;
+
+  /**
+   * Install an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
+   * @param { AsyncCallback<void> } callback - the callback of installing application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201002 - the application install failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function install(admin: Want, hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Install an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
+   * @param { InstallParam } installParam - installParam indicates the install parameters.
+   * @param { AsyncCallback<void> } callback - the callback of installing application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201002 - the application install failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function install(admin: Want, hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
+
+  /**
+   * Install an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
+   * @param { InstallParam } [installParam] - installParam indicates the install parameters.
+   * @returns { Promise<void> } the promise of installing application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201002 - the application install failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 }
 
 export default bundleManager;

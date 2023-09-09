@@ -524,7 +524,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -533,7 +533,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -543,7 +543,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -634,8 +634,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @deprecated since 10
-   * @useinstead common.CommonMethod#draggable
    * @form
    */
   draggable(value: boolean): ImageAttribute;

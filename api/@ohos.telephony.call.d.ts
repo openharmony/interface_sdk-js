@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides methods related to call management.
@@ -189,6 +189,16 @@ declare namespace call {
   function hasCall(): Promise<boolean>;
 
   /**
+   * Checks whether a call is ongoing.
+   *
+   * @returns { boolean } Returns {@code true} if at least one call is not in the {@link CallState#CALL_STATE_IDLE}
+   * state; returns {@code false} otherwise.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 10
+   */
+  function hasCallSync(): boolean;
+
+  /**
    * Obtains the call state.
    *
    * If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
@@ -215,6 +225,19 @@ declare namespace call {
    * @since 6
    */
   function getCallState(): Promise<CallState>;
+
+  /**
+   * Obtains the call state.
+   *
+   * If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
+   * If at least one call is in the active, hold, or dialing state, the system returns
+   * {@code CallState#CALL_STATE_OFFHOOK}. In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
+   *
+   * @returns { CallState } Returns the call state.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 10
+   */
+  function getCallStateSync(): CallState;
 
   /**
    * Stops the ringtone.
@@ -1021,6 +1044,46 @@ declare namespace call {
   function stopDTMF(callId: number): Promise<void>;
 
   /**
+   * Continue post-dial DTMF(Dual Tone Multi Frequency).
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { boolean } proceed - Indicates whether to continue the post-dial DTMF.
+   * @param { AsyncCallback<void> } callback - The callback of postDialProceed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function postDialProceed(callId: number, proceed: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Continue post-dial DTMF(Dual Tone Multi Frequency).
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { boolean } proceed - Indicates whether to continue the post-dial DTMF.
+   * @returns { Promise<void> } The promise returned by the postDialProceed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function postDialProceed(callId: number, proceed: boolean): Promise<void>;
+
+  /**
    * Judge whether the emergency call is in progress.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
@@ -1214,7 +1277,7 @@ declare namespace call {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to be subscribed to.
-   * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1226,14 +1289,14 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
+  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
    * Unsubscribe from the audioDeviceChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to unsubscribe from.
-   * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1245,7 +1308,45 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceInfo>): void;
+  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceCallbackInfo>): void;
+
+  /**
+   * Subscribe to the postDialDelay event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'postDialDelay' } type - Event type. Indicates the postDialDelay event to be subscribed to.
+   * @param { Callback<string> } callback - Indicates the callback for getting the result of post-dial string.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'postDialDelay', callback: Callback<string>): void;
+
+  /**
+   * Unsubscribe from the postDialDelay event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'postDialDelay' } type - Event type. Indicates the postDialDelay event to unsubscribe from.
+   * @param { Callback<string> } callback - Indicates the callback for getting the result of post-dial string.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'postDialDelay', callback?: Callback<string>): void;
 
   /**
    * Judge whether to allow another new call.
@@ -2054,10 +2155,10 @@ declare namespace call {
   function canSetCallTransferTime(slotId: number): Promise<boolean>;
 
   /**
-   * Enters the secret code on the keypad.
+   * Enters the special code on the keypad.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } inputCode - Indicates the secret code to enter.
+   * @param { string } inputCode - Indicates the special code to enter.
    * @param { AsyncCallback<void> } callback - The callback of inputDialerSpecialCode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2072,10 +2173,10 @@ declare namespace call {
   function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Enters the secret code on the keypad.
+   * Enters the special code on the keypad.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } inputCode - Indicates the secret code to enter.
+   * @param { string } inputCode - Indicates the special code to enter.
    * @returns { Promise<void> } The promise returned by the inputDialerSpecialCode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2286,12 +2387,12 @@ declare namespace call {
   /**
    * Indicates the information of the audio device.
    *
-   * @interface AudioDeviceInfo
+   * @interface AudioDeviceCallbackInfo
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export interface AudioDeviceInfo {
+  export interface AudioDeviceCallbackInfo {
     /**
      * Indicates the list of support audio device.
      *
@@ -3012,6 +3113,24 @@ declare namespace call {
      * @since 8
      */
     EVENT_INVALID_FDN_NUMBER,
+
+    /**
+     * Indicates hold call fail.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_HOLD_CALL_FAILED,
+
+    /**
+     * Indicates swap call fail.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_SWAP_CALL_FAILED,
   }
 
   /**

@@ -19,9 +19,9 @@ import { LogReportStringUtils } from '../utils/stringUtils';
 import { CommentHelper, LogResult } from './coreImpls';
 import type {
   Context, ISourceCodeProcessor, MethodNodeType,
-  ModifyLogResult, ProcessResult
+  ModifyLogResult, ProcessResult, comment
 } from './typedef';
-import { comment, JSDocModifyType, ErrorInfo } from './typedef';
+import { JSDocModifyType, ErrorInfo } from './typedef';
 
 export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
 

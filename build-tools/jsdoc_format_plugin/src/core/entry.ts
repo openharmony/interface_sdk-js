@@ -23,7 +23,7 @@ import { ContextImpl, InputParameter, OutputFileHelper } from './coreImpls';
 import { CommentModificationProcessor } from './modificationProcessor';
 import { OutputProcessor } from './outputProcessor';
 import { RawSourceCodeProcessor } from './rawCodeProcessor';
-import { Context, IJSDocModifier, ISourceCodeProcessor, LogReporter, ProcessResult } from './typedef';
+import type { Context, IJSDocModifier, ISourceCodeProcessor, LogReporter, ProcessResult } from './typedef';
 
 /**
  * JSDoc 整改流程入口。

@@ -43,7 +43,7 @@ declare class AppStorage {
    * Create and return a two-way sync "(link") to named property
    * Same as @see LocalStorage.link()
    *
-   * @param { string } propName name of source property in AppStorage
+   * @param { string } propName - name of source property in AppStorage
    * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<T>
    *           return 'undefined' if named property does not already exist in AppStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -68,8 +68,8 @@ declare class AppStorage {
    * Like see @link(), but will create and initialize a new source property in AppStorage if missing
    * Same as see LocalStorage.setAndLink()
    *
-   * @param { string } propName name of source property in AppStorage
-   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage
+   * @param { string } propName - name of source property in AppStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage
    *        default value must be of type T, must not be 'undefined' or 'null'.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -94,7 +94,7 @@ declare class AppStorage {
    * Create and return a one-way sync ('prop') to named property
    * Same as @see LocalStorage.prop()
    *
-   * @param { string } propName name of source property in AppStorage
+   * @param { string } propName - name of source property in AppStorage
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in AppStorage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -116,8 +116,8 @@ declare class AppStorage {
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
-   * @param { string } propName name of source property in AppStorage
-   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage.
+   * @param { string } propName - name of source property in AppStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in AppStorage.
@@ -146,7 +146,7 @@ declare class AppStorage {
    * same as ES6 Map.prototype.has()
    * Same as see LocalStorage.has()
    *
-   * @param { string } propName searched property
+   * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in AppStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -196,7 +196,7 @@ declare class AppStorage {
    * Same as see LocalStorage.set
    *
    * @param { string } propName
-   * @param { T } newValue must be of type T and must not be undefined or null
+   * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -222,7 +222,7 @@ declare class AppStorage {
    * see LocalStorage.setOrCreate()
    *
    * @param { string } propName
-   * @param { T } newValue must be of type T and must not be undefined or null
+   * @param { T } newValue - must be of type T and must not be undefined or null
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -429,8 +429,7 @@ declare abstract class SubscribedAbstractProperty<T> {
   constructor(
     /**
      * Subscriber IPropertySubscriber.
-     * 
-     * @type { ?IPropertySubscriber }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 7
@@ -439,8 +438,7 @@ declare abstract class SubscribedAbstractProperty<T> {
     subscribeMe?: IPropertySubscriber,
     /**
      * Subscriber info.
-     * 
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 7
@@ -941,8 +939,8 @@ declare class Environment {
    * The function call fails and returns false if a property with given name exists in AppStorage already.
    * It is wrong API use to access a property with given name in AppStorage before calling Environment.envProp.
    *
-   * @param { string } key environment property
-   * @param { S } value is the default value if cannot get the environment property value
+   * @param { string } key - environment property
+   * @param { S } value - is the default value if cannot get the environment property value
    * @returns { boolean } false if method failed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1071,8 +1069,8 @@ declare class PersistentStorage {
    * If AppStorage does not include this property it will be added and initializes
    * with given value
    *
-   * @param { string } key property name
-   * @param { T } defaultValue If AppStorage does not include this property it will be initialized with this value
+   * @param { string } key - property name
+   * @param { T } defaultValue - If AppStorage does not include this property it will be initialized with this value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1093,7 +1091,7 @@ declare class PersistentStorage {
   /**
    * Reverse of @see persistProp
    *
-   * @param { string } key no longer persist the property named key
+   * @param { string } key - no longer persist the property named key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1188,7 +1186,7 @@ declare class LocalStorage {
    * initialize with all properties and their values that Object.keys(params) returns
    * Property values must not be undefined.
    *
-   * @param { Object } initializingProperties Object containing keys and values. see set() for valid values
+   * @param { Object } [initializingProperties] - Object containing keys and values. see set() for valid values
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -1198,7 +1196,7 @@ declare class LocalStorage {
    * initialize with all properties and their values that Object.keys(params) returns
    * Property values must not be undefined.
    *
-   * @param { Object } initializingProperties Object containing keys and values. see set() for valid values
+   * @param { Object } [initializingProperties] - Object containing keys and values. see set() for valid values
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1236,7 +1234,7 @@ declare class LocalStorage {
    * return true if property with given name exists
    * same as ES6 Map.prototype.has()
    *
-   * @param { string } propName searched property
+   * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1247,7 +1245,7 @@ declare class LocalStorage {
    * return true if property with given name exists
    * same as ES6 Map.prototype.has()
    *
-   * @param { string } propName searched property
+   * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1327,7 +1325,7 @@ declare class LocalStorage {
    * or if newValue is `undefined` or `null` (`undefined`, `null` value are not allowed for state variables).
    *
    * @param { string } propName
-   * @param { T } newValue must be of type T and must not be undefined or null
+   * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1339,7 +1337,7 @@ declare class LocalStorage {
    * or if newValue is `undefined` or `null` (`undefined`, `null` value are not allowed for state variables).
    *
    * @param { string } propName
-   * @param { T } newValue must be of type T and must not be undefined or null
+   * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1355,7 +1353,7 @@ declare class LocalStorage {
    * (undefined, null value is not allowed for state variables)
    *
    * @param { string } propName
-   * @param { T } newValue must be of type T and must not be undefined or null
+   * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1368,7 +1366,7 @@ declare class LocalStorage {
    * (undefined, null value is not allowed for state variables)
    *
    * @param { string } propName
-   * @param { T } newValue must be of type T and must not be undefined or null
+   * @param { T } newValue - must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1380,7 +1378,7 @@ declare class LocalStorage {
   /**
    * Create and return a two-way sync "(link") to named property
    *
-   * @param { string } propName name of source property in LocalStorage
+   * @param { string } propName - name of source property in LocalStorage
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
@@ -1391,7 +1389,7 @@ declare class LocalStorage {
   /**
    * Create and return a two-way sync "(link") to named property
    *
-   * @param { string } propName name of source property in LocalStorage
+   * @param { string } propName - name of source property in LocalStorage
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
@@ -1405,8 +1403,8 @@ declare class LocalStorage {
   /**
    * Like see link(), but will create and initialize a new source property in LocalStorage if missing
    *
-   * @param { string } propName name of source property in LocalStorage
-   * @param { T } defaultValue value to be used for initializing if new creating new property in LocalStorage
+   * @param { string } propName - name of source property in LocalStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in LocalStorage
    *        default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
@@ -1417,8 +1415,8 @@ declare class LocalStorage {
   /**
    * Like see link(), but will create and initialize a new source property in LocalStorage if missing
    *
-   * @param { string } propName name of source property in LocalStorage
-   * @param { T } defaultValue value to be used for initializing if new creating new property in LocalStorage
+   * @param { string } propName - name of source property in LocalStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in LocalStorage
    *        default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
@@ -1432,7 +1430,7 @@ declare class LocalStorage {
   /**
    * Create and return a one-way sync ('prop') to named property
    *
-   * @param { string } propName name of source property in LocalStorage
+   * @param { string } propName - name of source property in LocalStorage
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
@@ -1443,7 +1441,7 @@ declare class LocalStorage {
   /**
    * Create and return a one-way sync ('prop') to named property
    *
-   * @param { string } propName name of source property in LocalStorage
+   * @param { string } propName - name of source property in LocalStorage
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
@@ -1457,8 +1455,8 @@ declare class LocalStorage {
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
    *
-   * @param { string } propName name of source property in LocalStorage
-   * @param { S } defaultValue value to be used for initializing if new creating new property in LocalStorage.
+   * @param { string } propName - name of source property in LocalStorage
+   * @param { S } defaultValue - value to be used for initializing if new creating new property in LocalStorage.
    *         Default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
@@ -1469,8 +1467,8 @@ declare class LocalStorage {
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
    *
-   * @param { string } propName name of source property in LocalStorage
-   * @param { S } defaultValue value to be used for initializing if new creating new property in LocalStorage.
+   * @param { string } propName - name of source property in LocalStorage
+   * @param { S } defaultValue - value to be used for initializing if new creating new property in LocalStorage.
    *         Default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>

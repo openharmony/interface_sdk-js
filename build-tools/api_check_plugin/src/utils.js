@@ -366,6 +366,12 @@ const ErrorValueInfo = {
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
+const DIFF_INFO  = {
+  NEW_JSDOCS_LENGTH:1,
+  NEW_JSDOC_INDEX:2,
+};
+exports.DIFF_INFO  = DIFF_INFO;
+
 /**
  * link error message
  */
@@ -454,3 +460,12 @@ exports.checkVersionNeedCheck = checkVersionNeedCheck;
 const FUNCTION_TYPES = [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
   ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
 exports.FUNCTION_TYPES = FUNCTION_TYPES;
+
+function splitPath(filePath, pathElements) {
+  let spliteResult = path.parse(filePath);
+  if (spliteResult.base !== '') {
+    pathElements.add(spliteResult.base);
+    splitPath(spliteResult.dir, pathElements);
+  }
+}
+exports.splitPath = splitPath;

@@ -14,6 +14,48 @@
  */
 
 /**
+ * The options to help grid layout
+ *
+ * @interface GridLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface GridLayoutOptions {
+  /**
+   * The size of most grid items, in [rows, columns], generally [1, 1]
+   *
+   * @type { [number, number] } regularSize
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  regularSize: [number, number];
+
+  /**
+   * The indexes of grid items with irregular size.
+   *
+   * @type { ?number[] } irregularIndexes
+   * @default number[] no irregular grid item
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  irregularIndexes?: number[];
+
+  /**
+   * Called to return the size of the irregular grid items with the specified index in [rows, columns].
+   *
+   * @type { ?function } onGetIrregularSizeByIndex, 
+   * all irregular grid items will occupy an entire line if not set
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onGetIrregularSizeByIndex?: (index: number) => [number, number]
+}
+
+/**
  * Defines the grid interface.
  *
  * @interface GridInterface
@@ -40,13 +82,14 @@ interface GridInterface {
   /**
    * Grid is returned when the parameter is transferred.
    *
-   * @param { Scroller } scroller
-   * @returns { GridAttribute }
+   * @param { Scroller } scroller - Controller bound to the grid
+   * @param { GridLayoutOptions } layoutOptions - The options to help grid layout
+   * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  (scroller?: Scroller): GridAttribute;
+  (scroller?: Scroller, layoutOptions?: GridLayoutOptions): GridAttribute;
 }
 
 /**
@@ -321,7 +364,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Sets the status of the scroll bar.
    *
-   * @param { function } event of grid scroll,
+   * @param { function } event - of grid scroll,
    * first is the index  of the starting sliding position, last is the index  of the ending sliding position.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -330,7 +373,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Sets the status of the scroll bar.
    *
-   * @param { function } event of grid scroll,
+   * @param { function } event - of grid scroll,
    * first is the index  of the starting sliding position, last is the index  of the ending sliding position,
    * return void to no return value.
    * @returns { GridAttribute }
@@ -639,7 +682,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called When sliding the grid.
    *
-   * @param { function } event callback of grid scroll,
+   * @param { function } event - callback of grid scroll,
    * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -695,7 +738,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { function } event callback of grid scroll,
+   * @param { function } event - callback of grid scroll,
    * offset is the amount of sliding that is about to occur, state is current sliding state,
    * return number to actual sliding offset.
    * @returns { GridAttribute }

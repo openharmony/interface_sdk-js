@@ -60,7 +60,7 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
       return true;
     }
-    return currentNode.parameters && currentNode.parameters.length > 0;
+    return currentNode.parameters;
   }
   );
   // 'returns'
@@ -284,30 +284,23 @@ exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 function checkJSDoc(node, sourcefile, fileName, isGuard) {
   const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard);
 
-  let isMissingTagWhitetFile = true;
-  let isIllegalTagWhitetFile = true;
-  let isOrderTagWhitetFile = true;
-  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
-  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
-  isOrderTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkOrderResult);
-
   verificationResult.forEach(item => {
     let errorInfo = '';
-    if (item.missingTags.length > 0 && isMissingTagWhitetFile) {
+    if (item.missingTags.length > 0) {
       item.missingTags.forEach(lostLabel => {
         errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
           ErrorLevel.MIDDLE);
       });
     }
-    if (item.illegalTags.length > 0 && isIllegalTagWhitetFile) {
+    if (item.illegalTags.length > 0) {
       item.illegalTags.forEach(wrongValueLabel => {
         errorInfo = wrongValueLabel.errorInfo;
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_VALUE, errorInfo, FileType.JSDOC,
           ErrorLevel.MIDDLE);
       });
     }
-    if (!item.orderResult.checkResult && isOrderTagWhitetFile) {
+    if (!item.orderResult.checkResult) {
       errorInfo = item.orderResult.errorInfo;
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
         ErrorLevel.MIDDLE);

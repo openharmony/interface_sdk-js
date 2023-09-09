@@ -127,6 +127,20 @@ declare namespace connection {
   function getAllNets(): Promise<Array<NetHandle>>;
 
   /**
+   * Obtains the list of data networks that are activated.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Array<NetHandle> } Returns data networks that are activated.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getAllNetsSync(): Array<NetHandle>;
+
+  /**
    * Queries the connection properties of a network.
    * This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -157,6 +171,22 @@ declare namespace connection {
    * @since 8
    */
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
+
+  /**
+   * Queries the connection properties of a network.
+   * This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the network to be queried.
+   * @returns { ConnectionProperties } Returns the connection properties of a network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getConnectionPropertiesSync(netHandle: NetHandle): ConnectionProperties;
 
   /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
@@ -191,6 +221,22 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
   /**
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the handle. See {@link NetHandle}.
+   * @returns { NetCapabilities } Returns the connection capabilities of a network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
+
+  /**
    * Checks whether data traffic usage on the current network is metered.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { AsyncCallback<boolean> } callback - Returns {@code true} if data traffic usage on the current network is metered;
@@ -216,6 +262,19 @@ declare namespace connection {
    * @since 9
    */
   function isDefaultNetMetered(): Promise<boolean>;
+
+  /**
+   * Checks whether data traffic usage on the current network is metered.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { boolean } Returns true if the current network is metered, else returns false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function isDefaultNetMeteredSync(): boolean;
 
   /**
    * Checks whether the default data network is activated.
@@ -268,6 +327,19 @@ declare namespace connection {
    * @since 10
    */
   function hasDefaultNet(): Promise<boolean>;
+
+  /**
+   * Checks whether the default data network is activated.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { boolean } Returns true if the default data network is activated, else returns false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function hasDefaultNetSync(): boolean;
 
   /**
    * Enables the airplane mode for a device.
@@ -447,6 +519,17 @@ declare namespace connection {
   function getAppNet(): Promise<NetHandle>;
 
   /**
+   * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
+   * @returns { NetHandle } Returns the {@link NetHandle} bound to a process using {@link setAppNet}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getAppNetSync(): NetHandle;
+
+  /**
    * Binds a process to {@code NetHandle}.
    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
    * and the resolution of all host names will be managed by the {@code NetHandle}.</p>
@@ -613,19 +696,19 @@ declare namespace connection {
     /**
      * Registers a listener for **netCapabilitiesChange** events.
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
+     * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
     /**
      * Registers a listener for **netCapabilitiesChange** events.
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
+     * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
      */
-    on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
+    on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
     /**
      * Registers a listener for netConnectionPropertiesChange events.
@@ -747,6 +830,33 @@ declare namespace connection {
      * @since 8
      */
     bearerPrivateIdentifier?: string;
+  }
+
+  /**
+   * Receive information about changes in network capabilities.
+   * @interface NetCapabilityInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
+   */
+  export interface NetCapabilityInfo {
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netHandle: NetHandle;
+
+    /**
+     * Defines the network capability set.
+     * @type { NetCapabilities }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netCap: NetCapabilities;
   }
 
   /**

@@ -215,6 +215,7 @@ endc
 endx
 endy
 enrolled
+enrolls
 enumeratable
 erasing
 eration
@@ -366,6 +367,7 @@ lanes
 lasted
 lastmode
 latn
+layoutable
 lbitfield
 lboolean
 lbyte
@@ -450,6 +452,7 @@ nlink
 nmea
 nnrt
 nopadding
+mori
 normalizer
 notifies
 notifying
@@ -472,6 +475,7 @@ onmessageerror
 onrepeat
 oob
 oobinline
+openharmony
 oper
 operated
 operatorconfigs
@@ -531,6 +535,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+prelaunch
 preloads
 premises
 premultiplied
@@ -563,6 +568,7 @@ reassociate
 rebounds
 recalculated
 reconfiguration
+reconfirm
 recovered
 recovering
 recursions
@@ -577,6 +583,7 @@ remotedevice
 removable
 renderbuffer
 renderbuffertarget
+repayment
 repeates
 resizeable
 resmgr
@@ -809,6 +816,7 @@ voicemail
 volte
 volumemanager
 vorbis
+vpr
 vsync
 wakes
 waking
@@ -860,3 +868,4 @@ unadjustable
 unprepare
 unchained
 sar
+adapts

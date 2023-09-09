@@ -303,10 +303,10 @@ declare namespace curves {
    * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
    * to calculate the actual animation values.
    *
-   * @param { number } velocity the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
-   * @param { number } mass the mass of object in the mass-damper-spring system
-   * @param { number } stiffness the stiffness of spring
-   * @param { number } damping the damping value of spring
+   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
+   * @param { number } mass - the mass of object in the mass-damper-spring system
+   * @param { number } stiffness - the stiffness of spring
+   * @param { number } damping - the damping value of spring
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

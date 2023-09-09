@@ -25,12 +25,12 @@ import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
-import type componentUtils from './@ohos.componentUtils';
+import type componentUtils from './@ohos.arkui.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { AsyncCallback } from './@ohos.base';
 import { AnimateParam } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment } from 'AlertDialogParam';
+import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
@@ -46,7 +46,7 @@ export class Font {
   /**
    * Register a customized font in the FontManager.
    *
-   * @param { font.FontOptions } options FontOptions
+   * @param { font.FontOptions } options - FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -63,7 +63,7 @@ export class Font {
 
   /**
    * Get font details according to the font name.
-   * @param { string } fontName font name
+   * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -240,7 +240,7 @@ export class Router {
   /**
    * Returns to the previous page or a specified page.
    *
-   * @param { ?router.RouterOptions } options - Options.
+   * @param { router.RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -482,8 +482,10 @@ export class PromptAction {
   /**
    * Displays the menu.
    *
-   * @param { promptAction.ActionMenuOptions } options
-   * @returns { Promise<promptAction.ActionMenuSuccessResponse> }
+   * @param { promptAction.ActionMenuOptions } options - Options.
+   * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -501,7 +503,7 @@ export class ComponentUtils {
   /**
    * Provide the ability to obtain the coordinates and size of component drawing areas.
    *
-   * @param { string } id ID of the component whose attributes are to be obtained.
+   * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -601,12 +603,12 @@ export class UIContext {
   /**
    * alertDialog display.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } options - Options.
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons): void;
+  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
   /**
    * actionSheet display.
@@ -651,7 +653,7 @@ export class UIContext {
   /**
    * Run custom functions inside the UIContext scope.
    *
-   * @param { function } callback The function called through UIContext.
+   * @param { function } callback - The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

@@ -27,7 +27,7 @@ declare interface UIExtensionProxy {
   /**
    * This function is for sending data to the UIExtensionAbility.
    *
-   * @param { { [key:string]: Object } } data
+   * @param { object } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
@@ -83,7 +83,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * @param { function } callback
+   * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback
    * - called when data received from UIExtensionAbility
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -95,7 +95,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * @param { function } callback
+   * @param { import('../api/@ohos.base').Callback<{code: number;want?: import('../api/@ohos.app.ability.Want').default;}> } callback 
    * - called when the UIExtensionAbility is terminated with result data.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
