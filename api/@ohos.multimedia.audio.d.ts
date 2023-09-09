@@ -3198,6 +3198,8 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -3206,6 +3208,8 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses a promise to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
