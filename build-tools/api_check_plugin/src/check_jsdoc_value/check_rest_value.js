@@ -127,11 +127,11 @@ function checkParamValue(tag, node, fileName, tagIndex) {
     }
     errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PARAM, [tagIndex + 1, tagIndex + 1]);
   }
+  paramResult.checkResult = false;
+  errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [tagIndex + 1, tagIndex + 1]);
   if (!paramResult.checkResult) {
     paramResult.errorInfo = errorInfo;
   }
-  paramResult.checkResult = false;
-  errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [tagIndex + 1, tagIndex + 1]);
   return paramResult;
 }
 exports.checkParamValue = checkParamValue;
