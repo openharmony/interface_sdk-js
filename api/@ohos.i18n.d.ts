@@ -2031,7 +2031,7 @@ declare namespace i18n {
     /**
      * Holiday local name array.
      *
-     * @type { ?Array<HolidayLocaleName> }
+     * @type { ?Array<HolidayLocalName> }
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2157,7 +2157,7 @@ declare namespace i18n {
      *
      * @param { string } [locale] - specified the locale. Use current app locale by default.
      * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessErro - param value not valid.
+     * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
