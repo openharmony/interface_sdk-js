@@ -985,7 +985,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 9
+     * @since 10
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
