@@ -485,6 +485,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
+
     /**
      * Used to convert asymmetric key data to keypair object.
      *
@@ -511,6 +513,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
+
     /**
      * Used to convert asymmetric key data to keypair object.
      *
@@ -935,6 +939,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    init(opMode: CryptoMode, key: Key, params: ParamsSpec, callback: AsyncCallback<void>): void;
+
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
      *
@@ -965,6 +971,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    init(opMode: CryptoMode, key: Key, params: ParamsSpec): Promise<void>;
+
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
      *
@@ -1024,6 +1032,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    doFinal(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
+
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
      * Data cannot be updated after the crypto operation is finished.
@@ -1052,6 +1062,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    doFinal(data: DataBlob): Promise<DataBlob>;
+
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
      * Data cannot be updated after the crypto operation is finished.
@@ -1199,6 +1211,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
+
     /**
      * Used to sign message, include the update data.
      *
@@ -1225,6 +1239,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    sign(data: DataBlob): Promise<DataBlob>;
+
     /**
      * Used to append the message need to be signed.
      *
@@ -1357,6 +1373,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    verify(data: DataBlob, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
+
     /**
      * Used to verify message, include the update data.
      *
@@ -1385,6 +1403,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
+
     /**
      * Used to verify message, include the update data.
      *
