@@ -28,7 +28,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @stagemodelonly
  * @since 9
  */
-export default class WindowExtensionContext extends ExtensionContext {
+export class WindowExtensionContext extends ExtensionContext {
   /**
    * Window extension uses this method to start a specific ability.
    *
