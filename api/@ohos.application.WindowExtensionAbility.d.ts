@@ -14,7 +14,8 @@
  */
 
 import rpc from './@ohos.rpc';
-import WindowExtensionContext from './application/WindowExtensionContext';
+import { WindowExtensionContext as _WindowExtensionContext } from './application/WindowExtensionContext';
+export type WindowExtensionContext = _WindowExtensionContext;
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 
@@ -70,3 +71,4 @@ export default class WindowExtensionAbility {
    */
   onWindowReady(window: window.Window): void;
 }
+
