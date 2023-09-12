@@ -424,6 +424,17 @@ declare namespace inputDevice {
   function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
 
   /**
+   * Obtain the information about an input device.
+   *
+   * @param { number } deviceId - ID of the input device whose information is to be obtained.
+   * @returns { InputDeviceData }
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function getDeviceInfoSync(deviceId: number): InputDeviceData;
+
+  /**
    * Checks whether the specified key codes of an input device are supported.
    *
    * @param { number } deviceId - ID of the input device.
@@ -448,6 +459,18 @@ declare namespace inputDevice {
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
+   * Checks whether the specified key codes of an input device are supported.
+   *
+   * @param { number } deviceId - ID of the input device.
+   * @param { Array<KeyCode> } keys - Key codes of the input device, You can query maximum of five key codes at a time.
+   * @returns { Array<boolean> } Returns a result indicating whether the specified key codes are supported.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function supportKeysSync(deviceId: number, keys: Array<KeyCode>): Array<boolean>;
+
+  /**
    * Query the keyboard type of the input device.
    *
    * @param { number } deviceId - ID of the specified input device.
@@ -468,6 +491,17 @@ declare namespace inputDevice {
    * @since 9
    */
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
+
+  /**
+   * Query the keyboard type of the input device.
+   *
+   * @param { number } deviceId - ID of the specified input device.
+   * @returns { KeyboardType } Returns the keyboard type.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function getKeyboardTypeSync(deviceId: number): KeyboardType;
 
   /**
    * Setting the Keyboard Repetition Delay.
