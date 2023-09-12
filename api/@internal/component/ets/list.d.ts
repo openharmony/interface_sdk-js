@@ -405,6 +405,28 @@ declare interface ChainAnimationOptions {
 }
 
 /**
+ * @extends Scroller
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class ListScroller extends Scroller {
+  /**
+   * Gets the size and position of a ListItem in a ListItemGroup.
+   *
+   * @param { number } index - Index of the ListItemGroup in List.
+   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getItemRectInGroup(index: number, indexInGroup: number): RectResult;
+}
+
+/**
  * The list interface is extended.
  *
  * @interface ListInterface
