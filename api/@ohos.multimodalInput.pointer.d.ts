@@ -574,7 +574,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10
    */
-    function setPointerVisibleSync(visible: boolean): void;
+  function setPointerVisibleSync(visible: boolean): void;
 
   /**
    * Checks whether the pointer icon is visible.
