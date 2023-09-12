@@ -14,7 +14,7 @@
  */
 
 import workScheduler from './@ohos.resourceschedule.workScheduler';
-import { WorkSchedulerExtensionContext as _WorkSchedulerExtensionContext } from './application/WorkSchedulerExtensionContext';
+import WorkSchedulerExtensionContext as _WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
 /**
