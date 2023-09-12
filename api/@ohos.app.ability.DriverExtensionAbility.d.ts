@@ -54,7 +54,7 @@ export default class DriverExtensionAbility {
   /**
    * Called back when a driver extension is first connected to an ability.
    * @param { Want } want - Indicates connection information about the Driver ability.
-   * @returns { (rpc.RemoteObject | Promise<rpc.RemoteObject>) } Rpc remoteObject.
+   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } Rpc remoteObject.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10
@@ -64,7 +64,7 @@ export default class DriverExtensionAbility {
   /**
    * Called back when all abilities connected to a driver extension are disconnected.
    * @param { Want } want - Indicates disconnection information about the driver extension.
-   * @returns { (void | Promise<void>) }
+   * @returns { void | Promise<void> }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10
