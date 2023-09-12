@@ -24,7 +24,7 @@ import ExtensionContext from './ExtensionContext';
  * @StageModelOnly
  * @since 10
  */
-export class DriverExtensionContext extends ExtensionContext {
+export default class DriverExtensionContext extends ExtensionContext {
 
 
   /**
