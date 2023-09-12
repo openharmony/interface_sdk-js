@@ -15,8 +15,8 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
-import type Context from './application/Context';
-import type PermissionRequestResult from './security/PermissionRequestResult';
+import type _Context from './application/Context';
+import type _PermissionRequestResult from './security/PermissionRequestResult';
 
 /**
  * @namespace abilityAccessCtrl
@@ -510,4 +510,5 @@ declare namespace abilityAccessCtrl {
 
 export default abilityAccessCtrl;
 export { Permissions };
-export { PermissionRequestResult };
+export type PermissionRequestResult = _PermissionRequestResult;
+export type Context = _Context;
