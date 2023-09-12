@@ -608,7 +608,7 @@ declare namespace deviceManager {
      * @since 7
      * @deprecated since 11
      */
-    extraInfo: { [key: string]: Object };
+    extraInfo: { [key: string]: any };
   }
 
   /**
@@ -649,7 +649,7 @@ declare namespace deviceManager {
      * @since 7
      * @deprecated since 11
      */
-    extraInfo: { [key: string]: Object };
+    extraInfo: { [key: string]: any };
   }
 
   /**
