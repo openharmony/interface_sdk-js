@@ -17,6 +17,7 @@ import type rpc from './@ohos.rpc';
 import type Want from './@ohos.app.ability.Want';
 import _DriverExtensionContext from './application/DriverExtensionContext';
 
+
 export type DriverExtensionContext = _DriverExtensionContext;
 
 /**
