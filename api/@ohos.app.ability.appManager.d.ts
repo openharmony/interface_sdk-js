@@ -17,6 +17,7 @@ import { AsyncCallback } from './@ohos.base';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
+import type * as _ProcessData from './application/ProcessData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 
 /**
@@ -570,6 +571,15 @@ declare namespace appManager {
    * @since 9
    */
   export type ProcessInformation = _ProcessInformation;
+
+  /**
+   * The class of a process information.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  export type ProcessData = _ProcessData.default;
 }
 
 export default appManager;
