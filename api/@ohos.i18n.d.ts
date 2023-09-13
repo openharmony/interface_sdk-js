@@ -2118,13 +2118,13 @@ declare namespace i18n {
    */
   export interface EntityInfoItem {
     /**
-     * Entity start position.
+     * Entity begin position.
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
-    start: number;
+    begin: number;
 
     /**
      * Entity end position.
