@@ -765,6 +765,7 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300007 - Conference call is exceed limit.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -782,6 +783,7 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300007 - Conference call is exceed limit.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1390,6 +1392,7 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300008 - Conference call is not active.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -1407,6 +1410,7 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300008 - Conference call is not active.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3131,6 +3135,24 @@ declare namespace call {
      * @since 11
      */
     EVENT_SWAP_CALL_FAILED,
+
+    /**
+     * Indicates combine call failed.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_COMBINE_CALL_FAILED,
+  
+    /**
+     * Indicates split call failed.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_SPLIT_CALL_FAILED,
   }
 
   /**
