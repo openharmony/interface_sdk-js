@@ -14,10 +14,10 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { CommonEventData } from './commonEvent/commonEventData';
-import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
-import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
-import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
+import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
+import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
+import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
+import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
  * Common event definition
@@ -1801,6 +1801,38 @@ declare namespace commonEventManager {
      */
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED'
   }
+
+  /**
+   * Describes the data of the common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventData = _CommonEventData;
+
+  /**
+   * Describes the subscriber of common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventSubscriber = _CommonEventSubscriber;
+
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
+
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventPublishData = _CommonEventPublishData;
 }
 
 export default commonEventManager;
