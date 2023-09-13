@@ -180,7 +180,15 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
-    DEVICE_TYPE_WEARABLE = 0x06
+    DEVICE_TYPE_WEARABLE = 0x06,
+
+    /**
+     * Indicates a 2in1 device.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 11
+     */
+    DEVICE_TYPE_2IN1 = 0x07
   }
 
   /**
