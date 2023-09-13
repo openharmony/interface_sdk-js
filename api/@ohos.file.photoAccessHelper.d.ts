@@ -1527,6 +1527,132 @@ declare namespace photoAccessHelper {
      */
     extraUris: Array<string>;
   }
+
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  export enum PhotoViewMIMETypes {
+    /**
+     * IMAGE_TYPE indicates that the selected media resources are images.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    IMAGE_TYPE = 'image/*',
+    /**
+     * VIDEO_TYPE indicates that the selected media resources are videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    VIDEO_TYPE = 'video/*',
+    /**
+     * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    IMAGE_VIDEO_TYPE = '*/*'
+  }
+
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSelectOptions {
+    /**
+     * The Type of the file in the picker window.
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    MIMEType?: PhotoViewMIMETypes;
+
+    /**
+     * Maximum number of images for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    maxSelectNumber?: number;
+  }
+
+  /**
+   * PhotoSelectResult Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSelectResult {
+    /**
+     * The uris for the selected files.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    photoUris: Array<string>;
+
+    /**
+     * Original option.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    isOriginalPhoto: boolean;
+  }
+
+  /**
+   * PhotoViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoViewPicker {
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
+
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
+
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(callback: AsyncCallback<PhotoSelectResult>): void;
+  }
 }
 
 export default photoAccessHelper;
