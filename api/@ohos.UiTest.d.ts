@@ -2448,6 +2448,23 @@ declare class Driver {
    * @test
    */
   mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+  /**
+   * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
+   *
+   * @param { Point } p The coordinate of the specified location.
+   * @param { boolean } down Whether the mouse wheel rolls down.
+   * @param { number } d The number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param { number } key1 the first keyCode.
+   * @param { number } key2 the second keyCode.
+   * @param { number } speed The speed at which mouse wheel rolls(cells per second),default is 20,the value ranges from 1 to 500,set it 20 if out of range.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
 
   /**
    * Capture the specified area of current screen and save as picture which PNG format.
@@ -2473,24 +2490,6 @@ declare class Driver {
    * @test
    */
   createUIEventObserver(): UIEventObserver;
-
-  /**
-   * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
-   *
-   * @param { Point } p The coordinate of the specified location.
-   * @param { boolean } down Whether the mouse wheel rolls down.
-   * @param { number } d The number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } key1 the first keyCode.
-   * @param { number } key2 the second keyCode.
-   * @param { number } speed The speed at which mouse wheel rolls(cells per second),default is 20,the value ranges from 1 to 500,set it 20 if out of range.
-   * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
-   * @syscap SystemCapability.Test.UiTest
-   * @since 11
-   * @test
-   */
-  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;  
 
   /**
    * Double click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
