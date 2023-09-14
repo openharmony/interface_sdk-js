@@ -2352,9 +2352,7 @@ declare namespace request {
      */
     interface FileSpec {
       /**
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+       * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2363,8 +2361,7 @@ declare namespace request {
       path: string;
       /**
        * The MIME type of the file.
-       * For upload, the default is obtained by the suffix of the filename or uri.
-       * For download, the default if the `Content-Type` of response.
+       * The default is obtained by the suffix of the filename.
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2512,7 +2509,7 @@ declare namespace request {
        * For upload, it can be form items, the default is a empty form.
        * there must be one `FileSpec` item at least or will be a parameter error.
        *
-       * @type { ?string | Array<FormItem> }
+       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
@@ -2960,7 +2957,7 @@ declare namespace request {
        * For `${ show }` and `${ touch }`.
        * It is empty string in `${ query }`.
        *
-       * @type { ?string | Array<FormItem> }
+       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
