@@ -599,7 +599,7 @@ declare namespace pointer {
   /**
    * Checks whether the pointer icon is visible through sync mode.
    *
-   * @returns { boolean } Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @returns { boolean } Returns true if the pointer icon is visible, returns false otherwise.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10
    */
