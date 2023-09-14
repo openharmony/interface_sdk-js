@@ -85,14 +85,14 @@ export declare class OperateIcon {
    * @type { ResourceStr }.
    * @since 10
    */
-  value: ResourceStr,
+  value: ResourceStr;
 
   /**
    * Callback function when operate the icon.
    * @type { () => void }.
    * @since 10
    */
-  action?: () => void
+  action?: () => void;
 }
 
 /**
@@ -106,14 +106,14 @@ export declare class OperateCheck {
    * @type { boolean }.
    * @since 10
    */
-  isCheck?: boolean,
+  isCheck?: boolean;
 
   /**
    * Callback function when operate the checkbox/switch/radio.
    * @type { () => void }.
    * @since 10
    */
-  onChange?: (value: boolean) => void
+  onChange?: (value: boolean) => void;
 }
 
 /**
@@ -127,7 +127,7 @@ export declare class OperateButton {
    * @type { ResourceStr }.
    * @since 10
    */
-  text?: ResourceStr
+  text?: ResourceStr;
 }
 
 /**
