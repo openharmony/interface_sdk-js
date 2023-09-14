@@ -48,6 +48,17 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
+   * Obtains the interface used to install bundle.
+   *
+   * @returns { BundleInstaller } BundleInstaller object.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getBundleInstallerSync(): BundleInstaller;
+
+  /**
    * Bundle installer interface, include install uninstall recover.
    *
    * @interface BundleInstaller
