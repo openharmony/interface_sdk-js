@@ -1548,7 +1548,7 @@ declare namespace huks {
      * Auth type for always valid.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
-     * @since 10
+     * @since 11
      */
     HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
   }
