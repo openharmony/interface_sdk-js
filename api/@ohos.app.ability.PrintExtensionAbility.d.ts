@@ -19,8 +19,8 @@ import type print from './@ohos.print';
 /**
  * class of print extensionAbility.
  *
- * @systemapi Hide this for inner system use.
  * @syscap SystemCapability.Print.PrintFramework
+ * @systemapi Hide this for inner system use.
  * @StageModelOnly
  * @since 10
  */
