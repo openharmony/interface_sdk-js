@@ -14,7 +14,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-import wantConstant from './@ohos.ability.wantConstant';
+import type wantConstant from './@ohos.app.ability.wantConstant';
 
 /**
  * This module provides the capability to authorize URI.
@@ -29,7 +29,8 @@ declare namespace uriPermissionManager {
    *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
-   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @param { AsyncCallback<number> } callback - the callback of grantUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
@@ -55,7 +56,8 @@ declare namespace uriPermissionManager {
    *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
-   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
