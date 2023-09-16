@@ -829,6 +829,33 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of mode for displaying albums containing hidden assets
+   *
+   * @enum { number } HiddenPhotosDisplayMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 11
+   */
+  enum HiddenPhotosDisplayMode {
+    /**
+     * Display the system hidden album that contains all the hidden assets.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ASSETS_MODE,
+    /**
+     * Display all albums containing hidden assets(excluding the system hidden album and the system trash album).
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ALBUMS_MODE
+  }
+
+  /**
    * Options to fetch assets or albums
    *
    * @interface FetchOptions
@@ -1141,6 +1168,14 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     CAMERA,
+    /**
+     * Image album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    IMAGE,
     /**
      * Any album
      *
@@ -1696,6 +1731,53 @@ declare namespace photoAccessHelper {
      */
     getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
+     * Fetch albums containing hidden assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { HiddenPhotosDisplayMode } mode - Display mode of albums containing hidden assets.
+     * @param { FetchOptions } options - Options to fetch albums.
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns fetchResult of albums containing hidden assets.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>): void;
+    /**
+     * Fetch albums containing hidden assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { HiddenPhotosDisplayMode } mode - Display mode of albums containing hidden assets.
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns fetchResult of albums containing hidden assets.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbums(mode: HiddenPhotosDisplayMode, callback: AsyncCallback<FetchResult<Album>>): void;
+    /**
+     * Fetch albums containing hidden assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { HiddenPhotosDisplayMode } mode - Display mode of albums containing hidden assets.
+     * @param { FetchOptions } [options] - Options to fetch albums.
+     * @returns { Promise<FetchResult<Album>> } Returns fetchResult of albums containing hidden assets.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbums(mode: HiddenPhotosDisplayMode, options?: FetchOptions): Promise<FetchResult<Album>>;
+    /**
      * Delete assets
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1908,7 +1990,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
-    DEFAULT_ALBUM_URI = 'file://media/PhotoAlbum'
+    DEFAULT_ALBUM_URI = 'file://media/PhotoAlbum',
+    /**
+     * Uri for albums in hidden album view.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    DEFAULT_HIDDEN_ALBUM_URI = 'file://media/HiddenAlbum'
   }
 
   /**
