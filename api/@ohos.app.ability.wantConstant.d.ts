@@ -161,6 +161,23 @@ declare namespace wantConstant {
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
+     * Indicates the grant for possible persisting on the URI.
+     * The flag only valid in PC scenarios.
+     * When sharing user file URI,
+     * if the application has PERMISSION_PROXY_AUTHORIZATION_URI permission or persistable permission to the URI,
+     * it can share persistable URI permission by using this flag.
+     * To grant persistable read permissions to URI,
+     * you can set flag = FLAG_AUTH_READ_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+     * To grant persistable write permissions to URI,
+     * you can set flag = FLAG_AUTH_WRITE_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @since 10
+     */
+    FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
+
+    /**
      * Install the specified ability if it's not installed.
      *
      * @syscap SystemCapability.Ability.AbilityBase
