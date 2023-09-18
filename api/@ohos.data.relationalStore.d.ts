@@ -289,6 +289,16 @@ declare namespace relationalStore {
      * @since 10
      */
     dataGroupId?: string;
+
+    /**
+     * Specifies the directory relative to the database directory obtained from context
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 11
+     */
+    customDir?: string;
   }
 
   /**
@@ -3349,6 +3359,25 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   * Allows you to specify a custom directory for creating a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
+   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 11
+   */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
   /**
@@ -3384,10 +3413,30 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   * Allows you to specify a custom directory for creating a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
+   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 11
+   */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3400,6 +3449,7 @@ declare namespace relationalStore {
    */
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3415,6 +3465,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified store config.
+   * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
@@ -3432,6 +3483,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3444,6 +3496,7 @@ declare namespace relationalStore {
    */
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3459,6 +3512,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified store config.
+   * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
