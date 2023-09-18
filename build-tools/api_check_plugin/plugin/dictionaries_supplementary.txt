@@ -392,6 +392,7 @@ lowercased
 lightupEffect
 lpx
 lru
+lseek
 lshort
 lsizei
 lsizeiptr
@@ -585,6 +586,7 @@ renderbuffer
 renderbuffertarget
 repayment
 repeates
+reposition
 resizeable
 resmgr
 resourceschedule
@@ -804,6 +806,7 @@ useriam
 usim
 ussd
 utilized
+utimes
 uuids
 uwb
 uids
