@@ -3430,6 +3430,17 @@ declare namespace request {
     /**
      * Searches tasks, for system.
      *
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function search(callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Searches tasks, for system.
+     *
      * @param { Filter } filter an instance of `Filter`.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
      * @throws { BusinessError } 401 - parameter error.
@@ -3449,7 +3460,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    function search(filter: Filter): Promise<Array<string>>;
+    function search(filter?: Filter): Promise<Array<string>>;
 
     /**
      * Queries specified task details.
