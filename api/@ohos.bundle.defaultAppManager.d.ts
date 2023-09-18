@@ -116,6 +116,18 @@ declare namespace defaultAppManager {
   function isDefaultApplication(type: string): Promise<boolean>;
 
   /**
+   * Query whether the caller is default application based on type.
+   *
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @returns { boolean } Return true if caller is default application; return false otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @since 10
+   */
+  function isDefaultApplicationSync(type: string): boolean;
+
+  /**
    * Get default application based on type.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
@@ -172,6 +184,26 @@ declare namespace defaultAppManager {
    * @since 9
    */
   function getDefaultApplication(type: string, userId?: number): Promise<BundleInfo>;
+
+  /**
+   * Get default application based on type.
+   *
+   * @permission ohos.permission.GET_DEFAULT_APPLICATION
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { number } userId - Indicates the id for the user.
+   * @returns { BundleInfo } Return the BundleInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700023 - The specified default app does not exist.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 10
+   */
+  function getDefaultApplicationSync(type: string, userId?: number): BundleInfo;
 
   /**
    * Set default application based on type.
@@ -236,6 +268,26 @@ declare namespace defaultAppManager {
   function setDefaultApplication(type: string, elementName: ElementName, userId?: number): Promise<void>;
 
   /**
+   * Set default application based on type.
+   *
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
+   * @param { number } userId - Indicates the id for the user.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @throws { BusinessError } 17700028 - The specified ability does not match the type.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 10
+   */
+  function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: number): void;
+
+  /**
    * Reset default application based on type.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
@@ -289,6 +341,24 @@ declare namespace defaultAppManager {
    * @since 9
    */
   function resetDefaultApplication(type: string, userId?: number): Promise<void>;
+
+  /**
+   * Reset default application based on type.
+   *
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { number } userId - Indicates the id for the user.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 10
+   */
+  function resetDefaultApplicationSync(type: string, userId?: number): void;
 }
 
 export default defaultAppManager;
