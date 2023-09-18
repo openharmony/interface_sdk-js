@@ -464,6 +464,18 @@ declare namespace pointer {
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
+   * Sets the pointer moving speed through sync mode.
+   *
+   * @param { number } speed - Pointer moving speed, which is any number.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function setPointerSpeedSync(speed: number): void;
+
+  /**
    * Queries the pointer moving speed.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
@@ -483,6 +495,17 @@ declare namespace pointer {
    * @since 9
    */
   function getPointerSpeed(): Promise<number>;
+
+  /**
+   * Queries the pointer moving speed through sync mode.
+   * @returns { number } Returns the pointer speed through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function getPointerSpeedSync(): number;
 
   /**
    * Sets the pointer style.
@@ -507,6 +530,17 @@ declare namespace pointer {
    * @since 9
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
+
+  /**
+   * Sets the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { PointerStyle } pointerStyle - Pointer style.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
 
   /**
    * Queries the pointer style.
