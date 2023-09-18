@@ -90,6 +90,7 @@
 /// <reference path="./scroll.d.ts" />
 /// <reference path="./scroll_bar.d.ts" />
 /// <reference path="./search.d.ts" />
+/// <reference path="./security_component.d.ts" />
 /// <reference path="./select.d.ts" />
 /// <reference path="./shape.d.ts" />
 /// <reference path="./slider.d.ts" />
