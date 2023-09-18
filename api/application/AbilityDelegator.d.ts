@@ -85,6 +85,18 @@ export interface AbilityDelegator {
   addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
   /**
+   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  addAbilityMonitorSync(monitor: AbilityMonitor): void;
+
+  /**
    * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
@@ -129,6 +141,18 @@ export interface AbilityDelegator {
    * @since 10
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
+
+  /**
+   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityStageMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
   /**
    * Remove a specified AbilityMonitor object from the application memory.
@@ -177,6 +201,18 @@ export interface AbilityDelegator {
   removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
   /**
+   * Remove a specified AbilityMonitor object from the application memory.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  removeAbilityMonitorSync(monitor: AbilityMonitor): void;
+
+  /**
    * Remove a specified AbilityStageMonitor object from the application memory.
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
@@ -221,6 +257,18 @@ export interface AbilityDelegator {
    * @since 10
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
+
+  /**
+   * Remove a specified AbilityStageMonitor object from the application memory.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
   /**
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
