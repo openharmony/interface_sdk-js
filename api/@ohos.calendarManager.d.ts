@@ -365,7 +365,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    color?: number | string;
+    color?: (number | string);
   }
 
   /**
