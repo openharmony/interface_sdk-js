@@ -138,18 +138,7 @@ declare class LinearGradient {
  * @crossplatform
  * @since 10
  */
-declare interface DataPanelShadowOptions {
-  /**
-   * Current shadow radius.
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  radius?: number | Resource;
-
+declare interface DataPanelShadowOptions extends MultiShadowOptions {
   /**
    * Current shadow colors.
    *
@@ -160,28 +149,6 @@ declare interface DataPanelShadowOptions {
    * @since 10
    */
   colors?: Array<ResourceColor | LinearGradient>;
-
-  /**
-   * Current shadow offsetX.
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  offsetX?: number | Resource;
-
-  /**
-   * Current shadow offsetY
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  offsetY?: number | Resource;
 }
 
 /**

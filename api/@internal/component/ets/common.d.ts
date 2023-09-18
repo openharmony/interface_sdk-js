@@ -3417,6 +3417,49 @@ declare enum ShadowStyle {
 }
 
 /**
+ * Defines the options of Shadow.
+ *
+ * @interface MultiShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface MultiShadowOptions {
+  /**
+   * Current shadow radius.
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  radius?: number | Resource;
+
+  /**
+   * Current shadow offsetX.
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offsetX?: number | Resource;
+
+  /**
+   * Current shadow offsetY
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offsetY?: number | Resource;
+}
+
+/**
  * Enumerates the safe area types.
  *
  * @enum { number }
