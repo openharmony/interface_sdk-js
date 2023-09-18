@@ -13,17 +13,88 @@
  * limitations under the License.
  */
 
-import { Command } from 'commander';
+import commander from 'commander';
+import envConfig from './config/env';
+import { getToolConfiguration, ToolConfigType } from './bin/index';
+import { CommandType, optionObjType, PluginType, PluginOptionsType, toolNameType, toolNameSet } from './bin/config';
+import { LogUtil } from './utils/logUtil';
+import { FileUtils } from './utils/FileUtils';
 
-import { parse } from './core/entry';
+class ToolBoxCommander {
+  program: commander.Command = new commander.Command();
+  constructor() {}
+  addPluginCommand(plugin: PluginType): void {
+    const pluginOption: PluginOptionsType = plugin.pluginOptions;
+    if (!pluginOption) {
+      return;
+    }
+    const pluginCommand: commander.Command = this.program
+      .name(pluginOption.name)
+      .description(pluginOption.description)
+      .version(pluginOption.version)
+      .action((opts: optionObjType) => {
+        this.judgeOpts(opts);
+        plugin.start(opts);
+        plugin.stop();
+      });
+    pluginOption.commands.forEach((command: CommandType) => {
+      if (command.isRequiredOption) {
+        pluginCommand.requiredOption(...command.options);
+      } else {
+        pluginCommand.option(...command.options);
+      }
+    });
+  }
+  buildCommands(): void {
+    this.program.parse();
+  }
+  /**
+   * 判断传入命令是否满足工具允许条件，满足正常允许，不满足的时候通过stopRun停止命令行执行
+   *
+   * @param {optionObjType} opts
+   */
+  judgeOpts(opts: optionObjType): void {
+    const toolName: string = opts.toolName;
+    if (!toolNameSet.has(toolName)) {
+      this.stopRun(`error toolName "${toolName}",toolName not in \[${[...toolNameSet]}\] `);
+    }
+    switch (toolName) {
+      case toolNameType.COOLECT:
+        const collectPath = opts.collectPath;
+        if (collectPath === '' || !FileUtils.isExists(collectPath)) {
+          this.stopRun(`error collectPath "${collectPath}",collectPath need a exist file path`);
+        }
+        break;
+    }
+  }
+  /**
+   * 停止命令行执行，输出错误信息
+   *
+   * @param {string} text
+   */
+  stopRun(text: string): void {
+    LogUtil.e('commander', text);
+    this.program.help({ error: true });
+  }
+}
+class ToolboxEntry {
+  commandBuilder: ToolBoxCommander;
+  constructor() {
+    this.commandBuilder = new ToolBoxCommander();
+  }
+  runPlugins(): void {
+    const configuration: ToolConfigType = getToolConfiguration();
+    configuration.plugins.forEach((plugin: PluginType) => {
+      this.commandBuilder.addPluginCommand(plugin);
+    });
+    this.commandBuilder.buildCommands();
+  }
+}
 
 function main(): void {
-  const program: Command = new Command();
-  program
-    .name('dts-parser')
-    .option('-i, --input <path>')
-    .option('-o, --output <path>');
-  program.parse();
-  parse(program.opts().input, program.opts().output);
+  Object.assign(process.env, envConfig);
+  const entry = new ToolboxEntry();
+  entry.runPlugins();
 }
+
 main();

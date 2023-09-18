@@ -1,0 +1,38 @@
+{
+  "ut_jsdoc_form_013.d.ts": [
+    {
+      "filePath": "ut_jsdoc_form_013.d.ts",
+      "apiType": "Namespace",
+      "definedText": " export namespace test",
+      "pos": {
+        "line": 6,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_jsdoc_form_013.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for jsdoc about form",
+          "syscap": "",
+          "since": "-1",
+          "isForm": true,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "childApis": []
+    }
+  ]
+}

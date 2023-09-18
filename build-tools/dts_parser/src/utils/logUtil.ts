@@ -17,7 +17,7 @@ export enum LogLevel {
   DEBUG,
   INFO,
   WARN,
-  ERR
+  ERR,
 }
 
 export class LogLevelUtil {
@@ -32,27 +32,27 @@ export class LogLevelUtil {
 }
 
 export class LogUtil {
-  static logLevel: LogLevel = LogLevel.ERR;
+  static logLevel: LogLevel = process.env.NODE_ENV === 'development' ? LogLevel.DEBUG : LogLevel.ERR;
 
-  static e(tag: string, message?: string): void {
+  static e(tag: string, message?: any) {
     if (LogUtil.logLevel <= LogLevel.ERR) {
       console.error(`${tag}: ${message}`);
     }
   }
 
-  static i(tag: string, message?: string): void {
-    if (LogUtil.logLevel <= LogLevel.INFO) {
-      console.info(`${tag}: ${message}`);
-    }
-  }
-
-  static w(tag: string, message?: string): void {
+  static w(tag: string, message?: any) {
     if (LogUtil.logLevel <= LogLevel.WARN) {
       console.warn(`${tag}: ${message}`);
     }
   }
 
-  static d(tag: string, message?: string): void {
+  static i(tag: string, message?: any) {
+    if (LogUtil.logLevel <= LogLevel.INFO) {
+      console.info(`${tag}: ${message}`);
+    }
+  }
+
+  static d(tag: string, message?: any) {
     if (LogUtil.logLevel <= LogLevel.DEBUG) {
       console.debug(`${tag}: ${message}`);
     }

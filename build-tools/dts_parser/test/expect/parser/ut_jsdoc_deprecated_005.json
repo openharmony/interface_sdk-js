@@ -1,0 +1,38 @@
+{
+  "ut_jsdoc_deprecated_005.d.ts": [
+    {
+      "filePath": "ut_jsdoc_deprecated_005.d.ts",
+      "apiType": "Namespace",
+      "definedText": " export namespace test",
+      "pos": {
+        "line": 7,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_jsdoc_deprecated_005.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for jsdoc about deprecated",
+          "syscap": "",
+          "since": "7",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "9",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "childApis": []
+    }
+  ]
+}

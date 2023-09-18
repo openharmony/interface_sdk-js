@@ -16,30 +16,62 @@
 import { expect } from 'chai';
 import path from 'path';
 import fs from 'fs';
+import { FileUtils } from '../../src/utils/FileUtils';
+import { FilesMap, Parser } from '../../src/coreImpl/parser/parser';
+import { StringConstant } from '../../src/utils/Constant';
 
-import { parse } from '../../src/core/entry';
-
-describe('testSingleFile', function () {
-  const testFileDir = path.join(__dirname, '..', '/ut/');
-  const outputFileDir = path.join(__dirname, '..', '/output/');
-  const expectFileDir = path.join(__dirname, '..', '/expect/');
-  const testFileNames = fs.readdirSync(testFileDir);
-  testFileNames.forEach((testFileName) => {
-    const baseName: string = path.basename(testFileName, '.d.ts');
-    const testFilePath = path.join(testFileDir, testFileName);
-    const outputFilePath = path.join(outputFileDir, `${baseName}.json`);
-    const expectFilePath = path.join(expectFileDir, `${baseName}.json`);
-    it('testFile#' + testFilePath, function () {
+describe('testParserEachSince', function () {
+  const testFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/parserSince');
+  const outputFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/output/parserSince');
+  const expectFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/expect/parserSince');
+  const testFileNames: string[] = fs.readdirSync(testFileDir);
+  testFileNames.forEach((testFileName: string) => {
+    const baseName: string = path
+      .basename(testFileName)
+      .replace(/.d.ts/g, '')
+      .replace(/.d.ets/g, '');
+    const testFilePath: string = path.join(testFileDir, testFileName);
+    const outputFilePath: string = path.join(outputFileDir, `${baseName}.json`);
+    const expectFilePath: string = path.join(expectFileDir, `${baseName}.json`);
+    it('\ntestFile#' + testFilePath + '\noutput:' + outputFilePath + '\nexpect:' + expectFilePath, function () {
       if (fs.existsSync(outputFilePath)) {
-        fs.rmSync(outputFilePath);
+        fs.rmdirSync(outputFilePath, { recursive: true });
       }
       if (!fs.existsSync(outputFileDir)) {
         fs.mkdirSync(outputFileDir);
       }
-      parse(testFilePath, outputFilePath);
+      const outputContent: string = Parser.getParseEachSince(Parser.parseFile(testFileDir, testFilePath));
+      fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
-      const outputFileContent: string = fs.readFileSync(outputFilePath, 'utf-8').replace(/\r\n/g, '\n');
-      expect(outputFileContent).eql(expectFileContent);
+      expect(outputContent).eql(expectFileContent);
+    });
+  });
+});
+
+describe('testParser', function () {
+  const testFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/parser');
+  const outputFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/output/parser');
+  const expectFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/expect/parser');
+  const testFileNames: string[] = fs.readdirSync(testFileDir);
+  testFileNames.forEach((testFileName: string) => {
+    const baseName: string = path
+      .basename(testFileName)
+      .replace(/.d.ts/g, '')
+      .replace(/.d.ets/g, '');
+    const testFilePath: string = path.join(testFileDir, testFileName);
+    const outputFilePath: string = path.join(outputFileDir, `${baseName}.json`);
+    const expectFilePath: string = path.join(expectFileDir, `${baseName}.json`);
+    it('\ntestFile#' + testFilePath + '\noutput:' + outputFilePath + '\nexpect:' + expectFilePath, function () {
+      if (fs.existsSync(outputFilePath)) {
+        fs.rmdirSync(outputFilePath, { recursive: true });
+      }
+      if (!fs.existsSync(outputFileDir)) {
+        fs.mkdirSync(outputFileDir);
+      }
+      const outputContent: string = Parser.getParseResults(Parser.parseFile(testFileDir, testFilePath));
+      fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
+      const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
+      expect(outputContent).eql(expectFileContent);
     });
   });
 });

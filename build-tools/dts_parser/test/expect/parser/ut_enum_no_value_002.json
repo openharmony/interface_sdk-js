@@ -1,0 +1,80 @@
+{
+  "ut_enum_no_value_002.d.ts": [
+    {
+      "filePath": "ut_enum_no_value_002.d.ts",
+      "apiType": "Enum",
+      "definedText": " export enum NoValue",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "NoValue",
+      "hierarchicalRelations": [
+        "ut_enum_no_value_002.d.ts",
+        "NoValue"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_enum_no_value_002.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_ONE = 1",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_ONE",
+          "hierarchicalRelations": [
+            "ut_enum_no_value_002.d.ts",
+            "NoValue",
+            "VALUE_ONE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1"
+        },
+        {
+          "filePath": "ut_enum_no_value_002.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_TWO",
+          "pos": {
+            "line": 3,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_TWO",
+          "hierarchicalRelations": [
+            "ut_enum_no_value_002.d.ts",
+            "NoValue",
+            "VALUE_TWO"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "2"
+        },
+        {
+          "filePath": "ut_enum_no_value_002.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_THREE = 4",
+          "pos": {
+            "line": 4,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_THREE",
+          "hierarchicalRelations": [
+            "ut_enum_no_value_002.d.ts",
+            "NoValue",
+            "VALUE_THREE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "4"
+        }
+      ]
+    }
+  ]
+}
