@@ -52,10 +52,10 @@ export class Parser {
    *
    * @param { string } fileDir 文件的跟路径
    * @param { string } filePath 文件路径名
-   * @param {(FilesMap | undefined)} [apiMap=undefined] 返回处理后的存储api信息的map对象
+   * @param { FilesMap } [apiMap] 返回处理后的存储api信息的map对象
    * @returns { FilesMap } 返回处理后的存储api信息的map对象
    */
-  static parseFile(fileDir: string, filePath: string, apiMap: FilesMap | undefined = undefined): FilesMap {
+  static parseFile(fileDir: string, filePath: string, apiMap?: FilesMap): FilesMap {
     if (!fs.existsSync(filePath)) {
       return new Map();
     }
