@@ -213,6 +213,7 @@
     "SystemCapability.DistributedDataManager.UDMF.Core",
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
-    "SystemCapability.AI.IntelligentVoice.Core"
+    "SystemCapability.AI.IntelligentVoice.Core",
+    "SystemCapability.Multimedia.Media.SoundPool"
   ]
 }
