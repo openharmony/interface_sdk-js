@@ -565,6 +565,17 @@ declare namespace pointer {
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
   /**
+   * Queries the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @returns { PointerStyle } Returns the pointerStyle.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function getPointerStyleSync(windowId: number): PointerStyle;
+
+  /**
    * Sets whether the pointer icon is visible.
    *
    * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
@@ -589,6 +600,17 @@ declare namespace pointer {
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
+   * Sets whether the pointer icon is visible through sync mode.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerVisibleSync(visible: boolean): void;
+
+  /**
    * Checks whether the pointer icon is visible.
    *
    * @param { AsyncCallback<boolean> } callback - Returns <b>true</b> if the pointer icon is visible,
@@ -609,8 +631,17 @@ declare namespace pointer {
   function isPointerVisible(): Promise<boolean>;
 
   /**
-   * Set the color of pointer.
+   * Checks whether the pointer icon is visible through sync mode.
    *
+   * @returns { boolean } Returns true if the pointer icon is visible, returns false otherwise.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function isPointerVisibleSync(): boolean;
+
+  /**
+   * Set the color of pointer.
+   * 
    * @param { number } color - Indicates the color of pointer.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
