@@ -997,8 +997,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Starts a new service extension ability. If the caller application is in foreground, you can use this method to start service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -1049,8 +1048,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Starts a new service extension ability. If the caller application is in foreground, you can use this method to start service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -1103,9 +1101,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Starts a new service extension ability with account. If the caller application is in foreground,
-   * you can use this method to start service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability with account.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -1160,9 +1156,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Starts a new service extension ability with account. If the caller application is in foreground,
-   * you can use this method to start service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability with account.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -1213,9 +1207,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Stops other service extension ability. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -1263,9 +1255,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Stops other service extension ability. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -1314,9 +1304,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Stops other service extension ability with account. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability with account.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -1367,9 +1355,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Stops other service extension ability with account. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability with account.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -1535,8 +1521,6 @@ export default class UIAbilityContext extends Context {
    */
   /**
    * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
-   * If the caller application is in foreground, you can use this method to connect service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
@@ -1585,8 +1569,6 @@ export default class UIAbilityContext extends Context {
    */
   /**
    * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template with account.
-   * If the caller application is in foreground, you can use this method to connect service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
