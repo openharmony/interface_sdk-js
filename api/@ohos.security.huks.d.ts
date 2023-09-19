@@ -1543,7 +1543,14 @@ declare namespace huks {
    */
   export enum HuksAuthAccessType {
     HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
-    HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1
+    HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
+    /**
+     * Auth type for always valid.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
   }
 
   /**
