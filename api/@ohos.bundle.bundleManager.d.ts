@@ -14,13 +14,13 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
-import type * as _ApplicationInfo from './bundleManager/ApplicationInfo';
 import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
 import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
@@ -2076,7 +2076,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type ApplicationInfo = _ApplicationInfo.ApplicationInfo;
+  export type ApplicationInfo = _ApplicationInfo;
 
   /**
    * Indicates the metadata information about a module.
@@ -2084,7 +2084,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
-  export type ModuleMetadata = _ApplicationInfo.ModuleMetadata;
+  export type ModuleMetadata = _ModuleMetadata;
 
   /**
    * Indicates the Metadata.
