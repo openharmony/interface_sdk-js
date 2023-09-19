@@ -5841,6 +5841,7 @@ declare interface PixelStretchEffectOptions {
  *
  * @interface ClickEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface ClickEffect {
@@ -5996,6 +5997,7 @@ declare class CommonMethod<T> {
    * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
    * @returns { T } The component instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
@@ -6650,6 +6652,15 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * Set hover effect.
+   *
+   * @param { HoverEffect } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   hoverEffect(value: HoverEffect): T;
 
@@ -8042,6 +8053,7 @@ declare class CommonMethod<T> {
    * @param { ClickEffect | null } value
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   clickEffect(value: ClickEffect | null): T;
@@ -8733,6 +8745,7 @@ declare class CommonMethod<T> {
    * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   obscured(reasons: Array<ObscuredReasons>): T;
