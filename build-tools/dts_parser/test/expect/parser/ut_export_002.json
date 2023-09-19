@@ -1,0 +1,61 @@
+{
+  "ut_export_002.d.ts": [
+    {
+      "filePath": "ut_export_002.d.ts",
+      "apiType": "Class",
+      "definedText": " export class Test",
+      "pos": {
+        "line": 4,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_export_002.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for export",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": []
+    },
+    {
+      "filePath": "ut_export_002.d.ts",
+      "apiType": "Export",
+      "definedText": "export { Test };",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "export_Test",
+      "hierarchicalRelations": [
+        "ut_export_002.d.ts",
+        "export_Test"
+      ],
+      "isStruct": false,
+      "exportValues": [
+        {
+          "key": "Test",
+          "value": "Test"
+        }
+      ]
+    }
+  ]
+}

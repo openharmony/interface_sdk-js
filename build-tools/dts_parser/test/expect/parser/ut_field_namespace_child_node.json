@@ -1,0 +1,45 @@
+{
+  "ut_field_namespace_child_node.d.ts": [
+    {
+      "filePath": "ut_field_namespace_child_node.d.ts",
+      "apiType": "Namespace",
+      "definedText": " declare namespace testNamespace",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "testNamespace",
+      "hierarchicalRelations": [
+        "ut_field_namespace_child_node.d.ts",
+        "testNamespace"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_field_namespace_child_node.d.ts",
+          "apiType": "TypeAlias",
+          "definedText": "export type test = { a: string; b: '123'; c: false };",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": true,
+          "apiName": "test",
+          "hierarchicalRelations": [
+            "ut_field_namespace_child_node.d.ts",
+            "testNamespace",
+            "test"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "type": [
+            "{ a: string; b: '123'; c: false }"
+          ],
+          "typeName": "ObjectType"
+        }
+      ]
+    }
+  ]
+}

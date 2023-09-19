@@ -1,0 +1,78 @@
+{
+  "ut_ArkTS_struct_003.d.ets": [
+    {
+      "filePath": "ut_ArkTS_struct_003.d.ets",
+      "apiType": "Method",
+      "definedText": "@Builder function MyBuilderFunction(){}",
+      "pos": {
+        "line": 15,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "MyBuilderFunction",
+      "hierarchicalRelations": [
+        "ut_ArkTS_struct_003.d.ets",
+        "MyBuilderFunction"
+      ],
+      "decorators": [
+        {
+          "expression": "Builder"
+        }
+      ],
+      "isStruct": true,
+      "jsDocInfos": [],
+      "callForm": "@Builder MyBuilderFunction(){}",
+      "params": [],
+      "returnValue": [],
+      "isStatic": false,
+      "sync": ""
+    },
+    {
+      "filePath": "ut_ArkTS_struct_003.d.ets",
+      "apiType": "Struct",
+      "definedText": " struct MyComponent",
+      "pos": {
+        "line": 16,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "MyComponent",
+      "hierarchicalRelations": [
+        "ut_ArkTS_struct_003.d.ets",
+        "MyComponent"
+      ],
+      "decorators": [
+        {
+          "expression": "Component"
+        }
+      ],
+      "isStruct": true,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_ArkTS_struct_003.d.ets",
+          "apiType": "Method",
+          "definedText": "",
+          "pos": {
+            "line": 15,
+            "character": 40
+          },
+          "isExport": false,
+          "apiName": "constructor",
+          "hierarchicalRelations": [
+            "ut_ArkTS_struct_003.d.ets",
+            "MyComponent",
+            "constructor"
+          ],
+          "isStruct": true,
+          "jsDocInfos": [],
+          "callForm": "",
+          "params": [],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    }
+  ]
+}

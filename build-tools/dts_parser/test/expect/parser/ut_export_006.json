@@ -1,0 +1,21 @@
+{
+  "ut_export_006.d.ts": [
+    {
+      "filePath": "ut_export_006.d.ts",
+      "apiType": "Export",
+      "definedText": "export * as myTest from 'test';",
+      "pos": {
+        "line": 4,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "export_myTest",
+      "hierarchicalRelations": [
+        "ut_export_006.d.ts",
+        "export_myTest"
+      ],
+      "isStruct": false,
+      "exportValues": []
+    }
+  ]
+}

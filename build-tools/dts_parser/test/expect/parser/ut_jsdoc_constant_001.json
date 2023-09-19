@@ -1,0 +1,79 @@
+{
+  "ut_jsdoc_constant_001.d.ts": [
+    {
+      "filePath": "ut_jsdoc_constant_001.d.ts",
+      "apiType": "Namespace",
+      "definedText": " export namespace test",
+      "pos": {
+        "line": 4,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_jsdoc_constant_001.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for jsdoc about constant",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "childApis": [
+        {
+          "filePath": "ut_jsdoc_constant_001.d.ts",
+          "apiType": "Property",
+          "definedText": "const CONSTANT: string;",
+          "pos": {
+            "line": 8,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "CONSTANT",
+          "hierarchicalRelations": [
+            "ut_jsdoc_constant_001.d.ts",
+            "test",
+            "CONSTANT"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [
+            {
+              "description": "",
+              "syscap": "",
+              "since": "-1",
+              "isForm": false,
+              "isCrossPlatForm": false,
+              "isSystemApi": false,
+              "modelLimitation": "",
+              "deprecatedVersion": "-1",
+              "useinstead": "",
+              "permissions": "",
+              "errorCodes": [],
+              "typeInfo": "",
+              "isConstant": true
+            }
+          ],
+          "type": [
+            "string"
+          ],
+          "isReadOnly": true,
+          "isRequired": true,
+          "isStatic": false
+        }
+      ]
+    }
+  ]
+}

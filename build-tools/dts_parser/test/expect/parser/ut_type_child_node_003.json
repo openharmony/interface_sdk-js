@@ -1,0 +1,45 @@
+{
+  "ut_type_child_node_003.d.ts": [
+    {
+      "filePath": "ut_type_child_node_003.d.ts",
+      "apiType": "Namespace",
+      "definedText": " declare namespace test",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_type_child_node_003.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_type_child_node_003.d.ts",
+          "apiType": "TypeAlias",
+          "definedText": "type TextOneType = Resoure;",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "TextOneType",
+          "hierarchicalRelations": [
+            "ut_type_child_node_003.d.ts",
+            "test",
+            "TextOneType"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "type": [
+            "Resoure"
+          ],
+          "typeName": "ReferenceType"
+        }
+      ]
+    }
+  ]
+}
