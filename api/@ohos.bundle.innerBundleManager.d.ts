@@ -180,6 +180,7 @@ declare namespace innerBundleManager {
  * Contains basic Ability information, which uniquely identifies a launcher StatusCallback.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @systemapi Hide this for inner system use
  * @since 8
  * @deprecated since 9
  */

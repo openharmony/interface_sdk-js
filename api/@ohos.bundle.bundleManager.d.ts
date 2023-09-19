@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
+import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
@@ -2077,6 +2077,14 @@ declare namespace bundleManager {
    * @since 9
    */
   export type ApplicationInfo = _ApplicationInfo;
+
+  /**
+   * Indicates the metadata information about a module.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type ModuleMetadata = _ModuleMetadata;
 
   /**
    * Indicates the Metadata.
