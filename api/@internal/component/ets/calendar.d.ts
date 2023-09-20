@@ -1274,6 +1274,196 @@ interface WorkStateStyle {
 }
 
 /**
+ * Defines the struct of CalendarSelectedDate.
+ *
+ * @interface CalendarSelectedDate
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 7
+ */
+/**
+ * Defines the struct of CalendarSelectedDate.
+ *
+ * @interface CalendarSelectedDate
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ * @form
+ */
+declare interface CalendarSelectedDate {
+  /**
+   * Application year
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Application year
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  year: number;
+
+  /**
+   * Application month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Application month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  month: number;
+
+  /**
+   * Application day
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Application day
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  day: number;
+}
+
+/**
+ * Defines the struct of CalendarRequestedData.
+ *
+ * @interface CalendarRequestedData
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 7
+ */
+/**
+ * Defines the struct of CalendarRequestedData.
+ *
+ * @interface CalendarRequestedData
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ * @form
+ */
+declare interface CalendarRequestedData {
+  /**
+   * Previous year
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Previous year
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  year: number;
+
+  /**
+   * Previous month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Previous month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  month: number;
+
+  /**
+   * Current Year
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Current Year
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  currentYear: number;
+
+  /**
+   * Current Month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * Current Month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  currentMonth: number;
+
+  /**
+   * State of month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 7
+   */
+  /**
+   * State of month
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  monthState: number;
+}
+
+/**
  * Calendar controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1651,7 +1841,7 @@ declare class CalendarAttribute {
    * @since 10
    * @form
    */
-  onSelectChange(event: (event: { year: number; month: number; day: number }) => void): CalendarAttribute;
+  onSelectChange(event: (event: CalendarSelectedDate) => void): CalendarAttribute;
 
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
@@ -1673,13 +1863,7 @@ declare class CalendarAttribute {
    * @form
    */
   onRequestData(
-    event: (event: {
-      year: number;
-      month: number;
-      currentYear: number;
-      currentMonth: number;
-      monthState: number;
-    }) => void,
+    event: (event: CalendarRequestedData) => void,
   ): CalendarAttribute;
 }
 
