@@ -4744,7 +4744,8 @@ declare interface DragEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').default.IntentionCode;
+declare type IntentionCode = import('../api/@ohos.multimodalInput.intentionCode').IntentionCode;
+
 /**
  * KeyEvent object description:
  *
