@@ -20,6 +20,9 @@ import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
 import { WriterHelper } from './writer';
+import { LocalEntry } from '../coreImpl/checker/local_entry';
+import { ApiResultSimpleInfo } from '../typedef/checker/result_type';
+import { NumberConstant } from '../utils/Constant';
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -31,6 +34,10 @@ export enum toolNameType {
    * 统计工具
    */
   COOLECT = 'collect',
+  /**
+   * 检查工具
+   */
+  CHECK = 'check',
 }
 
 /**
@@ -190,10 +197,43 @@ function collectApi(options: optionObjType): toolNameValueType {
 }
 
 /**
+ * 收集api工具调用方法
+ *
+ * @param { optionObjType } options
+ * @return { toolNameValueType }
+ */
+function checkApi(options: optionObjType): toolNameValueType {
+  let allApis: FilesMap;
+  try {
+    let fileContent: ApiResultSimpleInfo[] = [];
+    if (process.env.NODE_ENV === 'development') {
+      fileContent = LocalEntry.checkEntryLocal();
+    } else if (process.env.NODE_ENV === 'production') {
+    }
+    let finalData: (string | ApiResultSimpleInfo)[] = [];
+    if (options.format === formatType.JSON) {
+      finalData = [JSON.stringify(fileContent, null, NumberConstant.Indent_Space)];
+    } else {
+      finalData = fileContent;
+    }
+    return {
+      data: finalData,
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error collect', error.stack ? error.stack : error.message);
+    return {
+      data: [],
+    };
+  }
+}
+
+/**
  * 工具名称对应执行的方法
  */
 export const toolNameMethod: Map<string, toolNameMethodType> = new Map([
   [toolNameType.COOLECT, collectApi],
+  [toolNameType.CHECK, checkApi],
 ]);
 
 /**
