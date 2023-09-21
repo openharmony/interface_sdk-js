@@ -29,6 +29,7 @@ import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
+import { UIExtensionCallback } from '../ability/uiExtensionCallback';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -2086,4 +2087,50 @@ export default class UIAbilityContext extends Context {
    * @since 10
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts the uiExtensionability by type. 
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   *
+   * @param { string } type - The type of UIExtensionAbilitys.
+   * @param { object } wantParam - Indicates the want parameter.
+   * @param { UIExtensionCallback } uiExtensioncallback - Indicates the uiExtensioncallback.
+   * @param { AsyncCallback<void> } callback - The callback of startUIExtensionAbilityByType.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  startUIExtensionAbilityByType(type: string, wantParam: { [key: string]: Object },
+    uiExtensioncallback: UIExtensionCallback, callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts the uiExtensionability by type. 
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   *
+   * @param { string } type - The type of UIExtensionAbilitys.
+   * @param { object } wantParam - Indicates the want parameter.
+   * @param { UIExtensionCallback } uiExtensioncallback - Indicates the uiExtensioncallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  startUIExtensionAbilityByType(type: string, wantParam: { [key: string]: Object },
+    uiExtensioncallback: UIExtensionCallback): Promise<void>;
 }
