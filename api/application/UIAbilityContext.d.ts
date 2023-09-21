@@ -29,7 +29,7 @@ import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
-import { UIExtensionCallback } from '../ability/uiExtensionCallback';
+import type { AbilityStartCallback } from './AbilityStartCallback';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -2089,14 +2089,14 @@ export default class UIAbilityContext extends Context {
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
   /**
-   * Starts the uiExtensionability by type. 
+   * Starts the UIAbility or UIExtensionAbility by type.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    *
-   * @param { string } type - The type of UIExtensionAbilitys.
-   * @param { object } wantParam - Indicates the want parameter.
-   * @param { UIExtensionCallback } uiExtensioncallback - Indicates the uiExtensioncallback.
-   * @param { AsyncCallback<void> } callback - The callback of startUIExtensionAbilityByType.
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -2108,17 +2108,17 @@ export default class UIAbilityContext extends Context {
    * @StageModelOnly
    * @since 11
    */
-  startUIExtensionAbilityByType(type: string, wantParam: { [key: string]: Object },
-    uiExtensioncallback: UIExtensionCallback, callback: AsyncCallback<void>): void;
+  startAbilityByType(type: string, wantParam: Record<string, Object>,
+    abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts the uiExtensionability by type. 
+   * Starts the UIAbility or UIExtensionAbility by type.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    *
-   * @param { string } type - The type of UIExtensionAbilitys.
-   * @param { object } wantParam - Indicates the want parameter.
-   * @param { UIExtensionCallback } uiExtensioncallback - Indicates the uiExtensioncallback.
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -2131,6 +2131,6 @@ export default class UIAbilityContext extends Context {
    * @StageModelOnly
    * @since 11
    */
-  startUIExtensionAbilityByType(type: string, wantParam: { [key: string]: Object },
-    uiExtensioncallback: UIExtensionCallback): Promise<void>;
+  startAbilityByType(type: string, wantParam: Record<string, Object>,
+    abilityStartCallback: AbilityStartCallback): Promise<void>;
 }
