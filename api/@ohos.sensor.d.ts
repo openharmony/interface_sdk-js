@@ -2717,7 +2717,7 @@ declare namespace sensor {
 
   /**
    * Enumerates the accuracy levels of data reported by a sensor.
-   * @typedef SensorAccuracy
+   * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
    * @since 11
    */
