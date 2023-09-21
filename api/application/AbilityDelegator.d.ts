@@ -832,6 +832,18 @@ export interface AbilityDelegator {
    * @since 10
    */
   finishTest(msg: string, code: number): Promise<void>;
+
+  /**
+   * Used to set a list of mock data.
+   * @param { object } mockList - An object with string keys and string values. The keys represent the target path to
+   *                              be replaced and the values represent the path of the mock implementation to be used
+   *                              for the replacement.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
+  setMockList(mockList: { [key: string]: string }): void;
 }
 
 export default AbilityDelegator;
