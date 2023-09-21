@@ -2723,28 +2723,28 @@ declare namespace sensor {
    */
   enum SensorAccuracy {
     /**
-     * The sensor data is unreliable.
+     * 该精度等级表示上报的传感器数据不可信任，可能的原因是传感器与被测物体没有接触。
      * @syscap SystemCapability.Sensors.Sensor
      * @since 11
      */
     ACCURACY_UNRELIABLE = 0,
 
     /**
-     * The sensor data is at a low accuracy level.
+     * 表示上报的传感器数据精度低，需要结合环境对数据进行校准后使用。
      * @syscap SystemCapability.Sensors.Sensor
      * @since 11
      */
     ACCURACY_LOW = 1,
 
     /**
-     * The sensor data is at a medium accuracy level.
+     * 表示上报的传感器数据为中等精度，建议结合环境对数据进行校准后使用。
      * @syscap SystemCapability.Sensors.Sensor
      * @since 11
      */
     ACCURACY_MEDIUM = 2,
 
     /**
-     * The sensor data is at a high accuracy level.
+     * 表示上报的传感器数据为最高精度，可以直接使用该数据。
      * @syscap SystemCapability.Sensors.Sensor
      * @since 11
      */
