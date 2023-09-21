@@ -570,6 +570,7 @@ reconfiguration
 reconfirm
 recovered
 recovering
+recovers
 recursions
 reclaimed
 redirections
@@ -773,6 +774,7 @@ uninit
 uninitialize
 uninitializes
 uninstallation
+uninstalls
 unlinked
 unlocking
 unlocks
@@ -800,6 +802,7 @@ unsupport
 unsuspended
 uplink
 useriam
+userspace
 usim
 ussd
 utilized
@@ -866,5 +869,6 @@ clouddata
 unadjustable
 unprepare
 unchained
+sandboxes
 sar
 adapts
