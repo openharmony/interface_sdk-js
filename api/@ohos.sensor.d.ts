@@ -3356,6 +3356,7 @@ declare namespace sensor {
 
   /**
    * Color sensor event data.
+   * @typedef ColorResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -3381,6 +3382,7 @@ declare namespace sensor {
 
   /**
    * Sar sensor event data.
+   * @typedef SarResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
