@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
-
 /**
  * Use the DrawableDescriptor class to get drawable image.
  *
