@@ -2716,6 +2716,42 @@ declare namespace sensor {
   }
 
   /**
+   * Enumerates the accuracy levels of data reported by a sensor.
+   * @typedef SensorAccuracy
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 11
+   */
+  enum SensorAccuracy {
+    /**
+     * The sensor data is unreliable.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_UNRELIABLE = 0,
+
+    /**
+     * The sensor data is at a low accuracy level.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_LOW = 1,
+
+    /**
+     * The sensor data is at a medium accuracy level.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_MEDIUM = 2,
+
+    /**
+     * The sensor data is at a high accuracy level.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_HIGH = 3
+  }
+
+  /**
    * The basic data structure of the sensor event.
    * @typedef Response
    * @syscap SystemCapability.Sensors.Sensor
@@ -2729,6 +2765,14 @@ declare namespace sensor {
      * @since 8
      */
     timestamp: number;
+
+    /**
+     * The accuracy levels of data reported by a sensor.
+     * @type { SensorAccuracy }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    accuracy: SensorAccuracy;
   }
 
   /**
