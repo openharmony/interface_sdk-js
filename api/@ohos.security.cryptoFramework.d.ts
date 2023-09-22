@@ -490,20 +490,6 @@ declare namespace cryptoFramework {
     /**
      * Used to convert asymmetric key data to keypair object.
      *
-     * @param { DataBlob | null } pubKey - the public key data blob.
-     * @param { DataBlob | null } priKey - the private key data blob.
-     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    convertKey(pubKey: DataBlob | null, priKey: DataBlob | null, callback: AsyncCallback<KeyPair>): void;
-
-    /**
-     * Used to convert asymmetric key data to keypair object.
-     *
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
      * @returns { Promise<KeyPair> } the promise used to return keypair.
@@ -514,20 +500,6 @@ declare namespace cryptoFramework {
      * @since 9
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
-
-    /**
-     * Used to convert asymmetric key data to keypair object.
-     *
-     * @param { DataBlob | null } pubKey - the public key data blob.
-     * @param { DataBlob | null } priKey - the private key data blob.
-     * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
 
     /**
      * The algName of the AsyKeyGenerator.
@@ -946,22 +918,6 @@ declare namespace cryptoFramework {
      *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
-     * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
-     * @param { AsyncCallback<void> } callback - the callback of the init function.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback<void>): void;
-
-    /**
-     * Init the crypto operation with the given crypto mode, key and parameters.
-     *
-     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
-     * @param { Key } key - indicates the symmetric key or the asymmetric key.
      * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -972,22 +928,6 @@ declare namespace cryptoFramework {
      * @since 9
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec): Promise<void>;
-
-    /**
-     * Init the crypto operation with the given crypto mode, key and parameters.
-     *
-     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
-     * @param { Key } key - indicates the symmetric key or the asymmetric key.
-     * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -1038,21 +978,6 @@ declare namespace cryptoFramework {
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
      * Data cannot be updated after the crypto operation is finished.
      *
-     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
-     * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
-
-    /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
-     *
      * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -1063,21 +988,6 @@ declare namespace cryptoFramework {
      * @since 9
      */
     doFinal(data: DataBlob): Promise<DataBlob>;
-
-    /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
-     *
-     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
-     * @returns { Promise<DataBlob> } the promise returned by the function.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    doFinal(data: DataBlob | null): Promise<DataBlob>;
 
     /**
      * Set the specified parameter to the cipher object.
@@ -1214,20 +1124,6 @@ declare namespace cryptoFramework {
     sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Used to sign message, include the update data.
-     *
-     * @param { DataBlob | null } data - the data need to be signed.
-     * @param { AsyncCallback<DataBlob> } callback - return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
-
-    /**
      * Used to append the message need to be signed.
      *
      * @param { DataBlob } data - the private key.
@@ -1240,20 +1136,6 @@ declare namespace cryptoFramework {
      * @since 9
      */
     sign(data: DataBlob): Promise<DataBlob>;
-
-    /**
-     * Used to append the message need to be signed.
-     *
-     * @param { DataBlob | null } data - the private key.
-     * @returns { Promise<DataBlob> } return the signed message.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    sign(data: DataBlob | null): Promise<DataBlob>;
 
     /**
      * Set the specified parameter to the sign object.
@@ -1378,21 +1260,6 @@ declare namespace cryptoFramework {
     /**
      * Used to verify message, include the update data.
      *
-     * @param { DataBlob | null } data - the data need to be verified.
-     * @param { DataBlob } signatureData - the signature data.
-     * @param { AsyncCallback<boolean> } callback - return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Used to verify message, include the update data.
-     *
      * @param { DataBlob } data - the data need to be verified.
      * @param { DataBlob } signatureData - the signature data.
      * @returns { Promise<boolean> } return the verify result.
@@ -1404,21 +1271,6 @@ declare namespace cryptoFramework {
      * @since 9
      */
     verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
-
-    /**
-     * Used to verify message, include the update data.
-     *
-     * @param { DataBlob | null } data - the data need to be verified.
-     * @param { DataBlob } signatureData - the signature data.
-     * @returns { Promise<boolean> } return the verify result.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
 
     /**
      * Set the specified parameter to the verify object.
@@ -2284,17 +2136,118 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Create an asymmetric key generator with the specified parameters.
+   * Specifies the key derivation function parameters.
    *
-   * @param { AsyKeySpec } asyKeySpec - indicates the associated parameters of algorithm.
-   * @returns { AsyKeyGeneratorBySpec } the generator obj create by asyKeySpec.
+   * @typedef KdfSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  interface KdfSpec {
+    algName: string;
+  }
+
+  /**
+   * Specifies the PBKDF2 parameters.
+   *
+   * @typedef PBKDF2Spec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  interface PBKDF2Spec extends KdfSpec {
+    /**
+     * Indicates the password parameter of PBKDF2.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    password: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of PBKDF2.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the iteration number of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    iterations: number;
+
+    /**
+     * Indicates the byte length of output key of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    keySize: number;
+  }
+
+  /**
+   * The key derivation function object provides the ability to derive key with its associated parameters.
+   *
+   * @typedef Kdf
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  interface Kdf {
+    /**
+     * Derive a dataBlob object of key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    derive(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
+
+    /**
+     * Derive a dataBlob object of key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { Promise<DataBlob> } the promise used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    derive(params: KdfSpec): Promise<DataBlob>;
+
+    /**
+     * Indicates the algorithm name of the key derivation function.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    readonly algName: string;
+  }
+
+  /**
+   * Create a key derivation function object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Kdf } the key derivation function object.
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @since 11
    */
-  function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
+  function createKdf(algName: string): Kdf;
 }
 
 export default cryptoFramework;
