@@ -148,7 +148,7 @@
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
+    "SystemCapability.Advertising.OAID",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CryptoFramework",

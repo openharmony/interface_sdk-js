@@ -17,7 +17,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
+    "SystemCapability.Advertising.OAID",
     "SystemCapability.Cloud.VAID"
   ]
 }
