@@ -317,7 +317,7 @@
       "SystemCapability.Test.UiTest",
       "SystemCapability.Web.Webview.Core",
       "SystemCapability.Cloud.AAID",
-      "SystemCapability.Cloud.OAID",
+      "SystemCapability.Advertising.OAID",
       "SystemCapability.Cloud.VAID",
       "SystemCapability.Cloud.Push",
       "SystemCapability.XTS.DeviceAttest",
