@@ -13,7 +13,6 @@
     "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
     "SystemCapability.Sensors.Sensor.Lite",
     "SystemCapability.Sensors.MiscDevice.Lite",
-    "SystemCapability.Advertising.OAID",
     "SystemCapability.Communication.NetStack"
   ]
 }
