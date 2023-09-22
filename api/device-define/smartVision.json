@@ -17,7 +17,6 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
     "SystemCapability.Cloud.VAID"
   ]
 }
