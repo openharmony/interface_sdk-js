@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides the capability to manage OAID.
@@ -52,7 +52,7 @@ declare namespace identifier {
    * @systemapi
    * @since 10
    */
-  function resetOAID(): void
+  function resetOAID(): void;
 }
 export default identifier;
 
