@@ -411,6 +411,15 @@ declare type Margin = Padding;
  * Defines the border width property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare type EdgeWidth = EdgeWidths;
+
+/**
+ * Defines the border width property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
