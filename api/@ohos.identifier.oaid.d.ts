@@ -37,7 +37,7 @@ declare namespace identifier {
    * Obtain the OAID asynchronously.
    * Obtaining OAID requires the permission:ohos.permission.APP_TRACKING_CONSENT, or the obtained OAID is empty.
    * @permission ohos.permission.APP_TRACKING_CONSENT
-   * @return { Promise<string> } Returns the OAID.
+   * @returns { Promise<string> } Returns the OAID.
    * @throws { BusinessError } 17300001 - System internal error.
    * @syscap SystemCapability.Advertising.OAID
    * @since 10
