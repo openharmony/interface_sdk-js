@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from './@ohos.base';
+
 /**
  * This provides calendar data access abilities.
  * @namespace calendarManager
