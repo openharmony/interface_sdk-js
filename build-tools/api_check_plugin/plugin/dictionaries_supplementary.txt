@@ -623,6 +623,7 @@ scene
 sco
 scrambling
 screenlock
+screenoff
 screensaver
 scrolldown
 scrollup
