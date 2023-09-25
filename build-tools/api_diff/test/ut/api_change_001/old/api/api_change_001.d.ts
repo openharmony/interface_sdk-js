@@ -25,23 +25,6 @@ import Want from "./@ohos.app.ability.Want";
  * @since 10
  */
 declare namespace networkManager {
-
-  /**
-   * Gets all of the network interfaces of the device.
-   * This function can be called by a super administrator.
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { AsyncCallback<Array<string>> } callback - the callback of getAllNetworkInterfaces.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
    function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;
    /**
     * Gets all of the network interfaces of the device.
