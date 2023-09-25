@@ -2304,6 +2304,13 @@ declare namespace cryptoFramework {
    * @since 11
    */
   interface KdfSpec {
+    /**
+     * Indicates the algorithm name of key derivation function.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
     algName: string;
   }
 
