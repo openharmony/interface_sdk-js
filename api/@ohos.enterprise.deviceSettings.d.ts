@@ -72,7 +72,7 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function setScreenOffTime(admin: Want, time: number): void;
