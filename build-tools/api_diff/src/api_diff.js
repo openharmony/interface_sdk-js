@@ -151,7 +151,7 @@ function getSycap(api) {
   }
   while (curApi && !ts.isSourceFile(curApi.node)) {
     const jsdoc = curApi.jsdoc ? curApi.jsdoc[curApi.jsdoc.length - 1] : [];
-    
+
     if (!jsdoc) {
       return syscap;
     }
@@ -161,7 +161,7 @@ function getSycap(api) {
       const tagInfo = jsdocTagItem[i];
       if (tagInfo.tag === 'syscap') {
         syscap = tagInfo.name;
-      }      
+      }
     }
 
     if (syscap) {
@@ -237,9 +237,24 @@ function collectApiDiffFromApiNameMap(oldSignatureMap, apiName, newClassMap, ext
   } else {
     const newSignatureMap = newClassMap.get(apiName);
     const sameApiNameNumber = oldSignatureMap.size;
+    const sameSignatureSet = new Set();
     oldSignatureMap.forEach((oldApis, apiSignautre) => {
-      collectApiDiffFromApiSignatureMap(oldApis, apiSignautre, newSignatureMap, ext, sameApiNameNumber);
+      collectApiDiffFromApiSignatureMap(oldApis, apiSignautre, newSignatureMap, ext, sameApiNameNumber, sameSignatureSet);
     });
+
+    sameSignatureSet.forEach(sameSignature => {
+      oldSignatureMap.delete(sameSignature);
+    })
+
+    oldSignatureMap.forEach((oldApis, _) => {
+      if (newSignatureMap.size === 0) {
+        // 同名函数，方法被删除
+        ext.diffReporter.addDeletedApi(oldApis[0], getSycap(oldApis[0]));
+      } else {
+        getFunctionDiff(oldApis, newSignatureMap, ext, sameApiNameNumber);
+      }
+    });
+
   }
 }
 
@@ -270,13 +285,12 @@ function collectClassApiDiffs(oldClassApi, newClassApi, ext) {
  * @param {Object} ext 扩展参数
  * @param {number} sameApiNameNumber 名字相同的API个数
  */
-function collectApiDiffFromApiSignatureMap(oldApis, apiSignautre, newClassMap, ext, sameApiNameNumber) {
+function collectApiDiffFromApiSignatureMap(oldApis, apiSignautre, newClassMap, ext, sameApiNameNumber, sameSignatureSet) {
   if (newClassMap.has(apiSignautre)) {
     const newApis = newClassMap.get(apiSignautre);
     collectJSDocDiffs(oldApis[0], newApis[0], ext.diffReporter);
     newClassMap.delete(apiSignautre);
-  } else {
-    getFunctionDiff(oldApis, newClassMap, ext, sameApiNameNumber);
+    sameSignatureSet.add(apiSignautre);
   }
 }
 
