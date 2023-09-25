@@ -71,3 +71,10 @@ export enum StringConstant {
    */
   UTF8 = 'utf-8',
 }
+
+export enum NumberConstant {
+  /**
+   * 缩进2个空格
+   */
+  INDENT_SPACE = 2,
+}
