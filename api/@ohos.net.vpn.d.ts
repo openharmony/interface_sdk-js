@@ -15,8 +15,8 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
-import type AbilityContext from './application/UIAbilityContext';
- 
+import type _AbilityContext from './application/UIAbilityContext';
+
 /**
  * Provides VPN related interfaces.
  * @namespace vpn
@@ -26,6 +26,7 @@ import type AbilityContext from './application/UIAbilityContext';
 declare namespace vpn {
   export type LinkAddress = connection.LinkAddress;
   export type RouteInfo = connection.RouteInfo;
+  export type AbilityContext = _AbilityContext;
 
   /**
    * Create a VPN connection using the AbilityContext.

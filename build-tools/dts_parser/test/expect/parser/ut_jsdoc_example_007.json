@@ -1,0 +1,98 @@
+{
+  "ut_jsdoc_example_007.d.ts": [
+    {
+      "filePath": "ut_jsdoc_example_007.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_jsdoc_example_007.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for jsdoc about example",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": [
+        {
+          "filePath": "ut_jsdoc_example_007.d.ts",
+          "apiType": "Method",
+          "definedText": "set(member: string, value: string): void;",
+          "pos": {
+            "line": 9,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "set",
+          "hierarchicalRelations": [
+            "ut_jsdoc_example_007.d.ts",
+            "Test",
+            "set"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [
+            {
+              "description": "",
+              "syscap": "",
+              "since": "-1",
+              "isForm": false,
+              "isCrossPlatForm": false,
+              "isSystemApi": false,
+              "modelLimitation": "",
+              "deprecatedVersion": "-1",
+              "useinstead": "",
+              "permissions": "",
+              "errorCodes": [],
+              "typeInfo": "",
+              "isConstant": false
+            }
+          ],
+          "callForm": "set(member: string, value: string): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "member",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "member: string"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "value",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "value: string"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    }
+  ]
+}

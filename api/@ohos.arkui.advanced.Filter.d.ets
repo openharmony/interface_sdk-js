@@ -30,7 +30,6 @@ export declare enum FilterType {
 
 /**
  * This parameter is used to define the input of each filtering dimension.
- * typedef FilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -54,7 +53,6 @@ export declare class FilterParams {
 /**
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
- * @typedef FilterResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

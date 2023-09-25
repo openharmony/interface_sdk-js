@@ -1,0 +1,68 @@
+{
+  "ut_type_child_node_007.d.ts": [
+    {
+      "filePath": "ut_type_child_node_007.d.ts",
+      "apiType": "Import",
+      "definedText": "import { ValueType } from 'exceljs';",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "'exceljs'",
+      "hierarchicalRelations": [
+        "ut_type_child_node_007.d.ts",
+        "'exceljs'"
+      ],
+      "isStruct": false,
+      "importValues": [
+        {
+          "key": "ValueType",
+          "value": "ValueType"
+        }
+      ],
+      "importPath": "'exceljs'"
+    },
+    {
+      "filePath": "ut_type_child_node_007.d.ts",
+      "apiType": "Namespace",
+      "definedText": " declare namespace test",
+      "pos": {
+        "line": 3,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_type_child_node_007.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_type_child_node_007.d.ts",
+          "apiType": "TypeAlias",
+          "definedText": "type TextOneType = { [key: string]: ValueType | Uint8Array | null };",
+          "pos": {
+            "line": 4,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "TextOneType",
+          "hierarchicalRelations": [
+            "ut_type_child_node_007.d.ts",
+            "test",
+            "TextOneType"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "type": [
+            "{ [key: string]: ValueType | Uint8Array | null }"
+          ],
+          "typeName": "ObjectType"
+        }
+      ]
+    }
+  ]
+}

@@ -19,7 +19,6 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declaration of the menu item on the right side.
- * @typedef SelectTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -48,7 +47,6 @@ export declare class SelectTitleBarMenuItem {
 
 /**
  * Declaration of the selectable title bar.
- * @typedef SelectTitleBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

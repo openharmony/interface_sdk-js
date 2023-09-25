@@ -1,0 +1,114 @@
+{
+  "ut_method_same_name_004.d.ts": [
+    {
+      "filePath": "ut_method_same_name_004.d.ts",
+      "apiType": "Namespace",
+      "definedText": " export namespace test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_method_same_name_004.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for method in interface",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "childApis": [
+        {
+          "filePath": "ut_method_same_name_004.d.ts",
+          "apiType": "Method",
+          "definedText": "function func(str: string, str2: string);",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "func",
+          "hierarchicalRelations": [
+            "ut_method_same_name_004.d.ts",
+            "test",
+            "func"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "func(str: string, str2: string)",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "str",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str: string"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "str2",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str2: string"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        },
+        {
+          "filePath": "ut_method_same_name_004.d.ts",
+          "apiType": "Method",
+          "definedText": "function func(str: string);",
+          "pos": {
+            "line": 7,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "func",
+          "hierarchicalRelations": [
+            "ut_method_same_name_004.d.ts",
+            "test",
+            "func"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "func(str: string)",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "str",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str: string"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    }
+  ]
+}

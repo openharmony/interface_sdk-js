@@ -1,0 +1,156 @@
+{
+  "ut_enum_operation_001.d.ts": [
+    {
+      "filePath": "ut_enum_operation_001.d.ts",
+      "apiType": "Enum",
+      "definedText": " export enum Operation",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Operation",
+      "hierarchicalRelations": [
+        "ut_enum_operation_001.d.ts",
+        "Operation"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_ONE = 1",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_ONE",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_ONE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1"
+        },
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_Two = 1 << 0",
+          "pos": {
+            "line": 3,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_Two",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_Two"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1 << 0"
+        },
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_THREE = 1 << 1",
+          "pos": {
+            "line": 4,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_THREE",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_THREE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1 << 1"
+        },
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_FOUR = 1 << 2",
+          "pos": {
+            "line": 5,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_FOUR",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_FOUR"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1 << 2"
+        },
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_FIVE = 1 << 3",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_FIVE",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_FIVE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1 << 3"
+        },
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_SIX = 1 << 4",
+          "pos": {
+            "line": 7,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_SIX",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_SIX"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1 << 4"
+        },
+        {
+          "filePath": "ut_enum_operation_001.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_SEVEN = 1 << 5",
+          "pos": {
+            "line": 8,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_SEVEN",
+          "hierarchicalRelations": [
+            "ut_enum_operation_001.d.ts",
+            "Operation",
+            "VALUE_SEVEN"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1 << 5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "ut_module_001.d.ts": [
+    {
+      "filePath": "ut_module_001.d.ts",
+      "apiType": "Module",
+      "definedText": " declare module 'SpecialEvent'",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "'SpecialEvent'",
+      "hierarchicalRelations": [
+        "ut_module_001.d.ts",
+        "'SpecialEvent'"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_module_001.d.ts",
+          "apiType": "Module",
+          "definedText": " module 'SpecialEvent'",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "'SpecialEvent'",
+          "hierarchicalRelations": [
+            "ut_module_001.d.ts",
+            "'SpecialEvent'",
+            "'SpecialEvent'"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "childApis": [
+            {
+              "filePath": "ut_module_001.d.ts",
+              "apiType": "Export",
+              "definedText": "export { TouchObject, KeyEvent, MouseEvent };",
+              "pos": {
+                "line": 3,
+                "character": 5
+              },
+              "isExport": false,
+              "apiName": "export_TouchObject_KeyEvent_MouseEvent",
+              "hierarchicalRelations": [
+                "ut_module_001.d.ts",
+                "'SpecialEvent'",
+                "'SpecialEvent'",
+                "export_TouchObject_KeyEvent_MouseEvent"
+              ],
+              "isStruct": false,
+              "exportValues": [
+                {
+                  "key": "TouchObject",
+                  "value": "TouchObject"
+                },
+                {
+                  "key": "KeyEvent",
+                  "value": "KeyEvent"
+                },
+                {
+                  "key": "MouseEvent",
+                  "value": "MouseEvent"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

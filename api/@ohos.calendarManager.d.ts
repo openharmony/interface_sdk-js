@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from './@ohos.base';
+
 /**
  * This provides calendar data access abilities.
  * @namespace calendarManager
@@ -361,11 +363,11 @@ declare namespace calendarManager {
 
     /**
      * Color of the calendar
-     * @type { ?ResourceColor }
+     * @type { ?(number | string) }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    color?: ResourceColor;
+    color?: number | string;
   }
 
   /**

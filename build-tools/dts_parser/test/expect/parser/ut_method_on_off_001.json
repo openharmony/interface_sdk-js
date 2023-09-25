@@ -1,0 +1,126 @@
+{
+  "ut_method_on_off_001.d.ts": [
+    {
+      "filePath": "ut_method_on_off_001.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_method_on_off_001.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for method of on or off",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": [
+        {
+          "filePath": "ut_method_on_off_001.d.ts",
+          "apiType": "Method",
+          "definedText": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void;",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "on_add",
+          "hierarchicalRelations": [
+            "ut_method_on_off_001.d.ts",
+            "Test",
+            "on_add"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "type",
+              "type": [
+                "'add'",
+                "'reduce'"
+              ],
+              "isRequired": true,
+              "definedText": "type: 'add' | 'reduce'"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "callback",
+              "type": [
+                "AsyncCallback<number>"
+              ],
+              "isRequired": true,
+              "definedText": "callback: AsyncCallback<number>"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": "AsyncCallback"
+        },
+        {
+          "filePath": "ut_method_on_off_001.d.ts",
+          "apiType": "Method",
+          "definedText": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void;",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "on_reduce",
+          "hierarchicalRelations": [
+            "ut_method_on_off_001.d.ts",
+            "Test",
+            "on_reduce"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "type",
+              "type": [
+                "'add'",
+                "'reduce'"
+              ],
+              "isRequired": true,
+              "definedText": "type: 'add' | 'reduce'"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "callback",
+              "type": [
+                "AsyncCallback<number>"
+              ],
+              "isRequired": true,
+              "definedText": "callback: AsyncCallback<number>"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": "AsyncCallback"
+        }
+      ]
+    }
+  ]
+}

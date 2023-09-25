@@ -15,6 +15,7 @@
 const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
+// const ts = require('@ohos/typescript');需要安装最新版本typescript私仓
 
 let sourceFile = null;
 let lastNoteStr = '';
@@ -48,20 +49,32 @@ function collectDeclaration(url) {
   }
 }
 /**
+ * 统一处理文件名称，修改后缀等
+ * @param {string} filePath 文件路径
+ * @param {path} filename 文件名称
+ */
+function processFileName(filePath) {
+  return path
+    .basename(filePath)
+    .replace(/.d.ts/g, '.ts')
+    .replace(/.d.ets/g, '.ets');
+}
+
+/**
  * 遍历所有文件进行处理
  * @param {Array} utFiles 所有文件
  * @param {deleteSystemApi} callback 回调函数
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
-    if (/\.json/.test(url) || /index\-full\.d\.ts/.test(url) || /common\.d\.ts/.test(url) || /\.d\.ets/.test(url)) {
+    if (/\.json/.test(url) || /index\-full\.d\.ts/.test(url) || /common\.d\.ts/.test(url)) {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);
-    } else if (/\.d\.ts/.test(url)) {
+    } else if (/\.d\.ts/.test(url) || /\.d\.ets/.test(url)) {
       // dts文件处理
       let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-      const fileName = path.basename(url).replace(/.d.ts/g, '.ts');
+      const fileName = processFileName(url);
       let references = content.match(PATT.GET_REFERENCE);
       if (references) {
         referencesMap.set(url, { references: references });
@@ -237,115 +250,35 @@ function formatImportDeclaration(url) {
       return ts.visitEachChild(node, collectAllNodes, context);
     }
     function formatAllNodes(node) {
-      globalModules.clear();
-      let currReferences = [];
-      let currReferencesModule = [];
-      if (referencesMap.has(url)) {
-        currReferences = referencesMap.get(url);
-        currReferencesModule = currReferences.references.map((element, index) => {
-          element.match(PATT.GET_REFERENCEURL);
-          let referencePath = RegExp.$2;
-          referencePath = referencesToOthers(referencePath, REFERENCE_TYPE.TOLOCAL);
-          let fullReferencePath = path.resolve(path.dirname(url), referencePath);
-          let module = referencesModuleMap.get(fullReferencePath);
-          for (const key in module) {
-            if (Object.hasOwnProperty.call(module, key)) {
-              globalModules.set(key, index);
-            }
-          }
-          return { modules: module, fullReferencePath: fullReferencePath, reference: element, isUsed: false };
-        });
-      }
+      let currReferencesModule = formatAllNodesReferences(url);
       if (ts.isSourceFile(node) && node.statements) {
         const newStatements = [];
         node.statements.forEach((statement) => {
           if (ts.isImportDeclaration(statement)) {
-            // 是import节点 import { AsyncCallback } from './@ohos.base';
-            const clauseSet = new Set([]);
-            if (statement.importClause && ts.isImportClause(statement.importClause)) {
-              // 标识符
-              const clauseNode = statement.importClause;
-              if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
-                // 没有大括号的标识符
-                clauseSet.add(clauseNode.name.escapedText.toString());
-              } else if (
-                clauseNode.namedBindings &&
-                clauseNode.namedBindings.name &&
-                ts.isIdentifier(clauseNode.namedBindings.name)
-              ) {
-                // 没有标识符 *号
-                clauseSet.add(clauseNode.namedBindings.name.escapedText.toString());
-              } else if (clauseNode.namedBindings && clauseNode.namedBindings.elements) {
-                // 有花括号的标识符
-                clauseNode.namedBindings.elements.forEach((ele) => {
-                  if (ele.name && ts.isIdentifier(ele.name)) {
-                    clauseSet.add(ele.name.escapedText.toString());
-                  }
-                });
-              }
+            const importInfo = formatAllNodesImportDeclaration(
+              node,
+              statement,
+              url,
+              currReferencesModule,
+              allIdentifierSet
+            );
+            if (importInfo.statement) {
+              newStatements.push(statement);
+            } else {
+              copyrightMessage = importInfo.copyrightMessage;
+              isCopyrightDeleted = importInfo.isCopyrightDeleted;
             }
-            const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
-            const importSpecifierRealPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
-            let hasImportSpecifierFile = fs.existsSync(importSpecifierRealPath);
-            let hasImportSpecifierInModules = globalModules.has(importSpecifier);
-            if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
-              let currModule = [];
-              if (hasImportSpecifierInModules) {
-                let index = globalModules.get(importSpecifier);
-                currModule = currReferencesModule[index].modules[importSpecifier];
-              }
-              const clasueCheckList = [];
-              let exsitClauseSet = new Set([]);
-              for (const clause of clauseSet) {
-                let flag = allIdentifierSet.has(clause);
-                if (hasImportSpecifierInModules) {
-                  flag = allIdentifierSet.has(clause) && currModule.includes(clause);
-                }
-                if (flag) {
-                  // 标识符使用到了当前import中的引用
-                  exsitClauseSet.add(clause);
-                  clasueCheckList.push('exist');
-                } else {
-                  clasueCheckList.push('non-exist');
-                }
-              }
-              let hasExsitStatus = false;
-              let hasNonExsitStatus = false;
-              clasueCheckList.forEach((ele) => {
-                if (ele === 'exist') {
-                  hasExsitStatus = true;
-                } else {
-                  hasNonExsitStatus = true;
-                }
-              });
-              if (hasExsitStatus) {
-                // 有使用到的标识符
-                if (hasNonExsitStatus) {
-                  // 有没有使用到的标识符
-                  const newSpecifiers = [];
-                  statement.importClause.namedBindings.elements.forEach((element) => {
-                    if (exsitClauseSet.has(element.name.escapedText.toString())) {
-                      newSpecifiers.push(element);
-                    }
-                  });
-                  statement.importClause.namedBindings = ts.factory.updateNamedImports(
-                    statement.importClause.namedBindings,
-                    newSpecifiers
-                  );
-                }
-                if (hasImportSpecifierInModules) {
-                  let index = globalModules.get(importSpecifier);
-                  currReferencesModule[index].isUsed = true;
-                }
-                newStatements.push(statement);
-              } else if (hasCopyright(statement)) {
-                copyrightMessage = node.getFullText().replace(node.getText(), '');
-                isCopyrightDeleted = true;
-              }
-            } else if (hasCopyright(statement)) {
-              copyrightMessage = node.getFullText().replace(node.getText(), '');
-              isCopyrightDeleted = true;
-            }
+          } else if (ts.isStructDeclaration(statement)) {
+            statement = ts.factory.updateStructDeclaration(
+              statement,
+              statement.decorators,
+              statement.modifiers,
+              statement.name,
+              statement.typeParameters,
+              statement.heritageClauses,
+              statement.members.slice(1)
+            );
+            newStatements.push(statement);
           } else {
             newStatements.push(statement);
           }
@@ -357,14 +290,139 @@ function formatImportDeclaration(url) {
         });
         node = ts.factory.updateSourceFile(node, newStatements);
       }
+
       return node;
     }
-    function hasCopyright(node) {
-      return /http\:\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(
-        node.getFullText().replace(node.getText(), '')
-      );
-    }
   };
+}
+function hasCopyright(node) {
+  return /http\:\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(node.getFullText().replace(node.getText(), ''));
+}
+
+/**
+ * 处理References节点
+ * @param {ts.node} node 当前节点
+ * @param {string} url 文件路径
+ * @returns {Array} currReferencesModule 返回该文件的references数据
+ */
+function formatAllNodesReferences(url) {
+  globalModules.clear();
+  let currReferences = [];
+  let currReferencesModule = [];
+  if (referencesMap.has(url)) {
+    currReferences = referencesMap.get(url);
+    currReferencesModule = currReferences.references.map((element, index) => {
+      element.match(PATT.GET_REFERENCEURL);
+      let referencePath = RegExp.$2;
+      referencePath = referencesToOthers(referencePath, REFERENCE_TYPE.TOLOCAL);
+      let fullReferencePath = path.resolve(path.dirname(url), referencePath);
+      let module = referencesModuleMap.get(fullReferencePath);
+      for (const key in module) {
+        if (Object.hasOwnProperty.call(module, key)) {
+          globalModules.set(key, index);
+        }
+      }
+      return { modules: module, fullReferencePath: fullReferencePath, reference: element, isUsed: false };
+    });
+  }
+  return currReferencesModule;
+}
+
+/**
+ * 处理Import节点 去除未使用、不存在、References中没有对应模块的导入
+ * @param {ts.node} node 当前节点
+ * @param {ts.ImportDeclaration} statement 导入节点
+ * @param {string} url 文件路径
+ * @param {string} url 文件路径
+ * @param {Set} allIdentifierSet 该文件的所有Identifier关键字
+ * @returns {{statement:ts.ImportDeclaration,copyrightMessage:string,isCopyrightDeleted:boolean}} statement 处理完成的导入节点、copyrightMessage
+ */
+function formatAllNodesImportDeclaration(node, statement, url, currReferencesModule, allIdentifierSet) {
+  // 是import节点 import { AsyncCallback } from './@ohos.base';
+  const clauseSet = new Set([]);
+  if (statement.importClause && ts.isImportClause(statement.importClause)) {
+    // 标识符
+    const clauseNode = statement.importClause;
+    if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
+      // 没有大括号的标识符
+      clauseSet.add(clauseNode.name.escapedText.toString());
+    } else if (
+      clauseNode.namedBindings &&
+      clauseNode.namedBindings.name &&
+      ts.isIdentifier(clauseNode.namedBindings.name)
+    ) {
+      // 没有标识符 *号
+      clauseSet.add(clauseNode.namedBindings.name.escapedText.toString());
+    } else if (clauseNode.namedBindings && clauseNode.namedBindings.elements) {
+      // 有花括号的标识符
+      clauseNode.namedBindings.elements.forEach((ele) => {
+        if (ele.name && ts.isIdentifier(ele.name)) {
+          clauseSet.add(ele.name.escapedText.toString());
+        }
+      });
+    }
+  }
+  const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
+  const importSpecifierRealPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
+  let hasImportSpecifierFile = fs.existsSync(importSpecifierRealPath);
+  let hasImportSpecifierInModules = globalModules.has(importSpecifier);
+  if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
+    let currModule = [];
+    if (hasImportSpecifierInModules) {
+      let index = globalModules.get(importSpecifier);
+      currModule = currReferencesModule[index].modules[importSpecifier];
+    }
+    const clasueCheckList = [];
+    let exsitClauseSet = new Set([]);
+    for (const clause of clauseSet) {
+      let flag = allIdentifierSet.has(clause);
+      if (hasImportSpecifierInModules) {
+        flag = allIdentifierSet.has(clause) && currModule.includes(clause);
+      }
+      if (flag) {
+        // 标识符使用到了当前import中的引用
+        exsitClauseSet.add(clause);
+        clasueCheckList.push('exist');
+      } else {
+        clasueCheckList.push('non-exist');
+      }
+    }
+    let hasExsitStatus = false;
+    let hasNonExsitStatus = false;
+    clasueCheckList.forEach((ele) => {
+      if (ele === 'exist') {
+        hasExsitStatus = true;
+      } else {
+        hasNonExsitStatus = true;
+      }
+    });
+    if (hasExsitStatus) {
+      // 有使用到的标识符
+      if (hasNonExsitStatus) {
+        // 有没有使用到的标识符
+        const newSpecifiers = [];
+        statement.importClause.namedBindings.elements.forEach((element) => {
+          if (exsitClauseSet.has(element.name.escapedText.toString())) {
+            newSpecifiers.push(element);
+          }
+        });
+        statement.importClause.namedBindings = ts.factory.updateNamedImports(
+          statement.importClause.namedBindings,
+          newSpecifiers
+        );
+      }
+      if (hasImportSpecifierInModules) {
+        let index = globalModules.get(importSpecifier);
+        currReferencesModule[index].isUsed = true;
+      }
+      return { statement };
+    } else if (hasCopyright(statement)) {
+      return { copyrightMessage: node.getFullText().replace(node.getText(), ''), isCopyrightDeleted: true };
+    }
+  } else if (hasCopyright(statement)) {
+    return { copyrightMessage: node.getFullText().replace(node.getText(), ''), isCopyrightDeleted: true };
+  }
+  return { statement: undefined, copyrightMessage: '', isCopyrightDeleted: false };
 }
 
 /**
@@ -378,14 +436,14 @@ function deleteSystemApi(url) {
     return (node) => {
       sourceFile = node;
       node = processSourceFile(node); // 处理最外层节点
-      node = ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
+      node = processVisitEachChild(context, node);
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
         const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
         if (referencesMap.has(url)) {
           resolveReferences(url);
         }
-        const fileName = path.basename(url).replace(/.d.ts/g, '.ts');
+        const fileName = processFileName(url);
         ts.transpileModule(result, {
           compilerOptions: {
             target: ts.ScriptTarget.ES2017,
@@ -396,101 +454,184 @@ function deleteSystemApi(url) {
       }
       return node;
     };
-    /**
-     * 遍历每个文件下的所有节点，然后删除节点
-     * @param node
-     * @returns
-     */
-    function processAllNodes(node) {
-      if (ts.isInterfaceDeclaration(node)) {
-        const newMembers = [];
-        node.members.forEach((member) => {
-          if (!isSystemapi(member)) {
-            newMembers.push(member);
-          }
-        });
-        node = ts.factory.updateInterfaceDeclaration(
-          node,
-          node.modifiers,
-          node.name,
-          node.typeParameters,
-          node.heritageClauses,
-          newMembers
-        );
-      } else if (ts.isClassDeclaration(node)) {
-        const newMembers = [];
-        node.members.forEach((member) => {
-          if (!isSystemapi(member)) {
-            newMembers.push(member);
-          }
-        });
-        node = ts.factory.updateClassDeclaration(
-          node,
-          node.modifiers,
-          node.name,
-          node.typeParameters,
-          node.heritageClauses,
-          newMembers
-        );
-      } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
-        const newStatements = [];
-        node.body.statements.forEach((statement) => {
-          if (!isSystemapi(statement)) {
-            newStatements.push(statement);
-          }
-        });
-        const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
-        node = ts.factory.updateModuleDeclaration(node, node.modifiers, node.name, newModuleBody);
-      } else if (ts.isEnumDeclaration(node)) {
-        const newMembers = [];
-        node.members.forEach((member) => {
-          if (!isSystemapi(member)) {
-            newMembers.push(member);
-          }
-        });
-        node = ts.factory.updateEnumDeclaration(node, node.modifiers, node.name, newMembers);
-      }
-      return ts.visitEachChild(node, processAllNodes, context);
-    }
-
-    /**
-     * 处理最外层的节点看是否删除
-     * @param  node 解析过后的节点
-     * @returns
-     */
-    function processSourceFile(node) {
-      const stateNamesSet = new Set([]);
-      const newStatements = [];
-      const newStatementsWithoutExport = [];
-      node.statements.forEach((statement) => {
-        if (!isSystemapi(statement)) {
-          newStatements.push(statement);
-        } else if (ts.isModuleDeclaration(statement) && statement.name && ts.isIdentifier(statement.name)) {
-          stateNamesSet.add(statement.name.escapedText.toString());
-        }
-      });
-      newStatements.forEach((statement) => {
-        if (
-          !(
-            ts.isExportAssignment(statement) &&
-            statement.expression &&
-            ts.isIdentifier(statement.expression) &&
-            stateNamesSet.has(statement.expression.escapedText.toString())
-          )
-        ) {
-          newStatementsWithoutExport.push(statement);
-        }
-      });
-      return ts.factory.updateSourceFile(
-        node,
-        newStatementsWithoutExport,
-        node.isDeclarationFile,
-        node.referencedFiles
-      );
-    }
   };
 }
+
 exports.deleteSystemApi = deleteSystemApi;
+
+/**
+ * 遍历每个文件下的所有节点，然后删除节点
+ * @param node
+ * @returns
+ */
+
+/**
+ * 处理最外层的节点看是否删除
+ * @param  node 解析过后的节点
+ * @returns
+ */
+function processSourceFile(node) {
+  const newStatements = [];
+  const newStatementsWithoutExport = [];
+  const deleteSystemApiSet = new Set();
+  node.statements.forEach((statement) => {
+    if (isSystemapi(statement)) {
+      if (ts.isVariableStatement(statement)) {
+        deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
+      } else if (
+        ts.isModuleDeclaration(statement) ||
+        ts.isInterfaceDeclaration(statement) ||
+        ts.isClassDeclaration(statement) ||
+        ts.isEnumDeclaration(statement)
+      ) {
+        if (statement && statement.name && statement.name.escapedText) {
+          deleteSystemApiSet.add(statement.name.escapedText.toString());
+        }
+      }
+    } else {
+      newStatements.push(statement);
+    }
+  });
+  newStatements.forEach((statement) => {
+    const names = getExportIdentifierName(statement);
+    if (names.length === 0) {
+      newStatementsWithoutExport.push(statement);
+      return;
+    }
+    if (names.length === 1 && !deleteSystemApiSet.has(names[0])) {
+      //exports.name = test;
+      //export default test1
+      //export {test1}
+      newStatementsWithoutExport.push(statement);
+      return;
+    }
+    //export {test1 as test,testa as test2}
+    if (ts.isExportDeclaration(statement)) {
+      let needExport = false;
+      const newSpecifiers = [];
+      names.forEach((name, index) => {
+        if (!deleteSystemApiSet.has(name)) {
+          newSpecifiers.push(statement.exportClause.elements[index]);
+          needExport = true;
+        }
+      });
+      if (needExport) {
+        statement.exportClause = ts.factory.updateNamedExports(statement.exportClause, newSpecifiers);
+        newStatementsWithoutExport.push(statement);
+      }
+    }
+  });
+  return ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles);
+}
+/**
+ * 获取export节点的名字，只获取第一个关键词
+ * @param {ts.node} statement
+ * @returns {Array<string>}
+ */
+function getExportIdentifierName(statement) {
+  const names = [];
+  if (ts.isExpressionStatement(statement)) {
+    //exports.name = test;
+    if (ts.isBinaryExpression(statement.expression)) {
+      names.push(statement.expression.right.escapedText.toString());
+    }
+  } else if (ts.isExportAssignment(statement)) {
+    //export default test1
+    names.push(statement.expression.escapedText.toString());
+  } else if (ts.isExportDeclaration(statement)) {
+    //export {test1} 、export {test1 as test} 、export * from './featureability'
+    const exportClause = statement.exportClause;
+    if (exportClause) {
+      const specifiers = exportClause.elements;
+      specifiers.forEach((specifier) => {
+        if (ts.isExportSpecifier(specifier)) {
+          const name = specifier.propertyName ? specifier.propertyName : specifier.name;
+          names.push(name.escapedText.toString());
+        }
+      });
+    }
+  }
+  return names;
+}
+
+/**
+ * 遍历处理tsnode节点
+ * @param  context 解析过后的内容
+ * @param  node 解析过后的节点
+ * @returns ts.node
+ */
+function processVisitEachChild(context, node) {
+  return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
+  function processAllNodes(node) {
+    if (ts.isInterfaceDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member) => {
+        if (!isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateInterfaceDeclaration(
+        node,
+        node.decorators,
+        node.modifiers,
+        node.name,
+        node.typeParameters,
+        node.heritageClauses,
+        newMembers
+      );
+    } else if (ts.isClassDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member) => {
+        if (!isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateClassDeclaration(
+        node,
+        node.decorators,
+        node.modifiers,
+        node.name,
+        node.typeParameters,
+        node.heritageClauses,
+        newMembers
+      );
+    } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
+      const newStatements = [];
+      node.body.statements.forEach((statement) => {
+        if (!isSystemapi(statement)) {
+          newStatements.push(statement);
+        }
+      });
+      const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
+      node = ts.factory.updateModuleDeclaration(node, node.decorators, node.modifiers, node.name, newModuleBody);
+    } else if (ts.isEnumDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member) => {
+        if (!isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateEnumDeclaration(node, node.decorators, node.modifiers, node.name, newMembers);
+    } else if (ts.isStructDeclaration(node)) {
+      const newMembers = [];
+      node.members.forEach((member, index) => {
+        if (index >= 1 && !isSystemapi(member)) {
+          newMembers.push(member);
+        }
+      });
+      node = ts.factory.updateStructDeclaration(
+        node,
+        node.decorators,
+        node.modifiers,
+        node.name,
+        node.typeParameters,
+        node.heritageClauses,
+        newMembers
+      );
+    }
+    return ts.visitEachChild(node, processAllNodes, context);
+  }
+}
 
 /**
  * 解析reference
@@ -510,7 +651,7 @@ function resolveReferences(url) {
     let fullReferencePath = path.resolve(path.dirname(url), referencePath);
     if (fs.existsSync(fullReferencePath) && !referencesModuleMap.has(fullReferencePath)) {
       const content = fs.readFileSync(fullReferencePath, 'utf-8'); //文件内容
-      const fileName = path.basename(fullReferencePath).replace(/.d.ts/g, '.ts');
+      const fileName = processFileName(fullReferencePath);
       ts.transpileModule(content, {
         compilerOptions: {
           target: ts.ScriptTarget.ES2017,
@@ -565,20 +706,6 @@ function resolveCallback(url) {
         }
       });
     }
-    function variableStatementGetEscapedText(statement) {
-      let name = '';
-      if (
-        statement &&
-        statement.declarationList &&
-        statement.declarationList.declarations &&
-        statement.declarationList.declarations.length > 0 &&
-        statement.declarationList.declarations[0].name &&
-        statement.declarationList.declarations[0].name.escapedText
-      ) {
-        name = statement.declarationList.declarations[0].name.escapedText.toString();
-      }
-      return name;
-    }
     function collectAllIdentifier(node) {
       if (isSystemapi(node)) {
         return;
@@ -591,6 +718,21 @@ function resolveCallback(url) {
   };
 }
 
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (
+    statement &&
+    statement.declarationList &&
+    statement.declarationList.declarations &&
+    statement.declarationList.declarations.length > 0 &&
+    statement.declarationList.declarations[0].name &&
+    statement.declarationList.declarations[0].name.escapedText
+  ) {
+    name = statement.declarationList.declarations[0].name.escapedText.toString();
+  }
+  return name;
+}
+
 function isSystemapi(node) {
   const notesContent = node.getFullText().replace(node.getText(), '').replace(/[\s]/g, '');
   const notesArr = notesContent.split(/\/\*\*/);
@@ -600,7 +742,7 @@ function isSystemapi(node) {
       lastNodeName = node.name && node.name.escapedText ? node.name.escapedText.toString() : '';
       lastNoteStr = notesStr;
     }
-    return /\@systemapi/g.test(notesStr);
+    return /@systemapi/g.test(notesStr);
   } else {
     if (
       (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) &&
@@ -608,7 +750,7 @@ function isSystemapi(node) {
       node.name.escapedText.toString() !== '' &&
       node.name.escapedText.toString() === lastNodeName
     ) {
-      return /\@systemapi/g.test(lastNoteStr);
+      return /@systemapi/g.test(lastNoteStr);
     } else {
       return false;
     }
@@ -616,15 +758,18 @@ function isSystemapi(node) {
 }
 
 function isEmptyFile(node) {
+  let isEmpty = true;
   if (ts.isSourceFile(node) && node.statements) {
     for (let i = 0; i < node.statements.length; i++) {
       const statement = node.statements[i];
-      if (!ts.isImportDeclaration(statement)) {
-        return false;
+      if (ts.isImportDeclaration(statement)) {
+        continue;
       }
+      isEmpty = false;
+      break;
     }
   }
-  return true;
+  return isEmpty;
 }
 
 const apiSourcePath = '../api';

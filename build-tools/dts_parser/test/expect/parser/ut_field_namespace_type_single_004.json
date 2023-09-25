@@ -1,0 +1,45 @@
+{
+  "ut_field_namespace_type_single_004.d.ts": [
+    {
+      "filePath": "ut_field_namespace_type_single_004.d.ts",
+      "apiType": "Namespace",
+      "definedText": " declare namespace testNamespace",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "testNamespace",
+      "hierarchicalRelations": [
+        "ut_field_namespace_type_single_004.d.ts",
+        "testNamespace"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_field_namespace_type_single_004.d.ts",
+          "apiType": "TypeAlias",
+          "definedText": "export type SimState = sim.SimState;",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": true,
+          "apiName": "SimState",
+          "hierarchicalRelations": [
+            "ut_field_namespace_type_single_004.d.ts",
+            "testNamespace",
+            "SimState"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "type": [
+            "sim.SimState"
+          ],
+          "typeName": "ReferenceType"
+        }
+      ]
+    }
+  ]
+}

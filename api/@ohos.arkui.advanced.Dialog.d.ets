@@ -19,7 +19,6 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declare ButtonOptions
- * @typedef ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

@@ -75,6 +75,49 @@ interface GaugeInterface {
 }
 
 /**
+ * Defines the options of gauge track shadow.
+ *
+ * @interface GaugeShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface GaugeShadowOptions extends MultiShadowOptions {}
+
+/**
+ * Defines the options of gauge indicator.
+ *
+ * @interface GaugeIndicatorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface GaugeIndicatorOptions {
+
+  /**
+   * Current indicator icon path.
+   * 
+   * @type { ?ResourceStr } option type - the current option type.
+   * @default system style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  icon?: ResourceStr;
+
+  /**
+   * Current indicator space.
+   * 
+   * @type { ?Dimension } indicator space - the current indicator space.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  space?: Dimension;
+}
+
+/**
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -199,14 +242,25 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    */
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
-   * @param { Array<[ResourceColor, number]> } colors - section colors of gauge drawing. 
+   * 
+   * @param { Array<[ResourceColor, number]> } colors - section colors of gauge drawing.
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  colors(colors: Array<[ResourceColor, number]>): GaugeAttribute;
+  /**
+   * Set the color of the chart. You can set the solid color and segmented gradient color.
+   * 
+   * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - section colors of gauge drawing.
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
@@ -236,6 +290,39 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @form
    */
   strokeWidth(length: Length): GaugeAttribute;
+
+  /**
+   * Sets description content of the ring chart.
+   *
+   * @param { CustomBuilder } value - description content builder of the gauge drawing.
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  description(value: CustomBuilder): GaugeAttribute;
+
+  /**
+   * Sets track shadow of the ring chart.
+   *
+   * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  trackShadow(value: GaugeShadowOptions): GaugeAttribute;
+
+  /**
+   * Sets indicator options of the ring chart.
+   *
+   * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  indicator(value: GaugeIndicatorOptions): GaugeAttribute;
 }
 
 /**

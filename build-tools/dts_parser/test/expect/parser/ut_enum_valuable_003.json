@@ -1,0 +1,80 @@
+{
+  "ut_enum_valuable_003.d.ts": [
+    {
+      "filePath": "ut_enum_valuable_003.d.ts",
+      "apiType": "Enum",
+      "definedText": " export enum Valuable",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Valuable",
+      "hierarchicalRelations": [
+        "ut_enum_valuable_003.d.ts",
+        "Valuable"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_enum_valuable_003.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_ONE",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_ONE",
+          "hierarchicalRelations": [
+            "ut_enum_valuable_003.d.ts",
+            "Valuable",
+            "VALUE_ONE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "0"
+        },
+        {
+          "filePath": "ut_enum_valuable_003.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_Two = 'testTwo'",
+          "pos": {
+            "line": 3,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_Two",
+          "hierarchicalRelations": [
+            "ut_enum_valuable_003.d.ts",
+            "Valuable",
+            "VALUE_Two"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "testTwo"
+        },
+        {
+          "filePath": "ut_enum_valuable_003.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "VALUE_THREE = 'testThree'",
+          "pos": {
+            "line": 4,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "VALUE_THREE",
+          "hierarchicalRelations": [
+            "ut_enum_valuable_003.d.ts",
+            "Valuable",
+            "VALUE_THREE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "testThree"
+        }
+      ]
+    }
+  ]
+}

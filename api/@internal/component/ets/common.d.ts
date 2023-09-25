@@ -3417,6 +3417,49 @@ declare enum ShadowStyle {
 }
 
 /**
+ * Defines the options of Shadow.
+ *
+ * @interface MultiShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface MultiShadowOptions {
+  /**
+   * Current shadow radius.
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  radius?: number | Resource;
+
+  /**
+   * Current shadow offsetX.
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offsetX?: number | Resource;
+
+  /**
+   * Current shadow offsetY
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offsetY?: number | Resource;
+}
+
+/**
  * Enumerates the safe area types.
  *
  * @enum { number }
@@ -4701,7 +4744,8 @@ declare interface DragEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').default.IntentionCode;
+declare type IntentionCode = import('../api/@ohos.multimodalInput.intentionCode').IntentionCode;
+
 /**
  * KeyEvent object description:
  *
@@ -5645,6 +5689,33 @@ declare interface CustomPopupOptions {
 }
 
 /**
+ * Defines the menu preview mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum MenuPreviewMode {
+  /**
+   * No preview content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */   
+  NONE = 0,
+  /**
+   * Defines image type preview content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  IMAGE = 1
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -5693,7 +5764,18 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  arrowOffset?: Length; 
+  arrowOffset?: Length;
+  
+  /**
+   * The preview content of context menu.
+   * 
+   * @type { ?(MenuPreviewMode | CustomBuilder) }
+   * @default MenuPreviewMode.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  preview?: MenuPreviewMode | CustomBuilder;
 
   /**
    * Callback function when the context menu appears.
@@ -5840,6 +5922,7 @@ declare interface PixelStretchEffectOptions {
  *
  * @interface ClickEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface ClickEffect {
@@ -5889,6 +5972,86 @@ declare interface NestedScrollOptions {
    * @since 10
    */
   scrollBackward: NestedScrollMode;
+}
+
+/**
+ * Defines the menu element.
+ *
+ * @interface MenuElement
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines the menu element.
+ *
+ * @interface MenuElement
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface MenuElement {
+  /**
+   * Sets the value of the menu element.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Sets the value of the menu element.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  value: ResourceStr;
+
+  /**
+   * Sets the icon of the menu element.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Sets the icon of the menu element.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  icon?: ResourceStr;
+
+  /**
+   * If the value is true, the menu element is available and can respond to operations such as clicking.
+   * If the value is false, the menu element is not available and click operations are not responded.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enabled?: boolean;
+
+  /**
+   * Method executed by the callback.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Method executed by the callback.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  action: () => void;
 }
 
 /**
@@ -5995,6 +6158,7 @@ declare class CommonMethod<T> {
    * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
    * @returns { T } The component instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
@@ -6649,6 +6813,15 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * Set hover effect.
+   *
+   * @param { HoverEffect } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   hoverEffect(value: HoverEffect): T;
 
@@ -8041,6 +8214,7 @@ declare class CommonMethod<T> {
    * @param { ClickEffect | null } value
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   clickEffect(value: ClickEffect | null): T;
@@ -8504,10 +8678,17 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  bindMenu(
-    content: { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder,
-    options?: MenuOptions
-  ): T;
+  /**
+   * Menu control
+   *
+   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
+   * @param { MenuOptions } options - Indicates the options of menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
   /**
    * ContextMenu control
@@ -8732,6 +8913,7 @@ declare class CommonMethod<T> {
    * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   obscured(reasons: Array<ObscuredReasons>): T;

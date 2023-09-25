@@ -14,6 +14,54 @@
  */
 
 /**
+ * Defines the grid item style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum GridItemStyle {
+  /**
+   * Show none style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NONE = 0,
+
+  /**
+   * Show plain style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PLAIN = 1,
+}
+
+/**
+ * Defines the grid item options.
+ *
+ * @interface GridItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface GridItemOptions {
+  /**
+   * Describes the GridItem style.
+   *
+   * @type { ?GridItemStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  style?: GridItemStyle;
+}
+
+/**
  * Mesh container for static fixed-size layout scenarios.
  *
  * @interface GridItemInterface
@@ -44,7 +92,16 @@ interface GridItemInterface {
    * @crossplatform
    * @since 10
    */
-  (): GridItemAttribute;
+  /**
+   * Return to get GridItem.
+   *
+   * @param { GridItemOptions } value - Defines the grid item options.
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  (value?: GridItemOptions): GridItemAttribute;
 }
 
 /**

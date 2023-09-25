@@ -1,0 +1,112 @@
+{
+  "ut_field_class_static_return.d.ts": [
+    {
+      "filePath": "ut_field_class_static_return.d.ts",
+      "apiType": "Namespace",
+      "definedText": " declare namespace testNamespace",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "testNamespace",
+      "hierarchicalRelations": [
+        "ut_field_class_static_return.d.ts",
+        "testNamespace"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "childApis": [
+        {
+          "filePath": "ut_field_class_static_return.d.ts",
+          "apiType": "Class",
+          "definedText": " class TestInterface",
+          "pos": {
+            "line": 2,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "TestInterface",
+          "hierarchicalRelations": [
+            "ut_field_class_static_return.d.ts",
+            "testNamespace",
+            "TestInterface"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "parentClasses": [],
+          "childApis": [
+            {
+              "filePath": "ut_field_class_static_return.d.ts",
+              "apiType": "Method",
+              "definedText": "static registerInputer(authType: AuthType, inputer: IInputer): void;",
+              "pos": {
+                "line": 3,
+                "character": 5
+              },
+              "isExport": false,
+              "apiName": "registerInputer",
+              "hierarchicalRelations": [
+                "ut_field_class_static_return.d.ts",
+                "testNamespace",
+                "TestInterface",
+                "registerInputer"
+              ],
+              "isStruct": false,
+              "jsDocInfos": [],
+              "callForm": "static registerInputer(authType: AuthType, inputer: IInputer): void",
+              "params": [
+                {
+                  "apiType": "Param",
+                  "apiName": "authType",
+                  "type": [
+                    "AuthType"
+                  ],
+                  "isRequired": true,
+                  "definedText": "authType: AuthType"
+                },
+                {
+                  "apiType": "Param",
+                  "apiName": "inputer",
+                  "type": [
+                    "IInputer"
+                  ],
+                  "isRequired": true,
+                  "definedText": "inputer: IInputer"
+                }
+              ],
+              "returnValue": [],
+              "isStatic": true,
+              "sync": ""
+            }
+          ]
+        },
+        {
+          "filePath": "ut_field_class_static_return.d.ts",
+          "apiType": "Method",
+          "definedText": "function isOpenAccessibility(): TestInterface.registerInputer;",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "isOpenAccessibility",
+          "hierarchicalRelations": [
+            "ut_field_class_static_return.d.ts",
+            "testNamespace",
+            "isOpenAccessibility"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "isOpenAccessibility(): TestInterface.registerInputer",
+          "params": [],
+          "returnValue": [
+            "TestInterface.registerInputer"
+          ],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    }
+  ]
+}

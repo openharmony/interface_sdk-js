@@ -14,7 +14,7 @@
  */
 
 const path = require('path');
-const { ErrorLevel, LogType, hasAPINote, getApiInfo, requireTypescriptModule, ErrorType, getApiVersion } = require('./utils');
+const { ErrorLevel, LogType, hasAPINote, getApiInfo, requireTypescriptModule, ErrorType, getApiVersion, getCheckApiVersion } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
 
@@ -88,7 +88,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
 
-  if (checkResult !== '' && filterApiVersion(node, '10') && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
+  if (checkResult !== '' && filterApiVersion(node, getCheckApiVersion()) && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }
@@ -116,7 +116,7 @@ function checkAPIFileName(sourcefile, fileName) {
     } else if (moduleName === '' && exportAssignment !== moduleName && !checkLargeHump(lastModuleName)) {
       checkResult = 'This API file should be named by large hump.';
     }
-    if (checkResult !== '' && filterApiVersion(sourcefile, '10')) {
+    if (checkResult !== '' && filterApiVersion(sourcefile, getCheckApiVersion())) {
       addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_FILE,
         ErrorLevel.MIDDLE);
     }

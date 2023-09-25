@@ -1,0 +1,64 @@
+{
+  "ut_method_interface_003.d.ts": [
+    {
+      "filePath": "ut_method_interface_003.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_method_interface_003.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for method in interface",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": [
+        {
+          "filePath": "ut_method_interface_003.d.ts",
+          "apiType": "Property",
+          "definedText": "onRequestRedirected: (str: string) => void;",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "onRequestRedirected",
+          "hierarchicalRelations": [
+            "ut_method_interface_003.d.ts",
+            "Test",
+            "onRequestRedirected"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "type": [
+            "(str: string) => void"
+          ],
+          "isReadOnly": false,
+          "isRequired": true,
+          "isStatic": false
+        }
+      ]
+    }
+  ]
+}

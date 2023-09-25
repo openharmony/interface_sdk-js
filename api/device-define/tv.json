@@ -156,7 +156,7 @@
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.settings.Core",
     "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
+    "SystemCapability.Advertising.OAID",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CryptoFramework",

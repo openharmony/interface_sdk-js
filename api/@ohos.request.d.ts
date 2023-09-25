@@ -1898,6 +1898,38 @@ declare namespace request {
      */
     method: string;
     /**
+     * The index of paths for a task.
+     * Usually used for a continuous job.
+     * The default is 0.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    index?: number;
+    /**
+     * The start point of a file.
+     * Usually used for a continuous job.
+     * It will start read at the point in upload.
+     * The default is 0.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    begins?: number;
+    /**
+     * The end point of a file.
+     * Usually used for a continuous job.
+     * It will end read at the point in upload.
+     * The default is -1 indicating the end of the data for upload.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    ends?: number;
+    /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
      * @permission ohos.permission.INTERNET
@@ -2352,9 +2384,7 @@ declare namespace request {
      */
     interface FileSpec {
       /**
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+       * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2363,8 +2393,7 @@ declare namespace request {
       path: string;
       /**
        * The MIME type of the file.
-       * For upload, the default is obtained by the suffix of the filename or uri.
-       * For download, the default if the `Content-Type` of response.
+       * The default is obtained by the suffix of the filename.
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2512,7 +2541,7 @@ declare namespace request {
        * For upload, it can be form items, the default is a empty form.
        * there must be one `FileSpec` item at least or will be a parameter error.
        *
-       * @type { ?string | Array<FormItem> }
+       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
@@ -2960,7 +2989,7 @@ declare namespace request {
        * For `${ show }` and `${ touch }`.
        * It is empty string in `${ query }`.
        *
-       * @type { ?string | Array<FormItem> }
+       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
@@ -3430,6 +3459,17 @@ declare namespace request {
     /**
      * Searches tasks, for system.
      *
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function search(callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Searches tasks, for system.
+     *
      * @param { Filter } filter an instance of `Filter`.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
      * @throws { BusinessError } 401 - parameter error.
@@ -3449,7 +3489,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    function search(filter: Filter): Promise<Array<string>>;
+    function search(filter?: Filter): Promise<Array<string>>;
 
     /**
      * Queries specified task details.

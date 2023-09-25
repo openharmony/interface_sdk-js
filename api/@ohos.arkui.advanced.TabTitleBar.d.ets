@@ -19,7 +19,6 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declaration of the menu item on the right side.
- * @typedef TabTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -48,7 +47,6 @@ export declare class TabTitleBarMenuItem {
 
 /**
  * Declaration of the tab item.
- * @typedef TabTitleBarTabItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -70,7 +68,6 @@ export declare class TabTitleBarTabItem {
 
 /**
  * Declaration of the tabbed title bar.
- * @typedef TabTitleBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

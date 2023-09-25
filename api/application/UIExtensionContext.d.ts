@@ -229,8 +229,6 @@ export default class UIExtensionContext extends ExtensionContext {
 
   /**
    * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
-   * If the caller application is in foreground, you can use this method to connect service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.

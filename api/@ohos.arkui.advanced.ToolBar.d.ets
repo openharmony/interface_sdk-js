@@ -46,7 +46,6 @@ export declare enum ItemState {
 
 /**
  * Declare type ToolBarOption
- * @typedef ToolBarOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
