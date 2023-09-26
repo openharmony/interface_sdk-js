@@ -768,7 +768,31 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    CAMERA_SHOT_KEY = 'camera_shot_key'
+    CAMERA_SHOT_KEY = 'camera_shot_key',
+    /**
+     * The year of the file created, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    DATE_YEAR = 'date_year',
+    /**
+     * The month of the file created, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    DATE_MONTH = 'date_month',
+    /**
+     * The day of the file created, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    DATE_DAY = 'date_day'
   }
 
   /**
