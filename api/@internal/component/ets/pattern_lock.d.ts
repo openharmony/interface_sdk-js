@@ -14,6 +14,30 @@
   */
 
 /**
+ * The challenge result based on input pattern for control pattern lock component.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum PatternLockChallengeResult {
+  /**
+   * The challenge result is correct.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  CORRECT = 1,
+  /**
+   * The challenge result is wrong.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  WRONG = 2
+}
+
+/**
  * Provides methods for control pattern lock component.
  *
  * @since 9
@@ -54,6 +78,15 @@ declare class PatternLockController {
    * @since 10
    */
   reset();
+
+  /**
+   * Set challenge result.
+   * @param { PatternLockChallengeResult } result - The challenge result based on input pattern.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setChallengeResult(result: PatternLockChallengeResult): void;
 }
 
 /**
@@ -280,6 +313,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   autoReset(value: boolean): PatternLockAttribute;
+
+  /**
+   * Called when connecting to a grid dot.
+   * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
 }
 
 /**
