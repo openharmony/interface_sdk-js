@@ -2737,7 +2737,7 @@ declare namespace sensor {
     ACCURACY_LOW = 1,
 
     /**
-     * The sensor data is at a medium accuracy level. The data should be calibrated based on the environment before being used.
+     * The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment before using it.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 11
      */
