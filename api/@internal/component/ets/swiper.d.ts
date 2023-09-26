@@ -1087,6 +1087,17 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   onGestureSwipe(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { boolean } value - options for nested scrolling.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  nestedScroll(value: boolean): ScrollAttribute;
 }
 
 /**
