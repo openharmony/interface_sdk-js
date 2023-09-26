@@ -1575,6 +1575,25 @@ declare namespace image {
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise<PixelMap>;
 
   /**
+   * Creates a PixelMap object based on MessageSequence parameter.
+   *
+   * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 62980096 - Operation failed.
+   * @throws { BusinessError } 62980097 - If the ipc error.
+   * @throws { BusinessError } 62980115 - If the input parameter invalid.
+   * @throws { BusinessError } 62980105 - Get data error.
+   * @throws { BusinessError } 62980177 - Api environmental abnormality.
+   * @throws { BusinessError } 62980178 - Pixelmap create failed.
+   * @throws { BusinessError } 62980179 - Unmarshalling bufferSize parceling error.
+   * @throws { BusinessError } 62980180 - Fd acquisition failed.
+   * @throws { BusinessError } 62980246 - Read pixelmap failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 11
+   */
+  function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
+
+  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
