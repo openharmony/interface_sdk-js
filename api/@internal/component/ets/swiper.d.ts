@@ -180,7 +180,7 @@ declare class Indicator<T> {
 /**
  * Define DotIndicator, the indicator type is dot.
  *
- * @extends Indicator
+ * @extends Indicator<DotIndicator>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -303,7 +303,7 @@ declare type SwiperAutoFill = {
 /**
  * Define DigitIndicator, the indicator type is digit.
  *
- * @extends Indicator
+ * @extends Indicator<DigitIndicator>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -671,16 +671,41 @@ declare interface SwiperAnimationEvent {
 }
 
 /**
+ * Swiper nested scroll nested mode
+
+ * @enum { number } SwiperNestedScrollMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum SwiperNestedScrollMode {
+  /**
+   * Only Self response scrolling.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  SELF_ONLY = 0,
+
+  /**
+   * Self priority response scrolling.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  SELF_FIRST = 1,
+}
+
+/**
  * Defines the swiper attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SwiperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the swiper attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SwiperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -1089,15 +1114,15 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onGestureSwipe(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
 
   /**
-   * Called to setting the nested scroll options.
+   * Called to setting the nested scroll mode.
    *
-   * @param { boolean } value - options for nested scrolling.
-   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @param { SwiperNestedScrollMode } value - mode for nested scrolling.
+   * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  nestedScroll(value: boolean): ScrollAttribute;
+  nestedScroll(value: SwiperNestedScrollMode): SwiperAttribute;
 }
 
 /**
