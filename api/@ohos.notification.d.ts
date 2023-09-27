@@ -312,7 +312,7 @@ declare namespace notification {
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Obtains all NotificationSlot objects created by the current application.
+   * Removes a NotificationSlot of the specified SlotType created by the current application.
    *
    * @param { SlotType } slotType - The types of notification channels are currently divided into social communication,
    *                              service reminders, content consulting, and other types
@@ -387,7 +387,7 @@ declare namespace notification {
     SERVICE_INFORMATION = 2,
 
     /**
-     * NotificationSlot for service information.
+     * NotificationSlot for content information.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 7
