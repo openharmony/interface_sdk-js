@@ -210,7 +210,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 10
+     * @since 11
      */
     TYPE_TOP_TOAST,
   }
