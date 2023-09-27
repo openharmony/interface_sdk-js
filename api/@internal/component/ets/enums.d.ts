@@ -5821,3 +5821,41 @@ declare enum DialogButtonStyle {
    */
   HIGHLIGHT = 1
 }
+
+/**
+ * Enum of word break
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum WordBreak {
+  /**
+   * By default, CJK text can be wrapped between any 2 characters, and non-CJK text can only be wrapped in spaces.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NORMAL = 0,
+
+  /**
+   * Non-CJK text be wrapped at any character
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  BREAK_ALL = 1,
+
+  /**
+   * Non-CJK text can be wrapped at any character
+   * and if a complete word can be preserved in space breaks, the word must be kept on the line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  BREAK_WORD = 2,
+}
