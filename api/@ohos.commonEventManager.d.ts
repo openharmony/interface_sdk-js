@@ -1815,6 +1815,8 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the network connectivity changed.
      * This is a protected common event that can only be sent by system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
     COMMON_EVENT_CONNECTIVITY_CHANGE = "usual.event.CONNECTIVITY_CHANGE"
