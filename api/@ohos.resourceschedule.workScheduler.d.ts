@@ -296,7 +296,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<boolean>): void;
 
