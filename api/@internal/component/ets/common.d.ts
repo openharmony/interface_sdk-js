@@ -1851,6 +1851,7 @@ declare interface RotateOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   centerY?: number | string;
 
@@ -1968,6 +1969,7 @@ declare interface TransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare enum TransitionEdge {
   /**
@@ -1976,6 +1978,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   TOP,
 
@@ -1985,6 +1988,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   BOTTOM,
 
@@ -1994,6 +1998,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   START,
 
@@ -2003,6 +2008,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   END
 }
@@ -2013,6 +2019,7 @@ declare enum TransitionEdge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type TransitionEffects = {
   identity: undefined;
@@ -2034,6 +2041,7 @@ declare type TransitionEffects = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class TransitionEffect<
   Type extends keyof TransitionEffects = keyof TransitionEffects,
@@ -2047,6 +2055,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly IDENTITY: TransitionEffect<"identity">;
 
@@ -2058,6 +2067,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly OPACITY: TransitionEffect<"opacity">;
 
@@ -2073,6 +2083,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly SLIDE: TransitionEffect<
     "asymmetric",
@@ -2090,6 +2101,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
 
@@ -2101,6 +2113,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static translate(options: TranslateOptions): TransitionEffect<"translate">;
 
@@ -2112,6 +2125,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static rotate(options: RotateOptions): TransitionEffect<"rotate">;
 
@@ -2123,6 +2137,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static scale(options: ScaleOptions): TransitionEffect<"scale">;
 
@@ -2134,6 +2149,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
@@ -2145,6 +2161,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static move(edge: TransitionEdge): TransitionEffect<"move">;
 
@@ -2157,6 +2174,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static asymmetric(
     appear: TransitionEffect,
@@ -2171,6 +2189,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(type: Type, effect: Effect);
 
@@ -2182,6 +2201,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   animation(value: AnimateParam): TransitionEffect;
 
@@ -2193,6 +2213,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
