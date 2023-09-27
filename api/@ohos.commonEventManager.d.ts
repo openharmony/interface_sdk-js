@@ -1810,7 +1810,14 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
-    COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED'
+    COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
+
+    /**
+     * Indicates the action of a common event that the network connectivity changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_CONNECTIVITY_CHANGE = "usual.event.CONNECTIVITY_CHANGE"
   }
 
   /**
