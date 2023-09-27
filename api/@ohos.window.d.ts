@@ -2786,7 +2786,7 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since 11
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
 
@@ -2797,7 +2797,7 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since 11
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
