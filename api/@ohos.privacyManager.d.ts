@@ -689,6 +689,16 @@ declare namespace privacyManager {
     timestamp: number;
 
     /**
+     * The value of successCount or failCount passed in to addPermissionUsedRecord.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 11
+     */
+    count?: number;
+
+    /**
      * Access duration, in milliseconds
      *
      * @type { number }
