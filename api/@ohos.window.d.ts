@@ -203,7 +203,16 @@ declare namespace window {
      * @StageModelOnly
      * @since 9
      */
-    TYPE_SCREENSHOT
+    TYPE_SCREENSHOT,
+    /**
+     * Top Toast.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @StageModelOnly
+     * @since 10
+     */
+    TYPE_TOP_TOAST,
   }
 
   /**
