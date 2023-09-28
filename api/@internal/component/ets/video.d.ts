@@ -631,7 +631,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @crossplatform
    * @since 10
    */
-  onFullscreenChange(callback: (event?: {
+  onFullscreenChange(callback: (event: {
     /**
      * Play the flag in full screen.
      *
@@ -659,7 +659,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @crossplatform
    * @since 10
    */
-  onPrepared(callback: (event?: {
+  onPrepared(callback: (event: {
     /**
      * Playback duration.
      *
@@ -687,7 +687,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @crossplatform
    * @since 10
    */
-  onSeeking(callback: (event?: {
+  onSeeking(callback: (event: {
     /**
      * Play time.
      *
@@ -715,7 +715,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @crossplatform
    * @since 10
    */
-  onSeeked(callback: (event?: {
+  onSeeked(callback: (event: {
     /**
      * Play time.
      *
@@ -743,7 +743,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @crossplatform
    * @since 10
    */
-  onUpdate(callback: (event?: {
+  onUpdate(callback: (event: {
     /**
      * Play time.
      *
