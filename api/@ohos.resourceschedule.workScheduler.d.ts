@@ -223,6 +223,7 @@ declare namespace workScheduler {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
    */
   function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
 
@@ -281,6 +282,7 @@ declare namespace workScheduler {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
    */
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
 
