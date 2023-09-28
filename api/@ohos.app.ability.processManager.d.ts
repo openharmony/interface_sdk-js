@@ -70,6 +70,7 @@ declare namespace processManager {
    * @throws { BusinessError } 200 - If the start mode not supported.
    * @throws { BusinessError } 300 - If the child process fork failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
    * @since 11
    */
   function startChildProcess(path: string, startMode: StartMode, callback: AsyncCallback<number>): void;
