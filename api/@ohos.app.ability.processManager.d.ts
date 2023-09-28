@@ -58,7 +58,7 @@ declare namespace processManager {
    * @StageModelOnly
    * @since 11
    */
-  function StartChildProcess(srcEntry: string, startMode: StartMode): Promise<number>;
+  function startChildProcess(srcEntry: string, startMode: StartMode): Promise<number>;
 
   /**
    * Start child process with the given src entry and mode.
@@ -72,7 +72,7 @@ declare namespace processManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 11
    */
-  function StartChildProcess(path: string, startMode: StartMode, callback: AsyncCallback<number>): void;
+  function startChildProcess(path: string, startMode: StartMode, callback: AsyncCallback<number>): void;
 
 }
 
