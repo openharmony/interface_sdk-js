@@ -15,7 +15,6 @@
 
 import rpc from './@ohos.rpc';
 import _WindowExtensionContext from './application/WindowExtensionContext';
-export type WindowExtensionContext = _WindowExtensionContext;
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 
@@ -71,3 +70,14 @@ export default class WindowExtensionAbility {
    */
   onWindowReady(window: window.Window): void;
 }
+
+/**
+ * The context of window extension. It allows access to
+ * windowExtension-specific resources.
+ *
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 9
+ */
+export type WindowExtensionContext = _WindowExtensionContext;
