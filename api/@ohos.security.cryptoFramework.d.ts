@@ -2368,7 +2368,7 @@ declare namespace cryptoFramework {
    */
   interface Kdf {
     /**
-     * Derive a dataBlob object of key.
+     * Generate a dataBlob object of secret key.
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
@@ -2378,10 +2378,10 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
-    derive(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
+    generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Derive a dataBlob object of key.
+     * Generate a dataBlob object of secret key.
      *
      * @param { KdfSpec } params - the input params of key derivation function.
      * @returns { Promise<DataBlob> } the promise used to return dataBlob.
@@ -2391,7 +2391,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
-    derive(params: KdfSpec): Promise<DataBlob>;
+    generateSecret(params: KdfSpec): Promise<DataBlob>;
 
     /**
      * Indicates the algorithm name of the key derivation function.
