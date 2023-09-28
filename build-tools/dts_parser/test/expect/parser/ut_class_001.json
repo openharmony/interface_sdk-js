@@ -1,0 +1,39 @@
+{
+  "ut_class_001.d.ts": [
+    {
+      "filePath": "ut_class_001.d.ts",
+      "apiType": "Class",
+      "definedText": " export class Test",
+      "pos": {
+        "line": 4,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_class_001.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for class",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": []
+    }
+  ]
+}

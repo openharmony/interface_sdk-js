@@ -29,10 +29,7 @@ module.exports = (env, argv) => {
         {
           test: /\.ts$/,
           include: path.resolve(__dirname, 'src'),
-          exclude: [
-            /node_modules/,
-            /test/
-          ],
+          exclude: [/node_modules/, /test/],
           loader: 'ts-loader',
           options: {
             onlyCompileBundledFiles: true,
@@ -43,17 +40,17 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: path.resolve(__dirname, 'loader/flavor.js'),
-            }
+            },
           ],
-        }
+        },
       ],
     },
     resolve: {
       extensions: ['.js', '.ts', '.json'],
     },
     output: {
-      filename: 'bundle.js',
-      path: path.resolve(__dirname, './build'),
+      filename: 'JS_API_OPTIMIZE_PLUGIN.js',
+      path: path.resolve(__dirname, './package'),
     },
     optimization: {
       minimize: true,
@@ -64,7 +61,7 @@ module.exports = (env, argv) => {
         banner: `version:${packageInfo.version}`,
         raw: false,
         entryOnly: true,
-      })
+      }),
     ],
   };
   return config;

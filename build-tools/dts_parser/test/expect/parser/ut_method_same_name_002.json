@@ -1,0 +1,115 @@
+{
+  "ut_method_same_name_002.d.ts": [
+    {
+      "filePath": "ut_method_same_name_002.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_method_same_name_002.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for method in interface",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": [
+        {
+          "filePath": "ut_method_same_name_002.d.ts",
+          "apiType": "Method",
+          "definedText": "(str: string): void;",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "constructor",
+          "hierarchicalRelations": [
+            "ut_method_same_name_002.d.ts",
+            "Test",
+            "constructor"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "(str: string): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "str",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str: string"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        },
+        {
+          "filePath": "ut_method_same_name_002.d.ts",
+          "apiType": "Method",
+          "definedText": "(str: string, str2: string): void;",
+          "pos": {
+            "line": 7,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "constructor",
+          "hierarchicalRelations": [
+            "ut_method_same_name_002.d.ts",
+            "Test",
+            "constructor"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "(str: string, str2: string): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "str",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str: string"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "str2",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str2: string"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    }
+  ]
+}

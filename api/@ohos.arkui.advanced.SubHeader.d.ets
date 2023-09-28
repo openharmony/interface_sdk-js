@@ -55,7 +55,6 @@ export declare enum OperationType {
 
 /**
  * Declare type OperationOption
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -77,7 +76,6 @@ export declare class OperationOption {
 
 /**
  * Declare type SelectOption
- * @typedef SelectOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

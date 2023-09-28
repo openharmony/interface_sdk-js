@@ -76,7 +76,6 @@ export declare enum IconType {
 
 /**
  * Declare type OperateIcon
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -86,41 +85,39 @@ export declare class OperateIcon {
    * @type { ResourceStr }.
    * @since 10
    */
-  value: ResourceStr,
+  value: ResourceStr;
 
   /**
    * Callback function when operate the icon.
    * @type { () => void }.
    * @since 10
    */
-  action?: () => void
+  action?: () => void;
 }
 
 /**
  * Declare type OperateCheck
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 export declare class OperateCheck {
   /**
    * Whether is checked on default.
-   * @type { ResourceStr }.
+   * @type { boolean }.
    * @since 10
    */
-  isCheck?: boolean,
+  isCheck?: boolean;
 
   /**
    * Callback function when operate the checkbox/switch/radio.
    * @type { () => void }.
    * @since 10
    */
-  onChange?: (value: boolean) => void
+  onChange?: (value: boolean) => void;
 }
 
 /**
  * Declare type OperateButton
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -130,7 +127,7 @@ export declare class OperateButton {
    * @type { ResourceStr }.
    * @since 10
    */
-  text?: ResourceStr
+  text?: ResourceStr;
 }
 
 /**

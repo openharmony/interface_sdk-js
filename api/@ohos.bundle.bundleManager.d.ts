@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
+import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
@@ -1220,6 +1220,30 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
+   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
+   * @param { string } extensionAbilityType - Indicates extensionAbilityType.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: string,
+    extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
+
+  /**
    * Obtains bundle name by the given uid.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2117,6 +2141,14 @@ declare namespace bundleManager {
    * @since 9
    */
   export type ApplicationInfo = _ApplicationInfo;
+
+  /**
+   * Indicates the metadata information about a module.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type ModuleMetadata = _ModuleMetadata;
 
   /**
    * Indicates the Metadata.

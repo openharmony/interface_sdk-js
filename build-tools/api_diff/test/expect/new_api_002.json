@@ -11,7 +11,7 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\new_api_002.d.ts",
@@ -25,6 +25,6 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   }
 ]

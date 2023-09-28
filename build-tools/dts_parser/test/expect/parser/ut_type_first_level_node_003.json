@@ -1,0 +1,25 @@
+{
+  "ut_type_first_level_node_003.d.ts": [
+    {
+      "filePath": "ut_type_first_level_node_003.d.ts",
+      "apiType": "TypeAlias",
+      "definedText": "type TextOneType = Resoure;",
+      "pos": {
+        "line": 1,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "TextOneType",
+      "hierarchicalRelations": [
+        "ut_type_first_level_node_003.d.ts",
+        "TextOneType"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "type": [
+        "Resoure"
+      ],
+      "typeName": "ReferenceType"
+    }
+  ]
+}

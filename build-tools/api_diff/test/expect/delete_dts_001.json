@@ -95,7 +95,7 @@
     "status": "删除",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_002.d.ts",
@@ -109,7 +109,7 @@
     "status": "删除",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_002.d.ts",
@@ -123,7 +123,7 @@
     "status": "删除",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_002.d.ts",
@@ -137,7 +137,7 @@
     "status": "删除",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_002.d.ts",
@@ -151,7 +151,7 @@
     "status": "删除",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_002.d.ts",
@@ -165,7 +165,7 @@
     "status": "删除",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_002.d.ts",
@@ -276,7 +276,7 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_003.d.ts",
@@ -290,7 +290,7 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_003.d.ts",
@@ -304,7 +304,7 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_003.d.ts",
@@ -318,7 +318,7 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_003.d.ts",
@@ -332,7 +332,7 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   },
   {
     "packageName": "api\\delete_dts_003.d.ts",
@@ -346,6 +346,6 @@
     "status": "新增",
     "oldMessage": "",
     "newMessage": "",
-    "syscap": ""
+    "syscap": "Ability"
   }
 ]

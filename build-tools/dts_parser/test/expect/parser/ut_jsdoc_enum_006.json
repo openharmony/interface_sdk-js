@@ -1,0 +1,96 @@
+{
+  "ut_jsdoc_enum_006.d.ts": [
+    {
+      "filePath": "ut_jsdoc_enum_006.d.ts",
+      "apiType": "Enum",
+      "definedText": " export enum test",
+      "pos": {
+        "line": 6,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_jsdoc_enum_006.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for jsdoc about enum",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "childApis": [
+        {
+          "filePath": "ut_jsdoc_enum_006.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "ONE = 1",
+          "pos": {
+            "line": 7,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "ONE",
+          "hierarchicalRelations": [
+            "ut_jsdoc_enum_006.d.ts",
+            "test",
+            "ONE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "1"
+        },
+        {
+          "filePath": "ut_jsdoc_enum_006.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "TWO = 2",
+          "pos": {
+            "line": 8,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "TWO",
+          "hierarchicalRelations": [
+            "ut_jsdoc_enum_006.d.ts",
+            "test",
+            "TWO"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "2"
+        },
+        {
+          "filePath": "ut_jsdoc_enum_006.d.ts",
+          "apiType": "EnumValue",
+          "definedText": "THREE = 3",
+          "pos": {
+            "line": 9,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "THREE",
+          "hierarchicalRelations": [
+            "ut_jsdoc_enum_006.d.ts",
+            "test",
+            "THREE"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "value": "3"
+        }
+      ]
+    }
+  ]
+}

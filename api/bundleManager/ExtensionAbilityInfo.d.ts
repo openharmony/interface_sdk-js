@@ -98,6 +98,16 @@ export interface ExtensionAbilityInfo {
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
   /**
+   * Indicates type name of the extension ability.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  readonly extensionAbilityTypeName: string;
+
+  /**
    * The permissions that others need to use this extension ability info
    *
    * @type { Array<string> }

@@ -1,0 +1,108 @@
+{
+  "ut_method_on_off_004.d.ts": [
+    {
+      "filePath": "ut_method_on_off_004.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "Test",
+      "hierarchicalRelations": [
+        "ut_method_on_off_004.d.ts",
+        "Test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for method of on or off",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "parentClasses": [],
+      "childApis": [
+        {
+          "filePath": "ut_method_on_off_004.d.ts",
+          "apiType": "Method",
+          "definedText": "on(type: ChangeEvent, callback: Callback<void>): void;",
+          "pos": {
+            "line": 6,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "on",
+          "hierarchicalRelations": [
+            "ut_method_on_off_004.d.ts",
+            "Test",
+            "on"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [],
+          "callForm": "on(type: ChangeEvent, callback: Callback<void>): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "type",
+              "type": [
+                "ChangeEvent"
+              ],
+              "isRequired": true,
+              "definedText": "type: ChangeEvent"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "callback",
+              "type": [
+                "Callback<void>"
+              ],
+              "isRequired": true,
+              "definedText": "callback: Callback<void>"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    },
+    {
+      "filePath": "ut_method_on_off_004.d.ts",
+      "apiType": "TypeAlias",
+      "definedText": "type ChangeEvent = 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange';",
+      "pos": {
+        "line": 8,
+        "character": 1
+      },
+      "isExport": false,
+      "apiName": "ChangeEvent",
+      "hierarchicalRelations": [
+        "ut_method_on_off_004.d.ts",
+        "ChangeEvent"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [],
+      "type": [
+        "'deviceChange'",
+        "'albumChange'",
+        "'imageChange'",
+        "'audioChange'",
+        "'videoChange'",
+        "'remoteFileChange'"
+      ],
+      "typeName": "UnionType"
+    }
+  ]
+}

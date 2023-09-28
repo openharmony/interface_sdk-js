@@ -31,6 +31,7 @@ export default class UIExtensionContentSession {
    * Send data from an ui extension to an ui extension component.
    *
    * @param { object } data - Indicates the data send to ui extension component.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -44,6 +45,7 @@ export default class UIExtensionContentSession {
    * Sets the callback for the ui extension to receive data from an ui extension component.
    *
    * @param { function } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -77,6 +79,7 @@ export default class UIExtensionContentSession {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -112,6 +115,7 @@ export default class UIExtensionContentSession {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -145,6 +149,7 @@ export default class UIExtensionContentSession {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -179,6 +184,7 @@ export default class UIExtensionContentSession {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -214,6 +220,7 @@ export default class UIExtensionContentSession {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -247,6 +254,7 @@ export default class UIExtensionContentSession {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -319,6 +327,7 @@ export default class UIExtensionContentSession {
    * Sets the background color of the UI extension.
    *
    * @param { string } color - the specified color.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

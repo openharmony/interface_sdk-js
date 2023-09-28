@@ -464,6 +464,18 @@ declare namespace pointer {
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
+   * Sets the pointer moving speed through sync mode.
+   *
+   * @param { number } speed - Pointer moving speed, which is any number.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function setPointerSpeedSync(speed: number): void;
+
+  /**
    * Queries the pointer moving speed.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
@@ -483,6 +495,17 @@ declare namespace pointer {
    * @since 9
    */
   function getPointerSpeed(): Promise<number>;
+
+  /**
+   * Queries the pointer moving speed through sync mode.
+   * @returns { number } Returns the pointer speed through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function getPointerSpeedSync(): number;
 
   /**
    * Sets the pointer style.
@@ -509,6 +532,17 @@ declare namespace pointer {
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
+   * Sets the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { PointerStyle } pointerStyle - Pointer style.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
+
+  /**
    * Queries the pointer style.
    *
    * @param { number } windowId - Window ID.
@@ -529,6 +563,17 @@ declare namespace pointer {
    * @since 9
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
+
+  /**
+   * Queries the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @returns { PointerStyle } Returns the pointerStyle.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function getPointerStyleSync(windowId: number): PointerStyle;
 
   /**
    * Sets whether the pointer icon is visible.
@@ -555,6 +600,17 @@ declare namespace pointer {
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
+   * Sets whether the pointer icon is visible through sync mode.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerVisibleSync(visible: boolean): void;
+
+  /**
    * Checks whether the pointer icon is visible.
    *
    * @param { AsyncCallback<boolean> } callback - Returns <b>true</b> if the pointer icon is visible,
@@ -573,6 +629,15 @@ declare namespace pointer {
    * @since 9
    */
   function isPointerVisible(): Promise<boolean>;
+
+  /**
+   * Checks whether the pointer icon is visible through sync mode.
+   *
+   * @returns { boolean } Returns true if the pointer icon is visible, returns false otherwise.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function isPointerVisibleSync(): boolean;
 
   /**
    * Set the color of pointer.

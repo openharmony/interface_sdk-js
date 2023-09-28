@@ -184,7 +184,7 @@
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
+    "SystemCapability.Advertising.OAID",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CryptoFramework",
@@ -205,6 +205,7 @@
     "SystemCapability.ResourceSchedule.DeviceStandby",
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
-    "SystemCapability.Multimedia.Media.SoundPool"
+    "SystemCapability.Multimedia.Media.SoundPool",
+    "SystemCapability.Driver.ExternalDevice"
   ]
 }

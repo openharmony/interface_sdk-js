@@ -215,7 +215,6 @@ declare namespace picker {
   class DocumentSaveOptions {
     /**
      * The names of the files to be saved.
-     * Currently, only single file is supported.
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -251,7 +250,6 @@ declare namespace picker {
   class DocumentViewPicker {
     /**
      * Pull up the document picker based on the selection mode.
-     * Currently, only single file is supported.
      *
      * @param { DocumentSelectOptions } option - represents the options provided in select mode.
      * @returns { Promise<Array<string>> } Returns the uris for the selected files.
@@ -262,7 +260,6 @@ declare namespace picker {
 
     /**
      * Pull up the document picker based on the selection mode.
-     * Currently, only single file is supported.
      *
      * @param { DocumentSelectOptions } option - represents the options provided in select mode.
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -273,7 +270,6 @@ declare namespace picker {
 
     /**
      * Pull up the document picker based on the selection mode.
-     * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -283,7 +279,6 @@ declare namespace picker {
 
     /**
      * Pull up the document picker based on the save mode.
-     * Currently, only single file is supported.
      *
      * @param { DocumentSaveOptions } option - represents the options provided in save mode.
      * @returns { Promise<Array<string>> } Returns the uris for the saved files.
@@ -294,7 +289,6 @@ declare namespace picker {
 
     /**
      * Pull up the document picker based on the save mode.
-     * Currently, only single file is supported.
      *
      * @param { DocumentSaveOptions } option - represents the options provided in save mode.
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -305,7 +299,6 @@ declare namespace picker {
 
     /**
      * Pull up the document picker based on the save mode.
-     * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -331,7 +324,6 @@ declare namespace picker {
   class AudioSaveOptions {
     /**
      * The names of the files to be saved.
-     * Currently, only single file is supported.
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -349,7 +341,6 @@ declare namespace picker {
   class AudioViewPicker {
     /**
      * Pull up the audio picker based on the selection mode.
-     * Currently, only single file is supported.
      *
      * @param { AudioSelectOptions } option - represents the options provided in select mode.
      * @returns { Promise<Array<string>> } Returns the uris for the selected files.
@@ -360,7 +351,6 @@ declare namespace picker {
 
     /**
      * Pull up the audio picker based on the selection mode.
-     * Currently, only single file is supported.
      *
      * @param { AudioSelectOptions } option - represents the options provided in select mode.
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -371,7 +361,6 @@ declare namespace picker {
 
     /**
      * Pull up the audio picker based on the selection mode.
-     * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -381,7 +370,6 @@ declare namespace picker {
 
     /**
      * Pull up the audio picker based on the save mode.
-     * Currently, only single file is supported.
      *
      * @param { AudioSaveOptions } option - represents the options provided in save mode.
      * @returns { Promise<Array<string>> } Returns the uris for the saved files.
@@ -392,7 +380,6 @@ declare namespace picker {
 
     /**
      * Pull up the audio picker based on the save mode.
-     * Currently, only single file is supported.
      *
      * @param { AudioSaveOptions } option - represents the options provided in save mode.
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -403,7 +390,6 @@ declare namespace picker {
 
     /**
      * Pull up the audio picker based on the save mode.
-     * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService

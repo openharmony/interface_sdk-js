@@ -67,4 +67,13 @@ export interface CommonEventSubscribeInfo {
    * @since 7
    */
   priority?: number;
+
+  /**
+   * Specify the publisher's bundleName to subscribe.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 11
+   */
+  publisherBundleName?: string;
 }

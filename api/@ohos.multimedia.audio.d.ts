@@ -1678,6 +1678,14 @@ declare namespace audio {
      */
     getAudioScene(): Promise<AudioScene>;
     /**
+     * Obtains the audio scene mode.
+     * @returns { AudioScene } Current audio scene mode.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 10
+     */
+    getAudioSceneSync(): AudioScene;
+
+    /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
      * the callback.
      * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
@@ -1817,6 +1825,16 @@ declare namespace audio {
      * @since 9
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
+    /**
+     * Obtains the audio devices with a specific flag.
+     * @param { DeviceFlag } deviceFlag - Audio device flag.
+     * @returns { AudioDeviceDescriptors } The device list.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getDevicesSync(deviceFlag: DeviceFlag): AudioDeviceDescriptors;
 
     /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
@@ -1879,6 +1897,16 @@ declare namespace audio {
      * @since 9
      */
     isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolean>;
+    /**
+     * Checks whether a device is active.
+     * @param { CommunicationDeviceType } deviceType - Audio device type.
+     * @returns { boolean } The active status of the device.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @since 10
+     */
+    isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean;
 
     /**
      * Select the output device. This method uses an asynchronous callback to return the result.
@@ -1943,49 +1971,60 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    getPreferredOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    getPreferredOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
 
     /**
-     * Subscribes to preferred output device change events. When preferred device for target audio renderer info changes,
-     * registered clients will receive the callback.
-     * @param { 'preferredOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
-     * preferredOutputDeviceChangeForRendererInfo event is supported.
+     * Gets preferred output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
+     * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    on(type: 'preferredOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors;
+
     /**
-     * UnSubscribes to preferred output device change events.
-     * @param { 'preferredOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
-     * preferredOutputDeviceChangeForRendererInfo event is supported.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
+     * registered clients will receive the callback.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfo event is supported.
+     * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    off(type: 'preferredOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+    on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfo event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
@@ -2032,6 +2071,17 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Gets preferred input device for target audio capturer info.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
   }
 
   /**
@@ -2057,6 +2107,13 @@ declare namespace audio {
      * @since 9
      */
     getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>;
+    /**
+     * Get information of current existing audio renderers.
+     * @returns { AudioRendererChangeInfoArray } The information of current existing audio renderers.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getCurrentAudioRendererInfoArraySync(): AudioRendererChangeInfoArray;
 
     /**
      * Get information of current existing audio capturers.
@@ -2074,6 +2131,13 @@ declare namespace audio {
      * @since 9
      */
     getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>;
+    /**
+     * Get information of current existing audio capturers.
+     * @returns { AudioCapturerChangeInfoArray } The information of current existing audio capturers.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 10
+     */
+    getCurrentAudioCapturerInfoArraySync(): AudioCapturerChangeInfoArray;
 
     /**
      * Gets information of audio effects.
@@ -2095,6 +2159,16 @@ declare namespace audio {
      * @since 10
      */
     getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>;
+    /**
+     * Gets information of audio effects.
+     * @param { StreamUsage } usage - Stream usage.
+     * @returns { AudioEffectInfoArray } The information of audio effects.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray;
 
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
@@ -2158,6 +2232,16 @@ declare namespace audio {
      * @since 9
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
+    /**
+     * Checks whether a stream is active.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @returns { boolean } The active status of the stream.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    isActiveSync(volumeType: AudioVolumeType): boolean;
   }
 
   /**
@@ -2185,6 +2269,17 @@ declare namespace audio {
      * @since 9
      */
     getVolumeGroupInfos(networkId: string): Promise<VolumeGroupInfos>;
+    /**
+     * Get the volume group list for a networkId.
+     * @param { string } networkId - Distributed deice net work id
+     * @returns { VolumeGroupInfos } Volume group info list.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    getVolumeGroupInfosSync(networkId: string): VolumeGroupInfos;
 
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses an asynchronous callback to return the result.
@@ -2202,6 +2297,16 @@ declare namespace audio {
      * @since 9
      */
     getVolumeGroupManager(groupId: number): Promise<AudioVolumeGroupManager>;
+    /**
+     * Obtains an AudioVolumeGroupManager instance.
+     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getVolumeGroupManagerSync(groupId: number): AudioVolumeGroupManager;
 
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
@@ -2261,6 +2366,16 @@ declare namespace audio {
      * @since 9
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
+    /**
+     * Obtains the volume of a stream.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @returns { number } Current system volume level.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getVolumeSync(volumeType: AudioVolumeType): number;
 
     /**
      * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
@@ -2278,6 +2393,16 @@ declare namespace audio {
      * @since 9
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
+    /**
+     * Obtains the minimum volume allowed for a stream.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @returns { number } Min volume level.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getMinVolumeSync(volumeType: AudioVolumeType): number;
 
     /**
      * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
@@ -2295,6 +2420,16 @@ declare namespace audio {
      * @since 9
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
+    /**
+     * Obtains the maximum volume allowed for a stream.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @returns { number } Max volume level.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getMaxVolumeSync(volumeType: AudioVolumeType): number;
 
     /**
      * Mutes a stream. This method uses an asynchronous callback to return the result.
@@ -2337,6 +2472,17 @@ declare namespace audio {
      * @since 9
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
+    /**
+     * Checks whether a stream is muted.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @returns { boolean } The mute status of the stream. The value true
+     * means that the stream is muted, and false means the opposite.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    isMuteSync(volumeType: AudioVolumeType): boolean;
 
     /**
      * Sets the ringer mode. This method uses an asynchronous callback to return the result.
@@ -2373,6 +2519,13 @@ declare namespace audio {
      * @since 9
      */
     getRingerMode(): Promise<AudioRingMode>;
+    /**
+     * Obtains the ringer mode.
+     * @returns { AudioRingMode } Current ringer mode.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getRingerModeSync(): AudioRingMode;
 
     /**
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
@@ -2420,6 +2573,14 @@ declare namespace audio {
      * @since 9
      */
     isMicrophoneMute(): Promise<boolean>;
+    /**
+     * Checks whether the microphone is muted.
+     * @returns { boolean } The mute status of the microphone. The value true
+     * means that the microphone is muted, and false means the opposite.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    isMicrophoneMuteSync(): boolean;
 
     /**
      * Listens for system microphone state change events. This method uses a callback to get microphone change events.
@@ -2532,6 +2693,18 @@ declare namespace audio {
      * @since 10
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
+    /**
+     * Gets the volume db value that system calculate by volume type, volume level and device type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @returns { number } The system volume in dB.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
   }
 
   /**
@@ -3006,6 +3179,13 @@ declare namespace audio {
      * @since 8
      */
     getRendererInfo(): Promise<AudioRendererInfo>;
+    /**
+     * Obtains the renderer information provided while creating a renderer instance.
+     * @returns { AudioRendererInfo } The renderer information.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getRendererInfoSync(): AudioRendererInfo;
 
     /**
      * Obtains the renderer stream information. This method uses an asynchronous callback to return the result.
@@ -3021,6 +3201,13 @@ declare namespace audio {
      * @since 8
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
+    /**
+     * Obtains the renderer stream information.
+     * @returns { AudioStreamInfo } The stream information.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getStreamInfoSync(): AudioStreamInfo;
 
     /**
      * Obtains the renderer stream id. This method uses an asynchronous callback to return the result.
@@ -3036,6 +3223,13 @@ declare namespace audio {
      * @since 9
      */
     getAudioStreamId(): Promise<number>;
+    /**
+     * Obtains the renderer stream id.
+     * @returns { number } The stream id.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getAudioStreamIdSync(): number;
 
     /**
      * Obtains the current audio effect mode. This method uses an asynchronous callback to return the query result.
@@ -3123,6 +3317,13 @@ declare namespace audio {
      * @since 8
      */
     getAudioTime(): Promise<number>;
+    /**
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
+     * @returns { number } The audio timestamp.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getAudioTimeSync(): number;
 
     /**
      * Drains the playback buffer. This method uses an asynchronous callback to return the result.
@@ -3199,6 +3400,13 @@ declare namespace audio {
      * @since 8
      */
     getBufferSize(): Promise<number>;
+    /**
+     * Obtains a reasonable minimum buffer size in bytes for rendering.
+     * @returns { number } The audio buffer size.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getBufferSizeSync(): number;
 
     /**
      * Sets the render rate. This method uses an asynchronous callback to return the result.
@@ -3231,6 +3439,13 @@ declare namespace audio {
      * @since 8
      */
     getRenderRate(): Promise<AudioRendererRate>;
+    /**
+     * Obtains the current render rate.
+     * @returns { AudioRendererRate } The audio render rate.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getRenderRateSync(): AudioRendererRate;
 
     /**
      * Set interrupt mode.
@@ -3248,6 +3463,15 @@ declare namespace audio {
      * @since 9
      */
     setInterruptMode(mode: InterruptMode): Promise<void>;
+    /**
+     * Set interrupt mode.
+     * @param { InterruptMode } mode - The interrupt mode.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 10
+     */
+    setInterruptModeSync(mode: InterruptMode): void;
 
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
@@ -3280,6 +3504,13 @@ declare namespace audio {
      * @since 10
      */
     getMinStreamVolume(): Promise<number>;
+    /**
+     * Gets the min volume this stream can set.
+     * @returns { number } Min stream volume.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMinStreamVolumeSync(): number;
 
     /**
      * Gets the max volume this stream can set. This method uses an asynchronous callback to return the result.
@@ -3295,6 +3526,13 @@ declare namespace audio {
      * @since 10
      */
     getMaxStreamVolume(): Promise<number>;
+    /**
+     * Gets the max volume this stream can set.
+     * @returns { number } Max stream volume.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMaxStreamVolumeSync(): number;
 
     /**
      * Gets buffer underflow count. This method uses an asynchronous callback to return the result.
@@ -3310,6 +3548,13 @@ declare namespace audio {
      * @since 10
      */
     getUnderflowCount(): Promise<number>;
+    /**
+     * Gets buffer underflow count.
+     * @returns { number } Underflow count number.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getUnderflowCountSync(): number;
 
     /**
      * Gets the output device or devices for this stream.
@@ -3327,6 +3572,13 @@ declare namespace audio {
      * @since 10
      */
     getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
+    /**
+     * Gets the output device or devices for this stream.
+     * @returns { AudioDeviceDescriptors } Output device or devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getCurrentOutputDevicesSync(): AudioDeviceDescriptors;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
@@ -3564,6 +3816,13 @@ declare namespace audio {
      * @since 8
      */
     getCapturerInfo(): Promise<AudioCapturerInfo>;
+    /**
+     * Obtains the capturer information provided while creating a capturer instance.
+     * @returns { AudioCapturerInfo } The capturer information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 10
+     */
+    getCapturerInfoSync(): AudioCapturerInfo;
 
     /**
      * Obtains the capturer stream information. This method uses an asynchronous callback to return the result.
@@ -3579,6 +3838,13 @@ declare namespace audio {
      * @since 8
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
+    /**
+     * Obtains the capturer stream information.
+     * @returns { AudioStreamInfo } The stream information.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 10
+     */
+    getStreamInfoSync(): AudioStreamInfo;
 
     /**
      * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
@@ -3594,6 +3860,13 @@ declare namespace audio {
      * @since 9
      */
     getAudioStreamId(): Promise<number>;
+    /**
+     * Obtains the capturer stream id.
+     * @returns { number } The stream id.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 10
+     */
+    getAudioStreamIdSync(): number;
 
     /**
      * Starts capturing. This method uses an asynchronous callback to return the result.
@@ -3646,6 +3919,13 @@ declare namespace audio {
      * @since 8
      */
     getAudioTime(): Promise<number>;
+    /**
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
+     * @returns { number } The audio timestamp.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 10
+     */
+    getAudioTimeSync(): number;
 
     /**
      * Stops capturing. This method uses an asynchronous callback to return the result.
@@ -3692,6 +3972,13 @@ declare namespace audio {
      * @since 8
      */
     getBufferSize(): Promise<number>;
+    /**
+     * Obtains a reasonable minimum buffer size in bytes for capturing.
+     * @returns { number } Promise used to return the buffer size.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 10
+     */
+    getBufferSizeSync(): number;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
