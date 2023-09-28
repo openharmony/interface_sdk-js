@@ -4137,7 +4137,7 @@ declare interface MouseEvent extends BaseEvent {
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4411,14 +4411,14 @@ declare interface TouchEvent extends BaseEvent {
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -4886,14 +4886,14 @@ declare interface KeyEvent {
   /**
    * Block event bubbling.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Block event bubbling.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
