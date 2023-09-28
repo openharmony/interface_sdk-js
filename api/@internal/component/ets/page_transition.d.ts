@@ -385,7 +385,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @crossplatform
    * @since 10
    */
-  onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnterInterface;
+  onEnter(event: (type: RouteType, progress: number) => void): PageTransitionEnterInterface;
 }
 
 /**
@@ -441,7 +441,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @crossplatform
    * @since 10
    */
-  onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExitInterface;
+  onExit(event: (type: RouteType, progress: number) => void): PageTransitionExitInterface;
 }
 
 /**
