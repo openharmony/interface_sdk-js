@@ -382,7 +382,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
-  onSelect(callback: (index: number, value?: string) => void): SelectAttribute;
+  onSelect(callback: (index: number, value: string) => void): SelectAttribute;
 
   /**
    * Set the space for text and icon in select

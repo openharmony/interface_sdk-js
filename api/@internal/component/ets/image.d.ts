@@ -717,7 +717,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    * @form
    */
-  onError(callback: (event?: {
+  onError(callback: (event: {
     /**
      * Component width.
      *
@@ -762,7 +762,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 10
    * @form
    */
-  onError(callback: (event?: {
+  onError(callback: (event: {
     /**
      * Component width.
      *
