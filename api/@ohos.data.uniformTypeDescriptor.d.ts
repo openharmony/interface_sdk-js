@@ -114,6 +114,59 @@ declare namespace uniformTypeDescriptor {
      */
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map'
   }
+
+  class UTDType {
+
+    readonly identifier: string;
+
+    readonly supertypes: Set<UTDType>;
+
+    tags: {[key: UTDTag]: Array<string>};
+
+    isGeneral: boolean;
+
+    referenceURL?: string;
+
+    version?: number;
+
+    description: string;
+
+    conformsTo(type: UTDType): boolean;
+
+    isSubtypeOf(type: UTDType): boolean;
+  
+    isSupertypeOf(type: UTDType): boolean;
+
+    equals(type: UTDType): boolean;
+
+    static image: UTDType;
+  }
+
+  class UTDTag {
+    constructor(rawValue: string);
+
+    rawValue: string;
+
+    description: string;
+
+    equals(type: UTDTag): boolean;
+
+    static fileNameExtension: UTDTag;
+
+    static mimeType: UTDTag;
+  }
+
+  function declareType(identifier: string, isOwner: boolean, conformingTo: UTDType): UTDType;
+
+  function type(identifier: string): UTDType | null;
+
+  function type(filenameExtension: string, superType: UTDType): UTDType | null;
+
+  function type(mimeType: string, superType: UTDType): UTDType | null;
+
+  function type(tag: string, tagClass: UTDTag, superType: UTDType): UTDType | null;
+
+  function types(tag: string, tagClass: UTDTag, superType: UTDType): Array<UTDType>;
 }
 
 export default uniformTypeDescriptor;
