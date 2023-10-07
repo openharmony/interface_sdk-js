@@ -36,7 +36,7 @@ declare namespace childProcessManager {
 
     /**
      * Fork child process by application self.
-     * BINDER IPC CAN NOT BE USED in child process in this mode, may cause crash.
+     * Binder IPC can not be in child process in this mode, may cause crash.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -51,11 +51,9 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child Process start mode.
    * @returns { Promise<number> } Returns the started child process pid.
-   * @throws { BusinessError } 100 - If has no permission.
-   * @throws { BusinessError } 200 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 300 - If the start mode not supported.
-   * @throws { BusinessError } 400 - If the number of child process exceeds limit.
-   * @throws { BusinessError } 500 - If the child process fork failed.
+   * @throws { BusinessError } 100 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 200 - Invalid input parameter.
+   * @throws { BusinessError } 300 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
@@ -68,11 +66,9 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child Process start mode.
    * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
-   * @throws { BusinessError } 100 - If has no permission.
-   * @throws { BusinessError } 200 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 300 - If the start mode not supported.
-   * @throws { BusinessError } 400 - If the number of child process exceeds limit.
-   * @throws { BusinessError } 500 - If the child process fork failed.
+   * @throws { BusinessError } 100 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 200 - Invalid input parameter.
+   * @throws { BusinessError } 300 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
