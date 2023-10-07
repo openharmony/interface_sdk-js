@@ -115,58 +115,55 @@ declare namespace uniformTypeDescriptor {
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map'
   }
 
-  class UTDType {
+  class Type {
+
+    private constructor();
 
     readonly identifier: string;
 
-    readonly supertypes: Set<UTDType>;
+    readonly supertypes: Set<Type>;
 
-    tags: {[key: UTDTag]: Array<string>};
+    readonly aliases: {[key: Alias]: Array<string>};
 
-    isGeneral: boolean;
+    readonly isGeneral: boolean;
 
-    referenceURL?: string;
+    readonly description: string;
 
-    version?: number;
+    conformsTo(type: Type): boolean;
 
-    description: string;
-
-    conformsTo(type: UTDType): boolean;
-
-    isSubtypeOf(type: UTDType): boolean;
+    isSubtypeOf(type: Type): boolean;
   
-    isSupertypeOf(type: UTDType): boolean;
+    isSupertypeOf(type: Type): boolean;
 
-    equals(type: UTDType): boolean;
+    equals(type: Type): boolean;
 
-    static image: UTDType;
+    static readonly IMAGE: Type;
   }
 
-  class UTDTag {
-    constructor(rawValue: string);
+  class Alias {
 
-    rawValue: string;
+    private constructor();
 
-    description: string;
+    readonly rawValue: string;
 
-    equals(type: UTDTag): boolean;
+    readonly description: string;
 
-    static fileNameExtension: UTDTag;
+    static readonly FILENAME_EXTENSION: Alias;
 
-    static mimeType: UTDTag;
+    static readonly MIME_TYPE: Alias;
   }
 
-  function declareType(identifier: string, isOwner: boolean, conformingTo: UTDType): UTDType;
+  function type(identifier: string): Type | null;
 
-  function type(identifier: string): UTDType | null;
+  function typeByFilenameExtension(filenameExtension: string, conformingTo?: Type): Type | null;
 
-  function type(filenameExtension: string, superType: UTDType): UTDType | null;
+  function typeByMIMEType(mimeType: string, conformingTo?: Type): Type | null;
 
-  function type(mimeType: string, superType: UTDType): UTDType | null;
+  function type(alias: string, aliasClass: Alias, conformingTo?: Type): Type | null;
 
-  function type(tag: string, tagClass: UTDTag, superType: UTDType): UTDType | null;
+  function types(alias: string, aliasClass: Alias, conformingTo?: Type): Array<Type>;
 
-  function types(tag: string, tagClass: UTDTag, superType: UTDType): Array<UTDType>;
+  function createType(identifier: string, isOwner: boolean): Type;
 }
 
 export default uniformTypeDescriptor;
