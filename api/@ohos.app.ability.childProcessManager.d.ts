@@ -36,7 +36,7 @@ declare namespace childProcessManager {
 
     /**
      * Fork child process by application self.
-     * Binder IPC can not be in child process in this mode, may cause crash.
+     * Binder IPC can not be used in child process in this mode, may cause crash.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
