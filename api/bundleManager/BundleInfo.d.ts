@@ -252,11 +252,12 @@ export interface SignatureInfo {
   readonly fingerprint: string;
 
   /**
-   * Globally unique identifier of an application, which is allocated by the cloud
-   * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes
-   * Public and private key changes, and application transfer.
+   * Globally unique identifier of an application, which is allocated by the cloud.
+   * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
+   * public and private key changes, and application transfer.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
    */
