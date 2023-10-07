@@ -49,8 +49,8 @@ declare namespace processManager {
    * Start child process with the given src entry and start mode.
    *
    * @param { string } srcEntry - Child process source file entrance to be started.
-   * @param { number } startMode - Child Process start mode.
-   * @returns { AsyncCallback<number> } Returns the started child process pid.
+   * @param { StartMode } startMode - Child Process start mode.
+   * @returns { Promise<number> } Returns the started child process pid.
    * @throws { BusinessError } 100 - If has no permission.
    * @throws { BusinessError } 200 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 300 - If the start mode not supported.
@@ -66,8 +66,8 @@ declare namespace processManager {
    * Start child process with the given src entry and mode.
    *
    * @param { string } srcEntry - Child process source file entrance to be started.
-   * @param { number } startMode - Child Process start mode.
-   * @returns { Promise<number> } Returns the started child process pid.
+   * @param { StartMode } startMode - Child Process start mode.
+   * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
    * @throws { BusinessError } 100 - If has no permission.
    * @throws { BusinessError } 200 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 300 - If the start mode not supported.
