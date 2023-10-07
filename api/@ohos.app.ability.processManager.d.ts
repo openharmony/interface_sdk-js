@@ -51,9 +51,11 @@ declare namespace processManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { number } startMode - Child Process start mode.
    * @returns { AsyncCallback<number> } Returns the started child process pid.
-   * @throws { BusinessError } 100 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 200 - If the start mode not supported.
-   * @throws { BusinessError } 300 - If the child process fork failed.
+   * @throws { BusinessError } 100 - If has no permission.
+   * @throws { BusinessError } 200 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 300 - If the start mode not supported.
+   * @throws { BusinessError } 400 - If the number of child process exceeds limit.
+   * @throws { BusinessError } 500 - If the child process fork failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
@@ -66,9 +68,11 @@ declare namespace processManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { number } startMode - Child Process start mode.
    * @returns { Promise<number> } Returns the started child process pid.
-   * @throws { BusinessError } 100 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 200 - If the start mode not supported.
-   * @throws { BusinessError } 300 - If the child process fork failed.
+   * @throws { BusinessError } 100 - If has no permission.
+   * @throws { BusinessError } 200 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 300 - If the start mode not supported.
+   * @throws { BusinessError } 400 - If the number of child process exceeds limit.
+   * @throws { BusinessError } 500 - If the child process fork failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
