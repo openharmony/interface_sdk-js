@@ -51,9 +51,9 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child Process start mode.
    * @returns { Promise<number> } Returns the started child process pid.
-   * @throws { BusinessError } 100 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 200 - Invalid input parameter.
-   * @throws { BusinessError } 300 - Internal error.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
@@ -66,9 +66,9 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child Process start mode.
    * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
-   * @throws { BusinessError } 100 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 200 - Invalid input parameter.
-   * @throws { BusinessError } 300 - Internal error.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
