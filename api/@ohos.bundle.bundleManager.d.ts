@@ -770,6 +770,25 @@ declare namespace bundleManager {
   }
 
   /**
+   * This enumeration value is used to identify various types of JSON profile.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  export enum ProfileType {
+    /**
+     * Indicates JSON profile about intent framework.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 11
+     */
+    INTENT_PROFILE = 1
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -2093,6 +2112,27 @@ declare namespace bundleManager {
    * @since 10
    */
   function getAdditionalInfo(bundleName: string): string;
+
+  /**
+   * Obtains the JSON profile designated by profileType, bundleName and moduleName.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { ProfileType } profileType - Indicates the type of profile to be obtained.
+   * @param { string } bundleName - Indicates the name of the bundle to which the profile belongs.
+   * @param { string } moduleName - Indicates the name of the module to which the profile belongs.
+   * @returns { string } Returns string in json-format of the designated profile.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because the specified profile is not found in the HAP.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
   /**
    * Obtains configuration information about an application.
