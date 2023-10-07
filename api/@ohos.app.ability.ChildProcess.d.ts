@@ -14,19 +14,19 @@
  */
 
 /**
- * The class of process.
+ * The class of child process.
  * Child process to be started can inherit this class.
  *
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @since 11
  */
-export default class Process {
+export default class ChildProcess {
 
   /**
-   * Called when the process is started.
+   * Called when the child process is started.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
   */

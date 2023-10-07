@@ -13,16 +13,16 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * This module provides the capability to start and manage child process.
  *
- * @namespace processManager
+ * @namespace childProcessManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 11
  */
-declare namespace processManager {
+declare namespace childProcessManager {
 
   /**
    * Enum for the process start mode.
@@ -81,4 +81,4 @@ declare namespace processManager {
 
 }
 
-export default processManager;
+export default childProcessManager;
