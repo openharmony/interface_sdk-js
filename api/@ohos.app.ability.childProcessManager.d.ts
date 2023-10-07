@@ -49,7 +49,7 @@ declare namespace childProcessManager {
    * Start child process with the given src entry and start mode.
    *
    * @param { string } srcEntry - Child process source file entrance to be started.
-   * @param { StartMode } startMode - Child Process start mode.
+   * @param { StartMode } startMode - Child process start mode.
    * @returns { Promise<number> } Returns the started child process pid.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Invalid input parameter.
@@ -64,7 +64,7 @@ declare namespace childProcessManager {
    * Start child process with the given src entry and mode.
    *
    * @param { string } srcEntry - Child process source file entrance to be started.
-   * @param { StartMode } startMode - Child Process start mode.
+   * @param { StartMode } startMode - Child process start mode.
    * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Invalid input parameter.
@@ -73,7 +73,7 @@ declare namespace childProcessManager {
    * @StageModelOnly
    * @since 11
    */
-  function startChildProcess(path: string, startMode: StartMode, callback: AsyncCallback<number>): void;
+  function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<number>): void;
 
 }
 
