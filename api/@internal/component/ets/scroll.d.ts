@@ -131,14 +131,14 @@ declare enum ScrollAlign {
 }
 
 /**
- * offsetResult info.
+ * OffsetResult info.
  *
- * @interface offsetResult
+ * @interface OffsetResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface offsetResult {
+declare interface OffsetResult {
   /**
    * The X-axis offset.
    *
@@ -220,7 +220,7 @@ declare class Scroller {
     /**
      * Descriptive animation.
      *
-     * @type { ?object } The object type provides custom animation parameters
+     * @type { ?(object | boolean) } The object type provides custom animation parameters
      * and the boolean type enables default spring animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -276,18 +276,19 @@ declare class Scroller {
   /**
    * Called when viewing the scroll offset.
    *
+   * @returns { OffsetResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when viewing the scroll offset.
    *
-   * @returns { offsetResult }
+   * @returns { OffsetResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  currentOffset() : offsetResult;
+  currentOffset() : OffsetResult;
 
   /**
    * Called when sliding to the specified index.
@@ -434,7 +435,7 @@ interface ScrollInterface {
 /**
  * Defines the scroll attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ScrollAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
