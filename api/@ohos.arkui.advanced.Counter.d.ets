@@ -92,7 +92,7 @@ declare class CommonOptions {
      * @crossplatform
      * @since 11
      */
-    onHoverIncrease?: (isHover?: boolean) => void;
+    onHoverIncrease?: (isHover: boolean) => void;
 
     /**
      * Trigger a mouse hover event at the decreased button.
@@ -102,7 +102,7 @@ declare class CommonOptions {
      * @crossplatform
      * @since 11
      */
-    onHoverDecrease?: (isHover?: boolean) => void;
+    onHoverDecrease?: (isHover: boolean) => void;
 }
 
 /**
