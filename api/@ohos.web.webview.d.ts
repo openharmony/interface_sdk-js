@@ -1631,7 +1631,7 @@ declare namespace webview {
     /**
      * Put network state for web. Which is used to set window.navigator.isOnline property in
      * JavaScript.
-     * @permissionohos.permission.GET_NETWORK_INFO
+     * @permission ohos.permission.GET_NETWORK_INFO
      * @param { boolean } enable - Whether enable window.navigator.isOnline.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
