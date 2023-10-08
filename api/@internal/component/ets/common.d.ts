@@ -1851,6 +1851,7 @@ declare interface RotateOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   centerY?: number | string;
 
