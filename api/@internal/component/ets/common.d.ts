@@ -3294,15 +3294,15 @@ declare interface ShadowOptions {
   type?: ShadowType;
 
   /**
-   * Define the type of shadow
+   * Define whether the shadow should fill the area
    *
-   * @type { ?(boolean | Resource) }
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  isFilled?: boolean | Resource;
+  isFilled?: boolean;
 
   /**
    * Define the color of shadow
