@@ -3302,7 +3302,7 @@ declare interface ShadowOptions {
    * @crossplatform
    * @since 11
    */
-  isFilled?: boolean;
+  fill?: boolean;
 
   /**
    * Define the color of shadow
