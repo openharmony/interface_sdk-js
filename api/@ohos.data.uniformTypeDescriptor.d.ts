@@ -115,55 +115,38 @@ declare namespace uniformTypeDescriptor {
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map'
   }
 
-  class Type {
+  class Descriptor {
 
     private constructor();
 
     readonly identifier: string;
 
-    readonly supertypes: Set<Type>;
+    readonly upperHierarchy: Set<Descriptor>;
 
-    readonly aliases: {[key: Alias]: Array<string>};
+    readonly filenameExtensions: Array<string>;
+
+    readonly mimeTypes: Array<string>;
 
     readonly isGeneral: boolean;
 
     readonly description: string;
 
-    conformsTo(type: Type): boolean;
+    isCompatibleWith(descriptor: Descriptor): boolean;
 
-    isSubtypeOf(type: Type): boolean;
-  
-    isSupertypeOf(type: Type): boolean;
+    isLowerHierarchyOf(descriptor: Descriptor): boolean;
 
-    equals(type: Type): boolean;
+    isUpperHierarchyOf(descriptor: Descriptor): boolean;
 
-    static readonly IMAGE: Type;
+    equals(descriptor: Descriptor): boolean;
   }
 
-  class Alias {
+  function descriptor(identifier: string): Descriptor | null;
 
-    private constructor();
+  function descriptorByFilenameExtension(filenameExtension: string, compatibleWith?: Descriptor): Descriptor | null;
 
-    readonly rawValue: string;
+  function descriptorByMIMEType(mimeType: string, compatibleWith?: Descriptor): Descriptor | null;
 
-    readonly description: string;
-
-    static readonly FILENAME_EXTENSION: Alias;
-
-    static readonly MIME_TYPE: Alias;
-  }
-
-  function type(identifier: string): Type | null;
-
-  function typeByFilenameExtension(filenameExtension: string, conformingTo?: Type): Type | null;
-
-  function typeByMIMEType(mimeType: string, conformingTo?: Type): Type | null;
-
-  function type(alias: string, aliasClass: Alias, conformingTo?: Type): Type | null;
-
-  function types(alias: string, aliasClass: Alias, conformingTo?: Type): Array<Type>;
-
-  function createType(identifier: string, isOwner: boolean): Type;
+  function declareDescriptor(identifier: string, isOwner: boolean): Descriptor;
 }
 
 export default uniformTypeDescriptor;
