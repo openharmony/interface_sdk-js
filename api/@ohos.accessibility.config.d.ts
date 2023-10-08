@@ -27,6 +27,15 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 declare namespace config {
   /**
    * @constant
+   * Indicates the configuration of daltonization state.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const daltonizationState: Config<boolean>;
+  /**
+   * @constant
    * Indicates the configuration of audio mono.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
