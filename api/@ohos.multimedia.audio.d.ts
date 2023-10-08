@@ -4136,8 +4136,8 @@ declare namespace audio {
      * Unsubscribes input device change event callback.
      * @param { 'inputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
@@ -4148,9 +4148,9 @@ declare namespace audio {
      * The event is triggered when input device change for this stream.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for.
      * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
-     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
@@ -4158,9 +4158,9 @@ declare namespace audio {
      * Unsubscribes audio capturer info change event callback.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for.
      * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
-     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 11
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
