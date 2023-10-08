@@ -389,8 +389,7 @@ declare namespace avSession {
    * Define different protocol capability
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @systemapi
-   * @since 10
+   * @since 11
    */
   enum ProtocolType {
     /**
@@ -414,8 +413,7 @@ declare namespace avSession {
      * The Cast+ Stream indicating the media is presenting on a different device
      * the application need get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     TYPE_CAST_PLUS_STREAM = 2,
   }
@@ -975,7 +973,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'fastForward', callback: () => void): void;
+    on(type: 'fastForward', callback: (time ?: number) => void): void;
 
     /**
      * Register rewind command callback.
@@ -992,7 +990,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'rewind', callback: () => void): void;
+    on(type: 'rewind', callback: (time ?: number) => void): void;
 
     /**
      * Unregister play command callback.
@@ -1370,7 +1368,7 @@ declare namespace avSession {
    * @since 10
    */
   type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+  'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute';
 
   /**
    * The definition of command to be sent to the session
@@ -1542,6 +1540,42 @@ declare namespace avSession {
     getCurrentItem(): Promise<AVQueueItem>;
 
     /**
+     * Get commands supported by the current cast controller
+     * @param { AsyncCallback<Array<AVCastControlCommandType>> } callback - The triggered asyncCallback when (getValidCommands).
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    getValidCommands(callback: AsyncCallback<Array<AVCastControlCommandType>>): void;
+
+    /**
+     * Get commands supported by the current cast controller
+     * @returns { Promise<Array<AVCastControlCommandType>> } array of AVCastControlCommandType promise
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    getValidCommands(): Promise<Array<AVCastControlCommandType>>;
+
+    /**
+     * Destroy the controller
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Destroy the controller
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    release(): Promise<void>;
+
+    /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
@@ -1590,7 +1624,7 @@ declare namespace avSession {
     /**
      * Register playback command callback sent by remote side or media center.
      * Application needs update the new media resource when receive these commands by using playItem.
-     * @param { 'playNext' } type - Type of the 'playback' event to listen for.
+     * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
      * @param { Callback<void> } callback - Used to handle 'playNext' command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception
@@ -1602,7 +1636,7 @@ declare namespace avSession {
     /**
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'playNext' } type - Type of the 'playback' event to listen for.
+     * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -1869,6 +1903,24 @@ declare namespace avSession {
      * @since 10
      */
     nextAssetId?: string;
+
+    /**
+     * The protocols supported by this session, if not set, the default is {@link TYPE_CAST_PLUS_STREAM}.
+     * See {@link ProtocolType}
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    filter?: number;
+
+    /**
+     * The supported skipIntervals when doing fast forward and rewind operation, the default is {@link SECONDS_15}.
+     * See {@link SkipIntervals}
+     * @type { ?SkipIntervals }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    skipIntervals?: SkipIntervals;
   }
 
   /**
@@ -2120,6 +2172,46 @@ declare namespace avSession {
     volume?: number;
 
     /**
+     * maximum  volume
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    maxVolume?: number;
+
+    /**
+     * Current muted status
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    muted?: boolean;
+
+    /**
+     * The duration of this media asset.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    duration?: number;
+
+    /**
+     * The video width of this media asset.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    videoWidth?: number;
+
+    /**
+     * The video height of this media asset.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    videoHeight?: number;
+
+    /**
      * Current custom media packets
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
@@ -2312,6 +2404,33 @@ declare namespace avSession {
      * @since 10
      */
     LOOP_MODE_SHUFFLE = 3,
+  }
+
+  /**
+   * Supported skip intervals definition
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  enum SkipIntervals {
+    /**
+     * 10 seconds
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    SECONDS_10 = 10,
+    /**
+     * 15 seconds
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    SECONDS_15 = 15,
+    /**
+     * 30 seconds
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    SECONDS_30 = 30,
   }
 
   /**
