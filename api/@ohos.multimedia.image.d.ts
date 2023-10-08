@@ -1580,14 +1580,14 @@ declare namespace image {
    * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
    * @throws { BusinessError } 62980096 - Operation failed.
-   * @throws { BusinessError } 62980097 - If the ipc error.
-   * @throws { BusinessError } 62980115 - If the input parameter invalid.
-   * @throws { BusinessError } 62980105 - Get data error.
-   * @throws { BusinessError } 62980177 - Api environmental abnormality.
-   * @throws { BusinessError } 62980178 - Pixelmap create failed.
-   * @throws { BusinessError } 62980179 - Unmarshalling bufferSize parceling error.
-   * @throws { BusinessError } 62980180 - Fd acquisition failed.
-   * @throws { BusinessError } 62980246 - Read pixelmap failed.
+   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980115 - Invalid input parameter.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980177 - Abnormal API environment.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @throws { BusinessError } 62980179 - Abnormal buffer size.
+   * @throws { BusinessError } 62980180 - FD mapping failed.
+   * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 11
    */
