@@ -127,9 +127,11 @@ declare namespace uniformTypeDescriptor {
 
     readonly mimeTypes: Array<string>;
 
-    readonly isGeneral: boolean;
-
     readonly description: string;
+
+    readonly referenceURL: string;
+
+    readonly iconFile: string;
 
     isCompatibleWith(descriptor: Descriptor): boolean;
 
