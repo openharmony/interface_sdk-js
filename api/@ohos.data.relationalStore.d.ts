@@ -3178,6 +3178,51 @@ declare namespace relationalStore {
     cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
+     * @param { boolean } prioritySync - indicate whether to prioritize synchronization
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cloudSync(
+        mode: SyncMode,
+        predicates: RdbPredicates,
+        prioritySync: boolean,
+        progress: Callback<ProgressDetails>,
+        callback: AsyncCallback<void>
+    ): void;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
+     * @param { boolean } prioritySync - indicate whether to prioritize synchronization
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cloudSync(
+        mode: SyncMode,
+        predicates: RdbPredicates,
+        prioritySync: boolean,
+        progress: Callback<ProgressDetails>
+    ): Promise<void>;
+
+    /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
      *
      * @param { string } device - Indicates specified remote device.
@@ -3264,6 +3309,17 @@ declare namespace relationalStore {
     on(event: string, interProcess: boolean, observer: Callback<void>): void;
 
     /**
+     * Register an automatic synchronization callback to the database.
+     *
+     * @param { 'autoSyncComplete' } event - Indicates the event must be string 'autoSyncComplete'.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    on(event: 'autoSyncComplete', progress: Callback<ProgressDetails>): void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -3311,6 +3367,17 @@ declare namespace relationalStore {
      * @since 10
      */
     off(event: string, interProcess: boolean, observer?: Callback<void>): void;
+
+    /**
+     * Unregister the database auto synchronization callback.
+     *
+     * @param { 'autoSyncComplete' } event - indicates the event must be string 'autoSyncComplete'.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    off(event: 'autoSyncComplete', progress?: Callback<ProgressDetails>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
