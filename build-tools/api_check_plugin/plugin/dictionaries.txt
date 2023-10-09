@@ -66587,6 +66587,7 @@ vps
 vr
 vs
 vscode
+vss
 vsts
 vstudio
 vt
