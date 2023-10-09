@@ -3371,7 +3371,7 @@ declare interface ShadowOptions {
    */
   offsetY?: number | Resource;
 
-    /**
+  /**
    * Define whether the shadow should fill the area
    *
    * @type { ?boolean }
@@ -3380,7 +3380,7 @@ declare interface ShadowOptions {
    * @crossplatform
    * @since 11
    */
-    fill?: boolean;
+  fill?: boolean;
 }
 
 /**
