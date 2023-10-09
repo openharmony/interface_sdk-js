@@ -30,7 +30,7 @@ declare namespace configPolicy {
    * @enum { number }
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi
-   * @since 10
+   * @since 11
    */
   export enum FollowXMode {
     /**
@@ -38,7 +38,7 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 10
+     * @since 11
      */
     DEFAULT = 0,
 
@@ -47,7 +47,7 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 10
+     * @since 11
      */
     NO_FOLLOW = 1,
 
@@ -56,7 +56,7 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 10
+     * @since 11
      */
     SIM_DEFAULT = 10,
 
@@ -65,7 +65,7 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 10
+     * @since 11
      */
     SIM_1 = 11,
 
@@ -74,7 +74,7 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 10
+     * @since 11
      */
     SIM_2 = 12,
 
@@ -84,7 +84,7 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since 10
+     * @since 11
      */
     USER_DEFINE = 100
   }
@@ -110,7 +110,7 @@ declare namespace configPolicy {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function getOneCfgFileEx(relPath: string, followMode: FollowXMode, callback: AsyncCallback<string>);
 
@@ -124,7 +124,7 @@ declare namespace configPolicy {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function getOneCfgFileEx(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<string>);
 
@@ -150,7 +150,7 @@ declare namespace configPolicy {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function getOneCfgFileEx(relPath: string, followMode: FollowXMode, extra?: string): Promise<string>;
 
@@ -176,7 +176,7 @@ declare namespace configPolicy {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function getCfgFilesEx(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<Array<string>>);
 
@@ -189,7 +189,7 @@ declare namespace configPolicy {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function getCfgFilesEx(relPath: string, followMode: FollowXMode, callback: AsyncCallback<Array<string>>);
 
@@ -215,7 +215,7 @@ declare namespace configPolicy {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function getCfgFilesEx(relPath: string, followMode: FollowXMode, extra?: string): Promise<Array<string>>;
   /**
