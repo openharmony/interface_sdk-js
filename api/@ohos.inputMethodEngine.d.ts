@@ -387,6 +387,28 @@ declare namespace inputMethodEngine {
      * @useinstead inputMethodEngine.KeyboardController#hide
      */
     hideKeyboard(): Promise<void>;
+
+    /**
+     * Stop the current input type.
+     *
+     * @param { AsyncCallback<void> } callback - the callback of StopInputType.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    StopInputType(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop the current input type.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    StopInputType(): Promise<void>;
   }
 
   /**
