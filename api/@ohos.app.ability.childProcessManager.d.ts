@@ -51,9 +51,10 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child process start mode.
    * @returns { Promise<number> } Returns the started child process pid.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000061 - Operation not supported.
+   * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
@@ -66,9 +67,10 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child process start mode.
    * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000061 - Operation not supported.
+   * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
