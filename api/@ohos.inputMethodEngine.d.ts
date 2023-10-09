@@ -395,7 +395,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since 11
      */
     StopInputType(callback: AsyncCallback<void>): void;
 
@@ -406,7 +406,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since 11
      */
     StopInputType(): Promise<void>;
   }
