@@ -14,7 +14,7 @@
  */
 
 /**
- * Provide methods for uniform data type definition and query.
+ * Provide methods for uniform type descriptor definition and query.
  *
  * @namespace uniformTypeDescriptor
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -115,39 +115,167 @@ declare namespace uniformTypeDescriptor {
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map'
   }
 
+  /**
+   * Uniform type descriptor
+   *
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
   class Descriptor {
-
+    /**
+     * Create Descriptor
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     private constructor();
-
+    /**
+     * The identifier of the descriptor, which corespond to the enum string in the UniformDataType.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly identifier: string;
-
+    /**
+     * The upper hierarchy of the descriptor.
+     *
+     * @type { Set<Descriptor> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly upperHierarchy: Set<Descriptor>;
-
+    /**
+     * The filename extensions which the type descriptor stand for.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly filenameExtensions: Array<string>;
-
+    /**
+     * The MIME types which the type descriptor stand for.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly mimeTypes: Array<string>;
-
+    /**
+     * The description of the uniform type descriptor.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly description: string;
-
+    /**
+     * The reference URL of the uniform type descriptor, which describe the detail information of the type.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly referenceURL: string;
-
+    /**
+     * The icon file address of the uniform datatype.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     readonly iconFile: string;
-
+    /**
+     * Check whether the descriptor is compatible whith the given descriptor.
+     *
+     * @param { Descriptor } descriptor - The uniform type descriptor to be compared.
+     * @returns { boolean } Return true if the descriptor is compatible with the given descriptor, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     isCompatibleWith(descriptor: Descriptor): boolean;
-
+    /**
+     * Check whether the descriptor is the lower hierarchy of the given descriptor.
+     *
+     * @param { Descriptor } descriptor - The uniform type descriptor to be compared.
+     * @returns { boolean } Return true if the descriptor is the lower hierarchy of the given descriptor, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     isLowerHierarchyOf(descriptor: Descriptor): boolean;
-
+    /**
+     * Check whether the descriptor is the upper hierarchy of the given descriptor.
+     *
+     * @param { Descriptor } descriptor - The uniform type descriptor to be compared.
+     * @returns { boolean } Return true if the descriptor is the upper hierarchy of the given descriptor, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     isUpperHierarchyOf(descriptor: Descriptor): boolean;
-
+    /**
+     * Check whether the descriptor is equal to the given descriptor.
+     *
+     * @param { Descriptor } descriptor - The uniform type descriptor to be compared.
+     * @returns { boolean } Return true if the descriptor is equal to the given descriptor, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     equals(descriptor: Descriptor): boolean;
   }
 
+  /**
+   * Query and return the uniform type descriptor by the given identifier.
+   *
+   * @param { string } identifier - The uniform type descriptor to be compared.
+   * @returns { Descriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
   function descriptor(identifier: string): Descriptor | null;
 
+  /**
+   * Query and return the uniform type descriptor by the given identifier.
+   *
+   * @param { string } identifier - The uniform type descriptor to be compared.
+   * @returns { Descriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
   function descriptorByFilenameExtension(filenameExtension: string, compatibleWith?: Descriptor): Descriptor | null;
 
+  /**
+   * Query and return the uniform type descriptor by the given identifier.
+   *
+   * @param { string } identifier - The uniform type descriptor to be compared.
+   * @returns { Descriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
   function descriptorByMIMEType(mimeType: string, compatibleWith?: Descriptor): Descriptor | null;
 
+  /**
+   * Query and return the uniform type descriptor by the given identifier.
+   *
+   * @param { string } identifier - The uniform type descriptor to be compared.
+   * @returns { Descriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
   function declareDescriptor(identifier: string, isOwner: boolean): Descriptor;
 }
 
