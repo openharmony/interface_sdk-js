@@ -3294,17 +3294,6 @@ declare interface ShadowOptions {
   type?: ShadowType;
 
   /**
-   * Define whether the shadow should fill the area
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  fill?: boolean;
-
-  /**
    * Define the color of shadow
    *
    * @type { ?(Color | string | Resource) }
@@ -3381,6 +3370,17 @@ declare interface ShadowOptions {
    * @form
    */
   offsetY?: number | Resource;
+
+    /**
+   * Define whether the shadow should fill the area
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    fill?: boolean;
 }
 
 /**
