@@ -491,22 +491,22 @@ declare namespace webSocket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Registers an observer for receiving WebSocket data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
+     * Enables listening for receiving data ends events of a WebSocket connection.
+     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: "dataEnd", callback: Callback<void>): void;
+    on(type: 'dataEnd', callback: Callback<void>): void;
 
     /**
-     * Unregisters an observer for receiving WebSocket data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
+     * Cancels listening for receiving data ends events of a WebSocket connection.
+     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: "dataEnd", callback?: Callback<void>): void;
+    off(type: 'dataEnd', callback?: Callback<void>): void;
   }
 }
 
