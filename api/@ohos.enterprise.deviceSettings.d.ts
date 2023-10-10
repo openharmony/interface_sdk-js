@@ -59,12 +59,12 @@ declare namespace deviceSettings {
   }
 
   /**
-   * Sets the device screen off time.
+   * Sets the screen off time.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_SET_SCREENOFF_TIME
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } time - screen off time
+   * @param { number } time - screen off time.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
