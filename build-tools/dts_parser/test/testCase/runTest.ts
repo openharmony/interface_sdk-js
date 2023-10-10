@@ -19,6 +19,8 @@ import fs from 'fs';
 import { FileUtils } from '../../src/utils/FileUtils';
 import { FilesMap, Parser } from '../../src/coreImpl/parser/parser';
 import { StringConstant } from '../../src/utils/Constant';
+import { DiffHelper } from '../../src/coreImpl/diff/diff';
+import { BasicDiffInfo } from '../../src/typedef/diff/ApiInfoDiff';
 
 describe('testParserEachSince', function () {
   const testFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/parserSince');
@@ -69,6 +71,38 @@ describe('testParser', function () {
         fs.mkdirSync(outputFileDir);
       }
       const outputContent: string = Parser.getParseResults(Parser.parseFile(testFileDir, testFilePath));
+      fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
+      const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
+      expect(outputContent).eql(expectFileContent);
+    });
+  });
+});
+describe('testApiDiff', function () {
+  const testOldFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/apiDiff/old');
+  const testNewFileDir: string = testOldFileDir.replace('old', 'new');
+  const outputFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/output/apiDiff');
+  const expectFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/expect/apiDiff');
+  const testOldFileNames: string[] = fs.readdirSync(testOldFileDir);
+  testOldFileNames.forEach((testOldFileName: string) => {
+    const baseName: string = path
+      .basename(testOldFileName)
+      .replace(/.d.ts/g, '')
+      .replace(/.d.ets/g, '');
+    const testOldFilePath: string = path.join(testOldFileDir, testOldFileName);
+    const testNewFilePath: string = testOldFilePath.replace('old', 'new');
+    const outputFilePath: string = path.join(outputFileDir, `${baseName}.json`);
+    const expectFilePath: string = path.join(expectFileDir, `${baseName}.json`);
+    it('\ntestFile#' + testOldFilePath + '\noutput:' + outputFilePath + '\nexpect:' + expectFilePath, function () {
+      if (fs.existsSync(outputFilePath)) {
+        fs.rmdirSync(outputFilePath, { recursive: true });
+      }
+      if (!fs.existsSync(outputFileDir)) {
+        fs.mkdirSync(outputFileDir);
+      }
+      const oldSDKApiMap: FilesMap = Parser.parseFile(testOldFileDir, testOldFilePath);
+      const newSDKApiMap: FilesMap = Parser.parseFile(testNewFileDir, testNewFilePath);
+      const diffInfos: BasicDiffInfo[] = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
+      const outputContent: string = JSON.stringify(diffInfos, null, 2);
       fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
       expect(outputContent).eql(expectFileContent);

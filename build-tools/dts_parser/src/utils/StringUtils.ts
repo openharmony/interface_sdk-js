@@ -12,9 +12,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { LogUtil } from './logUtil';
+import { Comment } from '../typedef/parser/Comment';
 
 export class StringUtils {
   static hasSubstring(str: string, sub: string | RegExp): boolean {
-    return str.search(sub) !== -1;
+    let flag = false;
+    try {
+      flag = str.search(sub) !== -1;
+    } catch (error) {
+      LogUtil.e('StringUtils.hasSubstring', error);
+    } 
+    return flag;
+  }
+
+  static transformBooleanToTag(isCard: boolean, tagName: string): string {
+    return isCard.toString() === 'true' ? tagName : 'NA';
   }
 }
