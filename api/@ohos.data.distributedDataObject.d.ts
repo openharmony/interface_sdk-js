@@ -169,10 +169,10 @@ declare namespace distributedDataObject {
      * On watch of status
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
+     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} networkId - NetworkId of the changed device.
+     *          {string} deviceId - DeviceId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -183,7 +183,7 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
+      callback: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
     ): void;
 
     /**
@@ -193,7 +193,7 @@ declare namespace distributedDataObject {
      * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} networkId - NetworkId of the changed device.
+     *          {string} deviceId - DeviceId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -206,28 +206,6 @@ declare namespace distributedDataObject {
     off(
       type: 'status',
       callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
-    ): void;
-
-    /**
-     * Off watch of status
-     *
-     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
-     *          Indicates the observer of object status changed.
-     *          {string} sessionId - The sessionId of the changed object.
-     *          {string} networkId - NetworkId of the changed device.
-     *          {string} status
-     *                   'online' The object became online on the device and data can be synced to the device.
-     *                   'offline' The object became offline on the device and the object can not sync any data.
-     *          callback If not null, off the callback, if undefined, off all callbacks.
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.distributedDataObject.DataObject.off
-     */
-    off(
-        type: 'status',
-        callback?: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
     ): void;
   }
 
@@ -315,10 +293,10 @@ declare namespace distributedDataObject {
      * On watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
+     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
      *          indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} networkId - NetworkId of the changed device.
+     *          {string} deviceId - NetworkId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -329,17 +307,17 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
+      callback: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
     ): void;
 
     /**
      * Off watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
+     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} networkId - NetworkId of the changed device.
+     *          {string} deviceId - DeviceId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -351,27 +329,6 @@ declare namespace distributedDataObject {
     off(
       type: 'status',
       callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
-    ): void;
-
-    /**
-     * Off watch of status.
-     *
-     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
-     *          Indicates the observer of object status changed.
-     *          {string} sessionId - The sessionId of the changed object.
-     *          {string} networkId - NetworkId of the changed device.
-     *          {string} status
-     *                   'online' The object became online on the device and data can be synced to the device.
-     *                   'offline' The object became offline on the device and the object can not sync any data.
-     *          callback If not null, off the callback, if undefined, off all callbacks.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 9
-     */
-    off(
-        type: 'status',
-        callback?: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
     ): void;
 
     /**
