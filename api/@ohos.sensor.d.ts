@@ -2303,7 +2303,7 @@ declare namespace sensor {
      */
     x: number;
 
-    /** Indicates the axis of the new coordinate system that coincides with the Z axis of the original coordinate system. 
+    /** Indicates the axis of the new coordinate system that coincides with the Y axis of the original coordinate system. 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3055,6 +3055,8 @@ declare namespace sensor {
   interface SignificantMotionResponse extends Response {
     /**
      * The degree of significant motion.
+     * Whether the device has a significant motion.
+     * The value 1 means that the device has a significant motion, and 0 means the opposite.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3312,6 +3314,7 @@ declare namespace sensor {
 
   /**
    * Color sensor event data.
+   * @typedef ColorResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -3320,23 +3323,24 @@ declare namespace sensor {
     /**
      * Indicates the intensity of light, in lux.
      * @type { number }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @since 10
+     * @syscap SystemCapability.Sensors.Sensor      
      * @systemapi
+     * @since 10
      */
     lightIntensity: number;
     /**
      * Indicates the color temperature, in kelvin.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 10
      * @systemapi
+     * @since 10
      */
     colorTemperature: number;
   }
 
   /**
    * Sar sensor event data.
+   * @typedef SarResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -3346,8 +3350,8 @@ declare namespace sensor {
      * Indicates the specific absorption rate, in W/kg.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 10
      * @systemapi
+     * @since 10
      */
     absorptionRatio: number;
   }
