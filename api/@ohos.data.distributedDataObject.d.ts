@@ -138,7 +138,7 @@ declare namespace distributedDataObject {
      * On watch of change
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { (sessionId: string, fields: Array<string>) => void } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {Array<string>} fields - Changed data.
@@ -147,13 +147,13 @@ declare namespace distributedDataObject {
      * @deprecated since 9
      * @useinstead ohos.distributedDataObject.DataObject.on
      */
-    on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void): void;
 
     /**
      * Off watch of change
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { (sessionId: string, fields: Array<string>) => void } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {Array<string>} fields - Changed data.
@@ -163,16 +163,16 @@ declare namespace distributedDataObject {
      * @deprecated since 9
      * @useinstead ohos.distributedDataObject.DataObject.off
      */
-    off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void): void;
 
     /**
      * On watch of status
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
+     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} deviceId - DeviceId of the changed device.
+     *          {string} networkId - NetworkId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -183,17 +183,17 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
+      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
 
     /**
      * Off watch of status
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
+     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} deviceId - DeviceId of the changed device.
+     *          {string} networkId - NetworkId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -205,7 +205,7 @@ declare namespace distributedDataObject {
      */
     off(
       type: 'status',
-      callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
+      callback?: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
   }
 
@@ -263,7 +263,8 @@ declare namespace distributedDataObject {
      * On watch of change.
      *
      * @param { 'change' } type - event type, fixed as 'change', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { (sessionId: string, fields: Array<string>) => void } callback
+     * 
      *          indicates the observer of object data changed.
      *          {string} sessionId - the sessionId of the changed object.
      *          {Array<string>} fields - changed data.
@@ -272,13 +273,13 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void ): void;
 
     /**
      * Off watch of change.
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { (sessionId: string, fields: Array<string>) => void } callback
      *          indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {Array<string>} fields - Changed data.
@@ -287,16 +288,16 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void ): void;
 
     /**
      * On watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
+     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
      *          indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} deviceId - NetworkId of the changed device.
+     *          {string} networkId - NetworkId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -307,17 +308,17 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
+      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
 
     /**
      * Off watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
+     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {string} deviceId - DeviceId of the changed device.
+     *          {string} networkId - NetworkId of the changed device.
      *          {string} status
      *                   'online' The object became online on the device and data can be synced to the device.
      *                   'offline' The object became offline on the device and the object can not sync any data.
@@ -328,7 +329,7 @@ declare namespace distributedDataObject {
      */
     off(
       type: 'status',
-      callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
+      callback?: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
 
     /**
