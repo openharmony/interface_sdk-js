@@ -77,4 +77,16 @@ export enum NumberConstant {
    * 缩进2个空格
    */
   INDENT_SPACE = 2,
+  /**
+   * API层级关系
+   */
+  RELATION_LENGTH = 2,
+  /**
+   * 默认废弃版本为-1
+   */
+  DEFAULT_DEPRECATED_VERSION = '-1',
+  /**
+   * 判断字段是否存在
+   */
+  IS_FIELD_EXIST = 0,
 }
