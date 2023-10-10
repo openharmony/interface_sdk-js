@@ -118,7 +118,7 @@ declare namespace configPolicy {
    * Get file from the highest priority config path with follow mode which contains the given file name.
    *
    * @param { string } relPath the relative path of the config file.
-   * @param { FollowXMode } followXMode the follow mode.
+   * @param { FollowXMode } followMode the follow mode.
    * @param { string } extra set follow rule add path.
    * @param { AsyncCallback<string> } callback contains the path of the highest priority config file.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -144,7 +144,7 @@ declare namespace configPolicy {
    * Get file from the highest priority config path with follow mode which contains the given file name.
    *
    * @param { string } relPath the relative path of the config file.
-   * @param { FollowXMode } followXMode the follow mode.
+   * @param { FollowXMode } followMode the follow mode.
    * @param { string } extra set follow rule add path.
    * @returns { Promise<string> } the promise returns the path of the highest priority config file.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -170,7 +170,7 @@ declare namespace configPolicy {
    * Get config files in device architecture with follow mode, ordered by priority from low to high.
    *
    * @param { string } relPath the relative path of the config file.
-   * @param { FollowXMode } followXMode the follow mode.
+   * @param { FollowXMode } followMode the follow mode.
    * @param { string } extra set follow rule add path.
    * @param { AsyncCallback<Array<string>> } callback contains paths of config files.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -184,7 +184,7 @@ declare namespace configPolicy {
    * Get config files in device architecture with follow mode, ordered by priority from low to high.
    *
    * @param { string } relPath the relative path of the config file.
-   * @param { FollowXMode } followXMode the follow mode.
+   * @param { FollowXMode } followMode the follow mode.
    * @param { AsyncCallback<Array<string>> } callback contains paths of config files.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
@@ -206,10 +206,10 @@ declare namespace configPolicy {
   function getCfgFiles(relPath: string): Promise<Array<string>>;
 
   /**
-   * Get config files in device architecture, ordered by priority from low to high.
+   * Get config files in device architecture with follow mode, ordered by priority from low to high.
    *
    * @param { string } relPath the relative path of the config file.
-   * @param { FollowXMode } followXMode the follow mode.
+   * @param { FollowXMode } followMode the follow mode.
    * @param { string } extra set follow rule add path.
    * @returns { Promise<Array<string>> } the promise returns paths of config files.
    * @throws { BusinessError } 401 - invalid input parameter.
