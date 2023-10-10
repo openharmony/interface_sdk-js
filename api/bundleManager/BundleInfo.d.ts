@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -250,4 +250,16 @@ export interface SignatureInfo {
    * @since 9
    */
   readonly fingerprint: string;
+
+  /**
+   * Globally unique identifier of an application, which is allocated by the cloud.
+   * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
+   * public and private key changes, and application transfer.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  readonly appIdentifier: string;
 }
