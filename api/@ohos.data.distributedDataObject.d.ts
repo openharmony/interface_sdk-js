@@ -137,7 +137,7 @@ declare namespace distributedDataObject {
     /**
      * On watch of change
      *
-     * @param { 'change' } type - Event type, fixed as' change ', indicates data change.
+     * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
      * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
@@ -152,7 +152,7 @@ declare namespace distributedDataObject {
     /**
      * Off watch of change
      *
-     * @param { 'change' } type - Event type, fixed as' change ', indicates data change.
+     * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
      * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
@@ -168,7 +168,7 @@ declare namespace distributedDataObject {
     /**
      * On watch of status
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
      * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
@@ -189,7 +189,7 @@ declare namespace distributedDataObject {
     /**
      * Off watch of status
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
      * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
@@ -211,7 +211,7 @@ declare namespace distributedDataObject {
     /**
      * Off watch of status
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
      * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
