@@ -15,6 +15,7 @@
 
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
 
 /**
