@@ -1577,7 +1577,7 @@ declare namespace image {
   /**
    * Creates a PixelMap object based on MessageSequence parameter.
    *
-   * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+   * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
    * @throws { BusinessError } 62980096 - Operation failed.
    * @throws { BusinessError } 62980097 - IPC error.
