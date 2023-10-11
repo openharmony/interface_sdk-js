@@ -32,6 +32,8 @@ declare namespace uniformTypeDescriptor {
 
     ENTITY = 'general.entity',
 
+    OBJECT = 'general.object',
+
     /**
      * Indicate the data type is text
      *
@@ -49,14 +51,6 @@ declare namespace uniformTypeDescriptor {
     PLAIN_TEXT = 'general.plain-text',
 
     /**
-     * Indicate the data type is hyperlink
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    HYPERLINK = 'general.hyperlink',
-
-    /**
      * Indicate the data type is html
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -65,12 +59,58 @@ declare namespace uniformTypeDescriptor {
     HTML = 'general.html',
 
     /**
-     * Indicate the data type is File
+     * Indicate the data type is hyperlink
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    FILE = 'general.file',
+    HYPERLINK = 'general.hyperlink',
+
+    XML = 'general.xml',
+
+    SOURCE_CODE = 'general.source-code',
+
+    SCRIPT = 'general.script',
+
+    SHELL_SCRIPT = 'general.shell-script',
+
+    CSH_SCRIPT = 'general.csh-script',
+
+    PERL_SCRIPT = 'general.perl-script',
+
+    PHP_SCRIPT = 'general.php-script',
+
+    PYTHON_SCRIPT = 'general.python-script',
+
+    RUBY_SCRIPT = 'general.ruby-script',
+
+    MEDIA = 'general.media',
+
+    TYPE_SCRIPT = 'general.type-script',
+
+    JAVA_SCRIPT = 'general.java-script',
+
+    C_HEADER = 'general.c-header',
+
+    C_SOURCE = 'general.c-source',
+
+    C_PLUS_PLUS_HEADER = 'general.c-plus-plus-header',
+
+    C_PLUS_PLUS_SOURCE = 'general.c-plus-plus-source',
+
+    JAVA_SOURCE = 'general.java-source',
+
+    EBOOK = 'general.ebook',
+
+    EPUB = 'general.epub',
+
+    AZW = 'com.amazon.azw',
+
+    AZW3 = 'com.amazon.azw3',
+
+    KFX = 'com.amazon.kfx',
+
+    MOBI = 'com.amazon.mobi',
 
     /**
      * Indicate the data type is image
@@ -80,6 +120,34 @@ declare namespace uniformTypeDescriptor {
      */
     IMAGE = 'general.image',
 
+    JPEG = 'general.jpeg',
+
+    PNG = 'general.png',
+
+    RAW_IMAGE = 'general.raw-image',
+
+    TIFF = 'general.tiff',
+
+    BMP = 'com.microsoft.bmp',
+
+    ICO = 'com.microsoft.ico',
+
+    PHOTOSHOP_IMAGE = 'com.adobe.photoshop-image',
+
+    AI_IMAGE = 'com.adobe.illustrator.ai-image',
+
+    WORD_DOC = 'com.microsoft.word.doc',
+
+    EXCEL = 'com.microsoft.excel.xls',
+
+    PPT = 'com.microsoft.powerpoint.ppt',
+
+    PDF = 'com.adobe.pdf',
+
+    POSTSCRIPT = 'com.adobe.postscript',
+
+    ENCAPSULATED_POSTSCRIPT = 'com.adobe.encapsulated-postscript',
+
     /**
      * Indicate the data type is video
      *
@@ -87,6 +155,20 @@ declare namespace uniformTypeDescriptor {
      * @since 10
      */
     VIDEO = 'general.video',
+
+    AVI = 'general.avi',
+
+    MPEG = 'general.mpeg',
+
+    MPEG4 = 'general.mpeg-4',
+
+    WINDOWS_MEDIA_WM = 'com.microsoft.windows-media-wm',
+
+    WINDOWS_MEDIA_WMV = 'com.microsoft.windows-media-wmv',
+
+    WINDOWS_MEDIA_WMP = 'com.microsoft.windows-media-wmp',
+
+    WINDOWS_MEDIA_WMA = 'com.microsoft.windows-media-wma',
 
     /**
      * Indicate the data type is audio
@@ -96,6 +178,40 @@ declare namespace uniformTypeDescriptor {
      */
     AUDIO = 'general.audio',
 
+    AAC = 'general.aac',
+
+    AIFF = 'general.aiff',
+
+    ALAC = 'general.alac',
+
+    FLAC = 'general.flac',
+
+    MP3 = 'general.mp3',
+
+    OGG = 'general.ogg',
+
+    PCM = 'general.pcm',
+
+    WAV = 'general.wav',
+
+    WAVEFORM_AUDIO = 'com.microsoft.waveform-audio',
+
+    WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
+
+    WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
+
+    WINDOWS_MEDIA_WAX = 'com.microsoft.windows-media-wax',
+
+    /**
+     * Indicate the data type is File
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    FILE = 'general.file',
+
+    DIRECTOR = 'general.director',
+
     /**
      * Indicate the data type is Folder
      *
@@ -103,6 +219,40 @@ declare namespace uniformTypeDescriptor {
      * @since 10
      */
     FOLDER = 'general.folder',
+
+    SYMLINK = 'general.symlink',
+
+    ARCHIVE = 'general.archive',
+
+    BZ2_ARCHIVE = 'general.bz2-archive',
+
+    DISK_IMGAE = 'general.disk-image',
+
+    TAR_ARCHIVE = 'general.tar-archive',
+
+    ZIP_ARCHIVE = 'general.zip-archive',
+
+    JAVA_ARCHIVE = 'com.sun.java-archive',
+
+    GNU_TAR_ARCHIVE = 'org.gnu.gnu-tar-archive',
+
+    GNU_ZIP_ARCHIVE = 'org.gnu.gnu-zip-archive',
+
+    GNU_ZIP_TAR_ARCHIVE = 'org.gnu.gnu-zip-tar-archive',
+
+    CALENDAR = 'general.calendar',
+
+    CONTACT = 'general.contact',
+
+    DATABASE = 'general.database',
+
+    MESSAGE = 'general.message',
+
+    VCARD = 'general.vcard',
+
+    NAVIGATION = 'general.navigation',
+
+    LOCATION = 'general.location',
 
     /**
      * Indicate the data type is OpenHarmony system defined form(the data is provided and bound to OpenHarmony system)
@@ -126,7 +276,9 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map'
+    OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
+
+    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service'
   }
 
   /**
