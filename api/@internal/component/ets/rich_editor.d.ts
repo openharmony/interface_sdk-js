@@ -198,6 +198,33 @@ declare interface RichEditorTextSpan {
 }
 
 /**
+ * Defines the richEditor ImageSpan Layout Style.
+ *
+ * @interface RichEditorLayoutStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+interface RichEditorLayoutStyle {
+  /**
+   * Outer Margin.
+   *
+   * @type { ?(Dimension | Margin) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  margin?: Dimension | Margin;
+
+  /**
+   * Border radius.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  borderRadius?: Dimension | BorderRadiuses;
+}
+
+/**
  * Defines the span image style.
  *
  * @interface RichEditorImageSpanStyle
@@ -231,6 +258,15 @@ declare interface RichEditorImageSpanStyle {
    * @since 10
    */
   objectFit?: ImageFit;
+
+  /**
+   * richEditor ImageSpan Layout Style.
+   *
+   * @type { ?RichEditorLayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  layoutStyle?: RichEditorLayoutStyle;
 }
 
 /**
@@ -497,6 +533,33 @@ declare interface RichEditorRange {
 }
 
 /**
+ * Defines the richEditor Gestures.
+ *
+ * @interface RichEditorGesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface RichEditorGesture {
+  /**
+   * onClickCallback when clickEvent is complete.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onClick?: (event: ClickEvent) => void;
+
+  /**
+   * LongPressCallback when longPressEvent is complete.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onLongPress?: (event: GestureEvent) => void;
+}
+
+/**
  * Defines the span options of RichEditor.
  *
  * @interface RichEditorTextSpanOptions
@@ -521,6 +584,15 @@ declare interface RichEditorTextSpanOptions {
    * @since 10
    */
   style?: RichEditorTextStyle;
+
+  /**
+   * richEditor gesture.
+   *
+   * @type { ?RichEditorGesture }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  gesture?: RichEditorGesture;
 }
 
 /**
@@ -548,6 +620,15 @@ declare interface RichEditorImageSpanOptions {
    * @since 10
    */
   imageStyle?: RichEditorImageSpanStyle;
+
+  /**
+   * richEditor gesture.
+   *
+   * @type { ?RichEditorGesture }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  gesture?: RichEditorGesture;
 }
 
 /**
