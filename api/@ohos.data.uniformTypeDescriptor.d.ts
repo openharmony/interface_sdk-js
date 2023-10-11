@@ -29,11 +29,6 @@ declare namespace uniformTypeDescriptor {
    * @since 10
    */
   enum UniformDataType {
-
-    ENTITY = 'general.entity',
-
-    OBJECT = 'general.object',
-
     /**
      * Indicate the data type is text
      *
@@ -66,51 +61,189 @@ declare namespace uniformTypeDescriptor {
      */
     HYPERLINK = 'general.hyperlink',
 
+    /**
+     * Indicate the data type is XML(Extensible Markup Language)
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     XML = 'general.xml',
 
+    /**
+     * Indicate the data type is source code
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     SOURCE_CODE = 'general.source-code',
 
+    /**
+     * Indicate the data type is script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     SCRIPT = 'general.script',
 
+    /**
+     * Indicate the data type is shell script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     SHELL_SCRIPT = 'general.shell-script',
 
+    /**
+     * Indicate the data type is C-shell script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     CSH_SCRIPT = 'general.csh-script',
 
+    /**
+     * Indicate the data type is Perl script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PERL_SCRIPT = 'general.perl-script',
 
+    /**
+     * Indicate the data type is PHP script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PHP_SCRIPT = 'general.php-script',
 
+    /**
+     * Indicate the data type is Python script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PYTHON_SCRIPT = 'general.python-script',
 
+    /**
+     * Indicate the data type is Ruby script
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     RUBY_SCRIPT = 'general.ruby-script',
 
-    MEDIA = 'general.media',
-
+    /**
+     * Indicate the data type is TypeScript
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     TYPE_SCRIPT = 'general.type-script',
 
+    /**
+     * Indicate the data type is JavaScript
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     JAVA_SCRIPT = 'general.java-script',
 
+    /**
+     * Indicate the data type is C header
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     C_HEADER = 'general.c-header',
 
+    /**
+     * Indicate the data type is C source code
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     C_SOURCE = 'general.c-source',
 
+    /**
+     * Indicate the data type is C++ header
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     C_PLUS_PLUS_HEADER = 'general.c-plus-plus-header',
 
+    /**
+     * Indicate the data type is C++ source code
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     C_PLUS_PLUS_SOURCE = 'general.c-plus-plus-source',
 
+    /**
+     * Indicate the data type is Java source code
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     JAVA_SOURCE = 'general.java-source',
 
+    /**
+     * Indicate the data type is ebook
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     EBOOK = 'general.ebook',
 
+    /**
+     * Indicate the data type is the EPUB ebook file format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     EPUB = 'general.epub',
 
+    /**
+     * Indicate the data type is the AZW ebook file format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     AZW = 'com.amazon.azw',
 
+    /**
+     * Indicate the data type is the AZW3 ebook file format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     AZW3 = 'com.amazon.azw3',
 
+    /**
+     * Indicate the data type is the KFX ebook file format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     KFX = 'com.amazon.kfx',
 
+    /**
+     * Indicate the data type is the MOBI ebook file format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     MOBI = 'com.amazon.mobi',
+
+    /**
+     * Indicate the data type is media
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    MEDIA = 'general.media',
 
     /**
      * Indicate the data type is image
@@ -120,32 +253,116 @@ declare namespace uniformTypeDescriptor {
      */
     IMAGE = 'general.image',
 
+    /**
+     * Indicate the data type is the JPEG image format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     JPEG = 'general.jpeg',
 
+    /**
+     * Indicate the data type is the PNG image format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PNG = 'general.png',
 
+    /**
+     * Indicate the data type is the raw image format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     RAW_IMAGE = 'general.raw-image',
 
+    /**
+     * Indicate the data type is the TIFF image format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     TIFF = 'general.tiff',
 
+    /**
+     * Indicate the data type is the Windows bitmap image
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     BMP = 'com.microsoft.bmp',
 
+    /**
+     * Indicate the data type is the Windows icon data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     ICO = 'com.microsoft.ico',
 
+    /**
+     * Indicate the data type is the Adobe Photoshop document
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PHOTOSHOP_IMAGE = 'com.adobe.photoshop-image',
 
+    /**
+     * Indicate the data type is the Adobe Illustrator document
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     AI_IMAGE = 'com.adobe.illustrator.ai-image',
 
+    /**
+     * Indicate the data type is the Microsoft Word data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WORD_DOC = 'com.microsoft.word.doc',
 
+    /**
+     * Indicate the data type is the Microsoft Excel data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     EXCEL = 'com.microsoft.excel.xls',
 
+    /**
+     * Indicate the data type is the Microsoft PowerPoint presentation
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PPT = 'com.microsoft.powerpoint.ppt',
 
+    /**
+     * Indicate the data type is the PDF data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PDF = 'com.adobe.pdf',
 
+    /**
+     * Indicate the data type is the PostScript data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     POSTSCRIPT = 'com.adobe.postscript',
 
+    /**
+     * Indicate the data type is the Encapsulated PostScript
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     ENCAPSULATED_POSTSCRIPT = 'com.adobe.encapsulated-postscript',
 
     /**
@@ -156,18 +373,76 @@ declare namespace uniformTypeDescriptor {
      */
     VIDEO = 'general.video',
 
+    /**
+     * Indicate the data type is the AVI video format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     AVI = 'general.avi',
 
+    /**
+     * Indicate the data type is the MPEG video format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     MPEG = 'general.mpeg',
 
+    /**
+     * Indicate the data type is the MPEG4 video format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     MPEG4 = 'general.mpeg-4',
 
+    /**
+     * Indicate the data type is the 3GPP video format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    VIDEO_3GPP = 'general.3gpp',
+
+    /**
+     * Indicate the data type is the 3GPP2 video format
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    VIDEO_3GPP2 = 'general.3gpp2',
+
+    /**
+     * Indicate the data type is the Windows
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WM = 'com.microsoft.windows-media-wm',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WMV = 'com.microsoft.windows-media-wmv',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WMP = 'com.microsoft.windows-media-wmp',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WMA = 'com.microsoft.windows-media-wma',
 
     /**
@@ -178,28 +453,100 @@ declare namespace uniformTypeDescriptor {
      */
     AUDIO = 'general.audio',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     AAC = 'general.aac',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     AIFF = 'general.aiff',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     ALAC = 'general.alac',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     FLAC = 'general.flac',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     MP3 = 'general.mp3',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     OGG = 'general.ogg',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     PCM = 'general.pcm',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WAV = 'general.wav',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WAVEFORM_AUDIO = 'com.microsoft.waveform-audio',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     WINDOWS_MEDIA_WAX = 'com.microsoft.windows-media-wax',
 
     /**
@@ -210,6 +557,12 @@ declare namespace uniformTypeDescriptor {
      */
     FILE = 'general.file',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     DIRECTOR = 'general.director',
 
     /**
@@ -220,38 +573,140 @@ declare namespace uniformTypeDescriptor {
      */
     FOLDER = 'general.folder',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     SYMLINK = 'general.symlink',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     ARCHIVE = 'general.archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     BZ2_ARCHIVE = 'general.bz2-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     DISK_IMGAE = 'general.disk-image',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     TAR_ARCHIVE = 'general.tar-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     ZIP_ARCHIVE = 'general.zip-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     JAVA_ARCHIVE = 'com.sun.java-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     GNU_TAR_ARCHIVE = 'org.gnu.gnu-tar-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     GNU_ZIP_ARCHIVE = 'org.gnu.gnu-zip-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     GNU_ZIP_TAR_ARCHIVE = 'org.gnu.gnu-zip-tar-archive',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     CALENDAR = 'general.calendar',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     CONTACT = 'general.contact',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     DATABASE = 'general.database',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     MESSAGE = 'general.message',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     VCARD = 'general.vcard',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     NAVIGATION = 'general.navigation',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     LOCATION = 'general.location',
 
     /**
@@ -278,6 +733,12 @@ declare namespace uniformTypeDescriptor {
      */
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
 
+    /**
+     * Indicate the data type is text
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
     OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service'
   }
 
@@ -309,27 +770,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    readonly supertypes: Set<TypeDescriptor>;
-
-    /**
-     * The filename extensions which the type descriptor stand for.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    readonly filenameExtensions: Array<string>;
-
-    /**
-     * The MIME types which the type descriptor stand for.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    readonly mimeTypes: Array<string>;
+    readonly belongingToTypes: Set<TypeDescriptor>;
 
     /**
      * The description of the uniform type descriptor.
@@ -370,7 +811,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isCompatibleWith(descriptor: TypeDescriptor): boolean;
+    belongsTo(typeDescriptor: TypeDescriptor): boolean;
 
     /**
      * Check whether the descriptor is the lower hierarchy of the given descriptor.
@@ -381,7 +822,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isSubtypeOf(descriptor: TypeDescriptor): boolean;
+    isLowerLevelTypeOf(typeDescriptor: TypeDescriptor): boolean;
 
     /**
      * Check whether the descriptor is the upper hierarchy of the given descriptor.
@@ -392,7 +833,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isSupertypeOf(descriptor: TypeDescriptor): boolean;
+    isHigherLevelTypeOf(typeDescriptor: TypeDescriptor): boolean;
 
     /**
      * Check whether the descriptor is equal to the given descriptor.
@@ -403,7 +844,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    equals(descriptor: TypeDescriptor): boolean;
+    equals(typeDescriptor: TypeDescriptor): boolean;
   }
 
   /**
@@ -426,7 +867,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptorByFilenameExtension(filenameExtension: string, compatibleWith?: TypeDescriptor): TypeDescriptor | null;
+  function typeDescriptorByFilenameExtension(filenameExtension: string, belongsTo?: TypeDescriptor): TypeDescriptor | null;
 
   /**
    * Query and return the uniform type descriptor by the given typeId.
@@ -437,7 +878,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptorByMIMEType(mimeType: string, compatibleWith?: TypeDescriptor): TypeDescriptor | null;
+  function typeDescriptorByMIMEType(mimeType: string, belongsTo?: TypeDescriptor): TypeDescriptor | null;
 
   /**
    * Query and return the uniform type descriptor by the given typeId.
