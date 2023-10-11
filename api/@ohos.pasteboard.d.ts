@@ -657,7 +657,6 @@ declare namespace pasteboard {
      * Checks whether there is a specified MIME type of data in Data.
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } 401 - if type of path is not string.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 11
      */
@@ -750,7 +749,6 @@ declare namespace pasteboard {
      * Gets pasteData from the system pasteboard.
      * @returns { PasteData }  a new PasteData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @since 11
      */
     getDataSync(): PasteData;
@@ -849,9 +847,6 @@ declare namespace pasteboard {
     /**
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard.
-     * @throws { BusinessError } 401 - if type of data is not PasteData.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
-     * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
