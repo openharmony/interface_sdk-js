@@ -45,7 +45,7 @@ declare namespace systemManager {
   function setNTPServer(admin: Want, server: string): void;
 
   /**
-   * Gets Network Time Protocol Server.
+   * Gets NTP server.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
