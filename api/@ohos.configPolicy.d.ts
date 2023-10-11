@@ -120,7 +120,7 @@ declare namespace configPolicy {
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
    * @param { string } extra - set follow rule add path.
-   * @param { AsyncCallback<string> }callback - contains the path of the highest priority config file.
+   * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
