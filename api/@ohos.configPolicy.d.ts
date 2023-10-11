@@ -49,7 +49,7 @@ declare namespace configPolicy {
      * @systemapi
      * @since 11
      */
-    NO_FOLLOW = 1,
+    NO_RULE_FOLLOWED = 1,
 
     /**
      * Follow rule by default SIM card.
@@ -86,7 +86,7 @@ declare namespace configPolicy {
      * @systemapi
      * @since 11
      */
-    USER_DEFINE = 100
+    USER_DEFINED = 100
   }
 
   /**
@@ -178,7 +178,12 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getCfgFilesEx(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<Array<string>>);
+  function getCfgFilesEx(
+    relPath: string,
+    followMode: FollowXMode,
+    extra: string,
+    callback: AsyncCallback<Array<string>>
+  );
 
   /**
    * Get config files in device architecture with follow mode, ordered by priority from low to high.
