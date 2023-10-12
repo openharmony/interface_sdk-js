@@ -152,7 +152,6 @@
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.settings.Core",
     "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.BundleManager.BundleFramework.Core",
     "SystemCapability.BundleManager.BundleFramework.FreeInstall",

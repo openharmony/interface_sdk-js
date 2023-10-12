@@ -1623,6 +1623,6 @@ declare class ColorFilter {
 declare module "GlobalResource" {
   module "GlobalResource" {
     // @ts-ignore
-    export { Resource };
+    export type { Resource, ResourceStr };
   }
 }

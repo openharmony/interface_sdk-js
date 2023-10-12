@@ -36,5 +36,21 @@ declare namespace brightness {
    * @since 7
    */
   function setValue(value: number): void;
+
+  /**
+   * Sets the screen brightness.
+   *
+   * @param { number } value - Brightness value, ranging from 0 to 255.
+   * @param { boolean } continuous - This parameter is used in the scenario of continuous adjustment to the brightness.
+   * You are advised to set this parameter to true during the continuous adjustment and
+   * to false at the end of the continuous adjustment for better performance.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 401 - If the value is not valid.
+   * @throws { BusinessError } 4700101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @systemapi
+   * @since 11
+   */
+  function setValue(value: number, continuous: boolean): void;
 }
 export default brightness;

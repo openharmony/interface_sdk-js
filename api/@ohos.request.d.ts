@@ -1898,6 +1898,38 @@ declare namespace request {
      */
     method: string;
     /**
+     * The index of paths for a task.
+     * Usually used for a continuous job.
+     * The default is 0.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    index?: number;
+    /**
+     * The start point of a file.
+     * Usually used for a continuous job.
+     * It will start read at the point in upload.
+     * The default is 0.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    begins?: number;
+    /**
+     * The end point of a file.
+     * Usually used for a continuous job.
+     * It will end read at the point in upload.
+     * The default is -1 indicating the end of the data for upload.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    ends?: number;
+    /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
      * @permission ohos.permission.INTERNET

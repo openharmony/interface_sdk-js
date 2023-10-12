@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from './@ohos.base';
+import type Context from './application/Context';
+
 /**
  * This provides calendar data access abilities.
  * @namespace calendarManager
@@ -21,126 +24,146 @@
  */
 declare namespace calendarManager {
   /**
-   * Create calendar instance.
-   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-   * @param { CalendarAccount } calendarAccount - calendar account to create calendar
-   * @returns { Promise<Calendar> } the promise with calendar corresponding to account
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
-
-  /**
-   * Create calendar instance.
+   * Returns an instance of CalendarManager
    *
-   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-   * @param { CalendarAccount } calendarAccount - calendar account to create calendar
-   * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @param { Context } context - Hap context information
+   * @returns { CalendarManager } Instance of CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
+   * @StageModelOnly
    * @since 10
    */
-  function createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
-
+  function getCalendarManager(context: Context) : CalendarManager;
+  
   /**
-   * Delete calendar instance.
+   * Defines the CalendarManager class and provides functions to access the calendar data.
    *
-   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-   * @param { Calendar } calendar - calendar to be deleted
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @interface CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
-  function deleteCalendar(calendar: Calendar): Promise<void>;
+  export interface CalendarManager {
+    /**
+     * Create calendar instance.
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+     * @returns { Promise<Calendar> } the promise with calendar corresponding to account
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
 
-  /**
-   * Delete calendar instance.
-   *
-   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-   * @param { Calendar } calendar - calendar to be deleted
-   * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void;
+    /**
+     * Create calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+     * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
-  /**
-   * Get calendar instance from database.
-   *
-   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-   * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
-   * @returns { Promise<Calendar> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
+    /**
+     * Delete calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Calendar } calendar - calendar to be deleted
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    deleteCalendar(calendar: Calendar): Promise<void>;
 
-  /**
-   * Get calendar instance from database by specified account.
-   *
-   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-   * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
-   * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
+    /**
+     * Delete calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @param { Calendar } calendar - calendar to be deleted
+     * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void;
 
-  /**
-   * Get default calendar instance from database.
-   *
-   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-   * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function getCalendar(callback: AsyncCallback<Calendar>): void;
+    /**
+     * Get calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @returns { Promise<Calendar> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
 
-  /**
-   * Get all calendar instance.
-   *
-   * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-   * @returns { Promise<Calendar[]> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function getAllCalendars(): Promise<Calendar[]>;
+    /**
+     * Get calendar instance from database by specified account.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
-  /**
-   * Get all calendar instance.
-   *
-   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-   * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Applications.CalendarData
-   * @since 10
-   */
-  function getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
+    /**
+     * Get default calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    getCalendar(callback: AsyncCallback<Calendar>): void;
+
+    /**
+     * Get all calendar instance.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+     * @returns { Promise<Calendar[]> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    getAllCalendars(): Promise<Calendar[]>;
+
+    /**
+     * Get all calendar instance.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
+  }
 
   /**
    * Describes a calendar instance.

@@ -201,6 +201,16 @@ declare namespace formInfo {
      * @since 10
      */
     isDynamic: boolean;
+
+    /**
+     * Indicates whether the form can be set as a transparent background
+     *
+     * @type { boolean }
+     * @default false
+     * @syscap SystemCapability.Ability.Form
+     * @since 11
+     */
+    transparencyEnabled: boolean;
   }
 
   /**

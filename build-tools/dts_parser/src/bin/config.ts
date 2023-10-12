@@ -20,6 +20,11 @@ import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
 import { WriterHelper } from './writer';
+import { LocalEntry } from '../coreImpl/checker/local_entry';
+import { ApiResultSimpleInfo } from '../typedef/checker/result_type';
+import { NumberConstant } from '../utils/Constant';
+import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
+import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -31,6 +36,10 @@ export enum toolNameType {
    * 统计工具
    */
   COOLECT = 'collect',
+  /**
+   * 检查工具
+   */
+  CHECK = 'check',
 }
 
 /**
@@ -178,11 +187,92 @@ function collectApi(options: optionObjType): toolNameValueType {
     }
     const fileContent: string = Parser.getParseResults(allApis);
     return {
-      data: [fileContent],
+      data: options.format === 'excel' ? ApiStatisticsHelper.getApiStatisticsInfos(allApis) : [fileContent],
+      callback: collectApiCallback,
     };
   } catch (exception) {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
+    return {
+      data: [],
+      callback: collectApiCallback,
+    };
+  }
+}
+
+function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Worksheet): void {
+  const apiRelationsSet: Set<string> = new Set();
+  sheet.name = 'JsApi';
+  sheet.views = [{ xSplit: 1 }];
+  sheet.getRow(1).values = [
+    '模块名',
+    '类名',
+    '方法名',
+    '函数',
+    '类型',
+    '起始版本',
+    '废弃版本',
+    'syscap',
+    '是否为系统API',
+    '模型限制',
+    '权限',
+    '是否支持跨平台',
+    '装饰器',
+    '文件路径',
+  ];
+  let lineNumber = 2;
+  apiData.forEach((apiInfo: ApiStatisticsInfo) => {
+    const apiRelations: string = `${apiInfo.getHierarchicalRelations()},${apiInfo.getDefinedText()}`;
+    if (apiRelationsSet.has(apiRelations)) {
+      return;
+    }
+
+    sheet.getRow(lineNumber).values = [
+      apiInfo.getPackageName(),
+      apiInfo.getParentModuleName(),
+      apiInfo.getApiName(),
+      apiInfo.getDefinedText(),
+      apiInfo.getApiType(),
+      apiInfo.getSince(),
+      apiInfo.getDeprecatedVersion(),
+      apiInfo.getSyscap(),
+      apiInfo.getApiLevel(),
+      apiInfo.getModelLimitation(),
+      apiInfo.getPermission(),
+      apiInfo.getIsCrossPlatForm(),
+      apiInfo.getDecorators()?.join(),
+      apiInfo.getFilePath(),
+    ];
+    lineNumber++;
+    apiRelationsSet.add(apiRelations);
+  });
+}
+/**
+ * 收集api工具调用方法
+ *
+ * @param { optionObjType } options
+ * @return { toolNameValueType }
+ */
+function checkApi(options: optionObjType): toolNameValueType {
+  let allApis: FilesMap;
+  try {
+    let fileContent: ApiResultSimpleInfo[] = [];
+    if (process.env.NODE_ENV === 'development') {
+      fileContent = LocalEntry.checkEntryLocal();
+    } else if (process.env.NODE_ENV === 'production') {
+    }
+    let finalData: (string | ApiResultSimpleInfo)[] = [];
+    if (options.format === formatType.JSON) {
+      finalData = [JSON.stringify(fileContent, null, NumberConstant.INDENT_SPACE)];
+    } else {
+      finalData = fileContent;
+    }
+    return {
+      data: finalData,
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error collect', error.stack ? error.stack : error.message);
     return {
       data: [],
     };
@@ -194,6 +284,7 @@ function collectApi(options: optionObjType): toolNameValueType {
  */
 export const toolNameMethod: Map<string, toolNameMethodType> = new Map([
   [toolNameType.COOLECT, collectApi],
+  [toolNameType.CHECK, checkApi],
 ]);
 
 /**
