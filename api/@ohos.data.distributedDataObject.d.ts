@@ -138,7 +138,7 @@ declare namespace distributedDataObject {
      * On watch of change
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { (sessionId: string, fields: Array<string>) => void } callback
+     * @param { Function } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {Array<string>} fields - Changed data.
@@ -153,7 +153,7 @@ declare namespace distributedDataObject {
      * Off watch of change
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { (sessionId: string, fields: Array<string>) => void } callback
+     * @param { Function } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {Array<string>} fields - Changed data.
@@ -169,7 +169,7 @@ declare namespace distributedDataObject {
      * On watch of status
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
+     * @param { Function } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -190,7 +190,7 @@ declare namespace distributedDataObject {
      * Off watch of status
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
+     * @param { Function } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -263,8 +263,8 @@ declare namespace distributedDataObject {
      * On watch of change.
      *
      * @param { 'change' } type - event type, fixed as 'change', indicates data change.
-     * @param { (sessionId: string, fields: Array<string>) => void } callback
-     * 
+     * @param { Function } callback
+     *
      *          indicates the observer of object data changed.
      *          {string} sessionId - the sessionId of the changed object.
      *          {Array<string>} fields - changed data.
@@ -279,7 +279,7 @@ declare namespace distributedDataObject {
      * Off watch of change.
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { (sessionId: string, fields: Array<string>) => void } callback
+     * @param { Function } callback
      *          indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {Array<string>} fields - Changed data.
@@ -294,7 +294,7 @@ declare namespace distributedDataObject {
      * On watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
+     * @param { Function } callback
      *          indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -315,7 +315,7 @@ declare namespace distributedDataObject {
      * Off watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void } callback
+     * @param { Function } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
