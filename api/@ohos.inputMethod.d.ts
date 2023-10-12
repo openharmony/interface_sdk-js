@@ -366,17 +366,6 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * List all input methods
-     *
-     * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
-     * @throws { BusinessError } 12800001 - package manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    getInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
-
-    /**
      * List input methods
      *
      * @param { boolean } enable :
@@ -389,7 +378,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
     /**
      * List input methods
      *
@@ -405,6 +393,17 @@ declare namespace inputMethod {
      * @since 11
      */
     getInputMethods(enable?: boolean): Promise<Array<InputMethodProperty>>;
+
+    /**
+     * List all input methods
+     *
+     * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
+     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    getInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
      * List input methods sync
