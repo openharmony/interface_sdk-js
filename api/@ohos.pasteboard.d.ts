@@ -638,7 +638,7 @@ declare namespace pasteboard {
     off(type: 'update', callback?: () => void): void;
 
     /**
-     * Check whether the data is remote.
+     * Checks whether the data is remote.
      * @returns { boolean } True is remote data, else false.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 11
