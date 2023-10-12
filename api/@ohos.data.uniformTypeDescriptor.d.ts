@@ -14,7 +14,7 @@
  */
 
 /**
- * Provide methods for uniform type descriptor definition and query.
+ * Provide methods for uniform data type definition and query.
  *
  * @namespace uniformTypeDescriptor
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -22,7 +22,7 @@
  */
 declare namespace uniformTypeDescriptor {
   /**
-   * The data type ids supported by uniform type descriptor
+   * The uniform data type IDs.
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -30,7 +30,7 @@ declare namespace uniformTypeDescriptor {
    */
   enum UniformDataType {
     /**
-     * Indicate the data type is text
+     * Indicate the data type is text.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -38,7 +38,7 @@ declare namespace uniformTypeDescriptor {
     TEXT = 'general.text',
 
     /**
-     * Indicate the data type is plain text
+     * Indicate the data type is plain text.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -46,7 +46,7 @@ declare namespace uniformTypeDescriptor {
     PLAIN_TEXT = 'general.plain-text',
 
     /**
-     * Indicate the data type is html
+     * Indicate the data type is html.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -743,16 +743,15 @@ declare namespace uniformTypeDescriptor {
   }
 
   /**
-   * The class describe the uniform type descriptor, which consists of attributes and methods describing the uniform type
-   * <br>descriptor itself and its relationships to other uniform type descriptors and other type models such as filename
-   * <br>extension and MIME type.
+   * The class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
+   * <br>methods describing the uniform data type and its relationships to other uniform data types.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
   class TypeDescriptor {
     /**
-     * The typeId of the uniform type descriptor, which corespond to the enum string in the UniformDataType.
+     * The type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
      *
      * @type { string }
      * @readonly
@@ -762,7 +761,7 @@ declare namespace uniformTypeDescriptor {
     readonly typeId: string;
 
     /**
-     * The supertypes of the uniform type descriptor.
+     * The uniform data type IDs that the uniform data type belongs to.
      *
      * @type { Set<string> }
      * @readonly
@@ -772,7 +771,7 @@ declare namespace uniformTypeDescriptor {
     readonly belongingToTypes: Set<string>;
 
     /**
-     * The description of the uniform type descriptor.
+     * A textual description for the uniform data type.
      *
      * @type { string }
      * @readonly
@@ -782,7 +781,7 @@ declare namespace uniformTypeDescriptor {
     readonly description: string;
 
     /**
-     * The reference URL of the uniform type descriptor, which describe the detail information of the type.
+     * The reference URL for the uniform data type, which describes the detail information of the type.
      *
      * @type { string }
      * @readonly
@@ -792,7 +791,7 @@ declare namespace uniformTypeDescriptor {
     readonly referenceURL: string;
 
     /**
-     * The icon file address of the uniform datatype.
+     * The default icon file path for the uniform data type.
      *
      * @type { string }
      * @readonly
@@ -802,10 +801,10 @@ declare namespace uniformTypeDescriptor {
     readonly iconFile: string;
 
     /**
-     * Check whether the descriptor is compatible whith the given descriptor.
+     * Check whether the uniform data type belongs to the given uniform data type.
      *
-     * @param { string } type - The uniform type descriptor to be compared.
-     * @returns { boolean } Return true if the descriptor is compatible with the given descriptor, else false.
+     * @param { string } type - The uniform data type to be compared.
+     * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -813,10 +812,10 @@ declare namespace uniformTypeDescriptor {
     belongsTo(type: string): boolean;
 
     /**
-     * Check whether the descriptor is the lower hierarchy of the given descriptor.
+     * Check whether the uniform data type is the lower level type of the given uniform data type.
      *
-     * @param { string } type - The uniform type descriptor to be compared.
-     * @returns { boolean } Return true if the descriptor is the lower hierarchy of the given descriptor, else false.
+     * @param { string } type - The uniform data type to be compared.
+     * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -824,10 +823,10 @@ declare namespace uniformTypeDescriptor {
     isLowerLevelTypeOf(type: string): boolean;
 
     /**
-     * Check whether the descriptor is the upper hierarchy of the given descriptor.
+     * Check whether the uniform data type is the higher level type of the given uniform data type.
      *
-     * @param { string } type - The uniform type descriptor to be compared.
-     * @returns { boolean } Return true if the descriptor is the upper hierarchy of the given descriptor, else false.
+     * @param { string } type - The uniform data type to be compared.
+     * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -835,10 +834,10 @@ declare namespace uniformTypeDescriptor {
     isHigherLevelTypeOf(type: string): boolean;
 
     /**
-     * Check whether the descriptor is equal to the given descriptor.
+     * Check whether the uniform type descriptor is equal to the given uniform type descriptor.
      *
-     * @param { TypeDescriptor } descriptor - The uniform type descriptor to be compared.
-     * @returns { boolean } Return true if the descriptor is equal to the given descriptor, else false.
+     * @param { TypeDescriptor } typeDescriptor - The uniform type descriptor to be compared.
+     * @returns { boolean } Returns true if the type descriptor is equal to the given type descriptor, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -847,10 +846,11 @@ declare namespace uniformTypeDescriptor {
   }
 
   /**
-   * Query and return the uniform type descriptor by the given typeId.
+   * Query and return the uniform type descriptor by the given uniform data type ID.
    *
-   * @param { string } typeId - The uniform type descriptor to be compared.
-   * @returns { TypeDescriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @param { string } typeId - The uniform data type ID.
+   * @returns { TypeDescriptor | null } Returns the uniform type descriptor corresponding to the uniform data type ID or
+   * <br>null if the uniform data type not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
@@ -858,7 +858,7 @@ declare namespace uniformTypeDescriptor {
   function typeDescriptor(typeId: string): TypeDescriptor | null;
 
   /**
-   * Query and return the uniform type descriptor by the given typeId.
+   * Query and return the uniform type descriptor by the given filename extension.
    *
    * @param { string } typeId - The uniform type descriptor to be compared.
    * @returns { TypeDescriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
