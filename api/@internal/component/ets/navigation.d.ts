@@ -994,6 +994,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 
   /**
+   * Trigger callback when navigation mode changes.
+   *
+   * @param { function } callback
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onNavigationModeChange(callback: (mode: NavigationMode) => void): NavigationAttribute;
+
+  /**
    * Set builder for user-defined NavDestination component.
    *
    * @param { function } builder - The builder function of NavDestination component.
