@@ -392,8 +392,8 @@ declare namespace inputMethodEngine {
      * Exit the current input type.
      *
      * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
-     * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800010 - not system default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -403,8 +403,8 @@ declare namespace inputMethodEngine {
      * Exit the current input type.
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800010 - not system default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
