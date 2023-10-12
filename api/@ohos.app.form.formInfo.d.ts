@@ -673,6 +673,18 @@ declare namespace formInfo {
      * @since 10
      */
     abilityName?: string;
+
+    /**
+     * Indicates whether to include unused form.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    isUnusedInclude?: boolean;
   }
 
   /**
@@ -771,6 +783,45 @@ declare namespace formInfo {
      * @since 10
      */
     readonly dimension: number;
+
+    /**
+     * Obtains the stage of form use.
+     *
+     * @type { FormUsageState }
+     * @default FormUsageState.USED
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    readonly formUsageState: FormUsageState;
+  }
+
+  /**
+   * The stage of form use.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  enum FormUsageState {
+    /**
+     * Indicates the stage of the form is used.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    USED = 0,
+    /**
+     * Indicates the stage of the form is unused.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    UNUSED = 1,
   }
 }
 export default formInfo;
