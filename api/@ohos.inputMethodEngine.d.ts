@@ -389,22 +389,22 @@ declare namespace inputMethodEngine {
     hideKeyboard(): Promise<void>;
 
     /**
-     * Exit the current input type.
+     * Exit the current input type. This function can only be called by default input method configured by system.
      *
      * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800010 - not system default input method.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
     exitCurrentInputType(callback: AsyncCallback<void>): void;
 
     /**
-     * Exit the current input type.
+     * Exit the current input type. This function can only be called by default input method configured by system.
      *
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800010 - not system default input method.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
