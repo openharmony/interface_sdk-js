@@ -912,25 +912,25 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @param { Function } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
      */
-    on(type: 'change', callback: Callback<{ key: string }>): void;
+    on(type: 'change', callback: (key: string) => void): void;
 
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @param { Function } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
      */
-    on(type: 'multiProcessChange', callback: Callback<{ key: string }>): void;
+    on(type: 'multiProcessChange', callback: (key: string) => void): void;
 
     /**
      * Unregisters an existing observer.
@@ -945,24 +945,24 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @param { Function } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
      */
-    off(type: 'change', callback?: Callback<{ key: string }>): void;
+    off(type: 'change', callback?: (key: string) => void): void;
 
     /**
      * Unregisters an existing observer.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @param { Function } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
      */
-    off(type: 'multiProcessChange', callback?: Callback<{ key: string }>): void;
+    off(type: 'multiProcessChange', callback?: (key: string) => void): void;
   }
 }
 
