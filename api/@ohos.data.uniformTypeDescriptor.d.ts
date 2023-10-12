@@ -751,7 +751,6 @@ declare namespace uniformTypeDescriptor {
    * @since 11
    */
   class TypeDescriptor {
-
     /**
      * The typeId of the uniform type descriptor, which corespond to the enum string in the UniformDataType.
      *
@@ -765,12 +764,12 @@ declare namespace uniformTypeDescriptor {
     /**
      * The supertypes of the uniform type descriptor.
      *
-     * @type { Set<TypeDescriptor> }
+     * @type { Set<string> }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    readonly belongingToTypes: Set<TypeDescriptor>;
+    readonly belongingToTypes: Set<string>;
 
     /**
      * The description of the uniform type descriptor.
@@ -805,35 +804,35 @@ declare namespace uniformTypeDescriptor {
     /**
      * Check whether the descriptor is compatible whith the given descriptor.
      *
-     * @param { TypeDescriptor } descriptor - The uniform type descriptor to be compared.
+     * @param { string } type - The uniform type descriptor to be compared.
      * @returns { boolean } Return true if the descriptor is compatible with the given descriptor, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    belongsTo(typeDescriptor: TypeDescriptor): boolean;
+    belongsTo(type: string): boolean;
 
     /**
      * Check whether the descriptor is the lower hierarchy of the given descriptor.
      *
-     * @param { TypeDescriptor } descriptor - The uniform type descriptor to be compared.
+     * @param { string } type - The uniform type descriptor to be compared.
      * @returns { boolean } Return true if the descriptor is the lower hierarchy of the given descriptor, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isLowerLevelTypeOf(typeDescriptor: TypeDescriptor): boolean;
+    isLowerLevelTypeOf(type: string): boolean;
 
     /**
      * Check whether the descriptor is the upper hierarchy of the given descriptor.
      *
-     * @param { TypeDescriptor } descriptor - The uniform type descriptor to be compared.
+     * @param { string } type - The uniform type descriptor to be compared.
      * @returns { boolean } Return true if the descriptor is the upper hierarchy of the given descriptor, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isHigherLevelTypeOf(typeDescriptor: TypeDescriptor): boolean;
+    isHigherLevelTypeOf(type: string): boolean;
 
     /**
      * Check whether the descriptor is equal to the given descriptor.
@@ -867,7 +866,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptorByFilenameExtension(filenameExtension: string, belongsTo?: TypeDescriptor): TypeDescriptor | null;
+  function typeDescriptorByFilenameExtension(filenameExtension: string, belongsTo?: string): TypeDescriptor | null;
 
   /**
    * Query and return the uniform type descriptor by the given typeId.
@@ -878,7 +877,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptorByMIMEType(mimeType: string, belongsTo?: TypeDescriptor): TypeDescriptor | null;
+  function typeDescriptorByMIMEType(mimeType: string, belongsTo?: string): TypeDescriptor | null;
 
   /**
    * Query and return the uniform type descriptor by the given typeId.
