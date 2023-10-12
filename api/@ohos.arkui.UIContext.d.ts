@@ -659,4 +659,50 @@ export class UIContext {
    * @since 10
    */
   runScopedTask(callback: () => void): void;
+
+  /**
+   * set KeyboardAvoidMode.
+   *
+   * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
+
+  /**
+   * get KeyboardAvoidMode.
+   * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getKeyboardAvoidMode(): KeyboardAvoidMode;
+}
+
+/**
+ * Enum of KeyBoardAvoidMethodType
+ * 
+ * @enum { number } KeyBoardAvoidMethodType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+
+export enum KeyboardAvoidMode {
+  /**
+  * Default Type, offset the whole page when keyBoard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  */
+  OFFSET = 0,
+
+  /**
+   * Resize Type, resize the page when keyBoard height changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  RESIZE = 1
 }
