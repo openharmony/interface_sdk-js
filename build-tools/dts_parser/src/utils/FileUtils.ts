@@ -17,6 +17,7 @@ import fs from 'fs';
 import path from 'path';
 import envConfig from '../config/env';
 import { LogUtil } from './logUtil';
+import { StringConstant } from '../utils/Constant';
 if (!process.env.DIR_NAME) {
   Object.assign(process.env, envConfig);
 }
@@ -41,6 +42,9 @@ export class FileUtils {
   static readFilesInDir(dirName: string, filter?: (name: string) => boolean): Array<string> {
     const files: Array<string> = [];
     fs.readdirSync(dirName, { withFileTypes: true }).forEach((dir) => {
+      if (dir.name === StringConstant.NOT_SCAN_DIR) {
+        return;
+      }
       const filePath: string = path.join(dirName, dir.name);
       if (dir.isFile()) {
         if (!filter) {
