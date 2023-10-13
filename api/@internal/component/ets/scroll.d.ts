@@ -227,7 +227,7 @@ declare class Scroller {
      * @since 10
      */
     animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
-  });
+  }) : void;
 
   /**
    * Called when scrolling to the edge of the container.
@@ -244,7 +244,7 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  scrollEdge(value: Edge);
+  scrollEdge(value: Edge) : void;
 
   /**
    * Called when page turning mode is set.
@@ -261,7 +261,7 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  scrollPage(value: { next: boolean });
+  scrollPage(value: { next: boolean }) : void;
 
   /**
    * Called when page turning mode is set.
@@ -271,7 +271,7 @@ declare class Scroller {
    * @since 7
    * @deprecated since 9
    */
-  scrollPage(value: { next: boolean; direction?: Axis });
+  scrollPage(value: { next: boolean; direction?: Axis }) : void;
 
   /**
    * Called when viewing the scroll offset.
@@ -315,7 +315,7 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
+  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign) : void;
 
   /**
    * Called when the setting slides by offset.
@@ -334,7 +334,7 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  scrollBy(dx: Length, dy: Length);
+  scrollBy(dx: Length, dy: Length) : void;
 
   /**
    * Indicates whether the component scrolls to the end position.
