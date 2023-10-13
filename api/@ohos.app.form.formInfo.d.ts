@@ -694,7 +694,7 @@ declare namespace formInfo {
      * @stagemodelonly
      * @since 11
      */
-    isUnusedInclude?: boolean;
+    isUnusedIncluded?: boolean;
   }
 
   /**

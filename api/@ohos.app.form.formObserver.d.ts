@@ -266,7 +266,7 @@ declare namespace formObserver {
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the
    *                                                                      RunningFormInfo.
-   * @param { boolean } isUnusedInclude - Indicates whether to include unused form.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -279,7 +279,7 @@ declare namespace formObserver {
    */
   function getRunningFormInfos(
     callback: AsyncCallback<Array<formInfo.RunningFormInfo>>,
-    isUnusedInclude: boolean,
+    isUnusedIncluded: boolean,
     hostBundleName?: string
   ): void;
 
@@ -304,7 +304,7 @@ declare namespace formObserver {
    * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { boolean } isUnusedInclude - Indicates whether to include unused form.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
    * @throws { BusinessError } 201 - Permissions denied.
@@ -317,7 +317,7 @@ declare namespace formObserver {
    * @since 11
    */
   function getRunningFormInfos(
-    isUnusedInclude: boolean,
+    isUnusedIncluded: boolean,
     hostBundleName?: string
   ): Promise<Array<formInfo.RunningFormInfo>>;
 
@@ -388,7 +388,7 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } formId - Indicates the form provider formId.
-   * @param { boolean } isUnusedInclude - Indicates whether to include unused form.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
    * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -401,7 +401,7 @@ declare namespace formObserver {
    * @stagemodelonly
    * @since 11
    */
-  function getRunningFormInfoById(formId: string, isUnusedInclude: boolean): Promise<formInfo.RunningFormInfo>;
+  function getRunningFormInfoById(formId: string, isUnusedIncluded: boolean): Promise<formInfo.RunningFormInfo>;
 
   /**
    * Obtains the RunningFormInfo object by formId.
@@ -427,7 +427,7 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } formId - Indicates the form provider formId.
-   * @param { boolean } isUnusedInclude - Indicates whether to include unused form.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
    * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -442,7 +442,7 @@ declare namespace formObserver {
    */
   function getRunningFormInfoById(
     formId: string,
-    isUnusedInclude: boolean,
+    isUnusedIncluded: boolean,
     callback: AsyncCallback<formInfo.RunningFormInfo>
   ): void;
 }
