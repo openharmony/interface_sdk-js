@@ -378,21 +378,22 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
+    getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
+
     /**
-     * List input methods
+     * List input methods sync
      *
-     * @param { boolean } [enable] :
+     * @param { boolean } enable :
      *     If true, collect enabled input methods.
      *     If false, collect disabled input methods.
-     *     If blank, collect all input methods.
-     * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
+     * @returns { Array<InputMethodProperty> } the list of inputmethod.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800001 - package manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    getInputMethods(enable?: boolean): Promise<Array<InputMethodProperty>>;
+    getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
     /**
      * List all input methods
@@ -403,23 +404,29 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    getInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
+    getAllInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * List input methods sync
+     * List all input methods
      *
-     * @param { boolean } [enable] :
-     *     If true, collect enabled input methods.
-     *     If false, collect disabled input methods.
-     *     If blank, collect all input methods.
-     * @returns { Array<InputMethodProperty> } the list of inputmethod.
-     * @throws { BusinessError } 401 - parameter error.
+     * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
      * @throws { BusinessError } 12800001 - package manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    getInputMethodsSync(enable?: boolean): Array<InputMethodProperty>;
+    getAllInputMethods(): Promise<Array<InputMethodProperty>>;
+
+    /**
+     * List all input methods sync
+     *
+     * @returns { Array<InputMethodProperty> } the list of all inputmethod.
+     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    getAllInputMethodsSync(): Array<InputMethodProperty>;
 
     /**
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of listInputMethod.
