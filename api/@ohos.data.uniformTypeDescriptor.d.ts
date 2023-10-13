@@ -414,7 +414,7 @@ declare namespace uniformTypeDescriptor {
     VIDEO_3GPP2 = 'general.3gpp2',
 
     /**
-     * Indicate the data type is the Windows
+     * Indicate the data type is the Windows WM video format
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -422,7 +422,7 @@ declare namespace uniformTypeDescriptor {
     WINDOWS_MEDIA_WM = 'com.microsoft.windows-media-wm',
 
     /**
-     * Indicate the data type is text
+     * Indicate the data type is the Windows WMV video format
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -430,7 +430,7 @@ declare namespace uniformTypeDescriptor {
     WINDOWS_MEDIA_WMV = 'com.microsoft.windows-media-wmv',
 
     /**
-     * Indicate the data type is text
+     * Indicate the data type is the Windows WMP video format
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
@@ -438,7 +438,7 @@ declare namespace uniformTypeDescriptor {
     WINDOWS_MEDIA_WMP = 'com.microsoft.windows-media-wmp',
 
     /**
-     * Indicate the data type is text
+     * Indicate the data type is the Windows WMA audio format.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
