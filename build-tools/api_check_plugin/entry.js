@@ -40,7 +40,7 @@ function checkEntry(prId) {
       throw 'npm install timeout';
     }
     const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath, prId);
+    result = scanEntry(mdFilesPath, prId, false);
     result = reqGitApi(result, prId);
     removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
@@ -72,7 +72,7 @@ function removeDir(url) {
   }
 }
 
-function writeResultFile(resultData, outputPath, option) {  
+function writeResultFile(resultData, outputPath, option) {
   const STANDARD_INDENT = 2;
   fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, (err) => {
     if (err) {
