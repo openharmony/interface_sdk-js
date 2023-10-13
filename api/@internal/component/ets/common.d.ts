@@ -5791,7 +5791,7 @@ declare interface ContextMenuOptions {
    * The preview content of context menu.
    * 
    * @type { ?(MenuPreviewMode | CustomBuilder) }
-   * @default MenuPreviewMode.IMAGE
+   * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
