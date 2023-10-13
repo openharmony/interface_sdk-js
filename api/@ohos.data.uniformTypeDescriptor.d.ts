@@ -849,46 +849,39 @@ declare namespace uniformTypeDescriptor {
    * Query and return the uniform type descriptor by the given uniform data type ID.
    *
    * @param { string } typeId - The uniform data type ID.
-   * @returns { TypeDescriptor | null } Returns the uniform type descriptor corresponding to the uniform data type ID or
-   * <br>null if the uniform data type not exist.
+   * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
+   * <br>if the uniform data type not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptor(typeId: string): TypeDescriptor | null;
+  function typeDescriptor(typeId: string): TypeDescriptor;
 
   /**
-   * Query and return the uniform type descriptor by the given filename extension.
+   * Query and return the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
    *
-   * @param { string } typeId - The uniform type descriptor to be compared.
-   * @returns { TypeDescriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @param { string } filenameExtension - The filename extension.
+   * @param { string } [belongsTo] - The uniform data type ID it belongs to.
+   * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptorByFilenameExtension(filenameExtension: string, belongsTo?: string): TypeDescriptor | null;
+  function uniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
 
   /**
-   * Query and return the uniform type descriptor by the given typeId.
+   * Query and return the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
    *
-   * @param { string } typeId - The uniform type descriptor to be compared.
-   * @returns { TypeDescriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
+   * @param { string } mimeType - The MIME type.
+   * @param { string } [belongsTo] - The uniform data type ID it belongs to.
+   * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptorByMIMEType(mimeType: string, belongsTo?: string): TypeDescriptor | null;
-
-  /**
-   * Query and return the uniform type descriptor by the given typeId.
-   *
-   * @param { string } typeId - The uniform type descriptor to be compared.
-   * @returns { TypeDescriptor | null } Return true if the descriptor is equal to the given descriptor, else false.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 11
-   */
-  function declareTypeDescriptor(typeId: string, isOwner: boolean): TypeDescriptor;
+  function uniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 }
 
 export default uniformTypeDescriptor;
