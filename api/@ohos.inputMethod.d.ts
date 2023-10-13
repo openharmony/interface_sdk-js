@@ -353,7 +353,7 @@ declare namespace inputMethod {
     /**
      * List input methods
      *
-     * @param { boolean } enable :
+     * @param { boolean } enable -
      *     If true, collect enabled input methods.
      *     If false, collect disabled input methods.
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
@@ -368,7 +368,7 @@ declare namespace inputMethod {
     /**
      * List input methods
      *
-     * @param { boolean } enable :
+     * @param { boolean } enable -
      *     If true, collect enabled input methods.
      *     If false, collect disabled input methods.
      * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
@@ -383,7 +383,7 @@ declare namespace inputMethod {
     /**
      * List input methods sync
      *
-     * @param { boolean } enable :
+     * @param { boolean } enable -
      *     If true, collect enabled input methods.
      *     If false, collect disabled input methods.
      * @returns { Array<InputMethodProperty> } the list of inputmethod.
