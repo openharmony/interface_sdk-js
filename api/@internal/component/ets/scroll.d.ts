@@ -144,6 +144,7 @@ declare interface OffsetResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   xOffset: number;
@@ -153,6 +154,7 @@ declare interface OffsetResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   yOffset: number;
