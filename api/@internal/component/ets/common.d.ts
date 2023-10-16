@@ -4057,11 +4057,11 @@ declare interface HoverEvent extends BaseEvent {
   /**
    * The blocking hover event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 }
 
 /**
@@ -4169,11 +4169,11 @@ declare interface MouseEvent extends BaseEvent {
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 }
 
 /**
@@ -4443,19 +4443,19 @@ declare interface TouchEvent extends BaseEvent {
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 
   /**
    * Get the historical points.
@@ -4918,19 +4918,19 @@ declare interface KeyEvent {
   /**
    * Block event bubbling.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Block event bubbling.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 
   /**
    * Intention code of a key or modifier keys.
@@ -6826,7 +6826,7 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
-  onClick(event: (event?: ClickEvent) => void): T;
+  onClick(event: (event: ClickEvent) => void): T;
 
   /**
    * Trigger a hover event.
@@ -6836,7 +6836,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
+  onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
 
   /**
    * Set hover effect.
@@ -6865,7 +6865,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onMouse(event: (event?: MouseEvent) => void): T;
+  onMouse(event: (event: MouseEvent) => void): T;
 
   /**
    * Trigger a touch event when touched.
@@ -6884,7 +6884,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  onTouch(event: (event?: TouchEvent) => void): T;
+  onTouch(event: (event: TouchEvent) => void): T;
 
   /**
    * Keyboard input
@@ -6903,7 +6903,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  onKeyEvent(event: (event?: KeyEvent) => void): T;
+  onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
    * Set focusable.
@@ -8260,7 +8260,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
+  onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -8270,7 +8270,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
@@ -8280,7 +8280,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
@@ -8290,7 +8290,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
@@ -8301,7 +8301,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * This function is called when the drag event is end.
