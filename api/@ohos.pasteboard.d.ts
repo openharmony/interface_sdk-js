@@ -646,7 +646,7 @@ declare namespace pasteboard {
     isRemoteData(): boolean;
 
     /**
-     * Obtains source of data.
+     * Gets source of data.
      * @returns { string } data source.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 11
