@@ -743,7 +743,7 @@ declare namespace uniformTypeDescriptor {
   }
 
   /**
-   * The class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
+   * A class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
    * <br>methods describing the uniform data type and its relationships to other uniform data types.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -768,7 +768,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    readonly belongingToTypes: Set<string>;
+    readonly belongToTypes: Set<string>;
 
     /**
      * A textual description for the uniform data type.
@@ -801,9 +801,9 @@ declare namespace uniformTypeDescriptor {
     readonly iconFile: string;
 
     /**
-     * Check whether the uniform data type belongs to the given uniform data type.
+     * Checks whether the uniform data type belongs to the given uniform data type.
      *
-     * @param { string } type - The uniform data type to be compared.
+     * @param { string } type - A uniform data type to be compared.
      * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -812,31 +812,31 @@ declare namespace uniformTypeDescriptor {
     belongsTo(type: string): boolean;
 
     /**
-     * Check whether the uniform data type is the lower level type of the given uniform data type.
+     * Checks whether the uniform data type is the lower level type of the given uniform data type.
      *
-     * @param { string } type - The uniform data type to be compared.
+     * @param { string } type - A uniform data type to be compared.
      * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isLowerLevelTypeOf(type: string): boolean;
+    isLowerLevelType(type: string): boolean;
 
     /**
-     * Check whether the uniform data type is the higher level type of the given uniform data type.
+     * Checks whether the uniform data type is the higher level type of the given uniform data type.
      *
-     * @param { string } type - The uniform data type to be compared.
+     * @param { string } type - A uniform data type to be compared.
      * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    isHigherLevelTypeOf(type: string): boolean;
+    isHigherLevelType(type: string): boolean;
 
     /**
-     * Check whether the uniform type descriptor is equal to the given uniform type descriptor.
+     * Checks whether the uniform type descriptor is equal to the given uniform type descriptor.
      *
-     * @param { TypeDescriptor } typeDescriptor - The uniform type descriptor to be compared.
+     * @param { TypeDescriptor } typeDescriptor - A uniform type descriptor to be compared.
      * @returns { boolean } Returns true if the type descriptor is equal to the given type descriptor, else false.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -846,42 +846,42 @@ declare namespace uniformTypeDescriptor {
   }
 
   /**
-   * Query and return the uniform type descriptor by the given uniform data type ID.
+   * Queries and returns the uniform type descriptor by the given uniform data type ID.
    *
-   * @param { string } typeId - The uniform data type ID.
+   * @param { string } typeId - A uniform data type ID.
    * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
-   * <br>if the uniform data type not exist.
+   * <br>if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function typeDescriptor(typeId: string): TypeDescriptor;
+  function getTypeDescriptor(typeId: string): TypeDescriptor;
 
   /**
-   * Query and return the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
+   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
    *
-   * @param { string } filenameExtension - The filename extension.
+   * @param { string } filenameExtension - A filename extension.
    * @param { string } [belongsTo] - The uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type not exist.
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function uniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
+  function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
 
   /**
-   * Query and return the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
+   * Queries and returns the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
    *
-   * @param { string } mimeType - The MIME type.
+   * @param { string } mimeType - A MIME type.
    * @param { string } [belongsTo] - The uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type not exist.
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function uniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
+  function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 }
 
 export default uniformTypeDescriptor;
