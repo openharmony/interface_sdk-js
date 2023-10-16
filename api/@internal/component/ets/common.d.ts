@@ -6258,6 +6258,27 @@ declare interface MenuElement {
 }
 
 /**
+ * Defines the attribute modifier.
+ * 
+ * @interface AttributeModifier<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface AttributeModifier<T> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyNormalAttribute(instance: T) : void;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9179,6 +9200,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   renderFit(fitMode: RenderFit): T;
+
+  /**
+   * Sets the attribute modifier.
+   *
+   * @param { AttributeModifier<T> } modifier
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  attributeModifier(modifier: AttributeModifier<T>): T;
 }
 
 /**
