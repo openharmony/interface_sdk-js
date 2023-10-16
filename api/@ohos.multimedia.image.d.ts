@@ -2569,8 +2569,7 @@ declare namespace image {
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
     /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array.
+     * Creates a PixelMap array. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
      * @throws { BusinessError } 62980096 - If the operation failed.
