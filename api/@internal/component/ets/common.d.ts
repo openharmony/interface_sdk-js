@@ -4725,6 +4725,46 @@ declare enum DragResult {
 }
 
 /**
+ * Enum for BlendMode.
+ * Use background as src, child nodes as dst
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum BlendMode {
+  /**
+   * Hybrid mode does not take effect
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  NORMAL = 0,
+  /**
+   * r = d * sa, blend background color with child nodes' alpha
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DESTINATION_IN = 1,
+  /**
+   * r = s * da
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  SOURCE_IN = 2
+}
+
+/**
  * DragEvent object description
  *
  * @interface DragEvent
@@ -8745,6 +8785,19 @@ declare class CommonMethod<T> {
    * @form
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
+
+  /**
+   * Add a blendMode effect to the current component
+   * Nesting using blendMode is not recommended
+   * 
+   * @param { BlendMode } value - Different hybrid modes
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  blendMode(value: BlendMode): T;
 
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
