@@ -646,8 +646,8 @@ declare namespace pasteboard {
     isRemoteData(): boolean;
 
     /**
-     * Obtains the package name of the data source application.
-     * @returns { string } The package name of the application.
+     * Obtains source of data.
+     * @returns { string } data source.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 11
      */
