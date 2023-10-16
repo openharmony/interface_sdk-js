@@ -595,7 +595,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    DISK_IMGAE = 'general.disk-image',
+    DISK_IMAGE = 'general.disk-image',
 
     /**
      * Tar archive data type.
