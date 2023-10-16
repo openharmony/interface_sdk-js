@@ -84,6 +84,18 @@ export default class AbilityStage {
   onAcceptWant(want: Want): string;
 
   /**
+   * Called back when start UIAbility in specifed process.
+   *
+   * @param { Want } want - Indicates the want info of started ability.
+   * @returns { string } The user returns an process string ID. If the process of this ID has been created before,
+   *         let the ability run in this process. Otherwise, create a new process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  onNewProcessRequest(want: Want): string;
+
+  /**
    * Called when the system configuration is updated.
    *
    * @param { Configuration } newConfig - Indicates the updated configuration.
