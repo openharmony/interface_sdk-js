@@ -432,7 +432,11 @@ declare namespace webview {
     /**
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
-     * @returns { Promise<boolean> } Return whether there is a saved result.
+     * @returns { Promise<boolean> } A Promise instance that obtains the permission
+     *                               status of the specified source and obtains successfully,
+     *                               true for authorization, false for access denial. Failed 
+     *                               to get, indicating that the permission status of the 
+     *                               specified source does not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -443,8 +447,12 @@ declare namespace webview {
     /**
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
-     * @param { AsyncCallback<boolean> } callback - Return to the specified source
-     *                                              geographic location permission status.
+     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
+     *                                              the specified source. Successful acquisition, 
+     *                                              true means authorized, false means access is
+     *                                              denied. Failed to get, indicating that the
+     *                                              permission status of the specified source does 
+     *                                              not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -454,7 +462,8 @@ declare namespace webview {
 
     /**
      * Get all stored geolocation permission url source.
-     * @returns { Promise<Array<string>> } Return whether there is a saved result.
+     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about 
+     *                                     the stored geolocation permission state.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -463,8 +472,8 @@ declare namespace webview {
 
     /**
      * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Return all source information of
-     *                                              stored geographic location permission status.
+     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for 
+     *                                                    stored geolocation permission states.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -1242,11 +1251,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-     *                               the url and the generated offline webpage will be stored in the directory
-     *                               specified by baseName. If it is true, the offline webpage will be directly
-     *                               stored in the path specified by baseName.
+     * @param { string } baseName - The path to the file storage, This value cannot be null.
+     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
+     *                               baseName is used as the file storage path. If true, baseName is 
+     *                               assumed to be a directory, and the file name will be automatically 
+     *                               generated based on the URL of the current page.
      * @returns { Promise<string> } a promise resolved after the web archive has been stored. The parameter
      *                              will either be the filename under which the file was stored, or empty
      *                              if storing the file failed.
@@ -1262,11 +1271,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-     *                               the url and the generated offline webpage will be stored in the directory
-     *                               specified by baseName. If it is true, the offline webpage will be directly
-     *                               stored in the path specified by baseName.
+     * @param { string } baseName - The path to the file storage, This value cannot be null.
+     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
+     *                               baseName is used as the file storage path. If true, baseName is 
+     *                               assumed to be a directory, and the file name will be automatically 
+     *                               generated based on the URL of the current page.
      * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
      *                                             will either be the filename under which the file was stored,
      *                                             or empty if storing the file failed.
@@ -1587,7 +1596,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview up by half the view size.
      *
-     * @param { boolean } top - Jump to the top of the page if true.
+     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
+     *                          the page content will scroll up half the size of the viewframe, 
+     *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -1599,7 +1610,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Jump to the bottom of the page if true.
+     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
+     *                             the page content will scroll up half the size of the viewframe, 
+     *                             and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
