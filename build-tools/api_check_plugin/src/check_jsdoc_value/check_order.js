@@ -71,8 +71,7 @@ function checkApiOrder(comments) {
 }
 exports.checkApiOrder = checkApiOrder;
 
-function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec, useWhitelist) {
-  let isIllegalTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag) : true;
+function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   const APITagNameResult = {
     checkResult: true,
     errorInfo: '',
@@ -80,7 +79,7 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec, useWhiteli
   const tagName = tag.tag;
   const docTags = [...rules.decorators.customDoc, ...rules.decorators.jsDoc];
   const decoratorRuleSet = new Set(docTags);
-  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind) && isIllegalTagWhitetFile) {
+  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
     APITagNameResult.checkResult = false;
     APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [tagName]);
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, APITagNameResult.errorInfo,
@@ -115,8 +114,7 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
   return inheritResult;
 }
 
-function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex, useWhitelist) {
-  let isMissingTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag) : true;
+function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
   const inheritResult = {
     checkResult: true,
     errorInfo: '',
@@ -131,7 +129,7 @@ function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex, useWhit
         checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
       }
     });
-    if (!inheritResult.checkResult && isMissingTagWhitetFile) {
+    if (!inheritResult.checkResult) {
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
         ErrorLevel.MIDDLE);
     }
