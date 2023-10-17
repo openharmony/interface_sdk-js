@@ -755,12 +755,12 @@ declare namespace uniformTypeDescriptor {
     /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
-     * @type { Set<string> }
+     * @type { Array<string> }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    readonly belongToTypes: Set<string>;
+    readonly belongingToTypes: Array<string>;
 
     /**
      * A textual description for the uniform data type.
