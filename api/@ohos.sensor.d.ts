@@ -3365,7 +3365,7 @@ declare namespace sensor {
     /**
      * Indicates the intensity of light, in lux.
      * @type { number }
-     * @syscap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor      
      * @systemapi
      * @since 10
      */
