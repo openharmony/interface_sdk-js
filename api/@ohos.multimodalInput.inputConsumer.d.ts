@@ -75,6 +75,34 @@ declare namespace inputConsumer {
   }
 
   /**
+   * Shield mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  enum ShieldMode {
+    /**
+     * Factory mode shield all key events
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @since 11
+     */
+    FACTORY_MODE,
+
+    /**
+     * OOBE mode shield key event except power key event
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @since 11
+     */
+    OOBE_MODE
+  }
+
+  /**
    * Subscribe system keys.
    *
    * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
@@ -99,6 +127,34 @@ declare namespace inputConsumer {
    * @since 8
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
+
+  /**
+   * Sets whether shield key event interception, only support shield key event.
+   *
+   * @param { ShieldMode } shieldMode - Accroding the shield mode select shield key event range.
+   * @param { boolean } isShield - Indicates whether key event handler chain is shield. The value <b>true</b> indicates that
+   * the key event build chain is shield, all key events derictly dispatch to window,
+   * if the value <b>false</b> indicates not shield key event interception, handle by the chain.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use.
+   * @since 11
+   */
+  function setShieldEventInterceptionStatus(shieldMode: ShieldMode, isShield: boolean): void;
+
+  /**
+   * Gets shield event interception status corresponding to shield mode 
+   *
+   * @param { ShieldMode } shieldMode - Accroding the shield mode select shield key event range.
+   * @returns { boolean } Returns true if shield event interception, returns false otherwise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use.
+   * @since 11
+   */
+  function getShieldEventInterceptionStatus(shieldMode: ShieldMode): boolean;
 }
 
 export default inputConsumer;
