@@ -159,14 +159,38 @@ declare interface AccessibilityEvent {
 
 /**
  * Indicates the gesture type.
- *
+ * value range: { 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
+ * 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+ * 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+ * 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
+/**
+ * Indicates the gesture type.
+ * value range: { 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
+ * 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+ * 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+ * 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' |
+ * 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' |
+ * 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' |
+ * 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' |
+ * 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' |
+ * 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' |
+ * 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' }
+* @syscap SystemCapability.BarrierFree.Accessibility.Core
+* @since 11
+*/
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
   'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
+  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' |
+  'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' |
+  'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' |
+  'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' |
+  'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' |
+  'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' |
+  'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight';
 
 /**
  * Indicates the page update type.
