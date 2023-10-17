@@ -132,7 +132,7 @@ declare namespace inputConsumer {
    * Sets whether shield key event interception, only support shield key event.
    *
    * @param { ShieldMode } shieldMode - Accroding the shield mode select shield key event range.
-   * @param { boolean } isShield - Indicates whether key event handler chain is shield. The value <b>true</b> indicates that
+   * @param { boolean } isShield - Indicates whether key event handler chain is shield. The value <b>true</b> indicates 
    * all key events derictly dispatch to window, if the value <b>false</b> indicates not shield key event interception, 
    * handle by the chain.
    * @throws { BusinessError } 202 - SystemAPI permission error.
