@@ -133,15 +133,15 @@ declare namespace inputConsumer {
    *
    * @param { ShieldMode } shieldMode - Accroding the shield mode select shield key event range.
    * @param { boolean } isShield - Indicates whether key event handler chain is shield. The value <b>true</b> indicates that
-   * the key event build chain is shield, all key events derictly dispatch to window,
-   * if the value <b>false</b> indicates not shield key event interception, handle by the chain.
+   * all key events derictly dispatch to window, if the value <b>false</b> indicates not shield key event interception, 
+   * handle by the chain.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11
    */
-  function setShieldEventInterceptionStatus(shieldMode: ShieldMode, isShield: boolean): void;
+  function setShieldStatus(shieldMode: ShieldMode, isShield: boolean): void;
 
   /**
    * Gets shield event interception status corresponding to shield mode 
@@ -154,7 +154,7 @@ declare namespace inputConsumer {
    * @systemapi hide for inner use.
    * @since 11
    */
-  function getShieldEventInterceptionStatus(shieldMode: ShieldMode): boolean;
+  function getShieldStatus(shieldMode: ShieldMode): boolean;
 }
 
 export default inputConsumer;
