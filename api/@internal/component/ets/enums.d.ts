@@ -5895,7 +5895,7 @@ declare enum DialogButtonStyle {
    * @since 10
    */
   DEFAULT = 0,
-  
+
   /**
    * Highlight Style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5978,4 +5978,20 @@ declare enum EllipsisMode {
    * @since 11
    */
   END = 2,
+}
+
+/**
+ * A type which can be undefined
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare type Nullable<T> = T | undefined;
+
+declare module 'CommonEnums' {
+  module 'CommonEnums' {
+    // @ts-ignore
+    export type { Color, FontStyle, Nullable };
+  }
 }
