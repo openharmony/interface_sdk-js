@@ -10580,6 +10580,43 @@ declare interface RectResult {
 }
 
 /**
+ * CaretOffset info.
+ *
+ * @interface CaretOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface CaretOffset {
+  /**
+   * Get the index of the CaretOffset
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  index: number;
+
+  /**
+   * Get the x of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  x: number;
+  
+  /**
+   * Get the y of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  y: number;
+}
+
+/**
  * TextContentControllerBase
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10587,6 +10624,16 @@ declare interface RectResult {
  * @since 10
  */
 declare abstract class TextContentControllerBase {
+  /**
+   * Get the index and relative position of the CaretOffset.
+   *
+   * @returns { CaretOffset } index and relative position of the CaretOffset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getCaretOffset() : CaretOffset;
+
   /**
    * Get the start and end positions of the text content.
    *
