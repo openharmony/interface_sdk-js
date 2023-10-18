@@ -3189,15 +3189,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
      * or application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @systemapi
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
      * @since 11
      */
     cloudSync(
-        mode: SyncMode,
-        predicates: RdbPredicates,
-        progress: Callback<ProgressDetails>,
-        callback: AsyncCallback<void>
+      mode: SyncMode,
+      predicates: RdbPredicates,
+      progress: Callback<ProgressDetails>,
+      callback: AsyncCallback<void>
     ): void;
 
     /**
@@ -3212,8 +3212,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
      * or application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @systemapi
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
      * @since 11
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
