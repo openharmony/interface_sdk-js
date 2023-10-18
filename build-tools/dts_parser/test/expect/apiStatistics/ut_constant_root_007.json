@@ -1,0 +1,25 @@
+[
+  {
+    "filePath": "ut_constant_root_007.d.ts",
+    "packageName": "ut_constant_root_007",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "-1",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_constant_root_007.d.ts/CONSTANT",
+    "apiName": "CONSTANT",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Constant",
+    "definedText": "declare const CONSTANT = 1024;",
+    "pos": {
+      "line": 4,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

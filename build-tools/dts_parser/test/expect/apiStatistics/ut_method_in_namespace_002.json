@@ -1,0 +1,48 @@
+[
+  {
+    "filePath": "ut_method_in_namespace_002.d.ts",
+    "packageName": "ut_method_in_namespace_002",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_method_in_namespace_002.d.ts/test",
+    "apiName": "test",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Namespace",
+    "definedText": " declare namespace test",
+    "pos": {
+      "line": 2,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  },
+  {
+    "filePath": "ut_method_in_namespace_002.d.ts",
+    "packageName": "ut_method_in_namespace_002",
+    "parentModuleName": "test",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_method_in_namespace_002.d.ts/test/func",
+    "apiName": "func",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Method",
+    "definedText": "function func(): void {}",
+    "pos": {
+      "line": 3,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

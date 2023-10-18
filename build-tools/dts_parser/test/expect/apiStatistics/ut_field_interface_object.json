@@ -1,0 +1,71 @@
+[
+  {
+    "filePath": "ut_field_interface_object.d.ts",
+    "packageName": "ut_field_interface_object",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_field_interface_object.d.ts/testNamespace",
+    "apiName": "testNamespace",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Namespace",
+    "definedText": " declare namespace testNamespace",
+    "pos": {
+      "line": 1,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  },
+  {
+    "filePath": "ut_field_interface_object.d.ts",
+    "packageName": "ut_field_interface_object",
+    "parentModuleName": "testNamespace",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_field_interface_object.d.ts/testNamespace/TestInterface",
+    "apiName": "TestInterface",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Interface",
+    "definedText": " interface TestInterface",
+    "pos": {
+      "line": 2,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  },
+  {
+    "filePath": "ut_field_interface_object.d.ts",
+    "packageName": "ut_field_interface_object",
+    "parentModuleName": "TestInterface",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_field_interface_object.d.ts/testNamespace/TestInterface/options",
+    "apiName": "options",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Property",
+    "definedText": "options: { [key: string]: any };",
+    "pos": {
+      "line": 3,
+      "character": 5
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

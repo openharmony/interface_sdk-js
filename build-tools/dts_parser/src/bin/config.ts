@@ -28,6 +28,7 @@ import { NumberConstant } from '../utils/Constant';
 import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
+import { FunctionUtils } from '../utils/FunctionUtils';
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -193,8 +194,24 @@ function collectApi(options: optionObjType): toolNameValueType {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
     const fileContent: string = Parser.getParseResults(allApis);
+    if (options.format === 'excel') {
+      const allApiStatisticsInfos: ApiStatisticsInfo[] | undefined =
+        ApiStatisticsHelper.getApiStatisticsInfos(allApis).allApiStatisticsInfos;
+      if (allApiStatisticsInfos) {
+        WriterHelper.ExcelReporter(
+          allApiStatisticsInfos,
+          options.output,
+          `all_${options.toolName}.xlsx`,
+          collectApiCallback
+        );
+      }
+    }
+
     return {
-      data: options.format === 'excel' ? ApiStatisticsHelper.getApiStatisticsInfos(allApis) : [fileContent],
+      data:
+        options.format === 'excel' ?
+          ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos : 
+          [fileContent],
       callback: collectApiCallback,
     };
   } catch (exception) {
@@ -209,6 +226,7 @@ function collectApi(options: optionObjType): toolNameValueType {
 
 function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Worksheet): void {
   const apiRelationsSet: Set<string> = new Set();
+  const subsystemMap: Map<string, string> = FunctionUtils.readSubsystemFile().subsystemMap;
   sheet.name = 'JsApi';
   sheet.views = [{ xSplit: 1 }];
   sheet.getRow(1).values = [
@@ -224,8 +242,10 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
     '模型限制',
     '权限',
     '是否支持跨平台',
+    '是否支持卡片应用',
     '装饰器',
     '文件路径',
+    '子系统',
   ];
   let lineNumber = 2;
   apiData.forEach((apiInfo: ApiStatisticsInfo) => {
@@ -240,15 +260,17 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getApiName(),
       apiInfo.getDefinedText(),
       apiInfo.getApiType(),
-      apiInfo.getSince(),
-      apiInfo.getDeprecatedVersion(),
+      apiInfo.getSince() === '-1' ? '' : apiInfo.getSince(),
+      apiInfo.getDeprecatedVersion() === '-1' ? '' : apiInfo.getDeprecatedVersion(),
       apiInfo.getSyscap(),
       apiInfo.getApiLevel(),
       apiInfo.getModelLimitation(),
       apiInfo.getPermission(),
       apiInfo.getIsCrossPlatForm(),
+      apiInfo.getIsForm(),
       apiInfo.getDecorators()?.join(),
       apiInfo.getFilePath(),
+      subsystemMap.get(FunctionUtils.handleSyscap(apiInfo.getSyscap())),
     ];
     lineNumber++;
     apiRelationsSet.add(apiRelations);
