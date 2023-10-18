@@ -2325,11 +2325,11 @@ declare namespace cryptoFramework {
     /**
      * Indicates the password parameter of PBKDF2.
      *
-     * @type { string }
+     * @type { string | Uint8Array}
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
-    password: string;
+    password: string | Uint8Array;
 
     /**
      * Indicates the salt parameter of PBKDF2.
