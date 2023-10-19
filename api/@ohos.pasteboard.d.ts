@@ -638,7 +638,7 @@ declare namespace pasteboard {
     off(type: 'update', callback?: () => void): void;
 
     /**
-     * Check if remote data.
+     * Checks whether the data is remote.
      * @returns { boolean } True is remote data, else false.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -647,8 +647,8 @@ declare namespace pasteboard {
     isRemoteData(): boolean;
 
     /**
-     * Obtain the package name of the data source application.
-     * @returns { string } The package name of the application.
+     * Gets source of data.
+     * @returns { string } data source.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 11
