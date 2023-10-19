@@ -497,8 +497,46 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#fetchCookieSync
      */
     static getCookie(url: string): string;
+
+    /**
+     * Gets all cookies for the given URL.
+     *
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { string } - The cookie value for the given URL.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static fetchCookieSync(url: string): string;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     * 
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static fetchCookie(url: string): Promise<string>;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     * 
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param { AsyncCallback<string> } callback - Called after the cookies of given URL have been gotten.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static fetchCookie(url: string, callback: AsyncCallback<string>): void;
 
     /**
      * Set a single cookie (key-value pair) for the given URL.
@@ -510,8 +548,51 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#configCookieSync
      */
     static setCookie(url: string, value: string): void;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static configCookieSync(url: string, value: string): void;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static configCookie(url: string, value: string): Promise<void>;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been set.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Save the cookies Asynchronously.
@@ -584,15 +665,70 @@ declare namespace webview {
      * Remove all cookies.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#clearEntireCookieSync
      */
     static deleteEntireCookie(): void;
+
+    /**
+     * Remove all cookies.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearAllCookiesSync(): void;
+
+    /**
+     * Remove all cookies Asynchronously.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearAllCookies(): Promise<void>;
+
+    /**
+     * Remove all cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearAllCookies(callback: AsyncCallback<void>): void;
 
     /**
      * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#clearSessionCookieSync
      */
     static deleteSessionCookie(): void;
+
+    /**
+     * Delete the session cookies.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearSessionCookieSync(): void;
+
+    /**
+     * Delete the session cookies Asynchronously.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearSessionCookie(): Promise<void>;
+
+    /**
+     * Delete the session cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
 
   /**
