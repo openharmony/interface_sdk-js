@@ -134,6 +134,7 @@ crosshair
 crowdtest
 crowdtested
 crowdtesting
+csh
 cug
 cyclewindows
 daltonization
@@ -846,12 +847,17 @@ wideband
 wifiext
 wimax
 wireframe
+wma
+wmp
+wmv
+wmx
 wordprocessor
 workscheduler
 woy
 wrappedvalue
 writemask
 wukong
+wvx
 wwan
 x25519
 x509
