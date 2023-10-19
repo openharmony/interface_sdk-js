@@ -137,7 +137,7 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getOneCfgFileExSync(relPath: string, followMode: FollowXMode, extra?: string): string;
+  function getOneCfgFileEx(relPath: string, followMode: FollowXMode, extra?: string): string;
 
   /**
    * Gets the config files in device architecture, ordered by priority from low to high.
@@ -187,7 +187,7 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getCfgFilesExSync(relPath: string, followMode: FollowXMode, extra?: string): Array<string>;
+  function getCfgFilesEx(relPath: string, followMode: FollowXMode, extra?: string): Array<string>;
 
   /**
    * Gets the config directory in the device architecture, ordered by priority from low to high.
