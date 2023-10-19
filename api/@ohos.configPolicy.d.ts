@@ -43,7 +43,7 @@ declare namespace configPolicy {
     DEFAULT = 0,
 
     /**
-     * No follow mode, will not use any follow rule, even exist followx_file_list.cfg.
+     * No rule followed, will not use any follow rule, even exist followx_file_list.cfg.
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
@@ -90,7 +90,7 @@ declare namespace configPolicy {
   }
 
   /**
-   * Get file from the highest priority config path which contains the given file name.
+   * Gets file from the highest priority config path which contains the given file name.
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
@@ -102,7 +102,7 @@ declare namespace configPolicy {
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
 
   /**
-   * Get file from the highest priority config path which contains the given file name.
+   * Gets file from the highest priority config path which contains the given file name.
    *
    * @param { string } relPath - the relative path of the config file.
    * @returns { Promise<string> } the promise returns the path of the highest priority config file.
@@ -114,7 +114,7 @@ declare namespace configPolicy {
   function getOneCfgFile(relPath: string): Promise<string>;
 
   /**
-   * Get file from the highest priority config path which contains the given file name.
+   * Gets file from the highest priority config path which contains the given file name.
    *
    * @param { string } relPath - the relative path of the config file.
    * @returns { string } the path of the highest priority config file.
@@ -126,7 +126,7 @@ declare namespace configPolicy {
   function getOneCfgFileSync(relPath: string): string;
 
   /**
-   * Get file from the highest priority config path with follow mode which contains the given file name.
+   * Gets file from the highest priority config path with follow mode which contains the given file name.
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
@@ -140,7 +140,7 @@ declare namespace configPolicy {
   function getOneCfgFileExSync(relPath: string, followMode: FollowXMode, extra?: string): string;
 
   /**
-   * Get config files in device architecture, ordered by priority from low to high.
+   * Gets config files in device architecture, ordered by priority from low to high.
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { AsyncCallback<Array<string>> } callback - contains paths of config files.
@@ -152,7 +152,7 @@ declare namespace configPolicy {
   function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
 
   /**
-   * Get config files in device architecture, ordered by priority from low to high.
+   * Gets config files in device architecture, ordered by priority from low to high.
    *
    * @param { string } relPath - the relative path of the config file.
    * @returns { Promise<Array<string>> } the promise returns paths of config files.
@@ -164,7 +164,7 @@ declare namespace configPolicy {
   function getCfgFiles(relPath: string): Promise<Array<string>>;
 
   /**
-   * Get config files in device architecture, ordered by priority from low to high.
+   * Gets config files in device architecture, ordered by priority from low to high.
    *
    * @param { string } relPath - the relative path of the config file.
    * @returns { Array<string> } the paths of config files.
@@ -176,7 +176,7 @@ declare namespace configPolicy {
   function getCfgFilesSync(relPath: string): Array<string>;
 
   /**
-   * Get config files in device architecture with follow mode, ordered by priority from low to high.
+   * Gets config files in device architecture with follow mode, ordered by priority from low to high.
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
@@ -190,7 +190,7 @@ declare namespace configPolicy {
   function getCfgFilesExSync(relPath: string, followMode: FollowXMode, extra?: string): Array<string>;
 
   /**
-   * Get config directories in device architecture, ordered by priority from low to high.
+   * Gets config directories in device architecture, ordered by priority from low to high.
    *
    * @param { AsyncCallback<Array<string>> } callback - contains paths of config directories.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -201,7 +201,7 @@ declare namespace configPolicy {
   function getCfgDirList(callback: AsyncCallback<Array<string>>);
 
   /**
-   * Get config directories in device architecture, ordered by priority from low to high.
+   * Gets config directories in device architecture, ordered by priority from low to high.
    *
    * @returns { Promise<Array<string>> } the promise returns paths of config directories.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -212,7 +212,7 @@ declare namespace configPolicy {
   function getCfgDirList(): Promise<Array<string>>;
 
   /**
-   * Get config directories in device architecture, ordered by priority from low to high.
+   * Gets config directories in device architecture, ordered by priority from low to high.
    *
    * @returns { Array<string> } the paths of config directories.
    * @throws { BusinessError } 401 - invalid input parameter.
