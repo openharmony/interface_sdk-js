@@ -221,7 +221,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
-  selected(value: number): SelectAttribute;
+  /**
+   * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { number | Resource } value - the serial number of the select item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selected(value: number | Resource): SelectAttribute;
 
   /**
    * Sets the text display of the select button itself.
@@ -240,7 +249,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
-  value(value: string): SelectAttribute;
+  /**
+   * Sets the text display of the select button itself.
+   *
+   * @param { ResourceStr } value - the text display of the select button itself.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  value(value: ResourceStr): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.
