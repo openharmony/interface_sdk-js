@@ -23,6 +23,7 @@ import type { Callback } from './@ohos.base';
  * @syscap SystemCapability.DistributedHardware.DeviceManager
  * @since 7
  * @deprecated since 11
+ * @useinstead ohos.distributedDeviceManager/distributedDeviceManager
  */
 declare namespace deviceManager {
   /**
@@ -33,6 +34,7 @@ declare namespace deviceManager {
    * @systemapi this method can be used only by system applications.
    * @since 7
    * @deprecated since 11
+   * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo
    */
   interface DeviceInfo {
     /**
@@ -42,6 +44,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#deviceId
      */
     deviceId: string;
 
@@ -52,6 +55,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#deviceName
      */
     deviceName: string;
 
@@ -62,6 +66,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#deviceType
      */
     deviceType: DeviceType;
 
@@ -72,6 +77,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#networkId
      */
     networkId: string;
 
@@ -236,6 +242,7 @@ declare namespace deviceManager {
    * @systemapi this method can be used only by system applications.
    * @since 7
    * @deprecated since 11
+   * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange
    */
   enum DeviceStateChangeAction {
     /**
@@ -245,6 +252,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange#UNKNOWN
      */
     ONLINE = 0,
 
@@ -256,6 +264,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange#AVAILABLE
      */
     READY = 1,
 
@@ -266,6 +275,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange#UNAVAILABLE
      */
     OFFLINE = 2,
 
@@ -665,6 +675,7 @@ declare namespace deviceManager {
    * @systemapi this method can be used only by system applications.
    * @since 7
    * @deprecated since 11
+   * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.createDeviceManager
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
 
@@ -675,6 +686,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 7
    * @deprecated since 11
+   * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager
    */
   interface DeviceManager {
     /**
@@ -688,6 +700,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.releaseDeviceManager
      */
     release(): void;
 
@@ -703,6 +716,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getAvailableDeviceListSync
      */
     getTrustedDeviceListSync(): Array<DeviceInfo>;
 
@@ -734,6 +748,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getAvailableDeviceList
      */
     getTrustedDeviceList(callback: AsyncCallback<Array<DeviceInfo>>): void;
 
@@ -747,6 +762,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getAvailableDeviceList
      */
     getTrustedDeviceList(): Promise<Array<DeviceInfo>>;
 
@@ -762,6 +778,10 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceNetworkId
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceName
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceType
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceId
      */
     getLocalDeviceInfoSync(): DeviceInfo;
 
@@ -776,6 +796,10 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceNetworkId
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceName
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceType
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceId
      */
     getLocalDeviceInfo(callback: AsyncCallback<DeviceInfo>): void;
 
@@ -789,6 +813,10 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceNetworkId
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceName
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceType
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceId
      */
     getLocalDeviceInfo(): Promise<DeviceInfo>;
 
@@ -804,6 +832,8 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getDeviceName
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getDeviceType
      */
     getDeviceInfo(networkId: string, callback: AsyncCallback<DeviceInfo>): void;
 
@@ -819,6 +849,8 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getDeviceName
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getDeviceType
      */
     getDeviceInfo(networkId: string): Promise<DeviceInfo>;
 
@@ -836,6 +868,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#startDiscovering
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
 
@@ -854,6 +887,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 9
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#startDiscovering
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
 
@@ -870,6 +904,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#stopDiscovering
      */
     stopDeviceDiscovery(subscribeId: number): void;
 
@@ -919,6 +954,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#bindTarget
      */
     authenticateDevice(
       deviceInfo: DeviceInfo,
@@ -939,6 +975,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 8
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#unbindTarget
      */
     unAuthenticateDevice(deviceInfo: DeviceInfo): void;
 
@@ -970,6 +1007,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 9
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#replyUiAction
      */
     setUserOperation(operateAction: number, params: string): void;
 
@@ -1033,6 +1071,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 9
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on('replyResult')
      */
     on(type: 'uiStateChange', callback: Callback<{ param: string }>): void;
 
@@ -1049,6 +1088,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 9
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off('replyResult')
      */
     off(type: 'uiStateChange', callback?: Callback<{ param: string }>): void;
 
@@ -1066,6 +1106,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on('deviceStateChange')
      */
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
@@ -1081,6 +1122,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off('deviceStateChange')
      */
     off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
@@ -1096,6 +1138,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on('discoverSuccess')
      */
     on(type: 'deviceFound', callback: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
 
@@ -1111,6 +1154,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off('discoverSuccess')
      */
     off(type: 'deviceFound', callback?: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
 
@@ -1126,6 +1170,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on('discoverFailure')
      */
     on(type: 'discoverFail', callback: Callback<{ subscribeId: number, reason: number }>): void;
 
@@ -1141,6 +1186,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off('discoverFailure')
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
 
@@ -1216,6 +1262,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on('serviceDie')
      */
     on(type: 'serviceDie', callback: () => void): void;
 
@@ -1231,6 +1278,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 7
      * @deprecated since 11
+     * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off('serviceDie')
      */
     off(type: 'serviceDie', callback?: () => void): void;
   }
