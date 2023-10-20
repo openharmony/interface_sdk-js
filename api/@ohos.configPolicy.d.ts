@@ -102,6 +102,33 @@ declare namespace configPolicy {
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
 
   /**
+   * Gets the file from the highest priority config path containing the given file name in follow mode.
+   *
+   * @param { string } relPath - the relative path of the config file.
+   * @param { FollowXMode } followMode - the follow mode.
+   * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getOneCfgFile(relPath: string, followMode: FollowXMode, callback: AsyncCallback<string>);
+
+  /**
+   * Gets the file from the highest priority config path containing the given file name in follow mode.
+   *
+   * @param { string } relPath - the relative path of the config file.
+   * @param { FollowXMode } followMode - the follow mode.
+   * @param { string } extra - set follow rule add path.
+   * @param { AsyncCallback<string> } callback - contains the path of the highest priority config file.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getOneCfgFile(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<string>);
+
+  /**
    * Gets the file from the highest priority config path containing the given file name.
    *
    * @param { string } relPath - the relative path of the config file.
@@ -114,19 +141,21 @@ declare namespace configPolicy {
   function getOneCfgFile(relPath: string): Promise<string>;
 
   /**
-   * Gets the file from the highest priority config path containing the given file name.
+   * Gets the file from the highest priority config path containing the given file name in follow mode.
    *
    * @param { string } relPath - the relative path of the config file.
-   * @returns { string } the path of the highest priority config file.
+   * @param { FollowXMode } followMode - the follow mode.
+   * @param { string } extra - set follow rule add path.
+   * @returns { Promise<string> } the promise returns the path of the highest priority config file.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getOneCfgFileSync(relPath: string): string;
+  function getOneCfgFile(relPath: string, followMode: FollowXMode, extra?: string): Promise<string>;
 
   /**
-   * Gets the file from the highest priority config path containing the given file name in follow mode.
+   * Gets the file from the highest priority config path containing the given file name, can set follow mode or not.
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
@@ -137,7 +166,7 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getOneCfgFileEx(relPath: string, followMode: FollowXMode, extra?: string): string;
+  function getOneCfgFileSync(relPath: string, followMode?: FollowXMode, extra?: string): string;
 
   /**
    * Gets the config files in device architecture, ordered by priority from low to high.
@@ -152,6 +181,33 @@ declare namespace configPolicy {
   function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
 
   /**
+   * Gets the config files in device architecture in follow mode, ordered by priority from low to high.
+   *
+   * @param { string } relPath - the relative path of the config file.
+   * @param { FollowXMode } followMode - the follow mode.
+   * @param { AsyncCallback<Array<string>> } callback - contains paths of config files.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getCfgFiles(relPath: string, followMode: FollowXMode, callback: AsyncCallback<Array<string>>);
+
+  /**
+   * Gets the config files in device architecture in follow mode, ordered by priority from low to high.
+   *
+   * @param { string } relPath - the relative path of the config file.
+   * @param { FollowXMode } followMode - the follow mode.
+   * @param { string } extra - set follow rule add path.
+   * @param { AsyncCallback<Array<string>> } callback - contains paths of config files.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getCfgFiles(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<Array<string>>);
+
+  /**
    * Gets the config files in device architecture, ordered by priority from low to high.
    *
    * @param { string } relPath - the relative path of the config file.
@@ -164,19 +220,21 @@ declare namespace configPolicy {
   function getCfgFiles(relPath: string): Promise<Array<string>>;
 
   /**
-   * Gets the config files in device architecture, ordered by priority from low to high.
+   * Gets the config files in device architecture in follow mode, ordered by priority from low to high, can set follow mode or not.
    *
    * @param { string } relPath - the relative path of the config file.
-   * @returns { Array<string> } the paths of config files.
+   * @param { FollowXMode } followMode - the follow mode.
+   * @param { string } extra - set follow rule add path.
+   * @returns { Promise<Array<string>> } the promise returns paths of config files.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getCfgFilesSync(relPath: string): Array<string>;
+  function getCfgFiles(relPath: string, followMode: FollowXMode, extra?: string): Promise<Array<string>>;
 
   /**
-   * Gets the config files in device architecture in follow mode, ordered by priority from low to high.
+   * Gets the config files in device architecture, ordered by priority from low to high.
    *
    * @param { string } relPath - the relative path of the config file.
    * @param { FollowXMode } followMode - the follow mode.
@@ -187,7 +245,7 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getCfgFilesEx(relPath: string, followMode: FollowXMode, extra?: string): Array<string>;
+  function getCfgFilesSync(relPath: string, followMode?: FollowXMode, extra?: string): Array<string>;
 
   /**
    * Gets the config directory in the device architecture, ordered by priority from low to high.
