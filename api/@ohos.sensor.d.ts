@@ -2303,7 +2303,7 @@ declare namespace sensor {
      */
     x: number;
 
-    /** Indicates the axis of the new coordinate system that coincides with the Z axis of the original coordinate system. 
+    /** Indicates the axis of the new coordinate system that coincides with the Y axis of the original coordinate system. 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2716,6 +2716,42 @@ declare namespace sensor {
   }
 
   /**
+   * Enumerates the accuracy levels of data reported by a sensor.
+   * @enum { number }
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 11
+   */
+  enum SensorAccuracy {
+    /**
+     * The sensor data is unreliable. It is possible that the sensor does not contact with the device to measure.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_UNRELIABLE = 0,
+
+    /**
+     * The sensor data is at a low accuracy level. The data must be calibrated based on the environment before being used.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_LOW = 1,
+
+    /**
+     * The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment before using it.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_MEDIUM = 2,
+
+    /**
+     * The sensor data is at a high accuracy level. The data can be used directly.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    ACCURACY_HIGH = 3
+  }
+
+  /**
    * The basic data structure of the sensor event.
    * @typedef Response
    * @syscap SystemCapability.Sensors.Sensor
@@ -2729,6 +2765,14 @@ declare namespace sensor {
      * @since 8
      */
     timestamp: number;
+
+    /**
+     * The accuracy levels of data reported by a sensor.
+     * @type { SensorAccuracy }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 11
+     */
+    accuracy: SensorAccuracy;
   }
 
   /**
@@ -3055,6 +3099,8 @@ declare namespace sensor {
   interface SignificantMotionResponse extends Response {
     /**
      * The degree of significant motion.
+     * Whether the device has a significant motion.
+     * The value 1 means that the device has a significant motion, and 0 means the opposite.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3312,6 +3358,7 @@ declare namespace sensor {
 
   /**
    * Color sensor event data.
+   * @typedef ColorResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -3320,23 +3367,24 @@ declare namespace sensor {
     /**
      * Indicates the intensity of light, in lux.
      * @type { number }
-     * @syscap SystemCapability.Sensors.Sensor
-     * @since 10
+     * @syscap SystemCapability.Sensors.Sensor      
      * @systemapi
+     * @since 10
      */
     lightIntensity: number;
     /**
      * Indicates the color temperature, in kelvin.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 10
      * @systemapi
+     * @since 10
      */
     colorTemperature: number;
   }
 
   /**
    * Sar sensor event data.
+   * @typedef SarResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -3346,8 +3394,8 @@ declare namespace sensor {
      * Indicates the specific absorption rate, in W/kg.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 10
      * @systemapi
+     * @since 10
      */
     absorptionRatio: number;
   }

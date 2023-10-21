@@ -1851,6 +1851,7 @@ declare interface RotateOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   centerY?: number | string;
 
@@ -1968,6 +1969,7 @@ declare interface TransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare enum TransitionEdge {
   /**
@@ -1976,6 +1978,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   TOP,
 
@@ -1985,6 +1988,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   BOTTOM,
 
@@ -1994,6 +1998,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   START,
 
@@ -2003,6 +2008,7 @@ declare enum TransitionEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   END
 }
@@ -2013,6 +2019,7 @@ declare enum TransitionEdge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type TransitionEffects = {
   identity: undefined;
@@ -2034,6 +2041,7 @@ declare type TransitionEffects = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class TransitionEffect<
   Type extends keyof TransitionEffects = keyof TransitionEffects,
@@ -2047,6 +2055,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly IDENTITY: TransitionEffect<"identity">;
 
@@ -2058,6 +2067,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly OPACITY: TransitionEffect<"opacity">;
 
@@ -2073,6 +2083,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly SLIDE: TransitionEffect<
     "asymmetric",
@@ -2090,6 +2101,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
 
@@ -2101,6 +2113,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static translate(options: TranslateOptions): TransitionEffect<"translate">;
 
@@ -2112,6 +2125,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static rotate(options: RotateOptions): TransitionEffect<"rotate">;
 
@@ -2123,6 +2137,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static scale(options: ScaleOptions): TransitionEffect<"scale">;
 
@@ -2134,6 +2149,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
@@ -2145,6 +2161,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static move(edge: TransitionEdge): TransitionEffect<"move">;
 
@@ -2157,6 +2174,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   static asymmetric(
     appear: TransitionEffect,
@@ -2171,6 +2189,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(type: Type, effect: Effect);
 
@@ -2182,6 +2201,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   animation(value: AnimateParam): TransitionEffect;
 
@@ -2193,6 +2213,7 @@ declare class TransitionEffect<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
@@ -3350,6 +3371,17 @@ declare interface ShadowOptions {
    * @form
    */
   offsetY?: number | Resource;
+
+  /**
+   * Define whether the shadow should fill the area
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fill?: boolean;
 }
 
 /**
@@ -4025,11 +4057,11 @@ declare interface HoverEvent extends BaseEvent {
   /**
    * The blocking hover event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 }
 
 /**
@@ -4137,11 +4169,11 @@ declare interface MouseEvent extends BaseEvent {
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 }
 
 /**
@@ -4411,19 +4443,19 @@ declare interface TouchEvent extends BaseEvent {
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The blocking event pops up.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 
   /**
    * Get the historical points.
@@ -4886,19 +4918,19 @@ declare interface KeyEvent {
   /**
    * Block event bubbling.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Block event bubbling.
    *
-   * @type { ?function }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  stopPropagation?: () => void;
+  stopPropagation: () => void;
 
   /**
    * Intention code of a key or modifier keys.
@@ -5770,7 +5802,7 @@ declare interface ContextMenuOptions {
    * The preview content of context menu.
    * 
    * @type { ?(MenuPreviewMode | CustomBuilder) }
-   * @default MenuPreviewMode.IMAGE
+   * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -6794,7 +6826,7 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
-  onClick(event: (event?: ClickEvent) => void): T;
+  onClick(event: (event: ClickEvent) => void): T;
 
   /**
    * Trigger a hover event.
@@ -6804,7 +6836,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
+  onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
 
   /**
    * Set hover effect.
@@ -6833,7 +6865,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onMouse(event: (event?: MouseEvent) => void): T;
+  onMouse(event: (event: MouseEvent) => void): T;
 
   /**
    * Trigger a touch event when touched.
@@ -6852,7 +6884,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  onTouch(event: (event?: TouchEvent) => void): T;
+  onTouch(event: (event: TouchEvent) => void): T;
 
   /**
    * Keyboard input
@@ -6871,7 +6903,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  onKeyEvent(event: (event?: KeyEvent) => void): T;
+  onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
    * Set focusable.
@@ -8228,7 +8260,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
+  onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -8238,7 +8270,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
@@ -8248,7 +8280,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
@@ -8258,7 +8290,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
@@ -8269,7 +8301,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
+  onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
    * This function is called when the drag event is end.

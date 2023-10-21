@@ -20,6 +20,8 @@ import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
+import type { AutoStartupCallback as _AutoStartupCallback } from './AutoStartupCallback';
+import type { AutoStartupInfo as _AutoStartupInfo } from './AutoStartupInfo';
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -262,4 +264,143 @@ export default class ApplicationContext extends Context {
    * @since 11
    */
   setLanguage(language: string): void;
+
+  /**
+   * Clear up application data by app self
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  clearUpApplicationData(): Promise<void>;
+
+  /**
+   * Clear up application data by app self
+   *
+   * @param { AsyncCallback<void> } callback - The callback of clearUpApplicationData.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  clearUpApplicationData(callback: AsyncCallback<void>): void;
+
+  /**
+   * Register the listener that watches for current application auto startup state.
+   *
+   * @param { 'abilityAutoStartup' } type - Indicates the type of event.
+   * @param { AutoStartupCallback } callback - Auto startup callback.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  on(type: 'abilityAutoStartup', callback: AutoStartupCallback): void;
+
+  /**
+   * Unregister listener that watches for current application auto startup state.
+   *
+   * @param { 'abilityAutoStartup' } type - Indicates the type of event.
+   * @param { AutoStartupCallback } [callback] - Auto startup callback.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  off(type: 'abilityAutoStartup', callback?: AutoStartupCallback): void;
+
+  /**
+   * Set current application auto startup state.
+   *
+   * @param { AutoStartupInfo } info - The application info.
+   * @param { AsyncCallback<void> } callback - The callback of setAutoStartup.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  setAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set current application auto startup state.
+   *
+   * @param { AutoStartupInfo } info - The application info.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  setAutoStartup(info: AutoStartupInfo): Promise<void>;
+
+  /**
+   * Cancel current application auto startup state.
+   *
+   * @param { AutoStartupInfo } info - The application info.
+   * @param { AsyncCallback<void> } callback - The callback of cancelAutoStartup.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  cancelAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancel current application auto startup state.
+   *
+   * @param { AutoStartupInfo } info - The application info.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  cancelAutoStartup(info: AutoStartupInfo): Promise<void>;
+
+  /**
+   * Check if the current application is auto startup state.
+   *
+   * @param { AutoStartupInfo } info - The application info.
+   * @param { AsyncCallback<boolean> } callback - The callback of isAutoStartup.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  isAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Check if the current application is auto startup state.
+   *
+   * @param { AutoStartupInfo } info - The application info.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  isAutoStartup(info: AutoStartupInfo): Promise<boolean>;
 }
+
+/**
+ * The class of auto startup info.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @since 11
+ */
+export type AutoStartupInfo = _AutoStartupInfo;
+
+/**
+ * The class of auto startup callback.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @since 11
+ */
+export type AutoStartupCallback = _AutoStartupCallback;

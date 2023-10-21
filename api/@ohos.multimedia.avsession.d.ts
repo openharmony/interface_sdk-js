@@ -20,6 +20,7 @@ import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
 import type media from './@ohos.multimedia.media';
+import type Context from './application/BaseContext';
 
 /**
  * @namespace avSession

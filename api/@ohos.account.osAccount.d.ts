@@ -1767,6 +1767,16 @@ declare namespace osAccount {
      * @since 10
      */
     accountId?: string;
+
+    /**
+     * Indicates whether the account is authenticated.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    isAuthenticated?: boolean;
   }
 
   /**

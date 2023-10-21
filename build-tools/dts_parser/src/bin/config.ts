@@ -19,10 +19,15 @@ import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
+import { DiffHelper } from '../coreImpl/diff/diff';
+import { BasicDiffInfo, diffTypeMap } from '../typedef/diff/ApiInfoDiff';
 import { WriterHelper } from './writer';
 import { LocalEntry } from '../coreImpl/checker/local_entry';
 import { ApiResultSimpleInfo } from '../typedef/checker/result_type';
 import { NumberConstant } from '../utils/Constant';
+import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
+import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
+import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -38,6 +43,10 @@ export enum toolNameType {
    * 检查工具
    */
   CHECK = 'check',
+  /**
+   * diff工具
+   */
+  DIFF = 'diff',
 }
 
 /**
@@ -142,9 +151,9 @@ let startTime = Date.now();
  *
  * @param {Array<any>} infos 工具返回的数据
  * @param {optionObjType} options 传入的命令参数
- * @param {(toolNameExcelCallback | undefined)} callback 导出excel的回调
+ * @param {(ToolNameExcelCallback  | undefined)} callback 导出excel的回调
  */
-function outputInfos(infos: Array<any>, options: optionObjType, callback: toolNameExcelCallback | undefined): void {
+function outputInfos(infos: Array<any>, options: optionObjType, callback: ToolNameExcelCallback | undefined): void {
   const format = options.format;
   if (!format) {
     return;
@@ -185,17 +194,66 @@ function collectApi(options: optionObjType): toolNameValueType {
     }
     const fileContent: string = Parser.getParseResults(allApis);
     return {
-      data: [fileContent],
+      data: options.format === 'excel' ? ApiStatisticsHelper.getApiStatisticsInfos(allApis) : [fileContent],
+      callback: collectApiCallback,
     };
   } catch (exception) {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
     return {
       data: [],
+      callback: collectApiCallback,
     };
   }
 }
 
+function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Worksheet): void {
+  const apiRelationsSet: Set<string> = new Set();
+  sheet.name = 'JsApi';
+  sheet.views = [{ xSplit: 1 }];
+  sheet.getRow(1).values = [
+    '模块名',
+    '类名',
+    '方法名',
+    '函数',
+    '类型',
+    '起始版本',
+    '废弃版本',
+    'syscap',
+    '是否为系统API',
+    '模型限制',
+    '权限',
+    '是否支持跨平台',
+    '装饰器',
+    '文件路径',
+  ];
+  let lineNumber = 2;
+  apiData.forEach((apiInfo: ApiStatisticsInfo) => {
+    const apiRelations: string = `${apiInfo.getHierarchicalRelations()},${apiInfo.getDefinedText()}`;
+    if (apiRelationsSet.has(apiRelations)) {
+      return;
+    }
+
+    sheet.getRow(lineNumber).values = [
+      apiInfo.getPackageName(),
+      apiInfo.getParentModuleName(),
+      apiInfo.getApiName(),
+      apiInfo.getDefinedText(),
+      apiInfo.getApiType(),
+      apiInfo.getSince(),
+      apiInfo.getDeprecatedVersion(),
+      apiInfo.getSyscap(),
+      apiInfo.getApiLevel(),
+      apiInfo.getModelLimitation(),
+      apiInfo.getPermission(),
+      apiInfo.getIsCrossPlatForm(),
+      apiInfo.getDecorators()?.join(),
+      apiInfo.getFilePath(),
+    ];
+    lineNumber++;
+    apiRelationsSet.add(apiRelations);
+  });
+}
 /**
  * 收集api工具调用方法
  *
@@ -212,7 +270,7 @@ function checkApi(options: optionObjType): toolNameValueType {
     }
     let finalData: (string | ApiResultSimpleInfo)[] = [];
     if (options.format === formatType.JSON) {
-      finalData = [JSON.stringify(fileContent, null, NumberConstant.Indent_Space)];
+      finalData = [JSON.stringify(fileContent, null, NumberConstant.INDENT_SPACE)];
     } else {
       finalData = fileContent;
     }
@@ -229,11 +287,100 @@ function checkApi(options: optionObjType): toolNameValueType {
 }
 
 /**
+ * diffApi工具调用方法
+ *
+ * @param { optionObjType } options
+ * @return { toolNameValueType }
+ */
+function diffApi(options: optionObjType): toolNameValueType {
+  const oldFileDir: string = path.resolve(FileUtils.getBaseDirName(), options.old);
+  const newFileDir: string = path.resolve(FileUtils.getBaseDirName(), options.new);
+  const status: fs.Stats = fs.statSync(oldFileDir);
+  let data: BasicDiffInfo[] = [];
+  try {
+    if (status.isDirectory()) {
+      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
+      const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
+      data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
+    } else {
+      const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
+      const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
+      data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
+    }
+    let finalData: (string | BasicDiffInfo)[] = [];
+    if (options.format === formatType.JSON) {
+      finalData = [JSON.stringify(data, null, NumberConstant.INDENT_SPACE)];
+    } else {
+      finalData = data;
+    }
+    return {
+      data: finalData,
+      callback: diffApiCallback,
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error diff', error.stack ? error.stack : error.message);
+    return {
+      data: [],
+      callback: diffApiCallback,
+    };
+  }
+}
+
+/**
+ * diffApi工具导出excel时的回调方法
+ *
+ * @param {BasicDiffInfo[]} data diffApi工具获取到的数据
+ * @param {ExcelJS.Worksheet} sheet ExcelJS构建的Worksheet对象
+ */
+function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?: string): void {
+  sheet.name = 'api差异';
+  sheet.views = [{ xSplit: 1 }];
+  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统'];
+  data.forEach((diffInfo: BasicDiffInfo, index: number) => {
+    sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
+      diffTypeMap.get(diffInfo.getDiffType()),
+      joinOldMessage(diffInfo),
+      joinNewMessage(diffInfo),
+      diffInfo.getNewDtsName(),
+      SyscapProcessorHelper.matchSubsystem(diffInfo),
+    ];
+  });
+
+  WriterHelper.MarkdownReporter.writeInMarkdown(data, dest);
+}
+
+export function joinOldMessage(diffInfo: BasicDiffInfo): string {
+  if (!diffInfo.getOldDescription()) {
+    return 'NA';
+  }
+  const relation: string[] = diffInfo.getOldHierarchicalRelations();
+  const parentModuleName: string = diffInfo.getParentModuleName(relation);
+  return (
+    `文件名：${diffInfo.getOldDtsName()}；\n类名：${parentModuleName}；\n` +
+    `API声明：${diffInfo.getOldApiDefinedText()}\n差异内容：${diffInfo.getOldDescription()}`
+  );
+}
+
+export function joinNewMessage(diffInfo: BasicDiffInfo): string {
+  if (!diffInfo.getNewDescription()) {
+    return 'NA';
+  }
+  const relation: string[] = diffInfo.getNewHierarchicalRelations();
+  const parentModuleName: string = diffInfo.getParentModuleName(relation);
+  return (
+    `文件名：${diffInfo.getNewDtsName()}；\n类名：${parentModuleName}；\n` +
+    `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${diffInfo.getNewDescription()}`
+  );
+}
+
+/**
  * 工具名称对应执行的方法
  */
 export const toolNameMethod: Map<string, toolNameMethodType> = new Map([
   [toolNameType.COOLECT, collectApi],
   [toolNameType.CHECK, checkApi],
+  [toolNameType.DIFF, diffApi],
 ]);
 
 /**
@@ -257,7 +404,7 @@ export type optionObjType = {
  * @param { data } data 工具获取到的数据
  * @param { ExcelJS.Worksheet } sheet ExcelJS构建的Worksheet对象
  */
-export type toolNameExcelCallback = (data: Array<any>, sheet: ExcelJS.Worksheet) => void;
+export type ToolNameExcelCallback = (data: Array<any>, sheet: ExcelJS.Worksheet, dest?: string) => void;
 
 /**
  * 各个工具调用方法返回的格式
@@ -275,7 +422,7 @@ export type toolNameValueType = {
    *
    * @type {toolNameExcelCallback}
    */
-  callback?: toolNameExcelCallback;
+  callback?: ToolNameExcelCallback;
 };
 
 /**

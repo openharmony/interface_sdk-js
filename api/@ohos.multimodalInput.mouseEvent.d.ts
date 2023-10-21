@@ -78,7 +78,23 @@ export declare enum Action {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  AXIS_END = 6
+  AXIS_END = 6,
+
+  /**
+   * Indicates a pointer action representing that a finger is pressed on touchpad.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  ACTION_DOWN = 7,
+
+  /**
+   * Indicates a pointer action representing that a finger leaves touchpad.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  ACTION_UP = 8,
 }
 
 /**
@@ -210,6 +226,47 @@ export declare interface AxisValue {
    * @since 9
    */
   value: number;
+}
+
+/**
+ * ToolType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 11
+ */
+export declare enum ToolType {
+  /**
+   * Unknown type
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  UNKNOWN = 0,
+
+  /**
+   * Mouse
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  MOUSE = 1,
+
+  /**
+   * Joystick
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  JOYSTICK = 2,
+
+  /**
+   * Touch pad
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  TOUCHPAD = 3,
 }
 
 /**
@@ -372,4 +429,13 @@ export declare interface MouseEvent extends InputEvent {
    * @since 9
    */
   scrollLock: boolean;
+
+  /**
+   * Tool type
+   *
+   * @type { ToolType }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  toolType: ToolType;
 }
