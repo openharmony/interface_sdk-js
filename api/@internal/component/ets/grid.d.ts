@@ -53,6 +53,17 @@ declare interface GridLayoutOptions {
    * @since 10
    */
   onGetIrregularSizeByIndex?: (index: number) => [number, number]
+
+  /**
+   * Called to return the size of the grid items with the specified index in 
+   * [rowStart, columnStart, rowSpan, columnSpan].
+   *
+   * @type { ?function } onGetRectByIndex
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onGetRectByIndex?: (index: number) => [number, number, number, number]
 }
 
 /**
@@ -202,14 +213,14 @@ declare interface ComputedBarAttribute {
 /**
  * Defines the grid attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the grid attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
