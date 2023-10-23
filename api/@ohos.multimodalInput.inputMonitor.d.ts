@@ -16,7 +16,7 @@
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
-import type { Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
+import type { Pinch, ThreeFingersSwipe, FourFingersSwipe, ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
 
 /**
  * Global input event listener
@@ -188,5 +188,36 @@ declare namespace inputMonitor {
    * @since 10
    */
   function off(type: 'fourFingersSwipe', receiver?: Callback<FourFingersSwipe>): void;
+  
+  /**
+   * Listens for touchPad three fingers tap events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'threeFingersTap' } type - Event type, which is **threeFingersTap**.
+   * @param { Callback<ThreeFingersTap> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function on(type: 'threeFingersTap', receiver: Callback<ThreeFingersTap>): void;
+
+  /**
+   * Cancel listening touchPad three fingers tap events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'threeFingersTap' } type - Event type, which is **threeFingersTap**.
+   * @param { Callback<ThreeFingersTap> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
+
 }
 export default inputMonitor;

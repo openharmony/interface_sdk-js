@@ -105,6 +105,23 @@ export declare interface FourFingersSwipe {
 }
 
 /**
+ * Three fingers tap event on touchPad
+ *
+ * @interface ThreeFingersTap
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 10
+ */
+export declare interface ThreeFingersTap {
+    /**
+     * Action type
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Core
+     * @since 10
+     */
+    type: ActionType;
+}
+  
+/**
  * Gesture action type
  *
  * @enum { number }
