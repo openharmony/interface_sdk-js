@@ -579,12 +579,27 @@ interface NavigationInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the status of toolbar item and it is used in the ToolbarItem interface.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum ToolbarItemStatus {
   /**
    * Normal state of toolbar item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Normal state of toolbar item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   NORMAL = 0,
 
@@ -594,6 +609,13 @@ declare enum ToolbarItemStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Disable state of toolbar item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   DISABLED = 1,
 
   /**
@@ -601,6 +623,13 @@ declare enum ToolbarItemStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Active state of toolbar item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   ACTIVE = 2,
 }

@@ -50,6 +50,14 @@ declare interface TextPickerRangeContent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Define the contents of text cascade picker.
+ *
+ * @interface TextCascadePickerRangeContent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare interface TextCascadePickerRangeContent {
   /**
    * Specifies the text content.
@@ -57,6 +65,14 @@ declare interface TextCascadePickerRangeContent {
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Specifies the text content.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   text: string | Resource;
 
@@ -66,6 +82,14 @@ declare interface TextCascadePickerRangeContent {
    * @type { ?TextCascadePickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Defines the text cascade picker children.
+   *
+   * @type { ?TextCascadePickerRangeContent[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   children?: TextCascadePickerRangeContent[];
 }
@@ -218,6 +242,15 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   *
+   * @param { boolean } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   canLoop(value: boolean): TextPickerAttribute;
 
@@ -400,6 +433,15 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   canLoop?: boolean;
 
