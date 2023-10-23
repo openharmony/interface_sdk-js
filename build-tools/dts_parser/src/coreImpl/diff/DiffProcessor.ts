@@ -438,6 +438,9 @@ export namespace DiffProcessorHelper {
      */
     static diffNodeInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
       const apiType: string = newApiInfo.getApiType();
+      if (oldApiInfo.getApiType() !== apiType) {
+        return;
+      }
       const apiNodeDiff: ApiNodeDiffProcessor | undefined = apiNodeDiffMethod.get(apiType);
       if (!apiNodeDiff) {
         return;
