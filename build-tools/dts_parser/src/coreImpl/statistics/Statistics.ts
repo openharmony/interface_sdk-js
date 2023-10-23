@@ -19,16 +19,19 @@ import {
   BasicApiInfo,
   ContainerApiInfo,
   containerApiTypes,
+  notJsDocApiTypes,
 } from '../../typedef/parser/ApiInfoDefination';
 import {
   ApiStatisticsInfo,
   apiStatisticsType,
   mergeDefinedTextType,
   notMergeDefinedText,
+  StatisticsInfoValueType,
 } from '../../typedef/statistics/ApiStatistics';
 import { Comment } from '../../typedef/parser/Comment';
 import { StringConstant, NumberConstant } from '../../utils/Constant';
 import { ApiInfosMap, FileInfoMap, FilesMap, BasicApiInfoMap } from '../parser/parser';
+import { LogUtil } from '../../utils/logUtil';
 import ts from 'typescript';
 
 export class ApiStatisticsHelper {
@@ -38,17 +41,18 @@ export class ApiStatisticsHelper {
    * @param { FilesMap } apiMap 根据接口定义文件处理得到的map结果
    * @returns { ApiStatisticsInfo[] } 返回需要统计的api列表
    */
-  static getApiStatisticsInfos(apiMap: FilesMap): ApiStatisticsInfo[] {
+  static getApiStatisticsInfos(apiMap: FilesMap): StatisticsInfoValueType {
     const apiStatisticsInfos: ApiStatisticsInfo[] = [];
+    const allApiStatisticsInfos: ApiStatisticsInfo[] = [];
     // map的第一层key均为文件路径名
     for (const filePath of apiMap.keys()) {
       const fileMap: FileInfoMap | undefined = apiMap.get(filePath);
       if (!fileMap) {
         continue;
       }
-      ApiStatisticsHelper.processFileApiMap(fileMap, apiStatisticsInfos);
+      ApiStatisticsHelper.processFileApiMap(fileMap, apiStatisticsInfos, allApiStatisticsInfos);
     }
-    return apiStatisticsInfos;
+    return { apiStatisticsInfos: apiStatisticsInfos, allApiStatisticsInfos: allApiStatisticsInfos };
   }
 
   /**
@@ -57,7 +61,11 @@ export class ApiStatisticsHelper {
    * @param { FileInfoMap } fileMap 获取到的一个文件解析到的map对象
    * @param { ApiStatisticsInfo[] } apiStatisticsInfos SourceFile节点下的第一层节点解析后的对象
    */
-  static processFileApiMap(fileMap: FileInfoMap, apiStatisticsInfos: ApiStatisticsInfo[]): void {
+  static processFileApiMap(
+    fileMap: FileInfoMap,
+    apiStatisticsInfos: ApiStatisticsInfo[],
+    allApiStatisticsInfos: ApiStatisticsInfo[]
+  ): void {
     for (const apiKey of fileMap.keys()) {
       if (apiKey === StringConstant.SELF) {
         continue;
@@ -72,8 +80,15 @@ export class ApiStatisticsHelper {
         continue;
       }
       ApiStatisticsHelper.connectDefinedText(apiInfos, sameNameRawTextMap);
+      const apiRelations: Set<string> = new Set();
       apiInfos.forEach((apiInfo: BasicApiInfo) => {
-        ApiStatisticsHelper.processApiInfo(apiInfo, apiStatisticsInfos, sameNameRawTextMap);
+        ApiStatisticsHelper.processApiInfo(
+          apiInfo,
+          apiStatisticsInfos,
+          sameNameRawTextMap,
+          allApiStatisticsInfos,
+          apiRelations
+        );
       });
     }
   }
@@ -134,24 +149,41 @@ export class ApiStatisticsHelper {
   static processApiInfo(
     basicApiInfo: BasicApiInfo,
     apiStatisticsInfos: ApiStatisticsInfo[],
-    sameNameRawTextMap: Map<string, string>
+    sameNameRawTextMap: Map<string, string>,
+    allApiStatisticsInfos: ApiStatisticsInfo[],
+    apiRelations: Set<string>
   ): void {
+    const apiInfo: ApiInfo = basicApiInfo as ApiInfo;
+    if (!apiRelations.has(ApiStatisticsHelper.joinRelations(basicApiInfo))) {
+      allApiStatisticsInfos.push(ApiStatisticsHelper.initApiStatisticsInfo(apiInfo, sameNameRawTextMap));
+    }
+
     if (!apiStatisticsType.has(basicApiInfo.getApiType())) {
       return;
     }
-    const apiInfo: ApiInfo = basicApiInfo as ApiInfo;
-
+    if (basicApiInfo.getApiName() === StringConstant.CONSTRUCTOR_API_NAME) {
+      return;
+    }
     const apiStatisticsInfo: ApiStatisticsInfo = ApiStatisticsHelper.initApiStatisticsInfo(apiInfo, sameNameRawTextMap);
-    if (apiStatisticsInfo.getApiType() !== ApiType.ENUM) {
+    if (
+      apiStatisticsInfo.getApiType() !== ApiType.ENUM &&
+      !apiRelations.has(ApiStatisticsHelper.joinRelations(basicApiInfo))
+    ) {
       apiStatisticsInfos.push(apiStatisticsInfo);
     }
-
+    apiRelations.add(ApiStatisticsHelper.joinRelations(basicApiInfo));
     if (!containerApiTypes.has(apiInfo.getApiType())) {
       return;
     }
     const containerApiInfo: ContainerApiInfo = apiInfo as ContainerApiInfo;
     containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
-      ApiStatisticsHelper.processApiInfo(childApiInfo, apiStatisticsInfos, sameNameRawTextMap);
+      ApiStatisticsHelper.processApiInfo(
+        childApiInfo,
+        apiStatisticsInfos,
+        sameNameRawTextMap,
+        allApiStatisticsInfos,
+        apiRelations
+      );
     });
   }
 
@@ -163,7 +195,6 @@ export class ApiStatisticsHelper {
     }
     const apiRelations: string = ApiStatisticsHelper.joinRelations(apiInfo);
     const sameNameDefinedText: string | undefined = sameNameRawTextMap.get(apiRelations);
-
     apiStatisticsInfo
       .setFilePath(apiInfo.getFilePath())
       .setApiType(apiInfo.getApiType())
@@ -172,6 +203,9 @@ export class ApiStatisticsHelper {
       .setPos(apiInfo.getPos())
       .setHierarchicalRelations(relations.join('/'))
       .setDecorators(apiInfo.getDecorators());
+    if (notJsDocApiTypes.has(apiInfo.getApiType())) {
+      return apiStatisticsInfo;
+    }
     const firstJsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getJsDocInfos()[0];
     if (firstJsDocInfo) {
       apiStatisticsInfo.setSince(firstJsDocInfo.getSince());
@@ -207,15 +241,19 @@ export class ApiStatisticsHelper {
     let curApiInfo: ApiInfo = apiInfo;
     let syscap: string = '';
     const node: ts.Node | undefined = curApiInfo.getNode();
-    while (node && curApiInfo && !ts.isSourceFile(node)) {
-      const jsdoc: Comment.JsDocInfo | undefined = curApiInfo.getLatestJsDocInfo();
-      if (jsdoc) {
-        syscap = jsdoc.getSyscap();
+    try {
+      while (node && curApiInfo && !ts.isSourceFile(node)) {
+        const jsdoc: Comment.JsDocInfo | undefined = curApiInfo.getLatestJsDocInfo();
+        if (jsdoc) {
+          syscap = jsdoc.getSyscap();
+        }
+        if (syscap) {
+          return syscap;
+        }
+        curApiInfo = curApiInfo.getParentApi() as ApiInfo;
       }
-      if (syscap) {
-        return syscap;
-      }
-      curApiInfo = curApiInfo.getParentApi() as ApiInfo;
+    } catch (error) {
+      LogUtil.e('SYSCAP ERROR', error);
     }
     return syscap;
   }

@@ -239,3 +239,19 @@ export const mergeDefinedTextType: Set<number> = new Set([
   ts.SyntaxKind.MethodSignature,
   ts.SyntaxKind.FunctionDeclaration,
 ]);
+
+export type StatisticsInfoValueType = {
+  /**
+   * 统计工具返回的经过筛选后的数据
+   *
+   * @type {ApiStatisticsInfo[]}
+   */
+  apiStatisticsInfos: ApiStatisticsInfo[];
+
+  /**
+   * 统计工具返回的未经筛选后的数据
+   *
+   * @type {ApiStatisticsInfo[]}
+   */
+  allApiStatisticsInfos?: ApiStatisticsInfo[];
+};
