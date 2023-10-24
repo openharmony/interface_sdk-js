@@ -16,6 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type rpc from './@ohos.rpc';
+import type resourceManager from './@ohos.resourceManager';
 
 /**
  * @namespace image
@@ -1712,6 +1713,18 @@ declare namespace image {
    * @since 10
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the raw file descriptor.
+   *
+   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @since 11
+   */
+   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.
