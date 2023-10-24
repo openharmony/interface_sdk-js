@@ -3316,7 +3316,7 @@ declare namespace sensor {
    */
   interface BarometerResponse extends Response {
     /**
-     * Indicates the number of barometer, in pascal.
+     * Indicates the number of barometer, in hpa.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
