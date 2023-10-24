@@ -122,7 +122,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEPATH: number;
   /**
-   * Error code 13400003 - task manager service error.
+   * Error code 13400003 - task service ability error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -130,7 +130,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13400003 - task manager service error.
+   * Error code 13400003 - task service ability error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
