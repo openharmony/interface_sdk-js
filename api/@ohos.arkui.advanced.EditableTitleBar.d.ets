@@ -43,7 +43,7 @@ export declare class EditableTitleBarMenuItem {
    * @since 10
    */
   action?: () => void;
-};
+}
 
 /**
  * Declaration of the left icon type.
@@ -63,7 +63,7 @@ export declare enum EditableLeftIconType {
    * @since 10
    */
   Cancel = 1
-};
+}
 
 /**
  * Declaration of the editable title bar.
@@ -106,4 +106,4 @@ export declare struct EditableTitleBar {
    * @since 10
    */
   onCancel?: () => void;
-};
+}
