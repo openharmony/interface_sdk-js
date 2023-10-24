@@ -445,5 +445,146 @@ declare namespace formObserver {
     isUnusedIncluded: boolean,
     callback: AsyncCallback<formInfo.RunningFormInfo>
   ): void;
+
+  /**
+   * Router event listening in registered form.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'router' } type - Indicates event type.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'router', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Router event listening in registered form.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'router' } type - Indicates event type.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'router', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Unregister form router event Listening.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'router' } type - Indicates event type.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'router', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Message event listening in registered form.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'message' } type - Indicates event type.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'message', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Message event listening in registered form.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'message' } type - Indicates event type.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'message', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Unregister form message event Listening.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'message' } type - Indicates event type.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'message', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Call event listening in registered form.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'call' } type - Indicates event type.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'call', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Call event listening in registered form.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'call' } type - Indicates event type.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'call', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Unregister form call event Listening.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'call' } type - Indicates event type.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'call', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 }
 export default formObserver;
