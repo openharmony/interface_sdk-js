@@ -469,6 +469,13 @@ declare namespace reminderAgentManager {
     autoDeletedTime?: number;
   }
 
+  /**
+   * Calendar reminder information.
+   *
+   * @interface ReminderRequestCalendar
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 9
+   */
   interface ReminderRequestCalendar extends ReminderRequest {
     /**
      * Reminder time.
@@ -537,9 +544,22 @@ declare namespace reminderAgentManager {
    * @since 9
    */
   interface ReminderRequestTimer extends ReminderRequest {
+    /**
+     * The number of seconds to count down.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 9
+     */
     triggerTimeInSeconds: number;
   }
 
+  /**
+   * Used for ReminderRequestCalendar when set the time.
+   *
+   * @interface LocalDateTime
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 9
+   */
   interface LocalDateTime {
     /**
      * Value of year.
