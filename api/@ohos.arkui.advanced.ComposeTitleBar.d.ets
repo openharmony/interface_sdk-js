@@ -43,7 +43,7 @@ export declare class ComposeTitleBarMenuItem {
    * @since 10
    */
   action?: () => void;
-};
+}
 
 /**
  * Declaration of the composable title bar.
@@ -79,4 +79,4 @@ export declare struct ComposeTitleBar {
    * @since 10
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
-};
+}
