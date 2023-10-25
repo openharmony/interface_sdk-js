@@ -36,30 +36,30 @@ declare namespace pipWindow {
   /**
    * create picture-in-picture controller
    *
-   * @param { PictureInPictureConfiguration } config - Params for picture-in-picture controller creation
-   * @returns { Promise<PictureInPictureController> } - The promise returned by the function
-   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PictureInPictureConfiguration
+   * @param { PipConfiguration } config - Params for picture-in-picture controller creation
+   * @returns { Promise<PipController> } - The promise returned by the function
+   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PipConfiguration
    * @throws { BusinessError } 801 - Capability not supported
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  function create(config: PictureInPictureConfiguration): Promise<PictureInPictureController>;
+  function create(config: PipConfiguration): Promise<PipController>;
 
   /**
-   * PictureInPictureConfiguration
+   * PipConfiguration
    *
-   * @interface PictureInPictureConfiguration
+   * @interface PipConfiguration
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  interface PictureInPictureConfiguration {
+  interface PipConfiguration {
     /**
      * Indicates window context.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    ctx: BaseContext;
+    context: BaseContext;
 
     /**
      * Indicates the origin XComponentController.
@@ -83,7 +83,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    templateType?: PictureInPictureTemplateType;
+    templateType?: PipTemplateType;
 
     /**
      * Describes the width of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
@@ -109,7 +109,7 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  enum PictureInPictureTemplateType {
+  enum PipTemplateType {
     /**
      * Indicates the content to show in picture-in-picture window is video play
      * @syscap SystemCapability.Window.SessionManager
@@ -139,14 +139,14 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  enum PictureInPictureState {
+  enum PipState {
     /**
      * pipWindow is about to start.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    WILL_START = 1,
+    ABOUT_TO_START = 1,
 
     /**
      * pipWindow started.
@@ -162,7 +162,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    WILL_STOP = 3,
+    ABOUT_TO_STOP = 3,
 
     /**
      * pipWindow stopped.
@@ -178,7 +178,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    RESTORE = 5,
+    ABOUT_TO_RESTORE = 5,
 
     /**
      * error message during start/stop.
@@ -195,23 +195,22 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PictureInPictureActionEventType =
-    PictureInPictureVideoActionEvent | PictureInPictureCallActionEvent | PictureInPictureMeetingActionEvent;
+  type PipActionEventType = PipVideoActionEvent | PipCallActionEvent | PipMeetingActionEvent;
 
-  type PictureInPictureVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
+  type PipVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
 
-  type PictureInPictureCallActionEvent = 'hangUp';
+  type PipCallActionEvent = 'hangUp';
 
-  type PictureInPictureMeetingActionEvent = 'hangUp';
+  type PipMeetingActionEvent = 'hangUp';
 
   /**
-   * PictureInPictureController
+   * PipController
    *
-   * @interface PictureInPictureController
+   * @interface PipController
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  interface PictureInPictureController {
+  interface PipController {
 
     /**
      * Start picture-in-picture
@@ -261,7 +260,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'stateChange', callback: (state: PictureInPictureState, reason: string) => void): void;
+    on(type: 'stateChange', callback: (state: PipState, reason: string) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener.
@@ -278,7 +277,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'controlPanelActionEvent', callback: (event: PictureInPictureActionEventType) => void): void;
+    on(type: 'controlPanelActionEvent', callback: (event: PipActionEventType) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
