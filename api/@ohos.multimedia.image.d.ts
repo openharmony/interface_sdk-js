@@ -685,7 +685,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
      */
-    SCENE_BLUESKY_CONF = 'HwMnoteSceneBlueSkyConf',
+    SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
 
     /**
      * Green Plant Conf
@@ -693,7 +693,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
      */
-    SCENE_GREENPLANT_CONF = 'HwMnoteSceneGreenPlantConf',
+    SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
 
     /**
      * Scene Beach Conf
