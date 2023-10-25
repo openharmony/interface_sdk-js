@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
+import type AsyncCallback from './@ohos.base';
 import type BaseContext from './application/BaseContext';
-import type Callback from './@ohos.base';
 
 /**
  * pipWindow manager
@@ -44,6 +44,18 @@ declare namespace pipWindow {
    * @since 11
    */
   function create(config: PipConfiguration): Promise<PipController>;
+
+  /**
+   * create picture-in-picture controller
+   *
+   * @param { PipConfiguration } config - Params for picture-in-picture controller creation
+   * @param { AsyncCallback<PipController> } callback - Callback used to return the PipController created
+   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PipConfiguration
+   * @throws { BusinessError } 801 - Capability not supported
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  function create(config: PipConfiguration, callback: AsyncCallback<PipController>): void;
 
   /**
    * PipConfiguration
@@ -231,6 +243,18 @@ declare namespace pipWindow {
     startPictureInPicture(): Promise<void>;
 
     /**
+     * Start picture-in-picture
+     * @param { AsyncCallback<void> } callback - Callback after pip start finish
+     * @throws { BusinessError } 1300012 - If pip window state is abnormal.
+     * @throws { BusinessError } 1300013 - Create pip window failed.
+     * @throws { BusinessError } 1300014 - Error when load pipWindow content or show pipWindow
+     * @throws { BusinessError } 1300015 - If window has created
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    startPictureInPicture(callback: AsyncCallback<void>): void;
+
+    /**
      * Stop picture-in-picture.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300011 - Stop pip window failed.
@@ -240,6 +264,17 @@ declare namespace pipWindow {
      * @since 11
      */
     stopPictureInPicture(): Promise<void>;
+
+    /**
+     * Stop picture-in-picture.
+     * @param { AsyncCallback<void> } callback - Callback after pip stop finish
+     * @throws { BusinessError } 1300011 - Stop pip window failed.
+     * @throws { BusinessError } 1300012 - If pip window state is abnormal.
+     * @throws { BusinessError } 1300015 - If window is stopping
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    stopPictureInPicture(callback: AsyncCallback<void>): void;
 
     /**
      * Set if auto start picture-in-picture when back home
