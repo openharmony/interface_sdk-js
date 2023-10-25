@@ -645,7 +645,119 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
-    PHYSICAL_APERTURE = 'HwMnotePhysicalAperture'
+    PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
+
+    /**
+     * Roll Angle
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    ROLL_ANGLE = 'HwMnoteRollAngle',
+
+    /**
+     * Pitch Angle
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    PITCH_ANGLE = 'HwMnotePitchAngle',
+
+    /**
+     * Scene Food Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
+
+    /**
+     * Scene stage Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
+
+    /**
+     * Scene Blue Sky Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_BLUESKY_CONF = 'HwMnoteSceneBlueSkyConf',
+
+    /**
+     * Green Plant Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_GREENPLANT_CONF = 'HwMnoteSceneGreenPlantConf',
+
+    /**
+     * Scene Beach Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
+
+    /**
+     * Scene Snow Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
+
+    /**
+     * Scene Sunset Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
+
+    /**
+     * Scene Flowers Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
+
+    /**
+     * Scene Night Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
+
+    /**
+     * Scene Text Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    SCENE_TEXT_CONF = 'HwMnoteSceneTextConf',
+
+    /**
+     * Face Count
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    FACE_COUNT = 'HwMnoteFaceCount',
+
+    /**
+     * Focus Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    FOCUS_MODE = 'HwMnoteFocusMode'
   }
 
   /**
