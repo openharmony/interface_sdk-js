@@ -60,6 +60,7 @@ export class BasicApiInfo {
   hierarchicalRelations: string[] = []; // api所属的层级关系
   decorators: DecoratorInfo[] | undefined = undefined; //decorators修饰器集合
   isStruct: boolean = false; //是否为structDeclaration内部api
+  syscap: string = '';
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -183,6 +184,14 @@ export class BasicApiInfo {
 
   getIsStruct(): boolean {
     return this.isStruct;
+  }
+
+  setSyscap(syscap: string): void {
+    this.syscap = syscap;
+  }
+
+  getSyscap(): string {
+    return this.syscap;
   }
 }
 
@@ -616,4 +625,5 @@ export const notJsDocApiTypes: Set<string> = new Set([
   ApiType.EXPORT,
   ApiType.EXPORT_DEFAULT,
   ApiType.MODULE,
+  ApiType.REFERENCE_FILE,
 ]);

@@ -293,7 +293,7 @@ export interface SubscribeStepCounterOptions {
  */
 export interface BarometerResponse {
   /**
-   * Pressure, in pascal.
+   * Pressure, in hpa.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3

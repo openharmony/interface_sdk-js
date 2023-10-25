@@ -8,9 +8,7 @@
     "testAll": "mocha --config test/mocha/.mocharc.jsonc",
     "pack": "cross-env NODE_ENV='production' webpack --mode=production",
     "build": "npm run pack --bundle",
-    "product": "ts-node src/main.ts -i test/debug/ut_nest_007.d.ts -o test/debug/output.json",
-    "installDev": "npm install && npm install typescript@./deps/ohos-typescript-4.2.3-r2.tgz",
-    "installProd": "npm install && npm install typescript@../../../../third_party/typescript/build_package/ohos-typescript-4.2.3-r2.tgz"
+    "product": "ts-node src/main.ts -i test/debug/ut_nest_007.d.ts -o test/debug/output.json"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +19,8 @@
     "exceljs": "^4.3.0",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "typescript": "npm:ohos-typescript@^4.2.3-r5"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",

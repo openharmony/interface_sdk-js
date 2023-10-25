@@ -47,7 +47,8 @@ export enum ErrorType {
   PARAMETER_ERRORS = 'wrong parameter',
   API_PAIR_ERRORS = 'limited api pair errors',
   ILLEGAL_ANY = 'illegal any',
-  API_CHANGE_ERRORS = 'api change errors'
+  API_CHANGE_ERRORS = 'api change errors',
+  TS_SYNTAX_ERROR = 'TS syntax error'
 }
 
 /**
@@ -67,7 +68,8 @@ export enum ErrorID {
   PARAMETER_ERRORS_ID = 9,
   API_PAIR_ERRORS_ID = 10,
   ILLEGAL_ANY_ID = 11,
-  API_CHANGE_ERRORS_ID = 12
+  API_CHANGE_ERRORS_ID = 12,
+  TS_SYNTAX_ERROR_ID = 13
 }
 
 /**
@@ -211,6 +213,7 @@ export class ApiResultInfo {
   level: number = -1;
   apiName: string = '';
   apiFullText: string = '';
+  baseName: string = '';
 
   setErrorType(errorType: string): ApiResultInfo {
     this.errorType = errorType;
@@ -281,5 +284,13 @@ export class ApiResultInfo {
 
   getApiFullText(): string {
     return this.apiFullText;
+  }
+  setBaseName(baseName: string): ApiResultInfo {
+    this.baseName = baseName;
+    return this;
+  }
+
+  getBaseName(): string {
+    return this.baseName;
   }
 }

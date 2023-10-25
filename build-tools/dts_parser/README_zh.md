@@ -129,36 +129,10 @@ node ./package/JS_API_OPTIMIZE_PLUGIN.js  '-N' 'diff' '-C' '.\test\ut\parser\ut_
 
 ### 本地运行
 
-由于工具中使用了私仓版本typescript，需要下载对应离线依赖包
-
-1、下载typescript仓的代码
-
-[third_party_typescript](https://gitee.com/openharmony/third_party_typescript/tree/master)
-
-2、在typescript仓执行
+1、运行以下脚本安装相关依赖
 
 ```
 npm install
-```
-
-3、在typescript仓执行
-
-```
-npm release
-```
-
-4、在typescript仓执行
-
-```
-npm pack
-```
-
-5、将生成的ohos-typescript-4.2.3-r2.tgz包放到当前项目下的deps目录下
-
-6、之后运行以下脚本安装相关依赖
-
-```
-npm run installDev
 ```
 
 安装完成之后根据目录和注意事项完成工具开发或测试
@@ -170,7 +144,7 @@ npm run installDev
 1、安装依赖，在全量仓下执行安装依赖命令
 
 ```
-npm run installProd
+npm install
 ```
 
 2、执行打包命令，将ts打包为js
@@ -185,4 +159,6 @@ npm run build
 
 例如
 
-`node ./package/JS_API_OPTIMIZE_PLUGIN.js '-N' 'diff' '-C' '.\test\ut\parser\ut_jsdoc_constant_001.d.ts' '--old' '.\test\ut\apiDiff\old\ut_api_name_change.d.ts' '--new' '.\test\ut\apiDiff\new\ut_api_name_change.d.ts' '--old-version' '1' '--new-version' '2' '--output' '.\'`
+```
+node ./package/JS_API_OPTIMIZE_PLUGIN.js '-N' 'diff' '-C' '.\test\ut\parser\ut_jsdoc_constant_001.d.ts' '--old' '.\test\ut\apiDiff\old\ut_api_name_change.d.ts' '--new' '.\test\ut\apiDiff\new\ut_api_name_change.d.ts' '--old-version' '1' '--new-version' '2' '--output' '.\'
+```

@@ -31,129 +31,12 @@
 /**
  * Defines the data type of the interface restriction.
  *
- * @interface Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
  */
-declare interface Resource {
-  /**
-   * Set id.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set id.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * Set id.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  readonly id: number;
-
-  /**
-   * Set type.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set type.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * Set type.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  readonly type: number;
-
-  /**
-   * Set params.
-   *
-   * @type { ?any[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set params.
-   *
-   * @type { ?any[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * Set params.
-   *
-   * @type { ?any[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  readonly params?: any[];
-
-  /**
-   * Set bundleName.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * Set bundleName.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  readonly bundleName: string;
-
-  /**
-   * Set moduleName.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * Set moduleName.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  readonly moduleName: string;
-}
+declare type Resource = import('../api/global/resource').Resource;
 
 /**
  * Defines the length property with string, number and resource unit.
@@ -1623,6 +1506,6 @@ declare class ColorFilter {
 declare module "GlobalResource" {
   module "GlobalResource" {
     // @ts-ignore
-    export { Resource };
+    export type { Resource, ResourceStr };
   }
 }

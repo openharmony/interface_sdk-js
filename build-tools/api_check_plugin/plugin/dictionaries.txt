@@ -29074,6 +29074,7 @@ hoydenish
 hoyle
 hoyt
 hp
+hpa
 hpp
 hq
 hql
@@ -66587,6 +66588,7 @@ vps
 vr
 vs
 vscode
+vss
 vsts
 vstudio
 vt

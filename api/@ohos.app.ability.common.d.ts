@@ -25,6 +25,7 @@ import * as _ServiceExtensionContext from './application/ServiceExtensionContext
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
+import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 
 /**
@@ -207,6 +208,15 @@ declare namespace common {
    * @since 10
    */
   export type UIExtensionContext = _UIExtensionContext.default;
+
+  /**
+   * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AbilityStartCallback = _AbilityStartCallback;
 }
 
 export default common;

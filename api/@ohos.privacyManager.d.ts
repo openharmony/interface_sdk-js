@@ -679,6 +679,16 @@ declare namespace privacyManager {
     status: number;
 
     /**
+     * Indicates the status of lockscreen.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 11
+     */
+    lockScreenStatus?: number;
+
+    /**
      * Timestamp, in milliseconds
      *
      * @type { number }
@@ -687,6 +697,16 @@ declare namespace privacyManager {
      * @since 9
      */
     timestamp: number;
+
+    /**
+     * The value of successCount or failCount passed in to addPermissionUsedRecord.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 11
+     */
+    count?: number;
 
     /**
      * Access duration, in milliseconds
