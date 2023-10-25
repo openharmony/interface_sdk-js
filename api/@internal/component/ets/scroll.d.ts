@@ -309,6 +309,19 @@ declare class Scroller {
    * @since 10
    */
   isAtEnd(): boolean;
+
+  /**
+   * Get child item size and position.
+   *
+   * @param { number } index - Index of the item.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getItemRect(index: number): RectResult;
 }
 
 /*
