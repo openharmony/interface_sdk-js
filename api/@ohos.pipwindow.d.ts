@@ -86,7 +86,7 @@ declare namespace pipWindow {
     /**
      * Indicates navigation ID.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -95,7 +95,7 @@ declare namespace pipWindow {
     /**
      * Picture-in-picture template type.
      *
-     * @type { PipTemplateType }
+     * @type { ?PipTemplateType }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -104,7 +104,7 @@ declare namespace pipWindow {
     /**
      * Describes the width of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -113,7 +113,7 @@ declare namespace pipWindow {
     /**
      * Describes the height of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
