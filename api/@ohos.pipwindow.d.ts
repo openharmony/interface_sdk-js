@@ -56,6 +56,7 @@ declare namespace pipWindow {
     /**
      * Indicates window context.
      *
+     * @type { BaseContext }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -64,6 +65,7 @@ declare namespace pipWindow {
     /**
      * Indicates the origin XComponentController.
      *
+     * @type { XComponentController }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -72,6 +74,7 @@ declare namespace pipWindow {
     /**
      * Indicates navigation ID.
      *
+     * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -80,6 +83,7 @@ declare namespace pipWindow {
     /**
      * Picture-in-picture template type.
      *
+     * @type { PipTemplateType }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -88,6 +92,7 @@ declare namespace pipWindow {
     /**
      * Describes the width of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
      *
+     * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -96,6 +101,7 @@ declare namespace pipWindow {
     /**
      * Describes the height of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
      *
+     * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
