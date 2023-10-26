@@ -664,7 +664,7 @@ declare namespace image {
     PITCH_ANGLE = 'HwMnotePitchAngle',
 
     /**
-     * Scene Configuration: Food
+     * Capture Scene: Food
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -672,7 +672,7 @@ declare namespace image {
     SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
 
     /**
-     * Scene Configuration: Stage
+     * Capture Scene: Stage
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -680,7 +680,7 @@ declare namespace image {
     SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
 
     /**
-     * Scene Configuration: Blue Sky
+     * Capture Scene: Blue Sky
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -688,7 +688,7 @@ declare namespace image {
     SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
 
     /**
-     * Scene Configuration: Green Plant
+     * Capture Scene: Green Plant
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -696,7 +696,7 @@ declare namespace image {
     SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
 
     /**
-     * Scene Configuration: Beach
+     * Capture Scene: Beach
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -704,7 +704,7 @@ declare namespace image {
     SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
 
     /**
-     * Scene Configuration: Snow
+     * Capture Scene: Snow
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -712,7 +712,7 @@ declare namespace image {
     SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
 
     /**
-     * Scene Configuration: Sunset
+     * Capture Scene: Sunset
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -720,7 +720,7 @@ declare namespace image {
     SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
 
     /**
-     * Scene Configuration: Flowers
+     * Capture Scene: Flowers
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -728,7 +728,7 @@ declare namespace image {
     SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
 
     /**
-     * Scene Configuration: Night
+     * Capture Scene: Night
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
@@ -736,7 +736,7 @@ declare namespace image {
     SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
 
     /**
-     * Scene Configuration: Text
+     * Capture Scene: Text
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 11
