@@ -15,6 +15,7 @@
 
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
+import type notificationManager from '../@ohos.notificationManager';
 
 /**
  * Describes a normal text notification.
@@ -171,11 +172,22 @@ export interface NotificationContent {
   /**
    * Notification content type.
    *
-   * @type { notification.ContentType }
+   * @type { ?notification.ContentType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   * @deprecated since 11
+   * @useinstead NotificationContent#notificationContentType
    */
-  contentType: notification.ContentType;
+  contentType?: notification.ContentType;
+
+  /**
+   * Notification content type.
+   *
+   * @type { ?notificationManager.ContentType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  notificationContentType?: notificationManager.ContentType;
 
   /**
    * Normal text notification.
