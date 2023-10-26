@@ -19,6 +19,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundleManager/ElementName';
+import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 
 /**
  * The class of an ability manager.
@@ -92,6 +93,38 @@ declare namespace abilityManager {
      */
     BACKGROUNDING = 12
   }
+
+  /**
+   * Register Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'abilityForegroundState' } type - ability foreground or background state.
+   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+
+  /**
+   * Unregister Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'abilityForegroundState' } type - ability foreground or background state.
+   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
@@ -289,6 +322,15 @@ declare namespace abilityManager {
    * @since 9
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
+
+  /**
+   * The ability state observer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver.default;
 }
 
 export default abilityManager;
