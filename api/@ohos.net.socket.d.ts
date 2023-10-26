@@ -61,6 +61,14 @@ declare namespace socket {
   function constructUDPSocketInstance(): UDPSocket;
 
   /**
+   * Creates a MulticastSocket object.
+   * @returns { MulticastSocket } the MulticastSocket of the constructMulticastSocketInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  function constructMulticastSocketInstance(): MulticastSocket;
+
+  /**
    * Creates a TCPSocket object.
    * @returns { TCPSocket } the TCPSocket of the constructTCPSocketInstance.
    * @syscap SystemCapability.Communication.NetStack
@@ -718,6 +726,157 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines a UDP MulticastSocket connection.
+   * @interface MulticastSocket
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface MulticastSocket extends UDPSocket {
+    /**
+     * Add the socket to the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of addMembership.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
+
+    /**
+     * Add the socket to the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    addMembership(multicastAddress: NetAddress): Promise<void>;
+
+    /**
+     * Drop the socket from the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of dropMembership.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
+
+    /**
+     * Drop the socket from the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dropMembership(multicastAddress: NetAddress): Promise<void>;
+
+    /**
+     * Set the TTL value for socket multicast packets.
+     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
+     * @param { AsyncCallback<void> } callback - The callback of setMulticastTTL.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setMulticastTTL(ttl: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the TTL value for socket multicast packet.
+     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setMulticastTTL(ttl: number): Promise<void>;
+
+    /**
+     * Get the TTL value of socket multicast packet.
+     * @param { AsyncCallback<number> } callback - The callback of getMulticastTTL.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getMulticastTTL(callback: AsyncCallback<number>): void;
+
+    /**
+     * Get the TTL value of socket multicast packet.
+     * @returns { Promise<number> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getMulticastTTL(): Promise<number>;
+
+    /**
+     * Set the loopback mode for the socket.
+     * @param { boolean } flag - Whether to enable loopback mode.
+     * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the loopback mode for the socket.
+     * @param { boolean } flag - Whether to enable loopback mode.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setLoopbackMode(flag: boolean): Promise<void>;
+
+    /**
+     * Get the loopback mode of the socket.
+     * @param { AsyncCallback<boolean> } callback - The callback of getLoopbackMode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getLoopbackMode(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Get the loopback mode of the socket.
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getLoopbackMode(): Promise<boolean>;
   }
 
   /**
