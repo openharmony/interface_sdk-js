@@ -123,7 +123,7 @@ export class ObtainFullPath {
         if (status.isDirectory()) {
           ObtainFullPath.getFullFiles(filePath, utFiles);
         } else {
-          if (/\.d\.ts/.test(filePath) || /\.d\.ets/.test(filePath)) {
+          if (/\.d\.ts/.test(filePath) || /\.d\.ets/.test(filePath) || /\.ts/.test(filePath)) {
             utFiles.push(filePath);
           }
         }
