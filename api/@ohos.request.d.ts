@@ -122,7 +122,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEPATH: number;
   /**
-   * Error code 13400003 - task manager service error.
+   * Error code 13400003 - task service ability error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -130,7 +130,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13400003 - task manager service error.
+   * Error code 13400003 - task service ability error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -2376,6 +2376,25 @@ declare namespace request {
     }
 
     /**
+     * Broadcast events for the request.
+     *
+     * @enum { string } BroadcastEvent
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    enum BroadcastEvent {
+      /**
+       * Completion event for the task.
+       * The code in the commonEventData can only be "0x40"(COMPLETE) or "0x41"(FAILED), same as "State".
+       * The data in the commonEventData contains the id of the task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      COMPLETE = 'ohos.request.event.COMPLETE'
+    }
+
+    /**
      * The file information for a form item.
      *
      * @typedef FileSpec
@@ -3178,6 +3197,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'progress' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
@@ -3188,6 +3216,15 @@ declare namespace request {
        * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'progress' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
        */
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
@@ -3200,6 +3237,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'completed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
@@ -3210,6 +3256,15 @@ declare namespace request {
        * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'completed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
        */
       off(event: 'completed', callback?: (progress: Progress) => void): void;
       /**
@@ -3222,6 +3277,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'failed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       on(event: 'failed', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
@@ -3233,7 +3297,76 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'failed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       off(event: 'failed', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'pause' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      on(event: 'pause', callback: (progress: Progress) => void): void;
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'pause' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      off(event: 'pause', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'resume' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      on(event: 'resume', callback: (progress: Progress) => void): void;
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'resume' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      off(event: 'resume', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'remove' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      on(event: 'remove', callback: (progress: Progress) => void): void;
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'remove' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      off(event: 'remove', callback?: (progress: Progress) => void): void;
       /**
        * Starts the task.
        *
@@ -3268,6 +3401,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Pauses the task.
+       *
+       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       pause(callback: AsyncCallback<void>): void;
       /**
        * Pauses the background task.
@@ -3278,6 +3420,15 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Pauses the task.
+       *
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
        */
       pause(): Promise<void>;
       /**
@@ -3292,6 +3443,17 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Resumes the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       resume(callback: AsyncCallback<void>): void;
       /**
        * Resumes the background task.
@@ -3304,6 +3466,17 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Resumes the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
        */
       resume(): Promise<void>;
       /**

@@ -309,6 +309,19 @@ declare class Scroller {
    * @since 10
    */
   isAtEnd(): boolean;
+
+  /**
+   * Get child item size and position.
+   *
+   * @param { number } index - Index of the item.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getItemRect(index: number): RectResult;
 }
 
 /*
@@ -620,6 +633,15 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   nestedScroll(value: NestedScrollOptions): ScrollAttribute;
 

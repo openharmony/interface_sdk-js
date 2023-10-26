@@ -2448,6 +2448,23 @@ declare class Driver {
    * @test
    */
   mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+  /**
+   * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
+   *
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { boolean } down - whether the mouse wheel rolls down.
+   * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param { number } key1 - the first keyCode.
+   * @param { number } key2 - the second keyCode.
+   * @param { number } speed - the speed at which mouse wheel rolls(cells per second),default is 20,the value ranges from 1 to 500,set it 20 if out of range.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
 
   /**
    * Capture the specified area of current screen and save as picture which PNG format.
@@ -2462,7 +2479,7 @@ declare class Driver {
    * @test
    */
   screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
-  
+
   /**
    * Create an {@link UIEventObserver} object.
    *
@@ -2473,6 +2490,82 @@ declare class Driver {
    * @test
    */
   createUIEventObserver(): UIEventObserver;
+
+  /**
+   * Double click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
+   *
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { MouseButton } btnId - the button of Mouse.
+   * @param { number } key1 - the first keyCode.
+   * @param { number } key2 - the second keyCode.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+
+  /**
+   * Long click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
+   *
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { MouseButton } btnId - the button of Mouse.
+   * @param { number } key1 - the first keyCode.
+   * @param { number } key2 - the second keyCode.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+
+  /**
+   * Swipe on the screen between the specified points with mouse.
+   *
+   * @param { Point } from - the starting point.
+   * @param { Point } to - the ending point.
+   * @param { number } speed - the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>;
+
+  /**
+   * Hold down the left mouse button and drag on the screen between the specified points.
+   *
+   * @param { Point } from - the starting point.
+   * @param { Point } to - the ending point.
+   * @param { number } speed - the speed of drag (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;  
+
+  /**
+   * Inject text on the specified location.
+   *
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { string } text - the text to inject.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @test
+   */
+  inputText(p: Point, text: string): Promise<void>;  
 }
 
 /**

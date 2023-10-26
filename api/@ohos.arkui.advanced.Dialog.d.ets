@@ -50,7 +50,7 @@ export declare class ButtonOptions {
    * @since 10
    */
   fontColor?: ResourceColor;
-};
+}
 /**
  * Declare CustomDialog TipsDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full

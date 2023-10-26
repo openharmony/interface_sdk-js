@@ -1,0 +1,48 @@
+[
+  {
+    "filePath": "ut_type_child_node_003.d.ts",
+    "packageName": "ut_type_child_node_003",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_type_child_node_003.d.ts/test",
+    "apiName": "test",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Namespace",
+    "definedText": " declare namespace test",
+    "pos": {
+      "line": 1,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  },
+  {
+    "filePath": "ut_type_child_node_003.d.ts",
+    "packageName": "ut_type_child_node_003",
+    "parentModuleName": "test",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_type_child_node_003.d.ts/test/TextOneType",
+    "apiName": "TextOneType",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "TypeAlias",
+    "definedText": "type TextOneType = Resoure;",
+    "pos": {
+      "line": 2,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

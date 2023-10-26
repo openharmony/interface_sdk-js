@@ -20,12 +20,27 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the list item group style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum ListItemGroupStyle {
   /**
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Show custom style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   NONE = 0,
 
@@ -34,6 +49,13 @@ declare enum ListItemGroupStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Show default style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   CARD = 1,
 }
@@ -111,6 +133,14 @@ declare interface ListItemGroupOptions {
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Describes the ListItemGroup style.
+   *
+   * @type { ?ListItemGroupStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   style?: ListItemGroupStyle;
 }

@@ -95,6 +95,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Called when the font is set.
+   *
+   * @param { Font } value - the text font size and weight and family and style.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   font(value: Font): TextAttribute;
 
   /**
@@ -596,6 +605,40 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+
+  /**
+   * Set the word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  wordBreak(value: WordBreak): TextAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   *
+   * @param { function } callback - callback of the listened event.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onCopy(callback: (value: string) => void): TextAttribute;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selection(selectionStart: number, selectionEnd: number): TextAttribute;
 }
 
 /**

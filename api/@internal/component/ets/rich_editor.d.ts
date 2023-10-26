@@ -818,6 +818,26 @@ declare class RichEditorController {
    * @since 10
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Get the typing text style.
+   *
+   * @returns { RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getTypingStyle(): RichEditorTextStyle;
+
+  /**
+   * Set the typing text style.
+   *
+   * @param { RichEditorTextStyle } value - set the typing text style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setTypingStyle(value: RichEditorTextStyle): void;
 }
 
 /**
