@@ -349,7 +349,7 @@ declare namespace reminderAgentManager {
     /**
      * Indicates filter criteria.
      *
-     * @type { { [key: string]: number | string | boolean } }
+     * @type { object }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
      * @since 11
