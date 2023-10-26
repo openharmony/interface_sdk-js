@@ -234,6 +234,8 @@ interface CommonSegmentButtonOptions {
   textMargin?: Margin | Dimension;
 }
 
+declare type ItemRestriction<T> = [T, T, T?, T?, T?];
+declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
 /**
@@ -249,12 +251,12 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
   /**
    * The items of tab type of SegmentButton.
    *
-   * @type { Array<SegmentButtonTextItem> }
+   * @type { ItemRestriction<SegmentButtonTextItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  buttons: Array<SegmentButtonTextItem>;
+  buttons: ItemRestriction<SegmentButtonTextItem>;
 }
 
 /**
@@ -270,12 +272,12 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
   /**
    * The items of capsule type of SegmentButton.
    *
-   * @type { SegmentButtonItemArray }
+   * @type { SegmentButtonItemTuple }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  buttons: SegmentButtonItemArray;
+  buttons: SegmentButtonItemTuple;
 
   /**
    * Support multiple selections flag.
@@ -329,27 +331,6 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
    * @since 11
    */
   type: "capsule";
-
-  /**
-   * The items of SegmentButton.
-   *
-   * @type { SegmentButtonItemArray }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  buttons: SegmentButtonItemArray;
-
-  /**
-   * Support multiple selections flag.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  multiply?: boolean;
 }
 
 /**
@@ -437,7 +418,7 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-  */
+   */
   constructor(options: SegmentButtonItemOptionsConstructorOptions);
 }
 
@@ -454,12 +435,12 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * The constructor used to create a SegmentButtonItemOptionsArray object.
    *
-   * @param { SegmentButtonItemArray } elements - The SegmentButton items.
+   * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(elements: SegmentButtonItemArray);
+  constructor(elements: SegmentButtonItemTuple);
 
   /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
@@ -519,13 +500,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * The function used to create a SegmentButtonItemOptionsArray object.
    *
-   * @param { SegmentButtonItemArray } elements - The SegmentButton items.
+   * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
    * @returns { SegmentButtonItemOptionsArray } Returns the a new SegmentButtonItemOptionsArray object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  static create(elements: SegmentButtonItemArray): SegmentButtonItemOptionsArray;
+  static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray;
 }
 
 /**

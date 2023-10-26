@@ -1,0 +1,48 @@
+[
+  {
+    "filePath": "ut_field_namespace_type_single_004.d.ts",
+    "packageName": "ut_field_namespace_type_single_004",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_field_namespace_type_single_004.d.ts/testNamespace",
+    "apiName": "testNamespace",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Namespace",
+    "definedText": " declare namespace testNamespace",
+    "pos": {
+      "line": 1,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  },
+  {
+    "filePath": "ut_field_namespace_type_single_004.d.ts",
+    "packageName": "ut_field_namespace_type_single_004",
+    "parentModuleName": "testNamespace",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_field_namespace_type_single_004.d.ts/testNamespace/SimState",
+    "apiName": "SimState",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "TypeAlias",
+    "definedText": "export type SimState = sim.SimState;",
+    "pos": {
+      "line": 2,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

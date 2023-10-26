@@ -95,6 +95,15 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Called when the font is set.
+   *
+   * @param { Font } value - the span font size and weight and family and style.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   font(value: Font): SpanAttribute;
 
   /**

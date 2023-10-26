@@ -74,7 +74,7 @@ export declare class ToolBarOption {
    * @since 10
    */
   state?: ItemState;
-};
+}
 
 /**
  * Declare ToolBarOptions use in ToolBar

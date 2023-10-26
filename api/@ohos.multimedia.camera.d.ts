@@ -14,7 +14,7 @@
  */
 
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
-import { Context } from './app/context';
+import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 
 /**

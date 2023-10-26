@@ -14,7 +14,6 @@
  */
 
 import ts from 'typescript';
-import path from 'path';
 
 import { ApiType } from '../parser/ApiInfoDefination';
 import { DecoratorInfo } from '../../typedef/parser/Decorator';
@@ -47,7 +46,6 @@ export class ApiStatisticsInfo {
   isSystemapi: boolean = false;
   modelLimitation: string = '';
   decorators: Array<string> | undefined = [];
-
   setFilePath(fileFilePath: string): ApiStatisticsInfo {
     this.filePath = fileFilePath;
     this.packageName = FunctionUtils.getPackageName(fileFilePath);
@@ -225,16 +223,13 @@ export const apiStatisticsType: Set<string> = new Set([
   ApiType.ENUM,
   ApiType.TYPE_ALIAS,
   ApiType.DECLARE_CONST,
-  ApiType.STRUCT
+  ApiType.STRUCT,
 ]);
 
 /**
  * 名字为on/off的函数，不合并API声明
  */
-export const notMergeDefinedText: Set<string> = new Set([
-  'on',
-  'off'
-]);
+export const notMergeDefinedText: Set<string> = new Set(['on', 'off']);
 
 /**
  * 需要进行同名函数合并的API类型
@@ -242,5 +237,21 @@ export const notMergeDefinedText: Set<string> = new Set([
 export const mergeDefinedTextType: Set<number> = new Set([
   ts.SyntaxKind.MethodDeclaration,
   ts.SyntaxKind.MethodSignature,
-  ts.SyntaxKind.FunctionDeclaration
+  ts.SyntaxKind.FunctionDeclaration,
 ]);
+
+export type StatisticsInfoValueType = {
+  /**
+   * 统计工具返回的经过筛选后的数据
+   *
+   * @type {ApiStatisticsInfo[]}
+   */
+  apiStatisticsInfos: ApiStatisticsInfo[];
+
+  /**
+   * 统计工具返回的未经筛选后的数据
+   *
+   * @type {ApiStatisticsInfo[]}
+   */
+  allApiStatisticsInfos?: ApiStatisticsInfo[];
+};

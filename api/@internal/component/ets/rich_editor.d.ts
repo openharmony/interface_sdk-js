@@ -198,10 +198,11 @@ declare interface RichEditorTextSpan {
 }
 
 /**
- * Defines the richEditor ImageSpan Layout Style.
+ * Defines the richEditor Image Layout Style.
  *
  * @interface RichEditorLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 interface RichEditorLayoutStyle {
@@ -210,6 +211,7 @@ interface RichEditorLayoutStyle {
    *
    * @type { ?(Dimension | Margin) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   margin?: Dimension | Margin;
@@ -219,6 +221,7 @@ interface RichEditorLayoutStyle {
    *
    * @type { ?(Dimension | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   borderRadius?: Dimension | BorderRadiuses;
@@ -260,10 +263,11 @@ declare interface RichEditorImageSpanStyle {
   objectFit?: ImageFit;
 
   /**
-   * richEditor ImageSpan Layout Style.
+   * RichEditor ImageSpan Layout Style.
    *
    * @type { ?RichEditorLayoutStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   layoutStyle?: RichEditorLayoutStyle;
@@ -537,23 +541,26 @@ declare interface RichEditorRange {
  *
  * @interface RichEditorGesture
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 declare interface RichEditorGesture {
   /**
-   * onClickCallback when clickEvent is complete.
+   * Trigger a click event when a click is clicked.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   onClick?: (event: ClickEvent) => void;
 
   /**
-   * LongPressCallback when longPressEvent is complete.
+   * Trigger a gesture event when long press event is complete.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   onLongPress?: (event: GestureEvent) => void;
@@ -586,10 +593,11 @@ declare interface RichEditorTextSpanOptions {
   style?: RichEditorTextStyle;
 
   /**
-   * richEditor gesture.
+   * RichEditor gesture.
    *
    * @type { ?RichEditorGesture }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   gesture?: RichEditorGesture;
@@ -622,10 +630,11 @@ declare interface RichEditorImageSpanOptions {
   imageStyle?: RichEditorImageSpanStyle;
 
   /**
-   * richEditor gesture.
+   * RichEditor gesture.
    *
    * @type { ?RichEditorGesture }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   gesture?: RichEditorGesture;
@@ -899,6 +908,26 @@ declare class RichEditorController {
    * @since 10
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Get the typing text style.
+   *
+   * @returns { RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getTypingStyle(): RichEditorTextStyle;
+
+  /**
+   * Set the typing text style.
+   *
+   * @param { RichEditorTextStyle } value - set the typing text style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setTypingStyle(value: RichEditorTextStyle): void;
 }
 
 /**

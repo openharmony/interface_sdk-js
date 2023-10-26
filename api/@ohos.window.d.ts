@@ -4011,7 +4011,25 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
-    HIDDEN
+    HIDDEN,
+    /**
+     * The window stage is interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 11
+     */
+    RESUMED,
+    /**
+     * The window stage is not interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 11
+     */
+    PAUSED
   }
   /**
    * WindowStage
