@@ -107,6 +107,8 @@ interface SegmentButtonIconTextItem {
   text: ResourceStr;
 }
 
+declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
+
 /**
  * Defines SegmentButton common options.
  *
@@ -139,24 +141,24 @@ interface CommonSegmentButtonOptions {
   /**
    * The font size of buttons.
    *
-   * @type { ?Dimension }
+   * @type { ?DimensionNoPercentage }
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  fontSize?: Dimension;
+  fontSize?: DimensionNoPercentage;
 
   /**
    * The font size of selected button.
    *
-   * @type { ?Dimension }
+   * @type { ?DimensionNoPercentage }
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  selectedFontSize?: Dimension;
+  selectedFontSize?: DimensionNoPercentage;
 
   /**
    * The font weight of buttons.
@@ -571,22 +573,22 @@ declare class SegmentButtonOptions {
   /**
    * The font size of buttons.
    *
-   * @type { Dimension }
+   * @type { DimensionNoPercentage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  fontSize: Dimension;
+  fontSize: DimensionNoPercentage;
 
   /**
    * The font size of selected button.
    *
-   * @type { Dimension }
+   * @type { DimensionNoPercentage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  selectedFontSize: Dimension;
+  selectedFontSize: DimensionNoPercentage;
 
   /**
    * The font weight of buttons.
