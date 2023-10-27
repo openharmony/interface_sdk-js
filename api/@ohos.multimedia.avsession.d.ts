@@ -107,6 +107,35 @@ declare namespace avSession {
   function getHistoricalSessionDescriptors(maxSize?: number): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
+   * Get history play list information records.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { number } maxSize - Specifies the maximum size of the returned value array.
+   * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
+   * @param { AsyncCallback<Array<Readonly<AVQueueInfo>>> } callback - async callback for an array of AVQueueInfo.
+   * If provided '0' or not provided, the maximum value is determined by the system.
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi Hide this for inner system use
+   * @since 11
+   */
+  function getHistoricalAVQueueInfos(maxSize: number, maxAppSize: number, callback: AsyncCallback<Array<Readonly<AVQueueInfo>>>): void;
+
+  /**
+   * Get history play list information records.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { number } maxSize - Specifies the maximum size of the returned value array.
+   * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
+   * @returns { Promise<Array<Readonly<AVQueueInfo>>> } Promise for an array of AVQueueInfo
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi Hide this for inner system use
+   * @since 11
+   */
+  function getHistoricalAVQueueInfos(maxSize: number, maxAppSize: number): Promise<Array<Readonly<AVQueueInfo>>>;
+
+  /**
    * Create an avsession controller
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { string } sessionId - Specifies the sessionId to create the controller.
@@ -513,6 +542,30 @@ declare namespace avSession {
    * @since 10
    */
   function off(type: 'deviceAvailable', callback?: (device: OutputDeviceInfo) => void): void;
+
+  /**
+   * Register device offline callback
+   * @param { 'deviceOffline' } type - Registration Type
+   * @param { function } callback - Used to returns the device info
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 401 - parameter check failed
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'deviceOffline', callback: (deviceId: string) => void): void;
+
+  /**
+   * Unregister device offline callback
+   * @param { 'deviceOffline' } type - Registration Type
+   * @param { function } callback - Used to returns the device info
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 401 - parameter check failed
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'deviceOffline', callback?: (deviceId: string) => void): void;
 
   /**
    * Register a callback to retrieve an avsession cast controller.
@@ -1083,6 +1136,35 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'rewind', callback?: () => void): void;
+
+    /**
+     * Register playFromAssetId command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'playFromAssetId' } type - Command to register 'playFromAssetId'.
+     * @param { function } callback - Used to handle ('playFromAssetId') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'playFromAssetId', callback: (assetId: number) => void): void;
+
+    /**
+     * Unregister playFromAssetId command callback.
+     * @param { 'playFromAssetId' } type - Command to register 'playFromAssetId'.
+     * @param { function } callback - Used to handle ('playFromAssetId') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
 
     /**
      * Register seek command callback
@@ -1669,6 +1751,52 @@ declare namespace avSession {
     off(type: 'playPrevious'): void;
 
     /**
+     * Register requested playback command callback sent by remote side or media center.
+     * The AVQueueItem may include the requested assetId, starting position and other configurations.
+     * @param { 'requestPlay' } type - Type of the 'requestPlay' to listen for.
+     * @param { Callback<AVQueueItem> } callback - Used to handle 'requestPlay' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    on(type: 'requestPlay', callback: Callback<AVQueueItem>): void;
+
+    /**
+     * Unregister requested playback command callback sent by remote side or media center.
+     * @param { 'requestPlay' } type - Type of the 'requestPlay' to listen for.
+     * @param { Callback<AVQueueItem> } callback - Used to handle 'requestPlay' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    off(type: 'requestPlay', callback?: Callback<AVQueueItem>): void;
+
+    /**
+     * Register endOfStream state callback.
+     * Application needs update the new media resource when receive these commands by using playItem.
+     * @param { 'endOfStream' } type - Type of the 'endOfStream' to listen for.
+     * @param { Callback<void> } callback - Used to handle 'endOfStream' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    on(type: 'endOfStream', callback: Callback<void>): void;
+
+    /**
+     * Unregister endOfStream state callback.
+     * @param { 'endOfStream' } type - Type of the 'endOfStream' to listen for.
+     * @param { Callback<void> } callback - Used to handle 'endOfStream' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    off(type: 'endOfStream', callback?: Callback<void>): void;
+
+    /**
      * Register listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
@@ -1727,7 +1855,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
-
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -1776,6 +1903,75 @@ declare namespace avSession {
     STATE_DISCONNECTED = 6,
   }
 
+  /**
+   * The pre-defined display tag by system.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  enum DisplayTag {
+    /**
+     * Indicate the AUDIO VIVID property of current media resource.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    TAG_AUDIO_VIVID = 1,
+  }
+
+  /*
+   * The play list information definition.
+   * @interface AVQueueInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @systemapi
+   * @since 11
+   */
+  interface AVQueueInfo {
+    /**
+     * The bundle name of application which current play list belongs to.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 11
+     */
+    bundleName: string;
+
+    /**
+     * The name of play list
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 11
+     */
+    avQueueName: string;
+
+    /**
+     * The id of play list
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 11
+     */
+    avQueueId: string;
+
+    /**
+     * The artwork of play list, can be a {@link PixelMap} or a URI formatted string,
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 11
+     */
+    avQueueImage: image.PixelMap | string;
+
+    /**
+     * The time when the user last played the playlist.
+     * The time format can be system, such as 1611081385000, it means 2021-01-20 02:36:25.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 11
+     */
+    lastPlayedTime?: number;
+  }
+
   /*
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
@@ -1814,6 +2010,30 @@ declare namespace avSession {
      * @since 10
      */
     author?: string;
+
+    /**
+     * The name of play list which current media belongs to
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 11
+     */
+    avQueueName?: string;
+
+    /**
+     * The id of play list which current media belongs to, it should be an unique identifier in the application.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    avQueueId?: string;
+
+    /**
+     * The artwork of play list as a {@link PixelMap} or an uri formatted String,
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    avQueueImage?: image.PixelMap | string;
 
     /**
      * The album of this media
@@ -2078,6 +2298,14 @@ declare namespace avSession {
      * @since 10
      */
     appName?: string;
+
+    /**
+     * The display tags supported by application to be displayed on media center
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    displayTags?: number;
   }
 
   /**
@@ -2354,6 +2582,25 @@ declare namespace avSession {
      * @since 10
      */
     providerId?: number;
+
+    /**
+     * The protocols supported by current device, can be union of {@link ProtocolType}.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    supportedProtocols?: number;
+
+    /**
+     * Define different authentication status.
+     * 0: Device not authenticated.
+     * 1: Device already authenticated.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 11
+     */
+    authenticationStatus?: number;
   }
 
   /**
@@ -2405,6 +2652,13 @@ declare namespace avSession {
      * @since 10
      */
     LOOP_MODE_SHUFFLE = 3,
+
+    /**
+     * Custom playback mode supported by application
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    LOOP_MODE_CUSTOM = 4,
   }
 
   /**
@@ -2511,6 +2765,20 @@ declare namespace avSession {
      * @since 10
      */
     PLAYBACK_STATE_ERROR = 9,
+
+    /**
+     * Idle state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    PLAYBACK_STATE_IDLE = 10,
+
+    /**
+     * Buffering state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    PLAYBACK_STATE_BUFFERING = 11,
   }
 
   /**
