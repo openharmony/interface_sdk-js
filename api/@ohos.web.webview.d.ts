@@ -1982,6 +1982,15 @@ declare namespace webview {
      * @since 10
      */
     getCustomUserAgent(): string;
+
+    /**
+    * Set web engine socket connection timeout.
+    * @param { number } timeout - Socket connection timeout.
+    * @throws { BusinessError } 401 - Invalid input parameter.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 11
+    */
+    static setConnectionTimeout(timeout: number): void;
   }
 }
 
