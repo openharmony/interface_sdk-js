@@ -133,7 +133,6 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-
     VIDEO_PLAY,
 
     /**
