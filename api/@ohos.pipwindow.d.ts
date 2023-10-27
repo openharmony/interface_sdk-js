@@ -135,6 +135,7 @@ declare namespace pipWindow {
      */
 
     VIDEO_PLAY,
+
     /**
      * Indicates the content to show in picture-in-picture window is video call
      * @syscap SystemCapability.Window.SessionManager
