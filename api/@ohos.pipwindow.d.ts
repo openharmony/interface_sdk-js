@@ -31,7 +31,7 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  function isPictureInPictureEnabled(): boolean;
+  function isPipEnabled(): boolean;
 
   /**
    * create picture-in-picture controller
@@ -240,7 +240,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    startPictureInPicture(): Promise<void>;
+    startPip(): Promise<void>;
 
     /**
      * Start picture-in-picture
@@ -252,7 +252,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    startPictureInPicture(callback: AsyncCallback<void>): void;
+    startPip(callback: AsyncCallback<void>): void;
 
     /**
      * Stop picture-in-picture.
@@ -263,7 +263,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    stopPictureInPicture(): Promise<void>;
+    stopPip(): Promise<void>;
 
     /**
      * Stop picture-in-picture.
@@ -274,7 +274,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    stopPictureInPicture(callback: AsyncCallback<void>): void;
+    stopPip(callback: AsyncCallback<void>): void;
 
     /**
      * Set if auto start picture-in-picture when back home
