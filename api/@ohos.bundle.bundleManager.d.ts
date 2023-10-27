@@ -798,6 +798,23 @@ declare namespace bundleManager {
   }
 
   /**
+   * Used to query the specified value in applicationReservedFlag.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  export enum ApplicationReservedFlag {
+    /**
+     * Used to query whether the application is encrypted.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    ENCRYPTED_APPLICATION = 0x00000001,
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
