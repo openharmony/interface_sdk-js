@@ -17,7 +17,7 @@ import type AsyncCallback from './@ohos.base';
 import type BaseContext from './application/BaseContext';
 
 /**
- * pipWindow manager
+ * PipWindow manager
  *
  * @namespace pipWindow
  * @syscap SystemCapability.Window.SessionManager
@@ -34,7 +34,7 @@ declare namespace pipWindow {
   function isPipEnabled(): boolean;
 
   /**
-   * create picture-in-picture controller
+   * Create picture-in-picture controller
    *
    * @param { PipConfiguration } config - Params for picture-in-picture controller creation
    * @returns { Promise<PipController> } - The promise returned by the function
@@ -46,7 +46,7 @@ declare namespace pipWindow {
   function create(config: PipConfiguration): Promise<PipController>;
 
   /**
-   * create picture-in-picture controller
+   * Create picture-in-picture controller
    *
    * @param { PipConfiguration } config - Params for picture-in-picture controller creation
    * @param { AsyncCallback<PipController> } callback - Callback used to return the PipController created
@@ -159,7 +159,7 @@ declare namespace pipWindow {
    */
   enum PipState {
     /**
-     * pipWindow is about to start.
+     * PipWindow is about to start.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -167,7 +167,7 @@ declare namespace pipWindow {
     ABOUT_TO_START = 1,
 
     /**
-     * pipWindow started.
+     * PipWindow started.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -175,7 +175,7 @@ declare namespace pipWindow {
     STARTED = 2,
 
     /**
-     * pipWindow is about to stop.
+     * PipWindow is about to stop.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -183,7 +183,7 @@ declare namespace pipWindow {
     ABOUT_TO_STOP = 3,
 
     /**
-     * pipWindow stopped.
+     * PipWindow stopped.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -191,7 +191,7 @@ declare namespace pipWindow {
     STOPPED = 4,
 
     /**
-     * restore the original page from pipWindow
+     * Restore the original page from pipWindow
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -199,7 +199,7 @@ declare namespace pipWindow {
     ABOUT_TO_RESTORE = 5,
 
     /**
-     * error message during start/stop.
+     * Error message during start/stop.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
