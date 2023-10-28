@@ -112,13 +112,13 @@ export declare interface FourFingersSwipe {
  * @since 10
  */
 export declare interface ThreeFingersTap {
-    /**
-     * Action type
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.Core
-     * @since 10
-     */
-    type: ActionType;
+  /**
+   * Action type
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
+  type: ActionType;
 }
   
 /**
