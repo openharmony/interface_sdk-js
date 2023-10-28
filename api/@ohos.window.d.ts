@@ -203,7 +203,16 @@ declare namespace window {
      * @StageModelOnly
      * @since 9
      */
-    TYPE_SCREENSHOT
+    TYPE_SCREENSHOT,
+    /**
+     * System Toast.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @StageModelOnly
+     * @since 11
+     */
+    TYPE_SYSTEM_TOAST
   }
 
   /**
@@ -2786,8 +2795,7 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
 
@@ -2798,8 +2806,7 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
@@ -4004,7 +4011,25 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
-    HIDDEN
+    HIDDEN,
+    /**
+     * The window stage is interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 11
+     */
+    RESUMED,
+    /**
+     * The window stage is not interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 11
+     */
+    PAUSED
   }
   /**
    * WindowStage

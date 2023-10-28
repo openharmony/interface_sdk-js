@@ -134,6 +134,7 @@ crosshair
 crowdtest
 crowdtested
 crowdtesting
+csh
 cug
 cyclewindows
 daltonization
@@ -355,6 +356,7 @@ kaihong
 kbdillum
 kbdinputassist
 kbps
+kdf
 keyof
 keyframe
 keyguard
@@ -392,6 +394,7 @@ lowercased
 lightupEffect
 lpx
 lru
+lseek
 lshort
 lsizei
 lsizeiptr
@@ -586,6 +589,7 @@ renderbuffer
 renderbuffertarget
 repayment
 repeates
+reposition
 resizeable
 resmgr
 resourceschedule
@@ -623,6 +627,7 @@ scene
 sco
 scrambling
 screenlock
+screenoff
 screensaver
 scrolldown
 scrollup
@@ -807,11 +812,13 @@ userspace
 usim
 ussd
 utilized
+utimes
 uuids
 uwb
 uids
 v9
 varyings
+viewframe
 vibrates
 vibrating
 vlr
@@ -840,12 +847,17 @@ wideband
 wifiext
 wimax
 wireframe
+wma
+wmp
+wmv
+wmx
 wordprocessor
 workscheduler
 woy
 wrappedvalue
 writemask
 wukong
+wvx
 wwan
 x25519
 x509
@@ -873,3 +885,4 @@ unchained
 sandboxes
 sar
 adapts
+followx

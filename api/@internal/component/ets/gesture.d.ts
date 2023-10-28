@@ -743,7 +743,7 @@ interface TapGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onAction(event: (event?: GestureEvent) => void): TapGestureInterface;
+  onAction(event: (event: GestureEvent) => void): TapGestureInterface;
 }
 
 /**
@@ -804,7 +804,7 @@ interface LongPressGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onAction(event: (event?: GestureEvent) => void): LongPressGestureInterface;
+  onAction(event: (event: GestureEvent) => void): LongPressGestureInterface;
 
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -823,7 +823,7 @@ interface LongPressGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionEnd(event: (event?: GestureEvent) => void): LongPressGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): LongPressGestureInterface;
 
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -980,7 +980,7 @@ interface PanGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionStart(event: (event?: GestureEvent) => void): PanGestureInterface;
+  onActionStart(event: (event: GestureEvent) => void): PanGestureInterface;
 
   /**
    * Callback when the Pan gesture is moving.
@@ -999,7 +999,7 @@ interface PanGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionUpdate(event: (event?: GestureEvent) => void): PanGestureInterface;
+  onActionUpdate(event: (event: GestureEvent) => void): PanGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -1018,7 +1018,7 @@ interface PanGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionEnd(event: (event?: GestureEvent) => void): PanGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): PanGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -1092,7 +1092,7 @@ interface SwipeGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onAction(event: (event?: GestureEvent) => void): SwipeGestureInterface;
+  onAction(event: (event: GestureEvent) => void): SwipeGestureInterface;
 }
 
 /**
@@ -1147,7 +1147,7 @@ interface PinchGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionStart(event: (event?: GestureEvent) => void): PinchGestureInterface;
+  onActionStart(event: (event: GestureEvent) => void): PinchGestureInterface;
 
   /**
    * Callback when the Pan gesture is moving.
@@ -1166,7 +1166,7 @@ interface PinchGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionUpdate(event: (event?: GestureEvent) => void): PinchGestureInterface;
+  onActionUpdate(event: (event: GestureEvent) => void): PinchGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -1185,7 +1185,7 @@ interface PinchGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionEnd(event: (event?: GestureEvent) => void): PinchGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): PinchGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -1259,7 +1259,7 @@ interface RotationGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionStart(event: (event?: GestureEvent) => void): RotationGestureInterface;
+  onActionStart(event: (event: GestureEvent) => void): RotationGestureInterface;
 
   /**
    * Callback when the Pan gesture is moving.
@@ -1278,7 +1278,7 @@ interface RotationGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionUpdate(event: (event?: GestureEvent) => void): RotationGestureInterface;
+  onActionUpdate(event: (event: GestureEvent) => void): RotationGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -1297,7 +1297,7 @@ interface RotationGestureInterface {
    * @crossplatform
    * @since 10
    */
-  onActionEnd(event: (event?: GestureEvent) => void): RotationGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): RotationGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.

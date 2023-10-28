@@ -266,6 +266,16 @@ export interface HapModuleInfo {
    * @since 9
    */
   readonly preloads: Array<PreloadItem>;
+
+  /**
+   * Indicates the menu configuration
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  readonly fileContextMenu: string;
 }
 
 /**

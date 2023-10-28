@@ -164,7 +164,16 @@ declare namespace AbilityConstant {
      * @StageModelOnly
      * @since 10
      */
-    SHARE = 5
+    SHARE = 5,
+
+    /**
+     * Start ability by booting it up.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 11
+     */
+    AUTO_STARTUP = 8
   }
 
   /**

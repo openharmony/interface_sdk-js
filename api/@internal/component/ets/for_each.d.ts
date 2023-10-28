@@ -73,8 +73,8 @@ interface ForEachInterface {
    */
   (
     arr: Array<any>,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
+    itemGenerator: (item: any, index: number) => void,
+    keyGenerator?: (item: any, index: number) => string,
   ): ForEachInterface;
 }
 

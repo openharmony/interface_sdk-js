@@ -24,6 +24,7 @@ export interface Resource {
   /**
    * bundle name in hap
    *
+   * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
@@ -32,6 +33,7 @@ export interface Resource {
   /**
    * module name in hap
    *
+   * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
@@ -40,8 +42,27 @@ export interface Resource {
   /**
    * resource id in hap
    *
+   * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
   id: number;
+
+  /**
+   * Set params.
+   *
+   * @type { ?any[] }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 7
+   */
+  params?: any[];
+
+  /**
+   * Set type.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 7
+   */
+  type?: number;
 }

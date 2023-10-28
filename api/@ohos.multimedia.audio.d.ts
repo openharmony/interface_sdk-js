@@ -2891,6 +2891,13 @@ declare namespace audio {
      * @since 9
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
+
+    /**
+     * Audio capturer muted status.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    readonly muted?: boolean;
   }
 
   /**
@@ -2982,6 +2989,13 @@ declare namespace audio {
      * @since 10
      */
     readonly displayName: string;
+
+    /**
+     * Supported encoding types.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    readonly encodingTypes?: Array<AudioEncodingType>;
   }
 
   /**
@@ -3147,6 +3161,39 @@ declare namespace audio {
      * @since 7
      */
     deviceDescriptors: AudioDeviceDescriptors;
+  }
+
+  /**
+   * Enumerates channel blend mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 11
+   */
+  enum ChannelBlendMode {
+    /**
+     * No channel process.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_DEFAULT = 0,
+    /**
+     * Blend left and right channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_BLEND_LR = 1,
+    /**
+     * Replicate left to right channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_ALL_LEFT = 2,
+    /**
+     * Replicate right to left channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_ALL_RIGHT = 3,
   }
 
   /**
@@ -3581,6 +3628,17 @@ declare namespace audio {
     getCurrentOutputDevicesSync(): AudioDeviceDescriptors;
 
     /**
+     * Sets channel blend mode for this stream.
+     * @param { ChannelBlendMode } mode - Target channel blend mode.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setChannelBlendMode(mode: ChannelBlendMode): void;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
@@ -3981,6 +4039,22 @@ declare namespace audio {
     getBufferSizeSync(): number;
 
     /**
+     * Gets the input device or devices for this stream.
+     * @returns { AudioDeviceDescriptors } Descriptors of input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentInputDevices(): AudioDeviceDescriptors;
+
+    /**
+     * Gets full capturer info for this stream.
+     * @returns { AudioCapturerChangeInfo } Full capture info.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
+
+    /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -4046,6 +4120,50 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'audioInterrupt'): void;
+
+    /**
+     * Subscribes input device change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes input device change event callback.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes audio capturer info change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
+    /**
+     * Unsubscribes audio capturer info change event callback.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
   }
 
   /**

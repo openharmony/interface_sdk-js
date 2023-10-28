@@ -14,7 +14,7 @@
 */
 
 /**
- * Provide interfaces related to debugger access and obtaining CPU, 
+ * Provide interfaces related to debugger access and obtaining CPU,
  * memory and other virtual machine information during runtime for JS programs
  *
  * @namespace hidebug
@@ -24,7 +24,7 @@
 declare namespace hidebug {
   /**
    * Get total native heap memory size
-   * @param -
+   *
    * @returns { bigint } Returns total native heap memory size.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -33,7 +33,6 @@ declare namespace hidebug {
 
   /**
    * Get Native heap memory allocation size.
-   * @param -
    * @returns { bigint } Returns native heap memory allocation size.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -42,7 +41,7 @@ declare namespace hidebug {
 
   /**
    * Get Native heap memory free size
-   * @param -
+   *
    * @returns { bigint } Returns native heap memory free size.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -50,8 +49,16 @@ declare namespace hidebug {
   function getNativeHeapFreeSize(): bigint;
 
   /**
+   * Get the virtual set size memory of the application process
+   * @returns { bigint } Returns application process virtual set size memory information.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 11
+   */
+  function getVss(): bigint;
+
+  /**
    * Get application process proportional set size memory information
-   * @param -
+   *
    * @returns { bigint } Returns application process proportional set size memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -60,7 +67,7 @@ declare namespace hidebug {
 
   /**
    * Obtains the size of the shared dirty memory of a process.
-   * @param -
+   *
    * @returns { bigint } Returns the size of the shared dirty memory.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -69,7 +76,6 @@ declare namespace hidebug {
 
   /**
    * Obtains the size of the private dirty memory of a process.
-   * @param -
    * @returns { bigint } Returns the size of the private dirty memory.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
@@ -78,7 +84,7 @@ declare namespace hidebug {
 
   /**
    * Obtains the cpu usage percent of a process.
-   * @param -
+   *
    * @returns { number } Returns the cpu usage of a process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
@@ -90,7 +96,7 @@ declare namespace hidebug {
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
    * Such as "/data/accounts/account_0/appdata/[package name]/files/cpuprofiler-xxx.json"
-   * 
+   *
    * @param { string } filename - Indicates the user-defined file name,  excluding the file suffix.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -102,8 +108,7 @@ declare namespace hidebug {
   /**
    * Stop CPU Profiling.
    * It takes effect only when the CPU profiler is turned on
-   * 
-   * @param -
+   *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
    * @deprecated since 9
@@ -116,7 +121,7 @@ declare namespace hidebug {
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
    * Such as "/data/accounts/account_0/appdata/[package name]/files/xxx.heapsnapshot"
-   * 
+   *
    * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -129,7 +134,7 @@ declare namespace hidebug {
    * Start CPU Profiling.
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
-   * 
+   *
    * @param { string } filename - Indicates the user-defined file name,  excluding the file suffix.
    * @throws {BusinessError} 401 - the parameter check failed
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -140,8 +145,7 @@ declare namespace hidebug {
   /**
    * Stop CPU Profiling.
    * It takes effect only when the CPU profiler is turned on
-   * 
-   * @param -
+   *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
    */
@@ -151,7 +155,7 @@ declare namespace hidebug {
    * Dump JS Virtual Machine Heap Snapshot.
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
-   * 
+   *
    * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
    * @throws {BusinessError} 401 - the parameter check failed
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -162,7 +166,7 @@ declare namespace hidebug {
   /**
    * Get a debugging dump of a system service by service id.
    * It need dump permission.
-   * 
+   *
    * @permission ohos.permission.DUMP
    * @param { number } serviceid - Indicates the id of the service ability.
    * @param { number } fd - The file descriptor.
@@ -171,7 +175,6 @@ declare namespace hidebug {
    * @throws {BusinessError} 11400101 - the service id is invalid
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
-   
    */
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
 }

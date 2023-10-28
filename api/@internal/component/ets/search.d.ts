@@ -545,6 +545,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   copyOption(value: CopyOptions): SearchAttribute;
 
   /**
+   * Called when the input of maximum text length is set.
+   *
+   * @param { number } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * crossplatform
+   * @since 11
+   */
+  maxLength(value: number): SearchAttribute;
+
+  /**
    * Called when the text align is set.
    *
    * @param { TextAlign } value
@@ -592,6 +603,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   customKeyboard(value: CustomBuilder): SearchAttribute;
 }
