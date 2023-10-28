@@ -7285,6 +7285,43 @@ declare enum Placement {
 }
 
 /**
+ * ArrowPointPosition enumeration description
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum ArrowPointPosition {
+  /**
+   * Target start position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  START = 'Start',
+
+  /**
+   * Target center position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  CENTER = 'Center',
+
+  /**
+   * Target end position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  END = 'End',
+}
+
+/**
  * Indicates the share option.
  *
  * @enum { number }
