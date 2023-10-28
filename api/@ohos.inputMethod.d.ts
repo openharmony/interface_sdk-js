@@ -16,6 +16,7 @@
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { ElementName } from './bundleManager/ElementName';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import type { PanelInfo } from './@ohos.inputMethod.Panel';
 
 /**
  * Input method
