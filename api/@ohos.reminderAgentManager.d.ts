@@ -508,11 +508,11 @@ declare namespace reminderAgentManager {
     /**
      * If the same group ID is set for reminders, these reminders are canceled together.
      *
-     * @type { ?number }
+     * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 11
      */
-    groupId?: number;
+    groupId?: string;
 
     /**
      * Type of the slot used by the reminder.
