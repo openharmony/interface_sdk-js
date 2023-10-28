@@ -2,29 +2,6 @@
   {
     "filePath": "ut_method_return_001.d.ts",
     "packageName": "ut_method_return_001",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "-1",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_method_return_001.d.ts/test",
-    "apiName": "test",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
-    "pos": {
-      "line": 5,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_method_return_001.d.ts",
-    "packageName": "ut_method_return_001",
     "parentModuleName": "test",
     "syscap": "",
     "permissions": "",

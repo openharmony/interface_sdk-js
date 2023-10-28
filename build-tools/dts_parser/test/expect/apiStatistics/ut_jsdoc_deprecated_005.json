@@ -12,8 +12,8 @@
     "apiName": "test",
     "deprecatedVersion": "9",
     "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
+    "apiType": "Class",
+    "definedText": " export class test",
     "pos": {
       "line": 7,
       "character": 1

@@ -3,4 +3,4 @@
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  */
-export namespace test {}
+export class test {}

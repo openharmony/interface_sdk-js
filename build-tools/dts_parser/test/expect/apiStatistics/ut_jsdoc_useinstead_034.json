@@ -12,8 +12,8 @@
     "apiName": "test",
     "deprecatedVersion": "9",
     "useInstead": "ohos.app.ability.dataUriUtils/Test",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
+    "apiType": "Class",
+    "definedText": " export class test",
     "pos": {
       "line": 8,
       "character": 1
