@@ -84,7 +84,7 @@ export default class AbilityStage {
   onAcceptWant(want: Want): string;
 
   /**
-   * Called back when start UIAbility in specifed process.
+   * Called back when start UIAbility in specified process.
    *
    * @param { Want } want - Indicates the want info of started ability.
    * @returns { string } The user returns an process string ID. If the process of this ID has been created before,
