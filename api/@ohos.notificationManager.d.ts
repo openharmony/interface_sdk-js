@@ -21,6 +21,11 @@ import { NotificationContent as _NotificationContent } from './notification/noti
 import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
+import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
+import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
+import { NotificationButton as _NotificationButton } from './notification/notificationContent';
+import { NotificationTime as _NotificationTime } from './notification/notificationContent';
+import { NotificationProgress as _NotificationProgress } from './notification/notificationContent';
 import { NotificationFlags as _NotificationFlags } from './notification/notificationFlags';
 import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
@@ -1715,6 +1720,86 @@ declare namespace notificationManager {
   ): void;
 
   /**
+   * Trigger system live view notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } notificationId - The notification id.
+   * @param { ButtonOptions } buttonOptions - The button option.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
+
+  /**
+   * Subscribe to system live view notifications
+   *
+   * @param { SystemLiveViewSubscriber } subscriber - The system live vie notification subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
+
+  /**
+   * Describes a button option for a triggering.
+   *
+   * @typedef ButtonOptions
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export interface ButtonOptions {
+    /**
+     * The button name for a triggering.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    buttonName: string;
+  }
+
+  /**
+   * Describes a subscriber for system live view.
+   *
+   * @typedef SystemLiveViewSubscriber
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export interface SystemLiveViewSubscriber {
+    /**
+     * The callback function that receives a new button option of a notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
+  }
+
+  /**
    * Describes the parameters of check notifications.
    *
    * @typedef NotificationCheckInfo
@@ -1832,6 +1917,14 @@ declare namespace notificationManager {
     CONTENT_INFORMATION = 3,
 
     /**
+     * NotificationSlot for live view.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    LIVE_VIEW = 4,
+
+    /**
      * NotificationSlot for other purposes.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -1886,7 +1979,15 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
-    NOTIFICATION_CONTENT_MULTILINE
+    NOTIFICATION_CONTENT_MULTILINE,
+
+    /**
+     * System local live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
   }
 
   /**
@@ -2168,6 +2269,14 @@ declare namespace notificationManager {
   export type NotificationPictureContent = _NotificationPictureContent;
 
   /**
+   * Describes a system live view notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent;
+
+  /**
    * Describes a NotificationFlags instance.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -2233,6 +2342,38 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationUserInput = _NotificationUserInput;
+
+  /**
+   * Describes a system live view capsule type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationCapsule = _NotificationCapsule;
+
+  /**
+   * Describes a system live view button type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationButton = _NotificationButton;
+
+  /**
+   * Describes a system live view time type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationTime = _NotificationTime;
+
+  /**
+   * Describes a system live view progress type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationProgress = _NotificationProgress;
 }
 
 export default notificationManager;
