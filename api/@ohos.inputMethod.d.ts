@@ -321,6 +321,22 @@ declare namespace inputMethod {
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
+     * Query whether a panel with specified information is shown.
+     *
+     * @param { PanelInfo } panelInfo - the information of panel which is queried.
+     * @returns { boolean }
+     *     If true, the panel being queried is shown.
+     *     If false, the panel being queried is hidden.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 11
+     */
+    isPanelShown(panelInfo: PanelInfo): boolean;
+
+    /**
      * List subtype of the specified input method.
      *
      * @param { InputMethodProperty } inputMethodProperty - the property of the specified inputmethod.
