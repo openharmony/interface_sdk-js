@@ -3,4 +3,4 @@
  *
  * @form
  */
-export namespace test {}
+export class test {}

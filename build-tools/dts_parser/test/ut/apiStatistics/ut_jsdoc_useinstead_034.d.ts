@@ -5,4 +5,4 @@
  * @deprecated since 9
  * @useinstead ohos.app.ability.dataUriUtils/Test
  */
-export namespace test {}
+export class test {}

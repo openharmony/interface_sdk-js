@@ -2,29 +2,6 @@
   {
     "filePath": "ut_type_child_node_004.d.ts",
     "packageName": "ut_type_child_node_004",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_type_child_node_004.d.ts/test",
-    "apiName": "test",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " declare namespace test",
-    "pos": {
-      "line": 1,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_type_child_node_004.d.ts",
-    "packageName": "ut_type_child_node_004",
     "parentModuleName": "test",
     "syscap": "",
     "permissions": "",

@@ -227,6 +227,11 @@ export const apiStatisticsType: Set<string> = new Set([
 ]);
 
 /**
+ * 不需要被统计成API的类型，但是子节点需要统计成API
+ */
+export const apiNotStatisticsType: Set<string> = new Set([ApiType.ENUM, ApiType.NAMESPACE]);
+
+/**
  * 名字为on/off的函数，不合并API声明
  */
 export const notMergeDefinedText: Set<string> = new Set(['on', 'off']);

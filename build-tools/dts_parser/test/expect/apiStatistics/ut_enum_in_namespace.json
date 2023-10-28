@@ -2,29 +2,6 @@
   {
     "filePath": "ut_enum_in_namespace.d.ts",
     "packageName": "ut_enum_in_namespace",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_enum_in_namespace.d.ts/Test",
-    "apiName": "Test",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " declare namespace Test",
-    "pos": {
-      "line": 1,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_enum_in_namespace.d.ts",
-    "packageName": "ut_enum_in_namespace",
     "parentModuleName": "Valuable",
     "syscap": "",
     "permissions": "",

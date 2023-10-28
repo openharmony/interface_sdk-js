@@ -2,29 +2,6 @@
   {
     "filePath": "ut_field_interface_object.d.ts",
     "packageName": "ut_field_interface_object",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_field_interface_object.d.ts/testNamespace",
-    "apiName": "testNamespace",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " declare namespace testNamespace",
-    "pos": {
-      "line": 1,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_field_interface_object.d.ts",
-    "packageName": "ut_field_interface_object",
     "parentModuleName": "testNamespace",
     "syscap": "",
     "permissions": "",

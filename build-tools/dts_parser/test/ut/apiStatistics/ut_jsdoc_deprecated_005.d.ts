@@ -4,4 +4,4 @@
  * @since 7
  * @deprecated since 9
  */
-export namespace test {}
+export class test {}
