@@ -836,14 +836,14 @@ declare namespace relationalStore {
    * Describes the data origin sources.
    *
    * @enum { number }
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11
    */
   enum Origin {
     /**
      * Indicates the data source is local.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     LOCAL,
@@ -851,7 +851,7 @@ declare namespace relationalStore {
     /**
      * Indicates the data source is cloud.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     CLOUD,
@@ -859,7 +859,7 @@ declare namespace relationalStore {
     /**
      * Indicates the data source is remote.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     REMOTE,
@@ -869,14 +869,14 @@ declare namespace relationalStore {
    * Enumerates the field.
    *
    * @enum { string }
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11
    */
   enum Field {
     /**
      * Cursor field.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     CURSOR_FIELD = '#_cursor',
@@ -884,7 +884,7 @@ declare namespace relationalStore {
     /**
      * Origin field. For details, see {@link Origin}.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     ORIGIN_FIELD = '#_origin',
@@ -893,7 +893,7 @@ declare namespace relationalStore {
      * Deleted flag field.
      * Indicates whether data has deleted in cloud.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     DELETED_FLAG_FIELD = 'deleted_flag',
@@ -901,7 +901,7 @@ declare namespace relationalStore {
     /**
      * Owner field.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     OWNER_FIELD = 'owner',
@@ -909,7 +909,7 @@ declare namespace relationalStore {
     /**
      * Privilege field.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
     PRIVILEGE_FIELD = 'privilege'
