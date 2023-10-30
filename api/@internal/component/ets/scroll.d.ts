@@ -131,6 +131,36 @@ declare enum ScrollAlign {
 }
 
 /**
+ * OffsetResult info.
+ *
+ * @interface OffsetResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface OffsetResult {
+  /**
+   * The X-axis offset.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  xOffset: number;
+
+  /**
+   * The y-axis offset.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  yOffset: number;
+}
+
+/**
  * @since 7
  */
 /**
@@ -258,7 +288,15 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  currentOffset();
+  /**
+   * Called when viewing the scroll offset.
+   *
+   * @returns { OffsetResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  currentOffset() : OffsetResult;
 
   /**
    * Called when sliding to the specified index.
