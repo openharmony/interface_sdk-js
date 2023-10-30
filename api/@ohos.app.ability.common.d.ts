@@ -45,6 +45,13 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @crossplatform
  * @since 10
  */
+/**
+ * The class of an ability.
+ *
+ * @namespace ability
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 11
+ */
 declare namespace common {
   /**
    * The context of an ability. It allows access to ability-specific resources.
@@ -178,6 +185,14 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * The class of an ability.
+   *
+   * @namespace ability
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 11
    */
   export type PacMap = _PacMap;
 

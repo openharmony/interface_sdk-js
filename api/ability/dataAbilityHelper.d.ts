@@ -484,6 +484,13 @@ export interface DataAbilityHelper {
  * @FAModelOnly
  * @since 7
  */
+/**
+ * The class of an ability.
+ *
+ * @namespace ability
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 11
+ */
 export interface PacMap {
   /**
    * Indicates the parameter of the PacMap type.
@@ -496,6 +503,13 @@ export interface PacMap {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
+   */
+  /**
+   * The class of an ability.
+   *
+   * @namespace ability
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @since 11
    */
   [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }
