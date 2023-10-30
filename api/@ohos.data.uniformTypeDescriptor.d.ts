@@ -30,6 +30,30 @@ declare namespace uniformTypeDescriptor {
    */
   enum UniformDataType {
     /**
+     * Base data type for physical hierarchy, which identifies the physical representation of the data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    ENTITY = 'general.entity',
+
+    /**
+     * Base data type for logical hierarchy, which identifies the logical content representation of the data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OBJECT = 'general.object',
+
+    /**
+     * Base data type for mixed object. For example, a PDF file contains both text and special formatting data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    COMPOSITE_OBJECT = 'general.composite-object',
+
+    /**
      * Text data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -731,7 +755,24 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service'
+    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service',
+
+    /**
+     * OpenHarmony system defined package, which is a directory presented to the user as a file(the data is provided
+     * <br>and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_PACKAGE = 'openharmony.package',
+
+    /**
+     * OpenHarmony system defined ability package(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_HAP = 'openharmony.hap'
   }
 
   /**
