@@ -203,16 +203,19 @@ const globalModules = new Map();
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function formatImportDeclaration(url) {
+function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted = false) {
   return (context) => {
     const allIdentifierSet = new Set([]);
-    let referencesMessage = '';
-    let copyrightMessage = '';
-    let isCopyrightDeleted = false;
     return (node) => {
       sourceFile = node;
       collectAllIdentifier(node); // 获取所有标识符
-      node = formatAllNodes(node); // 获取所有节点
+      formatValue = formatAllNodes(url, node, allIdentifierSet); // 获取所有节点
+      node = formatValue.node;
+      const referencesMessage = formatValue.referencesMessage;
+      if (formatValue.isCopyrightDeleted) {
+        copyrightMessage = formatValue.copyrightMessage;
+        isCopyrightDeleted = formatValue.isCopyrightDeleted;
+      }
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
         let result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
@@ -248,52 +251,54 @@ function formatImportDeclaration(url) {
       }
       return ts.visitEachChild(node, collectAllNodes, context);
     }
-    function formatAllNodes(node) {
-      let currReferencesModule = formatAllNodesReferences(url);
-      if (ts.isSourceFile(node) && node.statements) {
-        const newStatements = [];
-        node.statements.forEach((statement) => {
-          if (ts.isImportDeclaration(statement)) {
-            const importInfo = formatAllNodesImportDeclaration(
-              node,
-              statement,
-              url,
-              currReferencesModule,
-              allIdentifierSet
-            );
-            if (importInfo.statement) {
-              newStatements.push(statement);
-            } else if (importInfo.isCopyrightDeleted) {
-              copyrightMessage = importInfo.copyrightMessage;
-              isCopyrightDeleted = importInfo.isCopyrightDeleted;
-            }
-          } else if (ts.isStructDeclaration(statement)) {
-            statement = ts.factory.updateStructDeclaration(
-              statement,
-              statement.decorators,
-              statement.modifiers,
-              statement.name,
-              statement.typeParameters,
-              statement.heritageClauses,
-              statement.members.slice(1)
-            );
-            newStatements.push(statement);
-          } else {
-            newStatements.push(statement);
-          }
-        });
-        currReferencesModule.forEach((item) => {
-          if (item.isUsed) {
-            referencesMessage += item.reference + '\n';
-          }
-        });
-        node = ts.factory.updateSourceFile(node, newStatements);
-      }
-
-      return node;
-    }
   };
 }
+
+function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCopyrightDeleted = false) {
+  let referencesMessage = '';
+  let currReferencesModule = formatAllNodesReferences(url);
+  if (ts.isSourceFile(node) && node.statements) {
+    const newStatements = [];
+    node.statements.forEach((statement) => {
+      if (ts.isImportDeclaration(statement)) {
+        const importInfo = formatAllNodesImportDeclaration(
+          node,
+          statement,
+          url,
+          currReferencesModule,
+          allIdentifierSet
+        );
+        if (importInfo.statement) {
+          newStatements.push(statement);
+        } else if (importInfo.isCopyrightDeleted) {
+          copyrightMessage = importInfo.copyrightMessage;
+          isCopyrightDeleted = importInfo.isCopyrightDeleted;
+        }
+      } else if (ts.isStructDeclaration(statement)) {
+        statement = ts.factory.updateStructDeclaration(
+          statement,
+          statement.decorators,
+          statement.modifiers,
+          statement.name,
+          statement.typeParameters,
+          statement.heritageClauses,
+          statement.members.slice(1)
+        );
+        newStatements.push(statement);
+      } else {
+        newStatements.push(statement);
+      }
+    });
+    currReferencesModule.forEach((item) => {
+      if (item.isUsed) {
+        referencesMessage += item.reference + '\n';
+      }
+    });
+    node = ts.factory.updateSourceFile(node, newStatements);
+  }
+  return { node, referencesMessage, copyrightMessage, isCopyrightDeleted };
+}
+
 function hasCopyright(node) {
   return /http\:\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(node.getFullText().replace(node.getText(), ''));
 }
@@ -433,9 +438,13 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
 function deleteSystemApi(url) {
   return (context) => {
     return (node) => {
+      const copyrightMessage = node
+        .getFullText()
+        .replace(node.getText(), '')
+        .split(/\/\*\*/)[0];
       sourceFile = node;
-      node = processSourceFile(node); // 处理最外层节点
-      node = processVisitEachChild(context, node);
+      const deleteNode = processSourceFile(node); // 处理最外层节点
+      node = processVisitEachChild(context, deleteNode.node);
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
         const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
@@ -448,7 +457,7 @@ function deleteSystemApi(url) {
             target: ts.ScriptTarget.ES2017,
           },
           fileName: fileName,
-          transformers: { before: [formatImportDeclaration(url)] },
+          transformers: { before: [formatImportDeclaration(url, copyrightMessage, deleteNode.isCopyrightDeleted)] },
         });
       }
       return node;
@@ -470,11 +479,15 @@ exports.deleteSystemApi = deleteSystemApi;
  * @returns
  */
 function processSourceFile(node) {
+  let isCopyrightDeleted = false;
   const newStatements = [];
   const newStatementsWithoutExport = [];
   const deleteSystemApiSet = new Set();
-  node.statements.forEach((statement) => {
+  node.statements.forEach((statement, index) => {
     if (isSystemapi(statement)) {
+      if (index == 0) {
+        isCopyrightDeleted = true;
+      }
       if (ts.isVariableStatement(statement)) {
         deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
       } else if (
@@ -520,7 +533,10 @@ function processSourceFile(node) {
       }
     }
   });
-  return ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles);
+  return {
+    node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles),
+    isCopyrightDeleted,
+  };
 }
 /**
  * 获取export节点的名字，只获取第一个关键词
@@ -737,23 +753,9 @@ function isSystemapi(node) {
   const notesArr = notesContent.split(/\/\*\*/);
   const notesStr = notesArr[notesArr.length - 1];
   if (notesStr.length !== 0) {
-    if (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) {
-      lastNodeName = node.name && node.name.escapedText ? node.name.escapedText.toString() : '';
-      lastNoteStr = notesStr;
-    }
     return /@systemapi/g.test(notesStr);
-  } else {
-    if (
-      (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) &&
-      node.name &&
-      node.name.escapedText.toString() !== '' &&
-      node.name.escapedText.toString() === lastNodeName
-    ) {
-      return /@systemapi/g.test(lastNoteStr);
-    } else {
-      return false;
-    }
   }
+  return false;
 }
 
 function isEmptyFile(node) {
