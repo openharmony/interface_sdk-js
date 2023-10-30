@@ -3,4 +3,4 @@
  *
  * @StageModelOnly
  */
-export namespace test {}
+export class test {}

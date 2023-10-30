@@ -438,6 +438,14 @@ declare namespace bundleManager {
     ACTION = 19,
 
     /**
+     * Indicates extension info with type of ads service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    ADS_SERVICE = 20,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

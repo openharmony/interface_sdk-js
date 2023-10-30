@@ -515,6 +515,7 @@ persistable
 perso
 personalisation
 pertaining
+pgo
 photographing
 pickers
 pixelmap

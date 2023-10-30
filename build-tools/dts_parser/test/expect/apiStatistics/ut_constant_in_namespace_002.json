@@ -2,29 +2,6 @@
   {
     "filePath": "ut_constant_in_namespace_002.d.ts",
     "packageName": "ut_constant_in_namespace_002",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "-1",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_constant_in_namespace_002.d.ts/test",
-    "apiName": "test",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " declare namespace test",
-    "pos": {
-      "line": 4,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_constant_in_namespace_002.d.ts",
-    "packageName": "ut_constant_in_namespace_002",
     "parentModuleName": "test",
     "syscap": "",
     "permissions": "",

@@ -700,6 +700,36 @@ declare namespace installer {
   }
 
   /**
+   * Provides parameters required for PGOParam.
+   *
+   * @typedef PGOParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  export interface PGOParam {
+    /**
+     * Indicates the moduleName that need to store profile-guided optimization(PGO) file.
+     *
+     * @type { string }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 11
+     */
+    moduleName: string;
+
+    /**
+     * Indicates the path where the profile-guided optimization(PGO) file is stored.
+     *
+     * @type { string }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 11
+     */
+    pgoFilePath: string;
+  }
+
+  /**
    * Provides parameters required for installing or uninstalling an application.
    *
    * @typedef InstallParam
@@ -789,6 +819,16 @@ declare namespace installer {
      * @since 10
      */
     verifyCodeParams?: Array<VerifyCodeParam>;
+
+    /**
+     * Indicates the profile-guided optimization(PGO) params.
+     *
+     * @type { ?Array<PGOParam> }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 11
+     */
+    pgoParams?: Array<PGOParam>;
   }
 
   /**

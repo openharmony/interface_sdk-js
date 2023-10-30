@@ -4725,6 +4725,46 @@ declare enum DragResult {
 }
 
 /**
+ * Enum for BlendMode.
+ * Use background as src, child nodes as dst
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum BlendMode {
+  /**
+   * Hybrid mode does not take effect
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  NORMAL = 0,
+  /**
+   * r = d * sa, blend background color with child nodes' alpha
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DESTINATION_IN = 1,
+  /**
+   * r = s * da
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  SOURCE_IN = 2
+}
+
+/**
  * DragEvent object description
  *
  * @interface DragEvent
@@ -8768,6 +8808,19 @@ declare class CommonMethod<T> {
   shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
+   * Add a blendMode effect to the current component
+   * Nesting using blendMode is not recommended
+   * 
+   * @param { BlendMode } value - Different hybrid modes
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  blendMode(value: BlendMode): T;
+
+  /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    *
@@ -10527,6 +10580,43 @@ declare interface RectResult {
 }
 
 /**
+ * CaretOffset info.
+ *
+ * @interface CaretOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface CaretOffset {
+  /**
+   * Get the index of the CaretOffset
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  index: number;
+
+  /**
+   * Get the x of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  x: number;
+  
+  /**
+   * Get the y of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  y: number;
+}
+
+/**
  * TextContentControllerBase
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10534,6 +10624,16 @@ declare interface RectResult {
  * @since 10
  */
 declare abstract class TextContentControllerBase {
+  /**
+   * Get the index and relative position of the CaretOffset.
+   *
+   * @returns { CaretOffset } index and relative position of the CaretOffset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getCaretOffset() : CaretOffset;
+
   /**
    * Get the start and end positions of the text content.
    *
