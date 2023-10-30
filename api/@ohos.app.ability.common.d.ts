@@ -46,10 +46,11 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @since 10
  */
 /**
- * The class of an ability.
+ * This module provides application context classes and common data structures.
  *
- * @namespace ability
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @namespace common
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
  * @since 11
  */
 declare namespace common {
@@ -187,10 +188,9 @@ declare namespace common {
    * @since 9
    */
   /**
-   * The class of an ability.
+   * Defines a PacMap object for storing a series of values.
    *
-   * @namespace ability
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 11
    */
   export type PacMap = _PacMap;
