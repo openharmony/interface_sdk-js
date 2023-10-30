@@ -774,6 +774,32 @@ declare namespace display {
      * @since 9
      */
     getCutoutInfo(): Promise<CutoutInfo>;
+
+    /**
+     * Check if current display has immersive window.
+     *
+     * @param { AsyncCallback<boolean> } callback
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    hasImmersiveWindow(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Check if current display has immersive window.
+     *
+     * @returns { Promise<boolean> }
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    hasImmersiveWindow(): Promise<boolean>;
   }
 }
 
