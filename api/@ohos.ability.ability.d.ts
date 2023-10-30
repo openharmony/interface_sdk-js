@@ -58,7 +58,6 @@ declare namespace ability {
    *
    * @namespace ability
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @FAModelOnly
    * @since 11
    */
   export type PacMap = _PacMap;

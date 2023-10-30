@@ -191,7 +191,6 @@ declare namespace common {
    *
    * @namespace ability
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
    * @since 11
    */
   export type PacMap = _PacMap;
