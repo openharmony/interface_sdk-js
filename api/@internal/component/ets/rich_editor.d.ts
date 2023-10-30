@@ -1191,6 +1191,26 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @since 11
     */
   onPaste(callback: (event?: PasteEvent) => void): RichEditorAttribute;
+
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - Enable data detector.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enableDataDetector(enable: boolean): RichEditorAttribute;
+
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
 }
 
 /**
