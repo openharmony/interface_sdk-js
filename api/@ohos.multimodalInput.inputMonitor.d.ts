@@ -200,7 +200,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 11
    */
   function on(type: 'threeFingersTap', receiver: Callback<ThreeFingersTap>): void;
 
@@ -215,7 +215,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 11
    */
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
 
