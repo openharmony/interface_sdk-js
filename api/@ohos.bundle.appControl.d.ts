@@ -117,7 +117,7 @@ declare namespace appControl {
   }
 
   /**
-   * Indicates the rule for intercepting the specified application.
+   * Indicates the rule for interception.
    *
    * @typedef DisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
