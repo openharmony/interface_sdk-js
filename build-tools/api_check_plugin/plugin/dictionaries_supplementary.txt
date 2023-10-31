@@ -178,6 +178,7 @@ dirent
 dirxml
 disables
 disallowed
+disallows
 discharging
 disconnecting
 disconnection
