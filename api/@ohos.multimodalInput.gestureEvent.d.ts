@@ -115,8 +115,9 @@ export declare interface ThreeFingersTap {
   /**
    * Action type
    *
+   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since 11
    */
   type: ActionType;
 }
