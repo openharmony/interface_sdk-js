@@ -34,7 +34,7 @@ export interface BundleResourceInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the icon of this bundle
+   * Indicates the icon of this bundle, which is base64 format
    *
    * @type { string }
    * @readonly

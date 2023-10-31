@@ -56,7 +56,7 @@ export interface LauncherAbilityResourceInfo {
   readonly abilityName: string;
 
   /**
-   * Indicates the icon of this ability
+   * Indicates the icon of this ability, which is base64 format
    *
    * @type { string }
    * @readonly

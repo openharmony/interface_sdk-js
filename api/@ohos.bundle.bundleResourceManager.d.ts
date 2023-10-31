@@ -74,7 +74,7 @@ declare namespace bundleResourceManager {
   }
 
   /**
-   * Obtains the BundleResourceInfo of a specified bundle.
+   * Obtains the BundleResourceInfo of a specified bundle.  Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
@@ -91,7 +91,7 @@ declare namespace bundleResourceManager {
   function getBundleResourceInfo(bundleName: string, resourceFlags?: number): BundleResourceInfo;
 
   /**
-   * Obtains the LauncherAbilityResourceInfo of a specified ability.
+   * Obtains the LauncherAbilityResourceInfo of a specified ability. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
