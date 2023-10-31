@@ -230,7 +230,6 @@ declare namespace zlib {
     /**
      * Uses the maximum amount of memory.
      *
-     * @enum { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @since 11
@@ -245,7 +244,6 @@ declare namespace zlib {
     /**
      * Uses the default amount of memory.
      *
-     * @enum { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @since 11
