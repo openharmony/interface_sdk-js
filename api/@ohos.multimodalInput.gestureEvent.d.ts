@@ -109,7 +109,7 @@ export declare interface FourFingersSwipe {
  *
  * @interface ThreeFingersTap
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 10
+ * @since 11
  */
 export declare interface ThreeFingersTap {
   /**
