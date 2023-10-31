@@ -330,6 +330,4 @@ declare namespace pipWindow {
   }
 }
 
-
-
 export default pipWindow;
