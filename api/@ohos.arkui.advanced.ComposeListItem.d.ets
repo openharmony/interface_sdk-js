@@ -175,7 +175,7 @@ export declare class ContentItem {
    * @since 10
    */
   description?: ResourceStr;
-};
+}
 
 /**
  * Declare OperateItem

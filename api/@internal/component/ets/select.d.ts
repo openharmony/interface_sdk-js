@@ -135,12 +135,27 @@ declare enum ArrowPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * The type of alignment between select and menu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum MenuAlignType {
   /**
    * The value of menu align type start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The value of menu align type start.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   START,
   /**
@@ -149,12 +164,26 @@ declare enum MenuAlignType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The value of menu align type center.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   CENTER,
   /**
    * The value of menu align type end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The value of menu align type end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   END
 }
@@ -192,7 +221,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
-  selected(value: number): SelectAttribute;
+  /**
+   * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { number | Resource } value - the serial number of the select item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selected(value: number | Resource): SelectAttribute;
 
   /**
    * Sets the text display of the select button itself.
@@ -211,7 +249,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
-  value(value: string): SelectAttribute;
+  /**
+   * Sets the text display of the select button itself.
+   *
+   * @param { ResourceStr } value - the text display of the select button itself.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  value(value: ResourceStr): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.
@@ -382,7 +429,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
-  onSelect(callback: (index: number, value?: string) => void): SelectAttribute;
+  onSelect(callback: (index: number, value: string) => void): SelectAttribute;
 
   /**
    * Set the space for text and icon in select
@@ -414,6 +461,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Set the alignment between select and menu.
+   *
+   * @param { MenuAlignType } alignType - The type of alignment between select and menu.
+   * @param { Offset } offset - The offset between select and menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */ 
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;
 }

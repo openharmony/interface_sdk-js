@@ -84,19 +84,54 @@ declare namespace promptAction {
     /**
      * The distance between toast dialog box and the bottom of screen.
      *
-     * @type { ?string | number }
+     * @type { ?(string | number) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * The distance between toast dialog box and the bottom of screen.
      *
-     * @type { ?string | number }
+     * @type { ?(string | number) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     bottom?: string | number;
+
+    /**
+     * Determine the show mode of the toast.
+     *
+     * @type { ?ToastShowMode }
+     * @default ToastShowMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    showMode?: ToastShowMode;
+  }
+
+  /**
+   * Enum for the toast showMode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  export enum ToastShowMode {
+    /**
+     * Toast shows in app.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    DEFAULT = 0,
+
+    /**
+     * Toast shows at the top.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    TOP_MOST = 1
   }
 
   /**
@@ -194,14 +229,14 @@ declare namespace promptAction {
     /**
      * Title of the text to display.
      *
-     * @type { ?string | Resource }
+     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Title of the text to display.
      *
-     * @type { ?string | Resource }
+     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -211,14 +246,14 @@ declare namespace promptAction {
     /**
      * Text body.
      *
-     * @type { ?string | Resource }
+     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Text body.
      *
-     * @type { ?string | Resource }
+     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -323,14 +358,14 @@ declare namespace promptAction {
     /**
      * Title of the text to display.
      *
-     * @type { ?string | Resource }
+     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Title of the text to display.
      *
-     * @type { ?string | Resource }
+     * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10

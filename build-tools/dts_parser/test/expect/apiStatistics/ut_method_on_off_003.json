@@ -1,0 +1,48 @@
+[
+  {
+    "filePath": "ut_method_on_off_003.d.ts",
+    "packageName": "ut_method_on_off_003",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "-1",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_method_on_off_003.d.ts/Test",
+    "apiName": "Test",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Interface",
+    "definedText": " export interface Test",
+    "pos": {
+      "line": 5,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  },
+  {
+    "filePath": "ut_method_on_off_003.d.ts",
+    "packageName": "ut_method_on_off_003",
+    "parentModuleName": "Test",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_method_on_off_003.d.ts/Test/on",
+    "apiName": "on",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Method",
+    "definedText": "on(type: string, callback: AsyncCallback<void>): void;",
+    "pos": {
+      "line": 6,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

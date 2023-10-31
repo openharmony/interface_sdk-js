@@ -1,0 +1,25 @@
+[
+  {
+    "filePath": "ut_field_namespace_no_const.d.ts",
+    "packageName": "ut_field_namespace_no_const",
+    "parentModuleName": "testNamespace",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "hierarchicalRelations": "ut_field_namespace_no_const.d.ts/testNamespace/batterySOC",
+    "apiName": "batterySOC",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Property",
+    "definedText": "let batterySOC: number;",
+    "pos": {
+      "line": 2,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": []
+  }
+]

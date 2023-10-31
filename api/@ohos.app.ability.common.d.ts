@@ -25,6 +25,7 @@ import * as _ServiceExtensionContext from './application/ServiceExtensionContext
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
+import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 
 /**
@@ -43,6 +44,14 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @StageModelOnly
  * @crossplatform
  * @since 10
+ */
+/**
+ * This module provides application context classes and common data structures.
+ *
+ * @namespace common
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 11
  */
 declare namespace common {
   /**
@@ -178,6 +187,12 @@ declare namespace common {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Defines a PacMap object for storing a series of values.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
   export type PacMap = _PacMap;
 
   /**
@@ -207,6 +222,15 @@ declare namespace common {
    * @since 10
    */
   export type UIExtensionContext = _UIExtensionContext.default;
+
+  /**
+   * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AbilityStartCallback = _AbilityStartCallback;
 }
 
 export default common;

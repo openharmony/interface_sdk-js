@@ -160,7 +160,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @param { AsyncCallback<void> } callback - Returns true if the contact is deleted; returns false otherwise.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -174,7 +174,7 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @param { AsyncCallback<void> } callback - Returns true if the contact is deleted; returns false otherwise.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -187,7 +187,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @returns { Promise<void> } Returns true if the contact is deleted, returns false otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -201,7 +201,7 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @returns { Promise<void> } Returns true if the contact is deleted, returns false otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1155,7 +1155,6 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1170,7 +1169,6 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1186,7 +1184,6 @@ declare namespace contact {
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1203,7 +1200,6 @@ declare namespace contact {
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1218,7 +1214,7 @@ declare namespace contact {
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<void> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1234,7 +1230,7 @@ declare namespace contact {
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<void> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData

@@ -443,6 +443,14 @@ interface CaretStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * PasswordIcon object.
+ *
+ * @interface PasswordIcon
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 interface PasswordIcon {
   /**
    * Define the on icon source of PasswordIcon.
@@ -450,6 +458,14 @@ interface PasswordIcon {
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define the on icon source of PasswordIcon.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   onIconSrc?: string | Resource;
 
@@ -459,6 +475,14 @@ interface PasswordIcon {
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define the off icon source of PasswordIcon.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   offIconSrc?: string | Resource;
 }
@@ -985,6 +1009,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define the password icon of the text input.
+   *
+   * @param { PasswordIcon } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   passwordIcon(value: PasswordIcon): TextInputAttribute;
 
   /**
@@ -994,6 +1027,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define the show error of the text input.
+   *
+   * @param { string | undefined } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   showError(value?: string | undefined): TextInputAttribute;
 
@@ -1005,6 +1047,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define the show unit of the text input.
+   *
+   * @param { CustomBuilder } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   showUnit(value: CustomBuilder): TextInputAttribute;
 
   /**
@@ -1014,6 +1065,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define the show underline of the text input.
+   *
+   * @param { boolean } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   showUnderline(value: boolean): TextInputAttribute;
 
@@ -1046,6 +1106,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define max lines of the text input.
+   *
+   * @param { number } value
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   maxLines(value: number): TextInputAttribute;
 
   /**
@@ -1055,6 +1124,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define custom keyboard of the text input.
+   *
+   * @param { CustomBuilder } value
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   customKeyboard(value: CustomBuilder): TextInputAttribute;
 }

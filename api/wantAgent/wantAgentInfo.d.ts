@@ -15,6 +15,7 @@
 
 import Want from '../@ohos.app.ability.Want';
 import wantAgent from '../@ohos.wantAgent';
+import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
 
 /**
  * Provides the information required for triggering a WantAgent.
@@ -36,11 +37,22 @@ export interface WantAgentInfo {
   /**
    * Type of the action specified in a Want.
    *
-   * @type { wantAgent.OperationType }
+   * @type { ?wantAgent.OperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   * @deprecated since 11
+   * @useinstead WantAgentInfo#actionType
    */
-  operationType: wantAgent.OperationType;
+  operationType?: wantAgent.OperationType;
+
+  /**
+   * Type of the action specified in a Want.
+   *
+   * @type { ?abilityWantAgent.OperationType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
+  actionType?: abilityWantAgent.OperationType;
 
   /**
    * Request code defined by the user.
@@ -57,8 +69,19 @@ export interface WantAgentInfo {
    * @type { ?Array<wantAgent.WantAgentFlags> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   * @deprecated since 11
+   * @useinstead WantAgentInfo#actionFlags
    */
   wantAgentFlags?: Array<wantAgent.WantAgentFlags>;
+
+  /**
+   * An array of flags for using the WantAgent.
+   *
+   * @type { ?Array<abilityWantAgent.WantAgentFlags> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
+  actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
   /**
    * Extra information about how the Want starts an ability.

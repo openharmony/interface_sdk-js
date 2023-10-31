@@ -14,6 +14,8 @@
  */
 
 import path from 'path';
+import fs from 'fs';
+import { FileUtils } from './FileUtils';
 import { NumberConstant } from './Constant';
 
 export class FunctionUtils {
@@ -25,10 +27,65 @@ export class FunctionUtils {
    */
   static getPackageName(fileFilePath: string): string {
     const packageName =
-      fileFilePath.indexOf('component\\ets\\') >= NumberConstant.IS_FIELD_EXIST ||
-      fileFilePath.indexOf('component/ets/') >= NumberConstant.IS_FIELD_EXIST ? 
+      fileFilePath.indexOf('component\\ets\\') >= 0 || fileFilePath.indexOf('component/ets/') >= 0 ? 
         'ArkUI' : 
         path.basename(fileFilePath).replace(/@|.d.ts$/g, '');
     return packageName;
   }
+
+  static handleSyscap(syscap: string): string {
+    const syscapArr: Array<string> = syscap.split('.');
+    let syscapField: string = '';
+
+    switch (syscapArr[1]) {
+      case 'MiscServices':
+        syscapField = syscapArr[NumberConstant.SYSCAP_KEY_FIELD_INDEX];
+      case 'Communication':
+        if (splitSubsystem.has(syscapArr[NumberConstant.SYSCAP_KEY_FIELD_INDEX])) {
+          syscapField = syscapArr[NumberConstant.SYSCAP_KEY_FIELD_INDEX];
+          break;
+        } else {
+          syscapField = syscapArr[1];
+          break;
+        }
+      default:
+        syscapField = syscapArr[1];
+    }
+    return syscapField;
+  }
+
+  static readSubsystemFile(): SubSystemData {
+    const subsystemFilePath: string = path.join(FileUtils.getBaseDirName(), 'subsystem.json');
+    const fileContent: Array<SubSystemInfo> = JSON.parse(fs.readFileSync(subsystemFilePath, 'utf-8'));
+    const subsystemMap: Map<string, string> = new Map();
+    const fileNameMap: Map<string, string> = new Map();
+
+    fileContent.forEach((content: SubSystemInfo) => {
+      subsystemMap.set(content.syscap, content.subsystem);
+      fileNameMap.set(content.syscap, content.fileName);
+    });
+    return {
+      subsystemMap: subsystemMap,
+      fileNameMap: fileNameMap,
+    };
+  }
 }
+
+/**
+ * 被拆分开的子系统
+ */
+const splitSubsystem: Set<string> = new Set(['Bluetooth', 'NetManager']);
+
+class SubSystemInfo {
+  syscap: string = '';
+  subsystem: string = '';
+  fileName: string = '';
+}
+
+/**
+ * 读取子系统配置文件返回的数据格式
+ */
+type SubSystemData = {
+  subsystemMap: Map<string, string>;
+  fileNameMap: Map<string, string>;
+};

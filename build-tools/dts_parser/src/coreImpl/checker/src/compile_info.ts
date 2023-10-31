@@ -28,11 +28,11 @@ export class AddErrorLogs {
    * @param { string } apiName -error message api name
    * @param { string } apiFullText -error message api text
    * @param { string } message -error infomation
-   * @param { ApiResultSimpleInfo[] } checkErrorArr -array for storing error information
+   * @param { ApiResultSimpleInfo[] }  checkErrorInfos -array for storing error information
    */
   static addAPICheckErrorLogs(id: number, level: number, filePath: string, location: string, errorType: string,
     apiType: string, version: number, apiName: string, apiFullText: string,
-    message: string, checkErrorArr: ApiResultSimpleInfo[]): void {
+    message: string, checkErrorInfos: ApiResultSimpleInfo[], checkErrorAllInfos: ApiResultInfo[]): void {
     const apiChecktSimpleErrorLog: ApiResultSimpleInfo = new ApiResultSimpleInfo();
     apiChecktSimpleErrorLog
       .setID(id)
@@ -50,8 +50,10 @@ export class AddErrorLogs {
       .setVersion(version)
       .setLevel(level)
       .setApiName(apiName)
-      .setApiFullText(apiFullText);
-
-    checkErrorArr.push(apiChecktSimpleErrorLog);
+      .setApiFullText(apiFullText)
+      .setBaseName(filePath.substring(filePath.lastIndexOf('/') + 1, filePath.length));
+    checkErrorInfos.push(apiChecktSimpleErrorLog);
+    checkErrorAllInfos.push(apiCheckErrorLog);
   }
 }
+

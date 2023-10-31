@@ -801,7 +801,9 @@ export class ModifierHelper {
 
   static setIsReadonly(apiInfo: BasicApiInfo): void {
     const propertyInfo: PropertyInfo = apiInfo as PropertyInfo;
-    propertyInfo.setIsReadOnly(true);
+    if (propertyInfo.setIsReadOnly) {
+      propertyInfo.setIsReadOnly(true);
+    }
   }
 
   static setIsExport(apiInfo: BasicApiInfo): void {
@@ -815,6 +817,7 @@ export class ModifierHelper {
         if (containerApiTypes.has(apiInfo.apiType)) {
           definedText += ` ${modifier.getText()}`;
         }
+
         const setModifier: ModifierProcessorInterface | undefined = modifierProcessorMap.get(modifier.kind);
         setModifier ? setModifier(apiInfo) : undefined;
       });
