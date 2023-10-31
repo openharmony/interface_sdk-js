@@ -85,4 +85,14 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 10
    */
   onAppStop(bundleName: string): void;
+
+  /**
+   * Called back when the enterprise admin extension is started.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  onStart(): void;
 }
