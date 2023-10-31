@@ -29,6 +29,13 @@ import { StartAbilityParameter as _StartAbilityParameter } from './ability/start
  * @FAModelOnly
  * @since 9
  */
+/**
+ * The class of an ability.
+ *
+ * @namespace ability
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 11
+ */
 declare namespace ability {
   /**
    * DataAbilityHelper
@@ -45,6 +52,12 @@ declare namespace ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
+   */
+  /**
+   * Defines a PacMap object for storing a series of values.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @since 11
    */
   export type PacMap = _PacMap;
 
