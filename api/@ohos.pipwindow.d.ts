@@ -17,7 +17,7 @@ import type AsyncCallback from './@ohos.base';
 import type BaseContext from './application/BaseContext';
 
 /**
- * PipWindow manager
+ * Picture In Picture Window Manager
  *
  * @namespace pipWindow
  * @syscap SystemCapability.Window.SessionManager
@@ -31,40 +31,40 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  function isPipEnabled(): boolean;
+  function isPiPEnabled(): boolean;
 
   /**
    * Create picture-in-picture controller
    *
-   * @param { PipConfiguration } config - Params for picture-in-picture controller creation
-   * @returns { Promise<PipController> } - The promise returned by the function
-   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PipConfiguration
+   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation
+   * @returns { Promise<PiPController> } - The promise returned by the function
+   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PiPConfiguration
    * @throws { BusinessError } 801 - Capability not supported
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  function create(config: PipConfiguration): Promise<PipController>;
+  function create(config: PiPConfiguration): Promise<PiPController>;
 
   /**
    * Create picture-in-picture controller
    *
-   * @param { PipConfiguration } config - Params for picture-in-picture controller creation
-   * @param { AsyncCallback<PipController> } callback - Callback used to return the PipController created
-   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PipConfiguration
+   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation
+   * @param { AsyncCallback<PiPController> } callback - Callback used to return the PiPController created
+   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PiPConfiguration
    * @throws { BusinessError } 801 - Capability not supported
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  function create(config: PipConfiguration, callback: AsyncCallback<PipController>): void;
+  function create(config: PiPConfiguration, callback: AsyncCallback<PiPController>): void;
 
   /**
-   * PipConfiguration
+   * PiPConfiguration
    *
-   * @interface PipConfiguration
+   * @interface PiPConfiguration
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  interface PipConfiguration {
+  interface PiPConfiguration {
     /**
      * Indicates window context.
      *
@@ -95,14 +95,14 @@ declare namespace pipWindow {
     /**
      * Picture-in-picture template type.
      *
-     * @type { ?PipTemplateType }
+     * @type { ?PiPTemplateType }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    templateType?: PipTemplateType;
+    templateType?: PiPTemplateType;
 
     /**
-     * Describes the width of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
+     * Describes the width of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
@@ -111,7 +111,7 @@ declare namespace pipWindow {
     contentWidth?: number;
 
     /**
-     * Describes the height of content to be displayed in pipWindow. For adjusting pipWindow aspect ratio.
+     * Describes the height of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
@@ -127,7 +127,7 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  enum PipTemplateType {
+  enum PiPTemplateType {
     /**
      * Indicates the content to show in picture-in-picture window is video play
      * @syscap SystemCapability.Window.SessionManager
@@ -151,15 +151,15 @@ declare namespace pipWindow {
   }
 
   /**
-   * Enum for pipWindow callback event type.
+   * Enum for PiP window callback event type.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  enum PipState {
+  enum PiPState {
     /**
-     * PipWindow is about to start.
+     * PiP window is about to start.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -167,7 +167,7 @@ declare namespace pipWindow {
     ABOUT_TO_START = 1,
 
     /**
-     * PipWindow started.
+     * PiP window started.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -175,7 +175,7 @@ declare namespace pipWindow {
     STARTED = 2,
 
     /**
-     * PipWindow is about to stop.
+     * PiP window is about to stop.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -183,7 +183,7 @@ declare namespace pipWindow {
     ABOUT_TO_STOP = 3,
 
     /**
-     * PipWindow stopped.
+     * PiP window stopped.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -191,7 +191,7 @@ declare namespace pipWindow {
     STOPPED = 4,
 
     /**
-     * Restore the original page from pipWindow
+     * Restore the original page from PiP window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -213,68 +213,68 @@ declare namespace pipWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PipActionEventType = PipVideoActionEvent | PipCallActionEvent | PipMeetingActionEvent;
+  type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent;
 
-  type PipVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
+  type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
 
-  type PipCallActionEvent = 'hangUp';
+  type PiPCallActionEvent = 'hangUp';
 
-  type PipMeetingActionEvent = 'hangUp';
+  type PiPMeetingActionEvent = 'hangUp';
 
   /**
-   * PipController
+   * PiPController
    *
-   * @interface PipController
+   * @interface PiPController
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  interface PipController {
+  interface PiPController {
 
     /**
      * Start picture-in-picture
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 1300012 - If pip window state is abnormal.
-     * @throws { BusinessError } 1300013 - Create pip window failed.
-     * @throws { BusinessError } 1300014 - Error when load pipWindow content or show pipWindow
+     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
+     * @throws { BusinessError } 1300013 - Create PiP window failed.
+     * @throws { BusinessError } 1300014 - Error when load PiP window content or show PiP window
      * @throws { BusinessError } 1300015 - If window has created
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    startPip(): Promise<void>;
+    startPiP(): Promise<void>;
 
     /**
      * Start picture-in-picture
-     * @param { AsyncCallback<void> } callback - Callback after pip start finish
-     * @throws { BusinessError } 1300012 - If pip window state is abnormal.
-     * @throws { BusinessError } 1300013 - Create pip window failed.
-     * @throws { BusinessError } 1300014 - Error when load pipWindow content or show pipWindow
+     * @param { AsyncCallback<void> } callback - Callback after PiP start finish
+     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
+     * @throws { BusinessError } 1300013 - Create PiP window failed.
+     * @throws { BusinessError } 1300014 - Error when load PiP window content or show PiP window
      * @throws { BusinessError } 1300015 - If window has created
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    startPip(callback: AsyncCallback<void>): void;
+    startPiP(callback: AsyncCallback<void>): void;
 
     /**
      * Stop picture-in-picture.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300011 - Stop pip window failed.
-     * @throws { BusinessError } 1300012 - If pip window state is abnormal.
+     * @throws { BusinessError } 1300011 - Stop PiP window failed.
+     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
      * @throws { BusinessError } 1300015 - If window is stopping
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    stopPip(): Promise<void>;
+    stopPiP(): Promise<void>;
 
     /**
      * Stop picture-in-picture.
-     * @param { AsyncCallback<void> } callback - Callback after pip stop finish
-     * @throws { BusinessError } 1300011 - Stop pip window failed.
-     * @throws { BusinessError } 1300012 - If pip window state is abnormal.
+     * @param { AsyncCallback<void> } callback - Callback after PiP stop finish
+     * @throws { BusinessError } 1300011 - Stop PiP window failed.
+     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
      * @throws { BusinessError } 1300015 - If window is stopping
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    stopPip(callback: AsyncCallback<void>): void;
+    stopPiP(callback: AsyncCallback<void>): void;
 
     /**
      * Set if auto start picture-in-picture when back home
@@ -285,7 +285,7 @@ declare namespace pipWindow {
     setAutoStartEnabled(enable: boolean): void;
 
     /**
-     * Update source content size to adjust pipWindow aspect ratio.
+     * Update source content size to adjust PiP window aspect ratio.
      * @param { number } width - Indicates the width of the content.
      * @param { number } height - Indicates the height of the content.
      * @throws { BusinessError } 401 - Params error, invalid width or height.
@@ -296,12 +296,12 @@ declare namespace pipWindow {
 
     /**
      * Register picture-in-picture control event listener.
-     * @param { 'stateChange' } type - Registration type, pip lifecycle state change, 'stateChange'
+     * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
      * @param { function } callback - Used to handle {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'stateChange', callback: (state: PipState, reason: string) => void): void;
+    on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener.
@@ -318,7 +318,7 @@ declare namespace pipWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'controlPanelActionEvent', callback: (event: PipActionEventType) => void): void;
+    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
