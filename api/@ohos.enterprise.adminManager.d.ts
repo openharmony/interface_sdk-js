@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -126,7 +126,16 @@ declare namespace adminManager {
      * @systemapi
      * @since 10
      */
-    MANAGED_EVENT_APP_STOP = 3
+    MANAGED_EVENT_APP_STOP = 3,
+
+    /**
+     * The event of system update.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 11
+     */
+    MANAGED_EVENT_SYSTEM_UPDATE = 4,
   }
 
   /**
