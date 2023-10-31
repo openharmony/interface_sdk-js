@@ -1724,7 +1724,7 @@ declare namespace image {
    * @crossplatform
    * @since 11
    */
-   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
+  function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.
