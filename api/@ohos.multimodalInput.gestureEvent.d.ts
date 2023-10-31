@@ -49,6 +49,7 @@ export declare interface Rotate {
   /**
    * Action type
    *
+   * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11
    */
@@ -57,6 +58,7 @@ export declare interface Rotate {
   /**
    * Rotate angle
    *
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11
    */
