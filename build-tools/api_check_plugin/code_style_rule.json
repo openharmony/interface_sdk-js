@@ -1,6 +1,7 @@
 {
   "decorators": {
     "customDoc": [
+      "atomicservice",
       "constant",
       "crossplatform",
       "default",
@@ -20,6 +21,7 @@
       "since",
       "stagemodelonly",
       "static",
+      "struct",
       "syscap",
       "systemapi",
       "type",
