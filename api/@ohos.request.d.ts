@@ -1903,7 +1903,7 @@ declare namespace request {
      * The default is 0.
      *
      * @type { ?number }
-     * @syscap SystemCapability.Request.FileTransferAgent
+     * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
     index?: number;
@@ -1914,7 +1914,7 @@ declare namespace request {
      * The default is 0.
      *
      * @type { ?number }
-     * @syscap SystemCapability.Request.FileTransferAgent
+     * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
     begins?: number;
@@ -1925,7 +1925,7 @@ declare namespace request {
      * The default is -1 indicating the end of the data for upload.
      *
      * @type { ?number }
-     * @syscap SystemCapability.Request.FileTransferAgent
+     * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
     ends?: number;
