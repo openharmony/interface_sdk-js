@@ -301,7 +301,8 @@ declare namespace relationalStore {
     customDir?: string;
 
     /**
-     * Specifies whether clean up dirty data deleted in the cloud.
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted in the cloud.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
