@@ -525,7 +525,7 @@ declare namespace networkManager {
     /**
      * action
      *
-     * @type { ?string }
+     * @type { ?Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
