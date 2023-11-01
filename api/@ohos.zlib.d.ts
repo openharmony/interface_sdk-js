@@ -252,13 +252,14 @@ declare namespace zlib {
   }
 
   /**
-   * Defines compression or decompression options.
+   * Defines compress or decompress options.
+   *
    * @typedef Options
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 7
    */
   /**
-   * Defines compression or decompression options.
+   * Defines compress or decompress options.
    *
    * @typedef Options
    * @syscap SystemCapability.BundleManager.Zlib
