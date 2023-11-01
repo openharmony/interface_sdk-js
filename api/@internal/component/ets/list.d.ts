@@ -719,14 +719,14 @@ interface ListInterface {
  * @form
  */
 /**
- * @extends CommonMethod<ListAttribute>
+ * @extends ScrollableCommonMethod<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  * @form
  */
-declare class ListAttribute extends CommonMethod<ListAttribute> {
+declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Called when need to decide how much lanes the list will show.
    *
