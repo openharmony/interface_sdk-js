@@ -306,7 +306,6 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     autoCleanDirtyData?: boolean;
@@ -839,7 +838,6 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @systemapi
    * @since 11
    */
   enum Origin {
@@ -847,7 +845,6 @@ declare namespace relationalStore {
      * Indicates the data source is local.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     LOCAL,
@@ -856,7 +853,6 @@ declare namespace relationalStore {
      * Indicates the data source is cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     CLOUD,
@@ -865,7 +861,6 @@ declare namespace relationalStore {
      * Indicates the data source is remote.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     REMOTE,
@@ -876,7 +871,6 @@ declare namespace relationalStore {
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @systemapi
    * @since 11
    */
   enum Field {
@@ -884,7 +878,6 @@ declare namespace relationalStore {
      * Cursor field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     CURSOR_FIELD = '#_cursor',
@@ -893,7 +886,6 @@ declare namespace relationalStore {
      * Origin field. For details, see {@link Origin}.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     ORIGIN_FIELD = '#_origin',
@@ -903,7 +895,6 @@ declare namespace relationalStore {
      * Indicates whether data has deleted in cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
@@ -912,7 +903,6 @@ declare namespace relationalStore {
      * Owner field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     OWNER_FIELD = '#_cloud_owner',
@@ -921,7 +911,6 @@ declare namespace relationalStore {
      * Privilege field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     PRIVILEGE_FIELD = '#_cloud_privilege'
@@ -2865,7 +2854,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
@@ -2879,7 +2867,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
@@ -2897,7 +2884,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
      * @since 11
      */
     cleanDirtyData(table: string, cursor?: number): Promise<void>;
