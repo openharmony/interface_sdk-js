@@ -16,6 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type rpc from './@ohos.rpc';
+import type resourceManager from './@ohos.resourceManager';
 
 /**
  * @namespace image
@@ -1575,6 +1576,25 @@ declare namespace image {
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise<PixelMap>;
 
   /**
+   * Creates a PixelMap object based on MessageSequence parameter.
+   *
+   * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 62980096 - Operation failed.
+   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980115 - Invalid input parameter.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980177 - Abnormal API environment.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @throws { BusinessError } 62980179 - Abnormal buffer size.
+   * @throws { BusinessError } 62980180 - FD mapping failed.
+   * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 11
+   */
+  function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
+
+  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
@@ -1693,6 +1713,18 @@ declare namespace image {
    * @since 10
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the raw file descriptor.
+   *
+   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @since 11
+   */
+  function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.

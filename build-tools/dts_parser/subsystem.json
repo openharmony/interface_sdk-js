@@ -1,7 +1,7 @@
 [
   {
     "syscap": "ArkUI",
-    "subsystem": "ACE开发框架",
+    "subsystem": "ArkUI开发框架",
     "fileName": "arkui"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
     "syscap": "Customization",
-    "subsystem": "定制子系统",
+    "subsystem": "定制",
     "fileName": "customization"
   },
   {
@@ -86,7 +86,7 @@
   },
   {
     "syscap": "Update",
-    "subsystem": "升级服务子系统",
+    "subsystem": "升级服务",
     "fileName": "update"
   },
   {
@@ -101,18 +101,13 @@
   },
   {
     "syscap": "Account",
-    "subsystem": "账号子系统",
+    "subsystem": "账号",
     "fileName": "account"
   },
   {
     "syscap": "UserIAM",
     "subsystem": "用户IAM",
     "fileName": "user-iam"
-  },
-  {
-    "syscap": "MiscServices",
-    "subsystem": "Misc软件服务",
-    "fileName": "misc"
   },
   {
     "syscap": "FileManagement",
@@ -131,7 +126,7 @@
   },
   {
     "syscap": "Startup",
-    "subsystem": "启动服务",
+    "subsystem": "启动恢复",
     "fileName": "start-up"
   },
   {
@@ -146,12 +141,12 @@
   },
   {
     "syscap": "Web",
-    "subsystem": "网络",
+    "subsystem": "web",
     "fileName": "web"
   },
   {
     "syscap": "Applications",
-    "subsystem": "应用子系统",
+    "subsystem": "应用",
     "fileName": "application"
   },
   {
@@ -171,7 +166,7 @@
   },
   {
     "syscap": "AI",
-    "subsystem": "AI平台",
+    "subsystem": "AI业务",
     "fileName": "ai"
   },
   {
@@ -206,12 +201,12 @@
   },
   {
     "syscap": "Pasteboard",
-    "subsystem": "剪切板",
+    "subsystem": "剪贴板",
     "fileName": "pasteboard"
   },
   {
     "syscap": "InputMethodFramework",
-    "subsystem": "输入法框架",
+    "subsystem": "输入法",
     "fileName": "input-method-framework"
   },{
     "syscap": "Driver",
@@ -221,5 +216,25 @@
     "syscap": "Developtools",
     "subsystem": "研发工具链",
     "fileName": "developtools"
+  },{
+    "syscap": "Bluetooth",
+    "subsystem": "蓝牙",
+    "fileName": "blue-tooth"
+  },{
+    "syscap": "NetManager",
+    "subsystem": "网络管理·",
+    "fileName": "net-manager"
+  },{
+    "syscap": "Print",
+    "subsystem": "打印",
+    "fileName": "print"
+  },{
+    "syscap": "Window",
+    "subsystem": "窗口",
+    "fileName": "window"
+  },{
+    "syscap": "Advertising",
+    "subsystem": "广告服务",
+    "fileName": "advertising"
   }
 ]

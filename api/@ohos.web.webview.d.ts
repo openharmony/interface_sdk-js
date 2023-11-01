@@ -1984,13 +1984,516 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
-    * Set web engine socket connection timeout.
-    * @param { number } timeout - Socket connection timeout.
-    * @throws { BusinessError } 401 - Invalid input parameter.
+     * Set web engine socket connection timeout.
+     * @param { number } timeout - Socket connection timeout.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setConnectionTimeout(timeout: number): void;
+
+    /**
+     * Set delegate for download.
+     * Used to notify the progress of the download triggered from web.
+     * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from web.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    setDownloadDelegate(delegate: WebDownloadDelegate): void;
+
+
+    /**
+     * Start a download.
+     * @param { string } url - The download url.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    startDownload(url: string): void;
+  }
+
+  /**
+   * Defines the state for download.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  enum WebDownloadState {
+    /**
+     * The web download is in progress.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    IN_PROGRESS = 0,
+
+    /**
+     * The web download has been completed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    COMPLETED,
+
+    /**
+     * The web download was canceled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    CANCELED,
+
+    /**
+     * The web download was interrupted.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    INTERRUPTED,
+
+    /**
+     * The web download is pending.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    PENDING,
+
+    /**
+     * The web download has been paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    PAUSED,
+
+    /**
+     * Unknown state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    UNKNOWN,
+  }
+
+  /**
+   * Defines the error code for download.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  enum WebDownloadErrorCode {
+    /**
+     * Unknown error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    ERROR_UNKNOWN = 0,
+
+    /**
+     * Generic file operation failure.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_FAILED = 1,
+
+    /**
+     * The file cannot be accessed due to certain restrictions.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_ACCESS_DENIED = 2,
+
+    /**
+     * There is not enough disk space.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_NO_SPACE = 3,
+
+    /**
+     * The file name is too long.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_NAME_TOO_LONG = 5,
+
+    /**
+     * The file is too large.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_TOO_LARGE = 6,
+
+    /**
+     * Some temporary problems occurred, such as not enough memory, files in use, and too many files open at the same time.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_TRANSIENT_ERROR = 10,
+
+    /**
+     * The file is blocked from accessing because of some local policy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_BLOCKED = 11,
+
+    /**
+     * When trying to resume the download, Found that the file is not long enough, maybe the file no longer exists.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */ 
+    FILE_TOO_SHORT = 13,
+
+    /**
+     * Hash mismatch.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */ 
+    FILE_HASH_MISMATCH = 14,
+
+    /**
+     * The file already exists.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */ 
+    FILE_SAME_AS_SOURCE = 15,
+
+    /**
+     * Generic network error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_FAILED = 20,
+
+    /**
+     * The network operation timed out.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_TIMEOUT = 21,
+
+    /**
+     * The network was disconnected.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_DISCONNECTED = 22,
+
+    /**
+     * Server down.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_SERVER_DOWN = 23,
+
+    /**
+     * Invalid network requests，may redirect to unsupported scheme or an invalid URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_INVALID_REQUEST = 24,
+
+    /**
+     * The server returned a generic error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_FAILED = 30,
+
+    /**
+     * The server does not support range requests.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_NO_RANGE = 31,
+
+    /**
+     * The server does not have the requested data.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_BAD_CONTENT = 33,
+
+    /**
+     * The server does not allow the file to be downloaded.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_UNAUTHORIZED = 34,
+
+    /**
+     * Server certificate error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_CERT_PROBLEM = 35,
+
+    /**
+     * Server access forbidden.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_FORBIDDEN = 36,
+
+    /**
+     * Server unreachable.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_UNREACHABLE = 37,
+
+    /**
+     * The received data does not match content-length.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_CONTENT_LENGTH_MISMATCH = 38,
+
+    /**
+     * An unexpected cross-origin redirect happened.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_CROSS_ORIGIN_REDIRECT = 39,
+
+    /**
+     * User cancel.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    USER_CANCELED = 40,
+
+    /**
+     * User shut down the application.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    USER_SHUTDOWN = 41,
+
+    /**
+     * Application crash.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    CRASH = 50,
+  }
+
+  /**
+   * Represents a download task, You can use this object to operate the corresponding download task.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  class WebDownloadItem {
+    /**
+    * Get guid.
+    * @returns { string } - Returns the download's guid.
     * @syscap SystemCapability.Web.Webview.Core
     * @since 11
     */
-    static setConnectionTimeout(timeout: number): void;
+    getGuid(): string;
+
+    /**
+     * Get current speed, in bytes per second.
+     * @returns { number } - Returns the current download speed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getCurrentSpeed(): number;
+
+    /**
+     * Get percent complete.
+     * @returns { number } - Returns -1 if progress is unknown. 100 if the download is already complete.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getPercentComplete(): number;
+
+    /**
+     * Get total bytes.
+     * @returns { number } - Returns the total bytes received, -1 if the total size is unknown.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getTotalBytes(): number;
+
+    /**
+     * Get state of the web download.
+     * @returns { WebDownloadState } - Returns the current download state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getState(): WebDownloadState;
+
+    /**
+     * Get last error code of the web download.
+     * @returns { WebDownloadErrorCode } - Returns the last error code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getLastErrorCode(): WebDownloadErrorCode;
+
+    /**
+     * Get http method of the web download request.
+     * @returns { string } - Returns the http request method.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getMethod(): string;
+
+    /**
+     * Get mime type of the web download.
+     * @returns { string } - Returns the mimetype.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getMimeType(): string;
+
+    /**
+     * Get url of the web download request.
+     * @returns { string } - Returns the url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getUrl(): string;
+
+    /**
+     * Get suggested file name of the web download request.
+     * @returns { string } - Returns the suggested file name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getSuggestedFileName(): string;
+
+    /**
+     * Start the web download.
+     * Used in onBeforeDownload, If you want to start the current download, call this function.
+     * @param { string } downloadPath - The content will be downloaded to this file.
+	   * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    start(downloadPath: string): void;
+
+    /**
+     * Cancel the web download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    cancel(): void;
+
+    /**
+     * Pause the web download.
+     * @throws { BusinessError } 17100019 - The download has not been started yet.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    pause(): void;
+
+    /**
+     * Resume the web download.
+     * Use WebDownloadManager.resumeDownload to resume deserialized downloads.
+     * WebDownloadItem.resume is only used to resume the currently paused download.
+     * @throws { BusinessError } 17100016 - The download is not paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    resume(): void;
+
+    /**
+     * Get received bytes.
+     * @returns { number } - Returns the received bytes.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getReceivedBytes(): number;
+
+    /**
+     * Get full path of the web download.
+     * @returns { string } - Returns the full path of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getFullPath(): string;
+
+    /**
+     * Serialize web download to typed array.
+     * @returns { Uint8Array } - Returns the serialized data.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    serialize(): Uint8Array;
+
+    /**
+     * Deserialize web download from typed array.
+     * @param { Uint8Array } serializedData - The serialized data.
+     * @returns { WebDownloadItem } - Deserialize the serialized data into a WebDownloadItem.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static deserialize(serializedData: Uint8Array): WebDownloadItem;
+  }
+
+  /**
+   * The download state is notified through this delegate.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  class WebDownloadDelegate {
+    /**
+     * Callback will be triggered before web download start.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download will be start.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onBeforeDownload(callback: Callback<WebDownloadItem>): void;
+
+    /**
+     * Callback will be triggered when web download is processing.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did update.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
+
+    /**
+     * Callback will be triggered when web download is completed.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did finish.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onDownloadFinish(callback: Callback<WebDownloadItem>): void;
+
+    /**
+     * Callback will be triggered when web download is interrupted or canceled.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did fail.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onDownloadFailed(callback: Callback<WebDownloadItem>): void;
+  }
+
+  /**
+   * You can trigger download manually through this interface, or resume failed or canceled downloads.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  class WebDownloadManager {
+    /**
+     * Set a delegate used to receive the progress of the download triggered from WebDownloadManager.
+     * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from WebDownloadManager.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setDownloadDelegate(delegate: WebDownloadDelegate): void;
+
+    /**
+     * Resume the canceled or failed download.
+     * @param { WebDownloadItem } webDownloadItem - Download that need to be resume.
+     * @throws { BusinessError } 17100018 - No WebDownloadDelegate has been set yet.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static resumeDownload(webDownloadItem: WebDownloadItem): void;
   }
 }
 

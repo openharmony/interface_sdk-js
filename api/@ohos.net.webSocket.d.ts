@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, ErrorCallback } from './@ohos.base';
+import type { AsyncCallback, ErrorCallback, Callback } from './@ohos.base';
 
 /**
  * Provides WebSocket APIs.
@@ -489,6 +489,24 @@ declare namespace webSocket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Enables listening for receiving data ends events of a WebSocket connection.
+     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'dataEnd', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for receiving data ends events of a WebSocket connection.
+     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'dataEnd', callback?: Callback<void>): void;
   }
 }
 

@@ -117,7 +117,16 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080
+    GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
+    /**
+     * Used to obtain the bundleInfo containing menu configuration in hapModuleInfo.
+     * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    GET_BUNDLE_INFO_WITH_MENU = 0x00000100
   }
 
   /**
@@ -427,6 +436,14 @@ declare namespace bundleManager {
      * @since 10
      */
     ACTION = 19,
+
+    /**
+     * Indicates extension info with type of ads service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    ADS_SERVICE = 20,
 
     /**
      * Indicates extension info with type of unspecified

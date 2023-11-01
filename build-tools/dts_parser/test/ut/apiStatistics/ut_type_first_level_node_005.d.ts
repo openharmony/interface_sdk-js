@@ -1,0 +1,1 @@
+type TextOneType = string & number;

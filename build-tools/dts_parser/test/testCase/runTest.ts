@@ -21,6 +21,8 @@ import { FilesMap, Parser } from '../../src/coreImpl/parser/parser';
 import { StringConstant } from '../../src/utils/Constant';
 import { DiffHelper } from '../../src/coreImpl/diff/diff';
 import { BasicDiffInfo } from '../../src/typedef/diff/ApiInfoDiff';
+import { ApiStatisticsHelper } from '../../src/coreImpl/statistics/Statistics';
+import { ApiStatisticsInfo } from '../../src/typedef/statistics/ApiStatistics'
 
 describe('testParserEachSince', function () {
   const testFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/parserSince');
@@ -77,6 +79,7 @@ describe('testParser', function () {
     });
   });
 });
+
 describe('testApiDiff', function () {
   const testOldFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/apiDiff/old');
   const testNewFileDir: string = testOldFileDir.replace('old', 'new');
@@ -103,6 +106,34 @@ describe('testApiDiff', function () {
       const newSDKApiMap: FilesMap = Parser.parseFile(testNewFileDir, testNewFilePath);
       const diffInfos: BasicDiffInfo[] = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap);
       const outputContent: string = JSON.stringify(diffInfos, null, 2);
+      fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
+      const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
+      expect(outputContent).eql(expectFileContent);
+    });
+  });
+});
+
+describe('testStatistics', function () {
+  const testFileDir: string = path.join(__dirname, '..', '/ut/apiStatistics');
+  const outputFileDir: string = path.join(__dirname, '..', '/output/apiStatistics');
+  const expectFileDir: string = path.join(__dirname, '..', '/expect/apiStatistics');
+  const testFileNames: string[] = fs.readdirSync(testFileDir);
+  testFileNames.forEach((testFileName: string) => {
+    const baseName: string = path
+      .basename(testFileName)
+      .replace(/.d.ts/g, '')
+      .replace(/.d.ets/g, '');
+    const testFilePath: string = path.join(testFileDir, testFileName);
+    const outputFilePath: string = path.join(outputFileDir, `${baseName}.json`);
+    const expectFilePath: string = path.join(expectFileDir, `${baseName}.json`);
+    it('\ntestFile#' + testFilePath + '\noutput:' + outputFilePath + '\nexpect:' + expectFilePath, function () {
+      if (!fs.existsSync(outputFileDir)) {
+        fs.mkdirSync(outputFileDir);
+      }      
+      const apiInfos: ApiStatisticsInfo[] = ApiStatisticsHelper.getApiStatisticsInfos(
+        Parser.parseFile(testFileDir, testFilePath)
+      ).apiStatisticsInfos;
+      const outputContent: string = JSON.stringify(apiInfos, null, 2);
       fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
       expect(outputContent).eql(expectFileContent);

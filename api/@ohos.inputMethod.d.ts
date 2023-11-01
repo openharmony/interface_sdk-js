@@ -14,7 +14,9 @@
  */
 
 import type { Callback, AsyncCallback } from './@ohos.base';
+import type { ElementName } from './bundleManager/ElementName';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import type { PanelInfo } from './@ohos.inputMethod.Panel';
 
 /**
  * Input method
@@ -74,6 +76,26 @@ declare namespace inputMethod {
    * @since 9
    */
   function getController(): InputMethodController;
+
+  /**
+   * Get default input method
+   *
+   * @returns { InputMethodProperty } property of the default input method.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  function getDefaultInputMethod(): InputMethodProperty;
+
+  /**
+   * Get system input method config ability
+   *
+   * @returns { ElementName } the information of system input method config ability.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  function getSystemInputMethodConfigAbility(): ElementName;
 
   /**
    * Switch input method
@@ -180,7 +202,7 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
   /**
-   * Switch input method and subtype
+   * Switch input method and subtype. If the caller is an input method, it must be the current inputmethod.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { InputMethodProperty } inputMethodProperty - Indicates the target input method.
@@ -200,7 +222,7 @@ declare namespace inputMethod {
   ): void;
 
   /**
-   * Switch input method and subtype.
+   * Switch input method and subtype. If the caller is an input method, it must be the current inputmethod.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { InputMethodProperty } inputMethodProperty - Indicates the target input method.
@@ -298,6 +320,22 @@ declare namespace inputMethod {
      * @since 10
      */
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
+
+    /**
+     * Query whether a panel with specified information is shown.
+     *
+     * @param { PanelInfo } panelInfo - the information of panel which is queried.
+     * @returns { boolean }
+     *     If true, the panel being queried is shown.
+     *     If false, the panel being queried is hidden.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 11
+     */
+    isPanelShown(panelInfo: PanelInfo): boolean;
 
     /**
      * List subtype of the specified input method.

@@ -95,6 +95,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Called when the font is set.
+   *
+   * @param { Font } value - the text font size and weight and family and style.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   font(value: Font): TextAttribute;
 
   /**
@@ -630,6 +639,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   selection(selectionStart: number, selectionEnd: number): TextAttribute;
+
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } value - The ellipsis mode.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  ellipsisMode(value: EllipsisMode): TextAttribute;
 }
 
 /**

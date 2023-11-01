@@ -376,6 +376,14 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Arrow object.
+ *
+ * @interface ArrowStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare interface ArrowStyle {
   /**
    * Is show the arrow background or not.
@@ -384,6 +392,15 @@ declare interface ArrowStyle {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Is show the arrow background or not.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   showBackground?: boolean;
 
@@ -396,6 +413,16 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * When the indicator show, set the arrow position is side of the indicator or in the middle of content area.
+   * The arrow is displayed on side of the indicator, if the value is false.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   isSidebarMiddle?: boolean;
 
   /**
@@ -407,6 +434,16 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The arrow background size.
+   * The size of the arrow is three-quarters of the background size, when the background is displayed.
+   *
+   * @type { ?Length }
+   * @default 24vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   backgroundSize?: Length;
 
   /**
@@ -416,6 +453,15 @@ declare interface ArrowStyle {
    * @default #19182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The arrow background background color.
+   *
+   * @type { ?ResourceColor }
+   * @default #19182431
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   backgroundColor?: ResourceColor;
 
@@ -429,6 +475,17 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The arrow size.
+   * The arrow size can be set, when the background is not displayed.
+   * The size of the arrow is three-quarters of the background size, when the background is displayed.
+   *
+   * @type { ?Length }
+   * @default 18vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   arrowSize?: Length;
 
   /**
@@ -438,6 +495,15 @@ declare interface ArrowStyle {
    * @default #182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The arrow color.
+   *
+   * @type { ?ResourceColor }
+   * @default #182431
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   arrowColor?: ResourceColor;
 }
@@ -647,6 +713,15 @@ declare interface SwiperAnimationEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Offset of the current page to the start position of the swiper main axis. The unit is vp.
+   *
+   * @type { number }
+   * @default 0.0 vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   currentOffset: number;
 
   /**
@@ -657,6 +732,15 @@ declare interface SwiperAnimationEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Offset of the target page to the start position of the swiper main axis. The unit is vp.
+   *
+   * @type { number }
+   * @default 0.0 vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   targetOffset: number;
 
   /**
@@ -666,6 +750,15 @@ declare interface SwiperAnimationEvent {
    * @default 0.0 vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Start speed of the page-turning animation. The unit is vp/s.
+   *
+   * @type { number }
+   * @default 0.0 vp/s
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   velocity: number;
 }
@@ -800,6 +893,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @returns { SwiperAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Set arrow is enabled, or set the arrow style.
+   *
+   * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style.
+   * @param { boolean } isHoverShow - arrow is display when mouse hover in indicator hotspot.
+   * @returns { SwiperAttribute } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean): SwiperAttribute;
 
@@ -1043,6 +1146,15 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The previous margin which can be used to expose a small portion of the previous item.
+   *
+   * @param { Length } value - The length of previous margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   prevMargin(value: Length): SwiperAttribute;
 
   /**
@@ -1052,6 +1164,15 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The next margin which can be used to expose a small portion of the latter item.
+   *
+   * @param { Length } value - The length of next margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   nextMargin(value: Length): SwiperAttribute;
 

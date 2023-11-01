@@ -455,6 +455,180 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getExif(): Promise<string>;
+    /**
+     * Set asset pending state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } pendingState - true: Set asset in pending status; false: Recover asset from pending status.
+     * @param { AsyncCallback<void> } callback - Returns the callback
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    setPending(pendingState: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set asset pending state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } pendingState - true: Set asset in pending status; false: Recover asset from pending status.
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    setPending(pendingState: boolean): Promise<void>;
+    /**
+     * Check if asset has been edited.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<boolean> } callback - Returns whether the asset has been edited.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    isEdited(callback: AsyncCallback<boolean>): void;
+    /**
+     * Check if asset has been edited.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<boolean> } Returns whether the asset has been edited.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    isEdited(): Promise<boolean>;
+    /**
+     * Request asset edit data.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<string> } callback - Returns asset edit data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestEditData(callback: AsyncCallback<string>): void;
+    /**
+     * Request asset edit data.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns asset edit data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestEditData(): Promise<string>;
+    /**
+     * Requests the read-only FD of the source asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<number> } callback - Returns opened source asset fd.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestSource(callback: AsyncCallback<number>): void;
+    /**
+     * Requests the read-only FD of the source asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<number> }  Returns opened source asset fd.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestSource(): Promise<number>;
+    /**
+     * Commit edit data and edited asset.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } editData - editData to be saved.
+     * @param { string } uri - uri of the edited asset within the applications's own sandbox.
+     * @param { AsyncCallback<void> } callback - Returns callback.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>);
+    /**
+     * Commit edit data and edited asset.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } editData - editData to be saved.
+     * @param { string } uri - uri of the edited asset within the applications's own sandbox.
+     * @returns { Promise<void> } Returns promise.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    commitEditedAsset(editData: string, uri: string): Promise<void>;
+    /**
+     * Revert asset edits to original state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { AsyncCallback<void> } callback - Returns callback.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    revertToOriginal(callback: AsyncCallback<void>);
+    /**
+     * Revert asset edits to original state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<void> } Returns promise.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    revertToOriginal(): Promise<void>;
   }
 
   /**
@@ -619,7 +793,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    DATE_DAY = 'date_day'
+    DATE_DAY = 'date_day',
+    /**
+     * Pending state of the asset, true means asset is pending, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    PENDING = 'pending'
   }
 
   /**

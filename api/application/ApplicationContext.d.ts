@@ -266,6 +266,31 @@ export default class ApplicationContext extends Context {
   setLanguage(language: string): void;
 
   /**
+   * Clear up application data by app self
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  clearUpApplicationData(): Promise<void>;
+
+  /**
+   * Clear up application data by app self
+   *
+   * @param { AsyncCallback<void> } callback - The callback of clearUpApplicationData.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  clearUpApplicationData(callback: AsyncCallback<void>): void;
+
+  /**
    * Register the listener that watches for current application auto startup state.
    *
    * @param { 'abilityAutoStartup' } type - Indicates the type of event.

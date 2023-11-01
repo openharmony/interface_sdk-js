@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 import { LogUtil } from './logUtil';
-import { Comment } from '../typedef/parser/Comment';
 
 export class StringUtils {
   static hasSubstring(str: string, sub: string | RegExp): boolean {

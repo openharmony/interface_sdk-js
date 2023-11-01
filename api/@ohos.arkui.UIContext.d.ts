@@ -689,7 +689,7 @@ export class UIContext {
  * @since 11
  */
 
-export enum KeyboardAvoidMode {
+export const enum KeyboardAvoidMode {
   /**
   * Default Type, offset the whole page when keyBoard height changed.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
