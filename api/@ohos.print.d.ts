@@ -21,7 +21,6 @@ import type Context from './application/Context';
  * 
  * @namespace print
  * @syscap SystemCapability.Print.PrintFramework
- * @import import print from '@ohos.app.print';
  * @since 10
  */
 declare namespace print {
@@ -417,7 +416,7 @@ declare namespace print {
     * @systemapi
     * @since 10
     */
-    option?: string;
+    options?: string;
   }
 
   /**
@@ -657,7 +656,7 @@ declare namespace print {
     * @systemapi
     * @since 10
     */
-    PRINTER_UPDATE_CAP = 2,
+    PRINTER_CAPABILITY_UPDATED = 2,
 
     /**
     * Printer has been connected.
@@ -771,7 +770,7 @@ declare namespace print {
     * @systemapi
     * @since 10
     */
-    PRINT_JOB_COMPLETED_FILE_CORRUPT = 3,
+    PRINT_JOB_COMPLETED_FILE_CORRUPTED = 3,
 
     /**
     * Print is offline.
@@ -1044,7 +1043,7 @@ declare namespace print {
     * @systemapi
     * @since 10
     */
-    E_PRINT_INVALID_PRINTJOB = 13100006,
+    E_PRINT_INVALID_PRINT_JOB = 13100006,
 
     /**
     * File i/o error.
