@@ -62,6 +62,40 @@ declare interface TimePickerResult {
    * @since 10
    */
   minute?: number;
+
+    /**
+   * Application second
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    second?: number;
+}
+
+/**
+ * Type of components that need to be displayed.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum DisplayedComponentType {
+  /**
+   * Hour and minute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  HOUR_MINUTE,
+
+  /**
+   * Hour and minute and second
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  HOUR_MINUTE_SECOND,
 }
 
 /**
@@ -96,6 +130,16 @@ declare interface TimePickerOptions {
    * @since 10
    */
   selected?: Date;
+
+  /**
+   * Specifies the type of components that need to be displayed.
+   * @type { ?DisplayedComponentType }
+   * @default HOUR_MINUTE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  displayedComponent?: DisplayedComponentType;
 }
 
 /**
@@ -168,6 +212,16 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   useMilitaryTime(value: boolean): TimePickerAttribute;
+
+  /**
+   * Sets whether to enable the wheel mode.
+   * @param { boolean } value - indicates whether to enable the wheel mode.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+ loop(value: boolean): TimePickerAttribute;
 
   /**
    * Sets the text style of disappearing items
