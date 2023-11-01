@@ -610,7 +610,7 @@ declare enum ParticleUpdater {
 
 /**
  * Defines the Particle component attribute functions.
- * @extends CommonMethod
+ * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

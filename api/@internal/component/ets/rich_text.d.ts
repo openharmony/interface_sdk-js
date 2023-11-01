@@ -35,7 +35,7 @@ interface RichTextInterface {
 /**
  * Defines the RichText attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RichTextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */

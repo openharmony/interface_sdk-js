@@ -372,14 +372,14 @@ declare interface LabelStyle {
 /**
  * Defines the button attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the button attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -387,7 +387,7 @@ declare interface LabelStyle {
 /**
  * Defines the button attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -111,14 +111,14 @@ interface PatternLockInterface {
 /**
  * Provides methods for attribute pattern lock component.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<PatternLockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Provides methods for attribute pattern lock component.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<PatternLockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

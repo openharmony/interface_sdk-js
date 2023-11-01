@@ -293,14 +293,14 @@ interface CheckboxGroupInterface {
 /**
  * Defines the attribute functions of CheckboxGroup.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the attribute functions of CheckboxGroup.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -308,7 +308,7 @@ interface CheckboxGroupInterface {
 /**
  * Defines the attribute functions of CheckboxGroup.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

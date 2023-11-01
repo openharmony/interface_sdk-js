@@ -71,14 +71,14 @@ interface RowInterface {
 /**
  * Defines the row attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the row attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -86,7 +86,7 @@ interface RowInterface {
 /**
  * Defines the row attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -48,7 +48,7 @@ interface RootSceneInterface {
 /**
  * Defines the attribute functions of RootScene.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RootSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10

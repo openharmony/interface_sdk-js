@@ -129,7 +129,7 @@ interface RemoteWindowInterface {
 /**
  * Inheritance CommonMethod Set Styles
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RemoteWindowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9

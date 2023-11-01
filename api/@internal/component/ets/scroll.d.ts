@@ -222,7 +222,7 @@ declare class Scroller {
     /**
      * Descriptive animation.
      *
-     * @type { ?object } The object type provides custom animation parameters
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
      * and the boolean type enables default spring animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -449,14 +449,14 @@ interface ScrollInterface {
 /**
  * Defines the scroll attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ScrollAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the scroll attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ScrollAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

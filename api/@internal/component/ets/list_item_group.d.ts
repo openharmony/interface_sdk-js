@@ -184,14 +184,14 @@ interface ListItemGroupInterface {
 /**
  * Defines the item group attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ListItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the item group attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ListItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

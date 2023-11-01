@@ -227,14 +227,14 @@ interface FlexInterface {
 /**
  * Defines the Flex attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Flex attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -242,7 +242,7 @@ interface FlexInterface {
 /**
  * Defines the Flex attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

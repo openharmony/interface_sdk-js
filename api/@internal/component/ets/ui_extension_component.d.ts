@@ -63,7 +63,7 @@ interface UIExtensionComponentInterface {
 /**
  * Define the attribute functions of UIExtensionComponent.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<UIExtensionComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10

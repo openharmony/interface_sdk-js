@@ -77,14 +77,14 @@ interface ColumnInterface {
 /**
  * Defines the Column component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Column component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -92,7 +92,7 @@ interface ColumnInterface {
 /**
  * Defines the Column component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

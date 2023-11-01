@@ -203,14 +203,14 @@ interface TextPickerInterface {
 /**
  * Style the text selector.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Style the text selector.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
