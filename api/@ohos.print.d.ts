@@ -1585,7 +1585,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead ohos.print/queryAllPrintJobs(callback: AsyncCallback<Array<PrintJob>>): void
+   * @useinstead print#queryAllPrintJobs(callback: AsyncCallback<Array<PrintJob>>): void
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -1599,7 +1599,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead ohos.print/queryAllPrintJobs(): Promise<Array<PrintJob>>
+   * @useinstead print#queryAllPrintJobs(): Promise<Array<PrintJob>>
    */
   function queryAllPrintJobs(): Promise<void>;
 
