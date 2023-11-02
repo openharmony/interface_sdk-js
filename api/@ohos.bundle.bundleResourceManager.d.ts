@@ -70,11 +70,11 @@ declare namespace bundleResourceManager {
      * @systemapi
      * @since 11
      */
-    GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
+    GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008
   }
 
   /**
-   * Obtains the BundleResourceInfo of a specified bundle.  Default resourceFlag is GET_RESOURCE_INFO_ALL.
+   * Obtains the BundleResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
