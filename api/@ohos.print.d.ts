@@ -1578,26 +1578,26 @@ declare namespace print {
   /**
    * Get all the printJobs in the queue.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<void> } callback - The callback function for handling the printJob list found.
+   * @param { AsyncCallback<Array<PrintJob>> } callback - The callback function for handling the printJob list found.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function queryAllPrintJobs(callback: AsyncCallback<void>): void;
+  function queryAllPrintJobs(callback: AsyncCallback<Array<PrintJob>>): void;
 
   /**
    * Get all the printJobs in the queue.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<Array<PrintJob>> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function queryAllPrintJobs(): Promise<void>;
+  function queryAllPrintJobs(): Promise<Array<PrintJob>>;
 
   /**
    * Get printJob by jobId.
@@ -1624,32 +1624,6 @@ declare namespace print {
    * @since 10
    */
   function queryPrintJobById(jobId: string): Promise<PrintJob>;
-
-  /**
-   * Query printerCapability by printerUri.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerUri - Indicates uri of the printer.
-   * @param { AsyncCallback<PrinterCapability> } callback - The callback function for query printerCapability by printerUri.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function queryPrinterCapabilityByUri(printerUri: string, callback: AsyncCallback<PrinterCapability>): void;
-
-  /**
-   * Query printerCapability by printerUri.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerUri - Indicates uri of the printer.
-   * @returns { Promise<PrinterCapability> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function queryPrinterCapabilityByUri(printerUri: string): Promise<PrinterCapability>;
 }
 
 export default print;
