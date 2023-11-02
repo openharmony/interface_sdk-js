@@ -1299,5 +1299,90 @@ declare namespace dlpPermission {
    * @since 10
    */
   function openDLPFile(ciphertextFd: number, callback: AsyncCallback<DLPFile>): void;
+
+  /**
+   * set SandboxConfig info. This method uses a promise to return the result.
+   *
+   * @param { string } configInfo - configInfo of the application.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  function setSandboxAppConfig(configInfo: string): Promise<void>;
+
+  /**
+   * set SandboxConfig info. This method uses an asynchronous callback to return the result.
+   *
+   * @param { string } configInfo - configInfo of the application.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of setSandboxAppConfig.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  function setSandboxAppConfig(configInfo: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * clean SandboxConfig info. This method uses a promise to return the result.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  function cleanSandboxAppConfig(): Promise<void>;
+
+  /**
+   * clean SandboxConfig info. This method uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<void> } callback - Indicates the callback of cleanSandboxAppConfig.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  function cleanSandboxAppConfig(callback: AsyncCallback<void>): void;
+
+  /**
+   * get SandboxConfig info. This method uses a promise to return the result.
+   *
+   * @returns { Promise<string> } Returns the string of SandboxConfig info.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  function getSandboxAppConfig(): Promise<string>;
+
+  /**
+   * get SandboxConfig info. This method uses a promise to return the result.
+   *
+   * @param { AsyncCallback<string> } callback - Indicates the callback of getSandboxAppConfig.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  function getSandboxAppConfig(callback: AsyncCallback<string>): void;
+
 }
 export default dlpPermission;
