@@ -1578,6 +1578,30 @@ declare namespace print {
   /**
    * Get all the printJobs in the queue.
    * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { AsyncCallback<void> } callback - The callback function for handling the printJob list found.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function queryAllPrintJobs(callback: AsyncCallback<void>): void;
+
+  /**
+   * Get all the printJobs in the queue.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function queryAllPrintJobs(): Promise<void>;
+
+  /**
+   * Get all the printJobs in the queue.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { AsyncCallback<Array<PrintJob>> } callback - The callback function for handling the printJob list found.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
