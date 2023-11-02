@@ -103,6 +103,24 @@ declare enum InputType {
    * @since 10
    */
   Password,
+
+  /**
+   * ScreenLockPassword entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  ScreenLockPassword,
+
+  /**
+   * NumberPassword entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  NumberPassword,
 }
 
 /**
@@ -1135,6 +1153,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   customKeyboard(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * enable/disable the security keyboard mode
+   *
+   * @param { boolean } value
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  security(value: boolean): TextInputAttribute;
 }
 
 /**
