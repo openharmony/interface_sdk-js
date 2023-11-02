@@ -1585,7 +1585,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead ohos.print/queryAllPrintJobs
+   * @useinstead ohos.print/queryAllPrintJobs(callback: AsyncCallback<Array<PrintJob>>): void
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -1599,7 +1599,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead ohos.print/queryAllPrintJobs
+   * @useinstead ohos.print/queryAllPrintJobs(): Promise<Array<PrintJob>>
    */
   function queryAllPrintJobs(): Promise<void>;
 
@@ -1611,7 +1611,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function queryAllPrintJobs(callback: AsyncCallback<Array<PrintJob>>): void;
 
@@ -1623,7 +1623,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function queryAllPrintJobs(): Promise<Array<PrintJob>>;
 
