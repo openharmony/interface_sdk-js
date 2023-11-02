@@ -3022,6 +3022,58 @@ declare namespace image {
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
+     * Compresses or packs an image into a file and uses a callback to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: ImageSource, fd: number, options: PackingOption, callback: AsyncCallback<void>): void;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: ImageSource, fd: number, options: PackingOption): Promise<void>;
+
+    /**
+     * Compresses or packs an image into a file and uses a callback to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: PixelMap, fd: number, options: PackingOption, callback: AsyncCallback<void>): void;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
+
+     /**
      * Releases an ImagePacker instance and uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
