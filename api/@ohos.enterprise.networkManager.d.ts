@@ -931,7 +931,7 @@ declare namespace networkManager {
   function listIptablesFilterRules(admin: Want): Promise<string>;
 
   /**
-   * Add firewall rule by {@link Firewall}.
+   * Adds firewall rule by {@link Firewall}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
@@ -950,7 +950,7 @@ declare namespace networkManager {
   function addFirewallRule(admin: Want, firewallRule: FirewallRule): void;
 
   /**
-   * Remove firewall rule by {@link Firewall}.
+   * Removes firewall rule by {@link Firewall}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
@@ -970,7 +970,7 @@ declare namespace networkManager {
   function removeFirewallRule(admin: Want, firewallRule?: FirewallRule): void;
 
   /**
-   * Get all firewall rules, Contains the rules added by {@link addFirewallRule} and {@link addIptablesFilterRule}.
+   * Gets all firewall rules, Contains the rules added by {@link addFirewallRule} and {@link addIptablesFilterRule}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
@@ -989,7 +989,7 @@ declare namespace networkManager {
   function getFirewallRules(admin: Want): Array<FirewallRule>;
 
   /**
-   * Add domain filter rule by {@link DomainFilterRule}.
+   * Adds domain filter rule by {@link DomainFilterRule}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
@@ -1008,7 +1008,7 @@ declare namespace networkManager {
   function addDomainFilterRule(admin: Want, domainFilterRule: DomainFilterRule): void;
 
   /**
-   * Remove domain filter rule by {@link DomainFilterRule}.
+   * Removes domain filter rule by {@link DomainFilterRule}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
@@ -1028,7 +1028,7 @@ declare namespace networkManager {
   function removeDomainFilterRule(admin: Want, domainFilterRule?: DomainFilterRule): void;
 
   /**
-   * Get all domain filter rules, Contains the rules added by {@link addDomainFilterRule}.
+   * Gets all domain filter rules, Contains the rules added by {@link addDomainFilterRule}.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
