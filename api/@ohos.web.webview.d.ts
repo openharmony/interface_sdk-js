@@ -1984,6 +1984,15 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
+     * Set web engine socket connection timeout.
+     * @param { number } timeout - Socket connection timeout.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setConnectionTimeout(timeout: number): void;
+
+    /**
      * Set delegate for download.
      * Used to notify the progress of the download triggered from web.
      * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from web.
