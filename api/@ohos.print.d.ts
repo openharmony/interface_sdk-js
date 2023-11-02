@@ -1584,6 +1584,8 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.print/queryAllPrintJobs
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -1596,6 +1598,8 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.print/queryAllPrintJobs
    */
   function queryAllPrintJobs(): Promise<void>;
 
