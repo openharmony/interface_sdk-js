@@ -131,7 +131,7 @@ declare namespace inputConsumer {
   /**
    * Sets whether shield key event interception, only support shield key event.
    *
-   * @permission ohos.permission.INPUT_DISPATCHING_CONTROL
+   * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - Accroding the shield mode select shield key event range.
    * @param { boolean } isShield - Indicates whether control key event dispatch. The value <b>true</b> indicates
    * all key events derictly dispatch to window, if the value <b>false</b> indicates not shiled shortcut key.
@@ -147,7 +147,7 @@ declare namespace inputConsumer {
   /**
    * Gets shield event interception status corresponding to shield mode
    *
-   * @permission ohos.permission.INPUT_DISPATCHING_CONTROL
+   * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - Accroding the shield mode select shield key event range.
    * @returns { boolean } Returns true if shield event interception, returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
