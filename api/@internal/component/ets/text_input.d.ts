@@ -117,7 +117,6 @@ declare enum InputType {
    * NumberPassword entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 11
    */
   NumberPassword,
