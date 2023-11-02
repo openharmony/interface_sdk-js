@@ -38,7 +38,7 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from file path.
    * @param { string } model - model indicates model path to be loaded
-   * @param { callback: Callback<Model> } callback - the callback of model
+   * @param { Callback<Model> } callback - the callback of model
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
@@ -49,8 +49,8 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from file path.
    * @param { string } model - model indicates model path to be loaded
-   * @param { Context } [context] - context indicates model context information
-   * @param { callback: Callback<Model> } callback - the callback of model
+   * @param { Context } context - context indicates model context information
+   * @param { Callback<Model> } callback - the callback of model
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
@@ -62,7 +62,7 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from buffer
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
-   * @param { Context } context - context indicates model context information
+   * @param { Context } [context] - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
@@ -75,7 +75,7 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from buffer
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
-   * @param { callback: Callback<Model> } callback - the callback of model
+   * @param { Callback<Model> } callback - the callback of model
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
@@ -86,8 +86,8 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from buffer
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
-   * @param { Context } [context] - context indicates model context information
-   * @param { callback: Callback<Model> } callback - the callback of model
+   * @param { Context } context - context indicates model context information
+   * @param { Callback<Model> } callback - the callback of model
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
@@ -99,7 +99,7 @@ declare namespace mindSporeLite {
   /**
    * Creates a Model instance file description
    * @param { number } model - model indicates model file description to be loaded
-   * @param { Context } context - context indicates model context information
+   * @param { Context } [context] - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
@@ -112,7 +112,7 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from file description
    * @param { number } model - model indicates model file description to be loaded
-   * @param { callback: Callback<Model> } callback - the callback of model
+   * @param { Callback<Model> } callback - the callback of model
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
@@ -123,8 +123,8 @@ declare namespace mindSporeLite {
   /**
    * Create a Model instance from file description
    * @param { number } model - model indicates model file description to be loaded
-   * @param { Context } [context] - context indicates model context information
-   * @param { callback: Callback<Model> } callback - the callback of model
+   * @param { Context } context - context indicates model context information
+   * @param { Callback<Model> } callback - the callback of model
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
@@ -153,7 +153,7 @@ declare namespace mindSporeLite {
     /**
      * Infer model
      * @param { MSTensor[] } inputs - indicates the MSTensor array of the inputs.
-     * @param { callback: Callback<MSTensor[]> }  callback - the callback of MSTensor array.
+     * @param { Callback<MSTensor[]> }  callback - the callback of MSTensor array.
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10
@@ -163,7 +163,7 @@ declare namespace mindSporeLite {
     /**
      * Infer model
      * @param { MSTensor[] } inputs - indicates the MSTensor array of the inputs.
-     * @returns { Promise<Model> } the promise returned by the function.
+     * @returns { Promise<MSTensor[]> } the promise returned by the function.
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10
@@ -191,22 +191,28 @@ declare namespace mindSporeLite {
    */
   interface Context {
     /**
-      * The target device
-      * @type {string[]}
-      * @since 10
-      */
+     * The target device
+     * @type {?string[]}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     target?: string[];
     /**
-      * The cpu device information
-      * @type {CpuDevice}
-      * @since 10
-      */
+     * The cpu device information
+     * @type {?CpuDevice}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     cpu?: CpuDevice;
     /**
-      * The NNRT device information
-      * @type {NNRTDevice}
-      * @since 10
-      */
+     * The NNRT device information
+     * @type {?NNRTDevice}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     nnrt?: NNRTDevice;
   }
 
@@ -219,28 +225,36 @@ declare namespace mindSporeLite {
    */
   interface CpuDevice {
     /**
-      * The thread num
-      * @type {number}
-      * @since 10
-      */
+     * The thread num
+     * @type {?number}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     threadNum?: number;
     /**
-      * The thread affinity mode
-      * @type {ThreadAffinityMode}
-      * @since 10
-      */
+     * The thread affinity mode
+     * @type {?ThreadAffinityMode}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     threadAffinityMode?: ThreadAffinityMode;
     /**
-      * The thread affinity core list
-      * @type {number[]}
-      * @since 10
-      */
+     * The thread affinity core list
+     * @type {?number[]}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     threadAffinityCoreList?: number[];
     /**
-      * The precision mode
-      * @type {string}
-      * @since 10
-      */
+     * The precision mode
+     * @type {?string}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 10
+     */
     precisionMode?: string;
   }
 
@@ -265,6 +279,7 @@ declare namespace mindSporeLite {
     /**
      * Thread affinity mode is no bind.
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NO_AFFINITIES = 0,
@@ -272,6 +287,7 @@ declare namespace mindSporeLite {
     /**
      * Thread affinity mode is big cores first
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     BIG_CORES_FIRST = 1,
@@ -279,6 +295,7 @@ declare namespace mindSporeLite {
     /**
      * Thread affinity mode is little cores first
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     LITTLE_CORES_FIRST = 2,
@@ -295,36 +312,48 @@ declare namespace mindSporeLite {
     /**
       * The name of the tensor.
       * @type {string}
+      * @syscap SystemCapability.AI.MindSporeLite
+      * @stagemodelonly
       * @since 10
       */
     name: string;
     /**
       * The shape of the tensor.
       * @type {number[]}
+      * @syscap SystemCapability.AI.MindSporeLite
+      * @stagemodelonly
       * @since 10
       */
     shape: number[];
     /**
       * The number of elements in the tensor.
       * @type {number}
+      * @syscap SystemCapability.AI.MindSporeLite
+      * @stagemodelonly
       * @since 10
       */
     elementNum: number;
     /**
       * The data size of the tensor.
       * @type {number}
+      * @syscap SystemCapability.AI.MindSporeLite
+      * @stagemodelonly
       * @since 10
       */
     dataSize: number;
     /**
       * The data type of the tensor.
       * @type {DataType}
+      * @syscap SystemCapability.AI.MindSporeLite
+      * @stagemodelonly
       * @since 10
       */
     dtype: DataType;
     /**
       * The format of the tensor.
-      * @type {DataType}
+      * @type {Format}
+      * @syscap SystemCapability.AI.MindSporeLite
+      * @stagemodelonly
       * @since 10
       */
     format: Format;
@@ -359,72 +388,84 @@ declare namespace mindSporeLite {
     /**
      * data type is unknown
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     TYPE_UNKNOWN = 0,
    /**
      * data type is int8
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_INT8 = 32,
    /**
      * data type is int16
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_INT16 = 33,
    /**
      * data type is int32
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_INT32 = 34,
    /**
      * data type is int64
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_INT64 = 35,
    /**
      * data type is uint8
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_UINT8 = 37,
    /**
      * data type is uint16
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_UINT16 = 38,
    /**
      * data type is uint32
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_UINT32 = 39,
    /**
      * data type is uint64
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_UINT64 = 40,
    /**
      * data type is float16
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_FLOAT16 = 42,
    /**
      * data type is float32
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_FLOAT32 = 43,
    /**
      * data type is float64
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NUMBER_TYPE_FLOAT64 = 44,
@@ -441,42 +482,49 @@ declare namespace mindSporeLite {
    /**
      * data format is default
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */  
     DEFAULT_FORMAT = -1,
    /**
      * data format is NCHW
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */  
     NCHW = 0,
    /**
      * data format is NHWC
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NHWC = 1,
    /**
      * data format is NHWC4
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     NHWC4 = 2,
    /**
      * data format is HWKC
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     HWKC = 3,
    /**
      * data format is HWCK
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     HWCK = 4,
    /**
      * data format is KCHW
      * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
      * @since 10
      */
     KCHW = 5,
