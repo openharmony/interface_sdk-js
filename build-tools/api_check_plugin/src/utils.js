@@ -48,8 +48,8 @@ exports.commentNodeWhiteList = commentNodeWhiteList;
 const tagsArrayOfOrder = [
   'namespace', 'struct', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
   'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'atomicservice', 'since', 'deprecated', 'useinstead', 'test',
-  'form', 'example'
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated', 'useinstead',
+  'test', 'form', 'example'
 ];
 exports.tagsArrayOfOrder = tagsArrayOfOrder;
 
@@ -470,3 +470,13 @@ function splitPath(filePath, pathElements) {
   }
 }
 exports.splitPath = splitPath;
+
+function isAscending(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+exports.isAscending = isAscending;
