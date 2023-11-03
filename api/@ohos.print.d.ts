@@ -151,7 +151,7 @@ declare namespace print {
    * @param { AsyncCallback<PrintTask> } callback - The callback function for print task.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since 11
    */
   function print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>): void;
     
@@ -163,7 +163,7 @@ declare namespace print {
    * @returns { Promise<PrintTask> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since 11
    */
   function print(files: Array<string>, context: Context): Promise<PrintTask>;
 
@@ -414,7 +414,7 @@ declare namespace print {
     * @type { ?string }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     options?: string;
   }
@@ -880,7 +880,7 @@ declare namespace print {
     * Print an error occurred when printing the account.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_ACCOUNT_ERROR = 18,
 
@@ -888,7 +888,7 @@ declare namespace print {
     * Print the printing permission is abnormal.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_PRINT_PERMISSION_ERROR = 19,
 
@@ -896,7 +896,7 @@ declare namespace print {
     * Print color printing permission exception.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_PRINT_COLOR_PERMISSION_ERROR = 20,
 
@@ -904,7 +904,7 @@ declare namespace print {
     * Print the device is not connected to the network.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_NETWORK_ERROR = 21,
 
@@ -912,7 +912,7 @@ declare namespace print {
     * Print unable to connect to the server.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_CONNECT_SERVER_ERROR = 22,
 
@@ -920,7 +920,7 @@ declare namespace print {
     * Print large file exception.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_LARGE_FILE_ERROR = 23,
 
@@ -928,7 +928,7 @@ declare namespace print {
     * Print file parsing exception.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_PARSE_FILE_ERROR = 24,
 
@@ -936,7 +936,7 @@ declare namespace print {
     * Print the file conversion is too slow.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_BLOCK_FILE_CONVERT_SLOWLY = 25,
 
@@ -944,7 +944,7 @@ declare namespace print {
     * Print uploading file.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_RUNNING_UPLOADING_FILES = 26,
 
@@ -952,7 +952,7 @@ declare namespace print {
     * Print converting files.
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
-    * @since 10
+    * @since 11
     */
     PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
@@ -1585,7 +1585,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead print#queryAllPrintJobs
+   * @useinstead print#queryPrintJobList
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -1599,7 +1599,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead print#queryAllPrintJobs
+   * @useinstead print#queryPrintJobList
    */
   function queryAllPrintJobs(): Promise<void>;
 
@@ -1613,7 +1613,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function queryAllPrintJobs(callback: AsyncCallback<Array<PrintJob>>): void;
+  function queryPrintJobList(callback: AsyncCallback<Array<PrintJob>>): void;
 
   /**
    * Get all the printJobs in the queue.
@@ -1625,7 +1625,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function queryAllPrintJobs(): Promise<Array<PrintJob>>;
+  function queryPrintJobList(): Promise<Array<PrintJob>>;
 
   /**
    * Get printJob by jobId.
@@ -1636,7 +1636,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function queryPrintJobById(jobId: string, callback: AsyncCallback<PrintJob>): void;
 
@@ -1649,7 +1649,7 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function queryPrintJobById(jobId: string): Promise<PrintJob>;
 }
