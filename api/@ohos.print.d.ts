@@ -411,7 +411,7 @@ declare namespace print {
 
     /**
     * JSON object string.
-    * @type { ?string }
+    * @type { ?Object }
     * @syscap SystemCapability.Print.PrintFramework
     * @systemapi
     * @since 11
