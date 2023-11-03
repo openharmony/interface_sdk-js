@@ -416,7 +416,7 @@ declare namespace print {
     * @systemapi
     * @since 11
     */
-    options?: string;
+    options?: Object;
   }
 
   /**
