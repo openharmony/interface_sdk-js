@@ -1997,6 +1997,24 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     maxSelectNumber?: number;
+
+    /**
+     * Support taking photos.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    isPhotoTakingSupported?: boolean;
+
+    /**
+     * Support editing photos.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    isEditSupported?: boolean;
   }
 
   /**
