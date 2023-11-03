@@ -673,6 +673,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @param { number } value - the value Of startOffset.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   contentStartOffset(value: number): ListAttribute;
@@ -682,6 +683,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @param { number } value - the value Of endOffset.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   contentEndOffset(value: number): ListAttribute;
