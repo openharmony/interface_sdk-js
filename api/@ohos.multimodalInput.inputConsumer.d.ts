@@ -90,16 +90,7 @@ declare namespace inputConsumer {
      * @systemapi hide for inner use
      * @since 11
      */
-    FACTORY_MODE,
-
-    /**
-     * OOBE mode shield key event except power key event
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @systemapi hide for inner use
-     * @since 11
-     */
-    OOBE_MODE
+    FACTORY_MODE
   }
 
   /**
