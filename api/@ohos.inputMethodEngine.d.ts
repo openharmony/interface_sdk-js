@@ -165,6 +165,15 @@ declare namespace inputMethodEngine {
   const PATTERN_PASSWORD: number;
 
   /**
+   * Editor of type SCREEN LOCK PASSWORD
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+    const PATTERN_PASSWORD_SCREEN_LOCK_STYLE: number;
+
+  /**
    * Editor in SELECTING state
    *
    * @constant
@@ -1528,6 +1537,28 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     changeFlag(flag: PanelFlag): void;
+
+    /**
+     * Sets ime panel private mode or not.
+     *
+     * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    setPrivacyMode(isPrivacyMode: boolean): Promise<void>;
+
+    /**
+     * Sets ime panel private mode or not.
+     *
+     * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+     * @param { AsyncCallback<void> } callback - the callback of hide.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    setPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
   }
 
   /**

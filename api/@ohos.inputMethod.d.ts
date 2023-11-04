@@ -1396,7 +1396,15 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    VISIBLE_PASSWORD
+    VISIBLE_PASSWORD,
+
+    /**
+     * The text input type is SCREEN_LOCK_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    SCREEN_LOCK_PASSWORD
   }
 
   /**
@@ -1530,6 +1538,15 @@ declare namespace inputMethod {
      * @since 10
      */
     enterKeyType: EnterKeyType;
+
+    /**
+     * Indicates the security mode of the input method.
+     *
+     * @type { ?Boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    securityMode?: Boolean;
   }
 
   /**
