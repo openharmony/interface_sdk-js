@@ -15,6 +15,7 @@
         "func"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method in class",

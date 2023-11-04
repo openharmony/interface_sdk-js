@@ -15,6 +15,7 @@
         "'exceljs'"
       ],
       "isStruct": false,
+      "syscap": "",
       "importValues": [
         {
           "key": "ValueType",
@@ -38,6 +39,7 @@
         "TextOneType"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "type": [
         "{ [key: string | number]: ValueType | Uint8Array | (false & null) }"
