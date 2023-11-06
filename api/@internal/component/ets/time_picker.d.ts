@@ -91,13 +91,13 @@ declare interface TimePickerResult {
 }
 
 /**
- * Type of components that need to be displayed.
+ * Type of the timePicker that need to be displayed.
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-declare enum DisplayedComponentType {
+declare enum TimePickerFormat {
   /**
    * Hour and minute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -149,15 +149,15 @@ declare interface TimePickerOptions {
   selected?: Date;
 
   /**
-   * Specifies the type of components that need to be displayed.
+   * Specifies the format of the timePicker that need to be displayed.
    * 
-   * @type { ?DisplayedComponentType }
+   * @type { ?TimePickerFormat }
    * @default HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  format?: DisplayedComponentType;
+  format?: TimePickerFormat;
 }
 
 /**
