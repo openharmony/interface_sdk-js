@@ -174,11 +174,11 @@ declare namespace picker {
   /**
    * Enumerates the picker's select mode types.
    *
-   * @enum { number } SelectMode
+   * @enum { number } DocumentSelectMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 11
    */
-  export enum SelectMode {
+  export enum DocumentSelectMode {
     /**
      * Indicates that the file is selected.
      *
@@ -241,11 +241,11 @@ declare namespace picker {
     /**
      * Selection mode.
      *
-     * @type { ?SelectMode }
+     * @type { ?DocumentSelectMode }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
      */
-    selectMode?: SelectMode;
+    selectMode?: DocumentSelectMode;
   }
 
   /**
