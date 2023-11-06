@@ -91,7 +91,7 @@ declare interface TimePickerResult {
 }
 
 /**
- * Type of the timePicker that need to be displayed.
+ * Type of the TimePicker that need to be displayed.
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -149,7 +149,7 @@ declare interface TimePickerOptions {
   selected?: Date;
 
   /**
-   * Specifies the format of the timePicker that need to be displayed.
+   * Specifies the format of the TimePicker that need to be displayed.
    * 
    * @type { ?TimePickerFormat }
    * @default HOUR_MINUTE
