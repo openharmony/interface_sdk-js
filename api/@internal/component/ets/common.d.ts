@@ -8590,7 +8590,6 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder | DragItemInfo } value - preview content of the component
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   dragPreview(value: CustomBuilder | DragItemInfo): T;
