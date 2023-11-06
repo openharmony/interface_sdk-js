@@ -44,7 +44,15 @@ declare interface TimePickerResult {
    * @crossplatform
    * @since 10
    */
-  hour?: number;
+  /**
+   * Application hour
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  hour: number;
 
   /**
    * Application minute
@@ -61,16 +69,24 @@ declare interface TimePickerResult {
    * @crossplatform
    * @since 10
    */
-  minute?: number;
-
-    /**
-   * Application second
-   * @type { ?number }
+  /**
+   * Application minute
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-    second?: number;
+  minute: number;
+
+    /**
+   * Application second
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  second: number;
 }
 
 /**
@@ -139,7 +155,7 @@ declare interface TimePickerOptions {
    * @crossplatform
    * @since 11
    */
-  displayedComponent?: DisplayedComponentType;
+  format?: DisplayedComponentType;
 }
 
 /**
