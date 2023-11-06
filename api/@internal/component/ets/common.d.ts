@@ -10675,3 +10675,23 @@ declare module 'DragControllerParam' {
     export type { CustomBuilder, DragItemInfo, DragEvent };
   }
 }
+
+/**
+ * Define EdgeEffect Options.
+ *
+ * @interface EdgeEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface EdgeEffectOptions {
+  /**
+   * Enable Sliding effect when component does not full screen.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  alwaysEnabled: boolean;
+}
