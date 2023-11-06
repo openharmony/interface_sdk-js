@@ -537,6 +537,33 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     autoDeletedTime?: number;
+     
+    /**
+     * Type of the snoozeSlot used by the reminder.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    snoozeSlotType?: notification.SlotType;
+
+    /**
+     * Judge your app need or not to receive the broadcast when the user clicks the action button.
+     * It's only support when the application that created the reminder is in the foreground.
+     * And the app needs to subscribe to events(COMMON_EVENT_REMINDER_STATUS_CHANGE),
+     * you can receive the event data is "actionButton type,reminder id".
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    needBroadcast?: boolean;
+
+    /**
+     * The directory of storing reminder announcements.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    customRingUri?: string;
   }
 
   /**
