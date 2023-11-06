@@ -656,7 +656,17 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @crossplatform
    * @since 10
    */
-  edgeEffect(value: EdgeEffect): GridAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } value
+   * @param { EdgeEffectOptions } options
+   * @returns { GridAttribute } The attribute of the grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): GridAttribute;
 
   /**
    * Called to setting the nested scroll options.
