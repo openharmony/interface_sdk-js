@@ -57,6 +57,20 @@ export default class UIExtensionContentSession {
   setReceiveDataCallback(callback: (data: { [key: string]: Object }) => void): void;
 
   /**
+   * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+   *
+   * @param { function } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  setReceiveDataForResultCallback(callback: (data: { [key: string]: Object }) => { [key: string]: Object }): void;
+
+  /**
    * Loads an UI extension content.
    *
    * @param { string } path - Path of the page to which the content will be loaded
