@@ -58,6 +58,7 @@
             {
               "apiType": "Param",
               "apiName": "str",
+              "paramType": 148,
               "type": [
                 "string"
               ],
@@ -67,6 +68,7 @@
             {
               "apiType": "Param",
               "apiName": "str2",
+              "paramType": 148,
               "type": [
                 "string"
               ],
@@ -101,6 +103,7 @@
             {
               "apiType": "Param",
               "apiName": "str",
+              "paramType": 148,
               "type": [
                 "string"
               ],

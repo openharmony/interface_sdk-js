@@ -58,6 +58,7 @@
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 148,
               "type": [
                 "string"
               ],
@@ -67,6 +68,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<void>"
               ],
