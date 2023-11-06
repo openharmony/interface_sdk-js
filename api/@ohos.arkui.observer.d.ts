@@ -35,16 +35,6 @@ declare namespace UIObserver {
    */
   export enum NavDestinationState {
     /**
-     * Before the on show animation start.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 11
-     * @form
-     */
-    BEFORE_SHOW = 0,
-
-    /**
      * When the NavDestination show.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -52,17 +42,7 @@ declare namespace UIObserver {
      * @since 11
      * @form
      */
-    ON_SHOW = 1,
-
-    /**
-      * Before the on hidden animation start.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @since 11
-      * @form
-      */
-    BEFORE_HIDE = 2,
+    ON_SHOW = 0,
 
     /**
      * When the NavDestination hidden.
@@ -72,7 +52,7 @@ declare namespace UIObserver {
      * @since 11
      * @form
      */
-    ON_HIDDEN = 3
+    ON_HIDDEN = 1
   }
 
   /**
@@ -160,16 +140,6 @@ declare namespace UIObserver {
    * @since 11
    */
   export function off(type: "navDestinationUpdate", callback?: Callback<NavDestinationInfo>): void;
-
-  /**
-   * Queries the navigation destination information.
-   *
-   * @returns {NavDestinationInfo | undefined} The navigation destination information, or undefined if it is not available.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  export function queryNavDestinationInfo(): NavDestinationInfo | undefined
 }
 
 export default UIObserver;

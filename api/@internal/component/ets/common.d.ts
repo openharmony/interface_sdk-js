@@ -15601,6 +15601,9 @@ declare interface MeasureResult extends SizeResult {
  
 }
 
+declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
+
 /**
  * Custom Component
  *
@@ -15941,6 +15944,26 @@ declare class CustomComponent extends CommonAttribute {
    * @since 11
    */
   pageTransition?(): void;
+
+  /**
+   * Get current UIContext
+   *
+   * @returns { UIContext } The UIContext that the custom component belongs to.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getUIContext?(): UIContext;
+
+  /**
+   * Queries the navigation destination information.
+   *
+   * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  queryNavDestinationInfo?(): NavDestinationInfo | undefined
 }
 
 /**
