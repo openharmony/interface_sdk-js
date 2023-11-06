@@ -3858,6 +3858,16 @@ declare namespace audio {
      * @since 10
      */
     SOURCE_TYPE_WAKEUP = 3,
+
+    /**
+     * Voice call source type.
+     * @permission ohos.permission.RECORD_VOICE_CALL
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    SOURCE_TYPE_VOICE_CALL = 4,
+
     /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
