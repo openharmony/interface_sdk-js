@@ -8585,6 +8585,17 @@ declare class CommonMethod<T> {
   draggable(value: boolean): T;
 
   /**
+   * Set preview content of the component
+   *
+   * @param { CustomBuilder | DragItemInfo } value - preview content of the component
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  dragPreview(value: CustomBuilder | DragItemInfo): T;
+
+  /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
    * @param { string | CustomBuilder } value
