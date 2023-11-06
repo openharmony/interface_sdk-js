@@ -79,8 +79,9 @@ declare interface TimePickerResult {
    */
   minute: number;
 
-    /**
+  /**
    * Application second
+   * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -149,6 +150,7 @@ declare interface TimePickerOptions {
 
   /**
    * Specifies the type of components that need to be displayed.
+   * 
    * @type { ?DisplayedComponentType }
    * @default HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
