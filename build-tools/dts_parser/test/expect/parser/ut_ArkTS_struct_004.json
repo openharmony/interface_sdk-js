@@ -20,6 +20,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "callForm": "@Builder GlobalBuilder0() {}",
       "params": [],
@@ -47,6 +48,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -65,6 +67,7 @@
             "constructor"
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "",
           "params": [
@@ -103,6 +106,7 @@
             }
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "type": [
             "() => void"

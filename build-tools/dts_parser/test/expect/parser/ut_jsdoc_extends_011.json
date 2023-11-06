@@ -1,24 +1,24 @@
 {
-  "ut_class_001.d.ts": [
+  "ut_jsdoc_extends_011.d.ts": [
     {
-      "filePath": "ut_class_001.d.ts",
-      "apiType": "Class",
-      "definedText": " export class Test",
+      "filePath": "ut_jsdoc_extends_011.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
       "pos": {
-        "line": 4,
-        "character": 1
+        "line": 6,
+        "character": 2
       },
       "isExport": true,
       "apiName": "Test",
       "hierarchicalRelations": [
-        "ut_class_001.d.ts",
+        "ut_jsdoc_extends_011.d.ts",
         "Test"
       ],
       "isStruct": false,
       "syscap": "",
       "jsDocInfos": [
         {
-          "description": "the ut for class",
+          "description": "the ut for jsdoc about extends",
           "syscap": "",
           "since": "-1",
           "isForm": false,
@@ -33,7 +33,9 @@
           "isConstant": false
         }
       ],
-      "parentClasses": [],
+      "parentClasses": [
+        "Array<string>"
+      ],
       "childApis": []
     }
   ]

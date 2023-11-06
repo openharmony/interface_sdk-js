@@ -15,6 +15,7 @@
         "export_myTest"
       ],
       "isStruct": false,
+      "syscap": "",
       "exportValues": []
     }
   ]
