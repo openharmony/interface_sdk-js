@@ -279,6 +279,28 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - Indicates the extra data for
      * notification {@link ExtraData}.
+     * @param { number } userId - Indicates the user ID.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the data changes.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    static notifyDataChange(extInfo: ExtraData, userId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Notifies changes of the cloud records.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @param { number } [userId] - Indicates the user ID.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -290,7 +312,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    static notifyDataChange(extInfo: ExtraData): Promise<void>;
+    static notifyDataChange(extInfo: ExtraData, userId?: number): Promise<void>;
 
     /**
      * deletes cloud information from local data.
