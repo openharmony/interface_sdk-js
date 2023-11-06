@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-import {SelectMode} from "../../../interface/interface_sdk-js_4/api/@ohos.file.picker";
 
 /**
  * Provide the capabilities to use different pickers.
@@ -179,30 +178,30 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 11
    */
-  export enum SelectMode{
+  export enum SelectMode {
     /**
-     * Indicates select file.
+     * Indicates that the file is selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
      */
-    FILE,
+    FILE = 0,
 
     /**
-     * Indicates select folder.
+     * Indicates that the folder is selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
      */
-    FOLDER,
+    FOLDER = 1,
 
     /**
-     * Indicates select file and folder.
+     * Indicates that folders and files are selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
      */
-    MIXED
+    MIXED = 2,
   }
 
   /**
@@ -240,7 +239,7 @@ declare namespace picker {
     maxSelectNumber?: number;
 
     /**
-     * The mode selected.
+     * Selection mode.
      *
      * @type { ?SelectMode }
      * @syscap SystemCapability.FileManagement.UserFileService
