@@ -1542,11 +1542,11 @@ declare namespace inputMethod {
     /**
      * Indicates the security mode of the input method.
      *
-     * @type { ?Boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    securityMode?: Boolean;
+    securityMode?: boolean;
   }
 
   /**
