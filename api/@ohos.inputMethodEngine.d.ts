@@ -171,7 +171,16 @@ declare namespace inputMethodEngine {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
-    const PATTERN_PASSWORD_SCREEN_LOCK: number;
+  const PATTERN_PASSWORD_SCREEN_LOCK: number;
+
+  /**
+   * Editor of type NUMBER PASSWORD
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  const PATTERN_PASSWORD_NUMBER: number;
 
   /**
    * Editor in SELECTING state
