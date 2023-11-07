@@ -292,7 +292,7 @@ declare namespace ethernet {
    */
   export enum IPSetMode {
     /**
-     * Static configuration.
+     * WAN Static configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -300,7 +300,7 @@ declare namespace ethernet {
     STATIC = 0,
 
     /**
-     * Dynamic configuration.
+     * WAN Dynamic configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -311,7 +311,7 @@ declare namespace ethernet {
      * LAN Static configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     LAN_STATIC = 2,
 
@@ -319,7 +319,7 @@ declare namespace ethernet {
      * LAN Dynamic configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 3
+     * @since 11
      */
     LAN_DHCP = 3
   }
