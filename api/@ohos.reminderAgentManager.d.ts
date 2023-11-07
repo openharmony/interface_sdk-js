@@ -541,6 +541,7 @@ declare namespace reminderAgentManager {
     /**
      * Type of the snoozeSlot used by the reminder.
      *
+     * @type { ?notification.SlotType }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 11
      */
@@ -549,6 +550,7 @@ declare namespace reminderAgentManager {
     /**
      * The directory of storing reminder announcements.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 11
      */
