@@ -305,7 +305,23 @@ declare namespace ethernet {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    DHCP = 1
+    DHCP = 1,
+
+    /**
+     * LAN Static configuration.
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    LAN_STATIC = 2,
+
+    /**
+     * LAN Dynamic configuration.
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 3
+     */
+    LAN_DHCP = 3
   }
 }
 
