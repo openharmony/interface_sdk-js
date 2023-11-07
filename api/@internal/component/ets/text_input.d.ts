@@ -111,7 +111,7 @@ declare enum InputType {
    * @systemapi
    * @since 11
    */
-  ScreenLockPassword,
+  SCREENLOCKPASSWORD,
 
   /**
    * NumberPassword entry mode.
@@ -119,7 +119,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  NumberPassword,
+  NUMBERPASSWORD,
 }
 
 /**
