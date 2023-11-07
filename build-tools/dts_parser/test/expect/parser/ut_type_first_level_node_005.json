@@ -15,6 +15,7 @@
         "TextOneType"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "type": [
         "string & number"

@@ -5135,6 +5135,16 @@ declare enum CopyOptions {
    * @form
    */
   LocalDevice = 2,
+
+  /**
+   * Share in cross Device
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  CROSS_DEVICE = 3,
 }
 
 /**

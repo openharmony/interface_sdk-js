@@ -1261,6 +1261,19 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
   /**
@@ -1276,6 +1289,21 @@ declare namespace notificationManager {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 11
+   */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
@@ -1288,6 +1316,19 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
    */
   function requestEnableNotification(): Promise<void>;
 
@@ -1303,6 +1344,21 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 11
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 

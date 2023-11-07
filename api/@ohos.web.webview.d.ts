@@ -1984,6 +1984,15 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
+     * Set web engine socket connection timeout.
+     * @param { number } timeout - Socket connection timeout.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setConnectionTimeout(timeout: number): void;
+
+    /**
      * Set delegate for download.
      * Used to notify the progress of the download triggered from web.
      * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from web.
@@ -2005,6 +2014,20 @@ declare namespace webview {
      * @since 11
      */
     startDownload(url: string): void;
+
+    /**
+     * Loads the URL use "POST" method with post data.
+     *
+     * @param { string } url - Request the URL use "POST" method.
+     * @param { ArrayBuffer } postData - This data will passed to "POST" request.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    postUrl(url: string, postData: ArrayBuffer): void;
   }
 
   /**

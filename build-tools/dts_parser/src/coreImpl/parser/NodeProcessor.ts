@@ -374,9 +374,11 @@ export class NodeProcessorHelper {
     }
     const parentClasses: string[] = [];
     interfaceDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
-      value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-        parentClasses.push(value.expression.getText());
-      });
+      if (value.token === ts.SyntaxKind.ExtendsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          parentClasses.push(value.getText());
+        });
+      }
     });
     interfaceInfo.setParentClasses(parentClasses);
     return interfaceInfo;
@@ -400,9 +402,11 @@ export class NodeProcessorHelper {
     }
     const parentClasses: string[] = [];
     classDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
-      value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-        parentClasses.push(value.expression.getText());
-      });
+      if (value.token === ts.SyntaxKind.ExtendsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          parentClasses.push(value.getText());
+        });
+      }
     });
     classInfo.setParentClasses(parentClasses);
     return classInfo;

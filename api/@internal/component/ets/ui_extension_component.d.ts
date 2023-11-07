@@ -14,6 +14,28 @@
  */
 
 /**
+ * This interface is used to set the options for UIExtensionComponentAttribute during construction
+ *
+ * @interface UIExtensionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface UIExtensionOptions {
+  /**
+   * Set whether the current capability is used as a Caller.<br/>
+   * If set to true, as a Caller, the current token of UIExtensionComponent is set to rootToken.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  isTransferringCaller?: boolean;
+}
+
+/**
  * This interface is used for send data to the UIExtensionAbility.<br/>
  * It is returned from onRemoteReady callback of UIExtensionComponent<br/>
  * when UIExtensionAbility connects successfully
@@ -55,8 +77,20 @@ interface UIExtensionComponentInterface {
    * @systemapi
    * @since 10
    */
+  /**
+   * Construct the UIExtensionComponent.<br/>
+   * Called when the UIExtensionComponent is used.
+   *
+   * @param { import('../api/@ohos.app.ability.Want').default } want - indicates the want of UIExtensionAbility
+   * @param { UIExtensionOptions } [option] - Construction configuration of UIExtensionComponentAttribute
+   * @returns { UIExtensionComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
   (
-    want: import('../api/@ohos.app.ability.Want').default
+    want: import('../api/@ohos.app.ability.Want').default,
+    options?: UIExtensionOptions
   ): UIExtensionComponentAttribute;
 }
 

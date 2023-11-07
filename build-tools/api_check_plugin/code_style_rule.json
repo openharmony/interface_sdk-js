@@ -207,6 +207,8 @@
       "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
       "SystemCapability.Multimedia.Media.AVPlayer",
       "SystemCapability.Multimedia.Media.AVRecorder",
+      "SystemCapability.Multimedia.Media.AVMetadataExtractor",
+      "SystemCapability.Multimedia.Media.AVImageGenerator",
       "SystemCapability.Multimedia.Image.ImageCreator",
       "SystemCapability.Multimedia.SystemSound.Core",
       "SystemCapability.Telephony.CoreService",
