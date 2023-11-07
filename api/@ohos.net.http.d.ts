@@ -219,12 +219,24 @@ declare namespace http {
     caPath?: string;
 
     /**
-     * Used to set to continue uploading or downloading the remaining content. The default value is 0.
+     * Used to set to uploading or downloading the start bytes. The default value is 0.
+     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
+     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     resumeFrom?: number;
+
+    /**
+     * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
+     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
+     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    resumeTo?: number;
 
     /**
      * Support the application to pass in client certificates, allowing the server to verify the client's identity.
@@ -717,14 +729,6 @@ declare namespace http {
      * @since 10
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<number>;
-
-    /**
-     * Returns the performance timing of the HTTP request.
-     * @returns {PerformanceTiming} PerformanceTiming object.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getPerformanceTiming(): PerformanceTiming;
 
     /**
      * Destroys an HTTP request.
@@ -1668,6 +1672,13 @@ declare namespace http {
      */
     cookies: string;
 
+    /**
+     * The time taken of various stages of HTTP request.
+     * @type {PerformanceTiming}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    performanceTiming: PerformanceTiming;
   }
 
   /**
