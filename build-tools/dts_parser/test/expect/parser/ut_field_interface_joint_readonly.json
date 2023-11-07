@@ -15,6 +15,7 @@
         "testNamespace"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -33,6 +34,7 @@
             "TestInterface"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "parentClasses": [],
           "childApis": [
@@ -53,6 +55,7 @@
                 "type"
               ],
               "isStruct": false,
+              "syscap": "",
               "jsDocInfos": [],
               "type": [
                 "string",

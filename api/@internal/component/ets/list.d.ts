@@ -666,7 +666,18 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 10
    * @form
    */
-  edgeEffect(value: EdgeEffect): ListAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } value
+   * @param { EdgeEffectOptions } options
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.

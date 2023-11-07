@@ -15,6 +15,7 @@
         "'./@ohos.base'"
       ],
       "isStruct": false,
+      "syscap": "",
       "importValues": [
         {
           "key": "AsyncCallback",

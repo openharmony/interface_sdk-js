@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */
+/**
+ * the data of the commonEvent
+ *
+ * @typedef CommonEventData
+ * @syscap SystemCapability.Notification.CommonEvent
+ * @crossplatform
+ * @since 11
+ */
 export interface CommonEventData {
   /**
    * event type
@@ -27,6 +35,14 @@ export interface CommonEventData {
    * @type { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
+   */
+  /**
+   * event type
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @since 11
    */
   event: string;
 

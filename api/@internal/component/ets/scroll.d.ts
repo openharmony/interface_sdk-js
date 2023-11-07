@@ -643,7 +643,17 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @crossplatform
    * @since 10
    */
-  edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } edgeEffect
+   * @param { EdgeEffectOptions } options
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): ScrollAttribute;
 
   /**
    * Called when scrolling begin each frame.

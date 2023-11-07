@@ -212,6 +212,30 @@ declare enum CacheMode {
 }
 
 /**
+ * Enum type supplied to {@link overScrollMode} for setting the web overScroll mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum OverScrollMode {
+  /**
+   * Disable the web over-scroll mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  NEVER,
+  /**
+   * Enable the web over-scroll mode.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  ALWAYS
+}
+
+/**
  * Enum type supplied to {@link darkMode} for setting the web dark mode.
  *
  * @enum { number }
@@ -2193,7 +2217,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
-
+  /**
+    * Sets the over-scroll mode for web 
+    * 
+    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 11
+    */
+  overScrollMode(mode: OverScrollMode): WebAttribute;
   /**
    * Sets the ratio of the text zoom.
    *

@@ -392,6 +392,149 @@ declare namespace networkManager {
   }
 
   /**
+   * Firewall rule
+   *
+   * @typedef FirewallRule
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  interface FirewallRule {
+    /**
+     * Source IP
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    srcAddr?: string;
+
+    /**
+     * Destination IP
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    destAddr?: string;
+
+    /**
+     * Source Port
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    srcPort?: string;
+
+    /**
+     * Destination Port
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    destPort?: string;
+
+    /**
+     * Application uid
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    appUid?: string;
+
+    /**
+     * Direction
+     *
+     * @type { ?Direction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    direction?: Direction;
+
+    /**
+     * Action
+     *
+     * @type { ?Action }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    action?: Action;
+
+    /**
+     * Protocol
+     *
+     * @type { ?Protocol }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    protocol?: Protocol;
+  }
+
+  /**
+   * Domain filter rule
+   *
+   * @typedef DomainFilterRule
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  interface DomainFilterRule {
+    /**
+     * Domain name
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    domainName?: string;
+
+    /**
+     * Application uid
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    appUid?: string;
+
+    /**
+     * action
+     *
+     * @type { ?Action }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    action?: Action;
+  }
+
+  /**
    * Gets all of the network interfaces of the device.
    * This function can be called by a super administrator.
    *
@@ -786,6 +929,122 @@ declare namespace networkManager {
    * @since 10
    */
   function listIptablesFilterRules(admin: Want): Promise<string>;
+
+  /**
+   * Adds firewall rule by {@link Firewall}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { FirewallRule } firewallRule - firewall rule that needs to be added.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function addFirewallRule(admin: Want, firewallRule: FirewallRule): void;
+
+  /**
+   * Removes firewall rule by {@link Firewall}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { FirewallRule } firewallRule - matching rule used to remove firewall rule.
+   *    if firewallRule or firewallRule#direction,firewallRule#action is empty, multiple firewall rule can be removed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function removeFirewallRule(admin: Want, firewallRule?: FirewallRule): void;
+
+  /**
+   * Gets all firewall rules, Contains the rules added by {@link addFirewallRule} and {@link addIptablesFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<FirewallRule> } an array of added firewall rules.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function getFirewallRules(admin: Want): Array<FirewallRule>;
+
+  /**
+   * Adds domain filter rule by {@link DomainFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { DomainFilterRule } domainFilterRule - domain filter rule that needs to be added.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function addDomainFilterRule(admin: Want, domainFilterRule: DomainFilterRule): void;
+
+  /**
+   * Removes domain filter rule by {@link DomainFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { DomainFilterRule } domainFilterRule - matching rule used to remove domain filter rule.
+   *    if domainFilterRule or domainFilterRule#action is empty, multiple domain filter rule can be removed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function removeDomainFilterRule(admin: Want, domainFilterRule?: DomainFilterRule): void;
+
+  /**
+   * Gets all domain filter rules, Contains the rules added by {@link addDomainFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<DomainFilterRule> } an array of added domain filter rules.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function getDomainFilterRules(admin: Want): Array<DomainFilterRule>;
 }
 
 export default networkManager;

@@ -15,6 +15,7 @@
         "export_get_set"
       ],
       "isStruct": false,
+      "syscap": "",
       "exportValues": [
         {
           "key": "get",

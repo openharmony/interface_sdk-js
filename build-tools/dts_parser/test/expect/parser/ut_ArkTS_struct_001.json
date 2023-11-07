@@ -20,6 +20,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -38,6 +39,7 @@
             "constructor"
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "",
           "params": [],

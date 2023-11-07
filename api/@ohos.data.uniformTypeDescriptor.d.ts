@@ -30,6 +30,30 @@ declare namespace uniformTypeDescriptor {
    */
   enum UniformDataType {
     /**
+     * Base data type for physical hierarchy, which identifies the physical representation of the data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    ENTITY = 'general.entity',
+
+    /**
+     * Base data type for logical hierarchy, which identifies the logical content representation of the data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OBJECT = 'general.object',
+
+    /**
+     * Base data type for mixed object. For example, a PDF file contains both text and special formatting data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    COMPOSITE_OBJECT = 'general.composite-object',
+
+    /**
      * Text data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -731,7 +755,24 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service'
+    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service',
+
+    /**
+     * OpenHarmony system defined package, which is a directory presented to the user as a file(the data is provided
+     * <br>and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_PACKAGE = 'openharmony.package',
+
+    /**
+     * OpenHarmony system defined ability package(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_HAP = 'openharmony.hap'
   }
 
   /**
@@ -793,6 +834,39 @@ declare namespace uniformTypeDescriptor {
     readonly iconFile: string;
 
     /**
+     * Checks whether the uniform data type belongs to the given uniform data type.
+     *
+     * @param { string } type - A uniform data type to be compared.
+     * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    belongsTo(type: string): boolean;
+
+    /**
+     * Checks whether the uniform data type is the lower level type of the given uniform data type.
+     *
+     * @param { string } type - A uniform data type to be compared.
+     * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    isLowerLevelType(type: string): boolean;
+
+    /**
+     * Checks whether the uniform data type is the higher level type of the given uniform data type.
+     *
+     * @param { string } type - A uniform data type to be compared.
+     * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    isHigherLevelType(type: string): boolean;
+
+    /**
      * Checks whether the uniform type descriptor is equal to the given uniform type descriptor.
      *
      * @param { TypeDescriptor } typeDescriptor - A uniform type descriptor to be compared.
@@ -815,6 +889,32 @@ declare namespace uniformTypeDescriptor {
    * @since 11
    */
   function getTypeDescriptor(typeId: string): TypeDescriptor;
+
+  /**
+   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
+   *
+   * @param { string } filenameExtension - Filename extension.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
+  function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
+
+  /**
+   * Queries and returns the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
+   *
+   * @param { string } mimeType - MIME type.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
+  function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 }
 
 export default uniformTypeDescriptor;
