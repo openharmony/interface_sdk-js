@@ -3878,6 +3878,20 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Set whether to enable a window to resize by drag.
+     *
+     * @param { boolean } enable - Disable window to resize by drag if false.
+     * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
     setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
     /**
