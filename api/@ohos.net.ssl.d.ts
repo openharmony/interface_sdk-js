@@ -23,8 +23,11 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace ssl {
   /**
-  * Creates an Cert task.
-  */
+   * Creates an Cert task.
+   * @returns Return a Cert instance
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
   function createCert(): Cert;
   /**
    * Defines the certificate type.
