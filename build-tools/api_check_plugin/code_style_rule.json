@@ -322,6 +322,7 @@
       "SystemCapability.Web.Webview.Core",
       "SystemCapability.Cloud.AAID",
       "SystemCapability.Advertising.OAID",
+      "SystemCapability.Advertising.Ads",
       "SystemCapability.Cloud.VAID",
       "SystemCapability.Cloud.Push",
       "SystemCapability.XTS.DeviceAttest",
