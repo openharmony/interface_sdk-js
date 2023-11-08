@@ -124,7 +124,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 11
    */
-  function off(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+  function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
