@@ -37,38 +37,59 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
    * @atomicservice
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.BundleFlag
    */
   enum BundleFlag {
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_BUNDLE_DEFAULT = 0x00000000,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000002,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000004,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000008,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     GET_ALL_APPLICATION_INFO = 0xFFFF0000,
     /**
@@ -108,23 +129,30 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
    * @atomicservice
+   * @since 7
    * @deprecated since 9
    */
   export enum ColorMode {
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     AUTO_MODE = -1,
-
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     DARK_MODE = 0,
-
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     LIGHT_MODE = 1
   }
@@ -134,19 +162,24 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
    * @atomicservice
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.PermissionGrantState
    */
   export enum GrantStatus {
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     PERMISSION_DENIED = -1,
-
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     PERMISSION_GRANTED = 0
   }
@@ -156,8 +189,8 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
    * @atomicservice
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.AbilityType
    */
@@ -204,18 +237,23 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
    * @atomicservice
+   * @since 7
    * @deprecated since 9
    */
   export enum AbilitySubType {
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     UNSPECIFIED = 0,
-
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @atomicservice
+     * @since 7
+     * @deprecated since 9
      */
     CA = 1
   }
@@ -225,8 +263,8 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
    * @atomicservice
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.DisplayOrientation
    */
@@ -235,6 +273,7 @@ declare namespace bundle {
      * Indicates that the system automatically determines the display orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @atomicservice
      * @since 7
      * @deprecated since 9
      */
@@ -244,6 +283,7 @@ declare namespace bundle {
      * Indicates the landscape orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @atomicservice
      * @since 7
      * @deprecated since 9
      */
@@ -253,6 +293,7 @@ declare namespace bundle {
      * Indicates the portrait orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @atomicservice
      * @since 7
      * @deprecated since 9
      */
@@ -262,6 +303,7 @@ declare namespace bundle {
      * Indicates the page ability orientation is the same as that of the nearest ability in the stack
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @atomicservice
      * @since 7
      * @deprecated since 9
      */
@@ -283,6 +325,7 @@ declare namespace bundle {
      * Indicates that the ability has only one instance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @atomicservice
      * @since 7
      * @deprecated since 9
      */
@@ -292,6 +335,7 @@ declare namespace bundle {
      * Indicates that the ability can have multiple instances
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @atomicservice
      * @since 7
      * @deprecated since 9
      */

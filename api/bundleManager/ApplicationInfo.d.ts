@@ -39,7 +39,6 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -48,6 +47,7 @@ export interface ApplicationInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly name: string;
@@ -57,7 +57,6 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -66,6 +65,7 @@ export interface ApplicationInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly description: string;
@@ -75,7 +75,6 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -84,6 +83,7 @@ export interface ApplicationInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly descriptionId: number;
@@ -103,7 +103,6 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -112,6 +111,7 @@ export interface ApplicationInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly label: string;
@@ -121,7 +121,6 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -130,6 +129,7 @@ export interface ApplicationInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly labelId: number;
@@ -139,7 +139,6 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -148,6 +147,7 @@ export interface ApplicationInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly icon: string;
@@ -157,7 +157,6 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -166,6 +165,7 @@ export interface ApplicationInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly iconId: number;
@@ -195,7 +195,6 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -204,6 +203,7 @@ export interface ApplicationInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly codePath: string;

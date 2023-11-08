@@ -294,6 +294,7 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   export enum ExtensionAbilityType {
@@ -301,6 +302,7 @@ declare namespace bundleManager {
      * Indicates extension info with type of form
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
      * @since 9
      */
     FORM = 0,

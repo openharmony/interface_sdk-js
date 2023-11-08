@@ -166,7 +166,6 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -175,6 +174,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly mainElementName: string;
@@ -184,7 +184,6 @@ export interface HapModuleInfo {
    *
    * @type { Array<AbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -193,6 +192,7 @@ export interface HapModuleInfo {
    * @type { Array<AbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly abilitiesInfo: Array<AbilityInfo>;
@@ -212,7 +212,6 @@ export interface HapModuleInfo {
    *
    * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -221,6 +220,7 @@ export interface HapModuleInfo {
    * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly metadata: Array<Metadata>;
