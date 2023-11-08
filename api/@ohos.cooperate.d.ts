@@ -42,6 +42,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_PREPARE = 0,
 
@@ -51,6 +53,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_UNPREPARE = 1,
 
@@ -60,6 +64,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_ACTIVATE = 2,
 
@@ -69,6 +75,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
@@ -78,6 +86,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_ACTIVATE_FAIL = 4,
 
@@ -87,6 +97,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
@@ -96,6 +108,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_DEACTIVATE_FAIL = 6,
 
@@ -105,6 +119,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate#CooperateMessage
      */
     COOPERATE_SESSION_DISCONNECTED = 7,
   }
@@ -113,6 +129,7 @@ declare namespace cooperate {
    * Enumerates screen hopping message notifications.
    *
    * @enum { number }
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -121,6 +138,7 @@ declare namespace cooperate {
     /**
      * Preparing for screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -130,6 +148,7 @@ declare namespace cooperate {
     /**
      * Canceling the preparation for screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -139,6 +158,7 @@ declare namespace cooperate {
     /**
      * Starting screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -148,6 +168,7 @@ declare namespace cooperate {
     /**
      * Success in starting screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -157,6 +178,7 @@ declare namespace cooperate {
     /**
      * Failure to start screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -166,6 +188,7 @@ declare namespace cooperate {
     /**
      * Success in stopping screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -175,6 +198,7 @@ declare namespace cooperate {
     /**
      * Failure to stop screen hopping.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -184,6 +208,7 @@ declare namespace cooperate {
     /**
      * Inter-device session disconnected.
      *
+     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -220,6 +245,7 @@ declare namespace cooperate {
   /**
    * Prepares for screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -231,6 +257,7 @@ declare namespace cooperate {
   /**
    * Prepares for screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -268,6 +295,7 @@ declare namespace cooperate {
   /**
    * Cancels the preparation for screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -279,6 +307,7 @@ declare namespace cooperate {
   /**
    * Cancels the preparation for screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -322,6 +351,7 @@ declare namespace cooperate {
   /**
    * Starts screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
    * @param { number } inputDeviceId Identifier of the input device for screen hopping.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
@@ -336,6 +366,7 @@ declare namespace cooperate {
   /**
    * Starts screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
    * @param { number }inputDeviceId Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
@@ -377,6 +408,7 @@ declare namespace cooperate {
   /**
    * Stops screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { boolean } isUnchained Whether the cross-device link is unchained.
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
@@ -389,6 +421,7 @@ declare namespace cooperate {
   /**
    * Stops screen hopping.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { boolean } isUnchained Whether the cross-device link is unchained.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -430,6 +463,7 @@ declare namespace cooperate {
   /**
    * Obtains the screen hopping status.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } networkId Descriptor of the target device for screen hopping.
    * @param { AsyncCallback<boolean> } callback Asynchronous callback used to return the screen hopping status.
    * @throws {BusinessError} 401 - Parameter error.
@@ -442,6 +476,7 @@ declare namespace cooperate {
   /**
    * Obtains the status of the screen hopping switch.
    *
+   * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } networkId Descriptor of the target device for screen hopping.
    * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
    *                               returns {@code false} otherwise.
@@ -462,6 +497,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#on
    */
   function on(type: 'cooperate', callback: Callback<{ networkId: string, msg: CooperateMsg }>): void;
 
@@ -475,8 +512,38 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#on
    */
   function off(type: 'cooperate', callback?: Callback<void>): void;
+
+  /**
+   * Enables listening for screen hopping status change events.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { 'cooperate' } type Change type.
+   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback Asynchronous callback used to
+   * return the screen hopping status change event.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'cooperateMessage', callback: Callback<{ networkId: string, msg: CooperateMessage }>): void;
+
+  /**
+   * Disables listening for screen hopping status change events.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { 'cooperate' } type Change type.
+   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback Callback for which listening
+   * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'cooperateMessage', callback?: Callback<{ networkId: string, msg: CooperateMessage }>): void;
 }
 
 export default cooperate;
