@@ -105,21 +105,21 @@ declare enum InputType {
   Password,
 
   /**
-   * ScreenLockPassword entry mode.
+   * Number Password entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  NUMBER_PASSWORD = 8,
+
+  /**
+   * ScreenLock Password entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11
    */
-  SCREENLOCKPASSWORD,
-
-  /**
-   * NumberPassword entry mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  NUMBERPASSWORD,
+  SCREENLOCK_PASSWORD = 9,
 }
 
 /**
