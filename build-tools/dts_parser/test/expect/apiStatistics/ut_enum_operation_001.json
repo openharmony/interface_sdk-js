@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_ONE",
     "apiName": "VALUE_ONE",
     "deprecatedVersion": "",
@@ -20,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_operation_001.d.ts",
@@ -31,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_Two",
     "apiName": "VALUE_Two",
     "deprecatedVersion": "",
@@ -43,7 +46,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_operation_001.d.ts",
@@ -54,6 +58,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_THREE",
     "apiName": "VALUE_THREE",
     "deprecatedVersion": "",
@@ -66,7 +71,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_operation_001.d.ts",
@@ -77,6 +83,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_FOUR",
     "apiName": "VALUE_FOUR",
     "deprecatedVersion": "",
@@ -89,7 +96,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_operation_001.d.ts",
@@ -100,6 +108,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_FIVE",
     "apiName": "VALUE_FIVE",
     "deprecatedVersion": "",
@@ -112,7 +121,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_operation_001.d.ts",
@@ -123,6 +133,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_SIX",
     "apiName": "VALUE_SIX",
     "deprecatedVersion": "",
@@ -135,7 +146,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_operation_001.d.ts",
@@ -146,6 +158,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_operation_001.d.ts/Operation/VALUE_SEVEN",
     "apiName": "VALUE_SEVEN",
     "deprecatedVersion": "",
@@ -158,6 +171,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]
