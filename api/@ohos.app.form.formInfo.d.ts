@@ -810,6 +810,7 @@ declare namespace formInfo {
      * Obtains the description of this form.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 11
