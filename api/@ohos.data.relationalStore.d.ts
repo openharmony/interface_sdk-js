@@ -309,6 +309,16 @@ declare namespace relationalStore {
      * @since 11
      */
     autoCleanDirtyData?: boolean;
+
+    /**
+     * Specifies whether data can be searched.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    isSearchable?: boolean;
   }
 
   /**
