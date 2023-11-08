@@ -43,7 +43,7 @@ export declare class TabTitleBarMenuItem {
    * @since 10
    */
   action?: () => void;
-};
+}
 
 /**
  * Declaration of the tab item.
@@ -64,7 +64,7 @@ export declare class TabTitleBarTabItem {
    * @since 10
    */
   icon?: ResourceStr;
-};
+}
 
 /**
  * Declaration of the tabbed title bar.
@@ -95,4 +95,4 @@ export declare struct TabTitleBar {
    */
   @BuilderParam
   swiperContent: () => void;
-};
+}

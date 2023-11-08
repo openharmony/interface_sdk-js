@@ -15,6 +15,7 @@
         "CONSTANT"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for constant with export",

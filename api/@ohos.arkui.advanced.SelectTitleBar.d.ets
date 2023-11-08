@@ -43,7 +43,7 @@ export declare class SelectTitleBarMenuItem {
    * @since 10
    */
   action?: () => void;
-};
+}
 
 /**
  * Declaration of the selectable title bar.
@@ -101,4 +101,4 @@ export declare struct SelectTitleBar {
    * @since 10
    */
   onSelected?: ((index: number) => void);
-};
+}

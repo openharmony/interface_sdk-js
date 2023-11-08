@@ -15,6 +15,7 @@
         "testNamespace"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -33,6 +34,7 @@
             "TestInterface"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "parentClasses": [],
           "childApis": [
@@ -53,6 +55,7 @@
                 "registerInputer"
               ],
               "isStruct": false,
+              "syscap": "",
               "jsDocInfos": [],
               "callForm": "static registerInputer(authType: AuthType, inputer: IInputer): void",
               "params": [
@@ -97,6 +100,7 @@
             "isOpenAccessibility"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "isOpenAccessibility(): TestInterface.registerInputer",
           "params": [],

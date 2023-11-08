@@ -14,6 +14,7 @@
  */
 
 import notification from '../@ohos.notification';
+import type notificationManager from '../@ohos.notificationManager';
 
 /**
  * Describes a NotificationSlot instance.
@@ -26,11 +27,22 @@ export interface NotificationSlot {
   /**
    * Obtains the type of a notification slot.
    *
-   * @type { notification.SlotType }
+   * @type { ?notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   * @deprecated since 11
+   * @useinstead NotificationSlot#notificationType
    */
-  type: notification.SlotType;
+  type?: notification.SlotType;
+
+  /**
+   * Notification slot type.
+   *
+   * @type { ?notificationManager.SlotType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  notificationType?: notificationManager.SlotType;
 
   /**
    * Obtains the level of a notification slot

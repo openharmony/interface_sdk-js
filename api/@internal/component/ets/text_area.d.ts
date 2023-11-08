@@ -186,6 +186,52 @@ interface TextAreaInterface {
 }
 
 /**
+ * Declare the type of input box
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum TextAreaType {
+  /**
+   * Basic input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NORMAL = 0,
+
+  /**
+   * Pure digital input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NUMBER = 2,
+
+  /**
+   * Phone number entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PHONE_NUMBER = 3,
+
+  /**
+   * E-mail address input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  EMAIL = 5,
+}
+
+/**
  * Defines the attribute functions of TextArea.
  *
  * @extends CommonMethod
@@ -541,6 +587,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define the max length content of the text area.
+   *
+   * @param { number } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   maxLength(value: number): TextAreaAttribute;
 
   /**
@@ -551,6 +606,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define show counter of the text area.
+   *
+   * @param { boolean } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   showCounter(value: boolean): TextAreaAttribute;
 
   /**
@@ -560,6 +624,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define style of the text area.
+   *
+   * @param { TextContentStyle } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   style(value: TextContentStyle): TextAreaAttribute;
 
@@ -592,6 +665,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define max lines of the text area.
+   *
+   * @param { number } value
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   maxLines(value: number): TextAreaAttribute;
 
   /**
@@ -602,7 +684,27 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define custom keyboard of the text area.
+   *
+   * @param { CustomBuilder } value
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   customKeyboard(value: CustomBuilder): TextAreaAttribute;
+  
+  /**
+   * Called when the input type is set.
+   *
+   * @param { TextAreaType } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  type(value: TextAreaType): TextAreaAttribute;
 }
 
 /**

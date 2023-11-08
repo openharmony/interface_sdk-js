@@ -131,6 +131,36 @@ declare enum ScrollAlign {
 }
 
 /**
+ * OffsetResult info.
+ *
+ * @interface OffsetResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface OffsetResult {
+  /**
+   * The X-axis offset.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  xOffset: number;
+
+  /**
+   * The y-axis offset.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  yOffset: number;
+}
+
+/**
  * @since 7
  */
 /**
@@ -258,7 +288,15 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  currentOffset();
+  /**
+   * Called when viewing the scroll offset.
+   *
+   * @returns { OffsetResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  currentOffset() : OffsetResult;
 
   /**
    * Called when sliding to the specified index.
@@ -309,6 +347,19 @@ declare class Scroller {
    * @since 10
    */
   isAtEnd(): boolean;
+
+  /**
+   * Get child item size and position.
+   *
+   * @param { number } index - Index of the item.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getItemRect(index: number): RectResult;
 }
 
 /*
@@ -592,7 +643,17 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @crossplatform
    * @since 10
    */
-  edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } edgeEffect
+   * @param { EdgeEffectOptions } options
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): ScrollAttribute;
 
   /**
    * Called when scrolling begin each frame.
@@ -620,6 +681,15 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   nestedScroll(value: NestedScrollOptions): ScrollAttribute;
 

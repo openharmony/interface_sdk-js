@@ -484,6 +484,13 @@ export interface DataAbilityHelper {
  * @FAModelOnly
  * @since 7
  */
+/**
+ * Defines a PacMap object for storing a series of values.
+ *
+ * @typedef PacMap
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @since 11
+ */
 export interface PacMap {
   /**
    * Indicates the parameter of the PacMap type.
@@ -496,6 +503,17 @@ export interface PacMap {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
+   */
+  /**
+   * Indicates the parameter of the PacMap type.
+   * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
+   * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
+   * If the PacMap object is to be transferred to a non-OHOS process,
+   * values of primitive types are supported, but not custom Sequenceable objects.
+   *
+   * @type { number | string | boolean | Array<string | number | boolean> | null }
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @since 11
    */
   [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }

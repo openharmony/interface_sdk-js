@@ -316,6 +316,26 @@ export interface ApplicationInfo {
    * @since 10
    */
   readonly debug: boolean;
+
+  /**
+   * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  readonly dataUnclearable: boolean;
+
+  /**
+   * Indicates the reserved flag of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  readonly applicationReservedFlag: number;
 }
 
 /**

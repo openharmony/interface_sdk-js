@@ -212,6 +212,30 @@ declare enum CacheMode {
 }
 
 /**
+ * Enum type supplied to {@link overScrollMode} for setting the web overScroll mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum OverScrollMode {
+  /**
+   * Disable the web over-scroll mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  NEVER,
+  /**
+   * Enable the web over-scroll mode.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  ALWAYS
+}
+
+/**
  * Enum type supplied to {@link darkMode} for setting the web dark mode.
  *
  * @enum { number }
@@ -1942,6 +1966,32 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the contents of the JavaScript to be injected.
+ *
+ * @interface ScriptItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface ScriptItem {
+  /**
+   * Sets the JavaScript to be injected.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  script: string;
+  /**
+   * Sets the rules of the JavaScript.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  scriptRules: Array<string>;
+}
+
+/**
  * Defines the Web interface.
  *
  * @interface WebInterface
@@ -2193,7 +2243,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
-
+  /**
+    * Sets the over-scroll mode for web 
+    * 
+    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 11
+    */
+  overScrollMode(mode: OverScrollMode): WebAttribute;
   /**
    * Sets the ratio of the text zoom.
    *
@@ -2970,6 +3028,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
+
+  /**
+   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 }
 
 /**

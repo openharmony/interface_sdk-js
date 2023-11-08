@@ -374,9 +374,11 @@ export class NodeProcessorHelper {
     }
     const parentClasses: string[] = [];
     interfaceDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
-      value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-        parentClasses.push(value.expression.getText());
-      });
+      if (value.token === ts.SyntaxKind.ExtendsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          parentClasses.push(value.getText());
+        });
+      }
     });
     interfaceInfo.setParentClasses(parentClasses);
     return interfaceInfo;
@@ -400,9 +402,11 @@ export class NodeProcessorHelper {
     }
     const parentClasses: string[] = [];
     classDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
-      value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-        parentClasses.push(value.expression.getText());
-      });
+      if (value.token === ts.SyntaxKind.ExtendsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          parentClasses.push(value.getText());
+        });
+      }
     });
     classInfo.setParentClasses(parentClasses);
     return classInfo;
@@ -801,7 +805,9 @@ export class ModifierHelper {
 
   static setIsReadonly(apiInfo: BasicApiInfo): void {
     const propertyInfo: PropertyInfo = apiInfo as PropertyInfo;
-    propertyInfo.setIsReadOnly(true);
+    if (propertyInfo.setIsReadOnly) {
+      propertyInfo.setIsReadOnly(true);
+    }
   }
 
   static setIsExport(apiInfo: BasicApiInfo): void {
@@ -815,6 +821,7 @@ export class ModifierHelper {
         if (containerApiTypes.has(apiInfo.apiType)) {
           definedText += ` ${modifier.getText()}`;
         }
+
         const setModifier: ModifierProcessorInterface | undefined = modifierProcessorMap.get(modifier.kind);
         setModifier ? setModifier(apiInfo) : undefined;
       });

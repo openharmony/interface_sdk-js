@@ -438,6 +438,14 @@ declare namespace bundleManager {
     ACTION = 19,
 
     /**
+     * Indicates extension info with type of ads service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    ADS_SERVICE = 20,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -795,6 +803,23 @@ declare namespace bundleManager {
      * @since 11
      */
     INTENT_PROFILE = 1
+  }
+
+  /**
+   * Used to query the specified value in applicationReservedFlag.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  export enum ApplicationReservedFlag {
+    /**
+     * Used to query whether the application is encrypted.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    ENCRYPTED_APPLICATION = 0x00000001,
   }
 
   /**

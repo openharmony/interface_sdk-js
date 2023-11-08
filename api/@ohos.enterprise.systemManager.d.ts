@@ -26,6 +26,50 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace systemManager {
   /**
+   * The device system update info.
+   *
+   * @typedef SystemUpdateInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  export interface SystemUpdateInfo {
+    /**
+     * The name of version need to update.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    versionName: string;
+
+    /**
+     * The time when the version first received.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    firstReceivedTime: number;
+
+    /**
+     * The type of version package.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    packageType: string;
+  }
+
+  /**
    * Sets NTP server.
    * This function can be called by a super administrator.
    *

@@ -15,6 +15,7 @@
         "TextOneType"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "type": [
         "{ a: string & number; b: '123' | 123; c: (false & 123) | number }"

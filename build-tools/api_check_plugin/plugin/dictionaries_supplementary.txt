@@ -43,6 +43,7 @@ asyn
 asynchronized
 atime
 atio
+atomicservice
 atqa
 attaches
 attachment0
@@ -515,6 +516,7 @@ persistable
 perso
 personalisation
 pertaining
+pgo
 photographing
 pickers
 pixelmap

@@ -55,7 +55,7 @@ declare enum MatchPattern {
    * @test
    */
   /**
-   * Equals to a string.
+   * Contains a substring.
    *
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform

@@ -284,6 +284,14 @@ declare enum ChainEdgeEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare limited position when scroll end.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum ScrollSnapAlign {
   /**
    * Default no item scroll snap alignment effect. When scroll end,
@@ -291,6 +299,14 @@ declare enum ScrollSnapAlign {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Default no item scroll snap alignment effect. When scroll end,
+   * list item will stop without limit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   NONE,
 
@@ -300,6 +316,13 @@ declare enum ScrollSnapAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The first item in view will be aligned at the start of list.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   START,
 
   /**
@@ -308,6 +331,13 @@ declare enum ScrollSnapAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The middle item in view will be aligned at the center of list.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   CENTER,
 
   /**
@@ -315,6 +345,13 @@ declare enum ScrollSnapAlign {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The last item in view will be aligned at the end of list.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   END,
 }
@@ -402,6 +439,28 @@ declare interface ChainAnimationOptions {
    * @since 10
    */
   damping?: number;
+}
+
+/**
+ * @extends Scroller
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class ListScroller extends Scroller {
+  /**
+   * Gets the size and position of a ListItem in a ListItemGroup.
+   *
+   * @param { number } index - Index of the ListItemGroup in List.
+   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getItemRectInGroup(index: number, indexInGroup: number): RectResult;
 }
 
 /**
@@ -607,7 +666,38 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 10
    * @form
    */
-  edgeEffect(value: EdgeEffect): ListAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } value
+   * @param { EdgeEffectOptions } options
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
+
+  /**
+   * Called when need to decide contentStartOffset the list will show.
+   * @param { number } value - the value Of startOffset.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  contentStartOffset(value: number): ListAttribute;
+
+  /**
+   * Called when need to decide contentEndOffset the list will show.
+   * @param { number } value - the value Of endOffset.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  contentEndOffset(value: number): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.
@@ -783,6 +873,15 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Called to set list item scroll end alignment effect.
+   * 
+   * @param { ScrollSnapAlign } value - options of the list alignment effect.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
 
   /**
@@ -792,6 +891,15 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   nestedScroll(value: NestedScrollOptions): ListAttribute;
 

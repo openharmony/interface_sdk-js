@@ -53,6 +53,17 @@ declare interface GridLayoutOptions {
    * @since 10
    */
   onGetIrregularSizeByIndex?: (index: number) => [number, number]
+
+  /**
+   * Called to return the size of the grid items with the specified index in 
+   * [rowStart, columnStart, rowSpan, columnSpan].
+   *
+   * @type { ?function } onGetRectByIndex
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onGetRectByIndex?: (index: number) => [number, number, number, number]
 }
 
 /**
@@ -202,14 +213,14 @@ declare interface ComputedBarAttribute {
 /**
  * Defines the grid attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the grid attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -645,7 +656,17 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @crossplatform
    * @since 10
    */
-  edgeEffect(value: EdgeEffect): GridAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } value
+   * @param { EdgeEffectOptions } options
+   * @returns { GridAttribute } The attribute of the grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): GridAttribute;
 
   /**
    * Called to setting the nested scroll options.
@@ -654,6 +675,15 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { GridAttribute } the attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   nestedScroll(value: NestedScrollOptions): GridAttribute;
 

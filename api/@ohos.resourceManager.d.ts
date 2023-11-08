@@ -2704,6 +2704,18 @@ declare namespace resourceManager {
      * @since 10
      */
     getDeviceCapabilitySync(): DeviceCapability;
+
+    /**
+     * Obtains locales list.
+     *
+     * @param { boolean } includeSystem - the parameter controls whether to include system resources,
+     *     the default value is false, it has no effect when only system resources query the locales list.
+     * @returns { Array<string> } the list of strings for the locales.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 11
+     */
+    getLocales(includeSystem?: boolean): Array<string>;
   }
 
   /**

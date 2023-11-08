@@ -2295,6 +2295,127 @@ declare namespace cryptoFramework {
    * @since 10
    */
   function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
+
+  /**
+   * Specifies the key derivation function parameters.
+   *
+   * @typedef KdfSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  interface KdfSpec {
+    /**
+     * Indicates the algorithm name of key derivation function.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    algName: string;
+  }
+
+  /**
+   * Specifies the PBKDF2 parameters.
+   *
+   * @typedef PBKDF2Spec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  interface PBKDF2Spec extends KdfSpec {
+    /**
+     * Indicates the password parameter of PBKDF2.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    password: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of PBKDF2.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the iteration number of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    iterations: number;
+
+    /**
+     * Indicates the byte length of output key of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    keySize: number;
+  }
+
+  /**
+   * The key derivation function object provides the ability to derive key with its associated parameters.
+   *
+   * @typedef Kdf
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  interface Kdf {
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
+
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { Promise<DataBlob> } the promise used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    generateSecret(params: KdfSpec): Promise<DataBlob>;
+
+    /**
+     * Indicates the algorithm name of the key derivation function.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    readonly algName: string;
+  }
+
+  /**
+   * Create a key derivation function object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Kdf } the key derivation function object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 11
+   */
+  function createKdf(algName: string): Kdf;
 }
 
 export default cryptoFramework;
