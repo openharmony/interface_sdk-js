@@ -324,7 +324,7 @@ declare namespace abilityManager {
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
 
   /**
-   * The ability state observer.
+   * The ability foreground state observer.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
