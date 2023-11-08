@@ -57,6 +57,16 @@ declare namespace insightIntent {
      * @since 11
      */
     UI_EXTENSION_ABILITY = 2,
+
+    /**
+     * ServiceExtensionAbility.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    SERVICE_EXTENSION_ABILITY = 3,
   }
 
   /**

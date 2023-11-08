@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */
+/**
+ * the information of the subscriber
+ *
+ * @typedef CommonEventSubscribeInfo
+ * @syscap SystemCapability.Notification.CommonEvent
+ * @crossplatform
+ * @since 11
+ */
 export interface CommonEventSubscribeInfo {
   /**
    * Indicates the subscribed events.
@@ -27,6 +35,14 @@ export interface CommonEventSubscribeInfo {
    * @type { Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
+   */
+  /**
+   * Indicates the subscribed events.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @since 11
    */
   events: Array<string>;
 

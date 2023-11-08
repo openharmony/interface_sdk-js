@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method of on or off",
@@ -50,6 +51,7 @@
             "on"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(callback: AsyncCallback<T>): void",
           "params": [

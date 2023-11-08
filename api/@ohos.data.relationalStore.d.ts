@@ -299,6 +299,16 @@ declare namespace relationalStore {
      * @since 11
      */
     customDir?: string;
+
+    /**
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted in the cloud.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    autoCleanDirtyData?: boolean;
   }
 
   /**
@@ -821,6 +831,89 @@ declare namespace relationalStore {
      * @since 10
      */
     ON_CONFLICT_REPLACE = 5
+  }
+
+  /**
+   * Describes the data origin sources.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  enum Origin {
+    /**
+     * Indicates the data source is local.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    LOCAL,
+
+    /**
+     * Indicates the data source is cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    CLOUD,
+
+    /**
+     * Indicates the data source is remote.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    REMOTE,
+  }
+
+  /**
+   * Enumerates the field.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  enum Field {
+    /**
+     * Cursor field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    CURSOR_FIELD = '#_cursor',
+
+    /**
+     * Origin field. For details, see {@link Origin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    ORIGIN_FIELD = '#_origin',
+
+    /**
+     * Deleted flag field.
+     * Indicates whether data has deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    DELETED_FLAG_FIELD = '#_deleted_flag',
+
+    /**
+     * Owner field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    OWNER_FIELD = '#_cloud_owner',
+
+    /**
+     * Privilege field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    PRIVILEGE_FIELD = '#_cloud_privilege'
   }
 
   /**
@@ -2748,6 +2841,37 @@ declare namespace relationalStore {
       primaryKeys: PRIKeyType[],
       callback: AsyncCallback<ModifyTime>
     ): void;
+
+    /**
+     * Cleans all dirty data deleted in the cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans dirty data deleted in the cloud.
+     *
+     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
+     * otherwise clean all.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } [cursor] - Indicates the cursor.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, cursor?: number): Promise<void>;
+
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
      *

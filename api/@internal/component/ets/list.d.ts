@@ -666,7 +666,38 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 10
    * @form
    */
-  edgeEffect(value: EdgeEffect): ListAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { EdgeEffect } value
+   * @param { EdgeEffectOptions } options
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
+
+  /**
+   * Called when need to decide contentStartOffset the list will show.
+   * @param { number } value - the value Of startOffset.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  contentStartOffset(value: number): ListAttribute;
+
+  /**
+   * Called when need to decide contentEndOffset the list will show.
+   * @param { number } value - the value Of endOffset.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  contentEndOffset(value: number): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.

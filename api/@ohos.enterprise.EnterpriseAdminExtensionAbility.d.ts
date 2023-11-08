@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import type systemManager from './@ohos.enterprise.systemManager';
 
 /**
  * Class of the enterprise admin extension ability.
@@ -85,6 +87,17 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 10
    */
   onAppStop(bundleName: string): void;
+
+  /**
+   * Called back when a system version need to update. 
+   *
+   * @param { systemManager.SystemUpdateInfo } systemUpdateInfo - the information of the system version.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void;
 
   /**
    * Called back when the enterprise admin extension is started.

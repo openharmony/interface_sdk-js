@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method in interface",
@@ -50,6 +51,7 @@
             "constructor"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "(str: string): void",
           "params": [
@@ -83,6 +85,7 @@
             "constructor"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "(str: string, str2: string): void",
           "params": [

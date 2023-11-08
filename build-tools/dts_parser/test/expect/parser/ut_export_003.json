@@ -15,6 +15,7 @@
         "getUserName"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for export",
@@ -53,6 +54,7 @@
         "setName"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "callForm": "setName() {}",
       "params": [],
@@ -75,6 +77,7 @@
         "export_get_set"
       ],
       "isStruct": false,
+      "syscap": "",
       "exportValues": [
         {
           "key": "get",

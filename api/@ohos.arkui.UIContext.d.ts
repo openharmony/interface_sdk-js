@@ -14,6 +14,7 @@
  */
 
 /// <reference path="../component/common.d.ts" />
+/// <reference path="../component/enums.d.ts" />
 /// <reference path="../component/action_sheet.d.ts" />
 /// <reference path="../component/alert_dialog.d.ts" />
 /// <reference path="../component/date_picker.d.ts" />
@@ -28,6 +29,7 @@ import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { AsyncCallback } from './@ohos.base';
+import type { Color, FontStyle, Nullable } from 'CommonEnums';
 import { AnimateParam } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
@@ -512,6 +514,60 @@ export class ComponentUtils {
 }
 
 /**
+ * interface AtomicServiceBar
+ * @interface AtomicServiceBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export interface AtomicServiceBar {
+  /**
+   * Set the visibility of the bar, except the icon.
+   *
+   * @param { boolean } visible - whether this bar is visible.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  setVisible(visible: boolean): void;
+
+  /**
+   * Set the background color of the bar.
+   *
+   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  setBackgroundColor(color: Nullable< Color | number | string>): void;
+
+  /**
+   * Set the title of the bar.
+   *
+   * @param { string } content - the content of the bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  setTitleContent(content: string): void;
+
+  /**
+   * Set the font style of the bar's title.
+   *
+   * @param { FontStyle } font - the font style of the bar's title.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  setTitleFontStyle(font: FontStyle): void;
+
+  /**
+   * Set the color of the icon on the bar.
+   *
+   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  setIconColor(color: Nullable< Color | number | string>): void;
+}
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -538,7 +594,7 @@ export class UIContext {
    * @since 10
    */
   getMediaQuery(): MediaQuery;
-  
+
   /**
    * get object UIInspector.
    * @returns { UIInspector } object UIInspector.
@@ -678,6 +734,15 @@ export class UIContext {
    * @since 11
    */
   getKeyboardAvoidMode(): KeyboardAvoidMode;
+
+  /**
+   * Get AtomicServiceBar.
+   * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getAtomicServiceBar(): Nullable<AtomicServiceBar>;
 }
 
 /**

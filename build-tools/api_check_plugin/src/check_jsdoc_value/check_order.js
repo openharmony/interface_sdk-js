@@ -14,8 +14,7 @@
  */
 const {
   requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
-  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile,
-} = require('../utils');
+  inheritArr, ErrorValueInfo, createErrorInfo, isAscending } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 const whiteLists = require('../../config/jsdocCheckWhiteList.json');
@@ -27,6 +26,26 @@ const ts = requireTypescriptModule();
 function isOfficialTag(tagName) {
   return tagsArrayOfOrder.indexOf(tagName) === -1;
 }
+
+/**
+ * 对form标签的顺序做兼容处理
+ */
+function formOrderCheck(tags, tagIndex, firstIndex, secondIndex) {
+  const frontFirstIndex = tagIndex - 1 > -1 ? tagsArrayOfOrder.indexOf(tags[tagIndex - 1].tag) : 0;
+  const formNeighborArr = [frontFirstIndex, firstIndex];
+  const newTagIndex = tagsArrayOfOrder.lastIndexOf(tags[tagIndex].tag);
+  const newFormNeighborArr = [frontFirstIndex, newTagIndex];
+  if (secondIndex > -1) {
+    formNeighborArr.push(secondIndex);
+    newFormNeighborArr.push(secondIndex);
+  }
+  if (!isAscending(formNeighborArr) && !isAscending(newFormNeighborArr)) {
+    return false;
+  }
+  return true;
+}
+
+
 
 /**
  * 判断标签排列是否为升序
@@ -41,9 +60,12 @@ function isAscendingOrder(tags) {
       // 判断标签是否为官方标签
       const firstTag = isOfficialTag(tags[tagIndex].tag);
       // 非自定义标签在前或数组降序时报错
-      if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
+      if (tags[tagIndex].tag !== 'form' && tags[tagIndex + 1].tag !== 'form' &&
+        ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1))) {
         checkResult = false;
         break;
+      } else if (tags[tagIndex].tag === 'form') {
+        checkResult = formOrderCheck(tags, tagIndex, firstIndex, secondIndex);
       }
     }
   };
