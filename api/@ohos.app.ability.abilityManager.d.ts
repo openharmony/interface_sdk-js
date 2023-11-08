@@ -274,10 +274,10 @@ declare namespace abilityManager {
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
 
   /**
-   * Get the ui abilities of the foreground.
+   * Get the foreground ui abilities.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AbilityStateData>> } callback - The callback is used to return the list of AbilityStateData.
+   * @param { AsyncCallback<Array<AbilityStateData>> } callback - The callback is used to return the list of AbilityStateDatas.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -289,10 +289,10 @@ declare namespace abilityManager {
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
   /**
-   * Get the ui abilities of the foreground.
+   * Get the foreground ui abilities.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @returns { Promise<Array<AbilityStateData>> } Returns the list of AbilityStateData.
+   * @returns { Promise<Array<AbilityStateData>> } Returns the list of AbilityStateDatas.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
