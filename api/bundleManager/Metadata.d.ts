@@ -18,6 +18,7 @@
  *
  * @typedef Metadata
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 /**
@@ -34,6 +35,7 @@ export interface Metadata {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -51,6 +53,7 @@ export interface Metadata {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -68,6 +71,7 @@ export interface Metadata {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**

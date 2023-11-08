@@ -22,6 +22,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  *
  * @typedef BundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface BundleInfo {
@@ -30,6 +31,7 @@ export interface BundleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly name: string;
@@ -39,6 +41,7 @@ export interface BundleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly vendor: string;
@@ -48,6 +51,7 @@ export interface BundleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly versionCode: number;
@@ -57,6 +61,7 @@ export interface BundleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly versionName: string;
@@ -66,6 +71,7 @@ export interface BundleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly minCompatibleVersionCode: number;
@@ -75,6 +81,7 @@ export interface BundleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly targetVersion: number;
@@ -84,6 +91,7 @@ export interface BundleInfo {
    *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly appInfo: ApplicationInfo;
@@ -93,6 +101,7 @@ export interface BundleInfo {
    *
    * @type { Array<HapModuleInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly hapModulesInfo: Array<HapModuleInfo>;
@@ -102,6 +111,7 @@ export interface BundleInfo {
    *
    * @type { Array<ReqPermissionDetail> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
@@ -111,6 +121,7 @@ export interface BundleInfo {
    *
    * @type { Array<bundleManager.PermissionGrantState> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
@@ -120,6 +131,7 @@ export interface BundleInfo {
    *
    * @type { SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly signatureInfo: SignatureInfo;
@@ -129,6 +141,7 @@ export interface BundleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly installTime: number;
@@ -138,6 +151,7 @@ export interface BundleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly updateTime: number;
@@ -148,6 +162,7 @@ export interface BundleInfo {
  *
  * @typedef ReqPermissionDetail
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface ReqPermissionDetail {
@@ -156,6 +171,7 @@ export interface ReqPermissionDetail {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   name: string;
@@ -165,6 +181,7 @@ export interface ReqPermissionDetail {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   moduleName: string;
@@ -174,6 +191,7 @@ export interface ReqPermissionDetail {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   reason: string;
@@ -183,6 +201,7 @@ export interface ReqPermissionDetail {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   reasonId: number;
@@ -192,6 +211,7 @@ export interface ReqPermissionDetail {
    *
    * @type { UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   usedScene: UsedScene;
@@ -202,6 +222,7 @@ export interface ReqPermissionDetail {
  *
  * @typedef UsedScene
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface UsedScene {
@@ -210,6 +231,7 @@ export interface UsedScene {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   abilities: Array<string>;
@@ -219,6 +241,7 @@ export interface UsedScene {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   when: string;
@@ -229,6 +252,7 @@ export interface UsedScene {
  *
  * @typedef SignatureInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface SignatureInfo {
@@ -238,6 +262,7 @@ export interface SignatureInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly appId: string;
@@ -247,6 +272,7 @@ export interface SignatureInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly fingerprint: string;
@@ -259,6 +285,7 @@ export interface SignatureInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 11
    */
   readonly appIdentifier: string;

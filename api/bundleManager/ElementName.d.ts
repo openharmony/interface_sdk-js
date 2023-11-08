@@ -20,6 +20,7 @@
  *
  * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface ElementName {
@@ -28,6 +29,7 @@ export interface ElementName {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   deviceId?: string;
@@ -36,6 +38,7 @@ export interface ElementName {
    * @type { string }
    * @default Indicates bundle name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   bundleName: string;
@@ -44,6 +47,7 @@ export interface ElementName {
    * @type { ?string }
    * @default Indicates module name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   moduleName?: string;
@@ -53,6 +57,7 @@ export interface ElementName {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   abilityName: string;
@@ -62,6 +67,7 @@ export interface ElementName {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   uri?: string;
@@ -71,6 +77,7 @@ export interface ElementName {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   shortName?: string;

@@ -31,6 +31,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
+ * @atomicservice
  * @since 10
  */
 export interface HapModuleInfo {
@@ -47,6 +48,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly name: string;
@@ -64,6 +66,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly icon: string;
@@ -81,6 +84,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly iconId: number;
@@ -98,6 +102,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly label: string;
@@ -115,6 +120,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly labelId: number;
@@ -132,6 +138,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly description: string;
@@ -149,6 +156,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly descriptionId: number;
@@ -158,6 +166,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -175,6 +184,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<AbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -192,6 +202,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<ExtensionAbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
@@ -201,6 +212,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -218,6 +230,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly deviceTypes: Array<string>;
@@ -227,6 +240,7 @@ export interface HapModuleInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly installationFree: boolean;
@@ -236,6 +250,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly hashValue: string;
@@ -245,6 +260,7 @@ export interface HapModuleInfo {
    *
    * @type { bundleManager.ModuleType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly type: bundleManager.ModuleType;
@@ -254,6 +270,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<Dependency> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly dependencies: Array<Dependency>;
@@ -263,6 +280,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<PreloadItem> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly preloads: Array<PreloadItem>;
@@ -283,6 +301,7 @@ export interface HapModuleInfo {
  *
  * @typedef Dependency
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface Dependency {
@@ -291,6 +310,7 @@ export interface Dependency {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly moduleName: string;
@@ -300,6 +320,7 @@ export interface Dependency {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly bundleName: string;
@@ -309,6 +330,7 @@ export interface Dependency {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly versionCode: number;
@@ -319,6 +341,7 @@ export interface Dependency {
  *
  * @typedef PreloadItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface PreloadItem {
@@ -327,6 +350,7 @@ export interface PreloadItem {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly moduleName: string;

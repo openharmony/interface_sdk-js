@@ -30,6 +30,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @typedef AbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
+ * @atomicservice
  * @since 10
  */
 export interface AbilityInfo {
@@ -46,6 +47,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly bundleName: string;
@@ -63,6 +65,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly moduleName: string;
@@ -80,6 +83,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly name: string;
@@ -97,6 +101,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly label: string;
@@ -114,6 +119,7 @@ export interface AbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly labelId: number;
@@ -131,6 +137,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly description: string;
@@ -148,6 +155,7 @@ export interface AbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly descriptionId: number;
@@ -165,6 +173,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly icon: string;
@@ -182,6 +191,7 @@ export interface AbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly iconId: number;
@@ -191,6 +201,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly process: string;
@@ -200,6 +211,7 @@ export interface AbilityInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly exported: boolean;
@@ -219,6 +231,7 @@ export interface AbilityInfo {
    *
    * @type { bundleManager.DisplayOrientation }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly orientation: bundleManager.DisplayOrientation;
@@ -236,6 +249,7 @@ export interface AbilityInfo {
    * @type { bundleManager.LaunchType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly launchType: bundleManager.LaunchType;
@@ -245,6 +259,7 @@ export interface AbilityInfo {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly permissions: Array<string>;
@@ -284,6 +299,7 @@ export interface AbilityInfo {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly deviceTypes: Array<string>;
@@ -301,6 +317,7 @@ export interface AbilityInfo {
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly applicationInfo: ApplicationInfo;
@@ -318,6 +335,7 @@ export interface AbilityInfo {
    * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly metadata: Array<Metadata>;
@@ -327,6 +345,7 @@ export interface AbilityInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly enabled: boolean;
@@ -336,6 +355,7 @@ export interface AbilityInfo {
    *
    * @type { Array<bundleManager.SupportWindowMode> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
@@ -345,6 +365,7 @@ export interface AbilityInfo {
    *
    * @type { WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly windowSize: WindowSize;
@@ -355,6 +376,7 @@ export interface AbilityInfo {
  *
  * @typedef WindowSize
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface WindowSize {
@@ -363,6 +385,7 @@ export interface WindowSize {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly maxWindowRatio: number;
@@ -372,6 +395,7 @@ export interface WindowSize {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly minWindowRatio: number;
@@ -381,6 +405,7 @@ export interface WindowSize {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly maxWindowWidth: number;
@@ -390,6 +415,7 @@ export interface WindowSize {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly minWindowWidth: number;
@@ -399,6 +425,7 @@ export interface WindowSize {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly maxWindowHeight: number;
@@ -408,6 +435,7 @@ export interface WindowSize {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly minWindowHeight: number;

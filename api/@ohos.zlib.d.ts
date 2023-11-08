@@ -15,6 +15,9 @@
 
 import { AsyncCallback } from './@ohos.base';
 
+/**
+ * @atomicservice
+ */
 declare namespace zlib {
   /**
    * ErrorCode
@@ -22,10 +25,17 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 7
+   * @atomicservice
    * @deprecated since 9
    */
   export enum ErrorCode {
+    /**
+     * @atomicservice
+     */
     ERROR_CODE_OK = 0,
+    /**
+     * @atomicservice
+     */
     ERROR_CODE_ERRNO = -1
   }
 
@@ -34,6 +44,7 @@ declare namespace zlib {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 7
    */
   /**
@@ -49,6 +60,7 @@ declare namespace zlib {
      * Indicates the no compression mode.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -63,6 +75,7 @@ declare namespace zlib {
      * Indicates the best speed mode.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -77,6 +90,7 @@ declare namespace zlib {
      * Indicates the best compression mode.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -91,6 +105,7 @@ declare namespace zlib {
      * Indicates the default compression mode.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -108,6 +123,7 @@ declare namespace zlib {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 7
    */
   /**
@@ -123,6 +139,7 @@ declare namespace zlib {
      * Indicates the default strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -137,6 +154,7 @@ declare namespace zlib {
      * Indicates the filtered strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -151,6 +169,7 @@ declare namespace zlib {
      * Indicates the huffman-only strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -165,6 +184,7 @@ declare namespace zlib {
      * Indicates the RLE strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -179,6 +199,7 @@ declare namespace zlib {
      * Indicates the fixed strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -196,6 +217,7 @@ declare namespace zlib {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 7
    */
   /**
@@ -211,6 +233,7 @@ declare namespace zlib {
      * Uses the least amount of memory.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -225,6 +248,7 @@ declare namespace zlib {
      * Uses the maximum amount of memory.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -239,6 +263,7 @@ declare namespace zlib {
      * Uses the default amount of memory.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -256,6 +281,7 @@ declare namespace zlib {
    *
    * @typedef Options
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 7
    */
   /**
@@ -271,6 +297,7 @@ declare namespace zlib {
      * Indicates the compress level.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -285,6 +312,7 @@ declare namespace zlib {
      * Indicates the memory level.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -299,6 +327,7 @@ declare namespace zlib {
      * Indicates the compress strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
      * @since 7
      */
     /**
@@ -350,6 +379,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 9
    */
   /**
@@ -379,6 +409,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 9
    */
   /**
@@ -422,6 +453,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 10
    */
   /**
@@ -452,6 +484,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 10
    */
   /**
@@ -495,6 +528,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
    * @since 10
    */
   /**

@@ -22,6 +22,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  *
  * @typedef ExtensionAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 9
  */
 export interface ExtensionAbilityInfo {
@@ -30,6 +31,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly bundleName: string;
@@ -39,6 +41,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly moduleName: string;
@@ -48,6 +51,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly name: string;
@@ -57,6 +61,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly labelId: number;
@@ -66,6 +71,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly descriptionId: number;
@@ -75,6 +81,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly iconId: number;
@@ -84,6 +91,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly exported: boolean;
@@ -93,6 +101,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { bundleManager.ExtensionAbilityType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
@@ -103,6 +112,7 @@ export interface ExtensionAbilityInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 11
    */
   readonly extensionAbilityTypeName: string;
@@ -112,6 +122,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly permissions: Array<string>;
@@ -121,6 +132,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly applicationInfo: ApplicationInfo;
@@ -130,6 +142,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly metadata: Array<Metadata>;
@@ -139,6 +152,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly enabled: boolean;
@@ -148,6 +162,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly readPermission: string;
@@ -157,6 +172,7 @@ export interface ExtensionAbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly writePermission: string;

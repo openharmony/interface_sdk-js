@@ -30,6 +30,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
+ * @atomicservice
  * @since 10
  */
 export interface ApplicationInfo {
@@ -38,6 +39,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -55,6 +57,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -72,6 +75,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -89,6 +93,7 @@ export interface ApplicationInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly enabled: boolean;
@@ -98,6 +103,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -115,6 +121,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -132,6 +139,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -149,6 +157,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -166,6 +175,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly process: string;
@@ -175,6 +185,7 @@ export interface ApplicationInfo {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly permissions: Array<string>;
@@ -184,6 +195,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -202,6 +214,7 @@ export interface ApplicationInfo {
    * @type { Map<string, Array<Metadata>> }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    * @deprecated since 10
    * @useinstead ApplicationInfo#metadataArray
@@ -214,6 +227,7 @@ export interface ApplicationInfo {
    * @type { Array<ModuleMetadata> }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly metadataArray: Array<ModuleMetadata>;
@@ -223,6 +237,7 @@ export interface ApplicationInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly removable: boolean;
@@ -232,6 +247,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly accessTokenId: number;
@@ -241,6 +257,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly uid: number;
@@ -250,6 +267,7 @@ export interface ApplicationInfo {
    *
    * @type { Resource }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly iconResource: Resource;
@@ -259,6 +277,7 @@ export interface ApplicationInfo {
    *
    * @type { Resource }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly labelResource: Resource;
@@ -268,6 +287,7 @@ export interface ApplicationInfo {
    *
    * @type { Resource }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly descriptionResource: Resource;
@@ -277,6 +297,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly appDistributionType: string;
@@ -286,6 +307,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly appProvisionType: string;
@@ -295,6 +317,7 @@ export interface ApplicationInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly systemApp: boolean;
@@ -304,6 +327,7 @@ export interface ApplicationInfo {
    *
    * @type { bundleManager.BundleType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 9
    */
   readonly bundleType: bundleManager.BundleType;
@@ -313,6 +337,7 @@ export interface ApplicationInfo {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly debug: boolean;
@@ -323,6 +348,7 @@ export interface ApplicationInfo {
    * @type { boolean }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 11
    */
   readonly dataUnclearable: boolean;
@@ -343,6 +369,7 @@ export interface ApplicationInfo {
  *
  * @typedef ModuleMetadata
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 10
  */
 export interface ModuleMetadata {
@@ -352,6 +379,7 @@ export interface ModuleMetadata {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly moduleName: string;
@@ -362,6 +390,7 @@ export interface ModuleMetadata {
    * @type { Array<Metadata> }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly metadata: Array<Metadata>;
