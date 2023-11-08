@@ -1966,6 +1966,32 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the contents of the JavaScript to be injected.
+ *
+ * @interface ScriptItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface ScriptItem {
+  /**
+   * Sets the JavaScript to be injected.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  script: string;
+  /**
+   * Sets the rules of the JavaScript.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  scriptRules: Array<string>;
+}
+
+/**
  * Defines the Web interface.
  *
  * @interface WebInterface
@@ -3002,6 +3028,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
+
+  /**
+   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 }
 
 /**
