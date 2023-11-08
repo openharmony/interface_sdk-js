@@ -1550,8 +1550,10 @@ declare namespace inputMethodEngine {
     /**
      * Sets ime panel private mode or not.
      *
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode - if the value is true, the privacy mode will be set,
      * otherwise the non-privacy mode will be set.
+     * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 401 - parameter error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
