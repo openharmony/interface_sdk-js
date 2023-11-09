@@ -319,14 +319,14 @@ interface SearchButtonOptions {
 /**
  * The attribute function of search
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The attribute function of search
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

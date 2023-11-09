@@ -152,14 +152,14 @@ interface CheckboxInterface {
 /**
  * Defines the attribute functions of Checkbox.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the attribute functions of Checkbox.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -167,7 +167,7 @@ interface CheckboxInterface {
 /**
  * Defines the attribute functions of Checkbox.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -192,14 +192,14 @@ interface RadioInterface {
 /**
  * Provides methods for radio method component.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RadioAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Provides methods for radio method component.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RadioAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -207,7 +207,7 @@ interface RadioInterface {
 /**
  * Provides methods for radio method component.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RadioAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

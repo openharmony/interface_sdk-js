@@ -71,14 +71,14 @@ interface BlankInterface {
 /**
  * Inheritance CommonMethod Set Styles
  *
- * @extends CommonMethod
+ * @extends CommonMethod<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Inheritance CommonMethod Set Styles
  *
- * @extends CommonMethod
+ * @extends CommonMethod<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -86,7 +86,7 @@ interface BlankInterface {
 /**
  * Inheritance CommonMethod Set Styles
  *
- * @extends CommonMethod
+ * @extends CommonMethod<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -166,20 +166,20 @@ interface ToggleInterface {
 /**
  * Defines the toggle attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ToggleAttribute>
  * @since 8
  */
 /**
  * Defines the toggle attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ToggleAttribute>
  * @since 9
  * @form
  */
 /**
  * Defines the toggle attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ToggleAttribute>
  * @crossplatform
  * @since 10
  * @form

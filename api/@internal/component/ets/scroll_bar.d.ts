@@ -167,14 +167,14 @@ interface ScrollBarInterface {
 /**
  * Defines the scrollbar attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ScrollBarAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the scrollbar attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ScrollBarAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

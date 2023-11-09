@@ -179,14 +179,14 @@ interface ImageFrameInfo {
 /**
  * inheritance CommonMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ImageAnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * inheritance CommonMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ImageAnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -625,7 +625,7 @@ interface IPropertySubscriber {
 /**
  * Defines the state value.
  *
- * @extends SubscribedAbstractProperty
+ * @extends SubscribedAbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -699,7 +699,7 @@ declare class SyncedPropertyTwoWay<T>
 /**
  * Defines the prop state value.
  *
- * @extends SubscribedAbstractProperty
+ * @extends SubscribedAbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7

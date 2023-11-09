@@ -163,14 +163,14 @@ interface LoadingProgressInterface {
 /**
  * Declare the progress bar being loaded
  *
- * @extends CommonMethod
+ * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declare the progress bar being loaded
  *
- * @extends CommonMethod
+ * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -178,7 +178,7 @@ interface LoadingProgressInterface {
 /**
  * Declare the progress bar being loaded
  *
- * @extends CommonMethod
+ * @extends CommonMethod<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

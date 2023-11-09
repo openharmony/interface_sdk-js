@@ -37,7 +37,7 @@ interface EffectComponentInterface {
 /**
  * Defines the Effect Component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<EffectComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10

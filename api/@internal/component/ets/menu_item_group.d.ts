@@ -103,14 +103,14 @@ interface MenuItemGroupInterface {
 /**
  * Defines the MenuItemGroup component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MenuItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the MenuItemGroup component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MenuItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

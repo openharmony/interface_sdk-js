@@ -546,14 +546,14 @@ interface SliderInterface {
 /**
  * Defines the attribute functions of Slider.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SliderAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the attribute functions of Slider.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SliderAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -561,7 +561,7 @@ interface SliderInterface {
 /**
  * Defines the attribute functions of Slider.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SliderAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

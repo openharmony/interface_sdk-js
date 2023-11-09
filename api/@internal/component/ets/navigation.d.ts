@@ -696,14 +696,14 @@ declare interface ToolbarItem {
 /**
  * Declare Navigation view properties.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<NavigationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declare Navigation view properties.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<NavigationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

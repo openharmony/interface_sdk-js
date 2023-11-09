@@ -367,14 +367,14 @@ interface ScrollableBarModeOptions {
 /**
  * Defines the tabs attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TabsAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the tabs attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TabsAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

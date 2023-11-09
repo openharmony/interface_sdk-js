@@ -131,14 +131,14 @@ interface NavigatorInterface {
 /**
  * Declare navigator properties.
  * 
- * @extends CommonMethod
+ * @extends CommonMethod<NavigatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Declare navigator properties.
  * 
- * @extends CommonMethod
+ * @extends CommonMethod<NavigatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -68,14 +68,14 @@ interface DividerInterface {
 /**
  * Defines the Divider attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Divider attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -83,7 +83,7 @@ interface DividerInterface {
 /**
  * Defines the Divider attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

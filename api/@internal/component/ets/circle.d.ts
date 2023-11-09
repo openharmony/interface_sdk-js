@@ -178,14 +178,14 @@ interface CircleInterface {
 /**
  * Circle drawing component attribute functions.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<CircleAttribute> 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Circle drawing component attribute functions.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -193,7 +193,7 @@ interface CircleInterface {
 /**
  * Circle drawing component attribute functions.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

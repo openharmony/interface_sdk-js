@@ -2082,8 +2082,9 @@ declare class TransitionEffect<
   /**
    * Defines an identity transition effect
    *
-   * @constant
    * @type { TransitionEffect<"identity"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2094,8 +2095,9 @@ declare class TransitionEffect<
   /**
    * Defines an opacity transition effect
    *
-   * @constant
    * @type { TransitionEffect<"opacity"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2106,12 +2108,13 @@ declare class TransitionEffect<
   /**
    * Defines a slide transition effect
    *
-   * @constant
    * @type { TransitionEffect<
    * "asymmetric",
    * {appear: TransitionEffect<"move", TransitionEdge>;
    * disappear: TransitionEffect<"move", TransitionEdge>;
    * }> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2128,8 +2131,9 @@ declare class TransitionEffect<
   /**
    * Defines a slide & switch transition effect
    *
-   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9301,14 +9305,14 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9316,7 +9320,7 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -9437,14 +9441,14 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9452,7 +9456,7 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

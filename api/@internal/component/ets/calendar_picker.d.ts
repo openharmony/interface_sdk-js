@@ -92,7 +92,7 @@ interface CalendarPickerInterface {
 
 /**
  * Defines the CalendarPicker attribute functions.
- * @extends CommonMethod
+ * @extends CommonMethod<CalendarPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

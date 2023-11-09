@@ -103,14 +103,14 @@ interface WaterFlowInterface {
 /**
  * Defines the water flow attribute.
  * 
- * @extends CommonMethod
+ * @extends CommonMethod<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the water flow attribute.
  * 
- * @extends CommonMethod
+ * @extends CommonMethod<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
