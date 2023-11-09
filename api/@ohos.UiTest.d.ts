@@ -1027,7 +1027,7 @@ declare interface Point {
    * @crossplatform
    * @since 10
    */
-    /**
+  /**
    * The y-coordinate of the coordinate point.
    *
    * @type { number }
