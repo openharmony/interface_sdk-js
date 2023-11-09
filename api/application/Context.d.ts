@@ -322,4 +322,21 @@ export default class Context extends BaseContext {
    * @since 10
    */
   getGroupDir(dataGroupID: string): Promise<string>;
+
+  /**
+   * Create a module resource manager.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name.
+   * @param { string } moduleName - Indicates the module name.
+   * @returns { resmgr.ResourceManager } Returns the module resource manager.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 }
