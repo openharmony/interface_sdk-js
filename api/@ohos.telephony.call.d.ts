@@ -151,7 +151,7 @@ declare namespace call {
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    */
-   /**
+  /**
    * Go to the dial screen and the called number is displayed.
    *
    * @param { string } phoneNumber - Indicates the called number.
@@ -180,7 +180,7 @@ declare namespace call {
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    */
-   /**
+  /**
    * Go to the dial screen and the called number is displayed.
    *
    * @param { string } phoneNumber - Indicates the called number.
