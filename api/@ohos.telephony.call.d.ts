@@ -151,6 +151,20 @@ declare namespace call {
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    */
+   /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { AsyncCallback<void> } callback - The callback of makeCall.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -165,6 +179,20 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
+   */
+   /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @returns { Promise<void> } The promise returned by the makeCall.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
    */
   function makeCall(phoneNumber: string): Promise<void>;
 
