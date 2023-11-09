@@ -428,6 +428,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 11
    */
   readonly fileContextMenu: string;

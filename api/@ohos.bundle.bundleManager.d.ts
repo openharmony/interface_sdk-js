@@ -771,15 +771,6 @@ declare namespace bundleManager {
    * @FAModelOnly
    * @since 9
    */
-  /**
-   * Indicates ability type
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @FAModelOnly
-   * @atomicservice
-   * @since 11
-   */
   export enum AbilityType {
     /**
      * Indicates that the ability has a UI
@@ -787,14 +778,6 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @FAModelOnly
      * @since 9
-     */
-    /**
-     * Indicates that the ability has a UI
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @FAModelOnly
-     * @atomicservice
-     * @since 11
      */
     PAGE = 1,
 
@@ -805,14 +788,6 @@ declare namespace bundleManager {
      * @FAModelOnly
      * @since 9
      */
-    /**
-     * Indicates that the ability does not have a UI
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @FAModelOnly
-     * @atomicservice
-     * @since 11
-     */
     SERVICE = 2,
 
     /**
@@ -821,14 +796,6 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @FAModelOnly
      * @since 9
-     */
-    /**
-     * Indicates that the ability is used to provide data access services
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @FAModelOnly
-     * @atomicservice
-     * @since 11
      */
     DATA = 3
   }
@@ -1127,13 +1094,20 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
+    /**
+     * Indicates app
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 11
+     */
     APP = 0,
-    /*
+    /**
      * Indicates atomic service
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    /*
+    /**
      * Indicates atomic service
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
