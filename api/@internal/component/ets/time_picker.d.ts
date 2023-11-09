@@ -239,7 +239,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @since 11
    */
- loop(value: boolean): TimePickerAttribute;
+  loop(value: boolean): TimePickerAttribute;
 
   /**
    * Sets the text style of disappearing items
