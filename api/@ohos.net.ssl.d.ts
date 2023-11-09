@@ -254,7 +254,6 @@ declare namespace ssl {
     /**
      * Verify certification to server.
      * @param { CertBlob } cert - Certificates to be verified.
-     * @param { CertBlob } [caCert] - Incoming custom CA cert.
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 1 - X509_V_ERR_UNSPECIFIED.
      * @throws { BusinessError } 2 - X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT.
@@ -339,7 +338,7 @@ declare namespace ssl {
     /**
      * Verify certification to server.
      * @param { CertBlob } cert - Certificates to be verified.
-     * @param { CertBlob } [caCert] - Incoming custom CA cert.
+     * @param { CertBlob } caCert - Incoming custom CA cert.
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 1 - X509_V_ERR_UNSPECIFIED.
      * @throws { BusinessError } 2 - X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT.
