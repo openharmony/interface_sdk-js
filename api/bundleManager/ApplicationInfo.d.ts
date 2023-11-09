@@ -311,17 +311,6 @@ export interface ApplicationInfo {
    * @deprecated since 10
    * @useinstead ApplicationInfo#metadataArray
    */
-  /**
-   * Indicates the metadata of module
-   *
-   * @type { Map<string, Array<Metadata>> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   * @deprecated since 10
-   * @useinstead ApplicationInfo#metadataArray
-   */
   readonly metadata: Map<string, Array<Metadata>>;
 
   /**
