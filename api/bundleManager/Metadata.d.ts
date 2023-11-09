@@ -26,8 +26,16 @@
  * @typedef Metadata
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
- * @atomicservice
  * @since 10
+ */
+/**
+ * Indicates the Metadata
+ *
+ * @typedef Metadata
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export interface Metadata {
   /**
@@ -43,8 +51,16 @@ export interface Metadata {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @atomicservice
    * @since 10
+   */
+  /**
+   * Indicates the metadata name
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   name: string;
 
@@ -61,8 +77,16 @@ export interface Metadata {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @atomicservice
    * @since 10
+   */
+  /**
+   * Indicates the metadata value
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   value: string;
 
@@ -79,8 +103,16 @@ export interface Metadata {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @atomicservice
    * @since 10
+   */
+  /**
+   * Indicates the metadata resource
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   resource: string;
 }
