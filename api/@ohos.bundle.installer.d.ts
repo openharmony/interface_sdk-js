@@ -676,6 +676,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
+   * @deprecated since 11
    */
   export interface VerifyCodeParam {
     /**
@@ -685,6 +686,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
      */
     moduleName: string;
 
@@ -695,6 +697,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
      */
     signatureFilePath: string;
   }
@@ -817,6 +820,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
      */
     verifyCodeParams?: Array<VerifyCodeParam>;
 
