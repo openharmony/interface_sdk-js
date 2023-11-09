@@ -56,9 +56,9 @@ declare namespace fileUri {
     readonly name: string;
 
     /**
-     * Get the directory where the file URI is located
+     * Get the directory uri where the file URI is located
      *
-     * @returns { string } Return the directory path
+     * @returns { string } Return the directory uri
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900042 - Unknown error
