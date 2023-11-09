@@ -2554,17 +2554,15 @@ declare class Component {
    * @test
    */
   /**
-   * Inject text to this {@link Component},applicable to TextInput.
+   * Clear text of this {@link Component},applicable to TextInput.
    *
-   * @param { string } text The text to inject.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 10
    * @test
    */
   clearText(): Promise<void>;
@@ -2677,17 +2675,17 @@ declare class Component {
    * @test
    */
   /**
-   * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
+   * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
-   * @returns { Promise<void> }
+   * @param { On } on The attribute requirements of the target {@link Component}.
+   * @returns { Promise<Component> } the found result,or undefined if not found.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 10
    * @test
    */
   scrollSearch(on: On): Promise<Component>;
