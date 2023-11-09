@@ -233,6 +233,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
+   * setting the shape of checkbox.
+   *
+   * @param { CheckBoxShape } value - The configuration of checkbox shape.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  shape(value: CheckBoxShape): CheckboxAttribute;
+
+  /**
    * Set the display border color of unselected checkbox.
    *
    * @param { ResourceColor } value - The color of border when checkbox unselected.
