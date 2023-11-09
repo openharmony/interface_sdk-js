@@ -115,7 +115,7 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'abilityForegroundState' } type - ability foreground or background state.
-   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
