@@ -131,10 +131,10 @@ declare namespace ssl {
      * @throws { BusinessError } 43 - No explicit policy.
      * @throws { BusinessError } 44 - Different CRL scope.
      * @throws { BusinessError } 45 - Unsupported extension feature.
-     * @throws { BusinessError } 46 - Unnested resource.
+     * @throws { BusinessError } 46 - Resources not nested.
      * @throws { BusinessError } 47 - Permitted violation.
      * @throws { BusinessError } 48 - Excluded violation.
-     * @throws { BusinessError } 49 - Subtree minmax.
+     * @throws { BusinessError } 49 - Subtree constraints do not meet the minimum and maximum limits.
      * @throws { BusinessError } 50 - Application verification error.
      * @throws { BusinessError } 51 - Unsupported constraint type.
      * @throws { BusinessError } 52 - Unsupported constraint syntax.
@@ -216,10 +216,10 @@ declare namespace ssl {
      * @throws { BusinessError } 43 - No explicit policy.
      * @throws { BusinessError } 44 - Different CRL scope.
      * @throws { BusinessError } 45 - Unsupported extension feature.
-     * @throws { BusinessError } 46 - Unnested resource.
+     * @throws { BusinessError } 46 - Resources not nested.
      * @throws { BusinessError } 47 - Permitted violation.
      * @throws { BusinessError } 48 - Excluded violation.
-     * @throws { BusinessError } 49 - Subtree minmax.
+     * @throws { BusinessError } 49 - Subtree constraints do not meet the minimum and maximum limits.
      * @throws { BusinessError } 50 - Application verification error.
      * @throws { BusinessError } 51 - Unsupported constraint type.
      * @throws { BusinessError } 52 - Unsupported constraint syntax.
@@ -300,10 +300,10 @@ declare namespace ssl {
      * @throws { BusinessError } 43 - No explicit policy.
      * @throws { BusinessError } 44 - Different CRL scope.
      * @throws { BusinessError } 45 - Unsupported extension feature.
-     * @throws { BusinessError } 46 - Unnested resource.
+     * @throws { BusinessError } 46 - Resources not nested.
      * @throws { BusinessError } 47 - Permitted violation.
      * @throws { BusinessError } 48 - Excluded violation.
-     * @throws { BusinessError } 49 - Subtree minmax.
+     * @throws { BusinessError } 49 - Subtree constraints do not meet the minimum and maximum limits.
      * @throws { BusinessError } 50 - Application verification error.
      * @throws { BusinessError } 51 - Unsupported constraint type.
      * @throws { BusinessError } 52 - Unsupported constraint syntax.
@@ -385,10 +385,10 @@ declare namespace ssl {
      * @throws { BusinessError } 43 - No explicit policy.
      * @throws { BusinessError } 44 - Different CRL scope.
      * @throws { BusinessError } 45 - Unsupported extension feature.
-     * @throws { BusinessError } 46 - Unnested resource.
+     * @throws { BusinessError } 46 - Resources not nested.
      * @throws { BusinessError } 47 - Permitted violation.
      * @throws { BusinessError } 48 - Excluded violation.
-     * @throws { BusinessError } 49 - Subtree minmax.
+     * @throws { BusinessError } 49 - Subtree constraints do not meet the minimum and maximum limits.
      * @throws { BusinessError } 50 - Application verification error.
      * @throws { BusinessError } 51 - Unsupported constraint type.
      * @throws { BusinessError } 52 - Unsupported constraint syntax.
@@ -470,10 +470,10 @@ declare namespace ssl {
      * @throws { BusinessError } 43 - No explicit policy.
      * @throws { BusinessError } 44 - Different CRL scope.
      * @throws { BusinessError } 45 - Unsupported extension feature.
-     * @throws { BusinessError } 46 - Unnested resource.
+     * @throws { BusinessError } 46 - Resources not nested.
      * @throws { BusinessError } 47 - Permitted violation.
      * @throws { BusinessError } 48 - Excluded violation.
-     * @throws { BusinessError } 49 - Subtree minmax.
+     * @throws { BusinessError } 49 - Subtree constraints do not meet the minimum and maximum limits.
      * @throws { BusinessError } 50 - Application verification error.
      * @throws { BusinessError } 51 - Unsupported constraint type.
      * @throws { BusinessError } 52 - Unsupported constraint syntax.
