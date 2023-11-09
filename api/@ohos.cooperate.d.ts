@@ -128,8 +128,8 @@ declare namespace cooperate {
   /**
    * Enumerates screen hopping message notifications.
    *
-   * @enum { number }
    * @permission ohos.permission.COOPERATE_MANAGER
+   * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -521,7 +521,7 @@ declare namespace cooperate {
    * Enables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperate' } type Change type.
+   * @param { 'cooperateMessage' } type Change type.
    * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback Asynchronous callback used to
    * return the screen hopping status change event.
    * @throws {BusinessError} 401 - Parameter error.
@@ -535,7 +535,7 @@ declare namespace cooperate {
    * Disables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperate' } type Change type.
+   * @param { 'cooperateMessage' } type Change type.
    * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback Callback for which listening
    * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 401 - Parameter error.
