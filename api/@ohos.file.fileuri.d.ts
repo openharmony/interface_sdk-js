@@ -59,7 +59,6 @@ declare namespace fileUri {
      * Get the directory where the file URI is located
      *
      * @returns { string } Return the directory path
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900042 - Unknown error
