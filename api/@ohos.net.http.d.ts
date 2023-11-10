@@ -281,7 +281,7 @@ declare namespace http {
      * @crossplatform
      * @since 11
      */
-    PEM = "PEM",
+    PEM = 'PEM',
 
     /**
      * DER format certificate
@@ -289,7 +289,7 @@ declare namespace http {
      * @crossplatform
      * @since 11
      */
-    DER = "DER",
+    DER = 'DER',
 
     /**
      * DER format certificate
@@ -297,7 +297,7 @@ declare namespace http {
      * @crossplatform
      * @since 11
      */
-    P12 = "P12"
+    P12 = 'P12'
   }
 
   /**
@@ -872,7 +872,7 @@ declare namespace http {
 
     /**
      * Registers an observer for progress of sendSize HTTP Response data events.
-     * @param { 'sendSize' } type - Indicates Event name.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
      * @param { Callback<{ sendSize: number, totalSize: number }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -881,8 +881,8 @@ declare namespace http {
 
     /**
      * Unregisters an observer for progress of sendSize HTTP Response data events.
-     * @param { 'sendSize' } type - Indicates Event name.
-     * @param { Callback<{  sendSize: number, totalSize: number  }> } callback - the callback of off.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<{ sendSize: number, totalSize: number }> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
