@@ -237,7 +237,7 @@ declare namespace cooperate {
    * Prepares for screen hopping.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -287,7 +287,7 @@ declare namespace cooperate {
    * Cancels the preparation for screen hopping.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -343,9 +343,9 @@ declare namespace cooperate {
    * Starts screen hopping.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
-   * @param { number } inputDeviceId Identifier of the input device for screen hopping.
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -358,8 +358,8 @@ declare namespace cooperate {
    * Starts screen hopping.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { string } targetNetworkId Descriptor of the target device for screen hopping.
-   * @param { number }inputDeviceId Identifier of the input device for screen hopping.
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 20900001 - Operation failed.
@@ -400,8 +400,8 @@ declare namespace cooperate {
    * Stops screen hopping.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { boolean } isUnchained Whether the cross-device link is unchained.
-   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
+   * @param { boolean } isUnchained - Whether the cross-device link is unchained.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -413,7 +413,7 @@ declare namespace cooperate {
    * Stops screen hopping.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { boolean } isUnchained Whether the cross-device link is unchained.
+   * @param { boolean } isUnchained - Whether the cross-device link is unchained.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -455,8 +455,8 @@ declare namespace cooperate {
    * Obtains the screen hopping status.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { string } networkId Descriptor of the target device for screen hopping.
-   * @param { AsyncCallback<boolean> } callback Asynchronous callback used to return the screen hopping status.
+   * @param { string } networkId - Descriptor of the target device for screen hopping.
+   * @param { AsyncCallback<boolean> } callback - Asynchronous callback used to return the screen hopping status.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -468,7 +468,7 @@ declare namespace cooperate {
    * Obtains the status of the screen hopping switch.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { string } networkId Descriptor of the target device for screen hopping.
+   * @param { string } networkId - Descriptor of the target device for screen hopping.
    * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
    *                               returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
@@ -512,8 +512,8 @@ declare namespace cooperate {
    * Enables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type Change type.
-   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback Asynchronous callback used to
+   * @param { 'cooperateMessage' } type - Change type.
+   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback - Asynchronous callback used to
    * return the screen hopping status change event.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -526,8 +526,8 @@ declare namespace cooperate {
    * Disables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type Change type.
-   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback Callback for which listening
+   * @param { 'cooperateMessage' } type - Change type.
+   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback - Callback for which listening
    * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
