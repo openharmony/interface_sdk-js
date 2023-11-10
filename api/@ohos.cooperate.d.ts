@@ -128,7 +128,6 @@ declare namespace cooperate {
   /**
    * Enumerates screen hopping message notifications.
    *
-   * @permission ohos.permission.COOPERATE_MANAGER
    * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -138,7 +137,6 @@ declare namespace cooperate {
     /**
      * Preparing for screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -148,7 +146,6 @@ declare namespace cooperate {
     /**
      * Canceling the preparation for screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -158,7 +155,6 @@ declare namespace cooperate {
     /**
      * Starting screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -168,7 +164,6 @@ declare namespace cooperate {
     /**
      * Success in starting screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -178,7 +173,6 @@ declare namespace cooperate {
     /**
      * Failure to start screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -188,7 +182,6 @@ declare namespace cooperate {
     /**
      * Success in stopping screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -198,7 +191,6 @@ declare namespace cooperate {
     /**
      * Failure to stop screen hopping.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
@@ -208,7 +200,6 @@ declare namespace cooperate {
     /**
      * Inter-device session disconnected.
      *
-     * @permission ohos.permission.COOPERATE_MANAGER
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 11
