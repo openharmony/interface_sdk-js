@@ -271,7 +271,7 @@ declare enum OverScrollMode {
   NEVER,
   /**
    * Enable the web over-scroll mode.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
    */
@@ -313,7 +313,7 @@ declare enum WebDarkMode {
 
 /**
  * Enum type supplied to {@link captureMode} for setting the web capture mode.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 10
@@ -355,7 +355,7 @@ declare interface WebMediaOptions {
 
 /**
  * Defines the screen capture configuration.
- * 
+ *
  * @interface ScreenCaptureConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @since 10
@@ -524,6 +524,31 @@ declare enum FileSelectorMode {
    * @since 9
    */
   FileSaveMode,
+}
+
+/**
+ * Enum type supplied to {@link layoutMode} for setting the web layout mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum WebLayoutMode {
+  /**
+   * Web layout follows the system.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  NONE,
+
+  /**
+   * Adaptive web layout based on page size.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  FIT_CONTENT,
 }
 
 /**
@@ -794,7 +819,7 @@ declare enum ProtectedResourceType {
 
   /**
    * The audio capture resource, such as microphone.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
@@ -867,7 +892,7 @@ declare class ScreenCaptureHandler {
 
   /**
    * Gets the source of the webpage that attempted to access the restricted resource.
-   * 
+   *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
@@ -1203,7 +1228,7 @@ declare class WebContextMenuParam {
 
 /**
  * Defines the context menu result, related to {@link WebContextMenuResult} method.
- * 
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
@@ -2355,8 +2380,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
   /**
-    * Sets the over-scroll mode for web 
-    * 
+    * Sets the over-scroll mode for web
+    *
     * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
     * @returns { WebAttribute }
     * @syscap SystemCapability.Web.Webview.Core
@@ -2490,7 +2515,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @since 11
    */
-  onProgressChange(callback: (event?: { 
+  onProgressChange(callback: (event?: {
     /**
      * The new progress of the page.
      *
@@ -2498,7 +2523,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    newProgress: number 
+    newProgress: number
   }) => void): WebAttribute;
 
   /**
@@ -2526,7 +2551,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    title: string 
+    title: string
   }) => void): WebAttribute;
 
   /**
@@ -2624,7 +2649,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    message: ConsoleMessage 
+    message: ConsoleMessage
   }) => boolean): WebAttribute;
 
   /**
@@ -2696,7 +2721,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    response: WebResourceResponse 
+    response: WebResourceResponse
   }) => void): WebAttribute;
 
   /**
@@ -2852,7 +2877,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    newScale: number 
+    newScale: number
   }) => void): WebAttribute;
 
   /**
@@ -2969,7 +2994,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    yOffset: number 
+    yOffset: number
   }) => void): WebAttribute;
 
   /**
@@ -3135,7 +3160,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
-   * 
+   *
    * @param { number } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -3295,7 +3320,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @since 11
    */
-  onLoadIntercept(callback: (event: { 
+  onLoadIntercept(callback: (event: {
     /**
      * The url of the event.
      *
@@ -3303,7 +3328,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 11
      */
-    data: WebResourceRequest 
+    data: WebResourceRequest
   }) => boolean): WebAttribute;
 
   /**
@@ -3342,6 +3367,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
+   * Set web layout Mode.
+   * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  layoutMode(mode: WebLayoutMode): WebAttribute;
+
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { WebAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  nestedScroll(value: NestedScrollOptions): WebAttribute;
 }
 
 /**
