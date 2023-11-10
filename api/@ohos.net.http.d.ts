@@ -29,6 +29,14 @@ import type connection from './@ohos.net.connection';
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides http related APIs.
+ * @namespace http
+ * @syscap SystemCapability.Communication.NetStack
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace http {
   /**
    * @syscap SystemCapability.Communication.NetStack
@@ -48,6 +56,14 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an HTTP request task.
+   * @returns { HttpRequest } the HttpRequest of the createHttp.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createHttp(): HttpRequest;
 
@@ -233,6 +249,15 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
+   */
+  /**
+   * <p>Defines an HTTP request task. Before invoking APIs provided by HttpRequest,
+   * you must call createHttp() to create an HttpRequestTask object.</p>
+   * @interface HttpRequest
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export interface HttpRequest {
     /**
@@ -619,6 +644,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Destroys an HTTP request.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     destroy(): void;
 
     /**
@@ -658,6 +690,15 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Registers an observer for HTTP Response Header events.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     on(type: "headersReceive", callback: Callback<Object>): void;
 
     /**
@@ -674,6 +715,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Unregisters the observer for HTTP Response Header events.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     off(type: "headersReceive", callback?: Callback<Object>): void;
 
