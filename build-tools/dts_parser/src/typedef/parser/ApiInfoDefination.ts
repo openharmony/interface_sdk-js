@@ -561,7 +561,7 @@ export class ParamInfo {
     return this.paramType;
   }
 
-  setParamType(paramType: ts.SyntaxKind) {
+  setParamType(paramType: ts.SyntaxKind): void {
     this.paramType = paramType;
   }
 
