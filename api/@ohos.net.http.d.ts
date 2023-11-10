@@ -309,12 +309,12 @@ declare namespace http {
    */
   export interface ClientCert {
     /**
-     * Cert: The absolute path to the client certificate file.
+     * Cert: The path to the client certificate file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    cert: string;
+    certPath: string;
 
     /**
      * The type of the client certificate.
@@ -325,12 +325,12 @@ declare namespace http {
     certType?: CertType;
 
     /**
-     * Key: The absolute path of the client certificate private key file.
+     * Key: The path of the client certificate private key file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    key: string;
+    keyPath: string;
 
     /**
      * KeyPasswd: Client certificate password.
