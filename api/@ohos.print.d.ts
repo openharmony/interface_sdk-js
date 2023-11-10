@@ -536,6 +536,15 @@ declare namespace print {
     jobState: PrintJobState;
 
     /**
+    * Current print job sub state.
+    * @type { PrintJobSubState }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    jobSubState: PrintJobSubState;
+
+    /**
     * Copies of document list.
     * @type { number }
     * @syscap SystemCapability.Print.PrintFramework
