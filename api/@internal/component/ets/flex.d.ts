@@ -339,7 +339,18 @@ interface FlexInterface {
  * @since 11
  * @form
  */
-declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
+declare class FlexAttribute extends CommonMethod<FlexAttribute> {
+  /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { FlexAttribute } The attribute of the flex.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): FlexAttribute;
+}
 
 /**
  * Defines Flex Component.
