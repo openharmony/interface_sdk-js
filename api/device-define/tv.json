@@ -159,7 +159,6 @@
     "SystemCapability.Applications.settings.Core",
     "SystemCapability.Cloud.AAID",
     "SystemCapability.Advertising.OAID",
-    "SystemCapability.Advertising.Ads",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CryptoFramework",
