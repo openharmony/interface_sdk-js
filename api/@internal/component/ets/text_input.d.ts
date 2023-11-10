@@ -1243,6 +1243,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showCounter(value: boolean): TextInputAttribute;
 
   /**
+   * Set the cancel button style
+   *
+   * @param { object } value - indicates the style of the cancel button.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): TextInputAttribute;
+
+  /**
    * Sets selection when on focus.
    *
    * @param { boolean } value - Sets selection or not.
