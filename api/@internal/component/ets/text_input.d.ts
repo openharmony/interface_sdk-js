@@ -490,14 +490,14 @@ interface PasswordIcon {
 /**
  * Defines the TextInput attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextInputAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the TextInput attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextInputAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

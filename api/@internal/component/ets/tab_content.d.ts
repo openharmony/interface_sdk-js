@@ -196,7 +196,7 @@ declare interface LabelStyle {
   /**
    * Min font size for adapted height.
    *
-   * @type { ?number | ResourceStr }
+   * @type { ?(number | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -206,7 +206,7 @@ declare interface LabelStyle {
   /**
    * Max font size for adapted height.
    *
-   * @type { ?number | ResourceStr }
+   * @type { ?(number | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -472,13 +472,13 @@ interface TabContentInterface {
 /**
  * Defines the attribute functions of TabContent.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TabContentAttribute>
  * @since 7
  */
 /**
  * Defines the attribute functions of TabContent.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TabContentAttribute>
  * @crossplatform
  * @since 10
  */

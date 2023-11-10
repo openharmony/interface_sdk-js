@@ -124,7 +124,7 @@ interface AnimatorInterface {
 /**
  * Defines AnimatorAttribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<AnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7

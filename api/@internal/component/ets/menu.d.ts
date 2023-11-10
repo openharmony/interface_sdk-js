@@ -50,14 +50,14 @@ interface MenuInterface {
 /**
  * Defines the Menu component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the Menu component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

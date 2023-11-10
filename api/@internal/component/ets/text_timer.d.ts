@@ -209,13 +209,13 @@ interface TextTimerInterface {
 /**
  * Defines the TextTimer attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextTimerAttribute>
  * @since 8
  */
 /**
  * Defines the TextTimer attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

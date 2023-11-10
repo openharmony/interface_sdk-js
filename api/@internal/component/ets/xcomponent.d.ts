@@ -91,7 +91,7 @@ interface XComponentInterface {
 /**
  * Defines XComponentAttribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<XComponentAttribute>
  * @since 8
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {

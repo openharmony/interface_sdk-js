@@ -152,14 +152,14 @@ interface CheckboxInterface {
 /**
  * Defines the attribute functions of Checkbox.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the attribute functions of Checkbox.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -167,7 +167,7 @@ interface CheckboxInterface {
 /**
  * Defines the attribute functions of Checkbox.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -231,6 +231,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @form
    */
   selectedColor(value: ResourceColor): CheckboxAttribute;
+
+  /**
+   * setting the shape of checkbox.
+   *
+   * @param { CheckBoxShape } value - The configuration of checkbox shape.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  shape(value: CheckBoxShape): CheckboxAttribute;
 
   /**
    * Set the display border color of unselected checkbox.

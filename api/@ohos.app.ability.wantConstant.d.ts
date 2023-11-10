@@ -183,7 +183,15 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    FLAG_INSTALL_ON_DEMAND = 0x00000800
+    FLAG_INSTALL_ON_DEMAND = 0x00000800,
+
+    /**
+     * Indicates that if implicit start ability couldn't match any application, no tip dialog will be pulled up.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 11
+     */
+    FLAG_START_WITHOUT_TIPS = 0x40000000
   }
 }
 

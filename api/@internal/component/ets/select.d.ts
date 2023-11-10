@@ -191,14 +191,14 @@ declare enum MenuAlignType {
 /**
  * The commonMethod of select.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SelectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The commonMethod of select.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SelectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

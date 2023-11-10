@@ -933,7 +933,7 @@ declare class RichEditorController {
 /**
  * Provides attribute for RichEditor.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

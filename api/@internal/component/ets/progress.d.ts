@@ -1060,14 +1060,14 @@ interface ProgressInterface {
 /**
  * Defines the progress attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the progress attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -1075,7 +1075,7 @@ interface ProgressInterface {
 /**
  * Defines the progress attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

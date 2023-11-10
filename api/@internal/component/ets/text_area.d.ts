@@ -234,14 +234,14 @@ declare enum TextAreaType {
 /**
  * Defines the attribute functions of TextArea.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextAreaAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the attribute functions of TextArea.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TextAreaAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

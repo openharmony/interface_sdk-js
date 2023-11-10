@@ -118,18 +118,18 @@ declare interface GaugeIndicatorOptions {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

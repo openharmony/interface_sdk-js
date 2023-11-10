@@ -129,20 +129,20 @@ interface RectInterface {
 /**
  * rect attribute declaration.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<RectAttribute>
  * @since 7
  */
 /**
  * rect attribute declaration.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<RectAttribute>
  * @since 9
  * @form
  */
 /**
  * rect attribute declaration.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<RectAttribute>
  * @crossplatform
  * @since 10
  * @form

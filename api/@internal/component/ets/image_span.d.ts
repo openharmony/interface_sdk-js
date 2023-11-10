@@ -37,7 +37,7 @@ interface ImageSpanInterface {
 /**
  * Define the ImageSpan attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -64,6 +64,42 @@ declare namespace deviceControl {
   function resetFactory(admin: Want): Promise<void>;
   
   /**
+   * Allows the administrator to shutdown the devices.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_REBOOT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function shutdown(admin: Want): void;
+
+  /**
+   * Allows the administrator to reboot the devices.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_REBOOT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function reboot(admin: Want): void;
+
+  /**
    * Allows the administrator to lock screen.
    * This function can be called by a super administrator.
    *
