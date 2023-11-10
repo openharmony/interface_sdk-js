@@ -2169,6 +2169,36 @@ declare namespace bundleManager {
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
   /**
+   * Verify abc.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { Array<string> } abcPaths - The abc path.
+   * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of verifyAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700201 - verifyAbc failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Verify abc.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { Array<string> } abcPaths - The abc path.
+   * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
+   * @returns { Promise<void> } Returns verifyAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700201 - verifyAbc failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean): Promise<void>;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
