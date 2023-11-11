@@ -56,7 +56,7 @@ declare namespace fileUri {
     readonly name: string;
 
     /**
-     * Get the directory uri where the file URI is located
+     * Get the full directory uri where the file URI is located
      *
      * @returns { string } Return the directory uri
      * @throws { BusinessError } 13900002 - No such file or directory
@@ -65,7 +65,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    getDirectoryUri(): string;
+    getFullDirectoryUri(): string;
   }
   
   /**
