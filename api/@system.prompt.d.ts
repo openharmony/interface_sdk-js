@@ -63,13 +63,22 @@ export interface ShowToastOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * Defines the prompt info of button.
+ *
+ * @interface Button
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export interface Button {
   /**
    * Defines the button info.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @atomicservice
+   * @since 11
    */
   text: string;
 
@@ -78,7 +87,8 @@ export interface Button {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @atomicservice
+   * @since 11
    */
   color: string;
 }
