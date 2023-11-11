@@ -27,6 +27,14 @@ import { ProcessInformation as _ProcessInformation } from './application/Process
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
+/**
+ * This module provides the function of app manager service.
+ *
+ * @namespace appManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 declare namespace appManager {
   /**
    * Enum for the application state
@@ -90,12 +98,27 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */
+  /**
+   * Enum for the process state
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum ProcessState {
     /**
      * The state that the process is in when it is being created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 10
+     */
+    /**
+     * The state that the process is in when it is being created.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_CREATE,
 
@@ -105,6 +128,13 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 10
      */
+    /**
+     * The state in which the process is in when it switches to the foreground.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_FOREGROUND,
 
     /**
@@ -112,6 +142,13 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 10
+     */
+    /**
+     * The state in which the process is in focus.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_ACTIVE,
 
@@ -121,6 +158,13 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 10
      */
+    /**
+     * The state in which a process is invisible in the background.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_BACKGROUND,
 
     /**
@@ -128,6 +172,13 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 10
+     */
+    /**
+     * The state that the process is in when it is destroyed.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_DESTROY
   }
@@ -273,6 +324,16 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * Is user running in stability test.
+   *
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return true if user is running stability test.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -282,6 +343,15 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Is user running in stability test.
+   *
+   * @returns { Promise<boolean> } Returns true if user is running stability test.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   function isRunningInStabilityTest(): Promise<boolean>;
 
@@ -357,6 +427,15 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * Is it a ram-constrained device
+   *
+   * @returns { Promise<boolean> } Returns true if the device is ram-constrained.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   function isRamConstrainedDevice(): Promise<boolean>;
 
   /**
@@ -368,6 +447,16 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * Is it a ram-constrained device
+   *
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return true if the device is ram-constrained.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -377,6 +466,15 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Get the memory size of the application
+   *
+   * @returns { Promise<number> } Returns the application memory size.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   function getAppMemorySize(): Promise<number>;
 
@@ -388,6 +486,16 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Get the memory size of the application
+   *
+   * @param { AsyncCallback<number> } callback - The callback is used to return the application memory size.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   function getAppMemorySize(callback: AsyncCallback<number>): void;
 
@@ -401,6 +509,17 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * If you apply for permission, you can obtain information about all running processes.
+   * If you do not apply, you can only obtain information about the current process.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
   /**
@@ -413,6 +532,18 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * If you apply for permission, you can obtain information about all running processes.
+   * If you do not apply, you can only obtain information about the current process.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   function getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -569,6 +700,13 @@ declare namespace appManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * The class of a process information.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   export type ProcessInformation = _ProcessInformation;
 

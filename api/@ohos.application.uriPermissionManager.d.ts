@@ -23,6 +23,14 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 10
  */
+/**
+ * This module provides the capability to authorize URI.
+ *
+ * @namespace uriPermissionManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 declare namespace uriPermissionManager {
   /**
    * Grant URI to another application
