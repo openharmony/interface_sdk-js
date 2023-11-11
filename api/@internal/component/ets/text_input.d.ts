@@ -539,6 +539,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the color of the placeholder is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
@@ -557,6 +567,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the font property of the placeholder is set.
+   *
+   * @param { Font } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   placeholderFont(value?: Font): TextInputAttribute;
 
@@ -596,6 +616,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the color of the insertion cursor is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
@@ -626,6 +656,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when judging whether the text editing change finished.
+   *
+   * @param { function } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
 
@@ -664,6 +704,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the input of the input box changes.
+   *
+   * @param { function } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onChange(callback: (value: string) => void): TextInputAttribute;
 
@@ -821,6 +871,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the inputFilter of text is set.
+   *
+   * @param { ResourceStr } value
+   * @param { function } error
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
 
@@ -1149,6 +1210,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines TextInput Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const TextInput: TextInputInterface;
 
