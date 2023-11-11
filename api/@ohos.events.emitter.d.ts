@@ -252,7 +252,7 @@ declare namespace emitter {
      * Indicates that the event will be emitted before low-priority events.
      *
      * @syscap SystemCapability.Notification.Emitter
-     * atomicservice
+     * @atomicservice
      * @since 11
      */
     HIGH,
