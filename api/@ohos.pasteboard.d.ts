@@ -435,6 +435,13 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 6
    */
+  /**
+   * Classes for paste data.
+   * @interface PasteData
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   interface PasteData {
     /**
      * Adds a Record for HTML text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_HTML in DataProperty.
