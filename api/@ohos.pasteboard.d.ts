@@ -20,7 +20,6 @@ import image from './@ohos.multimedia.image';
  * systemPasteboard
  * @namespace pasteboard
  * @syscap SystemCapability.MiscServices.Pasteboard
- * @since 6
  */
 /**
  * systemPasteboard
@@ -289,7 +288,6 @@ declare namespace pasteboard {
    * Paste data property.
    * @interface PasteDataProperty
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
    */
   interface PasteDataProperty {
     /**
@@ -345,7 +343,6 @@ declare namespace pasteboard {
    * Paste data record.
    * @interface PasteDataRecord
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
    */
   interface PasteDataRecord {
     /**
@@ -433,7 +430,6 @@ declare namespace pasteboard {
    * Classes for paste data.
    * @interface PasteData
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 6
    */
   /**
    * Classes for paste data.
@@ -691,7 +687,6 @@ declare namespace pasteboard {
    * Classes for system pasteboard.
    * @interface SystemPasteboard
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 6
    */
   /**
    * Classes for system pasteboard.
