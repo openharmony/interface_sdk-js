@@ -524,7 +524,7 @@ declare namespace pasteboard {
 
     /**
      * the want of the primary record in a PasteData object.
-     * @returns { want } type of want
+     * @returns { Want } type of want
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
