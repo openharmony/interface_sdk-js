@@ -394,6 +394,7 @@ declare enum CacheMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare enum OverScrollMode {
@@ -401,6 +402,7 @@ declare enum OverScrollMode {
    * Disable the web over-scroll mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   NEVER,
@@ -408,6 +410,7 @@ declare enum OverScrollMode {
    * Enable the web over-scroll mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   ALWAYS
@@ -815,6 +818,7 @@ declare enum SslError {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -829,6 +833,7 @@ declare enum FileSelectorMode {
    * Allows single file to be selected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -844,6 +849,7 @@ declare enum FileSelectorMode {
    * Allows multiple files to be selected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -859,6 +865,7 @@ declare enum FileSelectorMode {
    * Allows file folders to be selected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -874,6 +881,7 @@ declare enum FileSelectorMode {
    * Allows select files to save.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -885,6 +893,7 @@ declare enum FileSelectorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare enum WebLayoutMode {
@@ -892,6 +901,7 @@ declare enum WebLayoutMode {
    * Web layout follows the system.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   NONE,
@@ -900,6 +910,7 @@ declare enum WebLayoutMode {
    * Adaptive web layout based on page size.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   FIT_CONTENT,
@@ -915,6 +926,7 @@ declare enum WebLayoutMode {
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -929,6 +941,7 @@ declare class FileSelectorParam {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -944,6 +957,7 @@ declare class FileSelectorParam {
     * Gets the title of this file selector.
     * @returns { string } Return the title of this file selector.
     * @syscap SystemCapability.Web.Webview.Core
+    * @crossplatform
     * @atomicservice
     * @since 11
     */
@@ -959,6 +973,7 @@ declare class FileSelectorParam {
     * Gets the FileSelectorMode of this file selector.
     * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
     * @syscap SystemCapability.Web.Webview.Core
+    * @crossplatform
     * @atomicservice
     * @since 11
     */
@@ -974,6 +989,7 @@ declare class FileSelectorParam {
     * Gets an array of acceptable MMIE type.
     * @returns { Array<string> } Return an array of acceptable MMIE type.
     * @syscap SystemCapability.Web.Webview.Core
+    * @crossplatform
     * @atomicservice
     * @since 11
     */
@@ -984,7 +1000,6 @@ declare class FileSelectorParam {
    *
    * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -992,6 +1007,7 @@ declare class FileSelectorParam {
    *
    * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1008,6 +1024,7 @@ declare class FileSelectorParam {
  * Defines the js result.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1022,6 +1039,7 @@ declare class JsResult {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1037,6 +1055,7 @@ declare class JsResult {
    * Handle the user's JavaScript result if cancel the dialog.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1052,6 +1071,7 @@ declare class JsResult {
    * Handle the user's JavaScript result if confirm the dialog.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1069,6 +1089,7 @@ declare class JsResult {
    *
    * @param { string } result
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1085,6 +1106,7 @@ declare class JsResult {
  * Defines the file selector result, related to {@link onFileSelectorShow} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1099,6 +1121,7 @@ declare class FileSelectorResult {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1116,6 +1139,7 @@ declare class FileSelectorResult {
    *
    * @param { Array<string> } fileList
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1132,6 +1156,7 @@ declare class FileSelectorResult {
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1146,6 +1171,7 @@ declare class HttpAuthHandler {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1167,6 +1193,7 @@ declare class HttpAuthHandler {
    * @param { string } password
    * @returns { boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1182,6 +1209,7 @@ declare class HttpAuthHandler {
    * cancel.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1199,6 +1227,7 @@ declare class HttpAuthHandler {
    *
    * @returns { boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1373,6 +1402,7 @@ declare class ClientAuthenticationHandler {
  *
  * @enum { string }
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1402,6 +1432,7 @@ declare enum ProtectedResourceType {
    * The video capture resource, such as camera.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1417,6 +1448,7 @@ declare enum ProtectedResourceType {
    * The audio capture resource, such as microphone.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1433,6 +1465,7 @@ declare enum ProtectedResourceType {
  * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1447,6 +1480,7 @@ declare class PermissionRequest {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1462,6 +1496,7 @@ declare class PermissionRequest {
    * Reject the request.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1479,6 +1514,7 @@ declare class PermissionRequest {
    *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1496,6 +1532,7 @@ declare class PermissionRequest {
    *
    * @returns { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1513,6 +1550,7 @@ declare class PermissionRequest {
    *
    * @param { Array<string> } resources
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3007,6 +3045,7 @@ declare class WebResourceError {
  * Defines the js geolocation request.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -3021,6 +3060,7 @@ declare class JsGeolocation {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3042,6 +3082,7 @@ declare class JsGeolocation {
    * @param { boolean } allow - The geolocation permission status.
    * @param { boolean } retain - Whether to allow the geolocation permission status to be saved to the system.
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3407,6 +3448,7 @@ declare interface WebOptions {
  *
  * @interface ScriptItem
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare interface ScriptItem {
@@ -3415,6 +3457,7 @@ declare interface ScriptItem {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   script: string;
@@ -3423,6 +3466,7 @@ declare interface ScriptItem {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   scriptRules: Array<string>;
@@ -3677,6 +3721,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3843,6 +3888,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
     * @returns { WebAttribute }
     * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
     * @since 11
     */
   overScrollMode(mode: OverScrollMode): WebAttribute;
@@ -3962,6 +4008,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The url of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     url: string
   }) => void): WebAttribute;
 
@@ -4000,6 +4054,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The url of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     url: string
   }) => void): WebAttribute;
 
@@ -4027,6 +4089,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     newProgress: number
@@ -4056,6 +4119,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     title: string
@@ -4075,6 +4139,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered function when requesting to hide the geolocation permission.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -4094,10 +4159,30 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered function when requesting to show the geolocation permission.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onGeolocationShow(callback: (event?: { origin: string, geolocation: JsGeolocation }) => void): WebAttribute;
+  onGeolocationShow(callback: (event?: {
+    /**
+     * Origin of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    origin: string,
+    /**
+     * Defines the js geolocation request.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    geolocation: JsGeolocation
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the Web gets the focus.
@@ -4132,10 +4217,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onAlert(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+  onAlert(callback: (event?: {
+    /**
+     * The url of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * The message of alert dialog.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    message: string,
+    /**
+     *  Handle the user's JavaScript result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    result: JsResult 
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
@@ -4170,10 +4284,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+  onConfirm(callback: (event?: {
+    /**
+     * The url of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * The message of confirm dialog.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    message: string,
+    /**
+     *  Handle the user's JavaScript result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    result: JsResult 
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page wants to display a JavaScript prompt() dialog.
@@ -4189,10 +4332,48 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPrompt(callback: (event?: { url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
+  onPrompt(callback: (event?: {
+    /**
+     * The url of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * The message of prompt dialog.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    message: string,
+    /**
+     * The value of prompt dialog.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    value: string,
+    /**
+     *  Handle the user's JavaScript result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    result: JsResult
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a JavaScript console message.
@@ -4218,6 +4399,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     message: ConsoleMessage
@@ -4258,6 +4440,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The url of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     request: WebResourceRequest,
     /**
      * The information of error event.
@@ -4265,6 +4455,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The information of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     error: WebResourceError
   }) => void): WebAttribute;
@@ -4293,6 +4491,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     request: WebResourceRequest,
@@ -4301,6 +4500,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     response: WebResourceResponse
@@ -4320,11 +4520,49 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered function when starting to download.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onDownloadStart(callback: (event?: { url: string, userAgent: string, contentDisposition: string, mimetype: string,
-    contentLength: number }) => void): WebAttribute;
+  onDownloadStart(callback: (event?: {
+    /**
+     * The URL of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * The userAgent of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    userAgent: string,
+    contentDisposition: string,
+    /**
+     * The mimetype of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    mimetype: string,
+    /**
+     * The contentLength of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    contentLength: number
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page refreshes accessed history.
@@ -4402,11 +4640,30 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered when the file selector shows.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onShowFileSelector(callback: (event?: { result: FileSelectorResult,
-    fileSelector: FileSelectorParam }) => boolean): WebAttribute;
+  onShowFileSelector(callback: (event?: {
+    /**
+     * Defines the file selector result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    result: FileSelectorResult,
+    /**
+     * Encompassed message information as parameters to fileSelector.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    fileSelector: FileSelectorParam
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the render process exits.
@@ -4513,6 +4770,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     oldScale: number,
@@ -4521,6 +4779,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     newScale: number
@@ -4540,10 +4799,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered when the browser needs credentials from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
+  onHttpAuthRequest(callback: (event?: {
+    /**
+     *  Defines the http auth request result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    handler: HttpAuthHandler,
+    /**
+     * Host of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    host: string,
+    /**
+     * realm of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    realm: string
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the resources loading is intercepted.
@@ -4580,10 +4868,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     attempting to access the resources.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
+  onPermissionRequest(callback: (event?: {
+    /**
+     * Defines the onPermissionRequest callback.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    request: PermissionRequest
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the host application that web content from the specified origin is requesting to capture screen.
@@ -4688,6 +4987,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     xOffset: number,
@@ -4696,6 +4996,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     yOffset: number
@@ -5126,10 +5427,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * page begin to draw.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPageVisible(callback: (event: { url: string }) => void): WebAttribute;
+  onPageVisible(callback: (event: {
+    /**
+     * The URL of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    url: string
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the form could be resubmitted.
@@ -5255,6 +5567,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     data: WebResourceRequest
@@ -5302,6 +5615,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
@@ -5311,6 +5625,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   layoutMode(mode: WebLayoutMode): WebAttribute;
@@ -5321,6 +5636,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { NestedScrollOptions } value - options for nested scrolling.
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   nestedScroll(value: NestedScrollOptions): WebAttribute;
