@@ -542,7 +542,7 @@ declare namespace print {
     * @systemapi
     * @since 11
     */
-    jobSubState: PrintJobSubState;
+    jobSubstate: PrintJobSubState;
 
     /**
     * Copies of document list.
@@ -923,7 +923,7 @@ declare namespace print {
     * @systemapi
     * @since 11
     */
-    PRINT_JOB_BLOCK_CONNECT_SERVER_ERROR = 22,
+    PRINT_JOB_BLOCK_SERVER_CONNECTION_ERROR = 22,
 
     /**
     * Print large file exception.
@@ -939,7 +939,7 @@ declare namespace print {
     * @systemapi
     * @since 11
     */
-    PRINT_JOB_BLOCK_PARSE_FILE_ERROR = 24,
+    PRINT_JOB_BLOCK_FILE_PARSING_ERROR = 24,
 
     /**
     * Print the file conversion is too slow.
@@ -947,7 +947,7 @@ declare namespace print {
     * @systemapi
     * @since 11
     */
-    PRINT_JOB_BLOCK_FILE_CONVERT_SLOWLY = 25,
+    PRINT_JOB_BLOCK_SLOW_FILE_CONVERSION = 25,
 
     /**
     * Print uploading file.
