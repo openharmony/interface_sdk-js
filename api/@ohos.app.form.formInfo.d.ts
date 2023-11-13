@@ -376,6 +376,7 @@ declare namespace formInfo {
      * @type { boolean }
      * @default false
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 11
      */
     transparencyEnabled: boolean;

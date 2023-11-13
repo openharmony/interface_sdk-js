@@ -315,6 +315,7 @@ declare namespace common {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   export type AbilityStartCallback = _AbilityStartCallback;

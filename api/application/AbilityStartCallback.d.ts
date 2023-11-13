@@ -17,6 +17,7 @@
  * The callback of UIAbility or UIExtensionAbility.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @atomicservice
  * @since 11
  */
 export default class AbilityStartCallback {
@@ -29,6 +30,7 @@ export default class AbilityStartCallback {
    * @param { string } message - The message returned if the UIAbility or UIExtensionAbility failed to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   onError(code: number, name: string, message: string): void;

@@ -403,6 +403,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
@@ -415,6 +416,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   setLanguage(language: string): void;
