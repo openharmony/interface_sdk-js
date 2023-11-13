@@ -129,6 +129,14 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
    */
+  /**
+   * Checks whether accessibility ability is enabled.
+   *
+   * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @atomicservice
+   * @since 11
+   */
   function isOpenAccessibilitySync(): boolean;
 
   /**
@@ -159,6 +167,14 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 10
+   */
+  /**
+   * Checks touch browser ability (which is used by talkback) is enabled.
+   *
+   * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @atomicservice
+   * @since 11
    */
   function isOpenTouchGuideSync(): boolean;
 
