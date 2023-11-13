@@ -309,6 +309,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
