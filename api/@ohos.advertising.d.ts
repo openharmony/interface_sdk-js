@@ -226,7 +226,7 @@ declare namespace advertising {
     onAdLoadFailure(errorCode: number, errorMsg: string): void;
 
     /**
-     * Called by system when the ad load has been successed.
+     * Called by system when the ad load has been succeeded.
      * @param { Array<Advertisement> } ads - advertisements are loaded successfully.
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
@@ -251,7 +251,7 @@ declare namespace advertising {
     onAdLoadFailure(errorCode: number, errorMsg: string): void;
 
     /**
-     * Called by system when the ad load has been successed.
+     * Called by system when the ad load has been succeeded.
      * @param { Map<string, Array<Advertisement>> } adsMap - advertisements are loaded successfully.
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
@@ -263,7 +263,7 @@ declare namespace advertising {
    * Show the reward and interstitial ad.
    * @param { Advertisement } ad - Indicates the advertisement content information.
    * @param { AdDisplayOptions } options - Indicates interaction option object use to show the ad.
-   * @param { UIAbilityContext } context - Indicates the ui ability context of the media application.
+   * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
@@ -280,7 +280,7 @@ declare namespace advertising {
   export class AdLoader {
     /**
      * Constructs a adLoader object, context should be transferred.
-     * @param { Context } context - Indicates the context of the media application.
+     * @param { common.Context } context - Indicates the context of the media application.
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
      */

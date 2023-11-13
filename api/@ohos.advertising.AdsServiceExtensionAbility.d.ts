@@ -25,25 +25,41 @@ export default class AdsServiceExtensionAbility {
 
   /**
    * Called when media application starts to load ad.
-   * @param { AdRequestParams } adParam - Indicates the parameters in the request.
-   * @param { AdOptions } adOptions - Indicates the ad options.
-   * @returns { Array<Advertisement> } ads - the loaded advertisements.
-   * @systemapi
+   * @param { advertising.AdRequestParams } adParam - Indicates the parameters in the request.
+   * @param { advertising.AdOptions } adOptions - Indicates the ad options.
+   * @param { RespCallback } respCallback - The response callback.
    * @syscap SystemCapability.Advertising.Ads
+   * @systemapi
    * @since 11
    */
-  onLoadAd(adParam: advertising.AdRequestParams, adOptions: advertising.AdOptions): Array<advertising.Advertisement>;
+  onLoadAd(adParam: advertising.AdRequestParams, adOptions: advertising.AdOptions, respCallback: RespCallback);
 
   /**
    * Called when media application starts to load ad with multi-slots.
-   * @param { AdRequestParams[] } adParams - Indicates the parameters in the request.
-   * @param { AdOptions } adOptions - Indicates the ad options.
-   * @returns { Map<string, Array<Advertisement>> } adsMap - the loaded advertisements.
+   * @param { advertising.AdRequestParams[] } adParams - Indicates the parameters in the request.
+   * @param { advertising.AdOptions } adOptions - Indicates the ad options.
+   * @param { RespCallback } respCallback - The response callback.
+   * @syscap SystemCapability.Advertising.Ads
    * @systemapi
+   * @since 11
+   */
+  onLoadAdWithMultiSlots(adParams: advertising.AdRequestParams[], adOptions: advertising.AdOptions, respCallback: RespCallback);
+}
+
+/**
+ * Defines the callback of loading ad.
+ * @typedef RespCallback
+ * @syscap SystemCapability.Advertising.Ads
+ * @since 11
+ */
+export interface RespCallback {
+  /**
+   * Defines the callback data.
+   * @param { Map<string, Array<advertising.Advertisement>> } respData
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
-  onLoadAdWithMultiSlots(adParams: advertising.AdRequestParams[], adOptions: advertising.AdOptions): Map<string, Array<advertising.Advertisement>>;
+  (respData: Map<string, Array<advertising.Advertisement>>);
 }
 
 
