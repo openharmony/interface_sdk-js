@@ -180,7 +180,7 @@ declare namespace picker {
    */
   export enum DocumentSelectMode {
     /**
-     * Indicates that the file is selected.
+     * Indicates that only files are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
@@ -188,7 +188,7 @@ declare namespace picker {
     FILE = 0,
 
     /**
-     * Indicates that the folder is selected.
+     * Indicates that only folders are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
@@ -196,7 +196,7 @@ declare namespace picker {
     FOLDER = 1,
 
     /**
-     * Indicates that folders and files are selected.
+     * Indicates that files and folders are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 11
