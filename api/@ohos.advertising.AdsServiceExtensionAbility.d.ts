@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import advertising from './@ohos.advertising';
+import type advertising from './@ohos.advertising';
 
 /**
  * Provides the capability of integrating advertising services with vendors.

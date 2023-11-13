@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import common from './@ohos.app.ability.common';
-import { Advertisement as _Advertisement } from './advertising/advertisement';
+import type common from './@ohos.app.ability.common';
+import type { Advertisement as _Advertisement } from './advertising/advertisement';
 
 /**
  * Provides the capability to load and display advertisements.
