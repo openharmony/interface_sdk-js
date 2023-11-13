@@ -238,6 +238,8 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -250,6 +252,8 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -288,6 +292,8 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -300,6 +306,8 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -346,6 +354,8 @@ declare namespace cooperate {
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
    * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -361,6 +371,8 @@ declare namespace cooperate {
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
    * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -402,6 +414,8 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { boolean } isUnchained - Whether the cross-device link is unchained.
    * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -415,6 +429,8 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { boolean } isUnchained - Whether the cross-device link is unchained.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -457,6 +473,8 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } networkId - Descriptor of the target device for screen hopping.
    * @param { AsyncCallback<boolean> } callback - Asynchronous callback used to return the screen hopping status.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -471,6 +489,8 @@ declare namespace cooperate {
    * @param { string } networkId - Descriptor of the target device for screen hopping.
    * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
    *                               returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -515,6 +535,8 @@ declare namespace cooperate {
    * @param { 'cooperateMessage' } type - Change type.
    * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback - Asynchronous callback used to
    * return the screen hopping status change event.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -529,6 +551,8 @@ declare namespace cooperate {
    * @param { 'cooperateMessage' } type - Change type.
    * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback - Callback for which listening
    * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
