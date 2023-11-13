@@ -58,6 +58,7 @@
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 174,
               "type": [
                 "SensorId.COLOR"
               ],
@@ -67,6 +68,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<ColorResponse>"
               ],
@@ -76,6 +78,7 @@
             {
               "apiType": "Param",
               "apiName": "options",
+              "paramType": 174,
               "type": [
                 "Options"
               ],

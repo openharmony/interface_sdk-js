@@ -74,6 +74,7 @@
             {
               "apiType": "Param",
               "apiName": "member",
+              "paramType": 148,
               "type": [
                 "string"
               ],
@@ -83,6 +84,7 @@
             {
               "apiType": "Param",
               "apiName": "value",
+              "paramType": 148,
               "type": [
                 "string"
               ],
