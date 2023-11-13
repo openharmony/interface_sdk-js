@@ -1396,7 +1396,15 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    VISIBLE_PASSWORD
+    VISIBLE_PASSWORD,
+
+    /**
+     * The text input type is NUMBER_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    NUMBER_PASSWORD
   }
 
   /**
