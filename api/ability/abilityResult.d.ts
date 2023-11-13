@@ -20,6 +20,12 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 7
  */
+/**
+ * @typedef AbilityResult
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @atomicservice
+ * @since 11
+ */
 export interface AbilityResult {
   /**
    * Indicates the result code returned after the ability is destroyed. You can define the result
@@ -28,6 +34,15 @@ export interface AbilityResult {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 7
+   */
+  /**
+   * Indicates the result code returned after the ability is destroyed. You can define the result
+   * code to identify an error.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
    */
   resultCode: number;
 
@@ -38,6 +53,15 @@ export interface AbilityResult {
    * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 7
+   */
+  /**
+   * Indicates the data returned after the ability is destroyed. You can define the data returned.
+   * This parameter can be null.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
    */
   want?: Want;
 }

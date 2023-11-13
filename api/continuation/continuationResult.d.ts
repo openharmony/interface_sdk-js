@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @since 8
  */
+/**
+ * Indicates the description of transfer results for continuation.
+ *
+ * @typedef ContinuationResult
+ * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @atomicservice
+ * @since 11
+ */
 export interface ContinuationResult {
   /**
    * the information about the selected device id.
@@ -27,6 +35,14 @@ export interface ContinuationResult {
    * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
+   */
+  /**
+   * the information about the selected device id.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
    */
   id: string;
 
@@ -37,6 +53,14 @@ export interface ContinuationResult {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
+  /**
+   * the information about the selected device type.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
+   */
   type: string;
 
   /**
@@ -45,6 +69,14 @@ export interface ContinuationResult {
    * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
+   */
+  /**
+   * Indicates the name of the selected device.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
    */
   name: string;
 }

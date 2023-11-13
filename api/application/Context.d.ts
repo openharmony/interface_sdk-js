@@ -40,6 +40,17 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @crossplatform
  * @since 10
  */
+/**
+ * The base context of an ability or an application. It allows access to
+ * application-specific resources.
+ *
+ * @extends BaseContext
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export default class Context extends BaseContext {
   /**
    * Indicates the capability of accessing application resources.
@@ -57,6 +68,16 @@ export default class Context extends BaseContext {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates the capability of accessing application resources.
+   *
+   * @type { resmgr.ResourceManager }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   resourceManager: resmgr.ResourceManager;
 
@@ -77,6 +98,16 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates configuration information about an application.
+   *
+   * @type { ApplicationInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   applicationInfo: ApplicationInfo;
 
   /**
@@ -95,6 +126,16 @@ export default class Context extends BaseContext {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates app cache dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   cacheDir: string;
 
@@ -115,6 +156,16 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates app temp dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   tempDir: string;
 
   /**
@@ -133,6 +184,16 @@ export default class Context extends BaseContext {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates app files dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   filesDir: string;
 
@@ -153,6 +214,16 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates app database dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   databaseDir: string;
 
   /**
@@ -171,6 +242,16 @@ export default class Context extends BaseContext {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates app preferences dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   preferencesDir: string;
 
@@ -191,6 +272,16 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates app bundle code dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   bundleCodeDir: string;
 
   /**
@@ -200,6 +291,15 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Indicates app distributed files dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   distributedFilesDir: string;
 
@@ -211,6 +311,15 @@ export default class Context extends BaseContext {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Indicates event hub.
+   *
+   * @type { EventHub }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   eventHub: EventHub;
 
   /**
@@ -220,6 +329,15 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Indicates file area.
+   *
+   * @type { contextConstant.AreaMode }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   area: contextConstant.AreaMode;
 
@@ -260,6 +378,18 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Create a module context
+   *
+   * @param { string } moduleName - Indicates the module name.
+   * @returns { Context } Returns the application context.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   createModuleContext(moduleName: string): Context;
 
   /**
@@ -295,6 +425,17 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Get application context
+   *
+   * @returns { ApplicationContext } Returns the application context.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getApplicationContext(): ApplicationContext;
 
   /**
@@ -308,6 +449,18 @@ export default class Context extends BaseContext {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Get group dir by the groupId.
+   *
+   * @param { string } dataGroupID - Indicates the groupId.
+   * @param { AsyncCallback<string> } callback - The callback of getGroupDir.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
 
   /**
@@ -320,6 +473,18 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Get group dir by the groupId.
+   *
+   * @param { string } dataGroupID - Indicates the groupId.
+   * @returns { Promise<string> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   getGroupDir(dataGroupID: string): Promise<string>;
 }
