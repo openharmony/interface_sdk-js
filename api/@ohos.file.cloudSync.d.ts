@@ -13,15 +13,14 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides the capabilities to control cloud file synchronization.
  *
  * @namespace cloudSync
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
- * @systemapi
- * @since 10
+ * @since 11
  */
 declare namespace cloudSync {
   /**
@@ -510,6 +509,333 @@ declare namespace cloudSync {
      */
     stop(uri: string, callback: AsyncCallback<void>): void;
   }
+
+  /**
+   * FileSync object.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 11
+   */
+  class FileSync {
+    /**
+     * A constructor used to create a FileSync object.
+     *
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    constructor();
+    /**
+     * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { 'progress' } event - event type.
+     * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    on(event: 'progress', callback: Callback<SyncProgress>): void;
+    /**
+     * Unsubscribes from sync progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { 'progress' } event - event type.
+     * @param { Callback<SyncProgress> } [callback] - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    off(event: 'progress', callback?: Callback<SyncProgress>): void;
+    /**
+     * Start the file sync task.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 22400001 - Cloud status not ready.
+     * @throws { BusinessError } 22400002 - Network unavailable.
+     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    start(): Promise<void>;
+    /**
+     * Start the file sync task with callback.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { AsyncCallback<void> } callback - Callback function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 22400001 - Cloud status not ready.
+     * @throws { BusinessError } 22400002 - Network unavailable.
+     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    start(callback: AsyncCallback<void>): void;
+    /**
+     * Stop the file sync task.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    stop(): Promise<void>;
+    /**
+     * Stop the file sync task with callback.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { AsyncCallback<void> } callback - Callback function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    stop(callback: AsyncCallback<void>): void;
+    /**
+     * Get the last synchronization time.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @returns { Promise<number> } - Return the date of last synchronization.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    getLastSyncTime(): Promise<number>;
+    /**
+     * Get the last synchronization time.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { AsyncCallback<number> } callback - Callback function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    getLastSyncTime(callback: AsyncCallback<number>): void;
+  }
+  /**
+   * CloudFileCache object.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 11
+   */
+  class CloudFileCache {
+    /**
+     * A constructor used to create a CloudFileCache object.
+     *
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    constructor();
+    /**
+     * Subscribes to cloud file cache download progress change event. This method uses a callback to get download progress changes.
+     *
+     * @param { 'progress' } event - event type.
+     * @param { Callback<DownloadProgress> } callback - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    on(event: 'progress', callback: Callback<DownloadProgress>): void;
+    /**
+     * Unsubscribes from cloud file cache download progress event.
+     *
+     * @param { 'progress' } event - event type.
+     * @param { Callback<DownloadProgress> } [callback] - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    off(event: 'progress', callback?: Callback<DownloadProgress>): void;
+
+    /**
+     * Start the cloud file cache download task.
+     *
+     * @param { string } uri - uri of file.
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900025 - No space left on device.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    start(uri: string): Promise<void>;
+    /**
+     * Start the cloud file cache download task with callback.
+     *
+     * @param { string } uri - uri of file.
+     * @param { AsyncCallback<void> } callback - Callback function.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900025 - No space left on device.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    start(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Stop the cloud file cache download task.
+     *
+     * @param { string } uri - uri of file.
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    stop(uri: string): Promise<void>;
+    /**
+     * Stop the cloud file cache download task with callback.
+     *
+     * @param { string } uri - uri of file.
+     * @param { AsyncCallback<void> } callback - Callback function.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    stop(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Clean the local file cache.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { string } uri - uri of file.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    cleanCache(uri: string): void;
+  }
+
+  /**
+   * Describes the sync state of file.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 11
+   */
+  enum FileSyncState {
+    /**
+     * Indicates that the file cache is uploading now.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    UPLOADING,
+    /**
+     * Indicates that the file cache is downloading now.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    DOWNLOADING,
+    /**
+     * Indicates that the file cache sync task finished.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    COMPLETED,
+    /**
+     * Indicates that the file cache sync task stopped.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 11
+     */
+    STOPPED
+  }
+
+  /**
+   * Get the sync state of file.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC
+   * @param { Array<string> } uri - uri of files.
+   * @returns { Promise<Array<FileSyncState>> } - Return the sync state of given files.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 11
+   */
+  function getFileSyncState(uri: Array<string>): Promise<Array<FileSyncState>>;
+  /**
+   * Get the sync state of file.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC
+   * @param { Array<string> } uri - uri of file.
+   * @param { AsyncCallback<Array<FileSyncState>> } callback - The callback is used to return the sync state of given files.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 11
+   */
+  function getFileSyncState(uri: Array<string>, callback: AsyncCallback<Array<FileSyncState>>): void;
 }
 
 export default cloudSync;
