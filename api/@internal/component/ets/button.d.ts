@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides a button component.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare enum ButtonType {
   /**
    * Capsule button (rounded corners default to half the height).
@@ -57,6 +67,15 @@ declare enum ButtonType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Capsule button (rounded corners default to half the height).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Capsule,
@@ -82,6 +101,15 @@ declare enum ButtonType {
    * @since 10
    * @form
    */
+  /**
+   * Round buttons.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Circle,
 
   /**
@@ -103,6 +131,15 @@ declare enum ButtonType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Common button (no rounded corners by default).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Normal,
@@ -132,6 +169,16 @@ declare enum ButtonType {
  * @since 10
  * @form
  */
+/**
+ * Defines the button options.
+ *
+ * @interface ButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface ButtonOptions {
   /**
    * Describes the button style.
@@ -155,6 +202,16 @@ declare interface ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   type?: ButtonType;
@@ -181,6 +238,16 @@ declare interface ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   stateEffect?: boolean;
@@ -210,6 +277,16 @@ declare interface ButtonOptions {
  * @since 10
  * @form
  */
+/**
+ * Defines the Button Component.
+ *
+ * @interface ButtonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface ButtonInterface {
   /**
    * Button object
@@ -233,6 +310,16 @@ interface ButtonInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Button object
+   *
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (): ButtonAttribute;
@@ -262,6 +349,17 @@ interface ButtonInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Create Button with Text child.
+   *
+   * @param { ButtonOptions } options
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (options: ButtonOptions): ButtonAttribute;
@@ -296,6 +394,18 @@ interface ButtonInterface {
    * @since 10
    * @form
    */
+  /**
+   * Create Button with inner text label.
+   *
+   * @param { ResourceStr } label
+   * @param { ButtonOptions } options
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
 }
 
@@ -307,6 +417,15 @@ interface ButtonInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * LabelStyle object.
+ *
+ * @interface LabelStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface LabelStyle {
   /**
    * overflow mode.
@@ -315,6 +434,15 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * overflow mode.
+   *
+   * @type { ?TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   overflow?: TextOverflow;
 
@@ -326,6 +454,15 @@ declare interface LabelStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Label max lines.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   maxLines?: number;
 
   /**
@@ -335,6 +472,15 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Min font size for adapted height.
+   *
+   * @type { ?(number | ResourceStr) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   minFontSize?: number | ResourceStr;
 
@@ -346,6 +492,15 @@ declare interface LabelStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Max font size for adapted height.
+   *
+   * @type { ?(number | ResourceStr) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   maxFontSize?: number | ResourceStr;
 
   /**
@@ -356,6 +511,15 @@ declare interface LabelStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Adapt text height option.
+   *
+   * @type { ?TextHeightAdaptivePolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
 
   /**
@@ -365,6 +529,15 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Font style.
+   *
+   * @type { ?Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   font?: Font;
 }
@@ -393,6 +566,16 @@ declare interface LabelStyle {
  * @since 10
  * @form
  */
+/**
+ * Defines the button attribute functions.
+ *
+ * @extends CommonMethod<ButtonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * Describes the button style.
@@ -419,6 +602,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Describes the button style.
+   *
+   * @param { ButtonType } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   type(value: ButtonType): ButtonAttribute;
@@ -450,6 +644,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   *
+   * @param { boolean } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   stateEffect(value: boolean): ButtonAttribute;
 
   /**
@@ -477,6 +682,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Text color.
+   *
+   * @param { ResourceColor } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   fontColor(value: ResourceColor): ButtonAttribute;
@@ -508,6 +724,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Text size.
+   *
+   * @param { Length } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontSize(value: Length): ButtonAttribute;
 
   /**
@@ -535,6 +762,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Font weight.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
@@ -566,6 +804,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Font style.
+   *
+   * @param { FontStyle } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontStyle(value: FontStyle): ButtonAttribute;
 
   /**
@@ -595,6 +844,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Font family.
+   *
+   * @param { string | Resource } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontFamily(value: string | Resource): ButtonAttribute;
 
   /**
@@ -605,6 +865,16 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set button label style.
+   *
+   * @param { LabelStyle } value - The label style configuration on button.
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
 }
@@ -630,6 +900,15 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Button Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Button: ButtonInterface;
 
 /**
@@ -651,6 +930,15 @@ declare const Button: ButtonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Button Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const ButtonInstance: ButtonAttribute;

@@ -190,6 +190,15 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  * @since 10
  * @form
  */
+/**
+ * Defining BuilderParam PropertyDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const BuilderParam: PropertyDecorator;
 
 /**
@@ -402,6 +411,15 @@ declare const Watch: (value: string) => PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defining Builder MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const Builder: MethodDecorator;
@@ -5475,6 +5493,15 @@ declare interface StateStyles {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the options of popup message.
+ *
+ * @interface PopupMessageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface PopupMessageOptions {
   /**
    * Sets the color of popup text.
@@ -5483,6 +5510,15 @@ declare interface PopupMessageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the color of popup text.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   textColor?: ResourceColor;
 
@@ -5493,6 +5529,15 @@ declare interface PopupMessageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the font of popup text.
+   *
+   * @type { ?Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   font?: Font;
 }
@@ -5512,6 +5557,15 @@ declare interface PopupMessageOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the popup options.
+ *
+ * @interface PopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface PopupOptions {
   /**
    * Information in the pop-up window.
@@ -5527,6 +5581,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Information in the pop-up window.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   message: string;
 
@@ -5551,6 +5614,17 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The placement of popup.
+   * Supports all positions defined in Placement.
+   *
+   * @type { ?Placement }
+   * @default Placement.Bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   placement?: Placement;
 
   /**
@@ -5567,6 +5641,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The first button.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   primaryButton?: {
     /**
@@ -5619,6 +5702,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The second button.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   secondaryButton?: {
     /**
      * Button text value
@@ -5670,6 +5762,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * on State Change
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onStateChange?: (event: {
     /**
      * is Visible.
@@ -5697,6 +5798,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The offset of the sharp corner of popup.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   arrowOffset?: Length;
 
   /**
@@ -5714,6 +5824,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether to display in the sub window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showInSubWindow?: boolean;
 
   /**
@@ -5726,6 +5845,17 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   *
+   * @type { ?(boolean | { color: ResourceColor }) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   mask?: boolean | { color: ResourceColor };
 
   /**
@@ -5736,6 +5866,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the options of popup message.
+   *
+   * @type { ?PopupMessageOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   messageOptions?: PopupMessageOptions
 
   /**
@@ -5745,6 +5884,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the space of between the popup and target.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   targetSpace?: Length
 
@@ -5763,6 +5911,7 @@ declare interface PopupOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   enableArrow?: boolean;
@@ -5773,6 +5922,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the position offset of the popup.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   offset?: Position
 }
@@ -5792,6 +5950,15 @@ declare interface PopupOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the custom popup options.
+ *
+ * @interface CustomPopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface CustomPopupOptions {
   /**
    * builder of popup
@@ -5807,6 +5974,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * builder of popup
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   builder: CustomBuilder;
 
@@ -5824,6 +6000,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * placement of popup
+   *
+   * @type { ?Placement }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   placement?: Placement;
 
@@ -5853,6 +6038,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * background color of popup
+   *
+   * @type { ?(Color | string | Resource | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   popupColor?: Color | string | Resource | number;
 
   /**
@@ -5870,6 +6064,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * whether show arrow
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enableArrow?: boolean;
 
   /**
@@ -5886,6 +6089,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * whether hide popup when click mask
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   autoCancel?: boolean;
 
@@ -5931,6 +6143,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The offset of the sharp corner of popup.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   arrowOffset?: Length;
 
   /**
@@ -5948,6 +6169,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether to display in the sub window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showInSubWindow?: boolean;
 
   /**
@@ -5960,6 +6190,17 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   *
+   * @type { ?(boolean | { color: ResourceColor }) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   mask?: boolean | { color: ResourceColor };
 
   /**
@@ -5970,6 +6211,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the space of between the popup and target.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   targetSpace?: Length
 
   /**
@@ -5979,6 +6229,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the position offset of the popup.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   offset?: Position
 }
@@ -6701,6 +6960,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Inner margin.
+   *
+   * @param { Padding | Length } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   padding(value: Padding | Length): T;
 
   /**
@@ -6728,6 +6998,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Outer Margin.
+   *
+   * @param { Margin | Length } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   margin(value: Margin | Length): T;
@@ -6769,6 +7050,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Background color
+   *
+   * @param { ResourceColor } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   backgroundColor(value: ResourceColor): T;
@@ -6934,6 +7226,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Opacity
+   *
+   * @param { number | Resource } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   opacity(value: number | Resource): T;
 
   /**
@@ -7082,6 +7385,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Border radius
+   *
+   * @param { Length | BorderRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   borderRadius(value: Length | BorderRadiuses): T;
 
   /**
@@ -7142,6 +7456,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Trigger a click event when a click is clicked.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   onClick(event: (event: ClickEvent) => void): T;
@@ -8123,6 +8448,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Controls the display or hide of the current component.
+   *
+   * @param { Visibility } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   visibility(value: Visibility): T;
 
   /**
@@ -8732,6 +9068,18 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   linearGradient(value: {
     angle?: number | string;
     direction?: GradientDirection;
@@ -9044,6 +9392,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
@@ -9471,6 +9820,15 @@ declare const Common: CommonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the CustomBuilder Type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare type CustomBuilder = (() => any) | void;
@@ -10363,6 +10721,15 @@ declare class CustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Customize the pop-up content constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   build(): void;
