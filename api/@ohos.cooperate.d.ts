@@ -33,7 +33,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 10
    * @deprecated since 11
-   * @useinstead cooperate#CooperateMessage
+   * @useinstead cooperate#CooperateCode
    */
   enum CooperateMsg {
     /**
@@ -43,7 +43,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_PREPARE = 0,
 
@@ -54,7 +54,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_UNPREPARE = 1,
 
@@ -65,7 +65,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_ACTIVATE = 2,
 
@@ -76,7 +76,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
@@ -87,7 +87,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_ACTIVATE_FAIL = 4,
 
@@ -98,7 +98,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
@@ -109,7 +109,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_DEACTIVATE_FAIL = 6,
 
@@ -120,20 +120,20 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateMessage
+     * @useinstead cooperate#CooperateCode
      */
     COOPERATE_SESSION_DISCONNECTED = 7,
   }
 
   /**
-   * Enumerates screen hopping message notifications.
+   * 键鼠穿越消息码。
    *
    * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  enum CooperateMessage {
+  enum CooperateCode {
     /**
      * Preparing for screen hopping.
      *
@@ -205,6 +205,36 @@ declare namespace cooperate {
      * @since 11
      */
     COOPERATE_SESSION_DISCONNECT = 7,
+  }
+
+  /**
+   * 键鼠穿越消息描述。
+   *
+   * @interface CooperateMessage
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface CooperateMessage {
+    /**
+     * Descriptor of the target device for screen hopping.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    networkId: string;
+
+    /**
+     * 键鼠穿越消息码。
+     *
+     * @type { CooperateCode }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    msg: CooperateCode;
   }
 
   /**
@@ -533,7 +563,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMessage' } type - Change type.
-   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback - Asynchronous callback used to
+   * @param { Callback<CooperateMessage> } callback - Asynchronous callback used to
    * return the screen hopping status change event.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
@@ -542,14 +572,14 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function on(type: 'cooperateMessage', callback: Callback<{ networkId: string, msg: CooperateMessage }>): void;
+  function on(type: 'cooperateMessage', callback: Callback<CooperateMessage>): void;
 
   /**
    * Disables listening for screen hopping status change events.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMessage' } type - Change type.
-   * @param { Callback<{ networkId: string, msg: CooperateMessage }> } callback - Callback for which listening
+   * @param { Callback<CooperateMessage> } callback - Callback for which listening
    * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
@@ -558,7 +588,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function off(type: 'cooperateMessage', callback?: Callback<{ networkId: string, msg: CooperateMessage }>): void;
+  function off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>): void;
 }
 
 export default cooperate;
