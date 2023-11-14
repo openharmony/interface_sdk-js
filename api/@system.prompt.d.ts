@@ -77,11 +77,25 @@ export interface Button {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
+   */
+  /**
+   * Defines the button info.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   text: string;
 
+  /**
+   * Defines the color of button.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
+   */
   /**
    * Defines the color of button.
    *
