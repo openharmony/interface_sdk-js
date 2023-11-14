@@ -3628,6 +3628,17 @@ declare namespace audio {
     setVolume(volume: number): Promise<void>;
 
     /**
+     * Changes the volume with ramp for a duration.
+     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { number } duration -  Duration for volume ramp, in millisecond.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setVolumeWithRamp(volume: number, duration: number): void;
+
+    /**
      * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<number> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
