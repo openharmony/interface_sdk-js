@@ -59,6 +59,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 11
      */
     TYPE_SYSTEM_ALERT,
     /**
