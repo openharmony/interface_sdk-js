@@ -21,7 +21,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Communication.NetStack
  * @since 11
  */
-declare namespace network_security {
+declare namespace networkSecurity {
   /**
    * Defines the certificate type.
    * @enum {number}
