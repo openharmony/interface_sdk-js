@@ -797,10 +797,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    * @form
    */
+
   /**
    * Called when the text shadow is set.
    *
-   * @param { ShadowOptions } value - The shadow options.
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -808,7 +809,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    * @form
    */
-  textShadow(value: ShadowOptions): TextAttribute;
+  textShadow(value: ShadowOptions | Array<ShadowOptions>): TextAttribute;
 
   /**
    * Called when the height adaptive policy is set.
