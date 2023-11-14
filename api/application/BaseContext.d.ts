@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * The base context of 'app.Context' for FA Mode or
+ * 'application.Context' for Stage Mode.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export default abstract class BaseContext {
   /**
    * Indicates the context is FA Mode or Stage Mode.
@@ -43,6 +52,15 @@ export default abstract class BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates the context is FA Mode or Stage Mode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   stageMode: boolean;
 }

@@ -532,6 +532,7 @@ export class MethodInfo extends ApiInfo {
 export class ParamInfo {
   apiType: string = ''; // api的类型为方法参数
   apiName: string = ''; // 参数名
+  paramType: ts.SyntaxKind = -1; // 参数类型的kind
   type: string[] = []; // 参数的类型
   isRequired: boolean = false; // 参数是否必选
   definedText: string = '';
@@ -554,6 +555,14 @@ export class ParamInfo {
 
   setType(type: string[]): void {
     this.type.push(...type);
+  }
+
+  getParamType(): ts.SyntaxKind {
+    return this.paramType;
+  }
+
+  setParamType(paramType: ts.SyntaxKind): void {
+    this.paramType = paramType;
   }
 
   getType(): string[] {

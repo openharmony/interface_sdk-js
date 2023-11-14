@@ -23,6 +23,12 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @syscap SystemCapability.Security.AccessToken
  * @since 8
  */
+/**
+ * @namespace abilityAccessCtrl
+ * @syscap SystemCapability.Security.AccessToken
+ * @atomicservice
+ * @since 11
+ */
 declare namespace abilityAccessCtrl {
   /**
    * Obtains the AtManager instance.
@@ -39,6 +45,15 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains the AtManager instance.
+   *
+   * @returns { AtManager } returns the instance of the AtManager.
+   * @syscap SystemCapability.Security.AccessToken
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createAtManager(): AtManager;
 
   /**
@@ -47,6 +62,14 @@ declare namespace abilityAccessCtrl {
    * @interface AtManager
    * @syscap SystemCapability.Security.AccessToken
    * @since 8
+   */
+  /**
+   * Provides methods for managing access_token.
+   *
+   * @interface AtManager
+   * @syscap SystemCapability.Security.AccessToken
+   * @atomicservice
+   * @since 11
    */
   interface AtManager {
     /**
@@ -71,6 +94,16 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
      */
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
+     * @returns { Promise<GrantStatus> } Returns permission verify result.
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 11
+     */
     verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
@@ -83,6 +116,18 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
+     */
+    /**
+     * Checks whether a specified application has been granted the given permission synchronously.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
+     * @returns { GrantStatus } Returns permission verify result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 11
      */
     verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
@@ -109,6 +154,20 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     * On the cross-platform, this function can be used to check the permission grant status for the current application only.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
+     * @returns { Promise<GrantStatus> } Returns permission verify result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 

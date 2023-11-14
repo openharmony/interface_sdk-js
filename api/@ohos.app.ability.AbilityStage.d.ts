@@ -33,6 +33,15 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @crossplatform
  * @since 10
  */
+/**
+ * The class of an ability stage.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export default class AbilityStage {
   /**
    * Indicates configuration information about context.
@@ -51,6 +60,16 @@ export default class AbilityStage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates configuration information about context.
+   *
+   * @type { AbilityStageContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   context: AbilityStageContext;
 
   /**
@@ -68,6 +87,15 @@ export default class AbilityStage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called back when an ability stage is started for initialization.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onCreate(): void;
 
   /**
@@ -80,6 +108,18 @@ export default class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called back when start specified ability.
+   *
+   * @param { Want } want - Indicates the want info of started ability.
+   * @returns { string } The user returns an ability string ID. If the ability of this ID has been started before,
+   *         do not create a new instance and pull it back to the top of the stack.
+   *         Otherwise, create a new instance and start it.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onAcceptWant(want: Want): string;
 
@@ -112,6 +152,16 @@ export default class AbilityStage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the system configuration is updated.
+   *
+   * @param { Configuration } newConfig - Indicates the updated configuration.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onConfigurationUpdate(newConfig: Configuration): void;
 
   /**
@@ -122,6 +172,16 @@ export default class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called when the system has determined to trim the memory, for example, when the ability is running in the
+   * background and there is no enough memory for running as many background processes as possible.
+   *
+   * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

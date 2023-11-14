@@ -62,6 +62,7 @@
                 {
                   "apiType": "Param",
                   "apiName": "authType",
+                  "paramType": 174,
                   "type": [
                     "AuthType"
                   ],
@@ -71,6 +72,7 @@
                 {
                   "apiType": "Param",
                   "apiName": "inputer",
+                  "paramType": 174,
                   "type": [
                     "IInputer"
                   ],

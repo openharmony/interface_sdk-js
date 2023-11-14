@@ -591,6 +591,7 @@ export class NodeProcessorHelper {
     paramInfo.setApiName(param.name.getText());
     paramInfo.setIsRequired(!param.questionToken ? true : false);
     paramInfo.setDefinedText(param.getText());
+    paramInfo.setParamType(param.type ? param.type.kind : -1);
     if (param.type === undefined) {
       return paramInfo;
     }

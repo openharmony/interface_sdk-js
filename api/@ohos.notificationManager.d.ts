@@ -1981,6 +1981,14 @@ declare namespace notificationManager {
     LIVE_VIEW = 4,
 
     /**
+     * NotificationSlot for customer service.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    CUSTOMER_SERVICE = 5,
+
+    /**
      * NotificationSlot for other purposes.
      *
      * @syscap SystemCapability.Notification.Notification

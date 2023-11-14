@@ -425,7 +425,7 @@ export interface NotificationContent {
   picture?: NotificationPictureContent;
 
   /**
-   * Picture-attached notification.
+   * System-live-view notification.
    *
    * @type { ?NotificationSystemLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
