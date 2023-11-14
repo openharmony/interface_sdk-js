@@ -150,6 +150,7 @@ declare enum SwipeEdgeEffect {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum SwipeActionState {
@@ -157,6 +158,7 @@ declare enum SwipeActionState {
    * Collapsed type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 11
    */
   COLLAPSED,
@@ -165,6 +167,7 @@ declare enum SwipeActionState {
    * EXPANDED type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 11
    */
   EXPANDED,
@@ -173,6 +176,7 @@ declare enum SwipeActionState {
    * Action type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 11
    */
   ACTIONING,
@@ -415,6 +419,7 @@ declare interface SwipeActionOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   onOffsetChange?: (offset: number) => void;
