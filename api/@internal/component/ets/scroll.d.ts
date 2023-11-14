@@ -261,15 +261,6 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  /**
-   * Called when the setting slides to the specified position.
-   *
-   * @param { object } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
   scrollTo(value: {
     /**
      * The X-axis offset.
@@ -434,17 +425,6 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */
-  /**
-   * Called when sliding to the specified index.
-   *
-   * @param { number } value - Index to jump to.
-   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
-   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
    */
   scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
 

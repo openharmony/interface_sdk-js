@@ -6107,15 +6107,6 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
   onStateChange?: (event: {
     /**
      * is Visible.
