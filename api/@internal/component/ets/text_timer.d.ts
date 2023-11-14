@@ -362,6 +362,17 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the timer value is returned.
+   *
+   * @param { function } event
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 }
 
@@ -377,6 +388,15 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines TextTimer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const TextTimer: TextTimerInterface;

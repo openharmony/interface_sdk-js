@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the options of CustomDialogController.
+ *
+ * @interface CustomDialogControllerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface CustomDialogControllerOptions {
   /**
    * Custom builder function.
@@ -43,6 +52,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Custom builder function.
+   *
+   * @type { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   builder: any;
 
@@ -61,6 +79,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the cancel function.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   cancel?: () => void;
 
   /**
@@ -77,6 +104,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Defines if use auto cancel when click on the outside of the dialog.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   autoCancel?: boolean;
 
@@ -95,6 +131,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the dialog alignment of the screen.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   alignment?: DialogAlignment;
 
   /**
@@ -111,6 +156,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Defines the dialog offset.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   offset?: Offset;
 
@@ -129,6 +183,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines if use custom style.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   customStyle?: boolean;
 
   /**
@@ -146,6 +209,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Grid count of dialog.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   gridCount?: number;
 
   /**
@@ -155,6 +227,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Mask color of dialog.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   maskColor?: ResourceColor;
 
@@ -166,6 +247,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   maskRect?: Rectangle;
 
   /**
@@ -175,6 +265,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Animation parameters of dialog opening.
+   *
+   * @type { ?AnimateParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   openAnimation?: AnimateParam;
 
@@ -186,6 +285,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Animation parameters of dialog closing.
+   *
+   * @type { ?AnimateParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   closeAnimation?: AnimateParam;
 
   /**
@@ -195,6 +303,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Whether to display in the sub window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   showInSubWindow?: boolean;
 
@@ -206,6 +323,15 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Background color of dialog.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   backgroundColor?: ResourceColor;
  
   /**
@@ -215,6 +341,15 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Corner radius of dialog.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   cornerRadius?: Dimension | BorderRadiuses;
 
@@ -233,6 +368,14 @@ declare interface CustomDialogControllerOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Use the CustomDialogController class to display the custom pop-up window.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class CustomDialogController {
   /**
    * The constructor transfers parameter settings.
@@ -249,6 +392,15 @@ declare class CustomDialogController {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The constructor transfers parameter settings.
+   *
+   * @param { CustomDialogControllerOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   constructor(value: CustomDialogControllerOptions);
 
   /**
@@ -264,6 +416,14 @@ declare class CustomDialogController {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   open();
 
   /**
@@ -278,6 +438,14 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Closes the custom pop-up window. If the window is closed, the window does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   close();
 }

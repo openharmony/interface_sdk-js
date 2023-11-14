@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * The components are laid out horizontally
+ *
+ * @interface RowInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
@@ -63,6 +73,17 @@ interface RowInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the layout is set in the horizontal direction.
+   *
+   * @param { object } value
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (value?: { space?: string | number }): RowAttribute;
@@ -92,6 +113,16 @@ interface RowInterface {
  * @since 10
  * @form
  */
+/**
+ * Defines the row attribute functions.
+ *
+ * @extends CommonMethod<RowAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
    * Called when the vertical alignment is set.
@@ -118,6 +149,17 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the vertical alignment is set.
+   *
+   * @param { VerticalAlign } value
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   alignItems(value: VerticalAlign): RowAttribute;
@@ -149,6 +191,17 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the horizontal alignment is set.
+   *
+   * @param { FlexAlign } value
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   justifyContent(value: FlexAlign): RowAttribute;
 }
 
@@ -173,6 +226,15 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Row Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Row: RowInterface;
 
 /**
@@ -194,6 +256,15 @@ declare const Row: RowInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Row Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const RowInstance: RowAttribute;

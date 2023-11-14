@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Content scroll direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum ScrollBarDirection {
   /**
    * Vertical scrolling is supported.
@@ -75,6 +84,15 @@ declare enum ScrollBarDirection {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the options of ScrollBar.
+ *
+ * @interface ScrollBarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface ScrollBarOptions {
   /**
    * Sets the scroller of scroll bar.
@@ -90,6 +108,15 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the scroller of scroll bar.
+   *
+   * @type { Scroller }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   scroller: Scroller;
 
@@ -108,6 +135,15 @@ declare interface ScrollBarOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the direction of scroll bar.
+   *
+   * @type { ?ScrollBarDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   direction?: ScrollBarDirection;
 
   /**
@@ -124,6 +160,15 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the state of scroll bar.
+   *
+   * @type { ?BarState }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   state?: BarState;
 }
@@ -143,6 +188,15 @@ declare interface ScrollBarOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides interfaces for scroll bar.
+ *
+ * @interface ScrollBarInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface ScrollBarInterface {
   /**
    * Called when a ScrollBar container is set.
@@ -160,6 +214,16 @@ interface ScrollBarInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when a ScrollBar container is set.
+   *
+   * @param { ScrollBarOptions } value
+   * @returns { ScrollBarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value: ScrollBarOptions): ScrollBarAttribute;
 }
@@ -179,6 +243,15 @@ interface ScrollBarInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the scrollbar attribute functions.
+ *
+ * @extends CommonMethod<ScrollBarAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
 
 /**
@@ -194,6 +267,14 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines ScrollBar Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const ScrollBar: ScrollBarInterface;
 
 /**
@@ -208,5 +289,13 @@ declare const ScrollBar: ScrollBarInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines ScrollBar Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const ScrollBarInstance: ScrollBarAttribute;
