@@ -271,7 +271,6 @@ declare namespace http {
    * Enum for certificate types
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
    * @since 11
    */
   export enum CertType {
