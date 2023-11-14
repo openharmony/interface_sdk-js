@@ -2332,12 +2332,74 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+  /**
+   * Enum for huks base tag type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum HuksTagType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_INVALID = 0 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_INT = 1 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_UINT = 2 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_ULONG = 3 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_BOOL = 4 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_BYTES = 5 << 28
   }
 
