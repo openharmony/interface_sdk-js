@@ -99,7 +99,6 @@ declare interface GridLayoutOptions {
    * @type { ?function } onGetRectByIndex
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   onGetRectByIndex?: (index: number) => [number, number, number, number]

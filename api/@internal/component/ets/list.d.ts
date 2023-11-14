@@ -482,7 +482,6 @@ declare interface ChainAnimationOptions {
  * @interface CloseSwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 11
  */
 declare interface CloseSwipeActionOptions {
@@ -492,7 +491,6 @@ declare interface CloseSwipeActionOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   onFinish?: ()=>void
@@ -525,7 +523,6 @@ declare class ListScroller extends Scroller {
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
@@ -828,7 +825,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   contentStartOffset(value: number): ListAttribute;
@@ -839,7 +835,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   contentEndOffset(value: number): ListAttribute;

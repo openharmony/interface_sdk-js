@@ -290,7 +290,6 @@ interface TextAreaInterface {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 11
  */
 declare enum TextAreaType {
@@ -299,7 +298,6 @@ declare enum TextAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   NORMAL = 0,
@@ -309,7 +307,6 @@ declare enum TextAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   NUMBER = 2,
@@ -319,7 +316,6 @@ declare enum TextAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   PHONE_NUMBER = 3,
@@ -329,7 +325,6 @@ declare enum TextAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   EMAIL = 5,
@@ -1031,7 +1026,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   type(value: TextAreaType): TextAreaAttribute;

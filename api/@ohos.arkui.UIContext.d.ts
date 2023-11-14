@@ -954,7 +954,6 @@ export class ComponentUtils {
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 11
  */
 export interface AtomicServiceBar {
@@ -963,7 +962,6 @@ export interface AtomicServiceBar {
    *
    * @param { boolean } visible - whether this bar is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 11
    */
   setVisible(visible: boolean): void;
@@ -973,7 +971,6 @@ export interface AtomicServiceBar {
    *
    * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 11
    */
   setBackgroundColor(color: Nullable< Color | number | string>): void;
@@ -983,7 +980,6 @@ export interface AtomicServiceBar {
    *
    * @param { string } content - the content of the bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 11
    */
   setTitleContent(content: string): void;
@@ -993,7 +989,6 @@ export interface AtomicServiceBar {
    *
    * @param { FontStyle } font - the font style of the bar's title.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 11
    */
   setTitleFontStyle(font: FontStyle): void;
@@ -1003,7 +998,6 @@ export interface AtomicServiceBar {
    *
    * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 11
    */
   setIconColor(color: Nullable< Color | number | string>): void;
@@ -1319,7 +1313,6 @@ export class UIContext {
    * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   getAtomicServiceBar(): Nullable<AtomicServiceBar>;
@@ -1331,7 +1324,6 @@ export class UIContext {
  * @enum { number } KeyBoardAvoidMethodType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 11
  */
 
@@ -1349,7 +1341,6 @@ export const enum KeyboardAvoidMode {
    * Resize Type, resize the page when keyBoard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   RESIZE = 1
