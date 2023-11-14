@@ -207,7 +207,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-	/**
+    /**
      * @atomicservice
      * @since 11
      */
