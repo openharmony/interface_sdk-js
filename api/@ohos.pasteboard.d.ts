@@ -116,7 +116,6 @@ declare namespace pasteboard {
    */
   /**
    * Indicates type of value.
-   * @type { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11
@@ -294,7 +293,7 @@ declare namespace pasteboard {
   interface PasteDataProperty {
     /**
      * additional property data. key-value pairs.
-     * @type { [key: string]: object }
+     * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
