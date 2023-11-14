@@ -22,11 +22,23 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declaration of the menu item on the right side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class EditableTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
    * @since 10
+   */
+  /**
+   * Icon resource for this menu item.
+   * @type { ResourceStr }.
+   * @atomicservice
+   * @since 11
    */
   value: ResourceStr;
 
@@ -35,12 +47,24 @@ export declare class EditableTitleBarMenuItem {
    * @type { boolean }.
    * @since 10
    */
+  /**
+   * Whether to enable this menu item.
+   * @type { boolean }.
+   * @atomicservice
+   * @since 11
+   */
   isEnabled?: boolean;
 
   /**
    * Callback function when click on this menu item.
    * @type { () => void }.
    * @since 10
+   */
+  /**
+   * Callback function when click on this menu item.
+   * @type { () => void }.
+   * @atomicservice
+   * @since 11
    */
   action?: () => void;
 }
@@ -51,16 +75,33 @@ export declare class EditableTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declaration of the left icon type.
+ * @enum { EditableLeftIconType }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare enum EditableLeftIconType {
   /**
    * The back type.
    * @since 10
+   */
+  /**
+   * The back type.
+   * @atomicservice
+   * @since 11
    */
   Back = 0,
 
   /**
    * The cancel type.
    * @since 10
+   */
+  /**
+   * The cancel type.
+   * @atomicservice
+   * @since 11
    */
   Cancel = 1
 }
@@ -70,12 +111,24 @@ export declare enum EditableLeftIconType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declaration of the editable title bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 @Component
 export declare struct EditableTitleBar {
   /**
    * Style of the left icon.
    * @type { EditableLeftIconType }.
    * @since 10
+   */
+  /**
+   * Style of the left icon.
+   * @type { EditableLeftIconType }.
+   * @atomicservice
+   * @since 11
    */
   leftIconStyle: EditableLeftIconType;
 
@@ -84,12 +137,24 @@ export declare struct EditableTitleBar {
    * @type { ResourceStr }.
    * @since 10
    */
+  /**
+   * Title of this title bar.
+   * @type { ResourceStr }.
+   * @atomicservice
+   * @since 11
+   */
   title: ResourceStr;
 
   /**
    * Menu items on the right side.
    * @type { Array<EditableTitleBarMenuItem> }.
    * @since 10
+   */
+  /**
+   * Menu items on the right side.
+   * @type { Array<EditableTitleBarMenuItem> }.
+   * @atomicservice
+   * @since 11
    */
   menuItems?: Array<EditableTitleBarMenuItem>;
 
@@ -98,12 +163,24 @@ export declare struct EditableTitleBar {
    * @type { () => void }.
    * @since 10
    */
+  /**
+   * Callback function when click on the save icon at the right side.
+   * @type { () => void }.
+   * @atomicservice
+   * @since 11
+   */
   onSave?: () => void;
 
   /**
    * Callback function when click on the cancel icon at the left side.
    * @type { () => void }.
    * @since 10
+   */
+  /**
+   * Callback function when click on the cancel icon at the left side.
+   * @type { () => void }.
+   * @atomicservice
+   * @since 11
    */
   onCancel?: () => void;
 }
