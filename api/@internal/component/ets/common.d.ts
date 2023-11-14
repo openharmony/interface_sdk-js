@@ -917,6 +917,36 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
+ * Enum for FinishCallbackType.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum FinishCallbackType {
+  /**
+   * When the entire animation ends and will be removed immediately, the callback is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  REMOVED = 0,
+  /**
+   * When the animation is logically down but may still be in its long tail, the callback is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  LOGICALLY = 1,
+}
+
+/**
  * Defines the animate function params.
  *
  * @interface AnimateParam
@@ -1095,6 +1125,17 @@ declare interface AnimateParam {
    * @form
    */
   onFinish?: () => void;
+
+  /**
+   * Define the type of onFinish callback in animation.
+   *
+   * @type { ?FinishCallbackType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  finishCallbackType?: FinishCallbackType;
 }
 
 /**
@@ -3417,7 +3458,16 @@ declare interface ShadowOptions {
    * @since 10
    * @form
    */
-  color?: Color | string | Resource;
+  /**
+   * Define the color or the color strategy of shadow
+   *
+   * @type { ?(Color | string | Resource| ColoringStrategy) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  color?: Color | string | Resource | ColoringStrategy;
 
   /**
    * Define the horizontal offset size of shadow

@@ -736,6 +736,20 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The onmessage attribute of parentPort specifies the event handler
+   * to be called then the worker thread receives a message sent by
+   * the host thread through worker postMessage.
+   * The event handler is executed in the worker thread.
+   *
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
   /**
@@ -803,6 +817,19 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Send a message to host thread from the worker
+   *
+   * @param { Object } messageObject - messageObject Data to be sent to the worker
+   * @param { ArrayBuffer[] } transfer - transfer array cannot contain null.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 
   /**
@@ -827,6 +854,19 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Send a message to be host thread from the worker
+   *
+   * @param { Object } messageObject - messageObject Data to be sent to the worker
+   * @param { PostMessageOptions } options - options Option can be set for postmessage.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
 }
@@ -956,6 +996,20 @@ declare namespace worker {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The onmessage attribute of the worker specifies the event handler
+     * to be called then the host thread receives a message created by itself
+     * and sent by the worker through the parentPort.postMessage.
+     * The event handler is executed in the host thread.
+     *
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     onmessage?: (event: MessageEvents) => void;
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -1033,6 +1087,20 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sends a message to the worker thread.
+     * The data is transferred using the structured clone algorithm.
+     *
+     * @param { Object } message - message Data to be sent to the worker
+     * @param { PostMessageOptions } options - options
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     postMessage(message: Object, options?: PostMessageOptions): void;
     /**
@@ -1123,6 +1191,15 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Terminates the worker thread to stop the worker from receiving messages
+     *
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     terminate(): void;
     /**
@@ -1368,6 +1445,15 @@ declare namespace worker {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The object used by the worker thread to communicate with the host thread.
+   *
+   * @constant
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   const workerPort: ThreadWorkerGlobalScope;
 }

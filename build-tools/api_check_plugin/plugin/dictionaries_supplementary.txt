@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -309,6 +310,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
