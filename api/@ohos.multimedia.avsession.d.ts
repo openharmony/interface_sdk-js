@@ -710,6 +710,30 @@ declare namespace avSession {
     setAVMetadata(data: AVMetadata): Promise<void>;
 
     /**
+     * Set the metadata related with current call.
+     * @param { CallMetadata } data - {@link CallMetadata}
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    setCallMetadata(data: CallMetadata, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the metadata related with current call.
+     * @param { CallMetadata } data - {@link CallMetadata}
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    setCallMetadata(data: CallMetadata): Promise<void>;
+
+    /**
      * Set the playback state of this session.
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
@@ -732,6 +756,30 @@ declare namespace avSession {
      * @since 10
      */
     setAVPlaybackState(state: AVPlaybackState): Promise<void>;
+
+    /**
+     * Set the call state of this session.
+     * @param { AVCallState } state - {@link AVCallState}
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    setAVCallState(state: AVCallState, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the call state of this session.
+     * @param { AVCallState } state - {@link AVCallState}
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    setAVCallState(state: AVCallState): Promise<void>;
 
     /**
      * Set the ability to start the session corresponding to
@@ -1365,6 +1413,84 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'skipToQueueItem', callback?: (itemId: number) => void): void;
+
+    /**
+     * Register answer command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * @param { 'answer' } type - Command to register 'answer'.
+     * @param { Callback<void> } callback - Used to handle ('answer') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'answer', callback: Callback<void>): void;
+
+    /**
+     * Unregister answer command callback.
+     * @param { 'answer' } type - Command to register 'answer'.
+     * @param { Callback<void> } callback - Used to handle ('answer') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'answer', callback?: Callback<void>): void;
+
+    /**
+     * Register hangUp command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * @param { 'hangUp' } type - Command to register 'hangUp'.
+     * @param { Callback<void> } callback - Used to handle ('hangUp') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'hangUp', callback: Callback<void>): void;
+
+    /**
+     * Unregister hangUp command callback.
+     * @param { 'hangUp' } type - Command to register 'hangUp'.
+     * @param { Callback<void> } callback - Used to handle ('hangUp') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'hangUp', callback?: Callback<void>): void;
+
+    /**
+     * Register toggleCallMute command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * @param { 'toggleCallMute' } type - Command to register 'toggleCallMute'.
+     * @param { Callback<void> } callback - Used to handle ('toggleCallMute') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'toggleCallMute', callback: Callback<void>): void;
+
+    /**
+     * Unregister toggleCallMute command callback.
+     * @param { 'toggleCallMute' } type - Command to register 'toggleCallMute'.
+     * @param { Callback<void> } callback - Used to handle ('toggleCallMute') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'toggleCallMute', callback?: Callback<void>): void;
 
     /**
      * Stop current cast and disconnect device connection.
@@ -2472,6 +2598,119 @@ declare namespace avSession {
     updateTime: number;
   }
 
+  /*
+   * The metadata of the current call.
+   * @interface CallMetadata
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  interface CallMetadata {
+    /**
+     * The displayed user name of current call.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    name?: string;
+
+    /**
+     * The phone number of current call.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    phoneNumber?: string;
+
+    /**
+     * The displayed picture that represents a particular user.
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    avatar?: image.PixelMap;
+  }
+
+  /**
+   * Used to indicate the call state of the current call.
+   * @interface AVCallState
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  interface AVCallState {
+    /**
+     * Current call state. See {@link CallState}
+     * @type {CallState}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    state: CallState;
+
+    /**
+     * Current muted status.
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    muted: boolean;
+  }
+
+  /**
+   * Enumeration of current call state
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  enum CallState {
+    /**
+     * Idle state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_IDLE = 0,
+
+    /**
+     * Incoming state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_INCOMING = 1,
+
+    /**
+     * Active state in calling.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_ACTIVE = 2,
+
+    /**
+     * Dialing state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_DIALING = 3,
+
+    /**
+     * Waiting state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_WAITING = 4,
+
+    /**
+     * Holding state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_HOLDING = 5,
+
+    /**
+     * Disconnecting state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    CALL_STATE_DISCONNECTING = 6,
+  }
+
   /**
    * cast category indicating different playback scenes
    * @enum { number }
@@ -2932,6 +3171,50 @@ declare namespace avSession {
     getAVMetadataSync(): AVMetadata;
 
     /**
+     * Get the call status of the current session
+     * @param { AsyncCallback<AVCallState> } callback - The triggered asyncCallback when (getAVCallState).
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    getAVCallState(callback: AsyncCallback<AVCallState>): void;
+
+    /**
+     * Get the call status of the current session
+     * @returns { Promise<AVCallState> } (AVCallState) returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    getAVCallState(): Promise<AVCallState>;
+
+    /**
+     * Get the call metadata of the current session
+     * @param { AsyncCallback<CallMetadata> } callback - The triggered asyncCallback when (getCallMetadata).
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    getCallMetadata(callback: AsyncCallback<CallMetadata>): void;
+
+    /**
+     * Get the call metadata of the current session
+     * @returns { Promise<CallMetadata> } (CallMetadata) returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    getCallMetadata(): Promise<CallMetadata>;
+
+    /**
      * Get the name of the playlist of the current session
      * @param { AsyncCallback<string> } callback - The triggered asyncCallback when (getAVQueueTitle).
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -3351,6 +3634,62 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void);
+
+    /**
+     * Register call metadata changed callback
+     * @param { 'callMetadataChange' } type - 'callMetadataChange'
+     * @param { Array<keyof CallMetadata> | 'all' } filter - The properties of {@link CallMetadata} that you cared about
+     * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
+     * The callback function provides the {@link CallMetadata} parameter.
+     * It only contains the properties set in the filter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'callMetadataChange', filter: Array<keyof CallMetadata> | 'all', callback: Callback<CallMetadata>): void;
+
+    /**
+     * Unregister call metadata changed callback
+     * @param { 'callMetadataChange' } type - 'callMetadataChange'
+     * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
+     * The callback function provides the {@link CallMetadata} parameter.
+     * It only contains the properties set in the filter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'callMetadataChange', callback?: Callback<CallMetadata>): void;
+
+    /**
+     * Register call state changed callback
+     * @param { 'callStateChange' } type - 'callStateChange'
+     * @param { Array<keyof AVCallState> | 'all' } filter - The properties of {@link AVCallState} that you cared about
+     * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
+     * The callback function provides the {@link AVCallState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'callStateChange', filter: Array<keyof AVCallState> | 'all', callback: Callback<AVCallState>): void;
+
+    /**
+     * Unregister playback state changed callback
+     * @param { 'callStateChange' } type - 'callStateChange'
+     * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
+     * The callback function provides the {@link AVCallState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'callStateChange', callback?: Callback<AVCallState>): void;
 
     /**
      * Register current session destroyed callback
