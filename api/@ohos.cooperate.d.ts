@@ -234,7 +234,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    msg: CooperateState;
+    state: CooperateState;
   }
 
   /**
