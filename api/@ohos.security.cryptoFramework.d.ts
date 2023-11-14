@@ -995,6 +995,7 @@ declare namespace cryptoFramework {
      * Indicates the bash algorithm name of SM2 cipher process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     SM2_MD_NAME_STR = 104
@@ -1053,6 +1054,7 @@ declare namespace cryptoFramework {
      * Indicates the value for user id string. It is used in SM2 signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     SM2_USER_ID_UINT8ARR = 105
@@ -1422,6 +1424,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
@@ -2286,6 +2289,7 @@ declare namespace cryptoFramework {
    * Key utilities for ECC Algorithm.
    *
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   class ECCKeyUtil {
@@ -2299,6 +2303,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     static genECCCommonParamsSpec(curveName: string) : ECCCommonParamsSpec;
