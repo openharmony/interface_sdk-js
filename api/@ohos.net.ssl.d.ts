@@ -16,8 +16,8 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides ssl related APIs.
- * @namespace ssl
+ * Provides networkSecurity related APIs.
+ * @namespace networkSecurity
  * @syscap SystemCapability.Communication.NetStack
  * @since 11
  */
