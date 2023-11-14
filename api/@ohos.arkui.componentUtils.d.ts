@@ -522,7 +522,6 @@ declare namespace componentUtils {
   */
   /**
   * The matrix is column-first fourth-order matrix.
-  * @typedef Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
