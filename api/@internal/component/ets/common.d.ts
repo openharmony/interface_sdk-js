@@ -3476,7 +3476,16 @@ declare interface ShadowOptions {
    * @since 10
    * @form
    */
-  color?: Color | string | Resource;
+  /**
+   * Define the color or the color strategy of shadow
+   *
+   * @type { ?(Color | string | Resource| ColoringStrategy) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  color?: Color | string | Resource | ColoringStrategy;
 
   /**
    * Define the horizontal offset size of shadow

@@ -797,7 +797,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    * @form
    */
-
   /**
    * Called when the text shadow is set.
    *

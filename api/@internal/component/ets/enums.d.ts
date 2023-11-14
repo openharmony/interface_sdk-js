@@ -348,15 +348,32 @@ declare enum Color {
  * @crossplatform
  * @since 10
  */
+/**
+ * Common enum of color strategy
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum ColoringStrategy {
   /**
-   * Use the inverse color strategy
+   * Use the inverse color strategy. Gets the inverse of the background color. Only applies to foregroundColor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  INVERT = "invert",
+  INVERT = 'invert',
+
+  /**
+   * Use the average color strategy. Get the average color of the background. Not applies to the color in textShadow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  AVERAGE = 'average',
 }
 
 /**
