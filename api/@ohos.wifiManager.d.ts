@@ -791,6 +791,19 @@ declare namespace wifiManager {
    */
   function delBlockList(stationInfo: StationInfo);
 
+    /**
+   * Get all the stations in the block list.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getBlockList(): Array<StationInfo>;
+
   /**
    * Obtain information about the P2P connection.
    * @permission ohos.permission.GET_WIFI_INFO
