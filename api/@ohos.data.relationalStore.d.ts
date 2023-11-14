@@ -2853,13 +2853,13 @@ declare namespace relationalStore {
     ): void;
 
     /**
-     * Cleans dirty data deleted in the cloud.
+     * Cleans the dirty data, which is the data deleted in the cloud.
      *
      * Data with a cursor smaller than the specified cursor will be cleaned up.
      *
      * @param { string } table - Indicates the name of the table to check.
-     * @param { number } cursor - Indicates the cursor.
-     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @param { number } cursor - Indicates the position of the data to be cleaned up.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
