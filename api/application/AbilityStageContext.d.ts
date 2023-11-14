@@ -34,6 +34,16 @@ import Context from './Context';
  * @crossplatform
  * @since 10
  */
+/**
+ * The context of an abilityStage. It allows access to abilityStage-specific resources.
+ *
+ * @extends Context
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export default class AbilityStageContext extends Context {
   /**
    * Indicates configuration information about an module.
@@ -52,6 +62,16 @@ export default class AbilityStageContext extends Context {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates configuration information about an module.
+   *
+   * @type { HapModuleInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -72,6 +92,16 @@ export default class AbilityStageContext extends Context {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates configuration information.
+   *
+   * @type { Configuration }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   config: Configuration;
 }

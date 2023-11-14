@@ -20,12 +20,27 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 6
  */
+/**
+ * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 export enum ErrorCode {
   /**
    * Permission denied.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
+   */
+  /**
+   * Permission denied.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   PERMISSION_DENY = -3,
 
@@ -35,6 +50,13 @@ export enum ErrorCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
    */
+  /**
+   * Ability not found.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   ABILITY_NOT_FOUND = -2,
 
   /**
@@ -43,6 +65,13 @@ export enum ErrorCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
    */
+  /**
+   * Invalid parameter.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   INVALID_PARAMETER = -1,
 
   /**
@@ -50,6 +79,13 @@ export enum ErrorCode {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
+   */
+  /**
+   * No error.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   NO_ERROR = 0
 }

@@ -58,6 +58,7 @@
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 174,
               "type": [
                 "ChangeEvent"
               ],
@@ -67,6 +68,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "Callback<void>"
               ],

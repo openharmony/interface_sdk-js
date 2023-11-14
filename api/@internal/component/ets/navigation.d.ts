@@ -585,6 +585,27 @@ declare class NavPathStack {
   pushPathByName(name: string, param: unknown): void;
 
   /**
+   * replace the current page with the specific one.The current page will be destroyed.
+   *
+   * @param { NavPathInfo } info - Indicates the the new route page in top of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  replacePath(info: NavPathInfo): void;
+
+  /**
+   * replace the current page with the specific one.The current page will be destroyed.
+   *
+   * @param { string } name - Indicates name of the new route page in top of stack.
+   * @param { Object } param - Indicates the detailed parameter of the new route page in top of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  replacePathByName(name: string, param: Object): void;
+
+  /**
    * Pops the top route page out of the stack.
    *
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.

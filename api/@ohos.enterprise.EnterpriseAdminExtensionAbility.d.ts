@@ -98,4 +98,14 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 11
    */
   onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void;
+
+  /**
+   * Called back when the enterprise admin extension is started.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  onStart(): void;
 }

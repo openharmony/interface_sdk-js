@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  */
+/**
+ * A object that records the result of shell command executes.
+ *
+ * @typedef ShellCmdResult
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 export interface ShellCmdResult {
   /**
    * the cmd standard result.
@@ -27,6 +35,14 @@ export interface ShellCmdResult {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * the cmd standard result.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   stdResult: string;
 
@@ -36,6 +52,14 @@ export interface ShellCmdResult {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * shell cmd exec result.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   exitCode: number;
 }

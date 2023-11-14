@@ -37,6 +37,15 @@ import { ShellCmdResult } from './shellCmdResult';
  * @crossplatform
  * @since 10
  */
+/**
+ * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+ *
+ * @interface AbilityDelegator
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface AbilityDelegator {
   /**
    * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
@@ -58,6 +67,18 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object
+   * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -82,6 +103,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
   /**
@@ -93,6 +126,17 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   addAbilityMonitorSync(monitor: AbilityMonitor): void;
 
@@ -117,6 +161,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
   /**
@@ -140,6 +196,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
   /**
@@ -151,6 +219,17 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - AddAbilityStageMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -175,6 +254,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Remove a specified AbilityMonitor object from the application memory.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
   /**
@@ -198,6 +289,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Remove a specified AbilityMonitor object from the application memory.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
   /**
@@ -209,6 +312,17 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Remove a specified AbilityMonitor object from the application memory.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   removeAbilityMonitorSync(monitor: AbilityMonitor): void;
 
@@ -233,6 +347,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Remove a specified AbilityStageMonitor object from the application memory.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
   /**
@@ -256,6 +382,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Remove a specified AbilityStageMonitor object from the application memory.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
   /**
@@ -267,6 +405,17 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Remove a specified AbilityStageMonitor object from the application memory.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitorSync failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -290,6 +439,18 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>): void;
 
@@ -316,6 +477,19 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @param { number } timeout - Maximum wait time, in milliseconds.
+   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<UIAbility>): void;
 
   /**
@@ -341,6 +515,19 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+   *
+   * @param { AbilityMonitor } monitor - AbilityMonitor object.
+   * @param { number } [timeout] - Maximum wait time, in milliseconds.
+   * @returns { Promise<UIAbility> } Returns the Ability object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility>;
 
   /**
@@ -363,6 +550,18 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void;
 
@@ -389,6 +588,19 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @param { number } timeout - Maximum wait time, in milliseconds.
+   * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback<AbilityStage>): void;
 
   /**
@@ -414,6 +626,19 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+   *
+   * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
+   * @param { number } [timeout] - Maximum wait time, in milliseconds.
+   * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>;
 
   /**
@@ -430,6 +655,15 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtain the application context.
+   *
+   * @returns { Context } Returns the app Context.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   getAppContext(): Context;
 
@@ -452,6 +686,17 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtain the lifecycle state of a specified ability.
+   *
+   * @param { UIAbility } ability - The Ability object.
+   * @returns { number } Returns the state of the Ability object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getAbilityState(ability: UIAbility): number;
 
   /**
@@ -473,6 +718,17 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtain the ability that is currently being displayed in this process.
+   *
+   * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void;
 
   /**
@@ -491,6 +747,16 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtain the ability that is currently being displayed in this process.
+   *
+   * @returns { Promise<UIAbility> } Returns the Ability object.
+   * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   getCurrentTopAbility(): Promise<UIAbility>;
 
@@ -541,6 +807,32 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Start a new ability.
+   *
+   * @param { Want } want - Indicates the ability to start
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
@@ -590,6 +882,32 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Start a new ability.
+   *
+   * @param { Want } want - Indicates the ability to start
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   startAbility(want: Want): Promise<void>;
 
   /**
@@ -612,6 +930,18 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
+   *
+   * @param { UIAbility } ability - The ability object.
+   * @param { AsyncCallback<void> } callback - The callback of doAbilityForeground.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -636,6 +966,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
+   *
+   * @param { UIAbility } ability - The ability object.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   doAbilityForeground(ability: UIAbility): Promise<void>;
 
   /**
@@ -658,6 +1000,18 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
+   *
+   * @param { UIAbility } ability - The ability object.
+   * @param { AsyncCallback<void> } callback - The callback of doAbilityBackground.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -682,6 +1036,18 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
+   *
+   * @param { UIAbility } ability - The ability object.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   doAbilityBackground(ability: UIAbility): Promise<void>;
 
   /**
@@ -702,6 +1068,17 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Prints log information to the unit testing console.
+   * The total length of the log information to be printed cannot exceed 1000 characters.
+   *
+   * @param { string } msg - Log information
+   * @param { AsyncCallback<void> } callback - The callback of print.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   print(msg: string, callback: AsyncCallback<void>): void;
 
@@ -724,6 +1101,17 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Prints log information to the unit testing console.
+   * The total length of the log information to be printed cannot exceed 1000 characters.
+   *
+   * @param { string } msg - Log information
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   print(msg: string): Promise<void>;
 
   /**
@@ -745,6 +1133,17 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Prints log information to the unit testing console.
+   * The total length of the log information to be printed cannot exceed 1000 characters.
+   *
+   * @param { string } msg - Log information.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   printSync(msg: string): void;
 
   /**
@@ -754,6 +1153,15 @@ export interface AbilityDelegator {
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * Execute the given command in the aa tools side.
+   *
+   * @param { string } cmd - Shell command
+   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
 
@@ -766,6 +1174,16 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
+  /**
+   * Execute the given command in the aa tools side.
+   *
+   * @param { string } cmd - Shell command
+   * @param { number } timeoutSecs - Timeout, in seconds
+   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
 
   /**
@@ -776,6 +1194,16 @@ export interface AbilityDelegator {
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * Execute the given command in the aa tools side.
+   *
+   * @param { string } cmd - Shell command
+   * @param { number } [timeoutSecs] - Timeout, in seconds
+   * @returns { Promise<ShellCmdResult> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
 
@@ -804,6 +1232,20 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Finish the test and print log information to the unit testing console.
+   * The total length of the log information to be printed cannot exceed 1000 characters.
+   *
+   * @param { string } msg - Log information.
+   * @param { number } code - Result code.
+   * @param { AsyncCallback<void> } callback - The callback of finishTest.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - FinishTest failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -831,6 +1273,20 @@ export interface AbilityDelegator {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Finish the test and print log information to the unit testing console.
+   * The total length of the log information to be printed cannot exceed 1000 characters.
+   *
+   * @param { string } msg - Log information.
+   * @param { number } code - Result code.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000100 - FinishTest failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   finishTest(msg: string, code: number): Promise<void>;
 
   /**
@@ -841,6 +1297,7 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
    * @since 11
    */
   setMockList(mockList: { [key: string]: string }): void;

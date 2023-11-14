@@ -145,6 +145,40 @@ declare enum SwipeEdgeEffect {
 }
 
 /**
+ * Declare enum SwipeActionState.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum SwipeActionState {
+  /**
+   * Collapsed type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  COLLAPSED,
+
+  /**
+   * EXPANDED type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  EXPANDED,
+
+  /**
+   * Action type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  ACTIONING,
+}
+
+/**
  * Defines the swipe action item for SwipeActionOptions.
  *
  * @interface SwipeActionItem
@@ -254,6 +288,16 @@ declare interface SwipeActionItem {
    * @since 11
    */
   onExitActionArea?: () => void;
+
+  /**
+   * Called when component swipe action state changed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onStateChange?: (state: SwipeActionState) => void;
 }
 
 /**
@@ -364,6 +408,16 @@ declare interface SwipeActionOptions {
    * @since 11
    */
   edgeEffect?: SwipeEdgeEffect;
+
+  /**
+   * Called when swipe action offset changed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onOffsetChange?: (offset: number) => void;
 }
 
 /**
