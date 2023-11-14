@@ -21,7 +21,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Communication.NetStack
  * @since 11
  */
-declare namespace ssl {
+declare namespace network_security {
   /**
    * Defines the certificate type.
    * @enum {number}
@@ -71,7 +71,7 @@ declare namespace ssl {
   /**
    * Verify certification to server.
    * @param { CertBlob } cert - Certificates to be verified.
-   * @param { AsyncCallback<boolean> } callback - The callback of verifyCertification.
+   * @param { AsyncCallback<number> } callback - The callback of verifyCertification.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
@@ -96,7 +96,7 @@ declare namespace ssl {
    * Verify certification to server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } caCert - Incoming custom CA cert.
-   * @param { AsyncCallback<boolean> } callback - The callback of verifyCertification.
+   * @param { AsyncCallback<number> } callback - The callback of verifyCertification.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
@@ -120,7 +120,7 @@ declare namespace ssl {
   /**
    * Verify certification to server.
    * @param { CertBlob } cert - Certificates to be verified.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
@@ -145,7 +145,7 @@ declare namespace ssl {
    * Verify certification to server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } caCert - Incoming custom CA cert.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
