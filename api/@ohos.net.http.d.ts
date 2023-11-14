@@ -278,7 +278,6 @@ declare namespace http {
     /**
      * PEM format certificate
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 11
      */
     PEM = 'PEM',
@@ -286,7 +285,6 @@ declare namespace http {
     /**
      * DER format certificate
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 11
      */
     DER = 'DER',
@@ -294,7 +292,6 @@ declare namespace http {
     /**
      * DER format certificate
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 11
      */
     P12 = 'P12'
