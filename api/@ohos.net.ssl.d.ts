@@ -192,4 +192,4 @@ declare namespace networkSecurity {
   export function verifyCertificationSync(cert: CertBlob, caCert?: CertBlob): number;
 }
 
-export default ssl;
+export default networkSecurity;
