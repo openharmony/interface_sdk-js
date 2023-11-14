@@ -3409,7 +3409,9 @@ declare namespace resourceManager {
      *
      * @param { number } resId - Indicates the resource ID.
      * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
-     *                to use the density of current system dpi.
+     *             to use the density of current system dpi.
+     * @param { number } type - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
@@ -3418,7 +3420,7 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
-    getDrawableDescriptor(resId: number, density?: number): DrawableDescriptor;
+    getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor;
 
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
@@ -3439,6 +3441,8 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
+     * @param { number } type - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
@@ -3447,7 +3451,7 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
-    getDrawableDescriptorByName(resName: string, density?: number): DrawableDescriptor;
+    getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor;
 
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
@@ -3469,6 +3473,8 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
+     * @param { number } type - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
@@ -3478,7 +3484,7 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
-    getDrawableDescriptor(resource: Resource, density?: number): DrawableDescriptor;
+    getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor;
 
     /**
      * Obtains the rawfile resource list corresponding to the specified resource path in callback mode.
