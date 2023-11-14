@@ -2843,22 +2843,6 @@ declare namespace relationalStore {
     ): void;
 
     /**
-     * Cleans dirty data deleted in the cloud.
-     *
-     * Data with a cursor smaller than the specified cursor will be cleaned up.
-     *
-     * @param { string } table - Indicates the name of the table to check.
-     * @param { number } cursor - Indicates the cursor.
-     * @param { AsyncCallback<void> } callback - The callback of clean.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
-     */
-    cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
-
-    /**
      * Cleans all dirty data deleted in the cloud.
      *
      * @param { string } table - Indicates the name of the table to check.
