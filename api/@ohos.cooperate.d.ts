@@ -43,7 +43,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_PREPARE
      */
     COOPERATE_PREPARE = 0,
 
@@ -54,7 +54,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_UNPREPARE
      */
     COOPERATE_UNPREPARE = 1,
 
@@ -65,7 +65,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE
      */
     COOPERATE_ACTIVATE = 2,
 
@@ -76,7 +76,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE_SUCCESS
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
@@ -87,7 +87,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE_FAILURE
      */
     COOPERATE_ACTIVATE_FAIL = 4,
 
@@ -98,7 +98,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_DEACTIVATE_SUCCESS
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
@@ -109,7 +109,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_DEACTIVATE_FAILURE
      */
     COOPERATE_DEACTIVATE_FAIL = 6,
 
@@ -120,13 +120,13 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate#CooperateState
+     * @useinstead cooperate.CooperateState#COOPERATE_SESSION_DISCONNECT
      */
     COOPERATE_SESSION_DISCONNECTED = 7,
   }
 
   /**
-   * 键鼠穿越状态。
+   * Enumerates the screen hopping states.
    *
    * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -208,7 +208,7 @@ declare namespace cooperate {
   }
 
   /**
-   * 键鼠穿越消息。
+   * Defines a screen hopping message.
    *
    * @interface CooperateMessage
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
@@ -227,7 +227,7 @@ declare namespace cooperate {
     networkId: string;
 
     /**
-     * 键鼠穿越状态。
+     * The screen hopping state.
      *
      * @type { CooperateState }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
