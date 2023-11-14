@@ -1051,7 +1051,7 @@ declare namespace cryptoFramework {
     PSS_TRAILER_FIELD_NUM = 104,
 
     /**
-     * Indicates the value for user id string. It is used in SM2 signing and verifying process.
+     * Indicates the value for user id. It is used in SM2 signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -1605,7 +1605,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
