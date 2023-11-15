@@ -188,6 +188,16 @@ export interface ShowDialogOptions {
    * @since 3
    */
   complete?: (data: string) => void;
+
+  /**
+   * Whether to display in the sub window.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showInSubWindow?: boolean;
 }
 
 /**
@@ -244,6 +254,16 @@ export interface ShowActionMenuOptions {
    * @since 6
    */
   complete?: () => void;
+
+    /**
+   * Whether to display in the sub window.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    showInSubWindow?: boolean;
 }
 
 /**
