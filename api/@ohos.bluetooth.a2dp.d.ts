@@ -273,6 +273,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
      * @since 11
      */
     getCurrentCodecInfo(deviceId: string): CodecInfo;
@@ -291,6 +292,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
      * @since 11
      */
     setCurrentCodecInfo(deviceId: string, codecInfo: CodecInfo): void;
