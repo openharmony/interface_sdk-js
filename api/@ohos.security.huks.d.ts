@@ -914,6 +914,31 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
+  /**
+   * Update Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the update operation.
+   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify authtoken failed
+   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
+   */
   function updateSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
   /**
@@ -1045,6 +1070,31 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Finish Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the finish operation.
+   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify authtoken failed
+   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
    */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -1679,23 +1729,29 @@ declare namespace huks {
    * @since 11
    */
   export enum HuksKeyPurpose {
-    /* Usable with RSA, EC and AES keys. */
     /**
+     * Usable with RSA, EC and AES keys.
+     * 
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Usable with RSA, EC and AES keys.
+     * 
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
-    /* Usable with RSA, EC and AES keys. */
     /**
+     * Usable with RSA, EC and AES keys.
+     * 
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Usable with RSA, EC and AES keys.
+     * 
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
