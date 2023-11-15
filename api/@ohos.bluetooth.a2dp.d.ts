@@ -305,35 +305,35 @@ declare namespace a2dp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11
    */
-    interface CodecInfo {
-      /**
-       * codec type
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 11
-       */
-      codecType: CodecType;
-      /**
-       * codec bits per sample.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 11
-       */
-      codecBitsPerSample: CodecBitsPerSample;
-      /**
-       * codec channel mode.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 11
-       */
-      codecChannelMode: CodecChannelMode;
-      /**
-       * codec sample rate.
-       *
-       * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 11
-       */
-      codecSampleRate: CodecSampleRate;
+  interface CodecInfo {
+    /**
+     * codec type
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    codecType: CodecType;
+    /**
+     * codec bits per sample.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    codecBitsPerSample: CodecBitsPerSample;
+    /**
+     * codec channel mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    codecChannelMode: CodecChannelMode;
+    /**
+     * codec sample rate.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    codecSampleRate: CodecSampleRate;
   }
 
   /**
