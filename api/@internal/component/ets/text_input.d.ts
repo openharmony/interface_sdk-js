@@ -1214,6 +1214,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   customKeyboard(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * Define show counter of the text input.
+   *
+   * @param { boolean } value - Set the counter of the text input.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showCounter(value: boolean): TextInputAttribute;
 }
 
 /**
