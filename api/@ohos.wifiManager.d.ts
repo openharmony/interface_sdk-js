@@ -796,7 +796,7 @@ declare namespace wifiManager {
     /**
    * Get all the stations in the blocked list.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @returns { Array<StationInfo> } stations in the block list.
+   * @returns { Array<StationInfo> } stations in the blocked list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
