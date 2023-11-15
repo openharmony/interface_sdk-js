@@ -90,6 +90,101 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
 }
 
 /**
+   * Enum for live view notification option type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 11
+   */
+export enum LiveViewStatus {
+  /**
+   * Create the live view notification.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 11
+   */
+  LIVE_VIEW_CREATE = 0,
+  /**
+   * Batch update the live view notification.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 11
+   */
+  LIVE_VIEW_INCREMENTAL_UPDATE = 1,
+  /**
+   * Complete the live view notification.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 11
+   */
+  LIVE_VIEW_END = 2,
+  /**
+   * Full update the live view notification.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 11
+   */
+  LIVE_VIEW_FULL_UPDATE = 3
+}
+
+/**
+ * Describes a live view notification.
+ *
+ * @typedef NotificationLiveViewContent
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 11
+ */
+export interface NotificationLiveViewContent extends NotificationBasicContent {
+  /**
+   * Status of the live view (0: create, 1: batch update, 2: end, 3: full update).
+   *
+   * @type { LiveViewStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  status: LiveViewStatus;
+
+  /**
+   * Version of the live view with the same id. (If the version number stored in the database is less
+   * than 0, the version number is not verified at the current operation of update or end. Otherwise, the
+   * version number must be greater than the version number stored in the database.)
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  version: number;
+
+  /**
+   * Additional information of the live view notification.
+   *
+   * @type { [key: string]: any}
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  extraInfo?: {[key: string]: any};
+
+  /**
+   * Picture information of the live view notification.
+   *
+   * @type { [key: string]: Array<image.PixelMap> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  pictureMap?: {[key: string]: Array<image.PixelMap>};
+}
+
+/**
  * Describes a multi-line text notification.
  *
  * @typedef NotificationMultiLineContent
@@ -296,7 +391,7 @@ export interface NotificationTime {
   initialTime?: number;
 
   /**
-   * 
+   *
    * Count down the time.
    *
    * @type { ?boolean }
