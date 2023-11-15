@@ -45,7 +45,7 @@ declare interface TimePickerResult {
    * @since 10
    */
   /**
-   * Application hour
+   * Hour portion of the selected time.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,7 +70,7 @@ declare interface TimePickerResult {
    * @since 10
    */
   /**
-   * Application minute
+   * Minute portion of the selected time.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -80,7 +80,7 @@ declare interface TimePickerResult {
   minute: number;
 
   /**
-   * Application second
+   * Second portion of the selected time.
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
