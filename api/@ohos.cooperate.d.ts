@@ -227,7 +227,7 @@ declare namespace cooperate {
     networkId: string;
 
     /**
-     * The screen hopping state.
+     * Screen hopping state.
      *
      * @type { CooperateState }
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
