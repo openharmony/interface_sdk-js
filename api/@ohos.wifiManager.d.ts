@@ -766,7 +766,7 @@ declare namespace wifiManager {
   function getStations(): Array<StationInfo>;
 
    /**
-   * Add the station into the block list, the station can NOT access the hotspot.
+   * Add the station into the blocked list, the station can NOT access the hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { StationInfo } stationInfo - station which will be added in the block list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -777,10 +777,10 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function addBlockList(stationInfo: StationInfo);
+  function addHotspotBlockedList(stationInfo: StationInfo);
 
   /**
-   * Delete the station from block list, the station can access the hotspot.
+   * Delete the station from blocked list, the station can access the hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { StationInfo } stationInfo - station which will be deleted in the block list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -791,10 +791,10 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function delBlockList(stationInfo: StationInfo);
+  function delHotspotBlockedList(stationInfo: StationInfo);
 
     /**
-   * Get all the stations in the block list.
+   * Get all the stations in the blocked list.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @returns { Array<StationInfo> } stations in the block list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -805,7 +805,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getBlockList(): Array<StationInfo>;
+  function getHotspotBlockedList(): Array<StationInfo>;
 
   /**
    * Obtain information about the P2P connection.
