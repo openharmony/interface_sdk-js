@@ -26,6 +26,14 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines Close contextMenu.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class ContextMenu {
   /**
    * Invoking method close.
@@ -39,6 +47,14 @@ declare class ContextMenu {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoking method close.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static close();
 }

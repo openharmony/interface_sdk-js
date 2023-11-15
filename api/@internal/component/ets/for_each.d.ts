@@ -99,4 +99,13 @@ interface ForEachInterface {
  * @since 10
  * @form
  */
+/**
+ * Defines ForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const ForEach: ForEachInterface;

@@ -26,6 +26,7 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum ListItemGroupStyle {
@@ -40,6 +41,7 @@ declare enum ListItemGroupStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   NONE = 0,
@@ -55,6 +57,7 @@ declare enum ListItemGroupStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   CARD = 1,
@@ -75,6 +78,15 @@ declare enum ListItemGroupStyle {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the list item group options.
+ *
+ * @interface ListItemGroupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface ListItemGroupOptions {
   /**
    * Describes the ListItemGroup header.
@@ -90,6 +102,15 @@ declare interface ListItemGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Describes the ListItemGroup header.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   header?: CustomBuilder;
 
@@ -108,6 +129,15 @@ declare interface ListItemGroupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes the ListItemGroup footer.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   footer?: CustomBuilder;
 
   /**
@@ -125,6 +155,15 @@ declare interface ListItemGroupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes the ListItemGroup space.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   space?: number | string;
 
   /**
@@ -140,6 +179,7 @@ declare interface ListItemGroupOptions {
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   style?: ListItemGroupStyle;
@@ -160,6 +200,15 @@ declare interface ListItemGroupOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the ListItemGroup component
+ *
+ * @interface ListItemGroupInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface ListItemGroupInterface {
   /**
    * Called when interface is called.
@@ -178,6 +227,16 @@ interface ListItemGroupInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when interface is called.
+   *
+   * @param { ListItemGroupOptions } options
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (options?: ListItemGroupOptions): ListItemGroupAttribute;
 }
 
@@ -195,6 +254,15 @@ interface ListItemGroupInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the item group attribute functions.
+ *
+ * @extends CommonMethod<ListItemGroupAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
@@ -224,6 +292,21 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the ListItemGroup split line style is set.
+   *
+   * @param { {
+   *   strokeWidth: Length;
+   *   color?: ResourceColor;
+   *   startMargin?: Length;
+   *   endMargin?: Length;
+   * } | null } value
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   divider(
     value: {
       strokeWidth: Length;
@@ -247,6 +330,14 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines ListItemGroup Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 
 /**
@@ -261,5 +352,13 @@ declare const ListItemGroupInstance: ListItemGroupAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines ListItemGroup Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const ListItemGroup: ListItemGroupInterface;

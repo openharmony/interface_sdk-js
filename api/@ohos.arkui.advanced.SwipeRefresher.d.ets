@@ -18,6 +18,12 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare component SwipeRefresher
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 @Component
 export declare struct SwipeRefresher {
   /**
@@ -26,6 +32,13 @@ export declare struct SwipeRefresher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the content when loading.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop content?: string;
 
   /**
@@ -33,6 +46,13 @@ export declare struct SwipeRefresher {
    * type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Whether the component is loading.
+   * type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop isLoading: boolean;
 }

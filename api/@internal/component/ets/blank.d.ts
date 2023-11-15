@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Create Blank.
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
@@ -65,6 +75,17 @@ interface BlankInterface {
    * @since 10
    * @form
    */
+  /**
+   * The minimum size of the blank fill assembly on the container spindle.
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (min?: number | string): BlankAttribute;
 }
 
@@ -90,6 +111,16 @@ interface BlankInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Inheritance CommonMethod Set Styles
+ *
+ * @extends CommonMethod<BlankAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
@@ -120,6 +151,17 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * color: set color.
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   color(value: ResourceColor): BlankAttribute;
 }
 
@@ -144,6 +186,15 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Blank Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Blank: BlankInterface;
 
 /**
@@ -165,6 +216,15 @@ declare const Blank: BlankInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Blank Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const BlankInstance: BlankAttribute;

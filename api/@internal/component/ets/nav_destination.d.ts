@@ -95,6 +95,15 @@ declare interface NavDestinationCustomTitle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the custom title builder.
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   builder: CustomBuilder;
 
   /**
