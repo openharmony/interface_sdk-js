@@ -208,6 +208,14 @@ declare enum NavigationMode {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The navigation bar and the content area are displayed in stack.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Stack,
 
   /**
@@ -222,6 +230,14 @@ declare enum NavigationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The navigation bar and the content area are displayed side by side.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Split,
 
@@ -239,6 +255,15 @@ declare enum NavigationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
+   * Otherwise it's displayed in stack mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Auto,
 }
@@ -281,6 +306,14 @@ declare enum NavBarPosition {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The navigation bar is on the Start of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Start,
 
   /**
@@ -295,6 +328,14 @@ declare enum NavBarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The navigation bar is on the End of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   End,
 }
@@ -337,6 +378,14 @@ declare enum NavigationTitleMode {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The title is free mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Free = 0,
 
   /**
@@ -352,6 +401,14 @@ declare enum NavigationTitleMode {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The title is full mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Full,
 
   /**
@@ -366,6 +423,14 @@ declare enum NavigationTitleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The title is mini mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Mini,
 }
