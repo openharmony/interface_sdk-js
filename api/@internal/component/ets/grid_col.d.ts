@@ -393,6 +393,33 @@ interface GridColInterface {
   (option?: GridColOptions): GridColAttribute;
 }
 
+/**
+ * Defines the GridContainer attribute functions.
+ *
+ * @extends CommonMethod<GridColAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Defines the GridContainer attribute functions.
+ *
+ * @extends CommonMethod<GridColAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * Defines the GridContainer attribute functions.
+ *
+ * @extends CommonMethod<GridColAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   /**
    * Sets the span of current gird-container item.

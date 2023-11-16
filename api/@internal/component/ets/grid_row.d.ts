@@ -919,6 +919,33 @@ interface GridRowInterface {
   (option?: GridRowOptions): GridRowAttribute;
 }
 
+/**
+ * Defines the GridRow attribute functions.
+ *
+ * @extends CommonMethod<GridRowAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Defines the GridRow attribute functions.
+ *
+ * @extends CommonMethod<GridRowAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * Defines the GridRow attribute functions.
+ *
+ * @extends CommonMethod<GridRowAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
    * Callback triggered when the breakpoint changes
