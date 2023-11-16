@@ -179,10 +179,10 @@ export interface ToneOptions {
   muteAudio?: boolean;
 
   /**
-   * Mute haptic.
+   * Mute haptics.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11
    */
-  muteHaptic?: boolean;
+  muteHaptics?: boolean;
 }
