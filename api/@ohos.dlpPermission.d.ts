@@ -282,7 +282,7 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<DLPPermissionInfo> } Returns the {@link DLPPermissionInfo}.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - No permission to invoke this API, which is for DLP sandbox application.
+   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -295,7 +295,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<DLPPermissionInfo> } callback - Indicates the callback of getDLPPermissionInfo.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - No permission to invoke this API, which is for DLP sandbox application.
+   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -331,7 +331,7 @@ declare namespace dlpPermission {
    * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -345,7 +345,7 @@ declare namespace dlpPermission {
    * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -405,7 +405,7 @@ declare namespace dlpPermission {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - No permission to invoke this API, which is for DLP sandbox application.
+   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -419,7 +419,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<void> } callback - Indicates the callback of setRetentionState.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100006 - No permission to invoke this API, which is for DLP sandbox application.
+   * @throws { BusinessError } 19100006 - This API can only be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -459,7 +459,7 @@ declare namespace dlpPermission {
    * @returns { Promise<Array<RetentionSandboxInfo>> } Returns a list of {@link RetentionSandboxInfo}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -473,7 +473,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -486,7 +486,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -498,7 +498,7 @@ declare namespace dlpPermission {
    *
    * @returns { Promise<Array<AccessedDLPFileInfo>> } Returns a list of {@link AccessedDLPFileInfo}.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -511,7 +511,7 @@ declare namespace dlpPermission {
    * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Indicates the callback of getDLPFileAccessRecords.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
@@ -1305,13 +1305,13 @@ declare namespace dlpPermission {
   function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
 
   /**
-   * set SandboxConfig info. This method uses a promise to return the result.
+   * Sets sandbox application configuration. This method uses a promise to return the result.
    *
-   * @param { string } configInfo - configInfo of the application.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } configInfo - Configuration of the sandbox application.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1320,13 +1320,13 @@ declare namespace dlpPermission {
   function setSandboxAppConfig(configInfo: string): Promise<void>;
 
   /**
-   * set SandboxConfig info. This method uses an asynchronous callback to return the result.
+   * Sets sandbox application configuration. This method uses an asynchronous callback to return the result.
    *
-   * @param { string } configInfo - configInfo of the application.
-   * @param { AsyncCallback<void> } callback - Indicates the callback of setSandboxAppConfig.
+   * @param { string } configInfo - Configuration of the sandbox application.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1335,12 +1335,12 @@ declare namespace dlpPermission {
   function setSandboxAppConfig(configInfo: string, callback: AsyncCallback<void>): void;
 
   /**
-   * clean SandboxConfig info. This method uses a promise to return the result.
+   * Cleans sandbox application configuration. This method uses a promise to return the result.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1349,12 +1349,12 @@ declare namespace dlpPermission {
   function cleanSandboxAppConfig(): Promise<void>;
 
   /**
-   * clean SandboxConfig info. This method uses an asynchronous callback to return the result.
+   * Cleans sandbox application configuration. This method uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Indicates the callback of cleanSandboxAppConfig.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - No permission to invoke this API, which is not for DLP sandbox application.
+   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1363,9 +1363,9 @@ declare namespace dlpPermission {
   function cleanSandboxAppConfig(callback: AsyncCallback<void>): void;
 
   /**
-   * get SandboxConfig info. This method uses a promise to return the result.
+   * Obtains sandbox application configuration. This method uses a promise to return the result.
    *
-   * @returns { Promise<string> } Returns the string of SandboxConfig info.
+   * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - System service exception.
@@ -1376,9 +1376,9 @@ declare namespace dlpPermission {
   function getSandboxAppConfig(): Promise<string>;
 
   /**
-   * get SandboxConfig info. This method uses a promise to return the result.
+   * Obtains sandbox application configuration. This method uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<string> } callback - Indicates the callback of getSandboxAppConfig.
+   * @param { AsyncCallback<string> } callback - Callback invoked to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - System service exception.
