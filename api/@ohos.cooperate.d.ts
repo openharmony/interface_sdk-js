@@ -120,7 +120,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @deprecated since 11
-     * @useinstead cooperate.CooperateState#COOPERATE_SESSION_DISCONNECT
+     * @useinstead cooperate.CooperateState#COOPERATE_SESSION_DISCONNECTED
      */
     COOPERATE_SESSION_DISCONNECTED = 7,
   }
@@ -204,7 +204,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    COOPERATE_SESSION_DISCONNECT = 7,
+    COOPERATE_SESSION_DISCONNECTED = 7,
   }
 
   /**
