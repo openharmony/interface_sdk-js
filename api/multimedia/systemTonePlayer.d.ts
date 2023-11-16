@@ -26,6 +26,7 @@ export interface SystemTonePlayer {
   /**
    * Gets the title of system tone.
    * @param { AsyncCallback<string> } callback - Callback used to return the title.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -37,6 +38,7 @@ export interface SystemTonePlayer {
   /**
    * Gets the title of system tone.
    * @returns { Promise<string> } Promise used to return the title.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -47,6 +49,7 @@ export interface SystemTonePlayer {
   /**
    * Prepare to play.
    * @param { AsyncCallback<void> } callback - Callback to return result of prepare.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @throws { BusinessError } 5400103 - I/O error.
@@ -59,6 +62,7 @@ export interface SystemTonePlayer {
   /**
    * Prepare to play.
    * @returns { Promise<void> } Promise used to return result of prepare.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -70,6 +74,7 @@ export interface SystemTonePlayer {
   /**
    * Start playing the system tone. Using this interface, the audio and haptic will not be muted.
    * @param { AsyncCallback<number> } callback - Callback to return id of this start.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -83,6 +88,7 @@ export interface SystemTonePlayer {
    * or haptic.
    * @param { ToneOptions } toneOptions - Tone options used for this play.
    * @returns { Promise<number> } Promise used to return the id of this playback.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -95,6 +101,7 @@ export interface SystemTonePlayer {
    * Start playing the system tone with toneOptions.
    * @param { ToneOptions } toneOptions - Tone options used for this play.
    * @param { AsyncCallback<number> } callback - Callback to return id of this play.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -107,6 +114,7 @@ export interface SystemTonePlayer {
    * Stop with playback id.
    * @param { number } id - The Playback id to stop.
    * @param { AsyncCallback<void> } callback - Callback to return result of this stop.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameters check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -119,6 +127,7 @@ export interface SystemTonePlayer {
    * Stop with playback id.
    * @param { number } id - The Playback id to stop.
    * @returns { Promise<void> } Promise used to return result of this stop.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameters check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -130,6 +139,7 @@ export interface SystemTonePlayer {
   /**
    * Release this system tone player.
    * @param { AsyncCallback<void> } callback - Callback used to return result of release.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameters check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @throws { BusinessError } 5400103 - I/O error.
@@ -142,6 +152,7 @@ export interface SystemTonePlayer {
   /**
    * Release this system tone player.
    * @returns { Promise<void> } Promise used to return result of release.
+   * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core

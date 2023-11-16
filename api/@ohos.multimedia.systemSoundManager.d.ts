@@ -144,6 +144,7 @@ declare namespace systemSoundManager {
      * @param { string } uri - Ringtone uri to set.
      * @param { RingtoneType } type - Ringtone type to set.
      * @param { AsyncCallback<void> } callback - Callback used to return the set uri result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -172,6 +173,7 @@ declare namespace systemSoundManager {
      * @param { string } uri - Ringtone uri to set.
      * @param { RingtoneType } type - Ringtone type to set.
      * @returns { Promise<void> } Promise used to return the set uri result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -198,6 +200,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { RingtoneType } type - Ringtone type to get.
      * @param { AsyncCallback<string> } callback - Callback used to return the ringtone uri maintained in system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameter checks failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -224,6 +227,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<string> } Promise used to return the ringtone uri maintained in system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -250,6 +254,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { RingtoneType } type - Ringtone type to get.
      * @param { AsyncCallback<RingtonePlayer> } callback - Callback used to return a ringtone player instance.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -275,6 +280,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { RingtoneType } type - Ringtone type to get.
      * @returns { Promise<RingtonePlayer> } Promise used to return a ringtone player instance.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -288,6 +294,7 @@ declare namespace systemSoundManager {
      * @param { string } uri - Ringtone uri to set.
      * @param { SystemToneType } type - System tone type to set.
      * @param { AsyncCallback<void> } callback - Callback used to return the set uri result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -302,6 +309,7 @@ declare namespace systemSoundManager {
      * @param { string } uri - Ringtone uri to set.
      * @param { SystemToneType } type - System tone type to set.
      * @returns { Promise<void> } Promise used to return the result of set system tone uri.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -315,6 +323,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { SystemToneType } type - System tone type to get.
      * @param { AsyncCallback<string> } callback - Callback used to return the system tone uri maintained in system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -328,6 +337,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<string> } Promise used to return the system tone maintained in system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -341,6 +351,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { SystemToneType } type - System tone type to get.
      * @param { AsyncCallback<SystemTonePlayer> } callback - Callback used to return the SystemTonePlayer.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -353,6 +364,7 @@ declare namespace systemSoundManager {
      * @param { BaseContext } context - Current application context.
      * @param { SystemToneType } type - System tone type to get.
      * @returns { Promise<SystemTonePlayer> } Promise used to return the SystemTonePlayer.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
