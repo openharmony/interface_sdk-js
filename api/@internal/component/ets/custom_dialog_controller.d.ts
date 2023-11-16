@@ -354,7 +354,7 @@ declare interface CustomDialogControllerOptions {
   cornerRadius?: Dimension | BorderRadiuses;
 
   /**
-   * whether it is a modaldialog
+   * whether it is a modal dialog
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -362,7 +362,6 @@ declare interface CustomDialogControllerOptions {
    * @since 11
    */
   isModal?: boolean;  
-
 }
 
 /**

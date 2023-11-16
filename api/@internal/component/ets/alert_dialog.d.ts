@@ -749,6 +749,16 @@ declare interface AlertDialogParam {
    * @since 11
    */
   showInSubWindow?: boolean;
+
+  /**
+   * whether it is a modal dialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  isModal?: boolean;  
 }
 
 /**
