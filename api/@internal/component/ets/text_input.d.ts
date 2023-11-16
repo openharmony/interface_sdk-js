@@ -1720,15 +1720,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   customKeyboard(value: CustomBuilder): TextInputAttribute;
 
   /**
-   * Define show counter of the text input.
+   * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
    *
-   * @param { boolean } value - Set the counter of the text input.
+   * @param { boolean } value - Set showcounter of the text input.
+   * @param { InputCounterOptions } options - Set the percentage of counter.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
-  showCounter(value: boolean): TextInputAttribute;
+  showCounter(value: boolean, options?: InputCounterOptions): TextInputAttribute;
 
   /**
    * Set the cancel button style
