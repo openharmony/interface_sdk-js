@@ -311,6 +311,16 @@ declare namespace promptAction {
      * @since 10
      */
     offset?: Offset;
+
+    /**
+     * Whether to display in the sub window.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    showInSubWindow?: boolean;      
   }
 
   /**
@@ -390,6 +400,16 @@ declare namespace promptAction {
      * @since 10
      */
     buttons: [Button, Button?, Button?, Button?, Button?, Button?];
+
+    /**
+     * Whether to display in the sub window.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    showInSubWindow?: boolean;    
   }
 
   /**
