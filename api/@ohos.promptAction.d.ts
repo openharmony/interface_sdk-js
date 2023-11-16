@@ -320,7 +320,17 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
-    showInSubWindow?: boolean;      
+    showInSubWindow?: boolean;
+    
+    /**
+     * whether it is a modaldialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    isModal?: boolean;    
   }
 
   /**
@@ -409,7 +419,17 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
-    showInSubWindow?: boolean;    
+    showInSubWindow?: boolean;
+    
+    /**
+     * whether it is a modaldialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    isModal?: boolean;         
   }
 
   /**

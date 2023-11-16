@@ -326,6 +326,16 @@ interface ActionSheetOptions
    * @since 11
    */
   showInSubWindow?: boolean;
+
+  /**
+   * whether it is a modaldialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  isModal?: boolean;     
 }
 
 /**
