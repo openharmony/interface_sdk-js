@@ -16,6 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type rpc from './@ohos.rpc';
+import type resourceManager from './@ohos.resourceManager';
 
 /**
  * @namespace image
@@ -644,7 +645,133 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
-    PHYSICAL_APERTURE = 'HwMnotePhysicalAperture'
+    PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
+
+    /**
+     * Roll Angle
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    ROLL_ANGLE = 'HwMnoteRollAngle',
+
+    /**
+     * Pitch Angle
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    PITCH_ANGLE = 'HwMnotePitchAngle',
+
+    /**
+     * Capture Scene: Food
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
+
+    /**
+     * Capture Scene: Stage
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
+
+    /**
+     * Capture Scene: Blue Sky
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
+
+    /**
+     * Capture Scene: Green Plant
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
+
+    /**
+     * Capture Scene: Beach
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
+
+    /**
+     * Capture Scene: Snow
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
+
+    /**
+     * Capture Scene: Sunset
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
+
+    /**
+     * Capture Scene: Flowers
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
+
+    /**
+     * Capture Scene: Night
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
+
+    /**
+     * Capture Scene: Text
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SCENE_TEXT_CONF = 'HwMnoteSceneTextConf',
+
+    /**
+     * Face Count
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    FACE_COUNT = 'HwMnoteFaceCount',
+
+    /**
+     * Focus Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    FOCUS_MODE = 'HwMnoteFocusMode'
   }
 
   /**
@@ -1610,6 +1737,16 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
+   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(uri: string): ImageSource;
 
   /**
@@ -1631,6 +1768,17 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(uri: string, options: SourceOptions): ImageSource;
 
   /**
@@ -1649,6 +1797,16 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   *
+   * @param { number } fd ID of a file descriptor.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createImageSource(fd: number): ImageSource;
 
@@ -1671,6 +1829,17 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   *
+   * @param { number } fd ID of a file descriptor.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(fd: number, options: SourceOptions): ImageSource;
 
   /**
@@ -1689,6 +1858,16 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an ImageSource instance based on the buffer.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -1711,7 +1890,31 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the buffer.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the raw file descriptor.
+   *
+   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.
@@ -1767,6 +1970,15 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an ImagePacker instance.
+   *
+   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createImagePacker(): ImagePacker;
 
@@ -2473,6 +2685,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains information about an image with the specified sequence number and uses a callback
+     * to return the result.
+     *
+     * @param { number } index Sequence number of an image.
+     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getImageInfo(index: number, callback: AsyncCallback<ImageInfo>): void;
 
     /**
@@ -2489,6 +2712,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains information about this image and uses a callback to return the result.
+     *
+     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
@@ -2508,6 +2740,16 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get image information from image source.
+     *
+     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getImageInfo(index?: number): Promise<ImageInfo>;
 
@@ -2943,6 +3185,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Compresses or packs an image and uses a callback to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     packing(source: ImageSource, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
@@ -2963,6 +3216,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     packing(source: ImageSource, option: PackingOption): Promise<ArrayBuffer>;
 
@@ -2985,6 +3249,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Compresses or packs an image and uses a callback to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
@@ -3006,9 +3281,72 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
+     * Compresses or packs an image into a file and uses a callback to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: ImageSource, fd: number, options: PackingOption, callback: AsyncCallback<void>): void;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: ImageSource, fd: number, options: PackingOption): Promise<void>;
+
+    /**
+     * Compresses or packs an image into a file and uses a callback to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: PixelMap, fd: number, options: PackingOption, callback: AsyncCallback<void>): void;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
+    packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
+
+     /**
      * Releases an ImagePacker instance and uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.

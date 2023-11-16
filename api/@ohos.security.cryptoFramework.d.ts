@@ -23,6 +23,15 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Security.CryptoFramework
  * @since 9
  */
+/**
+ * Provides a set of encryption and decryption algorithm library framework, shields the underlying differences,
+ * encapsulate the relevant algorithm library, and provides a unified functional interface upward.
+ *
+ * @namespace cryptoFramework
+ * @syscap SystemCapability.Security.CryptoFramework
+ * @atomicservice
+ * @since 11
+ */
 declare namespace cryptoFramework {
   /**
    * Enum for result code.
@@ -31,12 +40,27 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Enum for result code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
+   * @since 11
+   */
   enum Result {
     /**
      * Indicates that input parameters is invalid.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Indicates that input parameters is invalid.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
      */
     INVALID_PARAMS = 401,
 
@@ -54,6 +78,13 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    /**
+     * Indicates the memory error.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
+     */
     ERR_OUT_OF_MEMORY = 17620001,
 
     /**
@@ -70,6 +101,13 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    /**
+     * Indicates that crypto operation error.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
+     */
     ERR_CRYPTO_OPERATION = 17630001
   }
 
@@ -80,6 +118,14 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Provides the data blob type.
+   *
+   * @typedef DataBlob
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
+   * @since 11
+   */
   interface DataBlob {
     /**
      * Indicates the content of data blob.
@@ -87,6 +133,14 @@ declare namespace cryptoFramework {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Indicates the content of data blob.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
      */
     data: Uint8Array;
   }
@@ -370,6 +424,14 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Provides the random interface.
+   *
+   * @typedef Random
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
+   * @since 11
+   */
   interface Random {
     /**
      * Generate random DataBlob by given length.
@@ -381,6 +443,18 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Generate random DataBlob by given length.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return random DataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
      */
     generateRandom(len: number, callback: AsyncCallback<DataBlob>): void;
 
@@ -395,6 +469,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    /**
+     * Generate random DataBlob by given length.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @returns { Promise<DataBlob> } the promise used to return the generated random blob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
+     */
     generateRandom(len: number): Promise<DataBlob>;
 
     /**
@@ -408,6 +494,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
+    /**
+     * Generate random DataBlob by given length synchronously.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @returns { DataBlob } return the generated random blob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
+     */
     generateRandomSync(len: number): DataBlob;
 
     /**
@@ -417,6 +515,15 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Set seed by given DataBlob.
+     *
+     * @param { DataBlob } seed - indicates the seed DataBlob.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
      */
     setSeed(seed: DataBlob): void;
 
@@ -428,6 +535,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
+    /**
+     * Indicates the random generation algorithm name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
+     * @since 11
+     */
     readonly algName: string;
   }
 
@@ -438,6 +554,15 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
+   */
+  /**
+   * Create a random generator instance.
+   *
+   * @returns { Random } returns the created rand instance.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
+   * @since 11
    */
   function createRandom(): Random;
 
@@ -864,7 +989,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    OAEP_MGF1_PSRC_UINT8ARR = 103
+    OAEP_MGF1_PSRC_UINT8ARR = 103,
+
+    /**
+     * Indicates the hash algorithm name of SM2 cipher process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    SM2_MD_NAME_STR = 104
   }
 
   /**
@@ -914,7 +1048,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    PSS_TRAILER_FIELD_NUM = 104
+    PSS_TRAILER_FIELD_NUM = 104,
+
+    /**
+     * Indicates the value for user id. It is used in SM2 signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    SM2_USER_ID_UINT8ARR = 105
   }
 
   /**
@@ -1271,6 +1414,22 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: number): void;
 
     /**
+     * Set the specified parameter to the sign object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
+
+    /**
      * Get the specified parameter from the sign object.
      * Currently, only PSS parameters in RSA is supported.
      *
@@ -1434,6 +1593,22 @@ declare namespace cryptoFramework {
      * @since 10
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: number): void;
+
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
     /**
      * Get the specified parameter from the verify object.
@@ -2112,6 +2287,30 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Key utilities for ECC Algorithm.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  class ECCKeyUtil {
+    /**
+     * Create the common parameter set based on the curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @returns { ECCCommonParamsSpec } the ECC common params spec obj.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    static genECCCommonParamsSpec(curveName: string) : ECCCommonParamsSpec;
+  }
+
+  /**
    * Specifies the set of common parameters used in the RSA algorithm.
    *
    * @typedef RSACommonParamsSpec
@@ -2295,6 +2494,139 @@ declare namespace cryptoFramework {
    * @since 10
    */
   function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
+
+  /**
+   * Specifies the key derivation function parameters.
+   *
+   * @typedef KdfSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface KdfSpec {
+    /**
+     * Indicates the algorithm name of key derivation function.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    algName: string;
+  }
+
+  /**
+   * Specifies the PBKDF2 parameters.
+   *
+   * @typedef PBKDF2Spec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface PBKDF2Spec extends KdfSpec {
+    /**
+     * Indicates the password parameter of PBKDF2.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    password: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of PBKDF2.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the iteration number of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    iterations: number;
+
+    /**
+     * Indicates the byte length of output key of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    keySize: number;
+  }
+
+  /**
+   * The key derivation function object provides the ability to derive key with its associated parameters.
+   *
+   * @typedef Kdf
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface Kdf {
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
+
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { Promise<DataBlob> } the promise used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    generateSecret(params: KdfSpec): Promise<DataBlob>;
+
+    /**
+     * Indicates the algorithm name of the key derivation function.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    readonly algName: string;
+  }
+
+  /**
+   * Create a key derivation function object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Kdf } the key derivation function object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  function createKdf(algName: string): Kdf;
 }
 
 export default cryptoFramework;

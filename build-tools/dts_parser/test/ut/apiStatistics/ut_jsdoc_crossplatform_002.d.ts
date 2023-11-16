@@ -3,4 +3,4 @@
  *
  * @crossplatform
  */
-export namespace test {}
+export class test {}

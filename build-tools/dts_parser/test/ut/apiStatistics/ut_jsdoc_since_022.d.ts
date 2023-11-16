@@ -3,4 +3,4 @@
  *
  * @since 7
  */
-export namespace test {}
+export class test {}

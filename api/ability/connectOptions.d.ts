@@ -24,6 +24,15 @@ import rpc from './../@ohos.rpc';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */
+/**
+ * As an input parameter when connecting a specified background service, it is used to receive
+ * state changes during the connection.
+ *
+ * @interface ConnectOptions
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 export interface ConnectOptions {
   /**
    * The callback interface was connect successfully.
@@ -32,6 +41,15 @@ export interface ConnectOptions {
    * @param { rpc.IRemoteObject } remote - The remote object instance
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * The callback interface was connect successfully.
+   *
+   * @param { ElementName } elementName - The element name of the service ability
+   * @param { rpc.IRemoteObject } remote - The remote object instance
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
 
@@ -42,6 +60,14 @@ export interface ConnectOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
+  /**
+   * The callback interface was disconnect successfully.
+   *
+   * @param { ElementName } elementName - The element name of the service ability
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   onDisconnect(elementName: ElementName): void;
 
   /**
@@ -50,6 +76,14 @@ export interface ConnectOptions {
    * @param { number } code - The error code of the failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * The callback interface was connect failed.
+   *
+   * @param { number } code - The error code of the failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   onFailed(code: number): void;
 }

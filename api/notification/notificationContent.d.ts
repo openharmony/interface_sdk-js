@@ -15,6 +15,7 @@
 
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
+import type notificationManager from '../@ohos.notificationManager';
 
 /**
  * Describes a normal text notification.
@@ -161,6 +162,205 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 }
 
 /**
+ * Describes a system live view notification.
+ *
+ * @typedef NotificationSystemLiveViewContent
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
+export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
+  /**
+   * type code of a system live view notification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  typeCode: number;
+
+  /**
+   * capsule of a system live view notification.
+   *
+   * @type { ?NotificationCapsule }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  capsule?: NotificationCapsule;
+
+  /**
+   * button of a system live view notification.
+   *
+   * @type { ?NotificationButton }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  button?: NotificationButton;
+
+  /**
+   * type of a system live view notification.
+   *
+   * @type { ?NotificationTime }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  time?: NotificationTime;
+
+  /**
+   * progress of a system live view notification.
+   *
+   * @type { ?NotificationProgress }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  progress?: NotificationProgress;
+}
+
+/**
+ * Describes a system live view capsule type.
+ *
+ * @typedef NotificationCapsule
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
+export interface NotificationCapsule {
+  /**
+   * Title displayed in this capsule.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  title?: string;
+
+  /**
+   * Icon displayed in this capsule.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  icon?: image.PixelMap;
+
+  /**
+   * Background color of this capsule.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  backgroundColor?: string;
+}
+
+/**
+ * Describes a system live view button type.
+ *
+ * @typedef NotificationButton
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
+export interface NotificationButton {
+  /**
+   * array of button names.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  names?: Array<string>;
+
+  /**
+   * array of button icons.
+   *
+   * @type { ?Array<image.PixelMap> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  icons?: Array<image.PixelMap>;
+}
+
+/**
+ * Describes a system live view time type.
+ *
+ * @typedef NotificationTime
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
+export interface NotificationTime {
+  /**
+   * The initial time of this notification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  initialTime?: number;
+
+  /**
+   * 
+   * Count down the time.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  isCountDown?: boolean;
+
+  /**
+   * The time is paused.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  isPaused?: boolean;
+
+  /**
+   * The time should be displayed in title.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  isInTitle?: boolean;
+}
+
+/**
+ * Describes a system live view progress type.
+ *
+ * @typedef NotificationProgress
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
+export interface NotificationProgress {
+  /**
+   * Max value of this progress.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  maxValue?: number;
+
+  /**
+   * Current value of this progress.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  currentValue?: number;
+
+  /**
+   * Use percentage mode in this progress.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  isPercentage?: boolean;
+}
+
+/**
  * Describes notification types.
  *
  * @typedef NotificationContent
@@ -171,11 +371,22 @@ export interface NotificationContent {
   /**
    * Notification content type.
    *
-   * @type { notification.ContentType }
+   * @type { ?notification.ContentType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   * @deprecated since 11
+   * @useinstead NotificationContent#notificationContentType
    */
-  contentType: notification.ContentType;
+  contentType?: notification.ContentType;
+
+  /**
+   * Notification content type.
+   *
+   * @type { ?notificationManager.ContentType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  notificationContentType?: notificationManager.ContentType;
 
   /**
    * Normal text notification.
@@ -212,4 +423,13 @@ export interface NotificationContent {
    * @since 7
    */
   picture?: NotificationPictureContent;
+
+  /**
+   * System-live-view notification.
+   *
+   * @type { ?NotificationSystemLiveViewContent }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  systemLiveView?: NotificationSystemLiveViewContent;
 }

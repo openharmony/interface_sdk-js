@@ -327,6 +327,58 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio device for usage.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   * @since 11
+   */
+  enum DeviceUsage {
+    /**
+     * Media output devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    MEDIA_OUTPUT_DEVICES = 1,
+    /**
+     * Media input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    MEDIA_INPUT_DEVICES = 2,
+    /**
+     * All media devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    ALL_MEDIA_DEVICES = 3,
+    /**
+     * Call output devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    CALL_OUTPUT_DEVICES = 4,
+    /**
+     * Call input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    CALL_INPUT_DEVICES = 8,
+    /**
+     * All call devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    ALL_CALL_DEVICES = 12,
+  }
+
+  /**
    * Enumerates device roles.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1859,6 +1911,44 @@ declare namespace audio {
      * @since 9
      */
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Obtains all the available audio devices with a specific device usage.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @returns { AudioDeviceDescriptors } The device list.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes to available device change events.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
@@ -3536,6 +3626,17 @@ declare namespace audio {
      * @since 9
      */
     setVolume(volume: number): Promise<void>;
+
+    /**
+     * Changes the volume with ramp for a duration.
+     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { number } duration -  Duration for volume ramp, in millisecond.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setVolumeWithRamp(volume: number, duration: number): void;
 
     /**
      * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.

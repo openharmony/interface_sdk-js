@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import type { AsyncCallback } from './@ohos.base';
 import type baseProfile from './@ohos.bluetooth.baseProfile';
 
 /**
@@ -105,6 +106,158 @@ declare namespace a2dp {
      * @since 10
      */
     getPlayingState(deviceId: string): PlayingState;
+
+    /**
+     * Checks whether the device supports absolute volume.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<boolean> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    isAbsoluteVolumeSupported(deviceId: string): Promise<boolean>;
+
+    /**
+     * Checks whether the device supports absolute volume.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { AsyncCallback<boolean> } callback - Callback used to listen for the pairing request event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    isAbsoluteVolumeSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Checks whether the absolute volume is enabled.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<boolean> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    isAbsoluteVolumeEnabled(deviceId: string): Promise<boolean>;
+
+    /**
+     * Checks whether the absolute volume is enabled.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { AsyncCallback<boolean> } callback - the callback result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    isAbsoluteVolumeEnabled(deviceId: string, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Turn on the absolute volume switch.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<void> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    enableAbsoluteVolume(deviceId: string): Promise<void>;
+
+    /**
+     * Turn on the absolute volume switch..
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { AsyncCallback<void> } callback - the callback result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    enableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Turn off the absolute volume switch.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<void> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    disableAbsoluteVolume(deviceId: string): Promise<void>;
+
+    /**
+     * Turn off the absolute volume switch..
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { AsyncCallback<void> } callback - the callback result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    disableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
   }
 
   /**

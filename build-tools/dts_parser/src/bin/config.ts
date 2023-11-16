@@ -210,7 +210,7 @@ function collectApi(options: optionObjType): toolNameValueType {
     return {
       data:
         options.format === 'excel' ?
-          ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos : 
+          ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos :
           [fileContent],
       callback: collectApiCallback,
     };
@@ -238,11 +238,13 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
     '起始版本',
     '废弃版本',
     'syscap',
+    '错误码',
     '是否为系统API',
     '模型限制',
     '权限',
     '是否支持跨平台',
     '是否支持卡片应用',
+    '是否为高阶API',
     '装饰器',
     '文件路径',
     '子系统',
@@ -263,11 +265,13 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getSince() === '-1' ? '' : apiInfo.getSince(),
       apiInfo.getDeprecatedVersion() === '-1' ? '' : apiInfo.getDeprecatedVersion(),
       apiInfo.getSyscap(),
+      apiInfo.getErrorCodes().join() === '-1' ? '' : apiInfo.getErrorCodes().join(),
       apiInfo.getApiLevel(),
       apiInfo.getModelLimitation(),
       apiInfo.getPermission(),
       apiInfo.getIsCrossPlatForm(),
       apiInfo.getIsForm(),
+      apiInfo.getIsAutomicService(),
       apiInfo.getDecorators()?.join(),
       apiInfo.getFilePath(),
       subsystemMap.get(FunctionUtils.handleSyscap(apiInfo.getSyscap())),

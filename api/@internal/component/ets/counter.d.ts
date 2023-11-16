@@ -68,14 +68,14 @@ interface CounterInterface {
 /**
  * Defines the Counter attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Counter attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -83,7 +83,7 @@ interface CounterInterface {
 /**
  * Defines the Counter attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

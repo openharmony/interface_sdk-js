@@ -65704,6 +65704,8 @@ vbox
 vbs
 vbscript
 vc
+vcard
+vcf
 vcl
 vcr
 vcs
@@ -66587,7 +66589,6 @@ vps
 vr
 vs
 vscode
-vss
 vsts
 vstudio
 vt

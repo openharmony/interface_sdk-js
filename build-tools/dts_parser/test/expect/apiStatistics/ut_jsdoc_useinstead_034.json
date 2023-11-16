@@ -8,18 +8,20 @@
     "since": "7",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_jsdoc_useinstead_034.d.ts/test",
     "apiName": "test",
     "deprecatedVersion": "9",
     "useInstead": "ohos.app.ability.dataUriUtils/Test",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
+    "apiType": "Class",
+    "definedText": " export class test",
     "pos": {
       "line": 8,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

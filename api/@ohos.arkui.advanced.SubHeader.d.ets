@@ -72,7 +72,7 @@ export declare class OperationOption {
    * @since 10
    */
   action?: () => void;
-};
+}
 
 /**
  * Declare type SelectOption
@@ -107,7 +107,7 @@ export declare class SelectOptions {
   * @since 10
   */
   onSelect?: (index: number, value?: string) => void;
-};
+}
 
 /**
  * Declare struct SubHeader

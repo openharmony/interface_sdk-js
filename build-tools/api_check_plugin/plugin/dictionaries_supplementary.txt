@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -43,6 +44,7 @@ asyn
 asynchronized
 atime
 atio
+atomicservice
 atqa
 attaches
 attachment0
@@ -178,6 +180,7 @@ dirent
 dirxml
 disables
 disallowed
+disallows
 discharging
 disconnecting
 disconnection
@@ -307,6 +310,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
@@ -515,6 +519,7 @@ persistable
 perso
 personalisation
 pertaining
+pgo
 photographing
 pickers
 pixelmap
@@ -538,6 +543,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises

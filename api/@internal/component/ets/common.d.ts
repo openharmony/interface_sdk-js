@@ -14,6 +14,29 @@
  */
 
 /**
+ * Defines the options of Component ClassDecorator.
+ *
+ * @interface ComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare interface ComponentOptions {
+  /**
+   * freeze UI state.
+   *
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  freezeWhenInactive : boolean,
+}
+
+/**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34,7 +57,16 @@
  * @since 10
  * @form
  */
-declare const Component: ClassDecorator;
+/**
+ * Defining Component ClassDecorator
+ *
+ * Component is a ClassDecorator and it supports ComponentOptions as parameters.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -156,6 +188,15 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defining BuilderParam PropertyDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const BuilderParam: PropertyDecorator;
@@ -370,6 +411,15 @@ declare const Watch: (value: string) => PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defining Builder MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const Builder: MethodDecorator;
@@ -885,6 +935,36 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
+ * Enum for FinishCallbackType.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum FinishCallbackType {
+  /**
+   * When the entire animation ends and will be removed immediately, the callback is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  REMOVED = 0,
+  /**
+   * When the animation is logically down but may still be in its long tail, the callback is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  LOGICALLY = 1,
+}
+
+/**
  * Defines the animate function params.
  *
  * @interface AnimateParam
@@ -1063,6 +1143,17 @@ declare interface AnimateParam {
    * @form
    */
   onFinish?: () => void;
+
+  /**
+   * Define the type of onFinish callback in animation.
+   *
+   * @type { ?FinishCallbackType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  finishCallbackType?: FinishCallbackType;
 }
 
 /**
@@ -2050,8 +2141,9 @@ declare class TransitionEffect<
   /**
    * Defines an identity transition effect
    *
-   * @constant
    * @type { TransitionEffect<"identity"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2062,8 +2154,9 @@ declare class TransitionEffect<
   /**
    * Defines an opacity transition effect
    *
-   * @constant
    * @type { TransitionEffect<"opacity"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2074,12 +2167,13 @@ declare class TransitionEffect<
   /**
    * Defines a slide transition effect
    *
-   * @constant
    * @type { TransitionEffect<
    * "asymmetric",
    * {appear: TransitionEffect<"move", TransitionEdge>;
    * disappear: TransitionEffect<"move", TransitionEdge>;
    * }> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2096,8 +2190,9 @@ declare class TransitionEffect<
   /**
    * Defines a slide & switch transition effect
    *
-   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3381,7 +3476,16 @@ declare interface ShadowOptions {
    * @since 10
    * @form
    */
-  color?: Color | string | Resource;
+  /**
+   * Define the color or the color strategy of shadow
+   *
+   * @type { ?(Color | string | Resource| ColoringStrategy) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  color?: Color | string | Resource | ColoringStrategy;
 
   /**
    * Define the horizontal offset size of shadow
@@ -4725,6 +4829,46 @@ declare enum DragResult {
 }
 
 /**
+ * Enum for BlendMode.
+ * Use background as src, child nodes as dst
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum BlendMode {
+  /**
+   * Hybrid mode does not take effect
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  NORMAL = 0,
+  /**
+   * r = d * sa, blend background color with child nodes' alpha
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DESTINATION_IN = 1,
+  /**
+   * r = s * da
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  SOURCE_IN = 2
+}
+
+/**
  * DragEvent object description
  *
  * @interface DragEvent
@@ -5349,6 +5493,15 @@ declare interface StateStyles {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the options of popup message.
+ *
+ * @interface PopupMessageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface PopupMessageOptions {
   /**
    * Sets the color of popup text.
@@ -5357,6 +5510,15 @@ declare interface PopupMessageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the color of popup text.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   textColor?: ResourceColor;
 
@@ -5367,6 +5529,15 @@ declare interface PopupMessageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the font of popup text.
+   *
+   * @type { ?Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   font?: Font;
 }
@@ -5386,6 +5557,15 @@ declare interface PopupMessageOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the popup options.
+ *
+ * @interface PopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface PopupOptions {
   /**
    * Information in the pop-up window.
@@ -5401,6 +5581,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Information in the pop-up window.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   message: string;
 
@@ -5425,6 +5614,17 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The placement of popup.
+   * Supports all positions defined in Placement.
+   *
+   * @type { ?Placement }
+   * @default Placement.Bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   placement?: Placement;
 
   /**
@@ -5441,6 +5641,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The first button.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   primaryButton?: {
     /**
@@ -5493,6 +5702,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The second button.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   secondaryButton?: {
     /**
      * Button text value
@@ -5544,6 +5762,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * on State Change
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onStateChange?: (event: {
     /**
      * is Visible.
@@ -5571,6 +5798,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The offset of the sharp corner of popup.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   arrowOffset?: Length;
 
   /**
@@ -5588,6 +5824,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether to display in the sub window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showInSubWindow?: boolean;
 
   /**
@@ -5600,6 +5845,17 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   *
+   * @type { ?(boolean | { color: ResourceColor }) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   mask?: boolean | { color: ResourceColor };
 
   /**
@@ -5610,6 +5866,15 @@ declare interface PopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the options of popup message.
+   *
+   * @type { ?PopupMessageOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   messageOptions?: PopupMessageOptions
 
   /**
@@ -5619,6 +5884,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the space of between the popup and target.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   targetSpace?: Length
 
@@ -5637,6 +5911,7 @@ declare interface PopupOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   enableArrow?: boolean;
@@ -5647,6 +5922,15 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the position offset of the popup.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   offset?: Position
 }
@@ -5666,6 +5950,15 @@ declare interface PopupOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the custom popup options.
+ *
+ * @interface CustomPopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface CustomPopupOptions {
   /**
    * builder of popup
@@ -5681,6 +5974,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * builder of popup
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   builder: CustomBuilder;
 
@@ -5698,6 +6000,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * placement of popup
+   *
+   * @type { ?Placement }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   placement?: Placement;
 
@@ -5727,6 +6038,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * background color of popup
+   *
+   * @type { ?(Color | string | Resource | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   popupColor?: Color | string | Resource | number;
 
   /**
@@ -5744,6 +6064,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * whether show arrow
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enableArrow?: boolean;
 
   /**
@@ -5760,6 +6089,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * whether hide popup when click mask
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   autoCancel?: boolean;
 
@@ -5805,6 +6143,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The offset of the sharp corner of popup.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   arrowOffset?: Length;
 
   /**
@@ -5822,6 +6169,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether to display in the sub window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showInSubWindow?: boolean;
 
   /**
@@ -5834,6 +6190,17 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   *
+   * @type { ?(boolean | { color: ResourceColor }) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   mask?: boolean | { color: ResourceColor };
 
   /**
@@ -5844,6 +6211,15 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the space of between the popup and target.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   targetSpace?: Length
 
   /**
@@ -5853,6 +6229,15 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the position offset of the popup.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   offset?: Position
 }
@@ -6258,6 +6643,27 @@ declare interface MenuElement {
 }
 
 /**
+ * Defines the attribute modifier.
+ * 
+ * @interface AttributeModifier<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface AttributeModifier<T> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyNormalAttribute(instance: T) : void;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6554,6 +6960,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Inner margin.
+   *
+   * @param { Padding | Length } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   padding(value: Padding | Length): T;
 
   /**
@@ -6581,6 +6998,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Outer Margin.
+   *
+   * @param { Margin | Length } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   margin(value: Margin | Length): T;
@@ -6622,6 +7050,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Background color
+   *
+   * @param { ResourceColor } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   backgroundColor(value: ResourceColor): T;
@@ -6787,6 +7226,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Opacity
+   *
+   * @param { number | Resource } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   opacity(value: number | Resource): T;
 
   /**
@@ -6935,6 +7385,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Border radius
+   *
+   * @param { Length | BorderRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   borderRadius(value: Length | BorderRadiuses): T;
 
   /**
@@ -6995,6 +7456,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Trigger a click event when a click is clicked.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   onClick(event: (event: ClickEvent) => void): T;
@@ -7976,6 +8448,17 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Controls the display or hide of the current component.
+   *
+   * @param { Visibility } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   visibility(value: Visibility): T;
 
   /**
@@ -8585,6 +9068,18 @@ declare class CommonMethod<T> {
    * @since 10
    * @form
    */
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   linearGradient(value: {
     angle?: number | string;
     direction?: GradientDirection;
@@ -8747,6 +9242,19 @@ declare class CommonMethod<T> {
   shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
+   * Add a blendMode effect to the current component
+   * Nesting using blendMode is not recommended
+   * 
+   * @param { BlendMode } value - Different hybrid modes
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  blendMode(value: BlendMode): T;
+
+  /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    *
@@ -8884,6 +9392,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
@@ -9179,19 +9688,30 @@ declare class CommonMethod<T> {
    * @since 10
    */
   renderFit(fitMode: RenderFit): T;
+
+  /**
+   * Sets the attribute modifier.
+   *
+   * @param { AttributeModifier<T> } modifier
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  attributeModifier(modifier: AttributeModifier<T>): T;
 }
 
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9199,7 +9719,7 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -9302,6 +9822,15 @@ declare const Common: CommonInterface;
  * @since 10
  * @form
  */
+/**
+ * Defines the CustomBuilder Type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare type CustomBuilder = (() => any) | void;
 
 /**
@@ -9320,14 +9849,14 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9335,7 +9864,7 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -10194,6 +10723,15 @@ declare class CustomComponent extends CommonAttribute {
    * @since 10
    * @form
    */
+  /**
+   * Customize the pop-up content constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   build(): void;
 
   /**
@@ -10495,6 +11033,43 @@ declare interface RectResult {
 }
 
 /**
+ * CaretOffset info.
+ *
+ * @interface CaretOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface CaretOffset {
+  /**
+   * Get the index of the CaretOffset
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  index: number;
+
+  /**
+   * Get the x of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  x: number;
+  
+  /**
+   * Get the y of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  y: number;
+}
+
+/**
  * TextContentControllerBase
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10502,6 +11077,16 @@ declare interface RectResult {
  * @since 10
  */
 declare abstract class TextContentControllerBase {
+  /**
+   * Get the index and relative position of the CaretOffset.
+   *
+   * @returns { CaretOffset } index and relative position of the CaretOffset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getCaretOffset() : CaretOffset;
+
   /**
    * Get the start and end positions of the text content.
    *
@@ -10542,4 +11127,24 @@ declare module 'DragControllerParam' {
     // @ts-ignore
     export type { CustomBuilder, DragItemInfo, DragEvent };
   }
+}
+
+/**
+ * Define EdgeEffect Options.
+ *
+ * @interface EdgeEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface EdgeEffectOptions {
+  /**
+   * Enable Sliding effect when component does not full screen.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  alwaysEnabled: boolean;
 }

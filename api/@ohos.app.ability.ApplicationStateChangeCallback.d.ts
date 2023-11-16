@@ -20,6 +20,14 @@
  * @StageModelOnly
  * @since 10
  */
+/**
+ * The application state change callback.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
 export default class ApplicationStateChangeCallback {
   /**
    * Called back when the state of the application changes to foreground.
@@ -27,6 +35,14 @@ export default class ApplicationStateChangeCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Called back when the state of the application changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onApplicationForeground(): void;
 
@@ -36,6 +52,14 @@ export default class ApplicationStateChangeCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Called back when the state of the application changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onApplicationBackground(): void;
 }

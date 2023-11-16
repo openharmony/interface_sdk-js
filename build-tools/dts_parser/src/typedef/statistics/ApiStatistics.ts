@@ -36,6 +36,8 @@ export class ApiStatisticsInfo {
   isForm: boolean = false;
   // @crossplatform标签--api是否支持跨平台
   isCrossPlatForm: boolean = false;
+  // @atomicservice标签--是否为高阶API
+  isAutomicService: boolean = false;
   hierarchicalRelations: string = '';
   apiName: string = '';
   deprecatedVersion: string = '';
@@ -46,6 +48,7 @@ export class ApiStatisticsInfo {
   isSystemapi: boolean = false;
   modelLimitation: string = '';
   decorators: Array<string> | undefined = [];
+  errorCodes: number[] = [];
   setFilePath(fileFilePath: string): ApiStatisticsInfo {
     this.filePath = fileFilePath;
     this.packageName = FunctionUtils.getPackageName(fileFilePath);
@@ -119,6 +122,15 @@ export class ApiStatisticsInfo {
 
   getIsCrossPlatForm(): boolean {
     return this.isCrossPlatForm;
+  }
+
+  setIsAutomicService(isAutomicService: boolean): ApiStatisticsInfo {
+    this.isAutomicService = isAutomicService;
+    return this;
+  }
+
+  getIsAutomicService(): boolean {
+    return this.isAutomicService;
   }
 
   getApiType(): string {
@@ -207,6 +219,15 @@ export class ApiStatisticsInfo {
   getDecorators(): Array<string> | undefined {
     return this.decorators;
   }
+
+  setErrorCodes(errorCodes: number[]): ApiStatisticsInfo {
+    this.errorCodes = errorCodes;
+    return this;
+  }
+
+  getErrorCodes(): number[] {
+    return this.errorCodes;
+  }
 }
 
 /**
@@ -225,6 +246,11 @@ export const apiStatisticsType: Set<string> = new Set([
   ApiType.DECLARE_CONST,
   ApiType.STRUCT,
 ]);
+
+/**
+ * 不需要被统计成API的类型，但是子节点需要统计成API
+ */
+export const apiNotStatisticsType: Set<string> = new Set([ApiType.ENUM, ApiType.NAMESPACE]);
 
 /**
  * 名字为on/off的函数，不合并API声明

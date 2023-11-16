@@ -3,4 +3,4 @@
  *
  * @FAModelOnly
  */
-export namespace test {}
+export class test {}

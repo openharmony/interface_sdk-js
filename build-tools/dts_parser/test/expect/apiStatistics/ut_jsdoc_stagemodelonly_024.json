@@ -8,18 +8,20 @@
     "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_jsdoc_stagemodelonly_024.d.ts/test",
     "apiName": "test",
     "deprecatedVersion": "",
     "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
+    "apiType": "Class",
+    "definedText": " export class test",
     "pos": {
       "line": 6,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "StageModelOnly",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

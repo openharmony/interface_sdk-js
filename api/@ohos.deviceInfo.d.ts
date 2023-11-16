@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Startup.SystemInfo
  * @since 6
  */
+/**
+ * A static class pertaining to the product information.
+ *
+ * @namespace deviceInfo
+ * @syscap SystemCapability.Startup.SystemInfo
+ * @atomicservice
+ * @since 11
+ */
 declare namespace deviceInfo {
   /**
    * Obtains the device type represented by a string,
@@ -39,6 +47,17 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtains the device type represented by a string,
+   * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
+   * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
+   *
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   const deviceType: string;
 
@@ -74,6 +93,15 @@ declare namespace deviceInfo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains the device brand represented by a string.
+   *
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */  
   const brand: string;
 
   /**
@@ -124,6 +152,15 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtains the product model represented by a string.
+   *
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   const productModel: string;
 
@@ -301,6 +338,15 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtains the OS version represented by a string.
+   *
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   const osFullName: string;
 

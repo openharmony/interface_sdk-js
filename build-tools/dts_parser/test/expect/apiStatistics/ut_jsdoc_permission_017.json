@@ -2,35 +2,13 @@
   {
     "filePath": "ut_jsdoc_permission_017.d.ts",
     "packageName": "ut_jsdoc_permission_017",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "-1",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_jsdoc_permission_017.d.ts/test",
-    "apiName": "test",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
-    "pos": {
-      "line": 5,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_jsdoc_permission_017.d.ts",
-    "packageName": "ut_jsdoc_permission_017",
     "parentModuleName": "test",
     "syscap": "",
     "permissions": "ohos.permission.GET_SENSITIVE_PERMISSIONS",
     "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_jsdoc_permission_017.d.ts/test/func",
     "apiName": "func",
     "deprecatedVersion": "",
@@ -43,6 +21,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

@@ -30,6 +30,15 @@ import type appManager from '../@ohos.app.ability.appManager';
  * @crossplatform
  * @since 10
  */
+/**
+ * The class of an process information.
+ *
+ * @typedef ProcessInformation
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface ProcessInformation {
   /**
    * @type { number }
@@ -45,6 +54,14 @@ export interface ProcessInformation {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { number }
+   * @default process id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pid: number;
 
   /**
@@ -52,6 +69,13 @@ export interface ProcessInformation {
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * @type { number }
+   * @default user id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   uid: number;
 
@@ -69,6 +93,14 @@ export interface ProcessInformation {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { string }
+   * @default the name of the process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   processName: string;
 
   /**
@@ -85,6 +117,14 @@ export interface ProcessInformation {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { Array<string> }
+   * @default an array of the bundleNames running in the process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   bundleNames: Array<string>;
 
   /**
@@ -93,6 +133,14 @@ export interface ProcessInformation {
    * @type { appManager.ProcessState }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
+   */
+  /**
+   * The process state.
+   *
+   * @type { appManager.ProcessState }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   state: appManager.ProcessState;
 }

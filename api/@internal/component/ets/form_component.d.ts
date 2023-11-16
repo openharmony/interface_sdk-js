@@ -117,7 +117,7 @@ interface FormComponentInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7

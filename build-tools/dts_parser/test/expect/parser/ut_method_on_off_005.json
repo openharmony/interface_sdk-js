@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method of on or off",
@@ -50,12 +51,14 @@
             "on"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(type: SensorId.COLOR, callback: AsyncCallback<ColorResponse>, options?: Options): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 174,
               "type": [
                 "SensorId.COLOR"
               ],
@@ -65,6 +68,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<ColorResponse>"
               ],
@@ -74,6 +78,7 @@
             {
               "apiType": "Param",
               "apiName": "options",
+              "paramType": 174,
               "type": [
                 "Options"
               ],

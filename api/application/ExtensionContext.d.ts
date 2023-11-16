@@ -26,6 +26,15 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @StageModelOnly
  * @since 9
  */
+/**
+ * The context of an extension. It allows access to extension-specific resources.
+ *
+ * @extends Context
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
 export default class ExtensionContext extends Context {
   /**
    * Indicates configuration information about an module.
@@ -34,6 +43,15 @@ export default class ExtensionContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Indicates configuration information about an module.
+   *
+   * @type { HapModuleInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -45,6 +63,15 @@ export default class ExtensionContext extends Context {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Indicates configuration information.
+   *
+   * @type { Configuration }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   config: Configuration;
 
   /**
@@ -54,6 +81,15 @@ export default class ExtensionContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Extension information.
+   *
+   * @type { ExtensionAbilityInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   extensionAbilityInfo: ExtensionAbilityInfo;
 }

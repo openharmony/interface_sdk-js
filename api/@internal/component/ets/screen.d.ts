@@ -37,7 +37,7 @@ interface ScreenInterface {
 /**
  * Defines the attribute functions of Screen.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ScreenAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10

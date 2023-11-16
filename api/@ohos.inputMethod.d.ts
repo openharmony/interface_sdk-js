@@ -16,6 +16,7 @@
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { ElementName } from './bundleManager/ElementName';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import type { PanelInfo } from './@ohos.inputMethod.Panel';
 
 /**
  * Input method
@@ -319,6 +320,22 @@ declare namespace inputMethod {
      * @since 10
      */
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
+
+    /**
+     * Query whether a panel with specified information is shown.
+     *
+     * @param { PanelInfo } panelInfo - the information of panel which is queried.
+     * @returns { boolean }
+     *     If true, the panel being queried is shown.
+     *     If false, the panel being queried is hidden.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 11
+     */
+    isPanelShown(panelInfo: PanelInfo): boolean;
 
     /**
      * List subtype of the specified input method.
@@ -1379,7 +1396,15 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    VISIBLE_PASSWORD
+    VISIBLE_PASSWORD,
+
+    /**
+     * The text input type is NUMBER_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    NUMBER_PASSWORD
   }
 
   /**

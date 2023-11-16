@@ -2,35 +2,13 @@
   {
     "filePath": "ut_enum_in_namespace.d.ts",
     "packageName": "ut_enum_in_namespace",
-    "parentModuleName": "global",
-    "syscap": "",
-    "permissions": "",
-    "since": "",
-    "isForm": false,
-    "isCrossPlatForm": false,
-    "hierarchicalRelations": "ut_enum_in_namespace.d.ts/Test",
-    "apiName": "Test",
-    "deprecatedVersion": "",
-    "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " declare namespace Test",
-    "pos": {
-      "line": 1,
-      "character": 1
-    },
-    "isSystemapi": false,
-    "modelLimitation": "",
-    "decorators": []
-  },
-  {
-    "filePath": "ut_enum_in_namespace.d.ts",
-    "packageName": "ut_enum_in_namespace",
     "parentModuleName": "Valuable",
     "syscap": "",
     "permissions": "",
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_in_namespace.d.ts/Test/Valuable/VALUE_ONE",
     "apiName": "VALUE_ONE",
     "deprecatedVersion": "",
@@ -43,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_in_namespace.d.ts",
@@ -54,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_in_namespace.d.ts/Test/Valuable/VALUE_Two",
     "apiName": "VALUE_Two",
     "deprecatedVersion": "",
@@ -66,7 +46,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_in_namespace.d.ts",
@@ -77,6 +58,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_in_namespace.d.ts/Test/Valuable/VALUE_THREE",
     "apiName": "VALUE_THREE",
     "deprecatedVersion": "",
@@ -89,6 +71,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

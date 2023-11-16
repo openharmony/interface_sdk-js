@@ -24,6 +24,14 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
+/**
+ * Extension information about a bundle
+ *
+ * @typedef ExtensionAbilityInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 11
+ */
 export interface ExtensionAbilityInfo {
   /**
    * Indicates the name of the bundle
@@ -31,6 +39,14 @@ export interface ExtensionAbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the name of the bundle
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly bundleName: string;
 
@@ -41,6 +57,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates the name of the module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly moduleName: string;
 
   /**
@@ -49,6 +73,14 @@ export interface ExtensionAbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the name of the extension ability info
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly name: string;
 
@@ -59,6 +91,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates the label id of the extension ability info
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly labelId: number;
 
   /**
@@ -67,6 +107,14 @@ export interface ExtensionAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the description id of the extension ability info
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly descriptionId: number;
 
@@ -77,6 +125,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates the icon id of the extension ability info
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly iconId: number;
 
   /**
@@ -85,6 +141,14 @@ export interface ExtensionAbilityInfo {
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates whether this ability can be called by other abilities
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly exported: boolean;
 
@@ -95,6 +159,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Enumerates types of the extension ability info
+   *
+   * @type { bundleManager.ExtensionAbilityType }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
   /**
@@ -103,6 +175,7 @@ export interface ExtensionAbilityInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 11
    */
   readonly extensionAbilityTypeName: string;
@@ -114,6 +187,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * The permissions that others need to use this extension ability info
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly permissions: Array<string>;
 
   /**
@@ -122,6 +203,14 @@ export interface ExtensionAbilityInfo {
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -132,6 +221,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates the metadata of bundle
+   *
+   * @type { Array<Metadata> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly metadata: Array<Metadata>;
 
   /**
@@ -140,6 +237,14 @@ export interface ExtensionAbilityInfo {
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the src language to express extension ability info
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly enabled: boolean;
 
@@ -150,6 +255,14 @@ export interface ExtensionAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates the read permission extension ability info
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   readonly readPermission: string;
 
   /**
@@ -158,6 +271,14 @@ export interface ExtensionAbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the write permission of extension ability info
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   readonly writePermission: string;
 }

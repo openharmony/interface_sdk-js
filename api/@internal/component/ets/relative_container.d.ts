@@ -35,13 +35,13 @@ interface RelativeContainerInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

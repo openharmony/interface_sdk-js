@@ -15,6 +15,7 @@
 
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
+import type notificationManager from '../@ohos.notificationManager';
 import { WantAgent } from '../@ohos.wantAgent';
 import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
@@ -53,8 +54,19 @@ export interface NotificationRequest {
    * @type { ?notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
+   * @deprecated since 11
+   * @useinstead NotificationRequest#notificationSlotType
    */
   slotType?: notification.SlotType;
+
+  /**
+   * Notification slot type.
+   *
+   * @type { ?notificationManager.SlotType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  notificationSlotType?: notificationManager.SlotType;
 
   /**
    * Whether the notification is an ongoing notification.

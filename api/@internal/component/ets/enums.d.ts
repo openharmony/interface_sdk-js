@@ -14,6 +14,37 @@
  */
 
 /**
+ * common enum of the checkbox shape
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum CheckBoxShape {
+  /**
+   * Circle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  CIRCLE = 0,
+
+  /**
+   * Rounded Square.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  ROUNDED_SQUARE = 1,
+}
+
+/**
  * common enum of color
  *
  * @enum { number }
@@ -317,15 +348,32 @@ declare enum Color {
  * @crossplatform
  * @since 10
  */
+/**
+ * Common enum of color strategy
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum ColoringStrategy {
   /**
-   * Use the inverse color strategy
+   * Use the inverse color strategy. Gets the inverse of the background color. Only applies to foregroundColor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  INVERT = "invert",
+  INVERT = 'invert',
+
+  /**
+   * Use the average color strategy. Get the average color of the background. Not applies to the color in textShadow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  AVERAGE = 'average',
 }
 
 /**
@@ -5135,6 +5183,16 @@ declare enum CopyOptions {
    * @form
    */
   LocalDevice = 2,
+
+  /**
+   * Share in cross Device
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  CROSS_DEVICE = 3,
 }
 
 /**
@@ -5885,7 +5943,7 @@ declare enum DialogButtonStyle {
    * @since 10
    */
   DEFAULT = 0,
-  
+
   /**
    * Highlight Style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5931,4 +5989,57 @@ declare enum WordBreak {
    * @since 11
    */
   BREAK_WORD = 2,
+}
+
+/**
+ * Enum of ellipsisMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum EllipsisMode {
+  /**
+   * The ellipsis is in the head.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  START = 0,
+
+  /**
+   * The ellipsis is in the middle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  CENTER = 1,
+
+  /**
+   * The ellipsis is at the end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  END = 2,
+}
+
+/**
+ * A type which can be undefined
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare type Nullable<T> = T | undefined;
+
+declare module 'CommonEnums' {
+  module 'CommonEnums' {
+    // @ts-ignore
+    export type { Color, FontStyle, Nullable };
+  }
 }

@@ -23,6 +23,7 @@ import {
 } from '../../typedef/parser/ApiInfoDefination';
 import {
   ApiStatisticsInfo,
+  apiNotStatisticsType,
   apiStatisticsType,
   mergeDefinedTextType,
   notMergeDefinedText,
@@ -166,7 +167,7 @@ export class ApiStatisticsHelper {
     }
     const apiStatisticsInfo: ApiStatisticsInfo = ApiStatisticsHelper.initApiStatisticsInfo(apiInfo, sameNameRawTextMap);
     if (
-      apiStatisticsInfo.getApiType() !== ApiType.ENUM &&
+      !apiNotStatisticsType.has(apiStatisticsInfo.getApiType()) &&
       !apiRelations.has(ApiStatisticsHelper.joinRelations(basicApiInfo))
     ) {
       apiStatisticsInfos.push(apiStatisticsInfo);
@@ -224,7 +225,9 @@ export class ApiStatisticsHelper {
         )
         .setUseInstead(jsDocInfo.getUseinstead())
         .setApiLevel(jsDocInfo.getIsSystemApi())
-        .setModelLimitation(jsDocInfo.getModelLimitation());
+        .setModelLimitation(jsDocInfo.getModelLimitation())
+        .setIsAutomicService(jsDocInfo.getIsAtomicService())
+        .setErrorCodes(jsDocInfo.getErrorCode());
     } else {
       apiStatisticsInfo.setSyscap(ApiStatisticsHelper.extendSyscap(apiInfo));
     }

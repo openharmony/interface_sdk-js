@@ -8,6 +8,7 @@
     "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_on_off_002.d.ts/Test",
     "apiName": "Test",
     "deprecatedVersion": "",
@@ -20,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_method_on_off_002.d.ts",
@@ -31,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_on_off_002.d.ts/Test/on_add",
     "apiName": "on_add",
     "deprecatedVersion": "",
@@ -43,7 +46,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_method_on_off_002.d.ts",
@@ -54,6 +58,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_on_off_002.d.ts/Test/on_remove",
     "apiName": "on_remove",
     "deprecatedVersion": "",
@@ -66,7 +71,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_method_on_off_002.d.ts",
@@ -77,6 +83,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_on_off_002.d.ts/Test/on_change",
     "apiName": "on_change",
     "deprecatedVersion": "",
@@ -89,6 +96,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

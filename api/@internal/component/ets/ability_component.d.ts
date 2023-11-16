@@ -42,7 +42,7 @@ interface AbilityComponentInterface {
 /**
  * Define the attribute functions of ability component.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<AbilityComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9

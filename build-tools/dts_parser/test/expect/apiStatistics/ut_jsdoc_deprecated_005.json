@@ -8,18 +8,20 @@
     "since": "7",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_jsdoc_deprecated_005.d.ts/test",
     "apiName": "test",
     "deprecatedVersion": "9",
     "useInstead": "",
-    "apiType": "Namespace",
-    "definedText": " export namespace test",
+    "apiType": "Class",
+    "definedText": " export class test",
     "pos": {
       "line": 7,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

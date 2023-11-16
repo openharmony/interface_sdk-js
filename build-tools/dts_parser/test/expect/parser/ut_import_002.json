@@ -15,6 +15,7 @@
         "'./@ohos.app.ability.Want'"
       ],
       "isStruct": false,
+      "syscap": "",
       "importValues": [
         {
           "key": "Want",

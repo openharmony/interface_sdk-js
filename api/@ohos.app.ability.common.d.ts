@@ -45,6 +45,14 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @crossplatform
  * @since 10
  */
+/**
+ * This module provides application context classes and common data structures.
+ *
+ * @namespace common
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 11
+ */
 declare namespace common {
   /**
    * The context of an ability. It allows access to ability-specific resources.
@@ -60,6 +68,15 @@ declare namespace common {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The context of an ability. It allows access to ability-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export type UIAbilityContext = _UIAbilityContext.default;
 
@@ -78,6 +95,15 @@ declare namespace common {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The context of an abilityStage. It allows access to abilityStage-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export type AbilityStageContext = _AbilityStageContext.default;
 
   /**
@@ -95,6 +121,15 @@ declare namespace common {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The context of an application. It allows access to application-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export type ApplicationContext = _ApplicationContext.default;
 
   /**
@@ -111,6 +146,15 @@ declare namespace common {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export type BaseContext = _BaseContext.default;
 
@@ -131,6 +175,16 @@ declare namespace common {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The base context of an ability or an application. It allows access to
+   * application-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export type Context = _Context.default;
 
   /**
@@ -139,6 +193,14 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * The context of an extension. It allows access to extension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   export type ExtensionContext = _ExtensionContext.default;
 
@@ -149,6 +211,15 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * The context of form extension. It allows access to
+   * formExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   export type FormExtensionContext = _FormExtensionContext.default;
 
@@ -170,6 +241,14 @@ declare namespace common {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * The event center of a context, support the subscription and publication of events.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   export type EventHub = _EventHub.default;
 
   /**
@@ -178,6 +257,12 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Defines a PacMap object for storing a series of values.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
    */
   export type PacMap = _PacMap;
 
@@ -188,6 +273,14 @@ declare namespace common {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Indicates the result of startAbility.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   export type AbilityResult = _AbilityResult;
 
   /**
@@ -196,6 +289,14 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Indicates the callback of connection
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -214,6 +315,7 @@ declare namespace common {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   export type AbilityStartCallback = _AbilityStartCallback;

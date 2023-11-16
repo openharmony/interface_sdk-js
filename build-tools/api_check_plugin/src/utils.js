@@ -46,9 +46,10 @@ const commentNodeWhiteList = [
 exports.commentNodeWhiteList = commentNodeWhiteList;
 
 const tagsArrayOfOrder = [
-  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
+  'namespace', 'struct', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
   'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated', 'useinstead',
+  'test', 'form', 'example'
 ];
 exports.tagsArrayOfOrder = tagsArrayOfOrder;
 
@@ -366,11 +367,11 @@ const ErrorValueInfo = {
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
-const DIFF_INFO  = {
-  NEW_JSDOCS_LENGTH:1,
-  NEW_JSDOC_INDEX:2,
+const DIFF_INFO = {
+  NEW_JSDOCS_LENGTH: 1,
+  NEW_JSDOC_INDEX: 2,
 };
-exports.DIFF_INFO  = DIFF_INFO;
+exports.DIFF_INFO = DIFF_INFO;
 
 /**
  * link error message
@@ -458,7 +459,7 @@ function checkVersionNeedCheck(node) {
 exports.checkVersionNeedCheck = checkVersionNeedCheck;
 
 const FUNCTION_TYPES = [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
+ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
 exports.FUNCTION_TYPES = FUNCTION_TYPES;
 
 function splitPath(filePath, pathElements) {
@@ -469,3 +470,13 @@ function splitPath(filePath, pathElements) {
   }
 }
 exports.splitPath = splitPath;
+
+function isAscending(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+exports.isAscending = isAscending;

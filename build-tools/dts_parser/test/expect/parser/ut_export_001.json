@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for export",
@@ -49,7 +50,8 @@
         "ut_export_001.d.ts",
         "export_default_Test"
       ],
-      "isStruct": false
+      "isStruct": false,
+      "syscap": ""
     }
   ]
 }
