@@ -2006,7 +2006,7 @@ declare class On {
    * Specifies the description for the target Component.
    *
    * @param { string } val The description value.
-   * @param { MatchPattern } pattern The {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
+   * @param { MatchPattern } pattern The {@link MatchPattern} of the description value, default to {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
