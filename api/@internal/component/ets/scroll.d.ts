@@ -261,6 +261,15 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the setting slides to the specified position.
+   *
+   * @param { object } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   scrollTo(value: {
     /**
      * The X-axis offset.
@@ -269,6 +278,15 @@ declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The X-axis offset.
+     *
+     * @type { number | string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     xOffset: number | string;
 
@@ -280,6 +298,15 @@ declare class Scroller {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The Y-axis offset.
+     *
+     * @type { number | string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     yOffset: number | string;
 
     /**
@@ -290,6 +317,16 @@ declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Descriptive animation.
+     *
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
   });
