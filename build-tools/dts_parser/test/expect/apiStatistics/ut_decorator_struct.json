@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_decorator_struct.d.ets/MyComponent",
     "apiName": "MyComponent",
     "deprecatedVersion": "",
@@ -22,6 +23,7 @@
     "modelLimitation": "",
     "decorators": [
       "Component"
-    ]
+    ],
+    "errorCodes": []
   }
 ]
