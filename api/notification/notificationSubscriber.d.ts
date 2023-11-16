@@ -124,6 +124,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when badge cancel notifications.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
