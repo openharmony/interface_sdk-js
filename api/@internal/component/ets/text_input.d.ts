@@ -1225,6 +1225,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   showCounter(value: boolean): TextInputAttribute;
+
+  /**
+   * Sets selection when on focus.
+   *
+   * @param { boolean } value - Sets selection or not.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selectAll(value: boolean): TextInputAttribute;
 }
 
 /**
