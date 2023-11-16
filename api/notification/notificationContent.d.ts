@@ -166,22 +166,22 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   /**
    * Additional information of the live view notification.
    *
-   * @type { [key: string]: any}
+   * @type { ?object}
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
    */
-  extraInfo?: {[key: string]: any};
+  extraInfo?: { [key: string]: object };
 
   /**
-   * Picture information of the live view notification.
+   * The picture information list of the live view notification.
    *
-   * @type { [key: string]: Array<image.PixelMap> }
+   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
    */
-  pictureMap?: {[key: string]: Array<image.PixelMap>};
+  pictureInfo?: { [key: string]: Array<image.PixelMap> };
 }
 
 /**

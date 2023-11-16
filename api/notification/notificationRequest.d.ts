@@ -466,7 +466,7 @@ export interface NotificationFilter {
   /**
    * Indicates the label and id of the notification.
    *
-   * @type { NotificationKey }
+   * @type { notificationSubscribe.NotificationKey }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11

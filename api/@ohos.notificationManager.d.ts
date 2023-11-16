@@ -30,8 +30,8 @@ import { NotificationFlags as _NotificationFlags } from './notification/notifica
 import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
-import { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
-import { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
+import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
+import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
@@ -66,15 +66,33 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 9
+   */
+  /**
+   * Publishes a notification.
+   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
+   * this method will update the notification.
+   *
+   * @param { NotificationRequest } request - notification request
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
    * @throws { BusinessError } 1600007 - The notification is not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevent right.
+   * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network is unreachable.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since 11
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -91,18 +109,58 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600004 - Notification is not enabled.
    * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 9
+   */
+  /**
+   * Publishes a notification.
+   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
+   * this method will update the notification.
+   *
+   * @param { NotificationRequest } request - notification request
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
    * @throws { BusinessError } 1600007 - The notification is not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevent right.
+   * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network is unreachable.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since 11
    */
   function publish(request: NotificationRequest): Promise<void>;
 
+  /**
+   * Publishes a notification to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { number } userId - of subscriber receiving the notification.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
   /**
    * Publishes a notification to the specified user.
    *
@@ -122,16 +180,38 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user is not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevent right.
+   * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network is unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
+  /**
+   * Publishes a notification to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { number } userId - of subscriber receiving the notification.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
   /**
    * Publishes a notification to the specified user.
    *
@@ -151,13 +231,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user is not exist.
    * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No relevent right.
+   * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network is unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -1640,11 +1720,30 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -1660,8 +1759,9 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
    * @param { boolean } enable - Set enable or not.
+   * @param { boolean } isForceControl - Is the notification slot enable affected by the application
+   *         notification enable, false means affected.
    * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
-   * @param { boolean } isForceControl - Is the slot enable affected by the main enable, false means affected.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1708,7 +1808,8 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
    * @param { boolean } enable - Set enable or not.
-   * @param { boolean } isForceControl - Is the slot enable affected by the main enable, false means affected.
+   * @param { boolean } isForceControl - Is the notification slot enable affected by the application
+   *         notification enable, false means affected.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2042,7 +2143,7 @@ declare namespace notificationManager {
      * Label of the notification.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11
@@ -2086,12 +2187,12 @@ declare namespace notificationManager {
      * Additional information of the live view notification.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { [key: string]: any }
+     * @type { ?object }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11
      */
-    extraInfos?: { [key: string]: any };
+    extraInfos?: { [key: string]: object };
   }
 
   /**
