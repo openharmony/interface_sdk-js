@@ -15,6 +15,7 @@
         "'./bundleManager/ShortcutInfo'"
       ],
       "isStruct": false,
+      "syscap": "",
       "importValues": [
         {
           "key": "_ShortcutInfo",

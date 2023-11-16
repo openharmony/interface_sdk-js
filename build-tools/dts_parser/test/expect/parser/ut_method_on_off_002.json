@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method of on or off",
@@ -50,12 +51,14 @@
             "on_add"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'remove'",
@@ -67,6 +70,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "Callback<number>"
               ],
@@ -94,12 +98,14 @@
             "on_remove"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'remove'",
@@ -111,6 +117,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "Callback<number>"
               ],
@@ -138,12 +145,14 @@
             "on_change"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'remove'",
@@ -155,6 +164,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "Callback<number>"
               ],

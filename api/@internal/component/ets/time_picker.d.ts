@@ -137,14 +137,14 @@ interface TimePickerInterface {
 /**
  * Defines the TimePicker attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the TimePicker attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

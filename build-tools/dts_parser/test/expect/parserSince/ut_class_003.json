@@ -13,7 +13,7 @@
     "useinstead": "",
     "childApis": [],
     "parentClasses": [
-      "Parent"
+      "Parent<T>"
     ]
   }
 ]

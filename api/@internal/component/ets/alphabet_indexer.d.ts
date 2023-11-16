@@ -101,14 +101,14 @@ interface AlphabetIndexerInterface {
 /**
  * Defines the alphabet index bar attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<AlphabetIndexerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the alphabet index bar attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<AlphabetIndexerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

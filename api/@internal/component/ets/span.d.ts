@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provide text decoration.
+ *
+ * @interface SpanInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface SpanInterface {
   /**
    * Called when text is entered in span.
@@ -65,25 +75,44 @@ interface SpanInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when text is entered in span.
+   *
+   * @param { string | Resource } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value: string | Resource): SpanAttribute;
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * @extends CommonMethod<SpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class SpanAttribute extends CommonMethod<SpanAttribute> {
@@ -102,6 +131,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   font(value: Font): SpanAttribute;
@@ -133,6 +163,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the font color is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontColor(value: ResourceColor): SpanAttribute;
 
   /**
@@ -160,6 +201,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the font size is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   fontSize(value: number | string | Resource): SpanAttribute;
@@ -191,6 +243,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the font style of a font is set.
+   *
+   * @param { FontStyle } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontStyle(value: FontStyle): SpanAttribute;
 
   /**
@@ -218,6 +281,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   fontWeight(value: number | FontWeight | string): SpanAttribute;
@@ -249,6 +323,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the font list of text is set.
+   *
+   * @param { string | Resource } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontFamily(value: string | Resource): SpanAttribute;
 
   /**
@@ -276,6 +361,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { object } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   decoration(value: { type: TextDecorationType; color?: ResourceColor }): SpanAttribute;
@@ -307,6 +403,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   letterSpacing(value: number | string): SpanAttribute;
 
   /**
@@ -336,6 +443,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the type of letter in the text font is set.
+   *
+   * @param { TextCase } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   textCase(value: TextCase): SpanAttribute;
 
   /**
@@ -345,6 +463,15 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called when the line height of the span is set.
+   *
+   * @param { Length } value - The line height of the span.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   lineHeight(value: Length): SpanAttribute;
 }
@@ -370,6 +497,15 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Span Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Span: SpanInterface;
 
 /**
@@ -391,6 +527,15 @@ declare const Span: SpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Span Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const SpanInstance: SpanAttribute;

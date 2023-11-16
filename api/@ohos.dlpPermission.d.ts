@@ -1259,6 +1259,7 @@ declare namespace dlpPermission {
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
    * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file to open.
+   * @param { string } appId - Indicates the app ID of the application which opens the DLP file.
    * @returns { Promise<DLPFile> } Returns the {@link DLPFile}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1271,17 +1272,19 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100008 - Not DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
-  function openDLPFile(ciphertextFd: number): Promise<DLPFile>;
+  function openDLPFile(ciphertextFd: number, appId: string): Promise<DLPFile>;
 
   /**
    * Opens a DLP file. This method uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
    * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file to open.
+   * @param { string } appId - Indicates the app ID of the application which opens the DLP file.
    * @param { AsyncCallback<DLPFile> } callback - Indicates the callback of openDLPFile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1294,11 +1297,12 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100008 - Not DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100018 - Not authorized application.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
-  function openDLPFile(ciphertextFd: number, callback: AsyncCallback<DLPFile>): void;
+  function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
 
   /**
    * set SandboxConfig info. This method uses a promise to return the result.

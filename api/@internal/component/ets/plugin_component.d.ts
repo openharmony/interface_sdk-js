@@ -66,7 +66,7 @@ interface PluginComponentInterface {
 /**
  * Defines the plugin component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<PluginComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9

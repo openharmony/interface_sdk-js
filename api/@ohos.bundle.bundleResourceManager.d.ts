@@ -108,7 +108,7 @@ declare namespace bundleResourceManager {
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: number): Array<LauncherAbilityResourceInfo>;
 
   /**
-   * Obtains BundleResourceInfo  of all bundles available in the system.
+   * Obtains BundleResourceInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
    * @param { number } resourceFlags - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
@@ -123,7 +123,7 @@ declare namespace bundleResourceManager {
   function getAllBundleResourceInfo(resourceFlags: number, callback: AsyncCallback<Array<BundleResourceInfo>>): void;
 
   /**
-   * Obtains BundleResourceInfo  of all bundles available in the system.
+   * Obtains BundleResourceInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
    * @param { number } resourceFlags - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.

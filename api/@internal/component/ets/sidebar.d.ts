@@ -313,13 +313,13 @@ interface DividerStyle {
 /**
  * The attribute function of sidebar
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SideBarContainerAttribute>
  * @since 8
  */
 /**
  * The attribute function of sidebar
  *
- * @extends CommonMethod
+ * @extends CommonMethod<SideBarContainerAttribute>
  * @crossplatform
  * @since 10
  */

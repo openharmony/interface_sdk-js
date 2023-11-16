@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Defines the options of Flex.
+ *
+ * @interface FlexOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface FlexOptions {
   /**
    * Sets the horizontal layout of elements.
@@ -60,6 +70,16 @@ declare interface FlexOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Sets the horizontal layout of elements.
+   *
+   * @type { ?FlexDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   direction?: FlexDirection;
@@ -88,6 +108,16 @@ declare interface FlexOptions {
    * @since 10
    * @form
    */
+  /**
+   * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   *
+   * @type { ?FlexWrap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   wrap?: FlexWrap;
 
   /**
@@ -112,6 +142,16 @@ declare interface FlexOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The alignment format of the subassembly on the Flex container spindle.
+   *
+   * @type { ?FlexAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   justifyContent?: FlexAlign;
@@ -140,6 +180,16 @@ declare interface FlexOptions {
    * @since 10
    * @form
    */
+  /**
+   * Alignment Format for Subassembly on Flex Container Cross Axis.
+   *
+   * @type { ?ItemAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   alignItems?: ItemAlign;
 
   /**
@@ -164,6 +214,16 @@ declare interface FlexOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The alignment of multiple lines of content when there is extra space in the cross axis.
+   *
+   * @type { ?FlexAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   alignContent?: FlexAlign;
@@ -191,6 +251,16 @@ declare interface FlexOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Provides a monthly view component to display information such as date, shift break, and schedule.
+ *
+ * @interface FlexInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 interface FlexInterface {
@@ -221,20 +291,31 @@ interface FlexInterface {
    * @since 10
    * @form
    */
+  /**
+   * Defines the constructor of Flex.
+   *
+   * @param { FlexOptions } value
+   * @returns { FlexAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: FlexOptions): FlexAttribute;
 }
 
 /**
  * Defines the Flex attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Flex attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -242,10 +323,20 @@ interface FlexInterface {
 /**
  * Defines the Flex attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the Flex attribute functions.
+ *
+ * @extends CommonMethod<FlexAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
@@ -271,6 +362,15 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
  * @since 10
  * @form
  */
+/**
+ * Defines Flex Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Flex: FlexInterface;
 
 /**
@@ -292,6 +392,15 @@ declare const Flex: FlexInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Flex Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const FlexInstance: FlexAttribute;

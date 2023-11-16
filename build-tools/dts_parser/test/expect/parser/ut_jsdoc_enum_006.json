@@ -15,6 +15,7 @@
         "test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for jsdoc about enum",
@@ -49,6 +50,7 @@
             "ONE"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "value": "1"
         },
@@ -68,6 +70,7 @@
             "TWO"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "value": "2"
         },
@@ -87,6 +90,7 @@
             "THREE"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "value": "3"
         }

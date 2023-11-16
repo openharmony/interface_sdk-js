@@ -20,6 +20,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "callForm": "@Builder MyBuilderFunction(){}",
       "params": [],
@@ -47,6 +48,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -65,6 +67,7 @@
             "constructor"
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "",
           "params": [],

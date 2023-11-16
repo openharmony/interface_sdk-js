@@ -343,6 +343,58 @@ declare namespace statistics {
   function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
 
   /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @param { AsyncCallback<number> } callback - Returns the data traffic bytes received by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdRxBytes(sockfd: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @returns { Promise<number> } Returns the data traffic bytes received by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdRxBytes(sockfd: number): Promise<number>;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @param { AsyncCallback<number> } callback - Returns the data traffic bytes sent by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdTxBytes(sockfd: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @returns { Promise<number> } Returns the data traffic bytes sent by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdTxBytes(sockfd: number): Promise<number>;
+
+  /**
    * Parameters for obtaining detailed information on network interface traffic usage.
    * @interface IfaceInfo
    * @syscap SystemCapability.Communication.NetManager.Core

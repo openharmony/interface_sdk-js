@@ -354,12 +354,25 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Provides methods for managing web database.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   class WebDataBase {
     /**
     * Get whether instances holds any http authentication credentials.
     * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
     * @syscap SystemCapability.Web.Webview.Core
     * @since 9
+    */
+   /**
+    * Get whether instances holds any http authentication credentials.
+    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @crossplatform
+    * @since 11
     */
     static existHttpAuthCredentials(): boolean;
 
@@ -368,6 +381,13 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Delete all http authentication credentials.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     static deleteHttpAuthCredentials(): void;
 
@@ -380,6 +400,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Get http authentication credentials.
+     * @param { string } host - The host to which the credentials apply.
+     * @param { string } realm - The realm to which the credentials apply.
+     * @returns { Array<string> } Return an array containing username and password.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
     /**
@@ -391,6 +421,17 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Save http authentication credentials.
+     * @param { string } host - The host to which the credentials apply.
+     * @param { string } realm - The realm to which the credentials apply.
+     * @param { string } username - The username.
+     * @param { string } password - The password.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
   }
@@ -1240,6 +1281,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Checks whether the web page can go forward.
+     * @returns { boolean } True if the web page can go forward else false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     accessForward(): boolean;
 
     /**
@@ -1249,6 +1299,15 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Checks whether the web page can go back.
+     * @returns { boolean } True if the web page can go back else false.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     accessBackward(): boolean;
 
@@ -1273,6 +1332,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Goes forward in the history of the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     forward(): void;
 
     /**
@@ -1282,6 +1350,15 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Goes back in the history of the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     backward(): void;
 
@@ -1323,6 +1400,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Refreshes the current URL.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     refresh(): void;
 
     /**
@@ -1342,6 +1428,25 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Loads the data or URL.
+     *
+     * @param { string } data - A string encoded according to "Base64" or "URL".
+     * @param { string } mimeType - Media type. For example: "text/html".
+     * @param { string } encoding - Encoding type. For example: "UTF-8".
+     * @param { string } [baseUrl] - A specified URL path ("http"/"https"/"data" protocol),
+     *                             which is assigned to window.origin by the Web component.
+     * @param { string } [historyUrl] - History URL. When it is not empty, it can be managed by
+     *                                history records to realize the back and forth function.
+     *                                This property is invalid when baseUrl is empty.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     loadData(data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string): void;
 
@@ -1675,6 +1780,21 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     *
+     * @param { string } script - JavaScript Script.
+     * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
+     *                              This parameter will be the result of JavaScript script execution.
+     *                              If the JavaScript script fails to execute or has no return value,
+     *                              null will be returned.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     runJavaScript(script: string): Promise<string>;
 
     /**
@@ -1687,6 +1807,18 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     *
+     * @param { string } script - JavaScript Script.
+     * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
@@ -1726,6 +1858,15 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Gets the url of current Web page.
+     * @returns { string } Return the url of the current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     getUrl(): string;
 
@@ -1778,9 +1919,9 @@ declare namespace webview {
     getFavicon(): image.PixelMap;
 
     /**
-     * Put network state for web. Which is used to set window.navigator.isOnline property in
+     * Put network state for web. Which is used to set window.navigator.onLine property in
      * JavaScript.
-     * @param { boolean } enable - Whether enable window.navigator.isOnline.
+     * @param { boolean } enable - Whether enable window.navigator.onLine.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -1984,6 +2125,15 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
+     * Set web engine socket connection timeout.
+     * @param { number } timeout - Socket connection timeout.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setConnectionTimeout(timeout: number): void;
+
+    /**
      * Set delegate for download.
      * Used to notify the progress of the download triggered from web.
      * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from web.
@@ -2005,6 +2155,20 @@ declare namespace webview {
      * @since 11
      */
     startDownload(url: string): void;
+
+    /**
+     * Loads the URL use "POST" method with post data.
+     *
+     * @param { string } url - Request the URL use "POST" method.
+     * @param { ArrayBuffer } postData - This data will passed to "POST" request.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    postUrl(url: string, postData: ArrayBuffer): void;
   }
 
   /**

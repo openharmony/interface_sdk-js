@@ -4900,6 +4900,16 @@ declare interface Stat {
    */
   readonly ctime: number;
   /**
+   * 
+   * @type { LocationType }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly location: LocationType;
+  
+  /**
    * Whether path/fd is block device.
    *
    * @returns { boolean } Returns whether the path/fd point to a block device or not.
@@ -5631,4 +5641,29 @@ declare enum WhenceType {
    * @since 11
    */
   SEEK_END = 2,
+}
+
+/**
+ * Enumeration of different types of file location.
+ *
+ * @enum { number } location type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare enum LocationType {  
+  /**
+   * Local file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  LOCAL = 1 << 0,
+
+  /**
+   * Cloud file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  CLOUD = 1 << 1,
 }

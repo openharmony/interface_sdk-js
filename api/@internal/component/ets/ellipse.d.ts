@@ -98,18 +98,18 @@ interface EllipseInterface {
 }
 
 /**
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

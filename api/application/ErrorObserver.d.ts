@@ -19,6 +19,13 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
+/**
+ * The observer will be called by system when an error occurs.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 export default class ErrorObserver {
   /**
    * Will be called when the js runtime throws an exception which doesn't caught by user.
@@ -26,6 +33,14 @@ export default class ErrorObserver {
    * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @param { string } errMsg - the message and error stacktrace about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   onUnhandledException(errMsg: string): void;
 
@@ -35,6 +50,14 @@ export default class ErrorObserver {
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
+   */
+  /**
+   * Will be called when the native executions exception.
+   *
+   * @param { Error } errObject - the error object about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   onException?(errObject: Error): void;
 }

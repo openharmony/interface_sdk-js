@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -179,6 +180,7 @@ dirent
 dirxml
 disables
 disallowed
+disallows
 discharging
 disconnecting
 disconnection
@@ -308,6 +310,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
@@ -540,6 +543,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises

@@ -2605,6 +2605,48 @@ declare namespace osAccount {
      * @since 10
      */
     static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
+
+    /**
+     * Gets the business access token of the current domain account.
+     *
+     * @param { object } businessParams - Indicates the business parameters.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Domain account not authenticated.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    static getAccessToken(businessParams: { [key: string]: Object }, callback: AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Gets the business access token for the current domain account.
+     *
+     * @param { object } businessParams - Indicates the business parameters.
+     * @returns { Promise<Uint8Array> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Domain account not authenticated.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    static getAccessToken(businessParams: { [key: string]: Object }): Promise<Uint8Array>;
   }
 
   /**

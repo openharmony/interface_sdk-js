@@ -14,6 +14,28 @@
  */
 
 /**
+ * This interface is used to set the options for UIExtensionComponentAttribute during construction
+ *
+ * @interface UIExtensionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface UIExtensionOptions {
+  /**
+   * Set whether the current capability is used as a Caller.<br/>
+   * If set to true, as a Caller, the current token of UIExtensionComponent is set to rootToken.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  isTransferringCaller?: boolean;
+}
+
+/**
  * This interface is used for send data to the UIExtensionAbility.<br/>
  * It is returned from onRemoteReady callback of UIExtensionComponent<br/>
  * when UIExtensionAbility connects successfully
@@ -33,6 +55,63 @@ declare interface UIExtensionProxy {
    * @since 10
    */
   send(data: { [key: string]: Object }): void;
+
+  /**
+   * This function is for sending data to the UIExtensionAbility and waiting the result in blocking mode.
+   *
+   * @param { object } data - data send to the UIExtensionAbility
+   * @returns { object } data - data transferred from the UIExtensionAbility
+   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @throws { BusinessError } 100012 - Transferring data failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  sendSync(data: { [key: string]: Object }): { [key: string]: Object };
+
+  /**
+   * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'asyncReceiverRegister' } type - Indicates the type of event.
+   * @param { function } callback - callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  on(type: 'asyncReceiverRegister', callback: (proxy: UIExtensionProxy) => void): void;
+
+  /**
+   * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'syncReceiverRegister' } type - Indicates the type of event.
+   * @param { function } callback - callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  on(type: 'syncReceiverRegister', callback: (proxy: UIExtensionProxy) => void): void;
+
+  /**
+   * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'asyncReceiverRegister' } type - type of the listened event.
+   * @param { function } callback - callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  off(type: 'asyncReceiverRegister', callback?: (proxy: UIExtensionProxy) => void): void;
+
+  /**
+   * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'syncReceiverRegister' } type - type of the listened event.
+   * @param { function } callback - callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  off(type: 'syncReceiverRegister', callback?: (proxy: UIExtensionProxy) => void): void;
 }
 
 /**
@@ -55,15 +134,27 @@ interface UIExtensionComponentInterface {
    * @systemapi
    * @since 10
    */
+  /**
+   * Construct the UIExtensionComponent.<br/>
+   * Called when the UIExtensionComponent is used.
+   *
+   * @param { import('../api/@ohos.app.ability.Want').default } want - indicates the want of UIExtensionAbility
+   * @param { UIExtensionOptions } [option] - Construction configuration of UIExtensionComponentAttribute
+   * @returns { UIExtensionComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
   (
-    want: import('../api/@ohos.app.ability.Want').default
+    want: import('../api/@ohos.app.ability.Want').default,
+    options?: UIExtensionOptions
   ): UIExtensionComponentAttribute;
 }
 
 /**
  * Define the attribute functions of UIExtensionComponent.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<UIExtensionComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
