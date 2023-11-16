@@ -989,7 +989,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    OAEP_MGF1_PSRC_UINT8ARR = 103
+    OAEP_MGF1_PSRC_UINT8ARR = 103,
+
+    /**
+     * Indicates the hash algorithm name of SM2 cipher process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    SM2_MD_NAME_STR = 104
   }
 
   /**
@@ -1039,7 +1048,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    PSS_TRAILER_FIELD_NUM = 104
+    PSS_TRAILER_FIELD_NUM = 104,
+
+    /**
+     * Indicates the value for user id. It is used in SM2 signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    SM2_USER_ID_UINT8ARR = 105
   }
 
   /**
@@ -1396,6 +1414,22 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: number): void;
 
     /**
+     * Set the specified parameter to the sign object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
+
+    /**
      * Get the specified parameter from the sign object.
      * Currently, only PSS parameters in RSA is supported.
      *
@@ -1559,6 +1593,22 @@ declare namespace cryptoFramework {
      * @since 10
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: number): void;
+
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
     /**
      * Get the specified parameter from the verify object.
@@ -2237,6 +2287,30 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Key utilities for ECC Algorithm.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  class ECCKeyUtil {
+    /**
+     * Create the common parameter set based on the curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @returns { ECCCommonParamsSpec } the ECC common params spec obj.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    static genECCCommonParamsSpec(curveName: string) : ECCCommonParamsSpec;
+  }
+
+  /**
    * Specifies the set of common parameters used in the RSA algorithm.
    *
    * @typedef RSACommonParamsSpec
@@ -2426,6 +2500,7 @@ declare namespace cryptoFramework {
    *
    * @typedef KdfSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   interface KdfSpec {
@@ -2434,6 +2509,7 @@ declare namespace cryptoFramework {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     algName: string;
@@ -2444,6 +2520,7 @@ declare namespace cryptoFramework {
    *
    * @typedef PBKDF2Spec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   interface PBKDF2Spec extends KdfSpec {
@@ -2452,6 +2529,7 @@ declare namespace cryptoFramework {
      *
      * @type { string | Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     password: string | Uint8Array;
@@ -2461,6 +2539,7 @@ declare namespace cryptoFramework {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     salt: Uint8Array;
@@ -2470,6 +2549,7 @@ declare namespace cryptoFramework {
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     iterations: number;
@@ -2479,6 +2559,7 @@ declare namespace cryptoFramework {
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     keySize: number;
@@ -2489,6 +2570,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Kdf
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   interface Kdf {
@@ -2501,6 +2583,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
@@ -2514,6 +2597,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
@@ -2524,6 +2608,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     readonly algName: string;
@@ -2538,6 +2623,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   function createKdf(algName: string): Kdf;
