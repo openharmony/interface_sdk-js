@@ -57,6 +57,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function isWifiActive(): boolean;
