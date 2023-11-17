@@ -70,11 +70,11 @@ declare namespace audioHaptic {
     muteAudio?: boolean;
 
     /**
-     * Mute haptic.
+     * Mute haptics.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
-    muteHaptic?: boolean;
+    muteHaptics?: boolean;
   }
 
   /**
@@ -87,9 +87,10 @@ declare namespace audioHaptic {
     /**
      * Register audio and haptic file into manager. Audio and haptic works are paired while playing. After registering
      * source, it will return one source id. This method uses an asynchronous callback to return the source id.
-     * @param { string } audioFile - Audio file uri. 
-     * @param { string } hapticFile - Haptic file uri. 
+     * @param { string } audioFile - Audio file uri.
+     * @param { string } hapticFile - Haptic file uri.
      * @param { AsyncCallback<number> } callback - Callback used to return the source id.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -101,6 +102,7 @@ declare namespace audioHaptic {
      * @param { string } audioFile - Audio file uri.
      * @param { string } hapticFile - Haptic file uri.
      * @returns { Promise<number> } Promise used to return the source id.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -110,6 +112,7 @@ declare namespace audioHaptic {
      * Unregister source. This method uses an asynchronous callback to return the result.
      * @param { number } id source id. 
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -119,6 +122,7 @@ declare namespace audioHaptic {
      * Unregister source. This method uses a promise to return the result.
      * @param { number } id source id.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -131,6 +135,7 @@ declare namespace audioHaptic {
      * @param { number } id - Source id.
      * @param { AudioLatencyMode } latencyMode - Audio latency mode.
      * @param { audio.StreamUsage } usage - Stream usage.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -140,6 +145,9 @@ declare namespace audioHaptic {
      * Preload the source. This method uses an asynchronous callback to return the result.
      * @param { number } id - Source id.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -149,6 +157,9 @@ declare namespace audioHaptic {
      * Preload the source. This method uses a promise to return the result.
      * @param { number } id - Source id.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -158,25 +169,19 @@ declare namespace audioHaptic {
      * Create an audio haptic player. This method uses an asynchronous callback to return the result.
      * @param { number } id - Source id.
      * @param { AsyncCallback<AudioHapticPlayer> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
     createPlayer(id: number, callback: AsyncCallback<AudioHapticPlayer>): void;
 
     /**
-     * Create an audio haptic player. This method uses a promise to return the result.
-     * @param { number } id - Source id.
-     * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
-     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
-     */
-     createPlayer(id: number): Promise<AudioHapticPlayer>;
-
-    /**
      * Create an audio haptic player. This method uses an asynchronous callback to return the result.
      * @param { number } id - Source id.
      * @param { AudioHapticPlayerOptions } options - Options when create audio haptic player.
      * @param { AsyncCallback<AudioHapticPlayer> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -187,10 +192,11 @@ declare namespace audioHaptic {
      * @param { number } id - Source id.
      * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
-    createPlayer(id: number, options: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
+    createPlayer(id: number, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
   }
 
   /**
@@ -226,6 +232,7 @@ declare namespace audioHaptic {
      * Is muted for one AudioHapticType
      * @param { AudioHapticType } type - Indicates the type to query.
      * @returns { boolean } - Is muted.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -234,6 +241,11 @@ declare namespace audioHaptic {
     /**
      * Start this player. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400103 - IO error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -242,6 +254,10 @@ declare namespace audioHaptic {
     /**
      * Start this player. This method uses a promise to return the result.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400103 - IO error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -250,6 +266,11 @@ declare namespace audioHaptic {
     /**
      * Stop this player. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400103 - IO error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -258,6 +279,10 @@ declare namespace audioHaptic {
     /**
      * Stop this player. This method uses a promise to return the result.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400103 - IO error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -266,6 +291,8 @@ declare namespace audioHaptic {
     /**
      * Release this player. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
@@ -274,6 +301,7 @@ declare namespace audioHaptic {
     /**
      * Release this player. This method uses a promise to return the result.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
