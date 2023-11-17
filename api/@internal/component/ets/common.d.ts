@@ -8471,15 +8471,6 @@ declare interface PopupOptions {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     value: string;
 
     /**
@@ -8496,15 +8487,6 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
-     */
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
      */
     action: () => void;
   };
@@ -8549,15 +8531,6 @@ declare interface PopupOptions {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     value: string;
 
     /**
@@ -8574,15 +8547,6 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
-     */
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
      */
     action: () => void;
   };
@@ -8619,15 +8583,6 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
-     */
-    /**
-     * is Visible.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
      */
     isVisible: boolean
   }) => void;
