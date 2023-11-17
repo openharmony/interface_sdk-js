@@ -271,6 +271,16 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   friction(value: number | Resource): WaterFlowAttribute;
 
   /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * @param { number } value - number of flow items to be preloaded (cached).
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  cachedCount(value: number): WaterFlowAttribute;
+
+  /**
    * Called when the water flow begins to arrive.
    *
    * @param { function } event
