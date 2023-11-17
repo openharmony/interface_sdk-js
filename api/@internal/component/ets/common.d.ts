@@ -8938,15 +8938,6 @@ declare interface CustomPopupOptions {
      * @crossplatform
      * @since 10
      */
-    /**
-     * is Visible.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     isVisible: boolean
   }) => void;
 
