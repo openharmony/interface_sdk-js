@@ -50,4 +50,24 @@ export default class AppStateData {
    * @since 8
    */
   state: number;
+
+  /**
+   * Indicates whether the application has splitted screens.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  isSplitScreenMode: boolean;
+
+  /**
+   * Indicates whether the application has floating windows.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  isFloatingWindowMode: boolean;
 }
