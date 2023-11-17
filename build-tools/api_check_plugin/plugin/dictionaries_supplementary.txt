@@ -628,6 +628,7 @@ sac
 sae
 sak
 satellites
+sbc
 scdma
 scene
 sco
