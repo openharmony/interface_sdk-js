@@ -107,6 +107,16 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
+  /**
+   * Select contact.
+   *
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * Returns the contact list which user select; returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   function selectContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
@@ -130,6 +140,15 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
+  /**
+   * Select contact.
+   *
+   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   function selectContacts(): Promise<Array<Contact>>;
 
   /**
@@ -140,6 +159,16 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
+   */
+  /**
+   * Select contact with option.
+   *
+   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -152,6 +181,17 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
+   */
+  /**
+   * Select contact with option.
+   *
+   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
+   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>;
 
