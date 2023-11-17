@@ -696,6 +696,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+substate
 subtitles
 subtypes
 subwindow
