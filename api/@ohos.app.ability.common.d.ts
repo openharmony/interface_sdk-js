@@ -15,6 +15,7 @@
 
 import * as _UIAbilityContext from './application/UIAbilityContext';
 import type * as _UIExtensionContext from './application/UIExtensionContext';
+import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import * as _AbilityStageContext from './application/AbilityStageContext';
 import * as _ApplicationContext from './application/ApplicationContext';
 import * as _BaseContext from './application/BaseContext';
@@ -309,6 +310,17 @@ declare namespace common {
    * @since 10
    */
   export type UIExtensionContext = _UIExtensionContext.default;
+
+  /**
+   * The context of auto fill extension. It allows access to
+   * AutoFillExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
   /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
