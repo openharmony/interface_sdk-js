@@ -289,7 +289,7 @@ declare namespace http {
     DER = 'DER',
 
     /**
-     * DER format certificate
+     * P12 format certificate
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -305,7 +305,7 @@ declare namespace http {
    */
   export interface ClientCert {
     /**
-     * Cert: The path to the client certificate file.
+     * The path to the client certificate file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -321,7 +321,7 @@ declare namespace http {
     certType?: CertType;
 
     /**
-     * Key: The path of the client certificate private key file.
+     * The path of the client certificate private key file.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -329,7 +329,8 @@ declare namespace http {
     keyPath?: string;
 
     /**
-     * KeyPasswd: Client certificate password.
+     * Password required to use the client certificate private key.
+     * 
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -1516,7 +1517,16 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    HTTP2
+    HTTP2,
+
+    /**
+     * Protocol http3, for Use HTTP/3, fallback to HTTP/2 or HTTP/1 if needed.
+     * For HTTPS only. For HTTP, this option makes libcurl return error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    HTTP3
   }
 
   /**
