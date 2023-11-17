@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import AppStateData from './AppStateData';
+import type AppStateData from './AppStateData';
 
 /**
  * The app foreground state observer.

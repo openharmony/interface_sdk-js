@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
-import * as _AppForegroundStateObserver from './application/AppForegroundStateObserver';
+import type * as _AppForegroundStateObserver from './application/AppForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import type * as _ProcessData from './application/ProcessData';
@@ -218,7 +218,7 @@ declare namespace appManager {
    */
   function off(type: 'applicationState', observerId: number): Promise<void>;
 
-   /**
+  /**
    * Unregister app foreground or background state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
