@@ -1520,8 +1520,8 @@ declare namespace http {
     HTTP2,
 
     /**
-     * Protocol http3, for Use HTTP/3, fallback to HTTP/2 or HTTP/1 if needed.
-     * For HTTPS only. For HTTP, this option makes libcurl return error.
+     * When set http.HttpRequestOptions#usingProtocol to HTTP3, makes libcurl attempt to use HTTP/3
+     * to the host given in the URL, with fallback to earlier HTTP versions if needed.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11
