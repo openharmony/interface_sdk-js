@@ -203,6 +203,16 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @form
    */
   justifyContent(value: FlexAlign): RowAttribute;
+  /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { RowAttribute } The attribute of the row.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): RowAttribute;
 }
 
 /**
