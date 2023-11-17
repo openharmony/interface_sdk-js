@@ -86,7 +86,7 @@ export interface SystemTonePlayer {
   /**
    * Start playing the system tone. By default, the audio and haptic will not be muted. Using tone options to mute audio
    * or haptic.
-   * @param { ToneOptions } toneOptions - Tone options used for this play.
+   * @param { SystemToneOptions } toneOptions - Tone options used for this play.
    * @returns { Promise<number> } Promise used to return the id of this playback.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -95,11 +95,11 @@ export interface SystemTonePlayer {
    * @systemapi
    * @since 11
    */
-  start(toneOptions?: ToneOptions): Promise<number>;
+  start(toneOptions?: SystemToneOptions): Promise<number>;
 
   /**
    * Start playing the system tone with toneOptions.
-   * @param { ToneOptions } toneOptions - Tone options used for this play.
+   * @param { SystemToneOptions } toneOptions - Tone options used for this play.
    * @param { AsyncCallback<number> } callback - Callback to return id of this play.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -108,7 +108,7 @@ export interface SystemTonePlayer {
    * @systemapi
    * @since 11
    */
-  start(toneOptions: ToneOptions, callback: AsyncCallback<number>): void;
+  start(toneOptions: SystemToneOptions, callback: AsyncCallback<number>): void;
 
   /**
    * Stop with playback id.
@@ -163,13 +163,13 @@ export interface SystemTonePlayer {
 }
 
 /**
- * Tone options used when SystemTonePlayer start playing.
- * @typedef ToneOptions
+ * System tone options used when SystemTonePlayer start playing.
+ * @typedef SystemToneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11
  */
-export interface ToneOptions {
+export interface SystemToneOptions {
   /**
    * Mute audio.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
