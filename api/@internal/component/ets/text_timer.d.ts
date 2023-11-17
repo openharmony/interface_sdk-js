@@ -26,6 +26,15 @@
  * @since 10
  * @form
  */
+/**
+ * Provides a way to control the process.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class TextTimerController {
   /**
    * constructor.
@@ -39,6 +48,15 @@ declare class TextTimerController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   constructor();
@@ -57,6 +75,15 @@ declare class TextTimerController {
    * @since 10
    * @form
    */
+  /**
+   * Provides a start event for timer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   start();
 
   /**
@@ -73,6 +100,15 @@ declare class TextTimerController {
    * @since 10
    * @form
    */
+  /**
+   * Provides a pause event for timer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   pause();
 
   /**
@@ -87,6 +123,15 @@ declare class TextTimerController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Provides an event to reset timer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   reset();
