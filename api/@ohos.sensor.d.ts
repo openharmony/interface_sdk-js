@@ -221,6 +221,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to accelerometer sensor data.
+   * @atomicservice.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -301,6 +302,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to gyroscope sensor data.
+   * @atomicservice.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -413,6 +415,7 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data.
+   * @atomicservice.
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -777,6 +780,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to accelerometer sensor data.
+   * @atomicservice.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -842,6 +846,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to gyroscope sensor data.
+   * @atomicservice.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -931,6 +936,7 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to orientation sensor data.
+   * @atomicservice.
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error.
