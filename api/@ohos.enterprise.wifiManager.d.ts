@@ -841,6 +841,44 @@ declare namespace wifiManager {
    * @since 10
    */
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
+
+  /**
+   * Allows or disallows the Wi-Fi.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } isDisabled - true if disallow the Wi-Fi, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function disallowWifi(admin: Want, isDisabled: boolean): void;
+
+  /**
+   * Gets state of whether the Wi-Fi is disallowed.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the Wi-Fi is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function isWifiDisallowed(admin: Want): boolean;
 }
 
 export default wifiManager;
