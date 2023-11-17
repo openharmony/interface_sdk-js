@@ -14,6 +14,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type Context from './application/Context';
 
 /**
  * System print
@@ -141,6 +142,30 @@ declare namespace print {
    * @since 10
    */
   function print(files: Array<string>): Promise<PrintTask>;
+
+  /**
+   * Start new print task for App.
+   * @permission ohos.permission.PRINT
+   * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
+   * @param { Context } context - The ability context that initiates the call print request.
+   * @param { AsyncCallback<PrintTask> } callback - The callback function for print task.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 11
+   */
+  function print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>): void;
+    
+  /**
+   * Start new print task for App.
+   * @permission ohos.permission.PRINT
+   * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
+   * @param { Context } context - The ability context that initiates the call print request.
+   * @returns { Promise<PrintTask> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 11
+   */
+  function print(files: Array<string>, context: Context): Promise<PrintTask>;
 
   /**
    * defines print margin.
@@ -383,6 +408,15 @@ declare namespace print {
     * @since 10
     */
     minMargin?: PrintMargin;
+
+    /**
+    * JSON object string.
+    * @type { ?Object }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    options?: Object;
   }
 
   /**
@@ -500,6 +534,15 @@ declare namespace print {
     * @since 10
     */
     jobState: PrintJobState;
+
+    /**
+    * Current print job sub state.
+    * @type { PrintJobSubState }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    jobSubstate: PrintJobSubState;
 
     /**
     * Copies of document list.
@@ -841,6 +884,86 @@ declare namespace print {
     * @since 10
     */
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
+
+    /**
+    * Print an error occurred when printing the account.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_ACCOUNT_ERROR = 18,
+
+    /**
+    * Print the printing permission is abnormal.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_PRINT_PERMISSION_ERROR = 19,
+
+    /**
+    * Print color printing permission exception.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_PRINT_COLOR_PERMISSION_ERROR = 20,
+
+    /**
+    * Print the device is not connected to the network.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_NETWORK_ERROR = 21,
+
+    /**
+    * Print unable to connect to the server.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_SERVER_CONNECTION_ERROR = 22,
+
+    /**
+    * Print large file exception.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_LARGE_FILE_ERROR = 23,
+
+    /**
+    * Print file parsing exception.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_FILE_PARSING_ERROR = 24,
+
+    /**
+    * Print the file conversion is too slow.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_BLOCK_SLOW_FILE_CONVERSION = 25,
+
+    /**
+    * Print uploading file.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_RUNNING_UPLOADING_FILES = 26,
+
+    /**
+    * Print converting files.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
     /**
     * Print unknown issue.
@@ -1470,6 +1593,8 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead print#queryPrintJobList
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -1482,8 +1607,60 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead print#queryPrintJobList
    */
   function queryAllPrintJobs(): Promise<void>;
+
+  /**
+   * Get all the printJobs in the queue.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { AsyncCallback<Array<PrintJob>> } callback - The callback function for handling the printJob list found.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function queryPrintJobList(callback: AsyncCallback<Array<PrintJob>>): void;
+
+  /**
+   * Get all the printJobs in the queue.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @returns { Promise<Array<PrintJob>> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function queryPrintJobList(): Promise<Array<PrintJob>>;
+
+  /**
+   * Get printJob by jobId.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates id of the print job.
+   * @param { AsyncCallback<PrintJob> } callback - The callback function for get printJob by jobId.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function queryPrintJobById(jobId: string, callback: AsyncCallback<PrintJob>): void;
+
+  /**
+   * Get printJob by jobId.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates id of the print job.
+   * @returns { Promise<PrintJob> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function queryPrintJobById(jobId: string): Promise<PrintJob>;
 }
 
 export default print;

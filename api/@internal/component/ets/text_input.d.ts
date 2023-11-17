@@ -170,6 +170,22 @@ declare enum InputType {
    * @since 11
    */
   SCREEN_LOCK_PASSWORD = 9,
+
+  /*
+   * UserName entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  USER_NAME = 10,
+
+  /**
+   * NewPassword entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  NEW_PASSWORD = 11
 }
 
 /**
@@ -1713,6 +1729,37 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   showCounter(value: boolean): TextInputAttribute;
+
+  /**
+   * Sets selection when on focus.
+   *
+   * @param { boolean } value - Sets selection or not.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selectAll(value: boolean): TextInputAttribute;
+
+  /*
+   * Sets whether enable auto fill or not.
+   *
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enableAutoFill(value: boolean): TextInputAttribute;
+
+  /**
+   * Define the password rules of the text input.
+   *
+   * @param { string } value - Indicates the password rules. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  passwordRules(value: string): TextInputAttribute;
 }
 
 /**
