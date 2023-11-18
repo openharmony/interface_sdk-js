@@ -321,6 +321,7 @@ interface ActionSheetOptions
    * Whether to display in the sub window.
    * 
    * @type { ?boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
