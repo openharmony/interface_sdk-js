@@ -211,6 +211,16 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @form
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
+  /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { ColumnAttribute } The attribute of the column.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): ColumnAttribute;
 }
 
 /**

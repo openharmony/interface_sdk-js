@@ -8744,3 +8744,62 @@ declare module 'CommonEnums' {
     export type { Color, FontStyle, Nullable };
   }
 }
+
+/**
+ * Enum of Illuminated type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare enum IlluminatedType {
+  /**
+   * Component is not illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  NONE = 0,
+  /**
+   * Border is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BORDER = 1,
+  /**
+   * Content is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  CONTENT = 2,
+  /**
+   * Border and Content is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BORDER_CONTENT = 3,
+  /**
+   * Border is illuminated, and the border have a bloom effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BLOOM_BORDER = 4,
+  /**
+   * Border and Content is illuminated, and the border have a bloom effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BLOOM_BORDER_CONTENT = 5
+}
