@@ -1289,6 +1289,27 @@ declare namespace worker {
   }
 
   /**
+   * The RestrictedWorker class contains all Worker functions.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @since 11
+   */
+  class RestrictedWorker extends ThreadWorker {
+    /**
+     * Creates a worker instance
+     *
+     * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
+     * @param { WorkerOptions } options - options Options that can be set for the worker
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200003 - Worker initialization failure.
+     * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 11
+     */
+    constructor(scriptURL: string, options?: WorkerOptions);
+  }
+
+  /**
    * The Worker class contains all Worker functions.
    *
    * @syscap SystemCapability.Utils.Lang

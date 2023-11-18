@@ -239,4 +239,45 @@ declare class SecurityComponentMethod<T> {
    * @test
    */
   key(value: string): T;
+
+  /**
+   * Sets the width of the component.
+   *
+   * @param { Length } value - Indicates the width of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  width(value: Length): T;
+
+  /**
+   * Sets the height of the component.
+   *
+   * @param { Length } value - Indicates the height of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  height(value: Length): T;
+
+  /**
+   * The size of the component.
+   *
+   * @param { SizeOptions } value - Indicates the size of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  size(value: SizeOptions): T;
+
+  /**
+   * constraint Size:
+   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
+   *
+   * @param { ConstraintSizeOptions } value - Indicates the constraint size of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  constraintSize(value: ConstraintSizeOptions): T;
 }

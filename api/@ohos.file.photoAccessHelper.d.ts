@@ -1922,6 +1922,95 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     release(): Promise<void>;
+    /**
+     * Saves form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { FormInfo } info - Information store with the form.
+     * @param { AsyncCallback<void> } callback - No value returned.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    saveFormInfo(info: FormInfo, callback: AsyncCallback<void>): void;
+    /**
+     * Saves form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { FormInfo } info - Information store with the form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    saveFormInfo(info: FormInfo): Promise<void>;
+    /**
+     * Removes form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { FormInfo } info - Information store with the form.
+     * @param { AsyncCallback<void> } callback - No value returned.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    removeFormInfo(info: FormInfo, callback: AsyncCallback<void>): void;
+    /**
+     * Removes form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { FormInfo } info - Information store with the form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    removeFormInfo(info: FormInfo): Promise<void>;
+  }
+
+  /**
+   * Form information.
+   *
+   * @interface FormInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 11
+   */
+  interface FormInfo {
+    /**
+     * Id of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    formId: string;
+    /**
+     * URI of the photo or album.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    uri: string;
   }
 
   /**

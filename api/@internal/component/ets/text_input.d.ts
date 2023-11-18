@@ -121,6 +121,22 @@ declare enum InputType {
    * @since 11
    */
   SCREEN_LOCK_PASSWORD = 9,
+
+  /*
+   * UserName entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  USER_NAME = 10,
+
+  /**
+   * NewPassword entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  NEW_PASSWORD = 11
 }
 
 /**
@@ -557,6 +573,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the color of the placeholder is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
@@ -575,6 +601,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the font property of the placeholder is set.
+   *
+   * @param { Font } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   placeholderFont(value?: Font): TextInputAttribute;
 
@@ -614,6 +650,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the color of the insertion cursor is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
@@ -644,6 +690,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when judging whether the text editing change finished.
+   *
+   * @param { function } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
 
@@ -682,6 +738,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the input of the input box changes.
+   *
+   * @param { function } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onChange(callback: (value: string) => void): TextInputAttribute;
 
@@ -839,6 +905,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the inputFilter of text is set.
+   *
+   * @param { ResourceStr } value
+   * @param { function } error
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
 
@@ -1153,6 +1230,48 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   customKeyboard(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * Define show counter of the text input.
+   *
+   * @param { boolean } value - Set the counter of the text input.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showCounter(value: boolean): TextInputAttribute;
+
+  /**
+   * Sets selection when on focus.
+   *
+   * @param { boolean } value - Sets selection or not.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selectAll(value: boolean): TextInputAttribute;
+
+  /*
+   * Sets whether enable auto fill or not.
+   *
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enableAutoFill(value: boolean): TextInputAttribute;
+
+  /**
+   * Define the password rules of the text input.
+   *
+   * @param { string } value - Indicates the password rules. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  passwordRules(value: string): TextInputAttribute;
 }
 
 /**
@@ -1167,6 +1286,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines TextInput Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const TextInput: TextInputInterface;
 

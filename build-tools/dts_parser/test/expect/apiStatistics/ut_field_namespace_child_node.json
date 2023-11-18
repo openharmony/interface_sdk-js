@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_field_namespace_child_node.d.ts/testNamespace/test",
     "apiName": "test",
     "deprecatedVersion": "",
@@ -20,6 +21,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -542,6 +543,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises
@@ -626,6 +628,7 @@ sac
 sae
 sak
 satellites
+sbc
 scdma
 scene
 sco
@@ -694,6 +697,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+substate
 subtitles
 subtypes
 subwindow
