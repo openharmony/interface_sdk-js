@@ -330,7 +330,6 @@ declare namespace http {
 
     /**
      * Password required to use the client certificate private key.
-     * 
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
