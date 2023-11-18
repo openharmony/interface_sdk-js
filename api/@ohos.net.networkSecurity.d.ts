@@ -90,7 +90,7 @@ declare namespace networkSecurity {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export function verifyCertification(cert: CertBlob, callback: AsyncCallback<number>): void;
+  export function certVerification(cert: CertBlob, callback: AsyncCallback<number>): void;
 
   /**
    * Verify certification to server.
@@ -115,7 +115,7 @@ declare namespace networkSecurity {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export function verifyCertification(cert: CertBlob, caCert: CertBlob, callback: AsyncCallback<number>): void;
+  export function certVerification(cert: CertBlob, caCert: CertBlob, callback: AsyncCallback<number>): void;
 
   /**
    * Verify certification to server.
@@ -139,7 +139,7 @@ declare namespace networkSecurity {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export function verifyCertification(cert: CertBlob): Promise<number>;
+  export function certVerification(cert: CertBlob): Promise<number>;
 
   /**
    * Verify certification to server.
@@ -164,7 +164,7 @@ declare namespace networkSecurity {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export function verifyCertification(cert: CertBlob, caCert: CertBlob): Promise<number>;
+  export function certVerification(cert: CertBlob, caCert: CertBlob): Promise<number>;
 
   /**
    * Verify certification to server.
@@ -189,7 +189,7 @@ declare namespace networkSecurity {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export function verifyCertificationSync(cert: CertBlob, caCert?: CertBlob): number;
+  export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): number;
 }
 
 export default networkSecurity;
