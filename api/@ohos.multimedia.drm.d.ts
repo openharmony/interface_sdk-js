@@ -480,7 +480,7 @@ declare namespace drm {
     }
 
     /**
-     * Provides the drm provision request definations.
+     * Provides the drm provision request definitions.
      * @interface ProvisionRequest
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -504,11 +504,11 @@ declare namespace drm {
 
     /**
      * Provides the drm license request info optional data.
-     * @interface OptionalData
+     * @interface OptionsData
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
      */
-    interface OptionalData {
+    interface OptionsData {
         /**
          * App defined optional data name.
          * @type { string }
@@ -526,7 +526,7 @@ declare namespace drm {
     }
 
      /**
-     * Provides the drm license request definations.
+     * Provides the drm license request definitions.
      * @interface LicenseRequest
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 11
@@ -649,7 +649,7 @@ declare namespace drm {
 
     /**
      * Creates a Mediakeysystem instance.
-     * @param { string } name - Used to point a Digital Right Managements solution.
+     * @param { string } name - Used to point a Digital Right Management solution.
      * @param { Callback<MediaKeySystem> } callback - Used to return the Mediakeysystem instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
@@ -662,7 +662,7 @@ declare namespace drm {
 
     /**
      * Creates a MediaKeySystem instance.
-     * @param { string } name - Used to point a Digital Right Managements solution.
+     * @param { string } name - Used to point a Digital Right Management solution.
      * @returns { MediaKeySystem } The MediaKeySystem instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
@@ -675,8 +675,8 @@ declare namespace drm {
 
     /**
      * Judge whether a system that specifies UUID, mimetype and security level is supported.
-     * @param { string } name Used to point a Digital Right Managements solution.
-     * @param { string } mimeType Used to specifies the meida type.
+     * @param { string } name Used to point a Digital Right Management solution.
+     * @param { string } mimeType Used to specifies the media type.
      * @param { SecurityLevel } level Used to specifies the SecurityLevel.
      * @returns { boolean } Whether these conditions will be met.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -689,8 +689,8 @@ declare namespace drm {
 
     /**
      * Judge whether a system that specifies UUID, mimetype and security level is supported.
-     * @param { string } name - Used to point a Digital Right Managements solution.
-     * @param { string } mimeType - Used to specifies the meida type.
+     * @param { string } name - Used to point a Digital Right Management solution.
+     * @param { string } mimeType - Used to specifies the media type.
      * @returns { boolean } Whether these conditions will be met.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
@@ -702,7 +702,7 @@ declare namespace drm {
 
     /**
      * Judge whether a system that specifies UUID, mimetype and security level is supported.
-     * @param { string } name - Used to point a Digital Right Managements solution.
+     * @param { string } name - Used to point a Digital Right Management solution.
      * @returns { boolean } Whether these conditions will be met.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
@@ -773,7 +773,7 @@ declare namespace drm {
         /**
          * Get performance statistics information.That includes currentSessionNum, version, decryptNumber,
          * and errorDecryptNumber.
-         * @returns { MetricKeyValue[] } A list that includes perfaormence index and corresponding statistics.
+         * @returns { MetricKeyValue[] } A list that includes performance index and corresponding statistics.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
          * @syscap SystemCapability.Multimedia.Drm.Core
@@ -914,10 +914,10 @@ declare namespace drm {
         /**
          * Generate the license request.
          * @param { string } mimeType - Media type.
-         * @param { Uint8Array } initData - Pssh after base64 encoding.
+         * @param { Uint8Array } initData - PSSH after base64 encoding.
          * @param { number } licenseType - Offline or online.
-         * @param { OptionalData[] } optionalData - Optional data the application set to drm framework.
-         * @return { Promise<LicenseRequest> } Promise with LicenseRequest used to return the result.
+         * @param { OptionsData[] } options - Optional data the application set to drm framework.
+         * @returns { Promise<LicenseRequest> } Promise with LicenseRequest used to return the result.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
          * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
@@ -925,7 +925,7 @@ declare namespace drm {
          * @since 11
          */
         generateLicenseRequest(mimeType: string, initData: Uint8Array, licenseType: number,
-            optionalData?: OptionalData[]): Promise<LicenseRequest>;
+            options?: OptionsData[]): Promise<LicenseRequest>;
 
         /**
          * Process the response corresponding to the license request obtained by the application.
@@ -941,7 +941,7 @@ declare namespace drm {
 
         /**
          * Check the license status
-         * @returns { LicenseStatus[] } A list of license status descrpiton pairs.
+         * @returns { LicenseStatus[] } A list of license status descrption pairs.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
          * @syscap SystemCapability.Multimedia.Drm.Core
@@ -975,7 +975,7 @@ declare namespace drm {
          * Process offline license response.
          * @param { Uint8Array } licenseId - The licenseId specifies which media content's license it is
          * @param { Uint8Array } response - The offline license.
-         * @return { Promise<void> } Promise used to return the result.
+         * @returns { Promise<void> } Promise used to return the result.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
          * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
@@ -987,7 +987,7 @@ declare namespace drm {
         /**
          * Restore offline license response.
          * @param { Uint8Array } licenseId - The licenseId specifies which license should be restore.
-         * @return { Promise<void> } Promise used to return the result.
+         * @returns { Promise<void> } Promise used to return the result.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
          * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
@@ -1081,7 +1081,7 @@ declare namespace drm {
         /**
          * Register or unregister keysChange event.
          * @param { 'keysChange' } type - Type of the drm event to listen for.
-         * @param { Callback<EventInfo> } callback - Used to listen for keys change event.
+         * @param { Callback<KeysInfo[]> } callback - Used to listen for keys change event.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
          * @syscap SystemCapability.Multimedia.Drm.Core
