@@ -9699,6 +9699,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
+
+  /**
+   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
 }
 
 /**
