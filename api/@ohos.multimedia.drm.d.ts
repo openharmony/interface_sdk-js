@@ -352,13 +352,13 @@ declare namespace drm {
      */
     enum CertificateStatus {
         /**
-         * Device already privisioned.
+         * Device already provisioned.
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
         CERT_STATUS_PROVISIONED = 0,
         /**
-         * Device not privisioned.
+         * Device not provisioned.
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
@@ -460,13 +460,13 @@ declare namespace drm {
          */
         SECURITY_LEVEL_HW_CRYPTO = 3,
         /**
-         * Device using hardtware decode.
+         * Device using hardware decode.
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
         SECURITY_LEVEL_HW_DECODE = 4,
         /**
-         * Device using hardtware and software decode.
+         * Device using hardware and software decode.
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
@@ -648,9 +648,9 @@ declare namespace drm {
     }
 
     /**
-     * Creates a Mediakeysystem instance.
+     * Creates a MediaKeySystem instance.
      * @param { string } name - Used to point a Digital Right Management solution.
-     * @param { Callback<MediaKeySystem> } callback - Used to return the Mediakeysystem instance.
+     * @param { Callback<MediaKeySystem> } callback - Used to return the MediaKeySystem instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700102 - Parameter missing or parameter type/value incorrect.
      * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
@@ -941,7 +941,7 @@ declare namespace drm {
 
         /**
          * Check the license status
-         * @returns { LicenseStatus[] } A list of license status descrption pairs.
+         * @returns { LicenseStatus[] } A list of license status description pairs.
          * @throws { BusinessError } 24700101 - All unknown errors.
          * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
          * @syscap SystemCapability.Multimedia.Drm.Core
