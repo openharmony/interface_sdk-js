@@ -69,7 +69,7 @@ declare namespace networkSecurity {
   }
 
   /**
-   * Verify certification to server.
+   * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { AsyncCallback<number> } callback - The callback of verifyCertification.
    * @throws { BusinessError } 2305001 - Unspecified error.
@@ -93,7 +93,7 @@ declare namespace networkSecurity {
   export function certVerification(cert: CertBlob, callback: AsyncCallback<number>): void;
 
   /**
-   * Verify certification to server.
+   * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } caCert - Incoming custom CA cert.
    * @param { AsyncCallback<number> } callback - The callback of verifyCertification.
@@ -118,7 +118,7 @@ declare namespace networkSecurity {
   export function certVerification(cert: CertBlob, caCert: CertBlob, callback: AsyncCallback<number>): void;
 
   /**
-   * Verify certification to server.
+   * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2305001 - Unspecified error.
@@ -142,7 +142,7 @@ declare namespace networkSecurity {
   export function certVerification(cert: CertBlob): Promise<number>;
 
   /**
-   * Verify certification to server.
+   * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } caCert - Incoming custom CA cert.
    * @returns { Promise<number> } The promise returned by the function.
@@ -167,7 +167,7 @@ declare namespace networkSecurity {
   export function certVerification(cert: CertBlob, caCert: CertBlob): Promise<number>;
 
   /**
-   * Verify certification to server.
+   * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
    * @returns { number } Returns 0 if verify of certification from server succeed, else verify failed.
