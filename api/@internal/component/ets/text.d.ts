@@ -899,6 +899,26 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   ellipsisMode(value: EllipsisMode): TextAttribute;
+
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - Enable data detector.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enableDataDetector(enable: boolean): TextAttribute;
+
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dataDetectorConfig(config: TextDataDetectorConfig): TextAttribute;
 }
 
 /**
