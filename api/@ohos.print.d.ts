@@ -2033,7 +2033,7 @@ declare namespace print {
    * @param { string } jobId - Indicates id of the print job.
    * @param { PrintAttributes } printAttributes - Indicates print attributes.
    * @param { number } fd - Indicates print file fd.
-   * @param { (state: PrintFileCreatedInfoCode) } onFileStateChanged - Indicates this function should execute after the file created state is updated.
+   * @param { AsyncCallback<PrintFileCreatedInfoCode> } onFileStateChanged - The callback function for update the file state.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -2041,7 +2041,7 @@ declare namespace print {
    * @since 11
    */
   function startGetPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
-    onFileStateChanged: (state: PrintFileCreatedInfoCode) => void): void;
+    onFileStateChanged: AsyncCallback<PrintFileCreatedInfoCode>): void;
 
   /**
    * Notify print service the information.
