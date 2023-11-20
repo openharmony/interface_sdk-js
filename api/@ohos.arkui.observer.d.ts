@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import { Callback } from './@ohos.base';
+import type { Callback } from './@ohos.base';
 
 /**
  * Register callbacks to observe ArkUI behavior.
  *
- * @namespace UIObserver
+ * @namespace uiObserver
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-declare namespace UIObserver {
+declare namespace uiObserver {
   /**
    * NavDestination state.
    *
@@ -42,7 +42,7 @@ declare namespace UIObserver {
      * @since 11
      * @form
      */
-    ON_SHOW = 0,
+    ON_SHOWN = 0,
 
     /**
      * When the NavDestination hidden.
@@ -98,48 +98,50 @@ declare namespace UIObserver {
   /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
-   * @param { "navDestinationUpdate" } type - The type of event to listen for. Must be "navDestinationUpdate".
-   * @param { Object } options - The options object.
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
    * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  export function on(type: "navDestinationUpdate", options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
+  export function on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { "navDestinationUpdate" } type - The type of event to remove the listener for. Must be "navDestinationUpdate".
-   * @param { Object } options - The options object.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and navigation ID will be removed.
+   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    navigation ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  export function off(type: "navDestinationUpdate", options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void;
+  export function off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void;
 
   /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
-   * @param { "navDestinationUpdate" } type - The type of event to listen for. Must be "navDestinationUpdate".
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
    * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  export function on(type: "navDestinationUpdate", callback: Callback<NavDestinationInfo>): void;
+  export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { "navDestinationUpdate"} type - The type of event to remove the listener for. Must be "navDestinationUpdate".
-   * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type will be removed.
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  export function off(type: "navDestinationUpdate", callback?: Callback<NavDestinationInfo>): void;
+  export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 }
 
-export default UIObserver;
+export default uiObserver;

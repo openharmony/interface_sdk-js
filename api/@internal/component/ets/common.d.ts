@@ -15963,7 +15963,7 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @since 11
    */
-  queryNavDestinationInfo?(): NavDestinationInfo | undefined
+  queryNavDestinationInfo?(): NavDestinationInfo | undefined;
 }
 
 /**
