@@ -493,13 +493,22 @@ declare enum ColoringStrategy {
   INVERT = 'invert',
 
   /**
-   * Use the average color strategy. Get the average color of the background. Not applies to the color in textShadow.
+   * Use the average color strategy. Get the average color of the background. Only applies to shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   AVERAGE = 'average',
+
+  /**
+   * Use the primary color strategy. Get the color that dominate the background color. Only applies to shadow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PRIMARY = 'primary',
 }
 
 /**
