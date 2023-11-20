@@ -13481,6 +13481,19 @@ declare class CommonMethod<T> {
   bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
   /**
+   * Menu control
+   *
+   * @param { boolean } isShow true means display menu, false means hide menu.
+   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
+   * @param { MenuOptions } options - Indicates the options of menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
+
+  /**
    * ContextMenu control
    *
    * @param { CustomBuilder } content
