@@ -9189,7 +9189,6 @@ declare interface ContextMenuOptions {
    * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   preview?: MenuPreviewMode | CustomBuilder;
