@@ -13,7 +13,8 @@
 * limitations under the License.
 */
 
-import {ErrorCallback, AsyncCallback, Callback} from './basic';
+import { ErrorCallback, AsyncCallback } from './basic';
+import type Callback from './basic';
 import { Context } from './app/context';
 
 /**
@@ -75,67 +76,67 @@ declare namespace drm {
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_DEVICE_VENDOR = "vendor",
+        CONFIG_DEVICE_VENDOR = 'vendor',
         /**
          * Config name version
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_DEVICE_VERSION = "version",
+        CONFIG_DEVICE_VERSION = 'version',
         /**
          * Config name description
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_DEVICE_DESCRIPTION = "description",
+        CONFIG_DEVICE_DESCRIPTION = 'description',
         /**
          * Config name algorithms
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_DEVICE_ALGORITHMS = "algorithms",
+        CONFIG_DEVICE_ALGORITHMS = 'algorithms',
         /**
          * Config name deviceUniqueId
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_DEVICE_UNIQUE_ID = "deviceUniqueId",
+        CONFIG_DEVICE_UNIQUE_ID = 'deviceUniqueId',
         /**
          * Config name maxSessionNum
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_SESSION_MAX = "maxSessionNum",
+        CONFIG_SESSION_MAX = 'maxSessionNum',
         /**
          * Config name currentSessionNum
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_SESSION_CURRENT = "currentSessionNum",
+        CONFIG_SESSION_CURRENT = 'currentSessionNum',
         /**
          * Config name maxHDCPLevel
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_OUTPUT_HDCP_MAX = "maxHDCPLevel",
+        CONFIG_OUTPUT_HDCP_MAX = 'maxHDCPLevel',
         /**
          * Config name currentHDCPLevel
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_OUTPUT_HDCP_CURRENT = "currentHDCPLevel",
+        CONFIG_OUTPUT_HDCP_CURRENT = 'currentHDCPLevel',
         /**
          * Config name maxADCPLevel
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_OUTPUT_ADCP_MAX = "maxADCPLevel",
+        CONFIG_OUTPUT_ADCP_MAX = 'maxADCPLevel',
         /**
          * Config name currentADCPLevel
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CONFIG_OUTPUT_ADCP_CURRENT = "currentADCPLevel",
+        CONFIG_OUTPUT_ADCP_CURRENT = 'currentADCPLevel',
     }
     /**
      * Enumerates event types of listener.
@@ -150,11 +151,11 @@ declare namespace drm {
          * @since 11
          */
         LISTENER_DRM_EVENT = 200,
-         /**
-         * Provison required event.
-         * @syscap SystemCapability.Multimedia.Drm.Core
-         * @since 11
-         */
+        /**
+        * Provision required event.
+        * @syscap SystemCapability.Multimedia.Drm.Core
+        * @since 11
+        */
         LISTENER_PROVISION_REQUIRED = 201,
         /**
          * License required event.
@@ -380,7 +381,7 @@ declare namespace drm {
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        CERT_STATUS_UNAVAILABALE,
+        CERT_STATUS_UNAVAILABLE,
     }
 
     /**
@@ -525,13 +526,13 @@ declare namespace drm {
         value: string;
     }
 
-     /**
-     * Provides the drm license request definitions.
-     * @interface LicenseRequest
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-     interface LicenseRequest {
+    /**
+    * Provides the drm license request definitions.
+    * @interface LicenseRequest
+    * @syscap SystemCapability.Multimedia.Drm.Core
+    * @since 11
+    */
+    interface LicenseRequest {
         /**
          * License request type.
          * @type { RequestType }
@@ -822,7 +823,7 @@ declare namespace drm {
          * @syscap SystemCapability.Multimedia.Drm.Core
          * @since 11
          */
-        getCertificateStatus():CertificateStatus;
+        getCertificateStatus(): CertificateStatus;
 
         /**
          * Register or unregister listens for drm events.
