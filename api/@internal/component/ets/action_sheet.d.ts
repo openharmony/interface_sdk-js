@@ -329,7 +329,7 @@ interface ActionSheetOptions
   showInSubWindow?: boolean;
 
   /**
-   * whether it is a modal dialog
+   * Whether it is a modal dialog
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
