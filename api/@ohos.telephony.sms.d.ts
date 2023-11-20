@@ -34,7 +34,7 @@ declare namespace sms {
    * @param { string } content - Indicates the short message content, which cannot be {@code null}.
    * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting a list of split segments,
    * which can be combined into a complete SMS message;
-   * returns an empty string if no permission is granted or the short message content is {@code null}.
+   * Returns an empty string if no permission is granted or the short message content is {@code null}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -57,7 +57,7 @@ declare namespace sms {
    * @permission ohos.permission.SEND_MESSAGES
    * @param { string } content - Indicates the short message content, which cannot be {@code null}.
    * @returns { Promise<Array<string>> } Returns a list of split segments, which can be combined into a complete SMS
-   * message; returns an empty string if no permission is granted or the short message content is {@code null}.
+   * message; Returns an empty string if no permission is granted or the short message content is {@code null}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -81,7 +81,7 @@ declare namespace sms {
    * @param { string } specification - Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE
    * SMS, and the value {@code 3gpp2} indicates CDMA/LTE SMS.
    * @param { AsyncCallback<ShortMessage> } callback - Indicates the callback for getting an SMS message instance;
-   * returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
+   * Returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -102,7 +102,7 @@ declare namespace sms {
    * @param { string } specification - Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE
    * SMS, and the value {@code 3gpp2} indicates CDMA/LTE SMS.
    * @returns { Promise<ShortMessage> } Returns an SMS message instance;
-   * returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
+   * Returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -224,7 +224,7 @@ declare namespace sms {
    * @param { AsyncCallback<number> } callback - Indicates the callback for getting the default SIM card for sending SMS
    * messages.
    * Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
-   * returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7
    */
@@ -234,7 +234,7 @@ declare namespace sms {
    * Obtains the default SIM card for sending SMS messages.
    *
    * @returns { Promise<number> } Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
-   * returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7
    */
@@ -322,7 +322,7 @@ declare namespace sms {
    * Returns whether a device is capable of sending and receiving SMS messages.
    *
    * @returns { boolean } Returns {@code true} if the device is capable of sending and receiving SMS messages;
-   * returns {@code false} otherwise.
+   * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7
    */
