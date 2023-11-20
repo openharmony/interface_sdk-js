@@ -767,7 +767,7 @@ declare namespace wifiManager {
   function getStations(): Array<StationInfo>;
 
    /**
-   * Add the station into the blocked list, the station can NOT access the hotspot.
+   * Add the station into the block list, the station can NOT access the hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { StationInfo } stationInfo - station which will be added in the block list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -779,10 +779,10 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function addHotspotBlockedList(stationInfo: StationInfo);
+  function addHotspotBlockList(stationInfo: StationInfo);
 
   /**
-   * Delete the station from blocked list, the station can access the hotspot.
+   * Delete the station from block list, the station can access the hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { StationInfo } stationInfo - station which will be deleted in the block list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -794,12 +794,12 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function delHotspotBlockedList(stationInfo: StationInfo);
+  function delHotspotBlockList(stationInfo: StationInfo);
 
     /**
-   * Get all the stations in the blocked list.
+   * Get all the stations in the block list.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @returns { Array<StationInfo> } stations in the blocked list.
+   * @returns { Array<StationInfo> } stations in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -809,7 +809,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getHotspotBlockedList(): Array<StationInfo>;
+  function getHotspotBlockList(): Array<StationInfo>;
 
   /**
    * Obtain information about the P2P connection.
