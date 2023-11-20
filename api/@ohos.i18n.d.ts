@@ -103,7 +103,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 10
+   * @since 11
    */
   export class System {
     /**
