@@ -122,6 +122,41 @@ declare namespace print {
   }
 
   /**
+   * Third-party application implement this interface to render files to be printed.
+   * @interface PrintDocumentAdapter
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 11
+   */
+  interface PrintDocumentAdapter {
+
+    /**
+     * Implement this function to update the print file.
+     * @permission ohos.permission.PRINT
+     * @param { string } jobId - Indicates print job id.
+     * @param { PrintAttributes } oldAttrs - Indicates old print attributes.
+     * @param { PrintAttributes } newAttrs - Indicates new print attributes.
+     * @param { number } fd - Indicates print file fd.
+     * @param { (jobId: string, writeResult: PrintFileCreatedInfoCode) } writeResultCallback - Indicates this function should execute after the file is updated.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
+    onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number,
+      writeResultCallback: (jobId: string, writeResult: PrintFileCreatedInfoCode) => void): void;
+
+    /**
+     * Implement this function to listen job status change.
+     * @permission ohos.permission.PRINT
+     * @param { string } jobId - Indicates print job id.
+     * @param { PrintAdapterListeningState } state - Indicates job changes to this state.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 11
+     */
+    onJobStateChanged(jobId: string, state: PrintAdapterListeningState): void;
+  }
+
+  /**
    * Start new print task for App.
    * @permission ohos.permission.PRINT
    * @param { Array<string> } files - Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
@@ -166,6 +201,99 @@ declare namespace print {
    * @since 11
    */
   function print(files: Array<string>, context: Context): Promise<PrintTask>;
+
+  /**
+   * Start new print task for App And the App need updata print file.
+   * @permission ohos.permission.PRINT
+   * @param { string } jobName - Indicates print file Name.
+   * @param { PrintDocumentAdapter } printAdapter - Indicates functions implemented by the cpp.
+   * @param { PrintAttributes } printAttributes - Indicates print attributes.
+   * @param { Context } context - The ability context that initiates the call print request.
+   * @param { AsyncCallback<PrintTask> } callback - The callback function for print task.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 11
+   */
+  function print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes,
+    context: Context, callback: AsyncCallback<PrintTask>): void;
+
+  /**
+   * Start new print task for App And the App need updata print file.
+   * @permission ohos.permission.PRINT
+   * @param { string } jobName - Indicates print file Name.
+   * @param { PrintDocumentAdapter } printAdapter - Indicates functions implemented by the cpp.
+   * @param { PrintAttributes } printAttributes - Indicates print attributes.
+   * @param { Context } context - The ability context that initiates the call print request.
+   * @returns { Promise<PrintTask> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 11
+   */
+  function print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes,
+    context: Context): Promise<PrintTask>;
+
+  /**
+   * defines print attributes.
+   * @typedef PrintAttributes
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface PrintAttributes {
+    /**
+    * Copies of document list.
+    * @type { ?number }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    copyNumber?: number;
+
+    /**
+    * Range size to be printed.
+    * @type { ?PrinterRange }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    pageRange?: PrinterRange;
+
+    /**
+    * Page size.
+    * @type { ?PrintPageSize | PrintPageTypeCode}
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    pageSize?: PrintPageSize | PrintPageTypeCode;
+
+    /**
+    * Print direction.
+    * @type { ?PrintDirectionModeCode }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    directionMode?: PrintDirectionModeCode;
+
+    /**
+    * Color mode.
+    * @type { ?PrintColorModeCode }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    colorMode?: PrintColorModeCode;
+
+    /**
+    * Duplex mode.
+    * @type { ?PrintDuplexModeCode }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    duplexMode?: PrintDuplexModeCode;
+  }
 
   /**
    * defines print margin.
@@ -633,6 +761,284 @@ declare namespace print {
     * @since 10
     */
     options?: Object;
+  }
+
+  /**
+   * Enumeration of Print Direction Mode Code.
+   * @enum { number } PrintDirectionModeCode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum PrintDirectionModeCode {
+    /**
+    * Automatically select direction.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    DIRECTION_MODE_AUTO = 0,
+
+    /**
+    * Print portrait.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    DIRECTION_MODE_PORTRAIT = 1,
+
+    /**
+    * Print landscape.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    DIRECTION_MODE_LANDSCAPE = 2,
+  }
+
+  /**
+   * Enumeration of Print Color Mode Code.
+   * @enum { number } PrintColorModeCode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum PrintColorModeCode {
+    /**
+    * Print monochrome.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    COLOR_MODE_MONOCHROME = 0,
+
+    /**
+    * Color printing.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    COLOR_MODE_COLOR = 1,
+  }
+
+  /**
+   * Enumeration of Print Duplex Mode Code.
+   * @enum { number } PrintDuplexModeCode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum PrintDuplexModeCode {
+    /**
+    * Single side printing.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    DUPLEX_MODE_NONE = 0,
+
+    /**
+    * Long-edge flip-up duplex printing.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    DUPLEX_MODE_LONG_EDGE = 1,
+
+    /**
+    * Short-edge flip-up duplex printing.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    DUPLEX_MODE_SHORT_EDGE = 2,
+  }
+
+  /**
+   * Enumeration of Print Page Type Code.
+   * @enum { number } PrintPageTypeCode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum PrintPageTypeCode {
+    /**
+    * A3 page.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_ISO_A3 = 0,
+
+    /**
+    * A4 page.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_ISO_A4 = 1,
+
+    /**
+    * A5 page.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_ISO_A5 = 2,
+
+    /**
+    * B5 page.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_ISO_B5 = 3,
+
+    /**
+    * C5 page.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_ISO_C5 = 4,
+
+    /**
+    * DL Envelope.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_ISO_DL = 5,
+
+    /**
+    * Letter.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_LETTER = 6,
+
+    /**
+    * Legal.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_LEGAL = 7,
+
+    /**
+    * Photo 4x6.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_PHOTO_4x6 = 8,
+
+    /**
+    * Photo 5x7.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_PHOTO_5x7 = 9,
+
+    /**
+    * Envelopr INT DL.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_INT_DL_ENVELOPE = 10,
+
+    /**
+    * Tabloid B.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PAGE_B_TABLOID = 11,
+  }
+
+  /**
+   * Enumeration of Print Adapter Listening State.
+   * @enum { number } PrintAdapterListeningState
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum PrintAdapterListeningState {
+    /**
+    * Preview failed.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PREVIEW_ABILITY_DESTROY = 0,
+
+    /**
+    * Print state is succeed.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_TASK_SUCCEED = 1,
+
+    /**
+    * Print state is fail.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_TASK_FAIL = 2,
+
+    /**
+    * Print state is cancel.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_TASK_CANCEL = 3,
+
+    /**
+    * Print state is block.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_TASK_BLOCK = 4,
+  }
+
+  /**
+   * Enumeration of Print File Created Info Code.
+   * @enum { number } PrintFileCreatedInfoCode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum PrintFileCreatedInfoCode {
+    /**
+    * Print file created success.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_FILE_CREATED_SUCCESS = 0,
+
+    /**
+    * Print file created fail.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_FILE_CREATED_FAIL = 1,
+
+    /**
+    * Print file created success but unrendered.
+    * @syscap SystemCapability.Print.PrintFramework
+    * @systemapi
+    * @since 11
+    */
+    PRINT_FILE_CREATED_SUCCESS_UNRENDERED = 2,
   }
 
   /**
@@ -1661,6 +2067,50 @@ declare namespace print {
    * @since 11
    */
   function queryPrintJobById(jobId: string): Promise<PrintJob>;
+
+  /**
+   * Start get print file.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates id of the print job.
+   * @param { PrintAttributes } printAttributes - Indicates print attributes.
+   * @param { number } fd - Indicates print file fd.
+   * @param { (state: PrintFileCreatedInfoCode) } onFileStateChanged - Indicates this function should execute after the file created state is updated.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function startGetPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
+    onFileStateChanged: (state: PrintFileCreatedInfoCode) => void): void;
+
+  /**
+   * Notify print service the information.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates id of the print job.
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function notifyPrintService(jobId: string, type: 'spooler_closed_for_cancelled' | 'spooler_closed_for_started', callback: AsyncCallback<void>): void;
+
+  /**
+   * Notify print service the information.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates id of the print job.
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
+   * @returns { Promise<PrintJob> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function notifyPrintService(jobId: string, type: 'spooler_closed_for_cancelled' | 'spooler_closed_for_started'): Promise<void>;
 }
 
 export default print;
