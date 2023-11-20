@@ -26,6 +26,7 @@
  * @typedef CommonEventData
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 export interface CommonEventData {
@@ -42,6 +43,7 @@ export interface CommonEventData {
    * @type { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   event: string;
@@ -53,6 +55,14 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
+  /**
+   * bundle name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   bundleName?: string;
 
   /**
@@ -63,6 +73,15 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
+  /**
+   * The custom result code of the common event.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   code?: number;
 
   /**
@@ -72,6 +91,14 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
+  /**
+   * The custom result data of the common event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   data?: string;
 
   /**
@@ -80,6 +107,14 @@ export interface CommonEventData {
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
+   */
+  /**
+   * The description of the parameters in a common event.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   parameters?: { [key: string]: any };
 }

@@ -9699,6 +9699,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
+
+  /**
+   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
 }
 
 /**
@@ -11147,4 +11158,92 @@ declare interface EdgeEffectOptions {
    * @since 11
    */
   alwaysEnabled: boolean;
+}
+
+/**
+ * PointLightStyle info
+ *
+ * @interface PointLightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface PointLightStyle {
+  /**
+   * Defines the PointLight light intensity and position.
+   *
+   * @type { ?LightSource }
+   * @default undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  lightSource?: LightSource;
+  /**
+   * Defines the PointLight illuminated type.
+   *
+   * @type { ?IlluminateType }
+   * @default IlluminateType.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  illuminated?: IlluminateType;
+  /**
+   * Defines the PointLight bloom.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  bloom?: number;
+}
+
+/**
+ * LightSource info
+ *
+ * @interface LightSource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface LightSource {
+  /**
+   * Defines the PointLight light positionX.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  positionX: Dimension;
+  /**
+   * Defines the PointLight light positionX.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  positionY: Dimension;
+  /**
+   * Defines the PointLight light positionX.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  positionZ: Dimension;
+  /**
+   * Defines the PointLight light intensity.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  intensity: number;
 }

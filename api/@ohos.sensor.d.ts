@@ -21,6 +21,13 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Sensors.Sensor
  * @since 8
  */
+/**
+ * This module provides the capability to subscribe to sensor data.
+ * @namespace sensor
+ * @syscap SystemCapability.Sensors.Sensor
+ * @atomicservice
+ * @since 11
+ */
 declare namespace sensor {
   /**
    * Enum for obtain the type of sensor.
@@ -34,12 +41,24 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
+    /**
+     * Acceleration sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
+     */
     ACCELEROMETER = 1,
 
     /**
      * Gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     */
+    /**
+     * Gyroscope sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     GYROSCOPE = 2,
 
@@ -105,6 +124,12 @@ declare namespace sensor {
      * Orientation sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     */
+    /**
+     * Orientation sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     ORIENTATION = 256,
 
@@ -221,7 +246,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to accelerometer sensor data.
-   * @atomicservice.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -231,6 +255,19 @@ declare namespace sensor {
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Subscribe to accelerometer sensor data.
+   * @permission ohos.permission.ACCELEROMETER
+   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
+   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   function on(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>,
     options?: Options): void;
@@ -302,7 +339,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to gyroscope sensor data.
-   * @atomicservice.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -312,6 +348,19 @@ declare namespace sensor {
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Subscribe to gyroscope sensor data.
+   * @permission ohos.permission.GYROSCOPE
+   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
+   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   function on(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>,
     options?: Options): void;
@@ -415,7 +464,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data.
-   * @atomicservice.
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -423,6 +471,17 @@ declare namespace sensor {
    * @throws { BusinessError } 14500101 - Service exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Subscribe to orientation sensor data.
+   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   function on(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>,
     options?: Options): void;
@@ -780,7 +839,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to accelerometer sensor data.
-   * @atomicservice.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -788,6 +846,17 @@ declare namespace sensor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Unsubscribe to accelerometer sensor data.
+   * @permission ohos.permission.ACCELEROMETER
+   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
+   * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   function off(type: SensorId.ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
 
@@ -846,7 +915,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to gyroscope sensor data.
-   * @atomicservice.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -854,6 +922,17 @@ declare namespace sensor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Unsubscribe to gyroscope sensor data.
+   * @permission ohos.permission.GYROSCOPE
+   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
+   * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   function off(type: SensorId.GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
 
@@ -936,12 +1015,20 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to orientation sensor data.
-   * @atomicservice.
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Unsubscribe to orientation sensor data.
+   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   function off(type: SensorId.ORIENTATION, callback?: Callback<OrientationResponse>): void;
 
@@ -2202,7 +2289,7 @@ declare namespace sensor {
   function getInclination(inclinationMatrix: Array<number>): Promise<number>;
 
   /**
-   * Get the angle change between two rotation matrices
+   * Get the angle change between two rotation matrices.
    * @param { Array<number> } currentRotationMatrix - Indicates the current rotation matrix.
    * @param { Array<number> } preRotationMatrix - Indicates the current rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
@@ -2215,7 +2302,7 @@ declare namespace sensor {
     callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Get the angle change between two rotation matrices
+   * Get the angle change between two rotation matrices.
    * @param { Array<number> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
    * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
    * @returns { Promise<Array<number>> } Returns the array of number(z, x and y) in which the angle variety.
@@ -2318,7 +2405,7 @@ declare namespace sensor {
   }
 
   /**
-   * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System
+   * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System.
    * @param { Array<number> } inRotationVector - Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
@@ -2331,7 +2418,7 @@ declare namespace sensor {
     callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System
+   * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System.
    * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @returns { Promise<Array<number>> } Returns the transformed rotation matrix.
@@ -2533,15 +2620,37 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
+  /**
+   * Subscribe to the sensor's optional parameters.
+   * @typedef Options
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
   interface Options {
     /**
-     * Sensor event reporting event interval
+     * Sensor event reporting event interval.
      * @type { ?number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    interval?: number;
+    /**
+     * Sensor event reporting event interval.
+     * @type {?(number | SensorFrequency) }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
+     */
+    interval?: number | SensorFrequency;
   }
+
+  /**
+   * The sensor reporting frequency is divided into three modes.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
+  type SensorFrequency = 'game' | 'ui' | 'normal';
 
   /**
    * The type of number.
@@ -2561,7 +2670,7 @@ declare namespace sensor {
     SENSOR_TYPE_ID_ACCELEROMETER = 1,
 
     /**
-     * Gyroscope sensor
+     * Gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2625,7 +2734,7 @@ declare namespace sensor {
     SENSOR_TYPE_ID_ORIENTATION = 256,
 
     /**
-     *  Gravity sensor.
+     * Gravity sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2725,12 +2834,14 @@ declare namespace sensor {
    * Enumerates the accuracy levels of data reported by a sensor.
    * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
    * @since 11
    */
   enum SensorAccuracy {
     /**
      * The sensor data is unreliable. It is possible that the sensor does not contact with the device to measure.
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 11
      */
     ACCURACY_UNRELIABLE = 0,
@@ -2738,6 +2849,7 @@ declare namespace sensor {
     /**
      * The sensor data is at a low accuracy level. The data must be calibrated based on the environment before being used.
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 11
      */
     ACCURACY_LOW = 1,
@@ -2745,6 +2857,7 @@ declare namespace sensor {
     /**
      * The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment before using it.
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 11
      */
     ACCURACY_MEDIUM = 2,
@@ -2752,6 +2865,7 @@ declare namespace sensor {
     /**
      * The sensor data is at a high accuracy level. The data can be used directly.
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 11
      */
     ACCURACY_HIGH = 3
@@ -2763,12 +2877,26 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
+  /**
+   * The basic data structure of the sensor event.
+   * @typedef Response
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
   interface Response {
     /**
-     * The timestamp of the reported sensor data
+     * The timestamp of the reported sensor data.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * The timestamp of the reported sensor data.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     timestamp: number;
 
@@ -2776,6 +2904,7 @@ declare namespace sensor {
      * The accuracy levels of data reported by a sensor.
      * @type { SensorAccuracy }
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 11
      */
     accuracy: SensorAccuracy;
@@ -2787,12 +2916,26 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
+  /**
+   * Acceleration sensor event data.
+   * @typedef AccelerometerResponse
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
   interface AccelerometerResponse extends Response {
     /**
      * Acceleration x-axis component.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * Acceleration x-axis component.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     x: number;
 
@@ -2802,6 +2945,13 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
+    /**
+     * Acceleration y-axis component.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
+     */
     y: number;
 
     /**
@@ -2809,6 +2959,13 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * Acceleration z-axis component
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     z: number;
   }
@@ -2821,7 +2978,7 @@ declare namespace sensor {
    */
   interface LinearAccelerometerResponse extends Response {
     /**
-     * Linear acceleration x-axis component
+     * Linear acceleration x-axis component.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2829,7 +2986,7 @@ declare namespace sensor {
     x: number;
 
     /**
-     * Linear acceleration y-axis component
+     * Linear acceleration y-axis component.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2837,7 +2994,7 @@ declare namespace sensor {
     y: number;
 
     /**
-     * Linear acceleration z-axis component
+     * Linear acceleration z-axis component.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2886,7 +3043,7 @@ declare namespace sensor {
     biasX: number;
 
     /**
-     * Acceleration uncalibrated y-axis offset
+     * Acceleration uncalibrated y-axis offset.
      * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
@@ -2895,7 +3052,7 @@ declare namespace sensor {
     biasY: number;
 
     /**
-     * Acceleration uncalibrated z-axis offset
+     * Acceleration uncalibrated z-axis offset.
      * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
@@ -2942,12 +3099,26 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
+  /**
+   * Orientation sensor event data.
+   * @typedef OrientationResponse
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
   interface OrientationResponse extends Response {
     /**
      * The device rotates at an angle around the Z axis.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * The device rotates at an angle around the Z axis.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     alpha: number;
 
@@ -2957,6 +3128,13 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
+    /**
+     * The device rotates at an angle around the X axis.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
+     */
     beta: number;
 
     /**
@@ -2964,6 +3142,13 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * The device rotates at an angle around the Y axis.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     gamma: number;
   }
@@ -3014,12 +3199,26 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
+  /**
+   * Gyroscope sensor event data.
+   * @typedef GyroscopeResponse
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
   interface GyroscopeResponse extends Response {
     /**
      * Gyroscope x-axis component.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * Gyroscope x-axis component.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     x: number;
 
@@ -3029,6 +3228,13 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
+    /**
+     * Gyroscope y-axis component.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
+     */
     y: number;
 
     /**
@@ -3036,6 +3242,13 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
+     */
+    /**
+     * Gyroscope z-axis component.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 11
      */
     z: number;
   }
@@ -3290,7 +3503,8 @@ declare namespace sensor {
    */
   interface PedometerDetectionResponse extends Response {
     /**
-     * Indicates the pedometer detection status, 1 indicates that a walking action has occurred, and 0 indicates that no movement has occurred.
+     * Indicates the pedometer detection status, 1 indicates that a walking action has occurred,
+     * and 0 indicates that no movement has occurred.
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
