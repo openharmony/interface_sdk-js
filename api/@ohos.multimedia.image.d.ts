@@ -2640,6 +2640,7 @@ declare namespace image {
      * @throws { BusinessError } 62980108 - If the color space converted failed.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 11
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
@@ -2656,6 +2657,7 @@ declare namespace image {
      * @throws { BusinessError } 62980108 - If the color space converted failed.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 11
      */
      applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
