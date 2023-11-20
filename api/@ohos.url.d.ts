@@ -445,7 +445,7 @@ declare namespace url {
      * @atomicservice
      * @since 11
      */
-    forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
+    forEach(callbackFn: (value: string, key: string, searchParams: URLParams) => void, thisArg?: Object): void;
 
     /**
      * Returns the first value associated to the given search parameter.
