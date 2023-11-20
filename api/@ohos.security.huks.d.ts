@@ -1241,6 +1241,50 @@ declare namespace huks {
   function attestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
+   * Key Attestation with anonymous certificate.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 11
+   */
+  function anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
+
+  /**
+   * Key Attestation with anonymous certificate.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 11
+   */
+  function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
    * Get the sdk version.
    *
    * @param { HuksOptions } options - options indicates the properties of the key.
@@ -2294,6 +2338,34 @@ declare namespace huks {
      * @since 11
      */
     HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2
+  }
+
+  /**
+   * Enum for huks key file storage authentication level. 
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 11
+   */
+  export enum HuksAuthStorageLevel {
+    /**
+     * Key file storage security level for device encryption standard.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_STORAGE_LEVEL_DE = 0,
+    /**
+     * Key file storage security level for credential encryption standard.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_STORAGE_LEVEL_CE = 1,
+    /**
+     * Key file storage security level for enhanced credential encryption standard.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_STORAGE_LEVEL_ECE = 2,
   }
 
   /**
