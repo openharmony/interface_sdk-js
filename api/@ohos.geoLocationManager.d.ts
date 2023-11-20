@@ -27,6 +27,7 @@ import { WantAgent } from './@ohos.wantAgent';
  * Provides interfaces for acquiring location information, managing location switches,
  * geocoding, reverse geocoding, country code, fencing and other functions.
  *
+ * @namespace geoLocationManager
  * @atomicservice
  * @since 11
  */
