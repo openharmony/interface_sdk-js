@@ -1710,7 +1710,14 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015
+    HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
+    /**
+     * Device password is required but not set.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016
   }
 
   /**
@@ -2866,6 +2873,14 @@ declare namespace huks {
     HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
     HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
+    /**
+     * Key access control based on device password setting status. True means the key can only be generated and used when the password is set.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_TAG_IS_DEVICE_PASSWORD_SET = HuksTagType.HUKS_TAG_TYPE_BOOL | 1012,
+    
     /* Inner-use TAG: 10001 - 10999 */
     /**
      * @syscap SystemCapability.Security.Huks.Core
