@@ -42,6 +42,11 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @since 10
    */
+  /**
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 11
+   */
   type HttpProxy = connection.HttpProxy;
 
   /**
@@ -2241,6 +2246,15 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
+   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;
 
   /**
@@ -2256,6 +2270,14 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines an object that stores the response to an HTTP request.
+   * @interface HttpResponseCache
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface HttpResponseCache {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
@@ -2269,6 +2291,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     * @param { AsyncCallback<void> } callback - the callback of flush.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     flush(callback: AsyncCallback<void>): void;
 
@@ -2285,6 +2315,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     * @returns { Promise<void> } The promise returned by the flush.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     flush(): Promise<void>;
 
     /**
@@ -2300,6 +2338,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Disables a cache and deletes the data in it.
+     * @param { AsyncCallback<void> } callback - the callback of delete.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     delete(callback: AsyncCallback<void>): void;
 
     /**
@@ -2314,6 +2360,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Disables a cache and deletes the data in it.
+     * @returns { Promise<void> } The promise returned by the delete.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     delete(): Promise<void>;
   }
