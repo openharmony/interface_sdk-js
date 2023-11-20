@@ -97,6 +97,14 @@ declare namespace i18n {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Provides system functions.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 10
+   */
   export class System {
     /**
      * Obtains the country or region name localized for display on a given locale.
