@@ -8746,6 +8746,34 @@ declare module 'CommonEnums' {
 }
 
 /**
+ * Decide whether the width of select menu fit the trigger or content 
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum OptionWidthMode {
+  /**
+   * The menu width fit the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FIT_CONTENT = 'fit_content',
+
+  /**
+   * The menu width fit the trigger.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FIT_TRIGGER = 'fit_trigger',
+}
+
+/**
  * Enum of Illuminated type
  *
  * @enum { number }
