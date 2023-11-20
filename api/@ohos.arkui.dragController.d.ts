@@ -96,7 +96,7 @@ declare namespace dragController {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 11
      */
-    forgroundColor?: ResourceColor;
+    foregroundColor?: ResourceColor;
   }
 
   /**
@@ -150,25 +150,25 @@ declare namespace dragController {
 
   /**
    * Execute a drag event.
-   * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+   * @param { Array<DragItemInfo> } custom - Objects used for prompts displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } callback - Callback that contains the drag event information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-     function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
-      err: BusinessError<E>, event: DragEvent, extraParams: string, status: DraggingStatus
+     function executeDrag(custom: Array<DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
+      event: DragEvent, extraParams: string, status: DraggingStatus
     }>): void;
   
     /**
      * Execute a drag event.
-     * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+     * @param { Array<DragItemInfo> } custom - Objects used for prompts displayed when the objects are dragged.
      * @param { DragInfo } dragInfo - Information about the drag event.
-     * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+     * @returns { Promise<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } A Promise with the drag event information.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
-    function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo): Promise<{
+    function executeDrag(custom: Array<DragItemInfo>, dragInfo: DragInfo): Promise<{
       event: DragEvent, extraParams: string, status: DraggingStatus
     }>;
 
