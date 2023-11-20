@@ -76,6 +76,15 @@ declare enum ImageRenderMode {
    * @since 10
    * @form
    */
+  /**
+   * Render according to the original image, including colors.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Original,
 
   /**
@@ -97,6 +106,15 @@ declare enum ImageRenderMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Render the image as a template image, ignoring the color information of the image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Template,
@@ -150,6 +168,15 @@ declare enum ImageInterpolation {
    * @since 10
    * @form
    */
+  /**
+   * Do not use interpolated image data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   None,
 
   /**
@@ -171,6 +198,15 @@ declare enum ImageInterpolation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Low usage of interpolated image data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Low,
@@ -196,6 +232,15 @@ declare enum ImageInterpolation {
    * @since 10
    * @form
    */
+  /**
+   * Interpolated image data is used moderately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Medium,
 
   /**
@@ -217,6 +262,15 @@ declare enum ImageInterpolation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * High usage of interpolated image data may affect the speed of image rendering.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   High,
