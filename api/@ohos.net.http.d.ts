@@ -80,6 +80,14 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Specifies the type and value range of the optional parameters in the HTTP request.
+   * @interface HttpRequestOptions
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface HttpRequestOptions {
     /**
      * Request method,default is GET.
@@ -93,6 +101,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Request method,default is GET.
+     * @type {?RequestMethod}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     method?: RequestMethod;
 
@@ -111,6 +127,15 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Additional data of the request.
+     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * @type {?string | Object | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     extraData?: string | Object | ArrayBuffer;
 
     /**
@@ -125,6 +150,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
+     * @type {?HttpDataType}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     expectDataType?: HttpDataType;
 
@@ -141,6 +174,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * default is true
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     usingCache?: boolean;
 
     /**
@@ -155,6 +196,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * [1, 1000], default is 1.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     priority?: number;
 
@@ -171,6 +220,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * HTTP request header. default is 'content-type': 'application/json'
+     * @type {?Object}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     header?: Object;
 
     /**
@@ -185,6 +242,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Read timeout period. The default value is 60,000, in ms.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     readTimeout?: number;
 
@@ -201,6 +266,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Connection timeout interval. The default value is 60,000, in ms.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     connectTimeout?: number;
 
     /**
@@ -216,13 +289,30 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * default is automatically specified by the system.
+     * @type {?HttpProtocol}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     usingProtocol?: HttpProtocol;
+
     /**
      * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
      * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
      * @type {?boolean | HttpProxy}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
+     */
+    /**
+     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
+     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
+     * @type {?boolean | HttpProxy}
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 11
      */
     usingProxy?: boolean | HttpProxy;
 
@@ -231,6 +321,13 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
+     */
+    /**
+     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 11
      */
     caPath?: string;
   }
@@ -339,6 +436,47 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
+     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
+     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
+     * @throws { BusinessError } 2300007 - Couldn't connect to server.
+     * @throws { BusinessError } 2300008 - Weird server reply.
+     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Timeout was reached.
+     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
+     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
+     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
+     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
+     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
+     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
+     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - An authentication function returned an error.
+     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
 
     /**
@@ -422,6 +560,48 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
+     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
+     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
+     * @throws { BusinessError } 2300007 - Couldn't connect to server.
+     * @throws { BusinessError } 2300008 - Weird server reply.
+     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Timeout was reached.
+     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
+     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
+     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
+     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
+     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
+     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
+     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - An authentication function returned an error.
+     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
 
     /**
@@ -504,6 +684,48 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @returns { Promise<HttpResponse> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - URL using bad/illegal format or missing URL.
+     * @throws { BusinessError } 2300005 - Couldn't resolve proxy name.
+     * @throws { BusinessError } 2300006 - Couldn't resolve host name.
+     * @throws { BusinessError } 2300007 - Couldn't connect to server.
+     * @throws { BusinessError } 2300008 - Weird server reply.
+     * @throws { BusinessError } 2300009 - Access denied to remote resource.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open/read local data from file/application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Timeout was reached.
+     * @throws { BusinessError } 2300047 - Number of redirects hit maximum amount.
+     * @throws { BusinessError } 2300052 - Server returned nothing (no headers, no data).
+     * @throws { BusinessError } 2300055 - Failed sending data to the peer.
+     * @throws { BusinessError } 2300056 - Failure when receiving data from the peer.
+     * @throws { BusinessError } 2300058 - Problem with the local SSL certificate.
+     * @throws { BusinessError } 2300059 - Couldn't use specified SSL cipher.
+     * @throws { BusinessError } 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws { BusinessError } 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Disk full or allocation exceeded.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - An authentication function returned an error.
+     * @throws { BusinessError } 2300999 - Unknown Other Error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
@@ -812,6 +1034,14 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines an HTTP request method.
+   * @enum {string}
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum RequestMethod {
     /**
      * OPTIONS method.
@@ -823,6 +1053,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * OPTIONS method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     OPTIONS = "OPTIONS",
 
@@ -837,6 +1074,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * GET method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     GET = "GET",
 
     /**
@@ -849,6 +1093,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * HEAD method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     HEAD = "HEAD",
 
@@ -863,6 +1114,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * POST method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     POST = "POST",
 
     /**
@@ -875,6 +1133,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * PUT method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     PUT = "PUT",
 
@@ -889,6 +1154,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * DELETE method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     DELETE = "DELETE",
 
     /**
@@ -902,6 +1174,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * TRACE method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     TRACE = "TRACE",
 
     /**
@@ -914,6 +1193,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * CONNECT method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     CONNECT = "CONNECT"
   }
@@ -931,6 +1217,14 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enumerates the response codes for an HTTP request.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum ResponseCode {
     /**
      * The request was successful. Typically used for GET and POST requests.
@@ -942,6 +1236,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The request was successful. Typically used for GET and POST requests.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     OK = 200,
 
@@ -956,6 +1257,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Successfully requested and created a new resource.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     CREATED,
 
     /**
@@ -968,6 +1276,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The request has been accepted but has not been processed completely.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     ACCEPTED,
 
@@ -982,6 +1297,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Unauthorized information. The request was successful.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NOT_AUTHORITATIVE,
 
     /**
@@ -994,6 +1316,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * No content. The server successfully processed, but did not return content.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     NO_CONTENT,
 
@@ -1008,6 +1337,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Reset the content.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     RESET,
 
     /**
@@ -1021,6 +1357,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Partial content. The server successfully processed some GET requests.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PARTIAL,
 
     /**
@@ -1033,6 +1376,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Multiple options.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     MULT_CHOICE = 300,
 
@@ -1049,6 +1399,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * <p>Permanently move. The requested resource has been permanently moved to a new URI,
+     * and the returned information will include the new URI. The browser will automatically redirect to the new URI.</p>
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     MOVED_PERM,
 
     /**
@@ -1061,6 +1419,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Temporary movement.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     MOVED_TEMP,
 
@@ -1075,6 +1440,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * View other addresses.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     SEE_OTHER,
 
     /**
@@ -1088,12 +1460,25 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Not modified.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NOT_MODIFIED,
 
     /**
      * Using proxies.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
+     */
+    /**
+     * Using proxies.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 10
      */
     /**
      * Using proxies.
@@ -1114,6 +1499,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server cannot understand the syntax error error requested by the client.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BAD_REQUEST = 400,
 
     /**
@@ -1126,6 +1518,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Request for user authentication.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNAUTHORIZED,
 
@@ -1140,6 +1539,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Reserved for future use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PAYMENT_REQUIRED,
 
     /**
@@ -1152,6 +1558,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The server understands the request from the requesting client, but refuses to execute it.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     FORBIDDEN,
 
@@ -1166,6 +1579,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server was unable to find resources (web pages) based on the client's request.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NOT_FOUND,
 
     /**
@@ -1178,6 +1598,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The method in the client request is prohibited.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     BAD_METHOD,
 
@@ -1192,6 +1619,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server is unable to complete the request based on the content characteristics requested by the client.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NOT_ACCEPTABLE,
 
     /**
@@ -1205,6 +1639,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Request authentication of the proxy's identity.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PROXY_AUTH,
 
     /**
@@ -1217,6 +1658,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The request took too long and timed out.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     CLIENT_TIMEOUT,
 
@@ -1233,6 +1681,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * <p>The server may have returned this code when completing the client's PUT request,
+     * as there was a conflict when the server was processing the request.</p>
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     CONFLICT,
 
     /**
@@ -1245,6 +1701,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The resource requested by the client no longer exists.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     GONE,
 
@@ -1259,6 +1722,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server is unable to process request information sent by the client without Content Length.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     LENGTH_REQUIRED,
 
     /**
@@ -1271,6 +1741,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The prerequisite for requesting information from the client is incorrect.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     PRECON_FAILED,
 
@@ -1285,6 +1762,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The request was rejected because the requested entity was too large for the server to process.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ENTITY_TOO_LARGE,
 
     /**
@@ -1297,6 +1781,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The requested URI is too long (usually a URL) and the server cannot process it.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     REQ_TOO_LONG,
 
@@ -1311,6 +1802,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server is unable to process the requested format.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     UNSUPPORTED_TYPE,
 
     /**
@@ -1323,6 +1821,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Internal server error, unable to complete the request.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     INTERNAL_ERROR = 500,
 
@@ -1337,6 +1842,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server does not support the requested functionality and cannot complete the request.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NOT_IMPLEMENTED,
 
     /**
@@ -1349,6 +1861,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The server acting as a gateway or proxy received an invalid request from the remote server.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     BAD_GATEWAY,
 
@@ -1363,6 +1882,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Due to overload or system maintenance, the server is temporarily unable to process client requests.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     UNAVAILABLE,
 
     /**
@@ -1376,6 +1902,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     GATEWAY_TIMEOUT,
 
     /**
@@ -1388,6 +1921,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The version of the HTTP protocol requested by the server.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     VERSION
   }
@@ -1405,6 +1945,15 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Supported protocols.
+   * @enum {string}
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+
   export enum HttpProtocol {
     /**
      * Protocol http1.1
@@ -1416,6 +1965,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Protocol http1.1
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     HTTP1_1,
 
@@ -1429,6 +1985,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Protocol http2
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     HTTP2
   }
@@ -1446,6 +2009,14 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates the type of the returned data.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum HttpDataType {
     /**
      * The returned type is string.
@@ -1457,6 +2028,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The returned type is string.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     STRING,
 
@@ -1471,6 +2049,13 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The returned type is Object.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     OBJECT = 1,
 
     /**
@@ -1483,6 +2068,13 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The returned type is ArrayBuffer.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     ARRAY_BUFFER = 2
   }
@@ -1500,6 +2092,14 @@ declare namespace http {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the response to an HTTP request.
+   * @interface HttpResponse
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface HttpResponse {
     /**
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
@@ -1515,6 +2115,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
+     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
+     * @type {string | Object | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     result: string | Object | ArrayBuffer;
 
@@ -1535,6 +2144,16 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * If the resultType is string, you can get result directly.
+     * If the resultType is Object, you can get result such as this: result['key'].
+     * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
+     * @type {HttpDataType}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     resultType: HttpDataType;
 
     /**
@@ -1549,6 +2168,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Server status code.
+     * @type {ResponseCode | number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     responseCode: ResponseCode | number;
 
@@ -1565,6 +2192,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * All headers in the response from the server.
+     * @type {Object}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     header: Object;
 
     /**
@@ -1579,6 +2214,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Cookies returned by the server.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     cookies: string;
   }
