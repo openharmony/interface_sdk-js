@@ -1445,7 +1445,8 @@ declare namespace radio {
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
-   * @returns { Promise<void> } Returns the selection mode of NR.
+   * @returns { Promise<void> } Return to resetting network settings results.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1465,6 +1466,7 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @param { AsyncCallback<void> } callback - Indicates the callback used to retrieve recovery radio settings.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
