@@ -12986,7 +12986,7 @@ declare class CommonMethod<T> {
   /**
    * Set the selectable area drag preview option.
    *
-   * @param { DragPreviewMode } value - preview mode enum value.
+   * @param { DragPreviewOptions } value - preview options value.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
