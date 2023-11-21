@@ -3484,6 +3484,17 @@ declare interface WebOptions {
    * @since 11
   */
   controller: WebController | WebviewController;
+
+  /* Sets the incognito mode of the Web, the parameter is optional and default value is false.
+   * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
+   * will not save in persistent files.
+   *
+   * @type (?boolean)
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  incognitoMode? : boolean;
 }
 
 /**
