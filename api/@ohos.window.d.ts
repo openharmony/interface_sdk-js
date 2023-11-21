@@ -2610,6 +2610,18 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Get the UIContext associate with the window content.
+     *
+     * @returns { UIContext } the object of UIContext.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getUIContext() : UIContext;
 
     /**
@@ -4155,6 +4167,18 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get main window of the stage.
+     *
+     * @param { AsyncCallback<Window> } callback Callback used to return the main window.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
