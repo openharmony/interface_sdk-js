@@ -136,7 +136,7 @@ declare namespace print {
      * @param { PrintAttributes } oldAttrs - Indicates old print attributes.
      * @param { PrintAttributes } newAttrs - Indicates new print attributes.
      * @param { number } fd - Indicates print file fd.
-     * @param { (jobId: string, writeResult: PrintFileCreatedInfoCode) } writeResultCallback - Indicates this function should execute after the file is updated.
+     * @param { function } writeResultCallback - Indicates this function should execute after the file is updated.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11
@@ -257,7 +257,7 @@ declare namespace print {
 
     /**
     * Page size.
-    * @type { ?PrintPageSize | PrintPageTypeCode}
+    * @type { ?PrintPageSize | PrintPageTypeCode }
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
@@ -904,17 +904,17 @@ declare namespace print {
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PAGE_PHOTO_4x6 = 8,
+    PAGE_PHOTO_4X6 = 8,
 
     /**
     * Photo 5x7.
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PAGE_PHOTO_5x7 = 9,
+    PAGE_PHOTO_5X7 = 9,
 
     /**
-    * Envelopr INT DL.
+    * Envelope INT DL.
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
@@ -2062,7 +2062,7 @@ declare namespace print {
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
-   * @returns { Promise<PrintJob> } the promise returned by the function.
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
