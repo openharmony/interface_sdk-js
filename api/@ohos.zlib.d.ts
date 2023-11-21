@@ -36,7 +36,17 @@ declare namespace zlib {
    * @deprecated since 9
    */
   export enum ErrorCode {
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     ERROR_CODE_OK = 0,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     ERROR_CODE_ERRNO = -1
   }
 
