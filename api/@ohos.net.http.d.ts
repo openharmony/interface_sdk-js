@@ -135,7 +135,7 @@ declare namespace http {
     /**
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
-     * @type {?string | Object | ArrayBuffer}
+     * @type { ?(string | Object | ArrayBuffer) }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -314,7 +314,7 @@ declare namespace http {
     /**
      * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
      * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
-     * @type {?boolean | HttpProxy}
+     * @type { ?(boolean | HttpProxy) }
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 11

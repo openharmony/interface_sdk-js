@@ -939,6 +939,7 @@ declare namespace connection {
      * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     register(callback: AsyncCallback<void>): void;
