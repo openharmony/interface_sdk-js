@@ -8840,3 +8840,46 @@ declare enum IlluminatedType {
    */
   BLOOM_BORDER_CONTENT = 5
 }
+
+/**
+ * Enumerates the fold status.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum FoldStatus {
+  /**
+   * Fold Status Unknown.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_UNKNOWN = 0,
+  /**
+   * Fold Status Expanded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_EXPANDED = 1,
+  /**
+   * Fold Status Folded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_FOLDED = 2,
+  /**
+   * Fold Status Half Folded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_HALF_FOLDED = 3,
+}
