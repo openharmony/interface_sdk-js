@@ -1320,21 +1320,6 @@ declare namespace dlpPermission {
   function setSandboxAppConfig(configInfo: string): Promise<void>;
 
   /**
-   * Sets sandbox application configuration. This method uses an asynchronous callback to return the result.
-   *
-   * @param { string } configInfo - Configuration of the sandbox application.
-   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
-   * @throws { BusinessError } 19100018 - Not authorized application.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
-   */
-  function setSandboxAppConfig(configInfo: string, callback: AsyncCallback<void>): void;
-
-  /**
    * Cleans sandbox application configuration. This method uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise used to return the result.
@@ -1349,20 +1334,6 @@ declare namespace dlpPermission {
   function cleanSandboxAppConfig(): Promise<void>;
 
   /**
-   * Cleans sandbox application configuration. This method uses an asynchronous callback to return the result.
-   *
-   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100007 - This API cannot be called by DLP sandbox applications.
-   * @throws { BusinessError } 19100011 - System service exception.
-   * @throws { BusinessError } 19100018 - Not authorized application.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
-   */
-  function cleanSandboxAppConfig(callback: AsyncCallback<void>): void;
-
-  /**
    * Obtains sandbox application configuration. This method uses a promise to return the result.
    *
    * @returns { Promise<string> } Promise used to return the result.
@@ -1374,19 +1345,6 @@ declare namespace dlpPermission {
    * @since 11
    */
   function getSandboxAppConfig(): Promise<string>;
-
-  /**
-   * Obtains sandbox application configuration. This method uses an asynchronous callback to return the result.
-   *
-   * @param { AsyncCallback<string> } callback - Callback invoked to return the result.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100011 - System service exception.
-   * @throws { BusinessError } 19100018 - Not authorized application.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
-   */
-  function getSandboxAppConfig(callback: AsyncCallback<string>): void;
 
 }
 export default dlpPermission;
