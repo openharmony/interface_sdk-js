@@ -2637,6 +2637,7 @@ declare namespace image {
      *
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980104 - If the internal object initialized failed.
      * @throws { BusinessError } 62980108 - If the color space converted failed.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
@@ -2654,6 +2655,7 @@ declare namespace image {
      *
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980104 - If the internal object initialized failed.
      * @throws { BusinessError } 62980108 - If the color space converted failed.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
