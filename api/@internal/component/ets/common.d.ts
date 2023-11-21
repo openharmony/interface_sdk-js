@@ -9707,6 +9707,48 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Defines the drag preview mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum DragPreviewMode {
+  /**
+   * Default preview mode, let system process preview scale.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  AUTO = 1,
+  /**
+   * Disable system scale to preview pannel
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  DISABLE_SCALE = 2,
+}
+
+/**
+ * Defines the preview options.
+ *
+ * @interface DragPreviewOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface DragPreviewOptions {
+  /**
+  * Drag preview mode.
+  *
+  * @type { DragPreviewMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 11
+  */
+  mode?: DragPreviewMode;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12941,48 +12983,6 @@ declare class CommonMethod<T> {
    */
   draggable(value: boolean): T;
 
-/**
- * Defines the drag preview mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-  declare enum DragPreviewMode {
-    /**
-     * Default preview mode, let system process preview scale.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    AUTO = 1,
-    /**
-     * Disable system scale to preview pannel
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    DISABLE_SCALE = 2,
-  }
-
-  /**
-   * Defines the preview options.
-   *
-   * @interface DragPreviewOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  declare interface DragPreviewOptions {
-    /**
-    * Drag preview mode.
-    *
-    * @type { DragPreviewMode }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 11
-    */
-    mode?: DragPreviewMode;
-  }
-
   /**
    * Set the selectable area drag preview option.
    *
@@ -15990,7 +15990,7 @@ declare module "AnimateToParam" {
 declare module 'DragControllerParam' {
   module 'DragControllerParam' {
     // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewMode, DragPreviewOptions };
+    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
   }
 }
 
