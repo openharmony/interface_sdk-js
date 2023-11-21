@@ -12991,7 +12991,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-    dragPreviewOption(value:DragPreviewOptions): T;
+    dragPreviewOption(value: DragPreviewOptions): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
