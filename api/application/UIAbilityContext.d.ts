@@ -563,15 +563,14 @@ export default class UIAbilityContext extends Context {
    * @since 10
    */
   /**
-   * Get the caller object of the startup capability.
-   * If the local device starts a new ability, you need to apply for permission:ohos.permission.ABILITY_BACKGROUND_COMMUNICATION to use this method.
+   * Get the caller object of the startup capability in cross-device.
+   *
    * If the caller application is in foreground, you can use this method to start ability;
    * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.

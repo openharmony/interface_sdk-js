@@ -543,10 +543,8 @@ declare namespace appManager {
    * @since 9
    */
   /**
-   * If you apply for permission, you can obtain information about all running processes.
-   * If you do not apply, you can only obtain information about the current process.
+   * Get information about the current process.
    *
-   * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -567,10 +565,8 @@ declare namespace appManager {
    * @since 9
    */
   /**
-   * If you apply for permission, you can obtain information about all running processes.
-   * If you do not apply, you can only obtain information about the current process.
+   * Get information about the current process.
    *
-   * @permission ohos.permission.GET_RUNNING_INFO
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
