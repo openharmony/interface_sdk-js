@@ -12942,7 +12942,7 @@ declare class CommonMethod<T> {
   draggable(value: boolean): T;
 
   /**
-   * Set preview content of the component
+   * Set preview content of the component for dragging process
    *
    * @param { CustomBuilder | DragItemInfo } value - preview content of the component
    * @returns { T } property value of type T.
