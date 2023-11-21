@@ -165,7 +165,7 @@ export interface SubscribeCallbackData {
   readonly sortingMap?: NotificationSortingMap;
 
   /**
-   * Delete the reason.
+   * The reason for the deletion.(1:CLICK_REASON_REMOVBE,2:CANCEL_REASON_REMOVE)
    *
    * @type { ?number }
    * @readonly
