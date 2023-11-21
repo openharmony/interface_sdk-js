@@ -282,6 +282,15 @@ declare namespace util {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The TextEncoder represents a text encoder that accepts a string as input,
+   * encodes it in UTF-8 format, and outputs UTF-8 byte stream.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class TextDecoder {
     /**
      * The source encoding's name, lowercased.
