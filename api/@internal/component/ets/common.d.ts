@@ -13913,6 +13913,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
+
+  /**
+   * Events are monopolized by components.
+   *
+   * @param { boolean } monopolize - indicate the monopoly of events
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  monopolizeEvents(monopolize: boolean): T;
 }
 
 /**
