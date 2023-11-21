@@ -376,6 +376,18 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Replaces the original constructor to process arguments and return a textDecoder object.
+     *
+     * @param { string } encoding - Decoding format
+     * @param { object } options - Options
+     * @returns { TextDecoder }
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     static create(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean }): TextDecoder;
 
     /**
@@ -415,6 +427,20 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Decodes the input and returns a string. If options.stream is true, any incomplete byte sequences occurring
+     * at the end of the input are buffered internally and emitted after the next call to textDecoder.decode().
+     * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
+     *
+     * @param { Uint8Array } input - Decoded numbers in accordance with the format
+     * @param { object } options - Options
+     * @returns { string } Return decoded text
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     decodeWithStream(input: Uint8Array, options?: { stream?: boolean }): string;
   }

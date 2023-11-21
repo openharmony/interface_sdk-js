@@ -8,6 +8,7 @@
     "since": "-1",
     "isForm": false,
     "isCrossPlatForm": true,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_jsdoc_crossplatform_002.d.ts/test",
     "apiName": "test",
     "deprecatedVersion": "",
@@ -20,6 +21,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

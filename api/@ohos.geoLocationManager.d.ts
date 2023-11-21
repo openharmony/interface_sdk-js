@@ -23,6 +23,14 @@ import { WantAgent } from './@ohos.wantAgent';
  * @namespace geoLocationManager
  * @since 9
  */
+/**
+ * Provides interfaces for acquiring location information, managing location switches,
+ * geocoding, reverse geocoding, country code, fencing and other functions.
+ *
+ * @namespace geoLocationManager
+ * @atomicservice
+ * @since 11
+ */
 declare namespace geoLocationManager {
   /**
    * Subscribe location changed.
@@ -423,6 +431,20 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
+   */
+  /**
+   * Obtain last known location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Location } The last known location information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
    */
   function getLastLocation(): Location;
 
@@ -1335,6 +1357,14 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Configuring parameters in location requests.
+   *
+   * @typedef LocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface LocationRequest {
     /**
      * Priority of the location request.
@@ -1342,6 +1372,14 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Priority of the location request.
+     *
+     * @type { ?LocationRequestPriority }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     priority?: LocationRequestPriority;
 
@@ -1352,6 +1390,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * User scenario of the location request.
+     *
+     * @type { ?LocationRequestScenario }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     scenario?: LocationRequestScenario;
 
     /**
@@ -1360,6 +1406,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Location report interval.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     timeInterval?: number;
 
@@ -1370,6 +1424,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Location report distance interval.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     distanceInterval?: number;
 
     /**
@@ -1378,6 +1440,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Accuracy requirements for reporting locations.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     maxAccuracy?: number;
   }
@@ -1389,6 +1459,14 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Configuring parameters in current location requests.
+   *
+   * @typedef CurrentLocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface CurrentLocationRequest {
     /**
      * Priority of the location request.
@@ -1396,6 +1474,14 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Priority of the location request.
+     *
+     * @type { ?LocationRequestPriority }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     priority?: LocationRequestPriority;
 
@@ -1406,6 +1492,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * User scenario of the location request.
+     *
+     * @type { ?LocationRequestScenario }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     scenario?: LocationRequestScenario;
 
     /**
@@ -1415,6 +1509,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Accuracy requirements for reporting locations.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     maxAccuracy?: number;
 
     /**
@@ -1423,6 +1525,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Timeout interval of a single location request.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     timeoutMs?: number;
   }
@@ -1434,6 +1544,14 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Provides information about geographic locations.
+   *
+   * @typedef Location
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface Location {
     /**
      * Indicates latitude information.
@@ -1443,6 +1561,16 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates latitude information.
+     * A positive value indicates north latitude,
+     * and a negative value indicates south latitude.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     latitude: number;
 
@@ -1455,6 +1583,16 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates Longitude information.
+     * A positive value indicates east longitude ,
+     * and a negative value indicates west longitude.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     longitude: number;
 
     /**
@@ -1463,6 +1601,14 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates location altitude, in meters.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     altitude: number;
 
@@ -1473,6 +1619,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates location accuracy, in meters.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     accuracy: number;
 
     /**
@@ -1481,6 +1635,14 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates speed, in m/s.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     speed: number;
 
@@ -1491,6 +1653,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates location timestamp in the UTC format.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     timeStamp: number;
 
     /**
@@ -1499,6 +1669,14 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates direction information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     direction: number;
 
@@ -1509,6 +1687,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates location timestamp since boot.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     timeSinceBoot: number;
 
     /**
@@ -1517,6 +1703,14 @@ declare namespace geoLocationManager {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates additional information.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     additions?: Array<string>;
 
@@ -1527,6 +1721,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates the amount of additional descriptive information.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     additionSize?: number;
 
     /**
@@ -1536,6 +1738,15 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Indicates whether it is an mock location.
+     *
+     * @type { ?Boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @atomicservice
+     * @since 11
      */
     isFromMock?: Boolean;
   }
@@ -1736,12 +1947,27 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Enum for location priority.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum LocationRequestPriority {
     /**
      * Default priority.
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Default priority.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     UNSET = 0x200,
 
@@ -1751,6 +1977,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Preferentially ensure the locating accuracy.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     ACCURACY,
 
     /**
@@ -1759,6 +1992,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Preferentially ensure low power consumption for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     LOW_POWER,
 
     /**
@@ -1766,6 +2006,13 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Preferentially ensure that the first location is time-consuming.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     FIRST_FIX
   }
@@ -1777,12 +2024,27 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Enum for location scenario.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum LocationRequestScenario {
     /**
      * Default scenario.
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Default scenario.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     UNSET = 0x300,
 
@@ -1792,6 +2054,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Navigation scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     NAVIGATION,
 
     /**
@@ -1799,6 +2068,13 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Trajectory tracking scenario. High positioning precision is required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     TRAJECTORY_TRACKING,
 
@@ -1808,6 +2084,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Car hailing scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     CAR_HAILING,
 
     /**
@@ -1816,6 +2099,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Daily life scenarios. Low requirements on positioning precision and real-time performance.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     DAILY_LIFE_SERVICE,
 
     /**
@@ -1823,6 +2113,13 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Power saving scenarios.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     NO_POWER
   }

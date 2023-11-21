@@ -473,6 +473,28 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */ 
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;
+
+  /** 
+   * Set the width of each option and set whether the option width fit the trigger.
+   *
+   * @param { Dimension | OptionWidthMode } value - The length of option width and decide option width to fit trigger or content.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
+
+  /** 
+   * Set the height of each option.
+   * 
+   * @param { Dimension } value - The length of option height.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  optionHeight(value: Dimension): SelectAttribute;
 }
 
 /**

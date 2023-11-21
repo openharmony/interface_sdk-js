@@ -51,6 +51,14 @@ declare enum BarMode {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Scrollable = 0,
 
   /**
@@ -65,6 +73,14 @@ declare enum BarMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The width of all TabBars is evenly allocated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Fixed = 1,
 }
@@ -107,6 +123,14 @@ declare enum BarPosition {
    * @crossplatform
    * @since 10
    */
+  /**
+   * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Start,
 
   /**
@@ -121,6 +145,14 @@ declare enum BarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   End,
 }
