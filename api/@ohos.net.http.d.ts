@@ -1523,7 +1523,6 @@ declare namespace http {
      * Cause error if using http only or not supporting http3 on this device.
      * Falback to http2 or http1.1 if needed.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 11
      */
     HTTP3
