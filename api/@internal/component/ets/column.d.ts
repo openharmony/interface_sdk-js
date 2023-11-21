@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Defines the Column Component.
+ *
+ * @interface ColumnInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface ColumnInterface {
   /**
    * Set the value.
@@ -71,20 +81,33 @@ interface ColumnInterface {
    * @since 10
    * @form
    */
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Vertical layout element spacing.
+   *
+   * @param { object } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: { space?: string | number }): ColumnAttribute;
 }
 
 /**
  * Defines the Column component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Column component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -92,10 +115,20 @@ interface ColumnInterface {
 /**
  * Defines the Column component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the Column component attribute functions.
+ *
+ * @extends CommonMethod<ColumnAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
@@ -124,6 +157,17 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Sets the alignment format of the subassembly in the horizontal direction.
+   *
+   * @param { HorizontalAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
@@ -155,7 +199,28 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Sets the alignment format of the subassembly in the vertical direction.
+   *
+   * @param { FlexAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   justifyContent(value: FlexAlign): ColumnAttribute;
+  /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { ColumnAttribute } The attribute of the column.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): ColumnAttribute;
 }
 
 /**
@@ -179,6 +244,15 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Column Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Column: ColumnInterface;
 
 /**
@@ -200,6 +274,15 @@ declare const Column: ColumnInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Column Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const ColumnInstance: ColumnAttribute;

@@ -82,14 +82,14 @@ interface ColumnSplitDividerStyle {
 /**
  * Defines the ColumnSplit component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the ColumnSplit component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<ColumnSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

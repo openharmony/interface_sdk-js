@@ -76,4 +76,17 @@ export default class InsightIntentExecutor {
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a ServiceExtensionAbility executes the insight intent.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { Record<string, Object> } param - Indicates the insight intent parameters.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 }

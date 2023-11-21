@@ -20,6 +20,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "callForm": "@Builder GlobalBuilder0() {}",
       "params": [],
@@ -47,6 +48,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -65,12 +67,14 @@
             "constructor"
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "",
           "params": [
             {
               "apiType": "Param",
               "apiName": "",
+              "paramType": 178,
               "type": [
                 ""
               ],
@@ -103,6 +107,7 @@
             }
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "type": [
             "() => void"

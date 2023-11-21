@@ -20,6 +20,7 @@
         }
       ],
       "isStruct": true,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -38,12 +39,14 @@
             "constructor"
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "",
           "params": [
             {
               "apiType": "Param",
               "apiName": "",
+              "paramType": 178,
               "type": [
                 ""
               ],
@@ -71,6 +74,7 @@
             "countDownFrom"
           ],
           "isStruct": true,
+          "syscap": "",
           "jsDocInfos": [],
           "type": [
             "number"

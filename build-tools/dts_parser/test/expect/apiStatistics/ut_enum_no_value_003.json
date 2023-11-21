@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_no_value_003.d.ts/NoValue/VALUE_ONE",
     "apiName": "VALUE_ONE",
     "deprecatedVersion": "",
@@ -20,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_no_value_003.d.ts",
@@ -31,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_no_value_003.d.ts/NoValue/VALUE_TWO",
     "apiName": "VALUE_TWO",
     "deprecatedVersion": "",
@@ -43,7 +46,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_enum_no_value_003.d.ts",
@@ -54,6 +58,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_enum_no_value_003.d.ts/NoValue/VALUE_THREE",
     "apiName": "VALUE_THREE",
     "deprecatedVersion": "",
@@ -66,6 +71,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

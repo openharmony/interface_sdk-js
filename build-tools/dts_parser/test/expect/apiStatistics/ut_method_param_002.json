@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_param_002.d.ts/test/func",
     "apiName": "func",
     "deprecatedVersion": "",
@@ -20,6 +21,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

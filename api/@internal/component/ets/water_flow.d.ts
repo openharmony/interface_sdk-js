@@ -103,14 +103,14 @@ interface WaterFlowInterface {
 /**
  * Defines the water flow attribute.
  * 
- * @extends CommonMethod
+ * @extends CommonMethod<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the water flow attribute.
  * 
- * @extends CommonMethod
+ * @extends CommonMethod<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -269,6 +269,16 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @since 10
    */
   friction(value: number | Resource): WaterFlowAttribute;
+
+  /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * @param { number } value - number of flow items to be preloaded (cached).
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  cachedCount(value: number): WaterFlowAttribute;
 
   /**
    * Called when the water flow begins to arrive.

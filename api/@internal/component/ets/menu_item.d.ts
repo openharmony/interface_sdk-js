@@ -112,6 +112,15 @@ declare interface MenuItemOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Create the submenu.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   builder?: CustomBuilder;
 }
 
@@ -154,14 +163,14 @@ interface MenuItemInterface {
 /**
  * Defines the MenuItem component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MenuItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the MenuItem component attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MenuItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

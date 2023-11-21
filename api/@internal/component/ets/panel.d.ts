@@ -206,14 +206,14 @@ interface PanelInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<PanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Pane Attribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<PanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

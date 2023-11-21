@@ -128,14 +128,14 @@ declare enum NavRouteMode {
 /**
  * The attribute function of NavRouter
  *
- * @extends CommonMethod
+ * @extends CommonMethod<NavRouterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * The attribute function of NavRouter
  *
- * @extends CommonMethod
+ * @extends CommonMethod<NavRouterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

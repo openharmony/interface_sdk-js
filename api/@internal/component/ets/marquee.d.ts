@@ -71,14 +71,14 @@ interface MarqueeInterface {
 /**
  * Declares marquee properties.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declares marquee properties.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -86,7 +86,7 @@ interface MarqueeInterface {
 /**
  * Declares marquee properties.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

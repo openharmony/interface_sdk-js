@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides ports for stacking containers.
+ *
+ * @interface StackInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface StackInterface {
   /**
    * Set the value.
@@ -65,25 +75,44 @@ interface StackInterface {
    * @since 10
    * @form
    */
+  /**
+   * Set the value.
+   *
+   * @param { object } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: { alignContent?: Alignment }): StackAttribute;
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * @extends CommonMethod<StackAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
@@ -114,6 +143,17 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the occupancy of items in the container is set.
+   *
+   * @param { Alignment } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   alignContent(value: Alignment): StackAttribute;
 }
 
@@ -138,6 +178,15 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Stack Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Stack: StackInterface;
 
 /**
@@ -159,6 +208,15 @@ declare const Stack: StackInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Stack Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const StackInstance: StackAttribute;

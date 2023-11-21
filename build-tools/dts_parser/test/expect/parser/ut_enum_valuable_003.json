@@ -15,6 +15,7 @@
         "Valuable"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [],
       "childApis": [
         {
@@ -33,6 +34,7 @@
             "VALUE_ONE"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "value": "0"
         },
@@ -52,6 +54,7 @@
             "VALUE_Two"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "value": "testTwo"
         },
@@ -71,6 +74,7 @@
             "VALUE_THREE"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "value": "testThree"
         }

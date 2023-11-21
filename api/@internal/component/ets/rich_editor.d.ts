@@ -161,6 +161,80 @@ declare interface RichEditorTextStyle {
   decoration?: { type: TextDecorationType; color?: ResourceColor; };
 }
 
+
+/**
+ * Defines the leading margin placeholder of a paragraph.
+ *
+ * @interface LeadingMarginPlaceholder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface LeadingMarginPlaceholder {
+  /**
+   * Placeholder pixelMap.
+   *
+   * @type { PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  pixelMap: PixelMap;
+
+  /**
+   * Placeholder size.
+   *
+   * @type { [Dimension, Dimension] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  size: [Dimension, Dimension];
+}
+
+/**
+ * Defines the paragraph style.
+ *
+ * @interface RichEditorParagraphStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface RichEditorParagraphStyle {
+  /**
+   * Text alignment.
+   *
+   * @type { ?TextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  textAlign?: TextAlign;
+
+  /**
+   * Leading margin.
+   *
+   * @type { ?(Dimension | LeadingMarginPlaceholder) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  leadingMargin?: Dimension | LeadingMarginPlaceholder;
+}
+
+/**
+ * Defines the paste event.
+ *
+ * @interface PasteEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface PasteEvent {
+  /**
+   * Override system paste event.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  preventDefault?: () => void;
+}
+
 /**
  * Defines the text span.
  *
@@ -334,6 +408,33 @@ declare interface RichEditorTextStyleResult {
    * @since 10
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
+}
+
+/**
+ * Defines the paragraph result.
+ *
+ * @interface RichEditorParagraphResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface RichEditorParagraphResult {
+  /**
+   * The paragraph style.
+   *
+   * @type { RichEditorParagraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  style: RichEditorParagraphStyle;
+
+  /**
+   * The range of paragraph based on character indices.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  range: [number, number];
 }
 
 /**
@@ -593,6 +694,15 @@ declare interface RichEditorTextSpanOptions {
   style?: RichEditorTextStyle;
 
   /**
+   * Paragraph style.
+   *
+   * @type { ?RichEditorParagraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  paragraphStyle?: RichEditorParagraphStyle;
+
+  /**
    * RichEditor gesture.
    *
    * @type { ?RichEditorGesture }
@@ -648,6 +758,24 @@ declare interface RichEditorImageSpanOptions {
  * @since 10
  */
 declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
+
+/**
+ * Defines paragraph style option of RichEditor.
+ *
+ * @interface RichEditorParagraphStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
+  /**
+   * Paragraph style.
+   *
+   * @type { RichEditorParagraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  style: RichEditorParagraphStyle;
+}
 
 /**
  * Defines text span style option of RichEditor.
@@ -865,7 +993,7 @@ declare class RichEditorController {
   /**
    * Add a image span.
    *
-   * @param { PixelMap| ResourceStr } value - image value.
+   * @param { PixelMap | ResourceStr } value - image value.
    * @param { RichEditorImageSpanOptions } [options] - image span info.
    * @returns { number } span index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -881,6 +1009,15 @@ declare class RichEditorController {
    * @since 10
    */
   updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions): void;
+
+  /**
+   * Modify span style.
+   *
+   * @param { RichEditorParagraphStyleOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  updateParagraphStyle(value: RichEditorParagraphStyleOptions): void;
 
   /**
    * Delete span.
@@ -900,6 +1037,16 @@ declare class RichEditorController {
    * @since 10
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
+
+  /**
+   * Get span content.
+   *
+   * @param { RichEditorRange } [value] - range for getting span info.
+   * @returns { Array<RichEditorParagraphResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  getParagraphs(value?: RichEditorRange): Array<RichEditorParagraphResult>;
 
   /**
    * close the select menu when menu is on.
@@ -933,7 +1080,7 @@ declare class RichEditorController {
 /**
  * Provides attribute for RichEditor.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -1016,7 +1163,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @param { RichEditorSpanType } spanType - Indicates the type of selection menu.
    * @param { CustomBuilder } content - Indicates the content of selection menu.
    * @param { ResponseType } responseType - Indicates response type of selection menu.
-   * @param { SelectionMenuOptions } options - Indicates the options of selection menu.
+   * @param { SelectionMenuOptions } [options] - Indicates the options of selection menu.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1033,6 +1180,37 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 10
    */
   customKeyboard(value: CustomBuilder): RichEditorAttribute;
+
+  /**
+    * Defines onPaste callback.
+    *
+    * @param { function } callback Executed when a paste operation is performed.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 11
+    */
+  onPaste(callback: (event?: PasteEvent) => void): RichEditorAttribute;
+
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - Enable data detector.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enableDataDetector(enable: boolean): RichEditorAttribute;
+
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
 }
 
 /**

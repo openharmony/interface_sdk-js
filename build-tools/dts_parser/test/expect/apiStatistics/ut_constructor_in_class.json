@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_constructor_in_class.d.ts/testNamespace/TestInterface",
     "apiName": "TestInterface",
     "deprecatedVersion": "",
@@ -20,6 +21,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

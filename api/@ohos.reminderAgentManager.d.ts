@@ -537,6 +537,24 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     autoDeletedTime?: number;
+     
+    /**
+     * Type of the snoozeSlot used by the reminder.
+     *
+     * @type { ?notification.SlotType }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    snoozeSlotType?: notification.SlotType;
+
+    /**
+     * The directory of storing reminder announcements.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    customRingUri?: string;
   }
 
   /**

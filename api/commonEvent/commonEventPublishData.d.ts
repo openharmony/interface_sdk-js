@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */
+/**
+ * containing the common event content and attributes
+ *
+ * @typedef CommonEventPublishData
+ * @syscap SystemCapability.Notification.CommonEvent
+ * @atomicservice
+ * @since 11
+ */
 export interface CommonEventPublishData {
   /**
    * bundle name
@@ -27,6 +35,14 @@ export interface CommonEventPublishData {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
+   */
+  /**
+   * bundle name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   bundleName?: string;
 
@@ -38,6 +54,15 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
+  /**
+   * The custom result code of the common event.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   code?: number;
 
   /**
@@ -47,6 +72,14 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
+  /**
+   * The custom result data of the common event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   data?: string;
 
   /**
@@ -55,6 +88,14 @@ export interface CommonEventPublishData {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
+   */
+  /**
+   * The permissions for subscribers. Only subscribers with required permissions can receive published common events.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   subscriberPermissions?: Array<string>;
 
@@ -84,6 +125,14 @@ export interface CommonEventPublishData {
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
+   */
+  /**
+   * The description of the parameters in a common event.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   parameters?: { [key: string]: any };
 }

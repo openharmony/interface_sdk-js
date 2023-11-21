@@ -15,6 +15,7 @@
         "Reference"
       ],
       "isStruct": false,
+      "syscap": "",
       "pathName": "../component/units.d.ts"
     },
     {
@@ -32,6 +33,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for reference",
