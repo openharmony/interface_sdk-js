@@ -142,18 +142,18 @@ declare namespace print {
      * @since 11
      */
     onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number,
-      writeResultCallback: (jobId: string, writeResult: PrintFileCreatedInfoCode) => void): void;
+      writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
 
     /**
      * Implement this function to listen job status change.
      * @permission ohos.permission.PRINT
      * @param { string } jobId - Indicates print job id.
-     * @param { PrintAdapterListeningState } state - Indicates job changes to this state.
+     * @param { PrintDocumentAdapterState } state - Indicates job changes to this state.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11
      */
-    onJobStateChanged(jobId: string, state: PrintAdapterListeningState): void;
+    onJobStateChanged(jobId: string, state: PrintDocumentAdapterState): void;
   }
 
   /**
@@ -257,35 +257,35 @@ declare namespace print {
 
     /**
     * Page size.
-    * @type { ?(PrintPageSize | PrintPageTypeCode) }
+    * @type { ?(PrintPageSize | PrintPageType) }
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    pageSize?: PrintPageSize | PrintPageTypeCode;
+    pageSize?: PrintPageSize | PrintPageType;
 
     /**
     * Print direction.
-    * @type { ?PrintDirectionModeCode }
+    * @type { ?PrintDirectionMode }
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    directionMode?: PrintDirectionModeCode;
+    directionMode?: PrintDirectionMode;
 
     /**
     * Color mode.
-    * @type { ?PrintColorModeCode }
+    * @type { ?PrintColorMode }
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    colorMode?: PrintColorModeCode;
+    colorMode?: PrintColorMode;
 
     /**
     * Duplex mode.
-    * @type { ?PrintDuplexModeCode }
+    * @type { ?PrintDuplexMode }
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    duplexMode?: PrintDuplexModeCode;
+    duplexMode?: PrintDuplexMode;
   }
 
   /**
@@ -757,12 +757,12 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Print Direction Mode Code.
-   * @enum { number } PrintDirectionModeCode
+   * Enumeration of Print Direction Mode.
+   * @enum { number } PrintDirectionMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11
    */
-  enum PrintDirectionModeCode {
+  enum PrintDirectionMode {
     /**
     * Automatically select direction.
     * @syscap SystemCapability.Print.PrintFramework
@@ -786,12 +786,12 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Print Color Mode Code.
-   * @enum { number } PrintColorModeCode
+   * Enumeration of Print Color Mode.
+   * @enum { number } PrintColorMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11
    */
-  enum PrintColorModeCode {
+  enum PrintColorMode {
     /**
     * Print monochrome.
     * @syscap SystemCapability.Print.PrintFramework
@@ -808,12 +808,12 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Print Duplex Mode Code.
-   * @enum { number } PrintDuplexModeCode
+   * Enumeration of Print Duplex Mode.
+   * @enum { number } PrintDuplexMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11
    */
-  enum PrintDuplexModeCode {
+  enum PrintDuplexMode {
     /**
     * Single side printing.
     * @syscap SystemCapability.Print.PrintFramework
@@ -837,12 +837,12 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Print Page Type Code.
-   * @enum { number } PrintPageTypeCode
+   * Enumeration of Print Page Type.
+   * @enum { number } PrintPageType
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11
    */
-  enum PrintPageTypeCode {
+  enum PrintPageType {
     /**
     * A3 page.
     * @syscap SystemCapability.Print.PrintFramework
@@ -929,18 +929,18 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Print Adapter Listening State.
-   * @enum { number } PrintAdapterListeningState
+   * Enumeration of Print Document Adapter State.
+   * @enum { number } PrintDocumentAdapterState
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11
    */
-  enum PrintAdapterListeningState {
+  enum PrintDocumentAdapterState {
     /**
     * Preview failed.
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PREVIEW_ABILITY_DESTROY = 0,
+    PREVIEW_DESTROY = 0,
 
     /**
     * Print state is succeed.
@@ -972,32 +972,32 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Print File Created Info Code.
-   * @enum { number } PrintFileCreatedInfoCode
+   * Enumeration of Print File Creation State.
+   * @enum { number } PrintFileCreationState
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11
    */
-  enum PrintFileCreatedInfoCode {
+  enum PrintFileCreationState {
     /**
     * Print file created success.
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PRINT_FILE_CREATED_SUCCESS = 0,
+    PRINT_FILE_CREATED = 0,
 
     /**
     * Print file created fail.
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PRINT_FILE_CREATED_FAIL = 1,
+    PRINT_FILE_CREATION_FAILED = 1,
 
     /**
     * Print file created success but unrendered.
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PRINT_FILE_CREATED_SUCCESS_UNRENDERED = 2,
+    PRINT_FILE_CREATED_UNRENDERED = 2,
   }
 
   /**
@@ -2028,20 +2028,20 @@ declare namespace print {
   function queryPrintJobById(jobId: string): Promise<PrintJob>;
 
   /**
-   * Start get print file.
+   * Start getting print file.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @param { PrintAttributes } printAttributes - Indicates print attributes.
    * @param { number } fd - Indicates print file fd.
-   * @param { Callback<PrintFileCreatedInfoCode> } onFileStateChanged - The callback function for update the file state.
+   * @param { Callback<PrintFileCreationState> } onFileStateChanged - The callback function for update the file state.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function startGetPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
-    onFileStateChanged: Callback<PrintFileCreatedInfoCode>): void;
+  function startGettingPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
+    onFileStateChanged: Callback<PrintFileCreationState>): void;
 
   /**
    * Notify print service the information.
