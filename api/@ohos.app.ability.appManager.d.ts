@@ -15,6 +15,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
+import type * as _AppForegroundStateObserver from './application/AppForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import type * as _ProcessData from './application/ProcessData';
@@ -219,6 +220,22 @@ declare namespace appManager {
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
   /**
+   * Register app foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'appForegroundState' } type - app foreground or background state.
+   * @param { AppForegroundStateObserver } observer - The app foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
+  
+  /**
    * Unregister application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -252,6 +269,22 @@ declare namespace appManager {
    */
   function off(type: 'applicationState', observerId: number): Promise<void>;
 
+  /**
+   * Unregister app foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'appForegroundState' } type - app foreground or background state.
+   * @param { AppForegroundStateObserver } [observer] - The app foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
+  
   /**
    * getForegroundApplications.
    *
@@ -510,10 +543,8 @@ declare namespace appManager {
    * @since 9
    */
   /**
-   * If you apply for permission, you can obtain information about all running processes.
-   * If you do not apply, you can only obtain information about the current process.
+   * Get information about the current process.
    *
-   * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -534,10 +565,8 @@ declare namespace appManager {
    * @since 9
    */
   /**
-   * If you apply for permission, you can obtain information about all running processes.
-   * If you do not apply, you can only obtain information about the current process.
+   * Get information about the current process.
    *
-   * @permission ohos.permission.GET_RUNNING_INFO
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -694,6 +723,15 @@ declare namespace appManager {
    * @since 9
    */
   export type ApplicationStateObserver = _ApplicationStateObserver.default;
+
+  /**
+   * The application foreground state observer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  export type AppForegroundStateObserver = _AppForegroundStateObserver.default;
 
   /**
    * The class of a process information.

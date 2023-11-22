@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Declare the graphic format of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum BarMode {
   /**
    * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
@@ -41,6 +50,14 @@ declare enum BarMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Scrollable = 0,
 
@@ -56,6 +73,14 @@ declare enum BarMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The width of all TabBars is evenly allocated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Fixed = 1,
 }
@@ -75,6 +100,15 @@ declare enum BarMode {
  * @crossplatform
  * @since 10
  */
+/**
+ * Declare the location of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum BarPosition {
   /**
    * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
@@ -88,6 +122,14 @@ declare enum BarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Start,
 
@@ -104,6 +146,14 @@ declare enum BarPosition {
    * @crossplatform
    * @since 10
    */
+  /**
+   * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   End,
 }
 
@@ -115,6 +165,15 @@ declare enum BarPosition {
  * @crossplatform
  * @since 10
  */
+/**
+ * Declare the layout style of the tab bar items.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum LayoutStyle {
   /**
    * The tab bar items are laid in the center of the tab bar.
@@ -123,6 +182,14 @@ declare enum LayoutStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The tab bar items are laid in the center of the tab bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   ALWAYS_CENTER = 0,
   /**
    * The tab bar items are laid in the tab bar by an average split.
@@ -130,6 +197,14 @@ declare enum LayoutStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The tab bar items are laid in the tab bar by an average split.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   ALWAYS_AVERAGE_SPLIT = 1,
   /**
@@ -140,6 +215,15 @@ declare enum LayoutStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The tab bar items are laid in the center of the bar when their total length is more than half of the tab bar.
+   * Otherwise, they are laid in the center half of the tab bar with the same space between them. 
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   SPACE_BETWEEN_OR_CENTER = 2
 } 
 
@@ -149,6 +233,11 @@ declare enum LayoutStyle {
 /**
  * @crossplatform
  * @since 10
+ */
+/**
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class TabsController {
   /**
@@ -163,6 +252,14 @@ declare class TabsController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   constructor();
 
@@ -180,6 +277,15 @@ declare class TabsController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the tab is switched.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   changeIndex(value: number): void;
 }
@@ -199,6 +305,15 @@ declare class TabsController {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides an interface for switching views.
+ *
+ * @interface TabsInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface TabsInterface {
   /**
    * Called when the view is switched.
@@ -217,6 +332,16 @@ interface TabsInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the view is switched.
+   *
+   * @param { object } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): TabsAttribute;
 }
 
@@ -229,6 +354,16 @@ interface TabsInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides an interface for the style of an divider including stroke width, color, start margin
+ * and end margin
+ *
+ * @interface DividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface DividerStyle {
   /**
    * Define the stroke width of the divider
@@ -239,6 +374,16 @@ interface DividerStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define the stroke width of the divider
+   *
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   strokeWidth: Length;
 
   /**
@@ -248,6 +393,15 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the color of the divider
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   color?: ResourceColor;
 
@@ -260,6 +414,16 @@ interface DividerStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define the start margin of the divider
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   startMargin?: Length;
 
   /**
@@ -271,7 +435,60 @@ interface DividerStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define the end margin of the divider
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   endMargin?: Length;
+}
+
+/**
+ * Provides an interface for tabs animation.
+ *
+ * @interface TabsAnimationEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface TabsAnimationEvent {
+  /**
+   * Offset of the current page to the start position of the tabs main axis. The unit is vp.
+   *
+   * @type { number }
+   * @default 0.0 vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  currentOffset: number;
+
+  /**
+   * Offset of the target page to the start position of the tabs main axis. The unit is vp.
+   *
+   * @type { number }
+   * @default 0.0 vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  targetOffset: number;
+
+  /**
+   * Start speed of the page-turning animation. The unit is vp/s.
+   *
+   * @type { number }
+   * @default 0.0 vp/s
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  velocity: number;
 }
 
 /**
@@ -282,6 +499,15 @@ interface DividerStyle {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides an interface for the grid column options of an tab bar including sm, md, lg, margin and gutter.
+ *
+ * @interface BarGridColumnOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface BarGridColumnOptions {
   /**
    * Define the occupied column number when the screen is of small size
@@ -290,6 +516,15 @@ interface BarGridColumnOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the occupied column number when the screen is of small size
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   sm?: number;
 
@@ -301,6 +536,15 @@ interface BarGridColumnOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define the occupied column number when the screen is of middle size
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   md?: number;
 
   /**
@@ -310,6 +554,15 @@ interface BarGridColumnOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the occupied column number when the screen is of large size
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   lg?: number;
 
@@ -321,6 +574,15 @@ interface BarGridColumnOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define the margin size of the columns
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   margin?: Dimension;
 
   /**
@@ -330,6 +592,15 @@ interface BarGridColumnOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the gutter size of the columns
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   gutter?: Dimension;
 }
@@ -342,6 +613,15 @@ interface BarGridColumnOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides an interface for the options for the scrollable bar mode including margin and nonScrollableLayoutStyle.
+ *
+ * @interface ScrollableBarModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface ScrollableBarModeOptions {
   /**
    * Define the margin size of the bar items when the tab bar is scrollable.
@@ -350,6 +630,15 @@ interface ScrollableBarModeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the margin size of the bar items when the tab bar is scrollable.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   margin?: Dimension;
 
@@ -360,6 +649,15 @@ interface ScrollableBarModeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the layout style of the bar items when the tab bar is not scrollable.
+   *
+   * @type { ?LayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   nonScrollableLayoutStyle?: LayoutStyle;
 }
@@ -379,6 +677,15 @@ interface ScrollableBarModeOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the tabs attribute functions.
+ *
+ * @extends CommonMethod<TabsAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when determining whether the tab is vertical.
@@ -396,6 +703,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when determining whether the tab is vertical.
+   *
+   * @param { boolean } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   vertical(value: boolean): TabsAttribute;
 
@@ -416,6 +733,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when determining the location of the bar chart.
+   *
+   * @param { BarPosition } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   barPosition(value: BarPosition): TabsAttribute;
 
   /**
@@ -435,6 +762,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when judging whether page switching can be performed by sliding left and right.
+   *
+   * @param { boolean } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   scrollable(value: boolean): TabsAttribute;
 
   /**
@@ -445,6 +782,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the graphic format of the bar chart is selected as fixed mode.
+   *
+   * @param { BarMode.Fixed } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   barMode(value: BarMode.Fixed): TabsAttribute;
 
@@ -457,6 +804,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the graphic format of the bar chart is selected as scrollable mode.
+   *
+   * @param { BarMode.Scrollable } value
+   * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   barMode(value: BarMode.Scrollable, options: ScrollableBarModeOptions): TabsAttribute;
 
@@ -477,6 +835,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the graphic format of the bar chart is selected.
+   *
+   * @param { BarMode } value
+   * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   barMode(value: BarMode, options?: ScrollableBarModeOptions): TabsAttribute;
 
@@ -499,6 +868,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the width of the bar graph is set.
+   * Notice: barWidth only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   barWidth(value: Length): TabsAttribute;
 
   /**
@@ -520,6 +900,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the height of the bar graph is set.
+   * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   barHeight(value: Length): TabsAttribute;
 
   /**
@@ -538,6 +929,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the animation duration of the bar graph is set.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   animationDuration(value: number): TabsAttribute;
 
@@ -558,6 +959,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the tab is switched.
+   *
+   * @param { function } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onChange(event: (index: number) => void): TabsAttribute;
 
   /**
@@ -569,7 +980,57 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the tab is clicked.
+   *
+   * @param { function } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onTabBarClick(event: (index: number) => void): TabsAttribute;
+
+  /**
+   * Called when the tab content flip animation start.
+   *
+   * @param { function } handler -
+   * "index": the index value of the tab that when animation start.
+   * "targetIndex": the target index value of the tab that when animation start.
+   * "event": the animation event callback info.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onAnimationStart(handler: (index: number, targetIndex: number, event: TabsAnimationEvent) => void): TabsAttribute;
+
+  /**
+   * Called when the tab content flip animation end.
+   *
+   * @param { function } handler -
+   * "index": the index value of the tab that when animation start.
+   * "event": the animation event callback info.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onAnimationEnd(handler: (index: number, event: TabsAnimationEvent) => void): TabsAttribute;
+
+  /**
+   * Called when swiping the tab content with the gesture.
+   *
+   * @param { function } handler -
+   * "index": the index value of the tab that when animation start.
+   * "event": the animation event callback info.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onGestureSwipe(handler: (index: number, event: TabsAnimationEvent) => void): TabsAttribute;
 
   /**
    * Set whether the edges of tab bar are fading.
@@ -579,6 +1040,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set whether the edges of tab bar are fading.
+   *
+   * @param { boolean } value - indicates whether the edges of tab bar are fading.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   fadingEdge(value: boolean): TabsAttribute;
 
@@ -590,6 +1061,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the divider between tab bar and tab content.
+   *
+   * @param { DividerStyle | null } value - indicates the style of the indicator.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   divider(value: DividerStyle | null): TabsAttribute;
 
@@ -608,6 +1089,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   barOverlap(value: boolean): TabsAttribute;
@@ -627,6 +1109,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   barBackgroundColor(value: ResourceColor): TabsAttribute;
@@ -639,6 +1122,16 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the grid alignment options of the tab bar.
+   *
+   * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   barGridAlign(value: BarGridColumnOptions): TabsAttribute;
 }
@@ -656,6 +1149,14 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines Tabs Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const Tabs: TabsInterface;
 
 /**
@@ -670,5 +1171,13 @@ declare const Tabs: TabsInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines Tabs Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const TabsInstance: TabsAttribute;

@@ -8,6 +8,7 @@
     "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_callback_001.d.ts/Test",
     "apiName": "Test",
     "deprecatedVersion": "",
@@ -20,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_method_callback_001.d.ts",
@@ -31,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_method_callback_001.d.ts/Test/func",
     "apiName": "func",
     "deprecatedVersion": "",
@@ -43,6 +46,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

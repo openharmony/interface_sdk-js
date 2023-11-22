@@ -19,6 +19,8 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundleManager/ElementName';
+import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
+import * as _AbilityStateData from './application/AbilityStateData';
 
 /**
  * The class of an ability manager.
@@ -92,6 +94,38 @@ declare namespace abilityManager {
      */
     BACKGROUNDING = 12
   }
+
+  /**
+   * Register Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'abilityForegroundState' } type - ability foreground or background state.
+   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+
+  /**
+   * Unregister Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'abilityForegroundState' } type - ability foreground or background state.
+   * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
@@ -273,6 +307,35 @@ declare namespace abilityManager {
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
 
   /**
+   * Get the foreground ui abilities.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { AsyncCallback<Array<AbilityStateData>> } callback - The callback is used to return the list of AbilityStateDatas.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
+
+  /**
+   * Get the foreground ui abilities.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @returns { Promise<Array<AbilityStateData>> } Returns the list of AbilityStateDatas.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
+
+  /**
    * The class of an ability running information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -282,6 +345,15 @@ declare namespace abilityManager {
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
   /**
+   * The ability state data.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  export type AbilityStateData = _AbilityStateData.default;
+
+  /**
    * The class of an extension running information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -289,6 +361,15 @@ declare namespace abilityManager {
    * @since 9
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
+
+  /**
+   * The ability foreground state observer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver.default;
 }
 
 export default abilityManager;

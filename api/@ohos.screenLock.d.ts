@@ -105,6 +105,18 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Unlock the screen.
+   *
+   * @param { AsyncCallback<boolean> } callback - the callback of unlock.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @throws { BusinessError } 13200003 - illegal use.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function unlock(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -116,6 +128,17 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
+   */
+  /**
+   * Unlock the screen.
+   *
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @throws { BusinessError } 13200003 - illegal use.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 11
    */
   function unlock(): Promise<boolean>;
 

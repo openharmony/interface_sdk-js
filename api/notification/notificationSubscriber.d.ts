@@ -120,6 +120,16 @@ export interface NotificationSubscriber {
    * @since 10
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
+
+  /**
+   * Callback when badge cancel notifications.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 }
 
 /**

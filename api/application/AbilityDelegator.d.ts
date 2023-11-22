@@ -1297,6 +1297,7 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
    * @since 11
    */
   setMockList(mockList: { [key: string]: string }): void;

@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_field_interface.d.ts/testNamespace/TestInterface",
     "apiName": "TestInterface",
     "deprecatedVersion": "",
@@ -20,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_field_interface.d.ts",
@@ -31,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_field_interface.d.ts/testNamespace/TestInterface/id",
     "apiName": "id",
     "deprecatedVersion": "",
@@ -43,6 +46,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]
