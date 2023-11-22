@@ -199,6 +199,7 @@ dpad
 drains
 dragbar
 drawbuffer
+drm
 dsf
 dtmf
 ducked
@@ -563,6 +564,7 @@ psc
 psk
 psrc
 pss
+pssh
 puk
 pvr
 querier
