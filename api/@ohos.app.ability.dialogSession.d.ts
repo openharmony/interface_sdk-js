@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
@@ -20,13 +21,14 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace dialogSession
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
  * @systemapi
  * @since 11
  */
 declare namespace dialogSession {
 
   /**
-   * Dialog Ability Info
+   * Dialog ability info
    *
    * @typedef DialogAbilityInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -37,7 +39,7 @@ declare namespace dialogSession {
   export interface DialogAbilityInfo {
 
     /**
-     * bundle name
+     * Bundle name
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -48,7 +50,7 @@ declare namespace dialogSession {
     bundleName: string;
 
     /**
-     * module name
+     * Module name
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -59,7 +61,7 @@ declare namespace dialogSession {
     moduleName: string;
 
     /**
-     * ability name
+     * Ability name
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -115,7 +117,7 @@ declare namespace dialogSession {
   }
 
   /**
-   * Dialog Session Info
+   * Dialog session info
    *
    * @typedef DialogSessionInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -126,7 +128,7 @@ declare namespace dialogSession {
   export interface DialogSessionInfo {
 
     /**
-     * the dialog info of caller ability
+     * The dialog info of caller ability
      *
      * @type { DialogAbilityInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -137,7 +139,7 @@ declare namespace dialogSession {
     callerAbilityInfo: DialogAbilityInfo;
 
     /**
-     * the dialog infos of target ability to select
+     * The dialog infos of target ability to select
      *
      * @type { Array<DialogAbilityInfo> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -148,7 +150,7 @@ declare namespace dialogSession {
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
     /**
-     * The description of the Params object in dilog session info
+     * The description of the params object in dilog session info
      *
      * @type { ?object }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -156,7 +158,7 @@ declare namespace dialogSession {
      * @systemapi
      * @since 11
      */
-  parameters?: { [key: string]: any };
+    parameters?: { [key: string]: any };
   }
 
   /**
@@ -166,8 +168,6 @@ declare namespace dialogSession {
    * @returns { DialogSessionInfo } Returns the session info.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000061 - Operation not supported.
-   * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @systemapi
@@ -181,17 +181,31 @@ declare namespace dialogSession {
    * @param { string } dialogSessionId - Send Result by dialog session id.
    * @param { Want } targetWant - The selection target ability to start.
    * @param { number } resultCode - allowed or disallowed to start target ability.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } The promise returned by the sendDialogResult.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000061 - Operation not supported.
-   * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @systemapi
    * @since 11
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: number): Promise<void>;
 
+  /**
+   * Send the selection result of dialog.
+   *
+   * @param { string } dialogSessionId - Send Result by dialog session id.
+   * @param { Want } targetWant - The selection target ability to start.
+   * @param { number } resultCode - allowed or disallowed to start target ability.
+   * @param { AsyncCallback<void> } callback - The callback of sendDialogResult.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @systemapi
+   * @since 11
+   */
+  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: number, callback: AsyncCallback<void>): void;
 }
 
 export default dialogSession;

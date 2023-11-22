@@ -2585,8 +2585,29 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @atomicservice
+   * @systemapi
    * @since 11
    */
   createModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
+
+  /**
+   * Creates the Modal UIExtensionAbility.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @returns { Promise<void> } The promise returned by the createModalUIExtension.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @systemapi
+   * @since 11
+   */
+  createModalUIExtension(pickerWant: Want): Promise<void>;
 }
