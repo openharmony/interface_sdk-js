@@ -922,6 +922,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     everyoneAccessList?: Array<DLPFileAccess>;
+
+    /**
+     * Timestamp of the time when the DLP file expires.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    expireTime?: number;
   }
 
   /**
@@ -1273,6 +1283,8 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100019 - The DLP file has expired.
+   * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -1298,6 +1310,8 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - System service exception.
    * @throws { BusinessError } 19100018 - Not authorized application.
+   * @throws { BusinessError } 19100019 - The DLP file has expired.
+   * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 11
