@@ -2127,7 +2127,7 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-        /**
+    /**
      * Protocol http2
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
