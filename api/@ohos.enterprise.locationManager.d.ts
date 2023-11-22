@@ -43,7 +43,7 @@ declare namespace locationManager {
      * @stagemodelonly
      * @since 11
      */
-    DISALLOWED_LOCATION_SERVICE = 0,
+    DISALLOW_LOCATION_SERVICE = 0,
 
     /**
      * Force open the location service.
