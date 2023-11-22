@@ -337,7 +337,6 @@ declare namespace print {
    * defines print range.
    * @typedef PrinterRange
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
    * @since 10
    */
   interface PrinterRange {
@@ -345,7 +344,6 @@ declare namespace print {
     * Start page of sequence.
     * @type { ?number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     startPage?: number;
@@ -354,7 +352,6 @@ declare namespace print {
     * End page of sequence.
     * @type { ?number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     endPage?: number;
@@ -363,7 +360,6 @@ declare namespace print {
     * Discrete page of sequence.
     * @type { ?Array<number> }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     pages?: Array<number>;
@@ -436,7 +432,6 @@ declare namespace print {
    * defines print page size.
    * @typedef PrintPageSize
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
    * @since 10
    */
   interface PrintPageSize {
@@ -444,7 +439,6 @@ declare namespace print {
     * Page size id.
     * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     id: string;
@@ -453,7 +447,6 @@ declare namespace print {
     * Page size name.
     * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     name: string;
@@ -462,7 +455,6 @@ declare namespace print {
     * Unit: millimeter width.
     * @type { number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     width: number;
@@ -471,7 +463,6 @@ declare namespace print {
     * Unit: millimeter height.
     * @type { number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @systemapi
     * @since 10
     */
     height: number;
