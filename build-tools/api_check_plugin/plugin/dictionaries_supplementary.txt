@@ -679,6 +679,7 @@ specificed
 speedratings
 spellcheck
 spn
+spooler
 spp
 spry
 spy
@@ -806,6 +807,7 @@ unregistered
 unregistering
 unregisters
 unremovable
+unrendered
 unrestricted
 unsecure
 unsent
