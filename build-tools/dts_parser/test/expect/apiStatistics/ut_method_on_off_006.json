@@ -1,0 +1,52 @@
+[
+  {
+    "filePath": "ut_method_on_off_006.d.ts",
+    "packageName": "ut_method_on_off_006",
+    "parentModuleName": "global",
+    "syscap": "",
+    "permissions": "",
+    "since": "-1",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "isAutomicService": false,
+    "hierarchicalRelations": "ut_method_on_off_006.d.ts/Test",
+    "apiName": "Test",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Interface",
+    "definedText": " export interface Test",
+    "pos": {
+      "line": 5,
+      "character": 1
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": [],
+    "errorCodes": []
+  },
+  {
+    "filePath": "ut_method_on_off_006.d.ts",
+    "packageName": "ut_method_on_off_006",
+    "parentModuleName": "Test",
+    "syscap": "",
+    "permissions": "",
+    "since": "",
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "isAutomicService": false,
+    "hierarchicalRelations": "ut_method_on_off_006.d.ts/Test/on",
+    "apiName": "on",
+    "deprecatedVersion": "",
+    "useInstead": "",
+    "apiType": "Method",
+    "definedText": "on(callback: AsyncCallback<T>): void;",
+    "pos": {
+      "line": 6,
+      "character": 3
+    },
+    "isSystemapi": false,
+    "modelLimitation": "",
+    "decorators": [],
+    "errorCodes": []
+  }
+]

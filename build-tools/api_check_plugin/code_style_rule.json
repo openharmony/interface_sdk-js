@@ -1,6 +1,7 @@
 {
   "decorators": {
     "customDoc": [
+      "atomicservice",
       "constant",
       "crossplatform",
       "default",
@@ -20,6 +21,7 @@
       "since",
       "stagemodelonly",
       "static",
+      "struct",
       "syscap",
       "systemapi",
       "type",
@@ -205,6 +207,8 @@
       "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
       "SystemCapability.Multimedia.Media.AVPlayer",
       "SystemCapability.Multimedia.Media.AVRecorder",
+      "SystemCapability.Multimedia.Media.AVMetadataExtractor",
+      "SystemCapability.Multimedia.Media.AVImageGenerator",
       "SystemCapability.Multimedia.Image.ImageCreator",
       "SystemCapability.Multimedia.SystemSound.Core",
       "SystemCapability.Telephony.CoreService",
@@ -243,6 +247,7 @@
       "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
       "SystemCapability.Update.UpdateService",
       "SystemCapability.DistributedHardware.DeviceManager",
+      "SystemCapability.DistributedHardware.DistributedHardwareFWK",
       "SystemCapability.Security.DeviceAuth",
       "SystemCapability.Security.DataTransitManager",
       "SystemCapability.Security.DeviceSecurityLevel",
@@ -318,6 +323,7 @@
       "SystemCapability.Web.Webview.Core",
       "SystemCapability.Cloud.AAID",
       "SystemCapability.Advertising.OAID",
+      "SystemCapability.Advertising.Ads",
       "SystemCapability.Cloud.VAID",
       "SystemCapability.Cloud.Push",
       "SystemCapability.XTS.DeviceAttest",
@@ -347,6 +353,12 @@
     },
     {
       "user": "9127956"
+    },
+    {
+      "user": "9712536"
+    },
+    {
+      "user": "12626261"
     }
   ],
   "ciId":"7387629"

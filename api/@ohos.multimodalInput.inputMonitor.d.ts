@@ -15,7 +15,10 @@
 
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
-import type { Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
+import type { display } from './@ohos.display';
+import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
+import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
+import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
 
 /**
  * Global input event listener
@@ -70,6 +73,22 @@ declare namespace inputMonitor {
    */
   function on(type: 'mouse', receiver: Callback<MouseEvent>): void;
 
+  /**
+   * Listens for mouse input events when the mouse arrow is within the specified rectangular area.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'mouse' } type - Event type, which is **mouse**.
+   * @param { display.Rect[] } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function on(type: 'mouse', rect: display.Rect[], receiver: Callback<MouseEvent>): void;
+  
   /**
    * Cancel listening for touch input events.
    *
@@ -127,6 +146,70 @@ declare namespace inputMonitor {
    * @since 10
    */
   function off(type: 'pinch', receiver?: Callback<Pinch>): void;
+
+  /**
+   * Listens for touchPad fingers pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'pinch' } type - Event type, which is **pinch**.
+   * @param { number } fingers - the number of fingers.
+   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function on(type: 'pinch', fingers: number, receiver: Callback<Pinch>): void;
+
+  /**
+   * Cancel listening for touchPad fingers pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'pinch' } type - Event type, which is **pinch**.
+   * @param { number } fingers - the number of fingers.
+   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function off(type: 'pinch', fingers: number, receiver?: Callback<Pinch>): void;
+
+  /**
+   * Listens for touchPad fingers rotate events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'rotate' } type - Event type, which is **rotate**.
+   * @param { number } fingers - the number of fingers.
+   * @param { Callback<Rotate> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function on(type: 'rotate', fingers: number, receiver: Callback<Rotate>): void;
+
+  /**
+   * Cancel listening for touchPad fingers rotate events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'rotate' } type - Event type, which is **rotate**.
+   * @param { number } fingers - the number of fingers.
+   * @param { Callback<Rotate> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function off(type: 'rotate', fingers: number, receiver?: Callback<Rotate>): void;
 
   /**
    * Listens for touchPad three fingers swipe events.
@@ -187,5 +270,36 @@ declare namespace inputMonitor {
    * @since 10
    */
   function off(type: 'fourFingersSwipe', receiver?: Callback<FourFingersSwipe>): void;
+  
+  /**
+   * Listens for touchPad three fingers tap events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'threeFingersTap' } type - Event type, which is **threeFingersTap**.
+   * @param { Callback<ThreeFingersTap> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function on(type: 'threeFingersTap', receiver: Callback<ThreeFingersTap>): void;
+
+  /**
+   * Cancel listening touchPad three fingers tap events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'threeFingersTap' } type - Event type, which is **threeFingersTap**.
+   * @param { Callback<ThreeFingersTap> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
+
 }
 export default inputMonitor;

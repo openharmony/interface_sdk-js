@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Global.ResourceManager
  * @since 9
  */
+/**
+ * Contains resource descriptor information.
+ *
+ * @interface Resource
+ * @syscap SystemCapability.Global.ResourceManager
+ * @atomicservice
+ * @since 11
+ */
 export interface Resource {
   /**
    * bundle name in hap
@@ -27,6 +35,14 @@ export interface Resource {
    * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
+   */
+  /**
+   * bundle name in hap
+   *
+   * @type { string }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @atomicservice
+   * @since 11
    */
   bundleName: string;
 
@@ -37,6 +53,14 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
+  /**
+   * module name in hap
+   *
+   * @type { string }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @atomicservice
+   * @since 11
+   */
   moduleName: string;
 
   /**
@@ -45,6 +69,14 @@ export interface Resource {
    * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
+   */
+  /**
+   * resource id in hap
+   *
+   * @type { number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @atomicservice
+   * @since 11
    */
   id: number;
 
@@ -55,6 +87,14 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @since 7
    */
+  /**
+   * Set params.
+   *
+   * @type { ?any[] }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @atomicservice
+   * @since 11
+   */
   params?: any[];
 
   /**
@@ -63,6 +103,14 @@ export interface Resource {
    * @type { ?number }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 7
+   */
+  /**
+   * Set type.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @atomicservice
+   * @since 11
    */
   type?: number;
 }

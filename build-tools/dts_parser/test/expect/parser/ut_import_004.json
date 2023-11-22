@@ -15,6 +15,7 @@
         "'./application/ApplicationStateObserver'"
       ],
       "isStruct": false,
+      "syscap": "",
       "importValues": [
         {
           "key": "",

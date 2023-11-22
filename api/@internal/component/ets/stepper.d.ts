@@ -52,14 +52,14 @@ interface StepperInterface {
 /**
  * Defines the stepper attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<StepperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the stepper attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<StepperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -120,7 +120,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @since 10
    */
-  onChange(callback: (prevIndex?: number, index?: number) => void): StepperAttribute;
+  onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
   /**
    * Callback when the next label is clicked.
@@ -139,7 +139,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @since 10
    */
-  onNext(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
+  onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
   /**
    * Callback when the previous label is clicked.
@@ -158,7 +158,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @since 10
    */
-  onPrevious(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
+  onPrevious(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 }
 
 /**

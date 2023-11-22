@@ -73,8 +73,8 @@ interface ForEachInterface {
    */
   (
     arr: Array<any>,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
+    itemGenerator: (item: any, index: number) => void,
+    keyGenerator?: (item: any, index: number) => string,
   ): ForEachInterface;
 }
 
@@ -97,6 +97,15 @@ interface ForEachInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines ForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const ForEach: ForEachInterface;

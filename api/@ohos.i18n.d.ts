@@ -97,6 +97,14 @@ declare namespace i18n {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Provides system functions.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export class System {
     /**
      * Obtains the country or region name localized for display on a given locale.
@@ -150,6 +158,20 @@ declare namespace i18n {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the language name localized for display on a given locale.
+     *
+     * @param { string } language - The locale whose language name will be displayed.
+     * @param { string } locale - The locale used to display the language.
+     * @param { boolean } [sentenceCase] - Specifies whether the language name is displayed in sentence case.
+     * @returns { string } the language name localized for display on a given locale.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
     /**
@@ -200,6 +222,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the language currently used by the system.
+     *
+     * @returns { string } the language currently used by the system.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     static getSystemLanguage(): string;
 
@@ -262,6 +293,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the locale currently used by the system.
+     *
+     * @returns { string } the locale currently used by the system.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     static getSystemLocale(): string;
 

@@ -38,7 +38,7 @@ interface HyperlinkInterface {
 /**
  * Defines the hyperlink attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */

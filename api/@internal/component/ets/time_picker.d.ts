@@ -44,7 +44,15 @@ declare interface TimePickerResult {
    * @crossplatform
    * @since 10
    */
-  hour?: number;
+  /**
+   * Hour portion of the selected time.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  hour: number;
 
   /**
    * Application minute
@@ -61,7 +69,50 @@ declare interface TimePickerResult {
    * @crossplatform
    * @since 10
    */
-  minute?: number;
+  /**
+   * Minute portion of the selected time.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  minute: number;
+
+  /**
+   * Second portion of the selected time.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  second: number;
+}
+
+/**
+ * Type of the TimePicker that need to be displayed.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum TimePickerFormat {
+  /**
+   * Hour and minute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  HOUR_MINUTE,
+
+  /**
+   * Hour and minute and second
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  HOUR_MINUTE_SECOND,
 }
 
 /**
@@ -96,6 +147,17 @@ declare interface TimePickerOptions {
    * @since 10
    */
   selected?: Date;
+
+  /**
+   * Specifies the format of the TimePicker that need to be displayed.
+   * 
+   * @type { ?TimePickerFormat }
+   * @default HOUR_MINUTE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  format?: TimePickerFormat;
 }
 
 /**
@@ -137,14 +199,14 @@ interface TimePickerInterface {
 /**
  * Defines the TimePicker attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the TimePicker attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -168,6 +230,16 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   useMilitaryTime(value: boolean): TimePickerAttribute;
+
+  /**
+   * Sets whether to enable the wheel mode.
+   * @param { boolean } value - indicates whether to enable the wheel mode.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  loop(value: boolean): TimePickerAttribute;
 
   /**
    * Sets the text style of disappearing items

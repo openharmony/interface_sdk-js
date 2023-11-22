@@ -112,14 +112,14 @@ interface LineInterface {
 /**
  * inheritance CommonShapeMethod.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * inheritance CommonShapeMethod.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -127,7 +127,7 @@ interface LineInterface {
 /**
  * inheritance CommonShapeMethod.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method of on or off",
@@ -50,12 +51,14 @@
             "on_add"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'reduce'"
@@ -66,6 +69,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<number>"
               ],
@@ -93,12 +97,14 @@
             "on_reduce"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'reduce'"
@@ -109,6 +115,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<number>"
               ],

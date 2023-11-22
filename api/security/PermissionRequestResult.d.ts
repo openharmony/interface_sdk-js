@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * The result of requestPermissionsFromUser with asynchronous callback.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export default class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
@@ -43,6 +52,15 @@ export default class PermissionRequestResult {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The permissions passed in by the user.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   permissions: Array<string>;
 
@@ -62,6 +80,16 @@ export default class PermissionRequestResult {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The results for the corresponding request permissions. The value 0 indicates that a
+   * permission is granted, and the value -1 indicates not.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   authResults: Array<number>;
 }

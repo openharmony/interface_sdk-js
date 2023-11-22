@@ -24,7 +24,7 @@ import { OffscreenCanvasRenderingContext2D } from './viewmodel'
  * @param { number } delay - Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
@@ -39,7 +39,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
@@ -67,7 +67,7 @@ export declare function cancelAnimationFrame(requestId: number): void;
  * Cancels the interval set by " setInterval()".
  *
  * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -76,7 +76,7 @@ export declare function clearInterval(intervalID?: number): void;
  * Cancels the timer set by "setTimeout()".
  *
  * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export declare function clearTimeout(timeoutID?: number): void;
@@ -88,7 +88,7 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @param { string } [name] - Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
  * @returns { any } A promise object is returned. The resolve callback is the object of PA.
  * The reject callback returns the object containing code and error data.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  * @deprecated since 8
  */
@@ -99,7 +99,7 @@ export declare function createLocalParticleAbility(name?: string): any;
  *
  * @param { string } syscap
  * @returns { boolean }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 8
  */
 export declare function canIUse(syscap: string): boolean;
@@ -108,7 +108,7 @@ export declare function canIUse(syscap: string): boolean;
  * Obtain the objects exposed in app.js
  *
  * @returns { object }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 6
  */
 export declare function getApp(): object;
@@ -293,7 +293,7 @@ export declare class ImageBitmap {
 /**
  * Conditional compilation for rich equipment
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
  */
@@ -302,7 +302,7 @@ export declare const STANDARD: string;
 /**
  * Conditional compilation for lite equipment
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
  */

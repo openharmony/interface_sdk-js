@@ -137,6 +137,10 @@ export class JsDocProcessorHelper {
     jsDocInfo.setIsSystemApi(true);
   }
 
+  static setIsAtomicService(jsDocInfo: Comment.JsDocInfo): void {
+    jsDocInfo.setIsAtomicService(true);
+  }
+
   static setDeprecatedVersion(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
     jsDocInfo.setDeprecatedVersion(commentTag.description);
   }
@@ -229,4 +233,5 @@ const jsDocProcessorMap: Map<string, Comment.JsDocProcessorInterface> = new Map(
   [Comment.JsDocTag.PERMISSION, JsDocProcessorHelper.setPermission],
   [Comment.JsDocTag.THROWS, JsDocProcessorHelper.addErrorCode],
   [Comment.JsDocTag.CONSTANT, JsDocProcessorHelper.setIsConstant],
+  [Comment.JsDocTag.ATOMIC_SERVICE, JsDocProcessorHelper.setIsAtomicService],
 ]);

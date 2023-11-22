@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method in class",
@@ -50,12 +51,14 @@
             "func"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "func(callback: AsyncCallback<Want>): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<Want>"
               ],

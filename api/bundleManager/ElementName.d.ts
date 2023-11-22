@@ -22,6 +22,16 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
+/**
+ * Contains basic Ability information, which uniquely identifies an ability.
+ * You can use this class to obtain values of the fields set in an element,
+ * such as the device ID, bundle name, and ability name.
+ *
+ * @typedef ElementName
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 11
+ */
 export interface ElementName {
   /**
    * Indicates device id
@@ -29,6 +39,14 @@ export interface ElementName {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates device id
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   deviceId?: string;
 
@@ -38,6 +56,13 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * @type { string }
+   * @default Indicates bundle name
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   bundleName: string;
 
   /**
@@ -45,6 +70,13 @@ export interface ElementName {
    * @default Indicates module name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * @type { ?string }
+   * @default Indicates module name
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   moduleName?: string;
 
@@ -55,6 +87,14 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates ability name
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   abilityName: string;
 
   /**
@@ -64,6 +104,14 @@ export interface ElementName {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates uri
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
   uri?: string;
 
   /**
@@ -72,6 +120,14 @@ export interface ElementName {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates short name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
    */
   shortName?: string;
 }

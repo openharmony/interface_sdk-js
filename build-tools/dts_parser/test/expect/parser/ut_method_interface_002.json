@@ -15,6 +15,7 @@
         "Test"
       ],
       "isStruct": false,
+      "syscap": "",
       "jsDocInfos": [
         {
           "description": "the ut for method in interface",
@@ -50,12 +51,14 @@
             "constructor"
           ],
           "isStruct": false,
+          "syscap": "",
           "jsDocInfos": [],
           "callForm": "(str: string): void",
           "params": [
             {
               "apiType": "Param",
               "apiName": "str",
+              "paramType": 148,
               "type": [
                 "string"
               ],

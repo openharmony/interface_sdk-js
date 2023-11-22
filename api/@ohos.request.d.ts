@@ -122,7 +122,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEPATH: number;
   /**
-   * Error code 13400003 - task manager service error.
+   * Error code 13400003 - task service ability error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -130,7 +130,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13400003 - task manager service error.
+   * Error code 13400003 - task service ability error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -1903,7 +1903,7 @@ declare namespace request {
      * The default is 0.
      *
      * @type { ?number }
-     * @syscap SystemCapability.Request.FileTransferAgent
+     * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
     index?: number;
@@ -1914,7 +1914,7 @@ declare namespace request {
      * The default is 0.
      *
      * @type { ?number }
-     * @syscap SystemCapability.Request.FileTransferAgent
+     * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
     begins?: number;
@@ -1925,7 +1925,7 @@ declare namespace request {
      * The default is -1 indicating the end of the data for upload.
      *
      * @type { ?number }
-     * @syscap SystemCapability.Request.FileTransferAgent
+     * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
     ends?: number;
@@ -2295,6 +2295,26 @@ declare namespace request {
    * @syscap SystemCapability.Request.FileTransferAgent
    * @since 10
    */
+  /**
+   * The request agent api.
+   * Supports "background" and "frontend" tasks as while.
+   * Though "background" and "frontend" here do not the same with process's concept.
+   * All tasks will be executed at request manager service and recorded.
+   * Background tasks is for concurrent transfer, such as caching videos for a later play.
+   * Frontend tasks is for instant transfer, such as submitting forms for a consumption bill.
+   * Background tasks use notification to tell user tasks' status information.
+   * Frontend tasks use callback to tell caller tasks' status information.
+   * Background has some automatically restore mechanism.
+   * Frontend tasks controlled by caller.
+   * Uses `multipart/form-data` in client request for upload.
+   * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
+   * More details, please see the architecture documents of the request subsystem.
+   *
+   * @namespace agent
+   * @syscap SystemCapability.Request.FileTransferAgent
+   * @atomicservice
+   * @since 11
+   */
   namespace agent {
     /**
      * The action options.
@@ -2303,6 +2323,14 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The action options.
+     *
+     * @enum { number } Action
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     enum Action {
       /**
        * Indicates download task.
@@ -2310,12 +2338,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates download task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       DOWNLOAD,
       /**
        * Indicates upload task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates upload task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       UPLOAD
     }
@@ -2326,6 +2368,14 @@ declare namespace request {
      * @enum { number } Mode
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
+     */
+    /**
+     * The mode options.
+     *
+     * @enum { number } Mode
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
      */
     enum Mode {
       /**
@@ -2341,6 +2391,13 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates foreground task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       FOREGROUND
     }
 
@@ -2351,12 +2408,27 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The network options.
+     *
+     * @enum { number } Network
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     enum Network {
       /**
        * Indicates no restriction on network type.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates no restriction on network type.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       ANY,
       /**
@@ -2365,6 +2437,13 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates Wi-Fi only.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       WIFI,
       /**
        * Indicates cellular only.
@@ -2372,7 +2451,33 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates cellular only.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       CELLULAR
+    }
+
+    /**
+     * Broadcast events for the request.
+     *
+     * @enum { string } BroadcastEvent
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    enum BroadcastEvent {
+      /**
+       * Completion event for the task.
+       * The code in the commonEventData can only be "0x40"(COMPLETE) or "0x41"(FAILED), same as "State".
+       * The data in the commonEventData contains the id of the task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      COMPLETE = 'ohos.request.event.COMPLETE'
     }
 
     /**
@@ -2382,6 +2487,14 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The file information for a form item.
+     *
+     * @typedef FileSpec
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     interface FileSpec {
       /**
        * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
@@ -2389,6 +2502,14 @@ declare namespace request {
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       path: string;
       /**
@@ -2399,6 +2520,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The MIME type of the file.
+       * The default is obtained by the suffix of the filename.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       mimeType?: string;
       /**
        * The filename, the default is obtained by path.
@@ -2407,6 +2537,14 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The filename, the default is obtained by path.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       filename?: string;
       /**
        * The extras for the file information.
@@ -2414,6 +2552,14 @@ declare namespace request {
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The extras for the file information.
+       *
+       * @type { ?object }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       extras?: object;
     }
@@ -2425,6 +2571,14 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The form item information for a task.
+     *
+     * @typedef FormItem
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     interface FormItem {
       /**
        * The item's name.
@@ -2433,6 +2587,14 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The item's name.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       name: string;
       /**
        * The item's value.
@@ -2440,6 +2602,14 @@ declare namespace request {
        * @type { string | FileSpec | Array<FileSpec> }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The item's value.
+       *
+       * @type { string | FileSpec | Array<FileSpec> }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       value: string | FileSpec | Array<FileSpec>;
     }
@@ -2453,6 +2623,16 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The configurations for a task.
+     * Using a flexible configuration for clear upload and download functions.
+     * If without emphasis, an option is for any task.
+     *
+     * @typedef Config
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     interface Config {
       /**
        * The task action, upload or download.
@@ -2460,6 +2640,14 @@ declare namespace request {
        * @type { Action }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The task action, upload or download.
+       *
+       * @type { Action }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       action: Action;
       /**
@@ -2471,6 +2659,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The Universal Resource Locator for a task.
+       * The maximum length is 2048 characters.
+       * Using raw `url` option, even url parameters in it.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       url: string;
       /**
        * The title for a task, give a meaningful title please.
@@ -2481,6 +2679,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The title for a task, give a meaningful title please.
+       * The maximum length is 256 characters.
+       * The default is the same with its action.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       title?: string;
       /**
        * The details for a task.
@@ -2490,6 +2698,16 @@ declare namespace request {
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The details for a task.
+       * The maximum length is 1024 characters.
+       * The default is empty string.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       description?: string;
       /**
@@ -2502,6 +2720,17 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates task's mode.
+       * The default is background.
+       * For frontend task, it has callbacks.
+       * For background task, it has notifications and fallback.
+       *
+       * @type { ?Mode }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       mode?: Mode;
       /**
        * The solution choice when path already exists during download.
@@ -2512,6 +2741,17 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The solution choice when path already exists during download.
+       * Currently support:
+       * true, rewrite the existed file.
+       * false, go to fail.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       overwrite?: boolean;
       /**
@@ -2524,6 +2764,17 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The HTTP standard method for upload or download: GET/POST/PUT.
+       * Case insensitive.
+       * For upload, use PUT/POST, the default is PUT.
+       * For download, use GET/POST, the default is GET.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       method?: string;
       /**
        * The HTTP headers.
@@ -2533,6 +2784,16 @@ declare namespace request {
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The HTTP headers.
+       * For upload request, the `Content-Type` is forced to `multipart/form-data`.
+       * For download request, the default `Content-Type` is `application/json`.
+       *
+       * @type { ?object }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       headers?: object;
       /**
@@ -2544,6 +2805,17 @@ declare namespace request {
        * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The arguments, it can be any text, uses json usually.
+       * For download, it can be raw string, the default is empty string.
+       * For upload, it can be form items, the default is a empty form.
+       * there must be one `FileSpec` item at least or will be a parameter error.
+       *
+       * @type { ?(string | Array<FormItem>) }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       data?: string | Array<FormItem>;
       /**
@@ -2557,6 +2829,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The path to save the downloaded file, the default is "./".
+       * Currently support:
+       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+       *
+       * @type { ?string }
+       * @default ./
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       saveas?: string;
       /**
        * The network.
@@ -2565,6 +2849,15 @@ declare namespace request {
        * @default Network.ANY
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The network.
+       *
+       * @type { ?Network }
+       * @default Network.ANY
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       network?: Network;
       /**
@@ -2576,6 +2869,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Allows work in metered network or not.
+       * The default is false.
+       *
+       * @type { ?boolean }
+       * @default false
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       metered?: boolean;
       /**
        * Allows work in roaming network or not.
@@ -2584,6 +2887,15 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Allows work in roaming network or not.
+       * The default is true.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       roaming?: boolean;
       /**
@@ -2594,6 +2906,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enable automatic retry or not for the background task.
+       * The frontend task is always fast-fail.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       retry?: boolean;
       /**
        * Allows redirect or not.
@@ -2602,6 +2923,15 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Allows redirect or not.
+       * The default is yes.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       redirect?: boolean;
       /**
@@ -2612,6 +2942,16 @@ declare namespace request {
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The index of paths for a task.
+       * Usually used for a continuous job.
+       * The default is 0.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       index?: number;
       /**
@@ -2625,6 +2965,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The start point of a file.
+       * Usually used for a continuous job.
+       * It will set the "Range" header in download.
+       * It will start read at the point in upload.
+       * The default is 0.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       begins?: number;
       /**
        * The end point of a file.
@@ -2637,6 +2989,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The end point of a file.
+       * Usually used for a continuous job.
+       * It will set The "Range" header in download.
+       * It will end read at the point in upload.
+       * The default is -1 indicating the end of the data for upload or download.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       ends?: number;
       /**
        * The policy of the progress notification for background task.
@@ -2647,6 +3011,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The policy of the progress notification for background task.
+       * If false: only completed or failed notification, the default.
+       * If true, emits every progress, completed or failed notifications.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       gauge?: boolean;
       /**
        * Breaks when fail to fetch filesize before upload/download or not.
@@ -2656,6 +3030,16 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Breaks when fail to fetch filesize before upload/download or not.
+       * Uses filesize for a precise gauge.
+       * The default is not, set size as -1 indicating the case.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       precise?: boolean;
       /**
@@ -2671,6 +3055,20 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * For in-application layer isolation.
+       * If given:
+       *   the minimum is 8 bytes.
+       *   the maximum is 2048 bytes.
+       * Creates a task with token, then must provide it during normal query.
+       * So saves the token carefully, it can not be retrieved by query.
+       * Or leave it empty.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       token?: string;
       /**
        * The extras for the configuration.
@@ -2678,6 +3076,14 @@ declare namespace request {
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The extras for the configuration.
+       *
+       * @type { ?object }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       extras?: object;
     }
@@ -2689,12 +3095,27 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Indicate the current state of the task.
+     *
+     * @enum { number } State
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     enum State {
       /**
        * Indicates a task created by `new Task(Config)`.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates a task created by `new Task(Config)`.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       INITIALIZED = 0x00,
       /**
@@ -2703,12 +3124,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates a task lack of resources or conditions to run or retry.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       WAITING = 0x10,
       /**
        * Indicates a task in processing now.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates a task in processing now.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       RUNNING = 0x20,
       /**
@@ -2717,12 +3152,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates a task failed once at least and in processing again now.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       RETRYING = 0x21,
       /**
        * Indicates a paused task which tends to be resumed for continuous work.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates a paused task which tends to be resumed for continuous work.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       PAUSED = 0x30,
       /**
@@ -2731,12 +3180,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates a stopped task which must be started again.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       STOPPED = 0x31,
       /**
        * Indicates a completed task which finish its data transfer.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates a completed task which finish its data transfer.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       COMPLETED = 0x40,
       /**
@@ -2745,12 +3208,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates a failed task which interrupted by some error.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       FAILED = 0x41,
       /**
        * Indicates a removed task which can not be processed again.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates a removed task which can not be processed again.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       REMOVED = 0x50
     }
@@ -2770,6 +3247,22 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The progress data structure.
+     * Upload allows multiple files per upload task.
+     * Only one file in a download task.
+     * So using a unified data structure for progress.
+     * Generally:
+     * 1: sum(sizes) is total files size of the task.
+     * 2: float(processed)/sizes[counter] is the progress for the current processing file.
+     * 3: float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
+     * If fetch file size in failure, the size of the file in sizes will be set as -1.
+     *
+     * @typedef Progress
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     interface Progress {
       /**
        * The current state of the task.
@@ -2778,6 +3271,15 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The current state of the task.
+       *
+       * @type { State }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       readonly state: State;
       /**
@@ -2788,6 +3290,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The current processing file index in a task.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       readonly index: number;
       /**
        * The processed data size for the current file in a task.
@@ -2797,6 +3308,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The processed data size for the current file in a task.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       readonly processed: number;
       /**
        * The sizes of files in a task.
@@ -2805,6 +3325,15 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The sizes of files in a task.
+       *
+       * @type { Array<number> }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       readonly sizes: Array<number>;
       /**
@@ -2818,6 +3347,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The extras for an interaction.
+       * Such as headers and body of response from server.
+       * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
+       * {"headers": {"key": v}, "body": "contents"}.
+       *
+       * @type { ?object }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       readonly extras?: object;
     }
 
@@ -2828,12 +3369,27 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Indicates the reason for the failure.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     enum Faults {
       /**
        * Indicates others failure.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates others failure.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       OTHERS = 0xFF,
       /**
@@ -2842,12 +3398,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates network disconnection.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       DISCONNECTED = 0x00,
       /**
        * Indicates task timeout.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates task timeout.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       TIMEOUT = 0x10,
       /**
@@ -2856,12 +3426,26 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates protocol error, such as 5xx response from server.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       PROTOCOL = 0x20,
       /**
        * Indicates filesystem io error, such as open/seek/read/write/close.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Indicates filesystem io error, such as open/seek/read/write/close.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       FSIO = 0x40
     }
@@ -3149,6 +3733,20 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * The task entry.
+     * New task' status is "initialized" and enqueue.
+     * For background, no callbacks.
+     * Can `start` a initialized task.
+     * Can `pause` a waiting/running/retrying background task.
+     * Can `resume` a paused background task.
+     * Can `stop` a running/waiting/retrying task and dequeue it.
+     *
+     * @typedef Task
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     interface Task {
       /**
        * The task id, unique on system.
@@ -3159,6 +3757,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The task id, unique on system.
+       * Generated automatically by system.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       readonly tid: string;
       /**
        * The configurations for the task.
@@ -3166,6 +3774,14 @@ declare namespace request {
        * @type { Config }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The configurations for the task.
+       *
+       * @type { Config }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       config: Config;
       /**
@@ -3178,6 +3794,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'progress' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
@@ -3188,6 +3814,16 @@ declare namespace request {
        * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'progress' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
@@ -3200,6 +3836,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'completed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
@@ -3210,6 +3856,16 @@ declare namespace request {
        * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'completed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       off(event: 'completed', callback?: (progress: Progress) => void): void;
       /**
@@ -3222,6 +3878,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'failed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       on(event: 'failed', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
@@ -3233,7 +3899,77 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'failed' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       off(event: 'failed', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'pause' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      on(event: 'pause', callback: (progress: Progress) => void): void;
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'pause' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      off(event: 'pause', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'resume' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      on(event: 'resume', callback: (progress: Progress) => void): void;
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'resume' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      off(event: 'resume', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'remove' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      on(event: 'remove', callback: (progress: Progress) => void): void;
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'remove' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      off(event: 'remove', callback?: (progress: Progress) => void): void;
       /**
        * Starts the task.
        *
@@ -3244,6 +3980,18 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Starts the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       start(callback: AsyncCallback<void>): void;
       /**
@@ -3257,6 +4005,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Starts the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       start(): Promise<void>;
       /**
        * Pauses the background task.
@@ -3268,6 +4028,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Pauses the task.
+       *
+       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       pause(callback: AsyncCallback<void>): void;
       /**
        * Pauses the background task.
@@ -3278,6 +4047,15 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Pauses the task.
+       *
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
        */
       pause(): Promise<void>;
       /**
@@ -3292,6 +4070,17 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Resumes the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       resume(callback: AsyncCallback<void>): void;
       /**
        * Resumes the background task.
@@ -3305,6 +4094,17 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Resumes the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
       resume(): Promise<void>;
       /**
        * Stops the task.
@@ -3315,6 +4115,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Stops the task.
+       *
+       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       stop(callback: AsyncCallback<void>): void;
       /**
        * Stops the task.
@@ -3324,6 +4134,16 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Stops the task.
+       *
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
        */
       stop(): Promise<void>;
     }
@@ -3349,6 +4169,28 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Creates a task for upload or download and enqueue it.
+     * Only foreground application can create the frontend task.
+     * It can deal only one frontend task at a time.
+     * A in processing frontend task will be forced to stop when its application had switched to background.
+     * A new frontend task will interrupt a existed in processing frontend task.
+     * The background task is highly recommended.
+     *
+     * @permission ohos.permission.INTERNET
+     * @param { BaseContext } context context of the caller.
+     * @param { Config } config configurations for a task.
+     * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400001 - file operation error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900004 - application task queue full error.
+     * @throws { BusinessError } 21900005 - task mode error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
     /**
@@ -3372,6 +4214,28 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Creates a task for upload or download and enqueue it.
+     * Only foreground application can create the frontend task.
+     * It can deal only one frontend task at a time.
+     * A in processing frontend task will be forced to stop when its application had switched to background.
+     * A new frontend task will interrupt a existed in processing frontend task.
+     * The background task is highly recommended.
+     *
+     * @permission ohos.permission.INTERNET
+     * @param { BaseContext } context context of the caller.
+     * @param { Config } config configurations for a task.
+     * @returns { Promise<Task> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400001 - file operation error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900004 - application task queue full error.
+     * @throws { BusinessError } 21900005 - task mode error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     function create(context: BaseContext, config: Config): Promise<Task>;
 
     /**
@@ -3386,6 +4250,19 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Removes specified task belongs to the caller.
+     * The task will be forced to stop if in processing.
+     *
+     * @param { string } id the task id.
+     * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating success or not.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
     function remove(id: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -3398,6 +4275,19 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    /**
+     * Removes specified task belongs to the caller.
+     * The task will be forced to stop if in processing.
+     *
+     * @param { string } id the task id.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
      * @since 10
      */
     function remove(id: string): Promise<void>;

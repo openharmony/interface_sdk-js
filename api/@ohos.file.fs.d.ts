@@ -55,6 +55,7 @@ declare namespace fileIo {
   export { fsyncSync };
   export { listFile };
   export { listFileSync };
+  export { lseek };
   export { lstat };
   export { lstatSync };
   export { mkdir };
@@ -69,6 +70,8 @@ declare namespace fileIo {
   export { openSync };
   export { read };
   export { readSync };
+  export { readLines };
+  export { readLinesSync };
   export { readText };
   export { readTextSync };
   export { rename };
@@ -83,14 +86,17 @@ declare namespace fileIo {
   export { truncateSync };
   export { unlink };
   export { unlinkSync };
+  export { utimes };
   export { write };
   export { writeSync };
   export { File };
   export { OpenMode };
   export { RandomAccessFile };
+  export { ReaderIterator };
   export { Stat };
   export { Stream };
   export { Watcher };
+  export { WhenceType };
 
   /**
    * Mode Indicates the open flags.
@@ -1621,6 +1627,23 @@ declare function listFileSync(
 ): string[];
 
 /**
+ *  Reposition file offset.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { number } offset - file offset.
+ * @param { WhenceType } [whence = WhenceType.SEEK_SET] - directive whence.
+ * @returns { number } Returns the file offset relative to starting position of file.
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900026 - Illegal seek
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
+
+/**
  * Stat link file.
  *
  * @param { string } path - path.
@@ -1733,6 +1756,32 @@ declare function mkdir(path: string): Promise<void>;
  * Make dir.
  *
  * @param { string } path - path.
+ * @param { boolean } recursion - whether to recursively make directory.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function mkdir(path: string, recursion: boolean): Promise<void>;
+
+/**
+ * Make dir.
+ *
+ * @param { string } path - path.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1777,6 +1826,32 @@ declare function mkdir(path: string): Promise<void>;
  * @since 10
  */
 declare function mkdir(path: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Make dir.
+ *
+ * @param { string } path - path.
+ * @param { boolean } recursion - whether to recursively make directory.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
 /**
  * Make dir with sync interface.
@@ -1824,6 +1899,31 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @since 10
  */
 declare function mkdirSync(path: string): void;
+
+/**
+ * Make dir with sync interface.
+ *
+ * @param { string } path - path.
+ * @param { boolean } recursion - whether to recursively make directory.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function mkdirSync(path: string, recursion: boolean): void;
 
 /**
  * Make temp dir.
@@ -2830,6 +2930,98 @@ declare function readSync(
     length?: number;
   }
 ): number;
+
+/**
+ * Read content line by line.
+ *
+ * @param { string } filePath - file path.
+ * @param { Options } [options] - optional parameters
+ * @returns { Promise<ReaderIterator> } Returns the iterator object in promise mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
+
+/**
+ * Read content line by line.
+ *
+ * @param { string } filePath - file path.
+ * @param { AsyncCallback<ReaderIterator> } callback - The callback is used to return the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
+
+/**
+ * Read content line by line.
+ *
+ * @param { string } filePath - file path.
+ * @param { Options } options - optional parameters
+ * @param { AsyncCallback<ReaderIterator> } callback - The callback is used to return the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
+
+/**
+ * Read content line by line with sync interface.
+ *
+ * @param { string } filePath - file path.
+ * @param { Options } [options] - optional parameters
+ * @returns { ReaderIterator } Returns the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+
+declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
 /**
  * Read text.
@@ -3904,6 +4096,22 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
 declare function unlinkSync(path: string): void;
 
 /**
+ * Change file mtime.
+ *
+ * @param { string } path - path.
+ * @param { number } mtime - last modification time
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function utimes(path: string, mtime: number): void;
+
+/**
  * Write file.
  *
  * @param { number } fd - file descriptor.
@@ -4169,6 +4377,18 @@ declare interface File {
    * @since 10
    */
   readonly name: string;
+
+  /**
+   * Get parent path of file.
+   *
+   * @returns { string } Return the parent path of file.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid uri
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  getParent(): string;
 
   /**
    * Lock file with blocking method.
@@ -4679,6 +4899,16 @@ declare interface Stat {
    * @since 10
    */
   readonly ctime: number;
+  /**
+   * 
+   * @type { LocationType }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly location: LocationType;
+  
   /**
    * Whether path/fd is block device.
    *
@@ -5251,6 +5481,53 @@ export interface Watcher {
 }
 
 /**
+ * Reader Iterator Result
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export type ReaderIteratorResult = {
+  /**
+   * Whether reader iterator completes the traversal.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  done: boolean;
+
+  /**
+   * The value of reader iterator.
+   * 
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  value: string;
+};
+
+/**
+ * ReaderIterator object
+ *
+ * @interface ReaderIterator
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare interface ReaderIterator {
+  /**
+   * Get next result from the iterator.
+   *
+   * @returns { ReaderIteratorResult } Returns the result of reader iterator.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900037 - No data available
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  next(): ReaderIteratorResult;
+}
+
+/**
  * File filter type
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5317,3 +5594,76 @@ export type ConflictFiles = {
    */
   destFile: string;
 };
+
+/**
+ * Options type
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export type Options = {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
+};
+
+/**
+ * Enumeration of different types of whence.
+ *
+ * @enum { number } whence type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare enum WhenceType {
+  /**
+   * Starting position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  SEEK_SET = 0,
+
+  /**
+   * Current position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  SEEK_CUR = 1,
+
+  /**
+   * Ending position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  SEEK_END = 2,
+}
+
+/**
+ * Enumeration of different types of file location.
+ *
+ * @enum { number } location type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare enum LocationType {  
+  /**
+   * Local file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  LOCAL = 1 << 0,
+
+  /**
+   * Cloud file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  CLOUD = 1 << 1,
+}

@@ -16,6 +16,7 @@
 import { NotificationRequest } from './notificationRequest';
 import { NotificationSortingMap } from './notificationSortingMap';
 import notification from '../@ohos.notification';
+import type notificationManager from '../@ohos.notificationManager';
 
 /**
  * Provides methods that will be called back when the subscriber receives a new notification or
@@ -87,8 +88,20 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
+   * @deprecated since 11
+   * @useinstead NotificationSubscriber#onDoNotDisturbChanged
    */
   onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
+
+  /**
+   * Callback when the Do Not Disturb setting changed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
   /**
    * Callback when the notification permission is changed.
@@ -107,6 +120,16 @@ export interface NotificationSubscriber {
    * @since 10
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
+
+  /**
+   * Callback when badge cancel notifications.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 }
 
 /**

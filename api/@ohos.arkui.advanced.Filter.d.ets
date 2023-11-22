@@ -48,7 +48,7 @@ export declare class FilterParams {
      * @since 10
      */
     options: Array<ResourceStr>;
-};
+}
 
 /**
  * This parameter specifies the selection result of a filtering dimension.
@@ -78,7 +78,7 @@ export declare class FilterResult {
      * @since 10
      */
     value: ResourceStr;
-};
+}
 
 /**
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.

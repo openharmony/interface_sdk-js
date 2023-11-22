@@ -48,12 +48,12 @@ interface RowSplitInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<RowSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<RowSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

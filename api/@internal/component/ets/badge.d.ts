@@ -581,14 +581,14 @@ interface BadgeInterface {
 /**
  * Defines Badge Component attribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<BadgeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Badge Component attribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<BadgeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -596,7 +596,7 @@ interface BadgeInterface {
 /**
  * Defines Badge Component attribute.
  *
- * @extends CommonMethod <BadgeAttribute>
+ * @extends CommonMethod<BadgeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

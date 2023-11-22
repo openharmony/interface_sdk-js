@@ -18,6 +18,12 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */
+/**
+ * @typedef ProcessInfo
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
+ */
 export interface ProcessInfo {
   /**
    * The id of the current process
@@ -25,6 +31,14 @@ export interface ProcessInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * The id of the current process
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   pid: number;
 
@@ -34,6 +48,14 @@ export interface ProcessInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * The name of the current process
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   processName: string;
 }

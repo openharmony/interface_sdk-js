@@ -66,6 +66,16 @@ declare enum FormDimension {
    * @since 9
    */
   Dimension_2_1,
+
+  /**
+   * 1 x 1 cards
+   * The default value is 6
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  DIMENSION_1_1 = 6,
 }
 
 /**
@@ -117,7 +127,7 @@ interface FormComponentInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7

@@ -100,14 +100,14 @@ interface PathInterface {
 /**
  * Provides methods for attribute path component.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides methods for attribute path component.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -115,7 +115,7 @@ interface PathInterface {
 /**
  * Provides methods for attribute path component.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

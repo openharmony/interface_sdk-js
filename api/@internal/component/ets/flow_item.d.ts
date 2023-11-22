@@ -50,14 +50,14 @@ interface FlowItemInterface {
 /**
  * Defines the water flow item attribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlowItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the water flow item attribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FlowItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

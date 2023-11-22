@@ -354,12 +354,25 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Provides methods for managing web database.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   class WebDataBase {
     /**
     * Get whether instances holds any http authentication credentials.
     * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
     * @syscap SystemCapability.Web.Webview.Core
     * @since 9
+    */
+   /**
+    * Get whether instances holds any http authentication credentials.
+    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @crossplatform
+    * @since 11
     */
     static existHttpAuthCredentials(): boolean;
 
@@ -368,6 +381,13 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Delete all http authentication credentials.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     static deleteHttpAuthCredentials(): void;
 
@@ -380,6 +400,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Get http authentication credentials.
+     * @param { string } host - The host to which the credentials apply.
+     * @param { string } realm - The realm to which the credentials apply.
+     * @returns { Array<string> } Return an array containing username and password.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
     /**
@@ -391,6 +421,17 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Save http authentication credentials.
+     * @param { string } host - The host to which the credentials apply.
+     * @param { string } realm - The realm to which the credentials apply.
+     * @param { string } username - The username.
+     * @param { string } password - The password.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
   }
@@ -432,7 +473,11 @@ declare namespace webview {
     /**
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
-     * @returns { Promise<boolean> } Return whether there is a saved result.
+     * @returns { Promise<boolean> } A Promise instance that obtains the permission
+     *                               status of the specified source and obtains successfully,
+     *                               true for authorization, false for access denial. Failed 
+     *                               to get, indicating that the permission status of the 
+     *                               specified source does not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -443,8 +488,12 @@ declare namespace webview {
     /**
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
-     * @param { AsyncCallback<boolean> } callback - Return to the specified source
-     *                                              geographic location permission status.
+     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
+     *                                              the specified source. Successful acquisition, 
+     *                                              true means authorized, false means access is
+     *                                              denied. Failed to get, indicating that the
+     *                                              permission status of the specified source does 
+     *                                              not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -454,7 +503,8 @@ declare namespace webview {
 
     /**
      * Get all stored geolocation permission url source.
-     * @returns { Promise<Array<string>> } Return whether there is a saved result.
+     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about 
+     *                                     the stored geolocation permission state.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -463,8 +513,8 @@ declare namespace webview {
 
     /**
      * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Return all source information of
-     *                                              stored geographic location permission status.
+     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for 
+     *                                                    stored geolocation permission states.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -478,6 +528,13 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Provides methods for managing the web cookies.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   class WebCookieManager {
     /**
      * Gets all cookies for the given URL.
@@ -488,8 +545,48 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#fetchCookieSync
      */
     static getCookie(url: string): string;
+
+    /**
+     * Gets all cookies for the given URL.
+     *
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { string } - The cookie value for the given URL.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static fetchCookieSync(url: string): string;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     * 
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    static fetchCookie(url: string): Promise<string>;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     * 
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param { AsyncCallback<string> } callback - Called after the cookies of given URL have been gotten.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    static fetchCookie(url: string, callback: AsyncCallback<string>): void;
 
     /**
      * Set a single cookie (key-value pair) for the given URL.
@@ -501,8 +598,53 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#configCookieSync
      */
     static setCookie(url: string, value: string): void;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static configCookieSync(url: string, value: string): void;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    static configCookie(url: string, value: string): Promise<void>;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been set.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Save the cookies Asynchronously.
@@ -575,15 +717,72 @@ declare namespace webview {
      * Remove all cookies.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#clearEntireCookieSync
      */
     static deleteEntireCookie(): void;
+
+    /**
+     * Remove all cookies.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearAllCookiesSync(): void;
+
+    /**
+     * Remove all cookies Asynchronously.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    static clearAllCookies(): Promise<void>;
+
+    /**
+     * Remove all cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    static clearAllCookies(callback: AsyncCallback<void>): void;
 
     /**
      * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.web.webview.WebCookieManager#clearSessionCookieSync
      */
     static deleteSessionCookie(): void;
+
+    /**
+     * Delete the session cookies.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearSessionCookieSync(): void;
+
+    /**
+     * Delete the session cookies Asynchronously.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearSessionCookie(): Promise<void>;
+
+    /**
+     * Delete the session cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
 
   /**
@@ -1095,6 +1294,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Checks whether the web page can go forward.
+     * @returns { boolean } True if the web page can go forward else false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     accessForward(): boolean;
 
     /**
@@ -1104,6 +1312,15 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Checks whether the web page can go back.
+     * @returns { boolean } True if the web page can go back else false.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     accessBackward(): boolean;
 
@@ -1128,6 +1345,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Goes forward in the history of the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     forward(): void;
 
     /**
@@ -1137,6 +1363,15 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Goes back in the history of the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     backward(): void;
 
@@ -1178,6 +1413,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Refreshes the current URL.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     refresh(): void;
 
     /**
@@ -1197,6 +1441,25 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Loads the data or URL.
+     *
+     * @param { string } data - A string encoded according to "Base64" or "URL".
+     * @param { string } mimeType - Media type. For example: "text/html".
+     * @param { string } encoding - Encoding type. For example: "UTF-8".
+     * @param { string } [baseUrl] - A specified URL path ("http"/"https"/"data" protocol),
+     *                             which is assigned to window.origin by the Web component.
+     * @param { string } [historyUrl] - History URL. When it is not empty, it can be managed by
+     *                                history records to realize the back and forth function.
+     *                                This property is invalid when baseUrl is empty.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     loadData(data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string): void;
 
@@ -1242,11 +1505,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-     *                               the url and the generated offline webpage will be stored in the directory
-     *                               specified by baseName. If it is true, the offline webpage will be directly
-     *                               stored in the path specified by baseName.
+     * @param { string } baseName - The path to the file storage, This value cannot be null.
+     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
+     *                               baseName is used as the file storage path. If true, baseName is 
+     *                               assumed to be a directory, and the file name will be automatically 
+     *                               generated based on the URL of the current page.
      * @returns { Promise<string> } a promise resolved after the web archive has been stored. The parameter
      *                              will either be the filename under which the file was stored, or empty
      *                              if storing the file failed.
@@ -1262,11 +1525,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-     *                               the url and the generated offline webpage will be stored in the directory
-     *                               specified by baseName. If it is true, the offline webpage will be directly
-     *                               stored in the path specified by baseName.
+     * @param { string } baseName - The path to the file storage, This value cannot be null.
+     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
+     *                               baseName is used as the file storage path. If true, baseName is 
+     *                               assumed to be a directory, and the file name will be automatically 
+     *                               generated based on the URL of the current page.
      * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
      *                                             will either be the filename under which the file was stored,
      *                                             or empty if storing the file failed.
@@ -1530,6 +1793,21 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     *
+     * @param { string } script - JavaScript Script.
+     * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
+     *                              This parameter will be the result of JavaScript script execution.
+     *                              If the JavaScript script fails to execute or has no return value,
+     *                              null will be returned.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     runJavaScript(script: string): Promise<string>;
 
     /**
@@ -1542,6 +1820,18 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     *
+     * @param { string } script - JavaScript Script.
+     * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
      */
     runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
@@ -1582,12 +1872,23 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Gets the url of current Web page.
+     * @returns { string } Return the url of the current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
     getUrl(): string;
 
     /**
      * Scroll the contents of this Webview up by half the view size.
      *
-     * @param { boolean } top - Jump to the top of the page if true.
+     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
+     *                          the page content will scroll up half the size of the viewframe, 
+     *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -1599,7 +1900,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Jump to the bottom of the page if true.
+     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
+     *                             the page content will scroll up half the size of the viewframe, 
+     *                             and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -1629,9 +1932,9 @@ declare namespace webview {
     getFavicon(): image.PixelMap;
 
     /**
-     * Put network state for web. Which is used to set window.navigator.isOnline property in
+     * Put network state for web. Which is used to set window.navigator.onLine property in
      * JavaScript.
-     * @param { boolean } enable - Whether enable window.navigator.isOnline.
+     * @param { boolean } enable - Whether enable window.navigator.onLine.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -1833,6 +2136,532 @@ declare namespace webview {
      * @since 10
      */
     getCustomUserAgent(): string;
+
+    /**
+     * Set web engine socket connection timeout.
+     * @param { number } timeout - Socket connection timeout.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setConnectionTimeout(timeout: number): void;
+
+    /**
+     * Set delegate for download.
+     * Used to notify the progress of the download triggered from web.
+     * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from web.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    setDownloadDelegate(delegate: WebDownloadDelegate): void;
+
+
+    /**
+     * Start a download.
+     * @param { string } url - The download url.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    startDownload(url: string): void;
+
+    /**
+     * Loads the URL use "POST" method with post data.
+     *
+     * @param { string } url - Request the URL use "POST" method.
+     * @param { ArrayBuffer } postData - This data will passed to "POST" request.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    postUrl(url: string, postData: ArrayBuffer): void;
+  }
+
+  /**
+   * Defines the state for download.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  enum WebDownloadState {
+    /**
+     * The web download is in progress.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    IN_PROGRESS = 0,
+
+    /**
+     * The web download has been completed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    COMPLETED,
+
+    /**
+     * The web download was canceled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    CANCELED,
+
+    /**
+     * The web download was interrupted.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    INTERRUPTED,
+
+    /**
+     * The web download is pending.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    PENDING,
+
+    /**
+     * The web download has been paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    PAUSED,
+
+    /**
+     * Unknown state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    UNKNOWN,
+  }
+
+  /**
+   * Defines the error code for download.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  enum WebDownloadErrorCode {
+    /**
+     * Unknown error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    ERROR_UNKNOWN = 0,
+
+    /**
+     * Generic file operation failure.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_FAILED = 1,
+
+    /**
+     * The file cannot be accessed due to certain restrictions.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_ACCESS_DENIED = 2,
+
+    /**
+     * There is not enough disk space.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_NO_SPACE = 3,
+
+    /**
+     * The file name is too long.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_NAME_TOO_LONG = 5,
+
+    /**
+     * The file is too large.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_TOO_LARGE = 6,
+
+    /**
+     * Some temporary problems occurred, such as not enough memory, files in use, and too many files open at the same time.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_TRANSIENT_ERROR = 10,
+
+    /**
+     * The file is blocked from accessing because of some local policy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    FILE_BLOCKED = 11,
+
+    /**
+     * When trying to resume the download, Found that the file is not long enough, maybe the file no longer exists.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */ 
+    FILE_TOO_SHORT = 13,
+
+    /**
+     * Hash mismatch.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */ 
+    FILE_HASH_MISMATCH = 14,
+
+    /**
+     * The file already exists.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */ 
+    FILE_SAME_AS_SOURCE = 15,
+
+    /**
+     * Generic network error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_FAILED = 20,
+
+    /**
+     * The network operation timed out.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_TIMEOUT = 21,
+
+    /**
+     * The network was disconnected.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_DISCONNECTED = 22,
+
+    /**
+     * Server down.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_SERVER_DOWN = 23,
+
+    /**
+     * Invalid network requests，may redirect to unsupported scheme or an invalid URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NETWORK_INVALID_REQUEST = 24,
+
+    /**
+     * The server returned a generic error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_FAILED = 30,
+
+    /**
+     * The server does not support range requests.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_NO_RANGE = 31,
+
+    /**
+     * The server does not have the requested data.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_BAD_CONTENT = 33,
+
+    /**
+     * The server does not allow the file to be downloaded.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_UNAUTHORIZED = 34,
+
+    /**
+     * Server certificate error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_CERT_PROBLEM = 35,
+
+    /**
+     * Server access forbidden.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_FORBIDDEN = 36,
+
+    /**
+     * Server unreachable.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_UNREACHABLE = 37,
+
+    /**
+     * The received data does not match content-length.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_CONTENT_LENGTH_MISMATCH = 38,
+
+    /**
+     * An unexpected cross-origin redirect happened.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SERVER_CROSS_ORIGIN_REDIRECT = 39,
+
+    /**
+     * User cancel.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    USER_CANCELED = 40,
+
+    /**
+     * User shut down the application.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    USER_SHUTDOWN = 41,
+
+    /**
+     * Application crash.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    CRASH = 50,
+  }
+
+  /**
+   * Represents a download task, You can use this object to operate the corresponding download task.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  class WebDownloadItem {
+    /**
+    * Get guid.
+    * @returns { string } - Returns the download's guid.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 11
+    */
+    getGuid(): string;
+
+    /**
+     * Get current speed, in bytes per second.
+     * @returns { number } - Returns the current download speed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getCurrentSpeed(): number;
+
+    /**
+     * Get percent complete.
+     * @returns { number } - Returns -1 if progress is unknown. 100 if the download is already complete.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getPercentComplete(): number;
+
+    /**
+     * Get total bytes.
+     * @returns { number } - Returns the total bytes received, -1 if the total size is unknown.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getTotalBytes(): number;
+
+    /**
+     * Get state of the web download.
+     * @returns { WebDownloadState } - Returns the current download state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getState(): WebDownloadState;
+
+    /**
+     * Get last error code of the web download.
+     * @returns { WebDownloadErrorCode } - Returns the last error code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getLastErrorCode(): WebDownloadErrorCode;
+
+    /**
+     * Get http method of the web download request.
+     * @returns { string } - Returns the http request method.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getMethod(): string;
+
+    /**
+     * Get mime type of the web download.
+     * @returns { string } - Returns the mimetype.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getMimeType(): string;
+
+    /**
+     * Get url of the web download request.
+     * @returns { string } - Returns the url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getUrl(): string;
+
+    /**
+     * Get suggested file name of the web download request.
+     * @returns { string } - Returns the suggested file name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getSuggestedFileName(): string;
+
+    /**
+     * Start the web download.
+     * Used in onBeforeDownload, If you want to start the current download, call this function.
+     * @param { string } downloadPath - The content will be downloaded to this file.
+	   * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    start(downloadPath: string): void;
+
+    /**
+     * Cancel the web download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    cancel(): void;
+
+    /**
+     * Pause the web download.
+     * @throws { BusinessError } 17100019 - The download has not been started yet.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    pause(): void;
+
+    /**
+     * Resume the web download.
+     * Use WebDownloadManager.resumeDownload to resume deserialized downloads.
+     * WebDownloadItem.resume is only used to resume the currently paused download.
+     * @throws { BusinessError } 17100016 - The download is not paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    resume(): void;
+
+    /**
+     * Get received bytes.
+     * @returns { number } - Returns the received bytes.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getReceivedBytes(): number;
+
+    /**
+     * Get full path of the web download.
+     * @returns { string } - Returns the full path of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getFullPath(): string;
+
+    /**
+     * Serialize web download to typed array.
+     * @returns { Uint8Array } - Returns the serialized data.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    serialize(): Uint8Array;
+
+    /**
+     * Deserialize web download from typed array.
+     * @param { Uint8Array } serializedData - The serialized data.
+     * @returns { WebDownloadItem } - Deserialize the serialized data into a WebDownloadItem.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static deserialize(serializedData: Uint8Array): WebDownloadItem;
+  }
+
+  /**
+   * The download state is notified through this delegate.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  class WebDownloadDelegate {
+    /**
+     * Callback will be triggered before web download start.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download will be start.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onBeforeDownload(callback: Callback<WebDownloadItem>): void;
+
+    /**
+     * Callback will be triggered when web download is processing.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did update.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
+
+    /**
+     * Callback will be triggered when web download is completed.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did finish.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onDownloadFinish(callback: Callback<WebDownloadItem>): void;
+
+    /**
+     * Callback will be triggered when web download is interrupted or canceled.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did fail.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    onDownloadFailed(callback: Callback<WebDownloadItem>): void;
+  }
+
+  /**
+   * You can trigger download manually through this interface, or resume failed or canceled downloads.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  class WebDownloadManager {
+    /**
+     * Set a delegate used to receive the progress of the download triggered from WebDownloadManager.
+     * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from WebDownloadManager.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setDownloadDelegate(delegate: WebDownloadDelegate): void;
+
+    /**
+     * Resume the canceled or failed download.
+     * @param { WebDownloadItem } webDownloadItem - Download that need to be resume.
+     * @throws { BusinessError } 17100018 - No WebDownloadDelegate has been set yet.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static resumeDownload(webDownloadItem: WebDownloadItem): void;
   }
 }
 

@@ -289,6 +289,36 @@ declare namespace relationalStore {
      * @since 10
      */
     dataGroupId?: string;
+
+    /**
+     * Specifies the directory relative to the database directory obtained from context
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 11
+     */
+    customDir?: string;
+
+    /**
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted in the cloud.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    autoCleanDirtyData?: boolean;
+
+    /**
+     * Specifies whether data can be searched.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    isSearchable?: boolean;
   }
 
   /**
@@ -811,6 +841,89 @@ declare namespace relationalStore {
      * @since 10
      */
     ON_CONFLICT_REPLACE = 5
+  }
+
+  /**
+   * Describes the data origin sources.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  enum Origin {
+    /**
+     * Indicates the data source is local.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    LOCAL,
+
+    /**
+     * Indicates the data source is cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    CLOUD,
+
+    /**
+     * Indicates the data source is remote.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    REMOTE,
+  }
+
+  /**
+   * Enumerates the field.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  enum Field {
+    /**
+     * Cursor field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    CURSOR_FIELD = '#_cursor',
+
+    /**
+     * Origin field. For details, see {@link Origin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    ORIGIN_FIELD = '#_origin',
+
+    /**
+     * Deleted flag field.
+     * Indicates whether data has deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    DELETED_FLAG_FIELD = '#_deleted_flag',
+
+    /**
+     * Owner field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    OWNER_FIELD = '#_cloud_owner',
+
+    /**
+     * Privilege field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    PRIVILEGE_FIELD = '#_cloud_privilege'
   }
 
   /**
@@ -2738,6 +2851,53 @@ declare namespace relationalStore {
       primaryKeys: PRIKeyType[],
       callback: AsyncCallback<ModifyTime>
     ): void;
+
+    /**
+     * Cleans the dirty data, which is the data deleted in the cloud.
+     *
+     * Data with a cursor smaller than the specified cursor will be cleaned up.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } cursor - Indicates the position of the data to be cleaned up.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans all dirty data deleted in the cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans dirty data deleted in the cloud.
+     *
+     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
+     * otherwise clean all.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } [cursor] - Indicates the cursor.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, cursor?: number): Promise<void>;
+
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
      *
@@ -3168,6 +3328,47 @@ declare namespace relationalStore {
     cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @param { AsyncCallback<void> } callback - The callback of cloudSync.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
+     * or application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    cloudSync(
+      mode: SyncMode,
+      predicates: RdbPredicates,
+      progress: Callback<ProgressDetails>,
+      callback: AsyncCallback<void>
+    ): void;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
+     * or application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
      *
      * @param { string } device - Indicates specified remote device.
@@ -3254,6 +3455,18 @@ declare namespace relationalStore {
     on(event: string, interProcess: boolean, observer: Callback<void>): void;
 
     /**
+     * Register an automatic synchronization callback to the database.
+     *
+     * @param { 'autoSyncProgress' } event - Indicates the event must be string 'autoSyncProgress'.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -3301,6 +3514,18 @@ declare namespace relationalStore {
      * @since 10
      */
     off(event: string, interProcess: boolean, observer?: Callback<void>): void;
+
+    /**
+     * Unregister the database auto synchronization callback.
+     *
+     * @param { 'autoSyncProgress' } event - indicates the event must be string 'autoSyncProgress'.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -3388,6 +3613,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3400,6 +3626,7 @@ declare namespace relationalStore {
    */
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3415,6 +3642,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified store config.
+   * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
@@ -3432,6 +3660,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3444,6 +3673,7 @@ declare namespace relationalStore {
    */
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3459,6 +3689,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified store config.
+   * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.

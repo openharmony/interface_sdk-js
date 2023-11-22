@@ -107,6 +107,16 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
+  /**
+   * Select contact.
+   *
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * Returns the contact list which user select; returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   function selectContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
@@ -130,6 +140,15 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
+  /**
+   * Select contact.
+   *
+   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   function selectContacts(): Promise<Array<Contact>>;
 
   /**
@@ -140,6 +159,16 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
+   */
+  /**
+   * Select contact with option.
+   *
+   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
    */
   function selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -153,6 +182,17 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
+  /**
+   * Select contact with option.
+   *
+   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
+   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   function selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>;
 
   /**
@@ -160,7 +200,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @param { AsyncCallback<void> } callback - Returns true if the contact is deleted; returns false otherwise.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -174,7 +214,7 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @param { AsyncCallback<void> } callback - Returns true if the contact is deleted; returns false otherwise.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -187,7 +227,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @returns { Promise<void> } Returns true if the contact is deleted, returns false otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -201,7 +241,7 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } key - Indicates the unique query key of a contact to delete.
-   * @returns { Promise<void> } Returns true if the contact is deleted, returns false otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1155,7 +1195,6 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1170,7 +1209,6 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1186,7 +1224,6 @@ declare namespace contact {
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1203,7 +1240,6 @@ declare namespace contact {
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<void> } callback - The callback of updateContact.
-   * Returns true if the update is successful; returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1218,7 +1254,7 @@ declare namespace contact {
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<void> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1234,7 +1270,7 @@ declare namespace contact {
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
-   * @returns { Promise<void> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1382,7 +1418,7 @@ declare namespace contact {
    */
   class Contact {
     /**
-     * Indicates the contact ID.
+     * Indicates the contact invalid ID.
      *
      * @readonly
      * @static
@@ -1421,7 +1457,7 @@ declare namespace contact {
     contactAttributes?: ContactAttributes
 
     /**
-     * Indicates an email address of the contact.
+     * Indicates list of contact email addresses.
      *
      * @type { ?Email[] }
      * @syscap SystemCapability.Applications.ContactsData
@@ -2629,7 +2665,7 @@ declare namespace contact {
    */
   class Relation {
     /**
-     * Indicates a custom label.
+     * Indicates custom relationship type.
      *
      * @readonly
      * @static
@@ -2639,7 +2675,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0
 
     /**
-     * Indicates an assistant.
+     * Indicates assistant relationship type.
      *
      * @readonly
      * @static
@@ -2649,7 +2685,7 @@ declare namespace contact {
     static readonly RELATION_ASSISTANT: 1
 
     /**
-     * Indicates a brother.
+     * Indicates brother relationship type.
      *
      * @readonly
      * @static
@@ -2659,7 +2695,7 @@ declare namespace contact {
     static readonly RELATION_BROTHER: 2
 
     /**
-     * Indicates a child.
+     * Indicates child relationship type.
      *
      * @readonly
      * @static
@@ -2669,7 +2705,7 @@ declare namespace contact {
     static readonly RELATION_CHILD: 3
 
     /**
-     * Indicates a domestic partner.
+     * Indicates domestic partner relationship type.
      *
      * @readonly
      * @static
@@ -2679,7 +2715,7 @@ declare namespace contact {
     static readonly RELATION_DOMESTIC_PARTNER: 4
 
     /**
-     * Indicates a father.
+     * Indicates father relationship type.
      *
      * @readonly
      * @static
@@ -2689,7 +2725,7 @@ declare namespace contact {
     static readonly RELATION_FATHER: 5
 
     /**
-     * Indicates a friend.
+     * Indicates friend relationship type.
      *
      * @readonly
      * @static
@@ -2699,7 +2735,7 @@ declare namespace contact {
     static readonly RELATION_FRIEND: 6
 
     /**
-     * Indicates a manager.
+     * Indicates manager relationship type.
      *
      * @readonly
      * @static
@@ -2709,7 +2745,7 @@ declare namespace contact {
     static readonly RELATION_MANAGER: 7
 
     /**
-     * Indicates a mother.
+     * Indicates mother relationship type.
      *
      * @readonly
      * @static
@@ -2719,7 +2755,7 @@ declare namespace contact {
     static readonly RELATION_MOTHER: 8
 
     /**
-     * Indicates a parent.
+     * Indicates parent relationship type.
      *
      * @readonly
      * @static
@@ -2729,7 +2765,7 @@ declare namespace contact {
     static readonly RELATION_PARENT: 9
 
     /**
-     * Indicates a partner.
+     * Indicates partner relationship type.
      *
      * @readonly
      * @static
@@ -2739,7 +2775,7 @@ declare namespace contact {
     static readonly RELATION_PARTNER: 10
 
     /**
-     * Indicates a referrer.
+     * Indicates referrer relationship type.
      *
      * @readonly
      * @static
@@ -2749,7 +2785,7 @@ declare namespace contact {
     static readonly RELATION_REFERRED_BY: 11
 
     /**
-     * Indicates a relative.
+     * Indicates relative relationship type.
      *
      * @readonly
      * @static
@@ -2759,7 +2795,7 @@ declare namespace contact {
     static readonly RELATION_RELATIVE: 12
 
     /**
-     * Indicates a sister.
+     * Indicates sister relationship type.
      *
      * @readonly
      * @static
@@ -2769,7 +2805,7 @@ declare namespace contact {
     static readonly RELATION_SISTER: 13
 
     /**
-     * Indicates a spouse.
+     * Indicates spouse relationship type.
      *
      * @readonly
      * @static
@@ -2779,7 +2815,7 @@ declare namespace contact {
     static readonly RELATION_SPOUSE: 14
 
     /**
-     * Indicates an invalid label ID.
+     * Indicates invalid relationship type.
      *
      * @readonly
      * @static
