@@ -2137,7 +2137,7 @@ declare namespace http {
     HTTP2,
 
     /**
-     * Protocol htp3 for https only.
+     * Protocol http3 for https only.
      * Cause error if using http only or not supporting http3 on this device.
      * Fallback to http2 or http1.1 if needed.
      * @syscap SystemCapability.Communication.NetStack
