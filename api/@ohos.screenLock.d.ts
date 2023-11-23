@@ -203,7 +203,21 @@ declare namespace screenLock {
    * @since 9
    */
   interface SystemEvent {
+    /**
+     * Indicates the system event type related to the screenlock management service.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     eventType: EventType;
+    /**
+     * Indicates parameter related to the screenlock management service.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     params: string;
   }
 
