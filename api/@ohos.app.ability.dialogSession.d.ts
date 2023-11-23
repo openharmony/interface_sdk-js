@@ -162,11 +162,46 @@ declare namespace dialogSession {
   }
 
   /**
+   * Indicates whether creating dialog is allowed.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @systemapi
+   * @since 11
+   */
+  export enum IsAllowedType {
+    /**
+     * Disallowed to create dialog.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @systemapi
+     * @since 11
+     */
+    DISALLOWED = 0,
+
+    /**
+     * Allowed to create dialog.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @systemapi
+     * @since 11
+     */
+    ALLOWED = 1,
+  }
+
+  /**
    * Query the session info of dialog.
    *
    * @param { string } dialogSessionId - Query information by dialog session id.
    * @returns { DialogSessionInfo } Returns the session info.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -182,14 +217,18 @@ declare namespace dialogSession {
    * @param { Want } targetWant - The selection target ability to start.
    * @param { number } resultCode - allowed or disallowed to start target ability.
    * @returns { Promise<void> } The promise returned by the sendDialogResult.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @systemapi
    * @since 11
    */
-  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: number): Promise<void>;
+  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: IsAllowedType): Promise<void>;
 
   /**
    * Send the selection result of dialog.
@@ -198,14 +237,18 @@ declare namespace dialogSession {
    * @param { Want } targetWant - The selection target ability to start.
    * @param { number } resultCode - allowed or disallowed to start target ability.
    * @param { AsyncCallback<void> } callback - The callback of sendDialogResult.
-   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @systemapi
    * @since 11
    */
-  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: number, callback: AsyncCallback<void>): void;
+  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: IsAllowedType, callback: AsyncCallback<void>): void;
 }
 
 export default dialogSession;
