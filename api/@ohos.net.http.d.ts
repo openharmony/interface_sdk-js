@@ -415,8 +415,8 @@ declare namespace http {
   }
 
   /**
-   * The clientCert field of the client certificate, which includes three attributes:
-   * client certificate (cert), certificate private key (key), and passphrase (keyPasswd).
+   * The clientCert field of the client certificate, which includes 4 attributes:
+   * client certificate (cert), client certificate type (certType), certificate private key (key), and passphrase (keyPassword).
    * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
@@ -452,7 +452,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    keyPasswd?: string;
+    keyPassword?: string;
   }
 
   /**
