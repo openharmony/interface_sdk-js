@@ -21,7 +21,7 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace dialogSession
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @systemapi
  * @since 11
  */
@@ -32,7 +32,7 @@ declare namespace dialogSession {
    *
    * @typedef DialogAbilityInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @systemapi
    * @since 11
    */
@@ -43,7 +43,7 @@ declare namespace dialogSession {
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -54,7 +54,7 @@ declare namespace dialogSession {
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -65,7 +65,7 @@ declare namespace dialogSession {
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -76,7 +76,7 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -87,7 +87,7 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -98,7 +98,7 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -109,7 +109,7 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -121,7 +121,7 @@ declare namespace dialogSession {
    *
    * @typedef DialogSessionInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @systemapi
    * @since 11
    */
@@ -132,7 +132,7 @@ declare namespace dialogSession {
      *
      * @type { DialogAbilityInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -143,7 +143,7 @@ declare namespace dialogSession {
      *
      * @type { Array<DialogAbilityInfo> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -154,7 +154,7 @@ declare namespace dialogSession {
      *
      * @type { ?object }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -166,7 +166,7 @@ declare namespace dialogSession {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @systemapi
    * @since 11
    */
@@ -175,7 +175,7 @@ declare namespace dialogSession {
      * Disallowed to create dialog.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -185,7 +185,7 @@ declare namespace dialogSession {
      * Allowed to create dialog.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @systemapi
      * @since 11
      */
@@ -204,7 +204,7 @@ declare namespace dialogSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @systemapi
    * @since 11
    */
@@ -224,7 +224,7 @@ declare namespace dialogSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @systemapi
    * @since 11
    */
@@ -244,7 +244,7 @@ declare namespace dialogSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @systemapi
    * @since 11
    */
