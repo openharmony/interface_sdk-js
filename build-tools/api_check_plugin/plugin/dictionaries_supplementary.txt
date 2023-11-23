@@ -210,6 +210,7 @@ ducking
 earfcn
 earphones
 earpiece
+ebu
 ece
 edr
 efuse
@@ -304,6 +305,7 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hlg
 hogp
 hsp
 hspa
@@ -669,6 +671,7 @@ stk
 str
 sm3
 smil
+smpte
 smsc
 snoozing
 snorm
@@ -688,6 +691,7 @@ spn
 spp
 spry
 spy
+srgb
 ssp
 stablization
 statfs
@@ -750,6 +754,7 @@ trackinfo
 tranlisterated
 transcode
 transferable
+transfunc
 transliterated
 transliterator
 transpilation
