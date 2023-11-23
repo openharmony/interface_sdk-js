@@ -51,6 +51,14 @@ declare enum RefreshStatus {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The refresh status of the drop-down refresh.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Inactive,
 
   /**
@@ -65,6 +73,14 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Drop down, but the drop-down distance is less than the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Drag,
 
@@ -81,6 +97,14 @@ declare enum RefreshStatus {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The pull-down exceeds the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   OverDrag,
 
   /**
@@ -96,6 +120,14 @@ declare enum RefreshStatus {
    * @crossplatform
    * @since 10
    */
+  /**
+   * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Refresh,
 
   /**
@@ -110,6 +142,14 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * After refresh, return to the initial state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Done,
 }
@@ -407,6 +447,14 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines Refresh Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const Refresh: RefreshInterface;
 
 /**
@@ -421,5 +469,13 @@ declare const Refresh: RefreshInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines Refresh Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const RefreshInstance: RefreshAttribute;
