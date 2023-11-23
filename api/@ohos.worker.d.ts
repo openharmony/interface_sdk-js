@@ -869,6 +869,26 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 11
    */
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
+
+  /**
+   * Send a global call on registered globalCallObject on host side and return the result synchronously
+   *
+   * @param { string } instanceName - the exact key used in registration
+   * @param { string } methodName - a string which is same to the method called on globalCallObject.
+   * @param { number } timeout - the specific milliseconds that will wait for result to return, between 0 and 5000.
+   * @param { unknown[] } args - the method argument called on registered globalCallObject.
+   * @returns { unknown } Return the result of method if it has a return value, otherwise return void.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200019 - The globalCallObject is not registered.
+   * @throws { BusinessError } 10200020 - The method to be called is not callable or is an async method or a generator.
+   * @throws { BusinessError } 10200021 - The global call exceeds the timeout.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 11
+   */
+  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: unknown[]): unknown;
 }
 
 /**
@@ -1286,11 +1306,35 @@ declare namespace worker {
      * @since 10
      */
     removeAllListener(): void;
+
+    /**
+     * Register globalCallObject for global call.
+     * @param { string } instanceName - The key to register globalCallObject.
+     * @param { Object } globalCallObject - The globalCallObject that will be registered.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    registerGlobalCallObject(instanceName: string, globalCallObject: Object): void;
+
+    /**
+     * Remove registered globalCallObject and release strong reference to registered object.
+     * @param { string } instanceName - The exact key that used in registration.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    unregisterGlobalCallObject(instanceName?: string): void;
   }
 
   /**
    * The RestrictedWorker class contains all Worker functions.
    *
+   * @extends ThreadWorker
    * @syscap SystemCapability.Utils.Lang
    * @since 11
    */
