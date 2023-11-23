@@ -152,13 +152,13 @@ declare namespace dialogSession {
     /**
      * The description of the params object in dilog session info
      *
-     * @type { ?object }
+     * @type { Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @systemapi
      * @since 11
      */
-    parameters?: { [key: string]: any };
+    parameters?: Record<string, Object>
   }
 
   /**
