@@ -270,7 +270,17 @@ declare namespace AbilityConstant {
      * @StageModelOnly
      * @since 11
      */
-    AUTO_STARTUP = 8
+    AUTO_STARTUP = 8,
+
+    /**
+     * Start ability through the insight intent interface.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @atomicservice
+     * @since 11
+     */
+    INSIGHT_INTENT = 9
   }
 
   /**
