@@ -10,6 +10,7 @@
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
     "SystemCapability.Graphic.Graphic2D.WebGL",
+    "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Notification.Notification",
