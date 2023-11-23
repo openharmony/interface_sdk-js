@@ -436,6 +436,7 @@ declare class Scroller {
    * @returns { OffsetResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   currentOffset() : OffsetResult;
