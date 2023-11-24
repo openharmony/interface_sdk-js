@@ -120,6 +120,12 @@ export declare enum ToolType {
    */
   MOUSE = 6,
 
+  /**
+   * lens
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 9
+   */
   LENS = 7
 }
 
