@@ -36,6 +36,16 @@ declare namespace locationManager {
    */
   export enum LocationPolicy {
     /**
+     * Default location service.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    DEFAULT_LOCATION_SERVICE = 0,
+
+    /**
      * Disallows open location service.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -43,7 +53,7 @@ declare namespace locationManager {
      * @stagemodelonly
      * @since 11
      */
-    DISALLOW_LOCATION_SERVICE = 0,
+    DISALLOW_LOCATION_SERVICE = 1,
 
     /**
      * Force open the location service.
@@ -53,17 +63,7 @@ declare namespace locationManager {
      * @stagemodelonly
      * @since 11
      */
-    FORCE_OPEN_LOCATION_SERVICE = 1,
-
-    /**
-     * Default location service.
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @stagemodelonly
-     * @since 11
-     */
-    DEFAULT_LOCATION_SERVICE = 2
+    FORCE_OPEN_LOCATION_SERVICE = 2,
   }
 
   /**
