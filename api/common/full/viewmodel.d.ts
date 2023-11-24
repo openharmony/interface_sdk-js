@@ -874,7 +874,7 @@ export interface ListScrollToOptions {
    * specified position.
    *
    * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   index: number;
@@ -892,7 +892,7 @@ export interface ListElement extends Element {
    * Scrolls the list to the position of the item at the specified index.
    *
    * @param { ListScrollToOptions } position
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   scrollTo(position: ListScrollToOptions): void;
@@ -1150,7 +1150,7 @@ export interface DialogElement extends Element {
  * The <image-animator> component is used to provide an image frame animator.
  *
  * @interface ImageAnimatorElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 4
  */
 export interface ImageAnimatorElement extends Element {
@@ -3266,7 +3266,7 @@ export interface ViewModel {
    * There are two types of placeholders available:Named placeholder, for example, {name}.
    * The actual content must be of the object type, for example, $t('strings.object', { name: 'Hello world' }).
    * Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world'].
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   $t(path: string, params?: object | Array<any>): string;
@@ -3395,7 +3395,7 @@ export interface ViewModel {
    * An object that holds all DOM elements and component instances that have been registered with the refs attribute.
    *
    * @type { ElementReferences }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   $refs: ElementReferences;
@@ -3529,7 +3529,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Set the value of data to the return value of the function during page initialization.
    *
    * @type { ?Data }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   data?: Data;
@@ -3679,7 +3679,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 /**
  * Used for ide.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
  */
@@ -3687,7 +3687,7 @@ type DefaultData<T> = object;
 /**
  * Used for ide.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
  */
@@ -3695,7 +3695,7 @@ type CombinedOptions<T extends ViewModel, Data> = object & Options<T, Data> & Th
 /**
  * @param { CombinedOptions<T, Data> } options
  * @returns { ViewModel & Data }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
  */

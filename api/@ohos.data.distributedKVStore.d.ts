@@ -750,7 +750,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the specified long value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -762,7 +762,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the specified int value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -775,7 +775,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or equal to the
      * specified int value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -787,7 +787,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than the specified int value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -800,7 +800,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
      * equal to the specified int value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -813,7 +813,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than or equal to the
      * specified int value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -825,7 +825,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is null.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -836,7 +836,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified int value list.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -848,7 +848,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified string value list.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string[] } valueList - Indicates the string value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -860,7 +860,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified int value list.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -872,7 +872,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified string value list.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string[] } valueList - Indicates the string value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -884,7 +884,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the specified string value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string } value - Indicates the string value.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -896,7 +896,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the specified string value.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string } value - Indicates the string value.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -928,7 +928,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to sort the query results in ascending order.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -939,7 +939,7 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to sort the query results in descending order.
      *
-     * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
+     * @param { string } field - Indicates the field, which cannot contain ^.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
