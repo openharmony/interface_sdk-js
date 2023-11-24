@@ -2570,7 +2570,7 @@ export default class UIAbilityContext extends Context {
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
-   * Creates the Modal UIExtensionAbility.
+   * Requests the Modal UIExtensionAbility.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
@@ -2588,10 +2588,10 @@ export default class UIAbilityContext extends Context {
    * @systemapi
    * @since 11
    */
-  createModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
+  requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Creates the Modal UIExtensionAbility.
+   * Requests the Modal UIExtensionAbility.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
@@ -2609,5 +2609,5 @@ export default class UIAbilityContext extends Context {
    * @systemapi
    * @since 11
    */
-  createModalUIExtension(pickerWant: Want): Promise<void>;
+  requestModalUIExtension(pickerWant: Want): Promise<void>;
 }
