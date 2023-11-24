@@ -1062,7 +1062,6 @@ declare namespace settings {
   /**
    * Get value from settingsdata
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { Context } context - Indicates the Context used to access
    * the database.
    * @param { string } name - Indicates the name of the character string.
@@ -1234,7 +1233,6 @@ declare namespace settings {
   /**
    * Get value from settingsdata(synchronous method)
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { Context } context - Indicates Context instance
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
@@ -1308,7 +1306,6 @@ declare namespace settings {
   /**
    * Monitor unregister key(synchronous method)
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param { Context } context - Indicates Context instance.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
