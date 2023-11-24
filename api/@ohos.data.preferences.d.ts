@@ -1128,8 +1128,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1141,8 +1142,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1155,8 +1157,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1172,8 +1175,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1185,8 +1189,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1199,8 +1204,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1216,8 +1222,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1229,8 +1236,9 @@ declare namespace preferences {
      * file.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform

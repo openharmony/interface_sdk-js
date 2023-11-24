@@ -308,6 +308,7 @@ declare interface CustomDialogControllerOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -353,6 +354,15 @@ declare interface CustomDialogControllerOptions {
    */
   cornerRadius?: Dimension | BorderRadiuses;
 
+  /**
+   * Whether it is a modal dialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  isModal?: boolean;  
 }
 
 /**

@@ -42,12 +42,47 @@ declare namespace bundle {
    * @useinstead ohos.bundle.bundleManager.BundleFlag
    */
   enum BundleFlag {
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_BUNDLE_DEFAULT = 0x00000000,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000002,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000004,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000008,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     GET_ALL_APPLICATION_INFO = 0xFFFF0000,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
@@ -90,8 +125,23 @@ declare namespace bundle {
    * @deprecated since 9
    */
   export enum ColorMode {
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     AUTO_MODE = -1,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     DARK_MODE = 0,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     LIGHT_MODE = 1
   }
 
@@ -105,7 +155,17 @@ declare namespace bundle {
    * @useinstead ohos.bundle.bundleManager.PermissionGrantState
    */
   export enum GrantStatus {
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     PERMISSION_DENIED = -1,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     PERMISSION_GRANTED = 0
   }
 
@@ -165,7 +225,17 @@ declare namespace bundle {
    * @deprecated since 9
    */
   export enum AbilitySubType {
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     UNSPECIFIED = 0,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     CA = 1
   }
 
@@ -273,18 +343,83 @@ declare namespace bundle {
    * @deprecated since 9
    */
   export enum InstallErrorCode {
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     SUCCESS = 0,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE = 1,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_ABORTED = 2,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_INVALID = 3,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_CONFLICT = 4,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_STORAGE = 5,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_INCOMPATIBLE = 6,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_UNINSTALL_FAILURE = 7,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_UNINSTALL_FAILURE_BLOCKED = 8,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_UNINSTALL_FAILURE_ABORTED = 9,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_UNINSTALL_FAILURE_CONFLICT = 10,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
+    /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework

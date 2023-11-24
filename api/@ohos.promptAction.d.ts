@@ -311,6 +311,27 @@ declare namespace promptAction {
      * @since 10
      */
     offset?: Offset;
+
+    /**
+     * Whether to display in the sub window.
+     * 
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    showInSubWindow?: boolean;
+    
+    /**
+     * Whether it is a modal dialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    isModal?: boolean;    
   }
 
   /**
@@ -390,6 +411,27 @@ declare namespace promptAction {
      * @since 10
      */
     buttons: [Button, Button?, Button?, Button?, Button?, Button?];
+
+    /**
+     * Whether to display in the sub window.
+     * 
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    showInSubWindow?: boolean;
+
+    /**
+     * Whether it is a modal dialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    isModal?: boolean;         
   }
 
   /**
