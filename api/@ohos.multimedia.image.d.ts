@@ -1451,7 +1451,7 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
+    desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
   }
 
   /**
@@ -2663,7 +2663,7 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
+    applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
      /**
      * Releases this PixelMap object. This method uses a callback to return the result.
