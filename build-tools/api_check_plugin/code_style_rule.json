@@ -341,7 +341,8 @@
       "SystemCapability.Driver.ExternalDevice",
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.AI.IntelligentVoice.Core",
-      "SystemCapability.Msdp.DeviceStatus.Drag"
+      "SystemCapability.Msdp.DeviceStatus.Drag",
+      "SystemCapability.DistributedDataManager.CommonType"
     ]
   },
   "administrators": [
