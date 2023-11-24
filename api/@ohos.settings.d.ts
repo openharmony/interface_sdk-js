@@ -24,6 +24,49 @@ import Context from './application/Context';
  * @since 7
  */
 declare namespace settings {
+
+  /**
+   * Provide domain name for query.
+   *
+   * @namespace domainName
+   * @syscap SystemCapability.Applications.settings.Core
+   * @since 11
+   */
+  namespace domainName {
+    /**
+     * Provide the domain name for device shared Key.
+     *
+     * <p>This constants is a domain name for device level shared key.
+     *
+     * @constant
+     * @syscap SystemCapability.Applications.settings.Core
+     * @since 11
+     */
+    const DEVICE_SHARED: string
+
+    /**
+     * Provide the domain name for user property.
+     *
+     * <p>This constants is a domain name for user level key.
+     *
+     * @constant
+     * @syscap SystemCapability.Applications.settings.Core
+     * @since 11
+     */
+    const USER_PROPERTY: string
+
+    /**
+     * Provide the domain name for user security.
+     *
+     * <p>This constants is a domain name for user security level key.
+     *
+     * @constant
+     * @syscap SystemCapability.Applications.settings.Core
+     * @since 11
+     */
+    const USER_SECURITY: string
+  }
+
   /**
    * Provides methods for setting time and date formats.
    *
@@ -32,6 +75,7 @@ declare namespace settings {
    * @since 7
    */
   namespace date {
+
     /**
      * Indicates the date format.
      *
@@ -979,7 +1023,7 @@ declare namespace settings {
    * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
    * to access the database.
    * @param { string } name - Indicates the name of the character string.
-   * @returns { Promise<object> } Returns the value of the character string in the table if any is found; returns {@code
+   * @returns { Promise<object> } Returns the value of the character string in the domain if any is found; returns {@code
    * null} otherwise.
    * @syscap SystemCapability.Applications.settings.Core
    * @famodelonly
@@ -1004,17 +1048,32 @@ declare namespace settings {
 
   /**
    * Get value from settingsdata
-   *
    * @param { Context } context - Indicates the Context or dataAbilityHelper used to access
    * the database.
    * @param { string } name - Indicates the name of the character string.
-   * @returns { Promise<string> } Returns the value of the character string in the table if any is found; returns {@code
+   * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
    * null} otherwise.
    * @syscap SystemCapability.Applications.settings.Core
    * @StageModelOnly
    * @since 10
    */
   function getValue(context: Context, name: string): Promise<string>;
+
+  /**
+   * Get value from settingsdata
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS if domainName is USER_SECURITY
+   * @param { Context } context - Indicates the Context used to access
+   * the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } domainName - Indicates the name of the domain name to set.
+   * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
+   * null} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function getValue(context: Context, name: string, domainName: string): Promise<string>;
 
   /**
    * Saves a character string name and its value to the database.
@@ -1077,6 +1136,21 @@ declare namespace settings {
    * @since 10
    */
   function setValue(context: Context, name: string, value: string): Promise<boolean>;
+
+  /**
+   * Set settingsdata value.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param { Context } context - Indicates Context instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } value - Indicates the value of the character string.
+   * @param { string } domainName - Indicates the name of the domain name to set.
+   * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function setValue(context: Context, name: string, value: string, domainName: string): Promise<boolean>;
 
   /**
    * Enables or disables airplane mode.
@@ -1158,6 +1232,21 @@ declare namespace settings {
   function getValueSync(context: Context, name: string, defValue: string): string;
 
   /**
+   * Get value from settingsdata(synchronous method)
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS if domainName is USER_SECURITY
+   * @param { Context } context - Indicates Context instance
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } defValue - Indicates the default value of the character string.
+   * @param { string } domainName - Indicates the name of the domain name to set.
+   * @returns { string } Returns settingsdata value.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function getValueSync(context: Context, name: string, defValue: string, domainName: string): string;
+
+  /**
    * Set settingsdata value(synchronous method)
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
@@ -1186,6 +1275,49 @@ declare namespace settings {
    * @since 10
    */
   function setValueSync(context: Context, name: string, value: string): boolean;
+
+  /**
+   * Set settingsdata value(synchronous method)
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param { Context } context - Indicates Context instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } value - Indicates the value of the character string.
+   * @param { string } domainName - Indicates the name of the domain name to set.
+   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function setValueSync(context: Context, name: string, value: string, domainName: string): boolean;
+
+  /**
+   * Monitor registration key(synchronous method)
+   *
+   * @param { Context } context - Indicates Context instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } domainName - Indicates the name of the domain name to set.
+   * @param { AsyncCallback<void> } observer - callback when monitored key value is changed.
+   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
+
+  /**
+   * Monitor unregistration key(synchronous method)
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS if domainName is USER_SECURITY
+   * @param { Context } context - Indicates Context instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } domainName - Indicates the name of the domain name to set.
+   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 }
 
 export default settings;
