@@ -19,7 +19,6 @@ import type { AsyncCallback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
-import type { AnimateParam } from 'AnimateToParam';
 
 /**
  * This module allows developers to trigger a drag event.
@@ -61,6 +60,30 @@ declare namespace dragController {
     extraParams?: string;
   }
 
+/**
+ * Defines the animation options for drag preview.
+ * 
+ * @interface AnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+  interface AnimationOptions {
+    /**
+     * Animation duration, in ms.
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    duration?: number;
+    /**
+    * Animation curve.
+    * @type { ?(Curve | ICurve) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 11
+    */
+    curve?: Curve | ICurve;
+  }
+
   /**
    * Provides the functions of setting color or updating animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -77,12 +100,12 @@ declare namespace dragController {
   
       /**
        * update preview style with animation
-       * @param { AnimateParam } value - animation parameters
+       * @param { AnimationOptions } options - animation options
        * @param { function } handler - change style functions
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 11
        */
-      updateWithAnimation(value: AnimateParam, handler: () =>void): void;
+      animate(options: AnimationOptions, handler: () =>void): void;
     }
 
   /**
