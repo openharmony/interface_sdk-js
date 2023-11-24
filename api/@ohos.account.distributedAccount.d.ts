@@ -36,7 +36,6 @@ declare namespace distributedAccount {
    * Defines distributed account functions and interfaces.
    *
    * @interface DistributedAccountAbility
-   * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
    * @syscap SystemCapability.Account.OsAccount
    * @since 7
    */

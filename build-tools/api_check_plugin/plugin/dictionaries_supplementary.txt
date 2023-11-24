@@ -172,6 +172,7 @@ deregisters
 deselected
 designative
 desynchronized
+detents
 developtools
 devicemanager
 dfactor

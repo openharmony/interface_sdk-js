@@ -196,7 +196,7 @@ declare namespace featureAbility {
   function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
-   * The callback interface was connect successfully.
+   * Disconnects ability to a Service ability.
    *
    * @param { number } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
@@ -207,7 +207,7 @@ declare namespace featureAbility {
   function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * The callback interface was connect successfully.
+   * Disconnects ability to a Service ability.
    *
    * @param { number } connection - The number code of the ability connected
    * @returns { Promise<void> } the promise returned by the function.

@@ -77,7 +77,7 @@ declare namespace bundleResourceManager {
    * Obtains the BundleResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } resourceFlags - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
    * @returns { BundleResourceInfo } Returns the BundleResourceInfo object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -91,10 +91,10 @@ declare namespace bundleResourceManager {
   function getBundleResourceInfo(bundleName: string, resourceFlags?: number): BundleResourceInfo;
 
   /**
-   * Obtains the LauncherAbilityResourceInfo of a specified ability. Default resourceFlag is GET_RESOURCE_INFO_ALL.
+   * Obtains the LauncherAbilityResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } resourceFlags - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo object that will be returned.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.

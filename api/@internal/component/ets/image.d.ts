@@ -1008,6 +1008,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
      * @since 10
      * @form
      */
+    /**
+     * Component width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @form
+     */
     componentWidth: number;
 
     /**
@@ -1017,6 +1027,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     * @form
+     */
+    /**
+     * Component height.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      * @form
      */
     componentHeight: number
@@ -1065,6 +1085,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
      * @since 10
      * @form
      */
+    /**
+     * Component width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @form
+     */
     componentWidth: number;
 
     /**
@@ -1076,6 +1106,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
      * @since 10
      * @form
      */
+    /**
+     * Component height.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @form
+     */
     componentHeight: number;
 
     /**
@@ -1085,6 +1125,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     * @form
+     */
+    /**
+     * Message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      * @form
      */
     message: string

@@ -347,7 +347,8 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'callStateChange', options: { slotId: number }, callback: Callback<{ state: CallState, number: string }>): void;
+  function on(type: 'callStateChange', options: { slotId: number }, 
+    callback: Callback<{ state: CallState, number: string }>): void;
 
   /**
    * Cancel callback when the call state is updated.
