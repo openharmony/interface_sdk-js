@@ -13182,9 +13182,9 @@ declare class CommonMethod<T> {
   draggable(value: boolean): T;
 
   /**
-   * Set preview content of the component for dragging process
+   * Set preview of the component for dragging process
    *
-   * @param { CustomBuilder | DragItemInfo } value - preview content of the component
+   * @param { CustomBuilder | DragItemInfo } value - preview of the component for dragging process
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
