@@ -161,7 +161,7 @@ declare interface RichEditorTextStyle {
   decoration?: { type: TextDecorationType; color?: ResourceColor; };
 
   /**
-   * text shadow
+   * Text shadow
    *
    * @type { ShadowOptions | Array<ShadowOptions> } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
