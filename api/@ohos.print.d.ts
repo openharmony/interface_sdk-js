@@ -209,21 +209,6 @@ declare namespace print {
    * @param { PrintDocumentAdapter } printAdapter - Indicates functions implemented by the cpp.
    * @param { PrintAttributes } printAttributes - Indicates print attributes.
    * @param { Context } context - The ability context that initiates the call print request.
-   * @param { AsyncCallback<PrintTask> } callback - The callback function for print task.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 11
-   */
-  function print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes,
-    context: Context, callback: AsyncCallback<PrintTask>): void;
-
-  /**
-   * Start new print task for App And the App need update print file.
-   * @permission ohos.permission.PRINT
-   * @param { string } jobName - Indicates print file Name.
-   * @param { PrintDocumentAdapter } printAdapter - Indicates functions implemented by the cpp.
-   * @param { PrintAttributes } printAttributes - Indicates print attributes.
-   * @param { Context } context - The ability context that initiates the call print request.
    * @returns { Promise<PrintTask> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
@@ -337,14 +322,14 @@ declare namespace print {
    * defines print range.
    * @typedef PrinterRange
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since 11
    */
   interface PrinterRange {
     /**
     * Start page of sequence.
     * @type { ?number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     startPage?: number;
 
@@ -352,7 +337,7 @@ declare namespace print {
     * End page of sequence.
     * @type { ?number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     endPage?: number;
 
@@ -360,7 +345,7 @@ declare namespace print {
     * Discrete page of sequence.
     * @type { ?Array<number> }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     pages?: Array<number>;
   }
@@ -432,14 +417,14 @@ declare namespace print {
    * defines print page size.
    * @typedef PrintPageSize
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since 11
    */
   interface PrintPageSize {
     /**
     * Page size id.
     * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     id: string;
 
@@ -447,7 +432,7 @@ declare namespace print {
     * Page size name.
     * @type { string }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     name: string;
 
@@ -455,7 +440,7 @@ declare namespace print {
     * Unit: millimeter width.
     * @type { number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     width: number;
 
@@ -463,7 +448,7 @@ declare namespace print {
     * Unit: millimeter height.
     * @type { number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 10
+    * @since 11
     */
     height: number;
   }
@@ -2033,20 +2018,6 @@ declare namespace print {
    */
   function startGettingPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
     onFileStateChanged: Callback<PrintFileCreationState>): void;
-
-  /**
-   * Notify print service the information.
-   * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates id of the print job.
-   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
-   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  function notifyPrintService(jobId: string, type: 'spooler_closed_for_cancelled' | 'spooler_closed_for_started', callback: AsyncCallback<void>): void;
 
   /**
    * Notify print service the information.
