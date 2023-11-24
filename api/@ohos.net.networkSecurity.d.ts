@@ -71,55 +71,7 @@ declare namespace networkSecurity {
   /**
    * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
-   * @param { AsyncCallback<number> } callback - The callback of verifyCertification.
-   * @throws { BusinessError } 2305001 - Unspecified error.
-   * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
-   * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
-   * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
-   * @throws { BusinessError } 2305005 - Unable to decrypt CRL signature.
-   * @throws { BusinessError } 2305006 - Unable to decode issuer public key.
-   * @throws { BusinessError } 2305007 - Certificate signature failure.
-   * @throws { BusinessError } 2305008 - CRL signature failure.
-   * @throws { BusinessError } 2305009 - Certificate is not yet valid.
-   * @throws { BusinessError } 2305010 - Certificate has expired.
-   * @throws { BusinessError } 2305011 - CRL is not yet valid.
-   * @throws { BusinessError } 2305012 - CRL has expired.
-   * @throws { BusinessError } 2305023 - Certificate has been revoked.
-   * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
-   * @throws { BusinessError } 2305027 - Certificate is untrusted.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  export function certVerification(cert: CertBlob, callback: AsyncCallback<number>): void;
-
-  /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
-   * @param { CertBlob } caCert - Incoming custom CA cert.
-   * @param { AsyncCallback<number> } callback - The callback of verifyCertification.
-   * @throws { BusinessError } 2305001 - Unspecified error.
-   * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
-   * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
-   * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
-   * @throws { BusinessError } 2305005 - Unable to decrypt CRL signature.
-   * @throws { BusinessError } 2305006 - Unable to decode issuer public key.
-   * @throws { BusinessError } 2305007 - Certificate signature failure.
-   * @throws { BusinessError } 2305008 - CRL signature failure.
-   * @throws { BusinessError } 2305009 - Certificate is not yet valid.
-   * @throws { BusinessError } 2305010 - Certificate has expired.
-   * @throws { BusinessError } 2305011 - CRL is not yet valid.
-   * @throws { BusinessError } 2305012 - CRL has expired.
-   * @throws { BusinessError } 2305023 - Certificate has been revoked.
-   * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
-   * @throws { BusinessError } 2305027 - Certificate is untrusted.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  export function certVerification(cert: CertBlob, caCert: CertBlob, callback: AsyncCallback<number>): void;
-
-  /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
+   * @param { CertBlob } [caCert] - Incoming custom CA cert.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
@@ -139,32 +91,7 @@ declare namespace networkSecurity {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export function certVerification(cert: CertBlob): Promise<number>;
-
-  /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
-   * @param { CertBlob } caCert - Incoming custom CA cert.
-   * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 2305001 - Unspecified error.
-   * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
-   * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
-   * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
-   * @throws { BusinessError } 2305005 - Unable to decrypt CRL signature.
-   * @throws { BusinessError } 2305006 - Unable to decode issuer public key.
-   * @throws { BusinessError } 2305007 - Certificate signature failure.
-   * @throws { BusinessError } 2305008 - CRL signature failure.
-   * @throws { BusinessError } 2305009 - Certificate is not yet valid.
-   * @throws { BusinessError } 2305010 - Certificate has expired.
-   * @throws { BusinessError } 2305011 - CRL is not yet valid.
-   * @throws { BusinessError } 2305012 - CRL has expired.
-   * @throws { BusinessError } 2305023 - Certificate has been revoked.
-   * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
-   * @throws { BusinessError } 2305027 - Certificate is untrusted.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  export function certVerification(cert: CertBlob, caCert: CertBlob): Promise<number>;
+  export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<number>;
 
   /**
    * Certificate verification to the server.
