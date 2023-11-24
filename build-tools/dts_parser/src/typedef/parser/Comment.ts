@@ -28,6 +28,7 @@ export namespace Comment {
     CONSTANT = 'constant',
     PERMISSION = 'permission',
     THROWS = 'throws',
+    ATOMIC_SERVICE = 'atomicservice',
   }
 
   export interface JsDocProcessorInterface {
@@ -48,6 +49,7 @@ export namespace Comment {
     errorCodes: number[] = []; // @throws标签--api的错误码
     typeInfo: string = ''; // @type标签--标注的类型信息
     isConstant: boolean = false; // @constant标签--标注api为常量
+    isAtomicService: boolean = false; //@atomicservice--标注是否为高阶API
     tags: CommentTag[] | undefined = undefined;
 
     constructor() {}
@@ -106,6 +108,15 @@ export namespace Comment {
 
     getIsSystemApi(): boolean {
       return this.isSystemApi;
+    }
+
+    setIsAtomicService(isAtomicService: boolean): JsDocInfo {
+      this.isAtomicService = isAtomicService;
+      return this;
+    }
+
+    getIsAtomicService(): boolean {
+      return this.isAtomicService;
     }
 
     setModelLimitation(modelLimitation: string): JsDocInfo {

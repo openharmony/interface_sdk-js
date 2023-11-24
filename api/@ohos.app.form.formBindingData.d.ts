@@ -22,6 +22,14 @@ import { BusinessError } from './@ohos.base';
  * @syscap SystemCapability.Ability.Form
  * @since 9
  */
+/**
+ * Interface of formBindingData.
+ *
+ * @namespace formBindingData
+ * @syscap SystemCapability.Ability.Form
+ * @atomicservice
+ * @since 11
+ */
 declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
@@ -32,6 +40,16 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
+  /**
+   * Create an FormBindingData instance.
+   *
+   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
+   * @returns { FormBindingData } Returns the FormBindingData.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 11
+   */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
   /**
@@ -41,6 +59,14 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
+  /**
+   * Defines the createFormBindingData result interface.
+   *
+   * @typedef FormBindingData
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 11
+   */
   interface FormBindingData {
     /**
      * Data for updating.
@@ -48,6 +74,14 @@ declare namespace formBindingData {
      * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @since 9
+     */
+    /**
+     * Data for updating.
+     *
+     * @type { Object }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 11
      */
     data: Object;
 
@@ -58,6 +92,15 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @since 10
+     */
+    /**
+     * proxies for updating.
+     *
+     * @type { ?Array<ProxyData> }
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @atomicservice
+     * @since 11
      */
     proxies?: Array<ProxyData>;
   }
@@ -70,6 +113,15 @@ declare namespace formBindingData {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Defines the form proxy data.
+   *
+   * @typedef ProxyData
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   interface ProxyData {
     /**
      * Key for proxy. The value depend data publisher.
@@ -78,6 +130,15 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @since 10
+     */
+    /**
+     * Key for proxy. The value depend data publisher.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @atomicservice
+     * @since 11
      */
     key: string;
 
@@ -88,6 +149,15 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @since 10
+     */
+    /**
+     * SubscriberId. The value depend data publisher. The default value is current formId.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @atomicservice
+     * @since 11
      */
     subscriberId?: string;
   }

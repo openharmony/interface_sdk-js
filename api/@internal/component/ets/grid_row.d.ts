@@ -30,6 +30,16 @@
  * @since 10
  * @form
  */
+/**
+ * Defines the option in length unit of grid-row component.
+ *
+ * @interface GridRowSizeOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface GridRowSizeOption {
   /**
    * Grid Row Size Option xs
@@ -46,6 +56,16 @@ declare interface GridRowSizeOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Grid Row Size Option xs
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   xs?: Length,
@@ -67,6 +87,16 @@ declare interface GridRowSizeOption {
    * @since 10
    * @form
    */
+  /**
+   * Grid Row Size Option sm
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   sm?: Length,
 
   /**
@@ -84,6 +114,16 @@ declare interface GridRowSizeOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Grid Row Size Option md
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   md?: Length,
@@ -105,6 +145,16 @@ declare interface GridRowSizeOption {
    * @since 10
    * @form
    */
+  /**
+   * Grid Row Size Option lg
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   lg?: Length,
 
   /**
@@ -124,6 +174,16 @@ declare interface GridRowSizeOption {
    * @since 10
    * @form
    */
+  /**
+   * Grid Row Size Option xl
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   xl?: Length,
 
   /**
@@ -139,6 +199,15 @@ declare interface GridRowSizeOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Grid Row Size Option xxl
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   xxl?: Length,
@@ -161,6 +230,16 @@ declare interface GridRowSizeOption {
  * @since 10
  * @form
  */
+/**
+ * Defines the option in number unit of grid-container component.
+ *
+ * @interface GridRowColumnOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface GridRowColumnOption {
   /**
    * Grid Row Column Option xs
@@ -177,6 +256,16 @@ declare interface GridRowColumnOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Grid Row Column Option xs
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   xs?: number,
@@ -198,6 +287,16 @@ declare interface GridRowColumnOption {
    * @since 10
    * @form
    */
+  /**
+   * Grid Row Column Option sm
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   sm?: number,
 
   /**
@@ -215,6 +314,16 @@ declare interface GridRowColumnOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Grid Row Column Option md
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   md?: number,
@@ -236,6 +345,16 @@ declare interface GridRowColumnOption {
    * @since 10
    * @form
    */
+  /**
+   * Grid Row Column Option lg
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   lg?: number,
 
   /**
@@ -255,6 +374,16 @@ declare interface GridRowColumnOption {
    * @since 10
    * @form
    */
+  /**
+   * Grid Row Column Option xl
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   xl?: number,
 
   /**
@@ -270,6 +399,15 @@ declare interface GridRowColumnOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Grid Row Column Option xxl
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   xxl?: number,
@@ -292,6 +430,16 @@ declare interface GridRowColumnOption {
  * @since 10
  * @form
  */
+/**
+ * Defines the gutter of grid-row component.
+ *
+ * @interface GutterOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface GutterOption {
   /**
    * Define x in GutterOption
@@ -308,6 +456,16 @@ declare interface GutterOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Define x in GutterOption
+   *
+   * @type { ?(Length | GridRowSizeOption) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   x?: Length | GridRowSizeOption,
@@ -329,6 +487,16 @@ declare interface GutterOption {
    * @since 10
    * @form
    */
+  /**
+   * Define y in GutterOption
+   *
+   * @type { ?(Length | GridRowSizeOption) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   y?: Length | GridRowSizeOption
 }
 
@@ -347,6 +515,16 @@ declare interface GutterOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the breakpoint reference of grid-container component.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare enum BreakpointsReference {
@@ -402,6 +580,16 @@ declare enum BreakpointsReference {
  * @since 10
  * @form
  */
+/**
+ * Defines the direction of grid-container component.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare enum GridRowDirection {
   /**
    * The elements in the grid component are arranged in rows
@@ -455,6 +643,16 @@ declare enum GridRowDirection {
  * @since 10
  * @form
  */
+/**
+ * Defines the breakpoints of grid-row component.
+ *
+ * @interface BreakPoints
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface BreakPoints {
   /**
    * Breakpoint array
@@ -471,6 +669,16 @@ declare interface BreakPoints {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Breakpoint array
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   value?: Array<string>,
@@ -490,6 +698,16 @@ declare interface BreakPoints {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set breakpoint reference
+   *
+   * @type { ?BreakpointsReference }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   reference?: BreakpointsReference,
@@ -512,6 +730,16 @@ declare interface BreakPoints {
  * @since 10
  * @form
  */
+/**
+ * Defines the options of grid-row component.
+ *
+ * @interface GridRowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface GridRowOptions {
   /**
    * layout spacing between sub-components
@@ -528,6 +756,16 @@ declare interface GridRowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * layout spacing between sub-components
+   *
+   * @type { ?(Length | GutterOption) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   gutter?: Length | GutterOption;
@@ -549,6 +787,16 @@ declare interface GridRowOptions {
    * @since 10
    * @form
    */
+  /**
+   * Sets the total number of columns in the current layout.
+   *
+   * @type { ?(number | GridRowColumnOption) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   columns?: number | GridRowColumnOption;
 
   /**
@@ -568,6 +816,16 @@ declare interface GridRowOptions {
    * @since 10
    * @form
    */
+  /**
+   * grid-row layout breakpoints.
+   *
+   * @type { ?BreakPoints }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   breakpoints?: BreakPoints;
 
   /**
@@ -585,6 +843,16 @@ declare interface GridRowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * grid-row layout direction.
+   *
+   * @type { ?GridRowDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   direction?: GridRowDirection;
@@ -607,6 +875,16 @@ declare interface GridRowOptions {
  * @since 10
  * @form
  */
+/**
+ * Defines the the new version of grid-container component.
+ *
+ * @interface GridRowInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface GridRowInterface {
   /**
    * Defines the constructor of GridRow.
@@ -625,6 +903,17 @@ interface GridRowInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Defines the constructor of GridRow.
+   *
+   * @param { GridRowOptions } option
+   * @returns { GridRowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (option?: GridRowOptions): GridRowAttribute;
@@ -650,6 +939,17 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Callback triggered when the breakpoint changes
+   *
+   * @param { function } callback
+   * @returns { GridRowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 
   /**
@@ -660,6 +960,17 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Cross axis alignment of each line in GridRow.
+   *
+   * @param { ItemAlign } value - element alignment
+   * @returns { GridRowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   alignItems(value: ItemAlign): GridRowAttribute;
@@ -680,6 +991,15 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines GridRow Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const GridRow: GridRowInterface;
 
 /**
@@ -695,6 +1015,15 @@ declare const GridRow: GridRowInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines GridRow Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const GridRowInstance: GridRowAttribute;

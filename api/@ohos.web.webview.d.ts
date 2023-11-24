@@ -528,6 +528,13 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Provides methods for managing the web cookies.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   class WebCookieManager {
     /**
      * Gets all cookies for the given URL.
@@ -563,6 +570,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 11
      */
     static fetchCookie(url: string): Promise<string>;
@@ -575,6 +583,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 11
      */
     static fetchCookie(url: string, callback: AsyncCallback<string>): void;
@@ -617,6 +626,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 11
      */
     static configCookie(url: string, value: string): Promise<void>;
@@ -631,6 +641,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 11
      */
     static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
@@ -723,6 +734,7 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 11
      */
     static clearAllCookies(): Promise<void>;
@@ -732,6 +744,7 @@ declare namespace webview {
      * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 11
      */
     static clearAllCookies(callback: AsyncCallback<void>): void;
@@ -1919,9 +1932,9 @@ declare namespace webview {
     getFavicon(): image.PixelMap;
 
     /**
-     * Put network state for web. Which is used to set window.navigator.isOnline property in
+     * Put network state for web. Which is used to set window.navigator.onLine property in
      * JavaScript.
-     * @param { boolean } enable - Whether enable window.navigator.isOnline.
+     * @param { boolean } enable - Whether enable window.navigator.onLine.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.

@@ -2492,6 +2492,21 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
@@ -2521,6 +2536,21 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
@@ -2530,6 +2560,17 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.window.Window#setUIContent
+     */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
@@ -2545,6 +2586,17 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     * @deprecated since 9
+     * @useinstead ohos.window.Window#setUIContent
+     */
     loadContent(path: string): Promise<void>;
 
     /**
@@ -2557,6 +2609,18 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get the UIContext associate with the window content.
+     *
+     * @returns { UIContext } the object of UIContext.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getUIContext() : UIContext;
 
@@ -4104,6 +4168,18 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Get main window of the stage.
+     *
+     * @param { AsyncCallback<Window> } callback Callback used to return the main window.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
      * Get main window of the stage.
@@ -4246,6 +4322,21 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path Path of the page to which the content will be loaded
+     * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads content
@@ -4274,6 +4365,21 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path of the page to which the content will be loaded
+     * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
      * Loads content
@@ -4299,6 +4405,20 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Loads content
+     *
+     * @param { string } path of the page to which the content will be loaded
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 

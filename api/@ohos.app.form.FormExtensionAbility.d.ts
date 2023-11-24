@@ -26,6 +26,14 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @StageModelOnly
  * @since 9
  */
+/**
+ * class of form extension.
+ *
+ * @syscap SystemCapability.Ability.Form
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
 export default class FormExtensionAbility {
   /**
    * Indicates form extension context.
@@ -34,6 +42,15 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Indicates form extension context.
+   *
+   * @type { FormExtensionContext }
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   context: FormExtensionContext;
 
@@ -121,6 +138,15 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Called when the system configuration is updated.
+   *
+   * @param { Configuration } newConfig - Indicates the system configuration, such as language and color mode.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   onConfigurationUpdate(newConfig: Configuration): void;
 
   /**
@@ -135,6 +161,20 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called to return a {@link FormState} object.
+   * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
+   * this method returns {@link FormState#DEFAULT} by default.</p>
+   *
+   * @param { Want } want - Indicates the description of the form for which the {@link formInfo#FormState}
+   *                        is obtained. The description covers the bundle name, ability name, module name,
+   *                        form name, and form dimensions.
+   * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
 

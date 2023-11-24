@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -96,6 +97,7 @@ capabilitys
 capturers
 ccm
 cdma
+ce
 certsign
 cft
 channeldown
@@ -148,6 +150,7 @@ datasync
 dbm
 dci
 ddmp
+de
 deactivated
 deactivation
 decodes
@@ -169,6 +172,7 @@ deregisters
 deselected
 designative
 desynchronized
+detents
 developtools
 devicemanager
 dfactor
@@ -198,6 +202,8 @@ dpad
 drains
 dragbar
 drawbuffer
+dsda
+dsds
 dsf
 dtmf
 ducked
@@ -205,6 +211,7 @@ ducking
 earfcn
 earphones
 earpiece
+ece
 edr
 efuse
 egid
@@ -309,6 +316,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
@@ -541,6 +549,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises
@@ -625,6 +634,7 @@ sac
 sae
 sak
 satellites
+sbc
 scdma
 scene
 sco
@@ -636,6 +646,7 @@ scrolldown
 scrollup
 sdpi
 searchsetter
+sece
 secinfo
 seeked
 semicircles
@@ -693,6 +704,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+substate
 subtitles
 subtypes
 subwindow
@@ -720,6 +732,7 @@ taskmanager
 taskpool
 tbla
 tcpnodelay
+tdm
 tdscdma
 telecom
 tethering

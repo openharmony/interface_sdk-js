@@ -85,7 +85,7 @@ declare namespace distributedDataObject {
     /**
      * deviceid that data saved
      * data is "local", means save in local device
-     * otherwise, means the networkId of device
+     * otherwise, means the deviceId of others device
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
@@ -141,7 +141,7 @@ declare namespace distributedDataObject {
      * @param { Function } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {Array<string>} fields - Changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
@@ -156,7 +156,7 @@ declare namespace distributedDataObject {
      * @param { Function } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {Array<string>} fields - Changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      *          callback If not null, off the callback, if undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
@@ -232,10 +232,9 @@ declare namespace distributedDataObject {
     setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
 
     /*
-     * Change object session.
+     * Leave all session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param {string} sessionId - sessionId The sessionId to be joined, if empty, leave all session.
      * @param {AsyncCallback<void>} callback - The callback of setSessionId.
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error.
@@ -264,10 +263,9 @@ declare namespace distributedDataObject {
      *
      * @param { 'change' } type - event type, fixed as 'change', indicates data change.
      * @param { Function } callback
-     *
      *          indicates the observer of object data changed.
      *          {string} sessionId - the sessionId of the changed object.
-     *          {Array<string>} fields - changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      *          sessionId The sessionId of the changed object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -282,7 +280,7 @@ declare namespace distributedDataObject {
      * @param { Function } callback
      *          indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {Array<string>} fields - Changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      *          callback If not null, off the callback, if undefined, off all callbacks.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject

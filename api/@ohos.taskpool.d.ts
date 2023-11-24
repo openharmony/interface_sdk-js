@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * JS cross-thread task executor.
+ *
+ * @namespace taskpool
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace taskpool {
   /**
    * The Priority defines the task priority.
@@ -44,6 +53,15 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Priority defines the task priority.
+   *
+   * @enum { number } Priority
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum Priority {
     /**
      * set task priority to high.
@@ -57,6 +75,14 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * set task priority to high.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     HIGH = 0,
 
@@ -73,6 +99,14 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * set task priority to medium.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     MEDIUM = 1,
 
     /**
@@ -87,6 +121,14 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * set task priority to low.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     LOW = 2
   }
@@ -103,6 +145,14 @@ declare namespace taskpool {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The Task class provides an interface to create a task.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   class Task {
     /**
@@ -126,6 +176,18 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Create a Task instance.
+     *
+     * @param { Function } func - func func Concurrent function to execute in taskpool.
+     * @param { unknown[] } args - args args The concurrent function arguments.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     constructor(func: Function, ...args: unknown[]);
 
     /**
@@ -137,6 +199,16 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Check current running Task is canceled or not.
+     *
+     * @returns { boolean } Returns {@code true} if current running task is canceled; returns {@code false} otherwise.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     static isCanceled(): boolean;
 
     /**
@@ -147,6 +219,16 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Set transfer list for this task.
+     *
+     * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     setTransferList(transfer?: ArrayBuffer[]): void;
 
@@ -162,6 +244,14 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Concurrent function to execute in taskpool.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     function: Function;
 
@@ -179,6 +269,15 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The concurrent function arguments.
+     *
+     * @type { ?unknown[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     arguments?: unknown[];
   }
 
@@ -189,6 +288,14 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The TaskGroup class provides an interface to create a task group.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class TaskGroup {
     /**
      * Create a TaskGroup instance.
@@ -196,6 +303,14 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Create a TaskGroup instance.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     constructor();
 
@@ -210,6 +325,18 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Add a Concurrent function into task group.
+     *
+     * @param { Function } func - func func Concurrent function to add in task group.
+     * @param { unknown[] } args - args args The concurrent function arguments.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     addTask(func: Function, ...args: unknown[]): void;
 
     /**
@@ -222,6 +349,17 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Add a Task into TaskGroup.
+     *
+     * @param { Task } task - task task The task want to add in task group.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     addTask(task: Task): void;
   }
 
@@ -233,6 +371,15 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The State defines the task state.
+   *
+   * @enum { number } State
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum State {
     /**
      * the task state is waiting.
@@ -240,6 +387,14 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * the task state is waiting.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     WAITING = 1,
 
@@ -250,6 +405,14 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * the task state is running.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     RUNNING = 2,
 
     /**
@@ -258,6 +421,14 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * the task state is canceled.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     CANCELED = 3
   }
@@ -269,6 +440,14 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates the internal information of the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class TaskInfo {
     /**
      * Task identity.
@@ -278,6 +457,16 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Task identity.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     taskId: number;
 
@@ -290,6 +479,16 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Task state.
+     *
+     * @type { State }
+     * @default State::WAITING
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     state: State;
 
     /**
@@ -299,6 +498,15 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Duration of task execution.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     duration?: number;
   }
@@ -310,6 +518,14 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates the internal information of the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class ThreadInfo {
     /**
      * Thread id.
@@ -319,6 +535,16 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Thread id.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     tid: number;
 
@@ -330,6 +556,15 @@ declare namespace taskpool {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Task id list that running on current thread.
+     *
+     * @type { ?number[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     taskIds?: number[];
 
     /**
@@ -339,6 +574,15 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Thread priority.
+     *
+     * @type { ?Priority }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     priority?: Priority;
   }
@@ -350,6 +594,14 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates the internal information of the taskpool.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class TaskPoolInfo {
     /**
      * An array of taskpool thread information.
@@ -358,6 +610,15 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * An array of taskpool thread information.
+     *
+     * @type { ThreadInfo[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     threadInfos: ThreadInfo[];
 
@@ -368,6 +629,15 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * An array of taskpool task information.
+     *
+     * @type { TaskInfo[] }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     taskInfos: TaskInfo[];
   }
@@ -399,6 +669,21 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Execute a concurrent function.
+   *
+   * @param { Function } func - func func Concurrent function want to execute.
+   * @param { unknown[] } args - args args The concurrent function arguments.
+   * @returns { Promise<unknown> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function execute(func: Function, ...args: unknown[]): Promise<unknown>;
 
   /**
@@ -428,6 +713,21 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Execute a concurrent task.
+   *
+   * @param { Task } task - task task The task want to execute.
+   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
+   * @returns { Promise<unknown> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function execute(task: Task, priority?: Priority): Promise<unknown>;
 
   /**
@@ -441,6 +741,19 @@ declare namespace taskpool {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Execute a concurrent task group.
+   *
+   * @param { TaskGroup } group - group group The task group want to execute.
+   * @param { Priority } priority - priority priority Task group priority, MEDIUM is default.
+   * @returns { Promise<unknown[]> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function execute(group: TaskGroup, priority?: Priority): Promise<unknown[]>;
 
@@ -464,6 +777,17 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Cancel a concurrent task.
+   *
+   * @param { Task } task - task task The task want to cancel.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function cancel(task: Task): void;
 
   /**
@@ -476,6 +800,17 @@ declare namespace taskpool {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Cancel a concurrent task group.
+   *
+   * @param { TaskGroup } group - group group The task group want to cancel.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function cancel(group: TaskGroup): void;
 
   /**
@@ -485,6 +820,15 @@ declare namespace taskpool {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Get task pool internal information.
+   *
+   * @returns { TaskPoolInfo }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function getTaskPoolInfo(): TaskPoolInfo;
 }

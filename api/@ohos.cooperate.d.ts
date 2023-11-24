@@ -108,6 +108,118 @@ declare namespace cooperate {
   }
 
   /**
+   * Enumerates the screen hopping states.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  enum CooperateState {
+    /**
+     * Preparing for screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_PREPARE = 0,
+
+    /**
+     * Canceling the preparation for screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_UNPREPARE = 1,
+
+    /**
+     * Starting screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_ACTIVATE = 2,
+
+    /**
+     * Success in starting screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_ACTIVATE_SUCCESS = 3,
+
+    /**
+     * Failure to start screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_ACTIVATE_FAILURE = 4,
+
+    /**
+     * Success in stopping screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_DEACTIVATE_SUCCESS = 5,
+
+    /**
+     * Failure to stop screen hopping.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_DEACTIVATE_FAILURE = 6,
+
+    /**
+     * Inter-device session disconnected.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    COOPERATE_SESSION_DISCONNECTED = 7,
+  }
+
+  /**
+   * Defines a screen hopping message.
+   *
+   * @interface CooperateMessage
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface CooperateMessage {
+    /**
+     * Descriptor of the target device for screen hopping.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    networkId: string;
+
+    /**
+     * Screen hopping state.
+     *
+     * @type { CooperateState }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    state: CooperateState;
+  }
+
+  /**
    * Prepares for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
@@ -130,6 +242,34 @@ declare namespace cooperate {
   function prepare(): Promise<void>;
 
   /**
+   * Prepares for screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function prepareCooperate(callback: AsyncCallback<void>): void;
+
+  /**
+   * Prepares for screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function prepareCooperate(): Promise<void>;
+
+  /**
    * Cancels the preparation for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
@@ -150,6 +290,34 @@ declare namespace cooperate {
    * @since 10
    */
   function unprepare(): Promise<void>;
+
+  /**
+   * Cancels the preparation for screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function unprepareCooperate(callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancels the preparation for screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function unprepareCooperate(): Promise<void>;
 
   /**
    * Starts screen hopping.
@@ -180,6 +348,40 @@ declare namespace cooperate {
   function activate(targetNetworkId: string, inputDeviceId: number): Promise<void>;
 
   /**
+   * Starts screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 20900001 - Operation failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function activateCooperate(targetNetworkId: string, inputDeviceId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 20900001 - Operation failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function activateCooperate(targetNetworkId: string, inputDeviceId: number): Promise<void>;
+
+  /**
    * Stops screen hopping.
    *
    * @param { boolean } isUnchained Whether the cross-device link is unchained.
@@ -201,6 +403,35 @@ declare namespace cooperate {
    * @since 10
    */
   function deactivate(isUnchained: boolean): Promise<void>;
+
+  /**
+   * Stops screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { boolean } isUnchained - Whether the cross-device link is unchained.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the operation result.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stops screen hopping.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { boolean } isUnchained - Whether the cross-device link is unchained.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function deactivateCooperate(isUnchained: boolean): Promise<void>;
 
   /**
    * Obtains the screen hopping status.
@@ -227,6 +458,38 @@ declare namespace cooperate {
    */
   function getCrossingSwitchState(networkId: string): Promise<boolean>;
 
+
+  /**
+   * Obtains the screen hopping status.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } networkId - Descriptor of the target device for screen hopping.
+   * @param { AsyncCallback<boolean> } callback - Asynchronous callback used to return the screen hopping status.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Obtains the status of the screen hopping switch.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } networkId - Descriptor of the target device for screen hopping.
+   * @returns { Promise<boolean> } Returns {@code true} the screen hopping status;
+   *                               returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getCooperateSwitchState(networkId: string): Promise<boolean>;
+
   /**
    * Enables listening for screen hopping status change events.
    *
@@ -252,6 +515,38 @@ declare namespace cooperate {
    * @since 10
    */
   function off(type: 'cooperate', callback?: Callback<void>): void;
+
+  /**
+   * Enables listening for screen hopping status change events.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { 'cooperateMessage' } type - Change type.
+   * @param { Callback<CooperateMessage> } callback - Asynchronous callback used to
+   * return the screen hopping status change event.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'cooperateMessage', callback: Callback<CooperateMessage>): void;
+
+  /**
+   * Disables listening for screen hopping status change events.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { 'cooperateMessage' } type - Change type.
+   * @param { Callback<CooperateMessage> } callback - Callback for which listening
+   * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>): void;
 }
 
 export default cooperate;

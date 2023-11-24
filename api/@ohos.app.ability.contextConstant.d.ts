@@ -21,6 +21,15 @@
  * @StageModelOnly
  * @since 9
  */
+/**
+ * The context of an application. It allows access to application-specific resources.
+ *
+ * @namespace contextConstant
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
 declare namespace contextConstant {
   /**
    * File area mode
@@ -30,6 +39,15 @@ declare namespace contextConstant {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * File area mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   export enum AreaMode {
     /**
      * System level device encryption area
@@ -37,6 +55,14 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
+     */
+    /**
+     * System level device encryption area
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @atomicservice
+     * @since 11
      */
     EL1 = 0,
 
@@ -47,7 +73,38 @@ declare namespace contextConstant {
      * @StageModelOnly
      * @since 9
      */
-    EL2 = 1
+    /**
+     * User credential encryption area
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @atomicservice
+     * @since 11
+     */
+    EL2 = 1,
+
+    /**
+     * User credential encryption area
+     * when screen locked, can read/write, and create file
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 11
+     */
+    EL3 = 2,
+
+    /**
+     * User credential encryption area
+     * when screen locked, FEB2.0 can read/write, FEB3.0 can't
+     * read/write, and all can't create file
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 11
+     */
+    EL4 = 3
   }
 }
 

@@ -8,6 +8,7 @@
     "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_export_003.d.ts/getUserName",
     "apiName": "getUserName",
     "deprecatedVersion": "",
@@ -20,7 +21,8 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   },
   {
     "filePath": "ut_export_003.d.ts",
@@ -31,6 +33,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_export_003.d.ts/setName",
     "apiName": "setName",
     "deprecatedVersion": "",
@@ -43,6 +46,7 @@
     },
     "isSystemapi": false,
     "modelLimitation": "",
-    "decorators": []
+    "decorators": [],
+    "errorCodes": []
   }
 ]

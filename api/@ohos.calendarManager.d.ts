@@ -22,6 +22,13 @@ import type Context from './application/Context';
  * @syscap SystemCapability.Applications.CalendarData
  * @since 10
  */
+/**
+ * This provides calendar data access abilities.
+ * @namespace calendarManager
+ * @syscap SystemCapability.Applications.CalendarData
+ * @atomicservice
+ * @since 11
+ */
 declare namespace calendarManager {
   /**
    * Returns an instance of CalendarManager
@@ -32,6 +39,16 @@ declare namespace calendarManager {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Returns an instance of CalendarManager
+   *
+   * @param { Context } context - Hap context information
+   * @returns { CalendarManager } Instance of CalendarManager
+   * @syscap SystemCapability.Applications.CalendarData
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   function getCalendarManager(context: Context) : CalendarManager;
   
   /**
@@ -40,6 +57,14 @@ declare namespace calendarManager {
    * @interface CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
+   */
+  /**
+   * Defines the CalendarManager class and provides functions to access the calendar data.
+   *
+   * @interface CalendarManager
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
    */
   export interface CalendarManager {
     /**
@@ -109,6 +134,19 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Get calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @returns { Promise<Calendar> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
 
     /**
@@ -123,6 +161,19 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Get calendar instance from database by specified account.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
     /**
@@ -135,6 +186,18 @@ declare namespace calendarManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Get default calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     getCalendar(callback: AsyncCallback<Calendar>): void;
 
@@ -171,6 +234,13 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Describes a calendar instance.
+   * @interface Calendar
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   export interface Calendar {
     /**
      * Id of the calendar
@@ -178,6 +248,14 @@ declare namespace calendarManager {
      * @readonly
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Id of the calendar
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     readonly id: number
 
@@ -188,6 +266,14 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Add a single event.
+     * @param { Event } event - Indicates the information about a single event.
+     * @returns { Promise<number> } The event ID.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     addEvent(event: Event): Promise<number>;
 
     /**
@@ -196,6 +282,14 @@ declare namespace calendarManager {
      * @param { AsyncCallback<number> } callback - callback of addEvent.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Add a single event.
+     * @param { Event } event - a single event to add.
+     * @param { AsyncCallback<number> } callback - callback of addEvent.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     addEvent(event: Event, callback: AsyncCallback<number>): void;
 
@@ -340,6 +434,13 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Describes a calendar account.
+   * @interface CalendarAccount
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   interface CalendarAccount {
     /**
      * Name of the calendar
@@ -347,6 +448,14 @@ declare namespace calendarManager {
      * @readonly
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Name of the calendar
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     readonly name: string;
 
@@ -356,6 +465,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Type of the calendar
+     * @type { CalendarType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     type: CalendarType;
 
     /**
@@ -363,6 +479,13 @@ declare namespace calendarManager {
      * @type { ?string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * DisplayName of the calendar
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     displayName?: string
   }
@@ -397,12 +520,26 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Describes an event information.
+   * @interface Event
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   interface Event {
     /**
      * Id of the event
      * @type { ?number }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Id of the event
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     id?: number;
 
@@ -412,6 +549,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Type of the event
+     * @type { EventType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     type: EventType;
 
     /**
@@ -419,6 +563,13 @@ declare namespace calendarManager {
      * @type { ?string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Title of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     title?: string;
 
@@ -428,6 +579,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Location of the event
+     * @type { ?Location }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     location?: Location;
 
     /**
@@ -435,6 +593,13 @@ declare namespace calendarManager {
      * @type { number }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * start time of the event
+     * @type { number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     startTime: number;
 
@@ -444,6 +609,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * end time of the event
+     * @type { number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     endTime: number;
 
     /**
@@ -451,6 +623,13 @@ declare namespace calendarManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Whether the event is allDay
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     isAllDay?: boolean;
 
@@ -460,6 +639,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Attendees of the event
+     * @type { ?Attendee[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     attendee?: Attendee[];
 
     /**
@@ -467,6 +653,13 @@ declare namespace calendarManager {
      * @type { ?string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * TimeZone of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     timeZone?: string;
 
@@ -476,6 +669,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Reminder time of the event
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     reminderTime?: number[];
 
     /**
@@ -483,6 +683,13 @@ declare namespace calendarManager {
      * @type { ?RecurrenceRule }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * RecurrenceRule of the event
+     * @type { ?RecurrenceRule }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     recurrenceRule?: RecurrenceRule;
 
@@ -492,6 +699,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Description of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     description?: string;
 
     /**
@@ -499,6 +713,13 @@ declare namespace calendarManager {
      * @type { ?EventService }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Service of the event
+     * @type { ?EventService }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     service?: EventService;
   }
@@ -509,11 +730,24 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Enum for all calendar type.
+   * @enum { string }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   enum CalendarType {
     /**
      * Local calendar
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Local calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     LOCAL = 'local',
 
@@ -522,12 +756,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Email calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     EMAIL = 'email',
 
     /**
      * Birthday calendar
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Birthday calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     BIRTHDAY = 'birthday',
 
@@ -536,12 +782,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * CalDAV calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     CALDAV = 'caldav',
 
     /**
      * Subscribed calendar
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Subscribed calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     SUBSCRIBED = 'subscribed'
   }
@@ -552,12 +810,26 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Location of an event.
+   * @interface Location
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   interface Location {
     /**
      * Location of the event
      * @type { ?string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Location of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     location?: string;
 
@@ -567,6 +839,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Longitude of the location
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     longitude?: number;
 
     /**
@@ -574,6 +853,13 @@ declare namespace calendarManager {
      * @type { ?number }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Latitude of the location
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     latitude?: number;
   }
@@ -619,11 +905,24 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Enum for supported events type.
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   enum EventType {
     /**
      * normal event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * normal event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     NORMAL = 0,
 
@@ -631,6 +930,12 @@ declare namespace calendarManager {
      * important event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * important event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     IMPORTANT = 1,
   }
@@ -641,12 +946,26 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Defines the recurrence rule of event
+   * @interface RecurrenceRule
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   export interface RecurrenceRule {
     /**
      * RecurrenceFrequency of recurrence event.
      * @type { RecurrenceFrequency }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * RecurrenceFrequency of recurrence event.
+     * @type { RecurrenceFrequency }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     recurrenceFrequency: RecurrenceFrequency;
 
@@ -655,6 +974,13 @@ declare namespace calendarManager {
      * @type { ?number }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Expiration time of recurrence event.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     expire?: number;
   }
@@ -665,11 +991,24 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Enum for the recurrence type by different period
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   export enum RecurrenceFrequency {
     /**
      * The event repeats every year.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * The event repeats every year.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     YEARLY = 0,
 
@@ -678,6 +1017,12 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * The event repeats every month.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     MONTHLY = 1,
 
     /**
@@ -685,12 +1030,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * The event repeats every week.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     WEEKLY = 2,
 
     /**
      * The event repeats every day.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * The event repeats every day.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     DAILY = 3,
   }
@@ -701,12 +1058,26 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Defines the attendee information
+   * @interface Attendee
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   export interface Attendee {
     /**
      * Name of the Attendee.
      * @type { string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Name of the Attendee.
+     * @type { string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     name: string;
 
@@ -715,6 +1086,13 @@ declare namespace calendarManager {
      * @type { string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Email of the Attendee.
+     * @type { string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     email: string;
   }
@@ -725,12 +1103,26 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Defines event service information
+   * @interface EventService
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   export interface EventService {
     /**
      * Type of the EventService.
      * @type { ServiceType }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Type of the EventService.
+     * @type { ServiceType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     type: ServiceType;
 
@@ -740,6 +1132,13 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Uri of the EventService.
+     * @type { string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     uri: string;
 
     /**
@@ -747,6 +1146,13 @@ declare namespace calendarManager {
      * @type { ?string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Description of the EventService.
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     description?: string;
   }
@@ -757,11 +1163,24 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
+  /**
+   * Defines event service type
+   * @enum { string }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 11
+   */
   export enum ServiceType {
     /**
      * Meeting event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Meeting event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     MEETING = 'Meeting',
 
@@ -770,12 +1189,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Watch drama event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     WATCHING = 'Watching',
 
     /**
      * Repayment event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Repayment event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     REPAYMENT = 'Repayment',
 
@@ -784,12 +1215,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Live event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     LIVE = 'Live',
 
     /**
      * Shopping event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Shopping event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     SHOPPING = 'Shopping',
 
@@ -798,12 +1241,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * trip event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     TRIP = 'Trip',
 
     /**
      * Class event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Class event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     CLASS = 'Class',
 
@@ -812,12 +1267,24 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Sports game event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
+     */
     SPORTS_EVENTS = 'SportsEvents',
 
     /**
      * Sports exercise event.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Sports exercise event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 11
      */
     SPORTS_EXERCISE = 'SportsExercise',
   }

@@ -27,6 +27,16 @@ import Want from '../@ohos.app.ability.Want';
  * @StageModelOnly
  * @since 9
  */
+/**
+ * The context of form extension. It allows access to
+ * formExtension-specific resources.
+ *
+ * @extends ExtensionContext
+ * @syscap SystemCapability.Ability.Form
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
 export default class FormExtensionContext extends ExtensionContext {
   /**
    * Start an ability within the same bundle.
