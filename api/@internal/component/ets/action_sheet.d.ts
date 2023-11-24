@@ -316,6 +316,27 @@ interface ActionSheetOptions
    * @since 10
    */
   maskRect?: Rectangle;
+    
+  /**
+   * Whether to display in the sub window.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showInSubWindow?: boolean;
+
+  /**
+   * Whether it is a modal dialog
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  isModal?: boolean;     
 }
 
 /**

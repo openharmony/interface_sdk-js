@@ -72,6 +72,43 @@ declare enum RichEditorSpanType {
 }
 
 /**
+ * ResponseType for contextMenu
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum RichEditorResponseType {
+  /**
+   * Right click.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  RIGHT_CLICK = 0,
+
+  /**
+   * Long press.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  LONG_PRESS = 1,
+
+  /**
+   * Selected by mouse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  SELECT = 2,
+}
+
+/**
  * Defines the span position.
  *
  * @interface RichEditorSpanPosition
@@ -1075,6 +1112,27 @@ declare class RichEditorController {
    * @since 11
    */
   setTypingStyle(value: RichEditorTextStyle): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the rich editor.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setSelection(selectionStart: number, selectionEnd: number): void;
+
+  /**
+   * Called when the content is selected.
+   *
+   * @returns { RichEditorSelection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getSelection(): RichEditorSelection;
 }
 
 /**
@@ -1169,7 +1227,20 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @crossplatform
    * @since 10
    */
-  bindSelectionMenu(spanType: RichEditorSpanType, content: CustomBuilder, responseType: ResponseType, options?: SelectionMenuOptions): RichEditorAttribute;
+  /**
+   * Bind to the selection menu.
+   *
+   * @param { RichEditorSpanType } spanType - Indicates the type of selection menu.
+   * @param { CustomBuilder } content - Indicates the content of selection menu.
+   * @param { ResponseType | RichEditorResponseType } responseType - Indicates response type of selection menu.
+   * @param { SelectionMenuOptions } [options] - Indicates the options of selection menu.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  bindSelectionMenu(spanType: RichEditorSpanType, content: CustomBuilder, responseType: ResponseType | RichEditorResponseType,
+    options?: SelectionMenuOptions): RichEditorAttribute;
 
   /**
    * Define custom keyboard.

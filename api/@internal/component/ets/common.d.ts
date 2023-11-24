@@ -4003,6 +4003,25 @@ declare function lpx2px(value: number): number;
  */
 declare function px2lpx(value: number): number;
 
+/**
+ * Defines the namespace of focus controller.
+ *
+ * @namespace focusControl
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 9
+ * @form
+ */
+/**
+ * Defines the namespace of focus controller.
+ *
+ * @namespace focusControl
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare namespace focusControl {
   /**
    * Request focus to the specific component by param: 'id/key'.
@@ -4609,6 +4628,15 @@ declare enum BlurStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Defines none material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */  
   NONE,    
@@ -5750,6 +5778,15 @@ declare enum SheetSize {
    * @since 11
    */
   LARGE,
+
+  /**
+   * Defines the sheet size fit content height type. The height fit content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FIT_CONTENT = 2,
 }
 
 /**
@@ -8080,6 +8117,93 @@ declare interface ContentCoverOptions extends BindOptions {
 }
 
 /**
+ * Component sheet title options
+ *
+ * @interface SheetTitleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface SheetTitleOptions {
+  /**
+   * Defines title text
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  title: ResourceStr;
+
+  /**
+   * Defines subtitle text
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  subtitle?: ResourceStr;
+}
+
+/**
+ * Defines the sheet type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum SheetType {
+  /**
+   * Defines bottom sheet type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */   
+  BOTTOM = 0,
+
+  /**
+   * Defines center sheet type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  CENTER = 1,
+
+  /**
+   * Defines popup sheet type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  POPUP = 2,
+}
+
+/**
+ * Component sheet dismiss
+ *
+ * @interface SheetDismiss
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface SheetDismiss {
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { function  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  dismiss: () => void;
+}
+
+/**
  * Component sheet options
  *
  * @interface SheetOptions
@@ -8157,6 +8281,68 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   maskColor?: ResourceColor;
+
+  /**
+   * Defines sheet detents
+   *
+   * @type { ?[(SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length)?] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  detents?: [(SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length)?];
+
+  /**
+   * Defines sheet background blur Style
+   * 
+   * @type { ?BlurStyle }
+   * @default BlurStyle.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  blurStyle?: BlurStyle;
+
+  /**
+   * Defines whether the close icon is displayed
+   *
+   * @type { ?(boolean | Resource) }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showClose?: boolean | Resource;
+
+  /**
+   * Defines the sheet type
+   *
+   * @type { ?(SheetType.CENTER | SheetType.POPUP) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  type?: SheetType.CENTER | SheetType.POPUP;
+
+  /**
+   * Defines the sheet title
+   *
+   * @type { ?(SheetTitleOptions | CustomBuilder) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  title?: SheetTitleOptions | CustomBuilder;
+
+  /**
+   * Callback function when the sheet interactive dismiss
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
 }
 
 /**
@@ -8578,6 +8764,15 @@ declare interface PopupOptions {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Button text value
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     value: string;
 
     /**
@@ -8594,6 +8789,15 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * action
+     *
+     * @type { function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     action: () => void;
   };
@@ -8638,6 +8842,15 @@ declare interface PopupOptions {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Button text value
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     value: string;
 
     /**
@@ -8654,6 +8867,15 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * action
+     *
+     * @type { function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     action: () => void;
   };
@@ -8690,6 +8912,15 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * is Visible.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     isVisible: boolean
   }) => void;
@@ -9044,6 +9275,15 @@ declare interface CustomPopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * is Visible.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     isVisible: boolean
   }) => void;
@@ -13600,6 +13840,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
+
+  /**
+   * Menu control
+   *
+   * @param { boolean } isShow true means display menu, false means hide menu.
+   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
+   * @param { MenuOptions } options - Indicates the options of menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
   /**
    * ContextMenu control
