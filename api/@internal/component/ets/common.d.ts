@@ -16237,13 +16237,13 @@ declare interface PointLightStyle {
   /**
    * Defines the PointLight illuminated type.
    *
-   * @type { ?IlluminateType }
-   * @default IlluminateType.NONE
+   * @type { ?IlluminatedType }
+   * @default IlluminatedType.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11
    */
-  illuminated?: IlluminateType;
+  illuminated?: IlluminatedType;
   /**
    * Defines the PointLight bloom.
    *

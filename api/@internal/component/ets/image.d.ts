@@ -905,6 +905,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   draggable(value: boolean): ImageAttribute;
 
   /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { ImageAttribute } The attribute of the image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): ImageAttribute;
+
+  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *
