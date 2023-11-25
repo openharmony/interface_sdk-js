@@ -2575,7 +2575,7 @@ export default class UIAbilityContext extends Context {
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
    * @param { Want } type - Indicates the UIExtensionAbility to start.
-   * @param { AsyncCallback<void> } callback - The callback of createModalUIExtension.
+   * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -2596,7 +2596,7 @@ export default class UIAbilityContext extends Context {
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
    * @param { Want } type - Indicates the UIExtensionAbility to start.
-   * @returns { Promise<void> } The promise returned by the createModalUIExtension.
+   * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
