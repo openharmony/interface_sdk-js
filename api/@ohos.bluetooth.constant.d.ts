@@ -59,7 +59,7 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
-    PROFILE_PAN_NETWORK = 7,
+    PROFILE_PAN_NETWORK = 7
   }
 
   /**
