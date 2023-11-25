@@ -253,7 +253,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    TYPE_KEYBOARD
+    TYPE_KEYBOARD,
+
+    /**
+     * Area for navigation indicator
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    TYPE_NAVIGATION_INDICATOR
   }
   /**
    * Describes the window mode of an application
