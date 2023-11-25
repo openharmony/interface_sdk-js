@@ -9967,6 +9967,56 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Define the options of invert
+ *
+ * @interface InvertOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface InvertOptions {
+
+  /**
+   * Defines the low value of threshold
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  low: number;
+
+  /**
+  * Defines the high value of threshold
+  * 
+  * @type { number }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  */
+  high: number;
+
+  /**
+   * Defines the threshold
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  threshold: number;
+  
+  /**
+   *Defines the threshold range
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  thresholdRange: number;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11905,7 +11955,7 @@ declare class CommonMethod<T> {
    * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
    * A value of 0% does not change the image. (Percentage)
    *
-   * @param { number } value
+   * @param { number | InvertOptions } value - value indicates the scale of the conversion or the options of invert.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11913,7 +11963,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  invert(value: number): T;
+  invert(value: number | InvertOptions): T;
 
   /**
    * Adds the hue rotation effect to the current component.
