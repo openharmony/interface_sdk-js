@@ -730,6 +730,7 @@ systemapp
 systembar
 systemsize
 systemui
+showcounter
 tailoring
 talkback
 taskmanager

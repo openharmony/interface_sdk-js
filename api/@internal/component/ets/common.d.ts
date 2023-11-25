@@ -37,6 +37,26 @@ declare interface ComponentOptions {
 }
 
 /**
+ * Define the ratio of characters entered by the the percentage of InputCounterOptions.
+ *
+ * @interface InputCounterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface InputCounterOptions {
+  /**
+   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input 
+   * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  thresholdPercentage?: number;
+}
+
+/**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
