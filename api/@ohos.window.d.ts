@@ -253,7 +253,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    TYPE_KEYBOARD
+    TYPE_KEYBOARD,
+
+    /**
+     * Area for navigation indicator
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    TYPE_NAVIGATION_INDICATOR
   }
   /**
    * Describes the window mode of an application
@@ -456,13 +464,13 @@ declare namespace window {
 
     /**
      * The left of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The left of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -471,13 +479,13 @@ declare namespace window {
 
     /**
      * The top of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The top of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -486,13 +494,13 @@ declare namespace window {
 
     /**
      * The width of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The width of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -501,13 +509,13 @@ declare namespace window {
 
     /**
      * The height of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The height of the Rect.
-     * 
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -526,7 +534,7 @@ declare namespace window {
     /**
      * Whether avoidArea is visible on screen
      *
-     * @type { boolean } 
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -535,7 +543,7 @@ declare namespace window {
     /**
      * Rectangle on the left of the screen
      *
-     * @type { Rect } 
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -544,7 +552,7 @@ declare namespace window {
     /**
      * Rectangle on the top of the screen
      *
-     * @type { Rect } 
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -553,7 +561,7 @@ declare namespace window {
     /**
      * Rectangle on the right of the screen
      *
-     * @type { Rect } 
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -562,7 +570,7 @@ declare namespace window {
     /**
      * Rectangle on the bottom of the screen
      *
-     * @type { Rect } 
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -588,14 +596,14 @@ declare namespace window {
     /**
      * The width of the window.
      *
-     * @type { number } 
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The width of the window.
      *
-     * @type { number } 
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -611,7 +619,7 @@ declare namespace window {
     /**
      * The height of the window.
      *
-     * @type { number } 
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -638,14 +646,14 @@ declare namespace window {
     /**
      * The position and size of the window
      *
-     * @type { Rect } 
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The position and size of the window
      *
-     * @type { Rect } 
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -655,7 +663,7 @@ declare namespace window {
     /**
      * Window type
      *
-     * @type { WindowType } 
+     * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -664,7 +672,7 @@ declare namespace window {
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
      *
-     * @type { boolean } 
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
@@ -673,7 +681,7 @@ declare namespace window {
     /**
      * Whether the window layout is in full screen mode(whether the window is immersive). The default value is false.
      *
-     * @type { boolean } 
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -682,7 +690,7 @@ declare namespace window {
     /**
      * Whether the window can gain focus. The default value is true
      *
-     * @type { boolean } 
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -691,7 +699,7 @@ declare namespace window {
     /**
      * Whether the window is touchable. The default value is false
      *
-     * @type { boolean } 
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -706,7 +714,7 @@ declare namespace window {
     /**
      * Brightness value of window.
      *
-     * @type { number } 
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -716,7 +724,7 @@ declare namespace window {
     /**
      * The dimbehind value of window.
      *
-     * @type { number } 
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
@@ -732,7 +740,7 @@ declare namespace window {
     /**
      * Whether keep screen on.
      *
-     * @type { boolean } 
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1701,12 +1709,27 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 10
    */
+  /**
+   * Enum for window callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 11
+   */
   enum WindowEventType {
     /**
      * The value of window event is window show
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
+     */
+    /**
+     * The value of window event is window show
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     WINDOW_SHOWN = 1,
     /**
@@ -1715,6 +1738,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
+    /**
+     * The value of window event is window active
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     WINDOW_ACTIVE = 2,
     /**
      * The value of window event is window inactive
@@ -1722,12 +1752,26 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
+    /**
+     * The value of window event is window inactive
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     WINDOW_INACTIVE = 3,
     /**
      * The value of window event is window hide
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
+     */
+    /**
+     * The value of window event is window hide
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     WINDOW_HIDDEN = 4
   }
@@ -2910,7 +2954,7 @@ declare namespace window {
     /**
      * Unregister the callback of dialogTargetTouch
      *
-     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', 
+     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch',
      *  indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2928,7 +2972,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
+    /**
+     * Register the callback of windowEvent
+     *
+     * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { Callback<WindowEventType> } callback - the callback of window event
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+
     /**
      * Unregister the callback of windowEvent
      *
@@ -2937,6 +2992,16 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
+     */
+    /**
+     * Unregister the callback of windowEvent
+     *
+     * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { Callback<WindowEventType> } callback - the callback of window event
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
@@ -3029,7 +3094,7 @@ declare namespace window {
     /**
      * Whether the window supports thr wide gamut setting.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. 
+     * @returns { Promise<boolean> } Promise used to return the result.
      *  The value true means that the wide-gamut color space is supported, and false means the opposite.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
