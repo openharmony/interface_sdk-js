@@ -483,7 +483,6 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
 }

@@ -567,9 +567,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
-   * @form
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
 }
