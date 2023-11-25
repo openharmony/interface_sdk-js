@@ -59,7 +59,15 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
-    PROFILE_PAN_NETWORK = 7
+    PROFILE_PAN_NETWORK = 7,
+
+    /**
+     * PBAP profile.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    PROFILE_PBAP_PSE = 9
   }
 
   /**
@@ -150,7 +158,15 @@ declare namespace constant {
      * @systemapi
      * @since 10
      */
-    PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB'
+    PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB',
+    /**
+     * PBAP Profile: PSE
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    PROFILE_UUID_PBAP_PSE = '0000112f-0000-1000-8000-00805F9B34FB'
   }
 
   /**
@@ -897,6 +913,41 @@ declare namespace constant {
      * @since 10
      */
     HEALTH_PERSONAL_MOBILITY_DEVICE = 0x093C
+  }
+
+  /**
+   * Enum for the PBAP or MAP access authorization.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 11
+   */
+  export enum AccessAuthorization {
+    /**
+     * Authorization unknown.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    UNKNOWN = 0,
+    /**
+     * Allow access.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    ALLOWED = 1,
+    /**
+     * Access rejected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    REJECTED = 2
   }
 }
 
