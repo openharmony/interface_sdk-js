@@ -158,7 +158,7 @@ declare namespace dialogSession {
      * @systemapi
      * @since 11
      */
-    parameters?: Record<string, Object>
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -215,7 +215,7 @@ declare namespace dialogSession {
    *
    * @param { string } dialogSessionId - Send Result by dialog session id.
    * @param { Want } targetWant - The selection target ability to start.
-   * @param { number } resultCode - allowed or disallowed to start target ability.
+   * @param { boolean } isAllowed - allowed or disallowed to start target ability.
    * @returns { Promise<void> } The promise returned by the sendDialogResult.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -228,14 +228,14 @@ declare namespace dialogSession {
    * @systemapi
    * @since 11
    */
-  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: IsAllowedType): Promise<void>;
+  function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
   /**
    * Send the selection result of dialog.
    *
    * @param { string } dialogSessionId - Send Result by dialog session id.
    * @param { Want } targetWant - The selection target ability to start.
-   * @param { number } resultCode - allowed or disallowed to start target ability.
+   * @param { boolean } isAllowed - allowed or disallowed to start target ability.
    * @param { AsyncCallback<void> } callback - The callback of sendDialogResult.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -248,7 +248,7 @@ declare namespace dialogSession {
    * @systemapi
    * @since 11
    */
-  function sendDialogResult(dialogSessionId: string, targetWant: Want, resultCode: IsAllowedType, callback: AsyncCallback<void>): void;
+  function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
 }
 
 export default dialogSession;
