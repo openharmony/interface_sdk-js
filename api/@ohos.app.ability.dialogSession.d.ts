@@ -162,37 +162,6 @@ declare namespace dialogSession {
   }
 
   /**
-   * Indicates whether creating dialog is allowed.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @systemapi
-   * @since 11
-   */
-  export enum IsAllowedType {
-    /**
-     * Disallowed to create dialog.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @systemapi
-     * @since 11
-     */
-    DISALLOWED = 0,
-
-    /**
-     * Allowed to create dialog.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @systemapi
-     * @since 11
-     */
-    ALLOWED = 1,
-  }
-
-  /**
    * Query the session info of dialog.
    *
    * @param { string } dialogSessionId - Query information by dialog session id.
