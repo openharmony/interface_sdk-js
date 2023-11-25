@@ -60,14 +60,6 @@ declare namespace constant {
      * @since 10
      */
     PROFILE_PAN_NETWORK = 7,
-
-    /**
-     * PBAP profile.
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
-     */
-    PROFILE_PBAP_PSE = 9
   }
 
   /**
@@ -158,15 +150,7 @@ declare namespace constant {
      * @systemapi
      * @since 10
      */
-    PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB',
-    /**
-     * PBAP Profile: PSE
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 11
-     */
-    PROFILE_UUID_PBAP_PSE = '0000112f-0000-1000-8000-00805F9B34FB'
+    PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB'
   }
 
   /**
