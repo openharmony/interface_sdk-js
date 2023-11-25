@@ -698,6 +698,39 @@ declare namespace appManager {
   function getRunningProcessInfoByBundleName(bundleName: string, userId: number): Promise<Array<ProcessInformation>>;
 
   /**
+   * Check whether the bundle is running.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { string } bundleName - Indicates the bundle name of the bundle.
+   * @returns { Promise<boolean> } Returns the bundle running result. The result is true if running, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function isApplicationRunning(bundleName: string): Promise<boolean>;
+
+  /**
+   * Check whether the bundle is running.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { string } bundleName - Indicates the bundle name of the bundle.
+   * @param { AsyncCallback<boolean> } callback - The callback of checking the bundle running result.
+   *                                              The result is true if running, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
+
+  /**
    * The ability or extension state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -63,7 +63,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean>;
+  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array;
 
   /**
    * Indicates the maximum length of a key (80 characters).

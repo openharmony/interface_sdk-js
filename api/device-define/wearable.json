@@ -133,6 +133,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
+    "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.KVStore.Core",
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
