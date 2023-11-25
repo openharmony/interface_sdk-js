@@ -4110,6 +4110,29 @@ declare namespace window {
     PAUSED
   }
   /**
+   * Options for subwindow creation
+   * 
+   * @interface SubWindowOptions
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 11
+   */
+  interface SubWindowOptions {
+    /**
+     * Indicates subwindow title
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    title: string;
+    /**
+     * Indicates decor of subwindow
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    decorEnable: boolean;
+  }
+  /**
    * WindowStage
    *
    * @interface WindowStage
@@ -4255,6 +4278,34 @@ declare namespace window {
      * @since 10
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name window name of sub window
+     * @param { SubWindowOptions } options options of sub window creation
+     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @since 11
+     */
+    createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name window name of sub window
+     * @param { SubWindowOptions } options options of sub window creation
+     * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @since 11
+     */
+    createSubWindowWithOptions(name: string, options: SubWindowOptions, callback: AsyncCallback<Window>): void;
     /**
      * Get sub window of the stage.
      *
