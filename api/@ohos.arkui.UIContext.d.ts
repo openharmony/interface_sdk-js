@@ -869,7 +869,7 @@ export class PromptAction {
    * Displays the menu.
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -880,7 +880,7 @@ export class PromptAction {
    * Displays the menu.
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -888,7 +888,7 @@ export class PromptAction {
    * @atomicservice
    * @since 11
    */
-  showActionMenu(options: promptAction.ActionMenuOptions, callback: promptAction.ActionMenuSuccessResponse): void;
+  showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
 
   /**
    * Displays the menu.
