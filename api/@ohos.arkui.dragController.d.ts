@@ -60,13 +60,13 @@ declare namespace dragController {
     extraParams?: string;
   }
 
-/**
- * Defines the animation options for drag preview.
- * 
- * @interface AnimationOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
+  /**
+   * Defines the animation options for drag preview.
+   * 
+   * @interface AnimationOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   interface AnimationOptions {
     /**
      * Animation duration, in ms.
@@ -89,24 +89,23 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-    export class DragPreview {
-      /**
-       * change foreground color of preview
-       * @param { ResourceColor } color - color value
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-       * @since 11
-       */
-      setForegroundColor(color: ResourceColor): void;
-  
-      /**
-       * update preview style with animation
-       * @param { AnimationOptions } options - animation options
-       * @param { function } handler - change style functions
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-       * @since 11
-       */
-      animate(options: AnimationOptions, handler: () =>void): void;
-    }
+  export class DragPreview {
+    /**
+     * change foreground color of preview
+     * @param { ResourceColor } color - color value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    setForegroundColor(color: ResourceColor): void;
+    /**
+     * update preview style with animation
+     * @param { AnimationOptions } options - animation options
+     * @param { function } handler - change style functions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    animate(options: AnimationOptions, handler: () =>void): void;
+  }
 
   /**
    * Execute a drag event.
