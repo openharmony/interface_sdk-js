@@ -4285,9 +4285,10 @@ declare namespace window {
      * @param { SubWindowOptions } options options of sub window creation
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @since 11
      */
@@ -4299,9 +4300,10 @@ declare namespace window {
      * @param { SubWindowOptions } options options of sub window creation
      * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @since 11
      */
