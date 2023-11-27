@@ -19,8 +19,10 @@ import { NotificationActionButton as _NotificationActionButton } from './notific
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
 import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
+import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
+import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
 import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
 import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
 import { NotificationButton as _NotificationButton } from './notification/notificationContent';
@@ -2621,6 +2623,15 @@ declare namespace notificationManager {
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
   /**
+   * Describes a live view notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type NotificationLiveViewContent = _NotificationLiveViewContent;
+
+  /**
    * Describes a multi-line text notification.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -2701,6 +2712,15 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationSlot = _NotificationSlot;
+
+  /**
+   * Describes live view notification option type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type LiveViewStatus = _LiveViewStatus;
 
   /**
    * Provides sorting information about an active notification.
