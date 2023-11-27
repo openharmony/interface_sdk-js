@@ -4113,21 +4113,21 @@ declare namespace window {
    * Options for subwindow creation
    * 
    * @interface SubWindowOptions
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
   interface SubWindowOptions {
     /**
      * Indicates subwindow title
      * 
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     title: string;
     /**
      * Indicates decor of subwindow
      * 
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     decorEnable: boolean;
