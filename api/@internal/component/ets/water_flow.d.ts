@@ -246,6 +246,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   nestedScroll(value: NestedScrollOptions): WaterFlowAttribute;

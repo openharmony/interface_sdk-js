@@ -472,6 +472,7 @@ declare enum Color {
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum ColoringStrategy {
@@ -8050,6 +8051,7 @@ declare enum ImageSpanAlignment {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum ObscuredReasons {
@@ -8064,6 +8066,7 @@ declare enum ObscuredReasons {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   PLACEHOLDER = 0,
@@ -8082,6 +8085,7 @@ declare enum ObscuredReasons {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum TextContentStyle {
@@ -8096,6 +8100,7 @@ declare enum TextContentStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   DEFAULT,
@@ -8111,6 +8116,7 @@ declare enum TextContentStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   INLINE
@@ -8273,6 +8279,7 @@ declare enum XComponentType {
  * @enum { number } NestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum NestedScrollMode {
@@ -8287,6 +8294,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   SELF_ONLY,
@@ -8302,6 +8310,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   SELF_FIRST,
@@ -8317,6 +8326,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   PARENT_FIRST,
@@ -8332,6 +8342,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   PARALLEL,
@@ -8876,4 +8887,4 @@ declare enum IlluminatedType {
    * @since 11
    */
   BLOOM_BORDER_CONTENT = 5
-}
+} 
