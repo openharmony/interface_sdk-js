@@ -180,6 +180,42 @@ declare namespace restrictions {
    * @since 10
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
+  
+    /**
+   * Disallows device microphone capability.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } isDisallowed - true if the microphone capability is disallowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function disallowMicrophone(admin: Want, isDisallowed: boolean): void;
+
+  /**
+   * Queries device microphone capablity is disallowed or allowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the microphone capability is disallowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function isMicrophoneDisallowed(admin: Want): boolean;
 }
 
 export default restrictions;
