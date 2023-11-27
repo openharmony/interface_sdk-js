@@ -417,6 +417,7 @@ luma
 lushort
 lux
 mah
+map
 mcc
 md5
 mdns
@@ -518,6 +519,7 @@ participating
 passpoint
 pastedata
 patchlevel
+pbap
 pbo
 pda
 pdu
