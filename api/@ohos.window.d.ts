@@ -2883,6 +2883,34 @@ declare namespace window {
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
+     * Window visibility change callback on.
+     *
+     * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
+     * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    on(type: 'windowVisibilityChange', callback: Callback<boolean>): void;
+
+    /**
+     * Window visibility change callback off.
+     *
+     * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
+     * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
+
+    /**
      * Register the callback of screenshot, only the focused window called back
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
