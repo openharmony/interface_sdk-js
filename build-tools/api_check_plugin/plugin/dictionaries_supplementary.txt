@@ -219,6 +219,7 @@ egid
 ehrpd
 ejectclosecd
 emption
+emphasized
 encapsulates
 encompassed
 encrypts
