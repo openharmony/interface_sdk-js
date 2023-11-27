@@ -543,6 +543,15 @@ declare enum BreakpointsReference {
    * @since 10
    * @form
    */
+  /**
+   * Respond to breakpoint changes according to window width
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   WindowSize,
 
   /**
@@ -558,6 +567,15 @@ declare enum BreakpointsReference {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Respond to breakpoint changes according to component width
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   ComponentSize,
@@ -606,6 +624,15 @@ declare enum GridRowDirection {
    * @since 10
    * @form
    */
+  /**
+   * The elements in the grid component are arranged in rows
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Row,
 
   /**
@@ -621,6 +648,15 @@ declare enum GridRowDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The elements in the grid component are arranged in reverse order of rows
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   RowReverse,
