@@ -15,6 +15,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import commonType from '@ohos.data.commonType';
 
 /**
  * Provides interfaces to sync distributed object.
@@ -24,6 +25,61 @@ import type Context from './application/BaseContext';
  * @since 8
  */
 declare namespace distributedDataObject {
+  /**
+   * The information about the database bound to the asset.
+   *
+   * @interface BindInfo
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  interface BindInfo {
+    /**
+     * The name of store where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    storeName: string;
+
+    /**
+     * The name of table where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    tableName: string;
+
+    /**
+     * The Primary key of the rdb table where the asset resides.
+     *
+     * @type { commonType.ValuesBucket }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    primaryKey: commonType.ValuesBucket;
+
+    /**
+     * The field(column) name of the rdb table where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    field: string;
+
+    /**
+     * Name of the asset to be bound. When the column type is Assets, this field refers to the asset name of
+     * one of the assets.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    assetName: string;
+  }
+
   /**
    * Create distributed object.
    *
@@ -395,6 +451,32 @@ declare namespace distributedDataObject {
      * @since 9
      */
     revokeSave(): Promise<RevokeSaveSuccessResponse>;
+
+    /**
+     * Bind an Asset of a distributed object to an asset in rdb that points to the same asset file, which means that
+     * both assets have the same uri.
+     * @param { string } assetKey - Indicates the key of the asset type in Object.
+     * @param { BindInfo } bindInfo - Indicates the information of the asset in RelationalStore.
+     * @param { AsyncCallback<void> } callback - The callback of bindAssetStore.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<void>): void;
+
+    /**
+     * Bind an Asset of a distributed object to an asset in rdb that points to the same asset file, which means that
+     * both assets have the same uri.
+     * @param { string } assetKey - Indicates the key of the asset type in Object.
+     * @param { BindInfo } bindInfo - Indicates the information of the asset in RelationalStore.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>;
   }
 }
 
