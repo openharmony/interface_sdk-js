@@ -276,6 +276,7 @@ hankaku
 hapmodule
 haps
 haptic
+haptics
 hce
 headed
 headersreceive
