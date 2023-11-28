@@ -144,7 +144,7 @@ export interface NotificationSlot {
   readonly enabled?: boolean;
 
   /**
-   * Read-only the prompt entry information corresponding to the current notification.
+   * Obtains the notification reminder mode of the current notification entry.
    *
    * @type { ?number }
    * @readonly
@@ -152,5 +152,5 @@ export interface NotificationSlot {
    * @systemapi
    * @since 11
    */
-  readonly reminderFlags?: number;
+  readonly reminderMode?: number;
 }
