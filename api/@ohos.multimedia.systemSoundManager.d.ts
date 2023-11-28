@@ -43,7 +43,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.RingtoneType.RINGTONE_TYPE_SIM_CARD_0
+     * @useinstead systemSoundManager.RingtoneType#RINGTONE_TYPE_SIM_CARD_0
      */
     RINGTONE_TYPE_DEFAULT = 0,
 
@@ -61,7 +61,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.RingtoneType.RINGTONE_TYPE_SIM_CARD_1
+     * @useinstead systemSoundManager.RingtoneType#RINGTONE_TYPE_SIM_CARD_1
      */
     RINGTONE_TYPE_MULTISIM = 1,
 
@@ -134,7 +134,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.SystemSoundManager.setRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager#setRingtoneUri
      */
     setSystemRingtoneUri(context: Context, uri: string, type: RingtoneType, callback: AsyncCallback<void>): void;
 
@@ -148,7 +148,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.SystemSoundManager.setRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager#setRingtoneUri
      */
     setSystemRingtoneUri(context: Context, uri: string, type: RingtoneType): Promise<void>;
 
@@ -176,7 +176,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.SystemSoundManager.getRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager#getRingtoneUri
      */
     getSystemRingtoneUri(context: Context, type: RingtoneType, callback: AsyncCallback<string>): void;
 
@@ -189,7 +189,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.SystemSoundManager.getRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager#getRingtoneUri
      */
     getSystemRingtoneUri(context: Context, type: RingtoneType): Promise<string>;
 
@@ -216,7 +216,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.SystemSoundManager.getRingtonePlayer
+     * @useinstead systemSoundManager.SystemSoundManager#getRingtonePlayer
      */
     getSystemRingtonePlayer(context: Context, type: RingtoneType, callback: AsyncCallback<RingtonePlayer>): void;
 
@@ -229,7 +229,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10
      * @deprecated since 11
-     * @useinstead ohos.multimedia.systemSoundManager.SystemSoundManager.getRingtonePlayer
+     * @useinstead systemSoundManager.SystemSoundManager#getRingtonePlayer
      */
     getSystemRingtonePlayer(context: Context, type: RingtoneType): Promise<RingtonePlayer>;
 

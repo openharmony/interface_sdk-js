@@ -92,6 +92,7 @@ export interface SystemTonePlayer {
 export interface SystemToneOptions {
   /**
    * Mute audio.
+   * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11
@@ -100,6 +101,7 @@ export interface SystemToneOptions {
 
   /**
    * Mute haptics.
+   * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11
