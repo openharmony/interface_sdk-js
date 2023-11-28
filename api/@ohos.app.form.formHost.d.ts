@@ -833,5 +833,87 @@ declare namespace formHost {
    * @since 10
    */
   function acquireFormData(formId: string): Promise<{ [key: string]: Object }>;
+
+  /**
+   * Notify the form framework to set a router proxy for the specified cards.
+   * <p>Once a card sets up a router proxy, the form framework will no longer invoke its onRouter callback,
+   * and FMS will not trigger the actual jump.</p>
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the IDs of the forms that requires setting up a router proxy.
+   * @param { Callback<Want> } proxy - Indicates the router proxy to be set up.
+   * @param { AsyncCallback<void> } callback - The callback of setRouterProxy.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>, callback: AsyncCallback<void>): void;
+
+   /**
+    * Notify the form framework to set a router proxy for the specified cards.
+    * <p>Once a card sets up a router proxy, the form framework will no longer invoke its onRouter callback,
+    * and FMS will not trigger the actual jump.</p>
+    *
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires setting up a router proxy.
+    * @param { Callback<Want> } proxy - Indicates the router proxy to be set up.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 11
+    */
+  function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>): Promise<void>;
+
+   /**
+    * Notify the form framework to clear the router proxy set for the specified cards.
+    *
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires clearing of router proxy.
+    * @param { AsyncCallback<void> } callback - The callback of clearRouterProxy.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 11
+    */
+  function clearRouterProxy(formIds: Array<string>, callback: AsyncCallback<void>): void;
+
+   /**
+    * Notify the form framework to clear the router proxy set for the specified cards.
+    *
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires clearing of router proxy.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 11
+    */
+  function clearRouterProxy(formIds: Array<string>): Promise<void>;
 }
 export default formHost;

@@ -50,6 +50,7 @@ declare interface TimePickerResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   hour: number;
@@ -75,6 +76,7 @@ declare interface TimePickerResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   minute: number;

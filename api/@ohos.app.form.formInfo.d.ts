@@ -915,7 +915,20 @@ declare namespace formInfo {
      * @atomicservice
      * @since 11
      */
-    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize'
+    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize',
+
+    /**
+     * Indicates the key specifying the form rendering mode, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_RENDERING_MODE_KEY: FormRenderingMode.SINGLE_COLOR
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 11
+     */
+    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode'
   }
 
   /**

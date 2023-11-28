@@ -657,6 +657,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   customKeyboard(value: CustomBuilder): SearchAttribute;

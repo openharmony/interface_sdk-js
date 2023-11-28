@@ -257,6 +257,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    * @form
    */

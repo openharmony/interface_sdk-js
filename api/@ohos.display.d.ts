@@ -754,6 +754,13 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Display resolution.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     densityDPI: number;
 
     /**
@@ -771,6 +778,13 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     densityPixels: number;
 
     /**
@@ -778,6 +792,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Text scale density of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     scaledDensity: number;
 

@@ -1442,6 +1442,16 @@ declare namespace image {
      * @since 10
      */
     fitDensity?: number;
+
+    /**
+     * Color space of the image pixel map.
+     *
+     * @type { ?colorSpaceManager.ColorSpaceManager }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
   }
 
   /**
@@ -2606,6 +2616,10 @@ declare namespace image {
 
     /**
      * Set color space of pixel map.
+     * 
+     * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
+     * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
+     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
      * @throws { BusinessError } 62980111 - If the operation invalid.
@@ -2615,7 +2629,43 @@ declare namespace image {
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
+     /**
+     * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a callback to return the operation result.
+     * 
+     * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
+     * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
+     * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
+     * @throws { BusinessError } 62980108 - If the color space converted failed.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
+
     /**
+     * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a promise to return the result.
+     * 
+     * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
+     * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
+     * @throws { BusinessError } 62980108 - If the color space converted failed.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
+
+     /**
      * Releases this PixelMap object. This method uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.

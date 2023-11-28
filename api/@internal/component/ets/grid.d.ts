@@ -322,13 +322,13 @@ declare interface ComputedBarAttribute {
 /**
  * Defines the grid attribute functions.
  *
- * @extends CommonMethod<GridAttribute>
+ * @extends ScrollableCommonMethod<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-declare class GridAttribute extends CommonMethod<GridAttribute> {
+declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * This parameter specifies the number of columns in the current grid layout.
    *
@@ -558,31 +558,31 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   onScrollBarUpdate(event: (index: number, offset: number) => ComputedBarAttribute): GridAttribute;
 
   /**
-   * Sets the status of the scroll bar.
+   * Called when the first item displayed in the grid changes.
    *
    * @param { function } event - of grid scroll,
-   * first is the index  of the starting sliding position, last is the index  of the ending sliding position.
+   * first is the index of the first item of the grid.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the status of the scroll bar.
+   * Called when the first or last item displayed in the grid changes.
    *
    * @param { function } event - of grid scroll,
-   * first is the index  of the starting sliding position, last is the index  of the ending sliding position,
-   * return void to no return value.
+   * first is the index of the first item displayed in the grid, 
+   * last is the index of the last item displayed in the grid.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sets the status of the scroll bar.
+   * Called when the first or last item displayed in the grid changes.
    *
    * @param { function } event - of grid scroll,
-   * first is the index  of the starting sliding position, last is the index  of the ending sliding position,
-   * return void to no return value.
+   * first is the index of the first item displayed in the grid, 
+   * last is the index of the last item displayed in the grid.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1059,7 +1059,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @since 11
    */
   friction(value: number | Resource): GridAttribute;
-  
+
   /**
    * Called When sliding the grid.
    *

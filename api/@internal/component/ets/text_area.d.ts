@@ -910,14 +910,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Define show counter of the text area.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Set showcounter of the text area.
+   * @param { InputCounterOptions } options - Set the percentage of counter.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  showCounter(value: boolean): TextAreaAttribute;
+  showCounter(value: boolean, options?: InputCounterOptions): TextAreaAttribute;
 
   /**
    * Define style of the text area.

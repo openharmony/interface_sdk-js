@@ -127,6 +127,7 @@
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
+    "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.KVStore.Core",
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
