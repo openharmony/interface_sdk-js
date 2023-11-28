@@ -15,78 +15,87 @@
 
 @Component
 export declare struct ExceptionPrompt {
-  /**
-   * number of ExceptionPrompt.
-   *
-   * @type number
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  Type: number;
-  /**
-   * HardwareStatus of ExceptionPrompt.
-   *
-   * @type boolean
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  HardwareStatus: boolean;
-  /**
-   * Icon of ExceptionPrompt.
-   *
-   * @type string
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  Icon: string;
-  /**
-   * TipContent of ExceptionPrompt.
-   *
-   * @type string
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  TipContent: string;
-  /**
-   * ContentText of ExceptionPrompt.
-   *
-   * @type string
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  ContentText: string;
-  /**
-   * ShowStatus of ExceptionPrompt.
-   *
-   * @type boolean
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  ThemeColorStatus: boolean;
-  /**
-   * ReconnectionFunction of ExceptionPrompt.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  ReconnectionFunction: () => void;
-  /**
-   * ConfigureNetworkFunction of ExceptionPrompt.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  ConfigureNetworkFunction: () => void;
+    /**
+     * number of ExceptionPrompt.
+     *
+     * @type number
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    Type: number;
+    /**
+     * HardwareStatus of ExceptionPrompt.
+     *
+     * @type boolean
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    HardwareStatus?: boolean;
+    /**
+     * Icon of ExceptionPrompt.
+     *
+     * @type string
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    Icon?: string;
+    /**
+     * TipContent of ExceptionPrompt.
+     *
+     * @type string
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    TipContent?: string;
+    /**
+     * ContentText of ExceptionPrompt.
+     *
+     * @type string
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    ContentText?: string;
+    /**
+     * ShowStatus of ExceptionPrompt.
+     *
+     * @type boolean
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    ShowStatus?: boolean;
+    /**
+     * ThemeColorStatus of ExceptionPrompt.
+     *
+     * @type boolean
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    ThemeColorStatus?: boolean;
+    /**
+     * ReconnectionFunction of ExceptionPrompt.
+     *
+     * @type { function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    ReconnectionFunction: () => void;
+    /**
+     * ConfigureNetworkFunction of ExceptionPrompt.
+     *
+     * @type { function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    ConfigureNetworkFunction: () => void;
 
-  build(): void;
+    build(): void;
 }
