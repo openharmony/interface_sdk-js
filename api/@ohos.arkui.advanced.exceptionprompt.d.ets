@@ -68,15 +68,6 @@ export declare struct ExceptionPrompt {
      * @crossplatform
      * @since 11
      */
-    ShowStatus?: boolean;
-    /**
-     * ThemeColorStatus of ExceptionPrompt.
-     *
-     * @type boolean
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 11
-     */
     ThemeColorStatus?: boolean;
     /**
      * ReconnectionFunction of ExceptionPrompt.
