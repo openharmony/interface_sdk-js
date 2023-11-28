@@ -101,7 +101,7 @@ declare namespace filePermission {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    INVALID_PATH = 2,
+    INVALID_PATH = 3,
   }
 
   /**
@@ -174,6 +174,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi Hide this for inner system use.
