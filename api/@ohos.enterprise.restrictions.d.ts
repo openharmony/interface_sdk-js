@@ -181,12 +181,12 @@ declare namespace restrictions {
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
   
-    /**
-   * Disallows device microphone capability.
+   /**
+   * Disallows the microphone of device.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { boolean } isDisallowed - true if the microphone capability is disallowed.
+   * @param { boolean } disallow - true if disallow the microphone of device, otherwise false.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -197,14 +197,14 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 11
    */
-  function disallowMicrophone(admin: Want, isDisallowed: boolean): void;
+  function disallowMicrophone(admin: Want, disallow: boolean): void;
 
   /**
-   * Queries device microphone capablity is disallowed or allowed.
+   * Queries whether the microphone of device is disallowed.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { boolean } true if the microphone capability is disallowed.
+   * @returns { boolean } true if the microphone of device is disallowed, otherwise false.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
