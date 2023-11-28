@@ -3564,6 +3564,62 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio stream device change reason.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 11
+   */
+  enum AudioStreamDeviceChangeReason {
+    /**
+     * Unknown.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_UNKNOWN = 0,
+    /**
+     * New device become available.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_NEW_DEVICE_BECOME_AVAILABLE = 1,
+    /**
+     * Old device become unavailable. Applications should consider to pause the audio playback when this reason is
+     * reported.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_OLD_DEVICE_BECOME_UNAVAILABLE = 2,
+    /**
+     * Overrode by user or system.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_OVERRODE = 3,
+  }
+  /**
+   * Audio stream device change info.
+   * @typedef AudioStreamDeviceChangeInfo
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 11
+   */
+  interface AudioStreamDeviceChangeInfo {
+    /**
+     * Audio device descriptors.
+     * @type {AudioDeviceDescriptors}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    devices: AudioDeviceDescriptors;
+    /**
+     * Audio stream device change reason.
+     * @type {AudioStreamDeviceChangeReason}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    changeReason: AudioStreamDeviceChangeReason;
+  }
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -4113,8 +4169,23 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
+     * @deprecated since 11
+     * @useinstead audio.AudioRenderer#event:'outputDeviceChangeWithInfo'
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
+     * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+     on(type: 'outputDeviceChangeWithInfo', callback: Callback<AudioStreamDeviceChangeInfo>): void;
+
     /**
      * Unsubscribes output device change event callback.
      * @param { 'outputDeviceChange' } type - Type of the event to listen for.
@@ -4123,8 +4194,21 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
+     * @deprecated since 11
+     * @useinstead audio.AudioRenderer#event:'outputDeviceChangeWithInfo'
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
   }
 
   /**
