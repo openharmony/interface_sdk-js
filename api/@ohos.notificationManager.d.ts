@@ -2009,6 +2009,7 @@ declare namespace notificationManager {
    */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
+
   /**
    * Unsubscribe the callback for check notifications.
    *
@@ -2190,6 +2191,7 @@ declare namespace notificationManager {
      */
     label?: string;
 
+    /**
      * The notification content type.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
