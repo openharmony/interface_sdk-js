@@ -77,4 +77,15 @@ export interface NotificationFlags {
    * @since 8
    */
   readonly vibrationEnabled?: NotificationFlagStatus;
+
+   /**
+   * Read-only the prompt entry information allowed by the current channel.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+   readonly reminderFlags?: number;
 }

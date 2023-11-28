@@ -142,4 +142,15 @@ export interface NotificationSlot {
    * @since 9
    */
   readonly enabled?: boolean;
+
+  /**
+   * Read-only the prompt entry information corresponding to the current notification.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  readonly reminderFlags?: number;
 }
