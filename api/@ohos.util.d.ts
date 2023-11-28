@@ -469,6 +469,15 @@ declare namespace util {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The TextDecoder interface represents a text decoder.
+   * The decoder takes the byte stream as the input and outputs the String string.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class TextEncoder {
     /**
      * Encoding format.
@@ -498,6 +507,14 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The textEncoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     constructor();
 
     /**
@@ -516,6 +533,16 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The textEncoder constructor.
+     *
+     * @param { string } encoding - The string for encoding format.
+     * @throws { BusinessError } 401 - The type of encoding must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     constructor(encoding?: string);
 
@@ -549,6 +576,17 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
+     *
+     * @param { string } input - The string to be encoded.
+     * @returns { Uint8Array } Returns the encoded text.
+     * @throws { BusinessError } 401 - The type of input must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     encodeInto(input?: string): Uint8Array;
 
@@ -2141,6 +2179,15 @@ declare namespace util {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
+   * u8 array using the Base64 encoding scheme.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class Base64Helper {
     /**
      * Constructor for creating base64 encoding and decoding
@@ -2154,6 +2201,14 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Constructor for creating base64 encoding and decoding
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     constructor();
 
@@ -2233,6 +2288,18 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
+     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @returns { Uint8Array } Return the decoded Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
