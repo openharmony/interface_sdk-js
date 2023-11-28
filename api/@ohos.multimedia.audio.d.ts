@@ -5212,7 +5212,7 @@ declare namespace audio {
      */
     CH_LAYOUT_7POINT1_WIDE_BACK = 0xFF,
     /**
-     * Channel Layout For ORDER2-ACN-N3D Higher Order Ambosinics(HOA), 9 channels in total
+     * Channel Layout For ORDER2-ACN-N3D Higher Order Ambisonics(HOA), 9 channels in total
      * Second order, ACN format, N3D
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11

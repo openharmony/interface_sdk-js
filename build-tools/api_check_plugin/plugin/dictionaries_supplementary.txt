@@ -26,8 +26,8 @@ alterase
 alternating
 altitudes
 amb
-ambosinic
-ambosinics
+ambisonic
+ambisonics
 amr
 animatable
 annually
