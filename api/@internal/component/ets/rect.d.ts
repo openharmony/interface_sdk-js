@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides an interface for drawing rectangles.
+ *
+ * @interface RectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface RectInterface {
   /**
    * Use new function to create Rect.
@@ -63,6 +73,17 @@ interface RectInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Use new function to create Rect.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   new (
@@ -110,6 +131,18 @@ interface RectInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when a rectangle is created.
+   *
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (
     value?:
       {
@@ -147,6 +180,15 @@ interface RectInterface {
  * @since 10
  * @form
  */
+/**
+ * rect attribute declaration.
+ *
+ * @extends CommonShapeMethod<RectAttribute>
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet width is set.
@@ -173,6 +215,17 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the fillet width is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   radiusWidth(value: number | string): RectAttribute;
@@ -204,6 +257,17 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the fillet height is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   radiusHeight(value: number | string): RectAttribute;
 
   /**
@@ -233,6 +297,17 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the fillet size is set.
+   *
+   * @param { number | string | Array<any> } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   radius(value: number | string | Array<any>): RectAttribute;
 }
 
@@ -249,6 +324,15 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Rect Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const Rect: RectInterface;
@@ -273,6 +357,13 @@ declare const RectInStance: RectAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const RectInstance: RectAttribute;
