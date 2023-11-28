@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
 /**
@@ -85,6 +86,26 @@ declare namespace dragInteraction {
    * @since 10
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
+
+  /**
+   * 获取拖拽对象的类型
+   *
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数, 接收拖拽对象的类型
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getSummary(callback: AsyncCallback<Array<string>>): void;
+
+  /**
+   * 获取拖拽对象的类型
+   *
+   * @returns { Promise<Array<string>> }
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @since 11
+   */
+  function getSummary(): Promise<Array<string>>;
 }
 
 export default dragInteraction;
