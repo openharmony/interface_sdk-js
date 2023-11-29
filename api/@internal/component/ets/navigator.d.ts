@@ -51,6 +51,14 @@ declare enum NavigationType {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Jump to the next page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Push,
 
   /**
@@ -66,6 +74,14 @@ declare enum NavigationType {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Return to the previous page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Back,
 
   /**
@@ -80,6 +96,14 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Replace page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Replace,
 }

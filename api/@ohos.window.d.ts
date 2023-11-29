@@ -212,7 +212,16 @@ declare namespace window {
      * @StageModelOnly
      * @since 11
      */
-    TYPE_SYSTEM_TOAST
+    TYPE_SYSTEM_TOAST,
+    /**
+     * Divider.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @StageModelOnly
+     * @since 11
+     */
+    TYPE_DIVIDER
   }
 
   /**

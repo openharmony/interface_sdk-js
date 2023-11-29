@@ -51,6 +51,14 @@ declare enum ScrollBarDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Vertical scrolling is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Vertical,
 
   /**
@@ -65,6 +73,14 @@ declare enum ScrollBarDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Horizontal scrolling is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Horizontal,
 }

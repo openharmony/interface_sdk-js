@@ -69,6 +69,15 @@ declare enum LoadingProgressStyle {
    * @since 10
    * @form
    */
+  /**
+   * Default style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Default,
 
   /**
@@ -92,6 +101,15 @@ declare enum LoadingProgressStyle {
    * @since 10
    * @form
    */
+  /**
+   * Announcement style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Circular,
 
   /**
@@ -113,6 +131,15 @@ declare enum LoadingProgressStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The style of the track.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Orbital,

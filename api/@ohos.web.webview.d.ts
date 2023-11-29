@@ -908,6 +908,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static fetchCookieSync(url: string): string;
@@ -921,6 +922,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     static fetchCookie(url: string): Promise<string>;
@@ -934,6 +936,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     static fetchCookie(url: string, callback: AsyncCallback<string>): void;
@@ -962,6 +965,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static configCookieSync(url: string, value: string): void;
@@ -977,6 +981,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     static configCookie(url: string, value: string): Promise<void>;
@@ -992,6 +997,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
@@ -1135,6 +1141,7 @@ declare namespace webview {
     /**
      * Remove all cookies.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static clearAllCookiesSync(): void;
@@ -1145,6 +1152,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     static clearAllCookies(): Promise<void>;
@@ -1155,6 +1163,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     static clearAllCookies(callback: AsyncCallback<void>): void;
@@ -1171,6 +1180,7 @@ declare namespace webview {
     /**
      * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static clearSessionCookieSync(): void;
@@ -1180,6 +1190,7 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static clearSessionCookie(): Promise<void>;
@@ -1190,6 +1201,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static clearSessionCookie(callback: AsyncCallback<void>): void;
@@ -3568,6 +3580,7 @@ declare namespace webview {
      * @param { number } timeout - Socket connection timeout.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static setConnectionTimeout(timeout: number): void;
@@ -3579,6 +3592,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     setDownloadDelegate(delegate: WebDownloadDelegate): void;
@@ -3591,6 +3605,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     startDownload(url: string): void;
@@ -3605,6 +3620,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     postUrl(url: string, postData: ArrayBuffer): void;
@@ -3614,12 +3630,14 @@ declare namespace webview {
    * Defines the state for download.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   enum WebDownloadState {
     /**
      * The web download is in progress.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     IN_PROGRESS = 0,
@@ -3627,6 +3645,7 @@ declare namespace webview {
     /**
      * The web download has been completed.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     COMPLETED,
@@ -3634,6 +3653,7 @@ declare namespace webview {
     /**
      * The web download was canceled.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     CANCELED,
@@ -3641,6 +3661,7 @@ declare namespace webview {
     /**
      * The web download was interrupted.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     INTERRUPTED,
@@ -3648,6 +3669,7 @@ declare namespace webview {
     /**
      * The web download is pending.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     PENDING,
@@ -3655,6 +3677,7 @@ declare namespace webview {
     /**
      * The web download has been paused.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     PAUSED,
@@ -3662,6 +3685,7 @@ declare namespace webview {
     /**
      * Unknown state.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     UNKNOWN,
@@ -3671,12 +3695,14 @@ declare namespace webview {
    * Defines the error code for download.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   enum WebDownloadErrorCode {
     /**
      * Unknown error.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     ERROR_UNKNOWN = 0,
@@ -3684,6 +3710,7 @@ declare namespace webview {
     /**
      * Generic file operation failure.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_FAILED = 1,
@@ -3691,6 +3718,7 @@ declare namespace webview {
     /**
      * The file cannot be accessed due to certain restrictions.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_ACCESS_DENIED = 2,
@@ -3698,6 +3726,7 @@ declare namespace webview {
     /**
      * There is not enough disk space.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_NO_SPACE = 3,
@@ -3705,6 +3734,7 @@ declare namespace webview {
     /**
      * The file name is too long.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_NAME_TOO_LONG = 5,
@@ -3712,6 +3742,7 @@ declare namespace webview {
     /**
      * The file is too large.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_TOO_LARGE = 6,
@@ -3719,6 +3750,7 @@ declare namespace webview {
     /**
      * Some temporary problems occurred, such as not enough memory, files in use, and too many files open at the same time.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_TRANSIENT_ERROR = 10,
@@ -3726,6 +3758,7 @@ declare namespace webview {
     /**
      * The file is blocked from accessing because of some local policy.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     FILE_BLOCKED = 11,
@@ -3733,6 +3766,7 @@ declare namespace webview {
     /**
      * When trying to resume the download, Found that the file is not long enough, maybe the file no longer exists.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */ 
     FILE_TOO_SHORT = 13,
@@ -3740,6 +3774,7 @@ declare namespace webview {
     /**
      * Hash mismatch.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */ 
     FILE_HASH_MISMATCH = 14,
@@ -3747,6 +3782,7 @@ declare namespace webview {
     /**
      * The file already exists.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */ 
     FILE_SAME_AS_SOURCE = 15,
@@ -3754,6 +3790,7 @@ declare namespace webview {
     /**
      * Generic network error.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     NETWORK_FAILED = 20,
@@ -3761,6 +3798,7 @@ declare namespace webview {
     /**
      * The network operation timed out.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     NETWORK_TIMEOUT = 21,
@@ -3768,6 +3806,7 @@ declare namespace webview {
     /**
      * The network was disconnected.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     NETWORK_DISCONNECTED = 22,
@@ -3775,6 +3814,7 @@ declare namespace webview {
     /**
      * Server down.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     NETWORK_SERVER_DOWN = 23,
@@ -3782,6 +3822,7 @@ declare namespace webview {
     /**
      * Invalid network requests，may redirect to unsupported scheme or an invalid URL.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     NETWORK_INVALID_REQUEST = 24,
@@ -3789,6 +3830,7 @@ declare namespace webview {
     /**
      * The server returned a generic error.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_FAILED = 30,
@@ -3796,6 +3838,7 @@ declare namespace webview {
     /**
      * The server does not support range requests.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_NO_RANGE = 31,
@@ -3803,6 +3846,7 @@ declare namespace webview {
     /**
      * The server does not have the requested data.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_BAD_CONTENT = 33,
@@ -3810,6 +3854,7 @@ declare namespace webview {
     /**
      * The server does not allow the file to be downloaded.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_UNAUTHORIZED = 34,
@@ -3817,6 +3862,7 @@ declare namespace webview {
     /**
      * Server certificate error.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_CERT_PROBLEM = 35,
@@ -3824,6 +3870,7 @@ declare namespace webview {
     /**
      * Server access forbidden.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_FORBIDDEN = 36,
@@ -3831,6 +3878,7 @@ declare namespace webview {
     /**
      * Server unreachable.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_UNREACHABLE = 37,
@@ -3838,6 +3886,7 @@ declare namespace webview {
     /**
      * The received data does not match content-length.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_CONTENT_LENGTH_MISMATCH = 38,
@@ -3845,6 +3894,7 @@ declare namespace webview {
     /**
      * An unexpected cross-origin redirect happened.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SERVER_CROSS_ORIGIN_REDIRECT = 39,
@@ -3852,6 +3902,7 @@ declare namespace webview {
     /**
      * User cancel.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     USER_CANCELED = 40,
@@ -3859,6 +3910,7 @@ declare namespace webview {
     /**
      * User shut down the application.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     USER_SHUTDOWN = 41,
@@ -3866,6 +3918,7 @@ declare namespace webview {
     /**
      * Application crash.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     CRASH = 50,
@@ -3874,6 +3927,7 @@ declare namespace webview {
   /**
    * Represents a download task, You can use this object to operate the corresponding download task.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   class WebDownloadItem {
@@ -3881,6 +3935,7 @@ declare namespace webview {
     * Get guid.
     * @returns { string } - Returns the download's guid.
     * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
     * @since 11
     */
     getGuid(): string;
@@ -3889,6 +3944,7 @@ declare namespace webview {
      * Get current speed, in bytes per second.
      * @returns { number } - Returns the current download speed.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getCurrentSpeed(): number;
@@ -3897,6 +3953,7 @@ declare namespace webview {
      * Get percent complete.
      * @returns { number } - Returns -1 if progress is unknown. 100 if the download is already complete.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getPercentComplete(): number;
@@ -3905,6 +3962,7 @@ declare namespace webview {
      * Get total bytes.
      * @returns { number } - Returns the total bytes received, -1 if the total size is unknown.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getTotalBytes(): number;
@@ -3913,6 +3971,7 @@ declare namespace webview {
      * Get state of the web download.
      * @returns { WebDownloadState } - Returns the current download state.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getState(): WebDownloadState;
@@ -3921,6 +3980,7 @@ declare namespace webview {
      * Get last error code of the web download.
      * @returns { WebDownloadErrorCode } - Returns the last error code.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getLastErrorCode(): WebDownloadErrorCode;
@@ -3929,6 +3989,7 @@ declare namespace webview {
      * Get http method of the web download request.
      * @returns { string } - Returns the http request method.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getMethod(): string;
@@ -3937,6 +3998,7 @@ declare namespace webview {
      * Get mime type of the web download.
      * @returns { string } - Returns the mimetype.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getMimeType(): string;
@@ -3945,6 +4007,7 @@ declare namespace webview {
      * Get url of the web download request.
      * @returns { string } - Returns the url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getUrl(): string;
@@ -3953,6 +4016,7 @@ declare namespace webview {
      * Get suggested file name of the web download request.
      * @returns { string } - Returns the suggested file name.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getSuggestedFileName(): string;
@@ -3963,6 +4027,7 @@ declare namespace webview {
      * @param { string } downloadPath - The content will be downloaded to this file.
 	   * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     start(downloadPath: string): void;
@@ -3970,6 +4035,7 @@ declare namespace webview {
     /**
      * Cancel the web download.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     cancel(): void;
@@ -3978,6 +4044,7 @@ declare namespace webview {
      * Pause the web download.
      * @throws { BusinessError } 17100019 - The download has not been started yet.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     pause(): void;
@@ -3988,6 +4055,7 @@ declare namespace webview {
      * WebDownloadItem.resume is only used to resume the currently paused download.
      * @throws { BusinessError } 17100016 - The download is not paused.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     resume(): void;
@@ -3996,6 +4064,7 @@ declare namespace webview {
      * Get received bytes.
      * @returns { number } - Returns the received bytes.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getReceivedBytes(): number;
@@ -4004,6 +4073,7 @@ declare namespace webview {
      * Get full path of the web download.
      * @returns { string } - Returns the full path of the download.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getFullPath(): string;
@@ -4012,6 +4082,7 @@ declare namespace webview {
      * Serialize web download to typed array.
      * @returns { Uint8Array } - Returns the serialized data.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     serialize(): Uint8Array;
@@ -4022,6 +4093,7 @@ declare namespace webview {
      * @returns { WebDownloadItem } - Deserialize the serialized data into a WebDownloadItem.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static deserialize(serializedData: Uint8Array): WebDownloadItem;
@@ -4030,6 +4102,7 @@ declare namespace webview {
   /**
    * The download state is notified through this delegate.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   class WebDownloadDelegate {
@@ -4037,6 +4110,7 @@ declare namespace webview {
      * Callback will be triggered before web download start.
      * @param { Callback<WebDownloadItem> } callback - The callback of download will be start.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     onBeforeDownload(callback: Callback<WebDownloadItem>): void;
@@ -4045,6 +4119,7 @@ declare namespace webview {
      * Callback will be triggered when web download is processing.
      * @param { Callback<WebDownloadItem> } callback - The callback of download did update.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
@@ -4053,6 +4128,7 @@ declare namespace webview {
      * Callback will be triggered when web download is completed.
      * @param { Callback<WebDownloadItem> } callback - The callback of download did finish.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     onDownloadFinish(callback: Callback<WebDownloadItem>): void;
@@ -4061,6 +4137,7 @@ declare namespace webview {
      * Callback will be triggered when web download is interrupted or canceled.
      * @param { Callback<WebDownloadItem> } callback - The callback of download did fail.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     onDownloadFailed(callback: Callback<WebDownloadItem>): void;
@@ -4069,6 +4146,7 @@ declare namespace webview {
   /**
    * You can trigger download manually through this interface, or resume failed or canceled downloads.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   class WebDownloadManager {
@@ -4076,6 +4154,7 @@ declare namespace webview {
      * Set a delegate used to receive the progress of the download triggered from WebDownloadManager.
      * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from WebDownloadManager.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static setDownloadDelegate(delegate: WebDownloadDelegate): void;
@@ -4085,6 +4164,7 @@ declare namespace webview {
      * @param { WebDownloadItem } webDownloadItem - Download that need to be resume.
      * @throws { BusinessError } 17100018 - No WebDownloadDelegate has been set yet.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     static resumeDownload(webDownloadItem: WebDownloadItem): void;
