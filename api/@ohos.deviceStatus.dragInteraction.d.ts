@@ -62,7 +62,7 @@ declare namespace dragInteraction {
     MSG_DRAG_STATE_CANCEL = 3,
   }
   /**
-   * 拖拽数据摘要
+   * Abstract of the dragged data.
    *
    * @interface summary
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -71,7 +71,7 @@ declare namespace dragInteraction {
    */
   interface summary {
     /**
-     * 拖拽对象类型
+     * Type of the dragged object.
      *
      * @type { string }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -81,7 +81,7 @@ declare namespace dragInteraction {
     udType: string;
 
     /**
-     * 拖拽对象数据长度
+     * Data length of the dragged object.
      *
      * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -117,9 +117,9 @@ declare namespace dragInteraction {
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
   /**
-   * 获取拖拽对象的摘要
+   * Obtains the abstract of a dragged object.
    *
-   * @returns { Array<summary> } 拖拽对象的数据摘要
+   * @returns { Array<summary> } Data abstract of the dragged object.
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
