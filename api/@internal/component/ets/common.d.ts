@@ -37,6 +37,26 @@ declare interface ComponentOptions {
 }
 
 /**
+ * Define the ratio of characters entered by the the percentage of InputCounterOptions.
+ *
+ * @interface InputCounterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface InputCounterOptions {
+  /**
+   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input 
+   * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  thresholdPercentage?: number;
+}
+
+/**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4054,6 +4074,43 @@ declare namespace focusControl {
 }
 
 /**
+ * Import the PointerStyle type object for setCursor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare type PointerStyle = import('../api/@ohos.multimodalInput.pointer').default.PointerStyle;
+
+/**
+ * CursorControl
+ *
+ * @namespace cursorControl
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare namespace cursorControl {
+
+  /**
+   * Change the mouse cursor style by param: 'PointerStyle'.
+   *
+   * @param { PointerStyle } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  function setCursor(value: PointerStyle): void;
+
+  /**
+   * Restore the default mouse cursor style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  function restoreDefault(): void;
+}
+
+/**
  * Defines the event target.
  *
  * @interface EventTarget
@@ -4873,6 +4930,26 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
  */
 declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
 
+
+/**
+ * Defines the options of blur
+ *
+ * @interface BlurOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface BlurOptions {
+  /**
+   * Fuzzy gray scale parameter.
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  grayscale: [number, number];
+}
+
 /**
  * Defines the options of blurStyle
  *
@@ -4943,6 +5020,93 @@ declare interface BlurStyleOptions {
    * @since 10
    */
   scale?: number;
+
+  /**
+   * Defines the options of blur
+   *
+   * @type { ?BlurOptions }
+   * @default { grayScale: [0,0] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  blurOptions?: BlurOptions;
+}
+
+/**
+ * Defines the options of BackgroundEffect
+ *
+ * @interface BackgroundEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface BackgroundEffectOptions {
+
+  /**
+   * Define the radius size of BackgroundEffect.The range of this value is [0, ∞)
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius: number;
+
+  /**
+   * Define the saturation of BackgroundEffect. Value range [0, ∞)
+   *
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  saturation?: number;
+
+  /**
+   * Define the brightness of BackgroundEffect. Value range [0, ∞)
+   * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  brightness?: number;
+
+  /**
+   * color the brightness of BackgroundEffect.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the adaptiveColor of BackgroundEffect.
+   *
+   * @type { ?AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  adaptiveColor?: AdaptiveColor;
+
+    /**
+   * Define the blurOptions of BackgroundEffect.
+   *
+   * @type { ?BlurOptions }
+   * @default { grayScale: [0,1] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  blurOptions?: BlurOptions;
 }
 
 /**
@@ -8968,6 +9132,47 @@ declare interface PopupOptions {
    * @since 11
    */
   offset?: Position
+
+  /**
+   * Set the background color of the popup.
+   *
+   * @type { ?(Color | string | Resource | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  popupColor?: Color | string | Resource | number;
+
+  /**
+   * Whether hide popup when click mask
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  autoCancel?: boolean;
+
+  /**
+   * Set the width of the popup.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  width?: Dimension;
+
+  /**
+   * The position of the sharp corner of popup.
+   *
+   * @type { ?ArrowPointPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowPointPosition?: ArrowPointPosition;
 }
 
 /**
@@ -9293,6 +9498,26 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   offset?: Position
+
+  /**
+   * Set the width of the popup.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  width?: Dimension;
+
+  /**
+   * The position of the sharp corner of popup.
+   *
+   * @type { ?ArrowPointPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowPointPosition?: ArrowPointPosition;
 }
 
 /**
@@ -9944,6 +10169,56 @@ declare interface AttributeModifier<T> {
    * @since 11
    */
   applyNormalAttribute(instance: T) : void;
+}
+
+/**
+ * Define the options of invert
+ *
+ * @interface InvertOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface InvertOptions {
+
+  /**
+   * Defines the low value of threshold
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  low: number;
+
+  /**
+  * Defines the high value of threshold
+  * 
+  * @type { number }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  */
+  high: number;
+
+  /**
+   * Defines the threshold
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  threshold: number;
+  
+  /**
+   *Defines the threshold range
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  thresholdRange: number;
 }
 
 /**
@@ -10635,6 +10910,18 @@ declare class CommonMethod<T> {
    * @form
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+   /**
+   * options:background effect options.
+   *
+   * @param { BackgroundEffectOptions } options - options indicates the effect options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundEffect(options: BackgroundEffectOptions): T;
+
 
   /**
    * Foreground blur style.
@@ -11552,7 +11839,8 @@ declare class CommonMethod<T> {
    * The larger the blurring radius, the more blurring the content.
    * If the value is 0, the content blurring effect is not blurring.
    *
-   * @param { number } value
+   * @param { number } value - value indicates radius of backdrop blur.
+   * @param { BlurOptions } options - options indicates blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11560,7 +11848,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  blur(value: number): T;
+  blur(value: number, options?: BlurOptions): T;
 
   /**
    * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
@@ -11885,7 +12173,7 @@ declare class CommonMethod<T> {
    * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
    * A value of 0% does not change the image. (Percentage)
    *
-   * @param { number } value
+   * @param { number | InvertOptions } value - value indicates the scale of the conversion or the options of invert.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11893,7 +12181,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  invert(value: number): T;
+  invert(value: number | InvertOptions): T;
 
   /**
    * Adds the hue rotation effect to the current component.
@@ -11990,7 +12278,8 @@ declare class CommonMethod<T> {
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
-   * @param { number } value
+   * @param { number } value - value indicates radius of backdrop blur.
+   * @param { BlurOptions } options - options indicates the backdrop blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11998,7 +12287,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backdropBlur(value: number): T;
+  backdropBlur(value: number, options?: BlurOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
@@ -15611,6 +15900,9 @@ declare interface MeasureResult extends SizeResult {
  
 }
 
+declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
+
 /**
  * Custom Component
  *
@@ -15951,6 +16243,26 @@ declare class CustomComponent extends CommonAttribute {
    * @since 11
    */
   pageTransition?(): void;
+
+  /**
+   * Get current UIContext
+   *
+   * @returns { UIContext } The UIContext that the custom component belongs to.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getUIContext?(): UIContext;
+
+  /**
+   * Queries the navigation destination information.
+   *
+   * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  queryNavDestinationInfo?(): NavDestinationInfo | undefined;
 }
 
 /**
@@ -16184,6 +16496,163 @@ declare abstract class TextContentControllerBase {
   getTextContentLineCount() : number;
 }
 
+/**
+ * CommonScrollableMethod
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
+  /**
+   * Scrollbar status.
+   *
+   * @param { BarState } barState - Scrollbar status.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBar(barState: BarState): T;
+
+  /**
+   * Color of the scrollbar.
+   *
+   * @param { Color | number | string } color - Color of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBarColor(color: Color | number | string): T;
+
+  /**
+   * Width of the scrollbar.
+   *
+   * @param { number | string } value  - Width of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBarWidth(value: number | string): T;
+
+  /**
+   * Edge scrolling effect.
+   *
+   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffectOptions } options - edge scrolling effect options. 
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+
+  /**
+   * Nested scrolling options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  nestedScroll(value: NestedScrollOptions): T;
+
+  /**
+   * Whether to support scroll gestures by finger or mouse.
+   *
+   * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  enableScrollInteraction(value: boolean): T;
+
+  /**
+   * Friction coefficient.
+   *
+   * @param { number | Resource } value - friction coefficient.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  friction(value: number | Resource): T;
+
+  /**
+   * Called when the scrollable scrolls.
+   *
+   * @param { function } event - callback of scrollable,
+   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
+
+  /**
+   * Called when the scrollable reaches the start position.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReachStart(event: () => void): T;
+
+  /**
+   * Called when the scrollable reaches the end position.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReachEnd(event: () => void): T;
+
+  /**
+   * Called when the scrollable starts scrolling.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScrollStart(event: () => void): T;
+
+  /**
+   * Called when the scrollable stops scrolling.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScrollStop(event: () => void): T;
+}
+
 declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore
@@ -16247,13 +16716,13 @@ declare interface PointLightStyle {
   /**
    * Defines the PointLight illuminated type.
    *
-   * @type { ?IlluminateType }
-   * @default IlluminateType.NONE
+   * @type { ?IlluminatedType }
+   * @default IlluminatedType.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11
    */
-  illuminated?: IlluminateType;
+  illuminated?: IlluminatedType;
   /**
    * Defines the PointLight bloom.
    *

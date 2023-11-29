@@ -22,7 +22,7 @@ import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
 import { NotificationFlags } from './notificationFlags';
-import { BundleOption as _BundleOption } from './NotificationCommonDef';
+import type { BundleOption } from './NotificationCommonDef';
 
 /**
  * Defines a NotificationRequest instance.
@@ -521,5 +521,5 @@ export interface NotificationCheckRequest {
    * @systemapi
    * @since 11
    */
-  extraKeys: Array<string>;
+  extraInfoKeys: Array<string>;
 }

@@ -52,6 +52,15 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * Sets a vsync after which a function will be executed.
+ *
+ * @param { Function } handler - Indicates the function to be called when the vsync trigger.
+ * @returns { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare function requestAnimationFrame(handler: Function): number;
 
 /**
@@ -60,6 +69,14 @@ export declare function requestAnimationFrame(handler: Function): number;
  * @param { number } requestId - Indicates the vsync callback ID returned by "requestAnimationFrame()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
+ */
+/**
+ * Cancels the vsync callback set by "requestAnimationFrame()".
+ *
+ * @param { number } requestId - Indicates the vsync callback ID returned by "requestAnimationFrame()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 export declare function cancelAnimationFrame(requestId: number): void;
 
@@ -119,6 +136,13 @@ export declare function getApp(): object;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
+/**
+ * You can create an Image object by calling new Image().
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class Image {
   /**
    * Network address or local resource. The internal URI is supported.
@@ -126,6 +150,14 @@ export declare class Image {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
+   */
+  /**
+   * Network address or local resource. The internal URI is supported.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   src: string;
   /**
@@ -135,6 +167,14 @@ export declare class Image {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
+  /**
+   * Image width.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   width?: number;
   /**
    * Image height.
@@ -142,6 +182,14 @@ export declare class Image {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
+   */
+  /**
+   * Image height.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   height?: number;
   /**
@@ -151,6 +199,14 @@ export declare class Image {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
+  /**
+   * Called when an image is successfully loaded. This function has no parameter.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   onload?: () => void;
   /**
    * Called when an image fails to be loaded. This function has no parameter.
@@ -158,6 +214,14 @@ export declare class Image {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
+   */
+  /**
+   * Called when an image fails to be loaded. This function has no parameter.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   onerror?: () => void;
 }
@@ -168,6 +232,13 @@ export declare class Image {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
+/**
+ * An ImageData object is a common object that stores the actual pixel data of a Canvas object.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class ImageData {
   /**
    * Actual width of the ImageData object, in pixels.
@@ -175,6 +246,14 @@ export declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
+   */
+  /**
+   * Actual width of the ImageData object, in pixels.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   width: number;
   /**
@@ -184,6 +263,14 @@ export declare class ImageData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
+  /**
+   * Actual height of the ImageData object, in pixels.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   height: number;
   /**
    * A one-dimensional array of color values. The color values are sorted in the RGBA order and represented by integers from 0 to 255.
@@ -191,6 +278,14 @@ export declare class ImageData {
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
+   */
+  /**
+   * A one-dimensional array of color values. The color values are sorted in the RGBA order and represented by integers from 0 to 255.
+   *
+   * @type { Uint8ClampedArray }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   data: Uint8ClampedArray;
 }
@@ -202,6 +297,14 @@ export declare class ImageData {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * OffscreenCanvas provides a Canvas object that can be rendered off-screen.
+ * It works in both window and Web worker environments.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class OffscreenCanvas {
   /**
    * The width of the offScreen Canvas object
@@ -212,6 +315,16 @@ export declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * The width of the offScreen Canvas object
+   * The height of the offScreen Canvas object
+   *
+   * @param { number } width
+   * @param { number } height
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   constructor(width: number, height: number);
 
   /**
@@ -221,6 +334,14 @@ export declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * The width of the offScreen Canvas object
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   width: number;
 
   /**
@@ -229,6 +350,14 @@ export declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * The height of the offScreen Canvas object
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   height: number;
 
@@ -241,6 +370,16 @@ export declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Gets the context object for off-screen drawing.
+   *
+   * @param { "2d" } contextId - creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
+   * @param { CanvasRenderingContext2DSettings } [options] - object representing a three-dimensional rendering context.
+   * @returns { OffscreenCanvasRenderingContext2D } a render canvas for the offScreen Canvas object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   getContext(contextId: "2d", options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D;
 
   /**
@@ -252,6 +391,16 @@ export declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Converts the draw contents of the current off-screen draw object to a string in the form of a Blob.
+   *
+   * @param { string } [type] - indicating the image format.
+   * @param { number } [quality] - between 0 and 1 indicating image quality if the type option is image/jpeg or image/webp.
+   * @returns { string } A Promise returning a Blob object representing the image contained in the canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   toDataURL(type?: string, quality?: number): string;
 
   /**
@@ -260,6 +409,14 @@ export declare class OffscreenCanvas {
    * @returns { ImageBitmap } Returns An ImageBitmap object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Converts the draw content in the current off-screen draw object to a Bitmap object.
+   *
+   * @returns { ImageBitmap } Returns An ImageBitmap object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   transferToImageBitmap(): ImageBitmap;
 }
@@ -270,6 +427,13 @@ export declare class OffscreenCanvas {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * Defines the ImageBitmap.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class ImageBitmap {
   /**
    * The height of the Image Bitmap object.
@@ -277,6 +441,14 @@ export declare class ImageBitmap {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * The height of the Image Bitmap object.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   readonly height: number;
 
@@ -286,6 +458,14 @@ export declare class ImageBitmap {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * The width of the Image Bitmap object.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   readonly width: number;
 }
