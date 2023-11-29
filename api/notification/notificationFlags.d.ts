@@ -78,7 +78,7 @@ export interface NotificationFlags {
    */
   readonly vibrationEnabled?: NotificationFlagStatus;
 
-   /**
+  /**
    * Read-only the prompt entry information allowed by the current channel.
    *
    * @type { ?number }
@@ -87,5 +87,5 @@ export interface NotificationFlags {
    * @systemapi
    * @since 11
    */
-   readonly reminderFlags?: number;
+  readonly reminderFlags?: number;
 }
