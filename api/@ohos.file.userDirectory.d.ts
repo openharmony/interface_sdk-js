@@ -27,10 +27,7 @@ declare namespace userDirectory {
    * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
    * @returns { string } Return the sandbox path to the public download directory.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 13900012 - Permission denied.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -43,10 +40,7 @@ declare namespace userDirectory {
    * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
    * @returns { string } Return the sandbox path to the public desktop directory.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 13900012 - Permission denied.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -58,10 +52,7 @@ declare namespace userDirectory {
    * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
    * @returns { string } Return the sandbox path to the public document directory.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 13900012 - Permission denied.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -74,9 +65,6 @@ declare namespace userDirectory {
    * @returns { string } Return the sandbox directory of the current user root.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 13900012 - Permission denied.
-   * @throws { BusinessError } 13900020 - Invalid argument.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi Hide this for inner system use.
@@ -90,9 +78,6 @@ declare namespace userDirectory {
    * @returns { string } Return the sandbox directory of the wild card root.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 13900012 - Permission denied.
-   * @throws { BusinessError } 13900020 - Invalid argument.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi Hide this for inner system use.
@@ -106,9 +91,6 @@ declare namespace userDirectory {
    * @returns { string } Return the sandbox directory that shares the root directory.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 13900012 - Permission denied.
-   * @throws { BusinessError } 13900020 - Invalid argument.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi Hide this for inner system use.
