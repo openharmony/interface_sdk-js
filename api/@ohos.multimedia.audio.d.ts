@@ -4170,7 +4170,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      * @deprecated since 11
-     * @useinstead audio.AudioRenderer#event:'outputDeviceChangeWithInfo'
+     * @useinstead audio.AudioRenderer#event:outputDeviceChangeWithInfo
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
 
@@ -4195,7 +4195,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      * @deprecated since 11
-     * @useinstead audio.AudioRenderer#event:'outputDeviceChangeWithInfo'
+     * @useinstead audio.AudioRenderer#event:outputDeviceChangeWithInfo
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
 
