@@ -136,7 +136,7 @@ declare namespace filePermission {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    reason: string;
+    message: string;
   }
 
   /**
