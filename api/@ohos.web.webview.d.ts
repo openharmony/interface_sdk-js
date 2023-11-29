@@ -1629,6 +1629,7 @@ declare namespace webview {
    * Define html web message port.
    * @interface WebMessagePort
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1656,6 +1657,7 @@ declare namespace webview {
     /**
      * Close port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1675,6 +1677,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100010 - Can not post message using this port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1694,6 +1697,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1748,6 +1752,7 @@ declare namespace webview {
    * Provides information for history item in BackForwardList.
    * @interface HistoryItem
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1773,6 +1778,7 @@ declare namespace webview {
     /**
      * Url of this history item.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1786,6 +1792,7 @@ declare namespace webview {
     /**
      * Original request url of this history item.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1799,6 +1806,7 @@ declare namespace webview {
     /**
      * Title of this history item.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1815,6 +1823,7 @@ declare namespace webview {
    * Provides back and forward history list information method. related to {@link HistoryItem}.
    * @interface BackForwardList
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1827,6 +1836,7 @@ declare namespace webview {
     /**
      * Current index in BackForwardList.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1840,6 +1850,7 @@ declare namespace webview {
     /**
      * Size of in BackForwardList.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1861,6 +1872,7 @@ declare namespace webview {
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2207,6 +2219,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2266,6 +2279,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2530,6 +2544,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enable.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2648,6 +2663,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2667,6 +2683,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2690,6 +2707,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2743,6 +2761,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2770,6 +2789,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2789,6 +2809,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3264,6 +3285,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3291,6 +3313,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3316,6 +3339,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3341,6 +3365,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3551,6 +3576,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3570,6 +3596,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
