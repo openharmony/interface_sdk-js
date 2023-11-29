@@ -4269,6 +4269,20 @@ declare namespace window {
      * @since 11
      */
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
+
+    /*
+     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     *
+     * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    keepKeyboardOnFocus(keepKeyboardFlag: boolean): void;
   }
   /**
    * Window stage callback event type
