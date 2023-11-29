@@ -200,7 +200,7 @@ declare interface RichEditorTextStyle {
   /**
    * Text shadow
    *
-   * @type { ShadowOptions | Array<ShadowOptions> } 
+   * @type { ?(ShadowOptions | Array<ShadowOptions>) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
