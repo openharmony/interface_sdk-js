@@ -98,7 +98,7 @@ declare namespace userDirectory {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getExternalUsbDir(): string;
+  function getExternalStorageDir(): string;
 
   /**
    * Get the sandbox directory that shares the root directory.

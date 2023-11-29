@@ -114,7 +114,7 @@ declare namespace filePermission {
     /**
      * Indicates the failed uri of the policy information.
      *
-     * @type string
+     * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
@@ -123,7 +123,7 @@ declare namespace filePermission {
     /**
      * Indicates the error code of the failure in the policy information.
      *
-     * @type PolicyErrorCode
+     * @type { PolicyErrorCode }
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
@@ -132,7 +132,7 @@ declare namespace filePermission {
     /**
      * Indicates the reason of the failure in the policy information.
      *
-     * @type string
+     * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
@@ -214,7 +214,7 @@ declare namespace filePermission {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  function desistPersistedPermission(policies: Array<PolicyInfo>): Promise<void>;
+  function desistPermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
    * Enable the URI that have been permanently authorized
