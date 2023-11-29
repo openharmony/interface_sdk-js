@@ -34,7 +34,7 @@ declare namespace vcard {
    * @param { Context } context - Indicates the context of application or
    *     capability.
    * @param { string } filePath - Vcf file path.
-   * @param { number } accountId - Contact account ID.When the app chooses to
+   * @param { number } accountId - Contact account ID. When the app chooses to
    *     import the vcf file into a contact account,
    * it needs to pass in the accountId. If the accountId is not passed, a new
    * contact account will be added by default.
