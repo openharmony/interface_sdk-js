@@ -154,7 +154,6 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   textIndent?: number | string;
@@ -164,7 +163,6 @@ export interface MeasureOptions {
    *
    * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   wordBreak?: WordBreak;
