@@ -107,14 +107,14 @@ declare namespace filePermission {
   /**
    * Failed policy result on URI.
    *
-   * @interface PolicyErrorResult
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  export interface PolicyErrorResult {
+  export type PolicyErrorResult = {
     /**
      * Indicates the failed uri of the policy information.
      *
+     * @type string
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
@@ -123,6 +123,7 @@ declare namespace filePermission {
     /**
      * Indicates the error code of the failure in the policy information.
      *
+     * @type PolicyErrorCode
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
@@ -131,6 +132,7 @@ declare namespace filePermission {
     /**
      * Indicates the reason of the failure in the policy information.
      *
+     * @type string
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
