@@ -137,7 +137,7 @@ declare namespace filePermission {
      * @since 11
      */
     message: string;
-  }
+  };
 
   /**
    * Policy information to manager permissions on a URI.
