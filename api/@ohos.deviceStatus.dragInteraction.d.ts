@@ -62,6 +62,26 @@ declare namespace dragInteraction {
     MSG_DRAG_STATE_CANCEL = 3,
   }
 
+  interface summary {
+    /**
+     * 拖拽对象类型
+     *
+     * @type { string }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @since 11
+     */
+    udType: string;
+
+    /**
+     * 拖拽对象数据长度
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @since 11
+     */
+    recordSize: number;
+  }
+
   /**
    * Listens for dragging state change events.
    *
@@ -88,24 +108,15 @@ declare namespace dragInteraction {
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
   /**
-   * 获取拖拽对象的类型
+   * 获取拖拽对象的摘要
    *
-   * @param { AsyncCallback<Array<string>> } callback - 回调函数, 接收拖拽对象的类型
+   * @returns { Array<summary> } 拖拽对象的数据摘要
    * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getSummary(callback: AsyncCallback<Array<string>>): void;
-
-  /**
-   * 获取拖拽对象的类型
-   *
-   * @returns { Promise<Array<string>> }
-   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
-   * @since 11
-   */
-  function getSummary(): Promise<Array<string>>;
+  function getDataSummary(): Array<summary>;
 }
 
 export default dragInteraction;
