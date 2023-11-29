@@ -342,7 +342,8 @@
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag",
-      "SystemCapability.DistributedDataManager.CommonType"
+      "SystemCapability.DistributedDataManager.CommonType",
+      "SystemCapability.Multimedia.Audio.Spatialization"
     ]
   },
   "administrators": [

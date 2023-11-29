@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Mesh container for static fixed-size layout scenarios.
+ *
+ * @interface FlowItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface FlowItemInterface {
   /**
    * Construct the flow item.
@@ -43,6 +52,15 @@ interface FlowItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Construct the flow item.
+   *
+   * @returns { FlowItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (): FlowItemAttribute;
 }
@@ -62,6 +80,15 @@ interface FlowItemInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the water flow item attribute.
+ *
+ * @extends CommonMethod<FlowItemAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
 
 /**
@@ -77,6 +104,14 @@ declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines FlowItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const FlowItem: FlowItemInterface
 
 /**
@@ -91,5 +126,13 @@ declare const FlowItem: FlowItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines FlowItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const FlowItemInstance: FlowItemAttribute;

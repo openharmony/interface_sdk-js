@@ -20,12 +20,27 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Enumerates the layout direction of the icon and text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare enum SecurityComponentLayoutDirection {
   /**
    * Horizontal layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Horizontal layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   HORIZONTAL = 0,
 
@@ -34,6 +49,13 @@ declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Vertical layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   VERTICAL = 1
 }
@@ -44,6 +66,13 @@ declare enum SecurityComponentLayoutDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the method of a security component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare class SecurityComponentMethod<T> {
   /**
    * Icon size.
@@ -52,6 +81,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Icon size.
+   *
+   * @param { Dimension } value - Indicates the size of the icon.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   iconSize(value: Dimension): T;
 
@@ -63,6 +101,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Layout direction of the icon and text.
+   *
+   * @param { SecurityComponentLayoutDirection } value - Indicates the layout direction of the icon and text.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   layoutDirection(value: SecurityComponentLayoutDirection): T;
 
   /**
@@ -72,6 +119,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Position of the security component.
+   *
+   * @param { Position } value - Indicates the position of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   position(value: Position): T;
 
@@ -83,6 +139,16 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Anchor of the security component for positioning. The top start edge of the component is used as
+   * the reference point for offset.
+   *
+   * @param { Position } value - Indicates the anchor of the component when it is positioned.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   markAnchor(value: Position): T;
 
@@ -96,6 +162,17 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Coordinate offset relative to the layout position.
+   * Setting this attribute does not affect the layout of the parent container.
+   * The position is adjusted only during drawing.
+   *
+   * @param { Position } value - Indicates the offset value.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   offset(value: Position): T;
 
   /**
@@ -105,6 +182,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Font size of the inner text.
+   *
+   * @param { Dimension } value - Indicates the font size of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontSize(value: Dimension): T;
 
@@ -116,6 +202,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Font style of the inner text.
+   *
+   * @param { FontStyle } value - Indicates the font style of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontStyle(value: FontStyle): T;
 
   /**
@@ -125,6 +220,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Font weight of the inner text.
+   *
+   * @param { number | FontWeight | string } value - Indicates the font weight of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontWeight(value: number | FontWeight | string): T;
 
@@ -136,6 +240,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Font family of the inner text.
+   *
+   * @param { string | Resource } value - Indicates the font family of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontFamily(value: string | Resource): T;
 
   /**
@@ -145,6 +258,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Font color of the inner text.
+   *
+   * @param { ResourceColor } value - Indicates the font color of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontColor(value: ResourceColor): T;
 
@@ -156,6 +278,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Color of the icon.
+   *
+   * @param { ResourceColor } value - Indicates the icon color in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   iconColor(value: ResourceColor): T;
 
   /**
@@ -165,6 +296,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Background color.
+   *
+   * @param { ResourceColor } value - Indicates the background color of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   backgroundColor(value: ResourceColor): T;
 
@@ -176,6 +316,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Style of the border.
+   *
+   * @param { BorderStyle } value - Indicates the border style of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   borderStyle(value: BorderStyle): T;
 
   /**
@@ -185,6 +334,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Width of the border.
+   *
+   * @param { Dimension } value - Indicates the border width of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   borderWidth(value: Dimension): T;
 
@@ -196,6 +354,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Color of the border.
+   *
+   * @param { ResourceColor } value - Indicates the border color of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   borderColor(value: ResourceColor): T;
 
   /**
@@ -205,6 +372,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Radius of the border.
+   *
+   * @param { Dimension } value - Indicates the border radius of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   borderRadius(value: Dimension): T;
 
@@ -216,6 +392,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Padding between the background border and icon/inner text.
+   *
+   * @param { Padding | Dimension } value - Indicates the padding of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   padding(value: Padding | Dimension): T;
 
   /**
@@ -225,6 +410,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Space between the inner text and icon.
+   *
+   * @param { Dimension } value - Indicates the space between the inner text and icon.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   textIconSpace(value: Dimension): T;
 

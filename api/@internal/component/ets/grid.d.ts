@@ -199,6 +199,14 @@ declare enum GridDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The row direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Row,
 
   /**
@@ -213,6 +221,14 @@ declare enum GridDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The column direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Column,
 
@@ -229,6 +245,14 @@ declare enum GridDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The row reverse direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   RowReverse,
 
   /**
@@ -243,6 +267,14 @@ declare enum GridDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The column reverse direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   ColumnReverse,
 }

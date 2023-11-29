@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Ellipse drawing.
+ *
+ * @interface EllipseInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface EllipseInterface {
   /**
    * use new function to set the value.
@@ -63,6 +73,17 @@ interface EllipseInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * use new function to set the value.
+   * 
+   * @param { object } value
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
@@ -94,6 +115,17 @@ interface EllipseInterface {
    * @since 10
    * @form
    */
+  /**
+   * Set the value.
+   *
+   * @param { object } value
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 }
 
@@ -113,6 +145,14 @@ interface EllipseInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * @extends CommonShapeMethod<EllipseAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
@@ -138,6 +178,15 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * @since 10
  * @form
  */
+/**
+ * Defines Ellipse Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Ellipse: EllipseInterface;
 
 /**
@@ -159,6 +208,15 @@ declare const Ellipse: EllipseInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Ellipse Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const EllipseInstance: EllipseAttribute;

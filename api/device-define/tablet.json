@@ -212,6 +212,7 @@
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
     "SystemCapability.Multimedia.Media.SoundPool",
-    "SystemCapability.Driver.ExternalDevice"
+    "SystemCapability.Driver.ExternalDevice",
+    "SystemCapability.Multimedia.Audio.Spatialization"
   ]
 }
