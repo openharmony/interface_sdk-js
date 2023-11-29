@@ -61,13 +61,21 @@ declare namespace dragInteraction {
      */
     MSG_DRAG_STATE_CANCEL = 3,
   }
-
+  /**
+   * 拖拽数据摘要
+   *
+   * @interface summary
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   interface summary {
     /**
      * 拖拽对象类型
      *
      * @type { string }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     udType: string;
@@ -77,6 +85,7 @@ declare namespace dragInteraction {
      *
      * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     recordSize: number;
