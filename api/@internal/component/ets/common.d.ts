@@ -9132,6 +9132,47 @@ declare interface PopupOptions {
    * @since 11
    */
   offset?: Position
+
+  /**
+   * Set the background color of the popup.
+   *
+   * @type { ?(Color | string | Resource | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  popupColor?: Color | string | Resource | number;
+
+  /**
+   * Whether hide popup when click mask
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  autoCancel?: boolean;
+
+  /**
+   * Set the width of the popup.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  width?: Dimension;
+
+  /**
+   * The position of the sharp corner of popup.
+   *
+   * @type { ?ArrowPointPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowPointPosition?: ArrowPointPosition;
 }
 
 /**
@@ -9457,6 +9498,26 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   offset?: Position
+
+  /**
+   * Set the width of the popup.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  width?: Dimension;
+
+  /**
+   * The position of the sharp corner of popup.
+   *
+   * @type { ?ArrowPointPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowPointPosition?: ArrowPointPosition;
 }
 
 /**
@@ -16423,6 +16484,163 @@ declare abstract class TextContentControllerBase {
    * @since 11
    */
   getTextContentLineCount() : number;
+}
+
+/**
+ * CommonScrollableMethod
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
+  /**
+   * Scrollbar status.
+   *
+   * @param { BarState } barState - Scrollbar status.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBar(barState: BarState): T;
+
+  /**
+   * Color of the scrollbar.
+   *
+   * @param { Color | number | string } color - Color of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBarColor(color: Color | number | string): T;
+
+  /**
+   * Width of the scrollbar.
+   *
+   * @param { number | string } value  - Width of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBarWidth(value: number | string): T;
+
+  /**
+   * Edge scrolling effect.
+   *
+   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffectOptions } options - edge scrolling effect options. 
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+
+  /**
+   * Nested scrolling options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  nestedScroll(value: NestedScrollOptions): T;
+
+  /**
+   * Whether to support scroll gestures by finger or mouse.
+   *
+   * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  enableScrollInteraction(value: boolean): T;
+
+  /**
+   * Friction coefficient.
+   *
+   * @param { number | Resource } value - friction coefficient.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  friction(value: number | Resource): T;
+
+  /**
+   * Called when the scrollable scrolls.
+   *
+   * @param { function } event - callback of scrollable,
+   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
+
+  /**
+   * Called when the scrollable reaches the start position.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReachStart(event: () => void): T;
+
+  /**
+   * Called when the scrollable reaches the end position.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReachEnd(event: () => void): T;
+
+  /**
+   * Called when the scrollable starts scrolling.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScrollStart(event: () => void): T;
+
+  /**
+   * Called when the scrollable stops scrolling.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScrollStop(event: () => void): T;
 }
 
 declare module "SpecialEvent" {

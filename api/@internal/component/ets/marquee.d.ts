@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides the interface for the marquee attributes.
+ *
+ * @interface MarqueeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface MarqueeInterface {
   /**
    * Create marquee.
@@ -63,6 +73,17 @@ interface MarqueeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Create marquee.
+   *
+   * @param { object } value
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): MarqueeAttribute;
@@ -92,6 +113,16 @@ interface MarqueeInterface {
  * @since 10
  * @form
  */
+/**
+ * Declares marquee properties.
+ *
+ * @extends CommonMethod<MarqueeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font Color.
@@ -118,6 +149,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set marquee font Color.
+   *
+   * @param { ResourceColor } value
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   fontColor(value: ResourceColor): MarqueeAttribute;
@@ -149,6 +191,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Set marquee font size.
+   *
+   * @param { Length } value
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontSize(value: Length): MarqueeAttribute;
 
   /**
@@ -176,6 +229,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set marquee allow scale.
+   *
+   * @param { boolean } value
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   allowScale(value: boolean): MarqueeAttribute;
@@ -207,6 +271,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Set marquee font weight.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
   /**
@@ -234,6 +309,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set marquee font family.
+   *
+   * @param { string | Resource } value
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
@@ -265,6 +351,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when scrolling starts.
+   *
+   * @param { function } event
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onStart(event: () => void): MarqueeAttribute;
 
   /**
@@ -292,6 +389,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when scrolling to the bottom.
+   *
+   * @param { function } event
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   onBounce(event: () => void): MarqueeAttribute;
@@ -323,6 +431,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when scrolling is complete.
+   *
+   * @param { function } event
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onFinish(event: () => void): MarqueeAttribute;
 }
 
@@ -347,6 +466,15 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Marquee Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Marquee: MarqueeInterface;
 
 /**
@@ -368,6 +496,15 @@ declare const Marquee: MarqueeInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Marquee Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const MarqueeInstance: MarqueeAttribute;

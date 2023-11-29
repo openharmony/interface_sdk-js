@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Counter component, which provides corresponding increment or decrement counting operations.
+ *
+ * @interface CounterInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface CounterInterface {
   /**
    * Return Counter.
@@ -60,6 +70,16 @@ interface CounterInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Return Counter.
+   *
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (): CounterAttribute;
@@ -89,6 +109,16 @@ interface CounterInterface {
  * @since 10
  * @form
  */
+/**
+ * Defines the Counter attribute functions.
+ *
+ * @extends CommonMethod<CounterAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listen to the event that the value increases.
@@ -115,6 +145,17 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Listen to the event that the value increases.
+   *
+   * @param { function } event
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   onInc(event: () => void): CounterAttribute;
@@ -146,6 +187,17 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Listens to the number decrease event.
+   *
+   * @param { function } event
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onDec(event: () => void): CounterAttribute;
 
   /**
@@ -157,6 +209,16 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates whether the decrease button of counter component is available or not.
+   *
+   * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
+   * @returns { CounterAttribute } The attribute of the counter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enableDec(value: boolean): CounterAttribute;
 
   /**
@@ -167,6 +229,16 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates whether the increase button of counter component is available or not.
+   *
+   * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
+   * @returns { CounterAttribute } The attribute of the counter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   enableInc(value: boolean): CounterAttribute;
 }
@@ -192,6 +264,15 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Counter Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const CounterInstance: CounterAttribute;
 
 /**
@@ -213,6 +294,15 @@ declare const CounterInstance: CounterAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Counter Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const Counter: CounterInterface;

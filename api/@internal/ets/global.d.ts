@@ -38,6 +38,15 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
  * @since 10
  * @form
  */
+/**
+ * Defines the console info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 export declare class console {
   /**
    * Prints "debug" logs.
@@ -64,6 +73,17 @@ export declare class console {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Prints "debug" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   static debug(message: string, ...arguments: any[]): void;
@@ -95,6 +115,17 @@ export declare class console {
    * @since 10
    * @form
    */
+  /**
+   * Prints "log" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   static log(message: string, ...arguments: any[]): void;
 
   /**
@@ -122,6 +153,17 @@ export declare class console {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Prints "info" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   static info(message: string, ...arguments: any[]): void;
@@ -153,6 +195,17 @@ export declare class console {
    * @since 10
    * @form
    */
+  /**
+   * Prints "warn" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   static warn(message: string, ...arguments: any[]): void;
 
   /**
@@ -180,6 +233,17 @@ export declare class console {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Prints "error" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   static error(message: string, ...arguments: any[]): void;
@@ -362,6 +426,20 @@ export declare class console {
  * @crossplatform
  * @since 10
  */
+/**
+ * Sets the interval for repeatedly calling a function.
+ *
+ * @param { Function | string } handler - Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay - Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
+ * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns { number } Returns the timer ID.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
 
 /**
@@ -391,6 +469,21 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @crossplatform
  * @since 10
  */
+/**
+ * Sets a timer after which a function will be executed.
+ *
+ * @param { Function | string } handler - Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } [delay] - Indicates the delay (in milliseconds) after which the function will be called.
+ * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param { any[] } [arguments] - Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns { number } Returns the timer ID.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
@@ -408,6 +501,15 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @crossplatform
  * @since 10
  */
+/**
+ * Cancel the interval set by " setInterval()".
+ *
+ * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export declare function clearInterval(intervalID?: number): void;
 
 /**
@@ -424,6 +526,15 @@ export declare function clearInterval(intervalID?: number): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Cancel the timer set by "setTimeout()".
+ *
+ * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
@@ -443,6 +554,16 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defining syscap function.
+ *
+ * @param { string } syscap
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export declare function canIUse(syscap: string): boolean;
 
@@ -465,6 +586,17 @@ export declare function canIUse(syscap: string): boolean;
  * @since 10
  * @test
  */
+/**
+ * Obtains all attributes of the component with the specified ID.
+ *
+ * @param { string } id - ID of the component whose attributes are to be obtained.
+ * @returns { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @test
+ */
 export declare function getInspectorByKey(id: string): string;
 
 /**
@@ -482,6 +614,16 @@ export declare function getInspectorByKey(id: string): string;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @test
+ */
+/**
+ * Get components tree.
+ *
+ * @returns { Object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @test
  */
 export declare function getInspectorTree(): Object;
@@ -509,6 +651,19 @@ export declare function getInspectorTree(): Object;
  * @since 10
  * @test
  */
+/**
+ * Sends an event to the component with the specified ID.
+ *
+ * @param { string } id - ID of the component for which the event is to be sent.
+ * @param { number } action - Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @test
+ */
 export declare function sendEventByKey(id: string, action: number, params: string): boolean;
 
 /**
@@ -528,6 +683,17 @@ export declare function sendEventByKey(id: string, action: number, params: strin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @test
+ */
+/**
+ * Send touch event.
+ *
+ * @param { TouchObject } event - TouchObject to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @test
  */
 export declare function sendTouchEvent(event: TouchObject): boolean;
@@ -551,6 +717,17 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  * @since 10
  * @test
  */
+/**
+ * Send key event.
+ *
+ * @param { KeyEvent } event - KeyEvent to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @test
+ */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
 
 /**
@@ -570,6 +747,17 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @test
+ */
+/**
+ * Send mouse event.
+ *
+ * @param { MouseEvent } event - MouseEvent to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;
