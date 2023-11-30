@@ -1952,6 +1952,40 @@ declare enum ContextMenuInputFieldType {
 }
 
 /**
+ * Defines the embed status, related to {@link NativeEmbedDataInfo}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum NativeEmbedStatus {
+
+  /**
+   * The embed tag create.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  CREATE = 0,
+
+  /**
+   * The embed tag update.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  UPDATE = 1,
+
+  /**
+   * The embed tag destroy.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  DESTROY = 2,
+}
+
+/**
  * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
  *
  * @enum { number }
@@ -3525,6 +3559,132 @@ interface WebInterface {
    * @since 11
    */
   (value: WebOptions): WebAttribute;
+}
+
+/**
+ * Defines the embed info.
+ *
+ * @interface NativeEmbedInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface NativeEmbedInfo {
+  /**
+   * The embed id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  id?: number;
+  /**
+   * Only when enableEmbedMode is true and type is marked as native/xxx will be recognized as a same layer component.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  type?: string;
+  /**
+   * The embed tag src.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  src?: string;
+  /**
+   * The embed tag width.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  width?: number;
+  /**
+   * The embed tag height.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  height?: number;
+  /**
+   * The embed tag url.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  url?: string;
+}
+
+/**
+ * Defines the Embed Data info.
+ *
+ * @interface NativeEmbedDataInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface NativeEmbedDataInfo {
+  /**
+   * The embed status.
+   *
+   * @type { ?NativeEmbedStatus }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  status?: NativeEmbedStatus;
+  /**
+   * The surface id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  surfaceId?: string;
+  /**
+   * The embed id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  embedId?: string;
+  /**
+   * The embed info.
+   *
+   * @type { ?NativeEmbedInfo }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  info?: NativeEmbedInfo;
+}
+
+/**
+ * Defines the user touch info.
+ *
+ * @interface NativeEmbedTouchInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface NativeEmbedTouchInfo {
+  /**
+   * The native embed id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  embedId?: string;
+  /**
+   * An event sent when the state of contacts with a touch-sensitive surface changes.
+   *
+   * @type { ?TouchEvent }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  touchEvent?: TouchEvent;
 }
 
 /**
@@ -5640,6 +5800,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   nestedScroll(value: NestedScrollOptions): WebAttribute;
+
+  /**
+   * Sets the enable native embed mode for web.
+   *
+   * @param { boolean } mode - True if it needs to enable native embed mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  enableNativeEmbedMode(mode: boolean): WebAttribute;
+
+  /**
+   * Triggered when embed lifecycle changes.
+   *
+   * @param { function } callback - Function Triggered when embed lifecycle changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
+
+  /**
+   * Triggered when gesture effect on embed tag.
+   *
+   * @param { function } callback - Function Triggered when gesture effect on embed tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  onNativeEmbedGestureEvent(callback: (event: NativeEmbedTouchInfo) => void): WebAttribute;
 }
 
 /**
