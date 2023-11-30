@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
 /**
@@ -120,7 +119,6 @@ declare namespace dragInteraction {
    * Obtains the abstract of a dragged object.
    *
    * @returns { Array<summary> } Data abstract of the dragged object.
-   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11
