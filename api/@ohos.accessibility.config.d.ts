@@ -122,6 +122,8 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9
+   * @deprecated since 11
+   * @useinstead ohos.accessibility.config#shortkeyMultiTargets
    */
   var shortkey: Config<boolean>;
   /**
