@@ -3577,18 +3577,18 @@ declare namespace audio {
      */
     REASON_UNKNOWN = 0,
     /**
-     * New device become available.
+     * New device available.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
-    REASON_NEW_DEVICE_BECOME_AVAILABLE = 1,
+    REASON_NEW_DEVICE_AVAILABLE = 1,
     /**
-     * Old device become unavailable. Applications should consider to pause the audio playback when this reason is
+     * Old device unavailable. Applications should consider to pause the audio playback when this reason is
      * reported.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
-    REASON_OLD_DEVICE_BECOME_UNAVAILABLE = 2,
+    REASON_OLD_DEVICE_UNAVAILABLE = 2,
     /**
      * Overrode by user or system.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3604,7 +3604,7 @@ declare namespace audio {
    */
   interface AudioStreamDeviceChangeInfo {
     /**
-     * Audio device descriptors.
+     * Audio device descriptors after change.
      * @type {AudioDeviceDescriptors}
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
@@ -4169,8 +4169,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
-     * @deprecated since 11
-     * @useinstead audio.AudioRenderer#event:outputDeviceChangeWithInfo
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
 
@@ -4184,7 +4182,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
-     on(type: 'outputDeviceChangeWithInfo', callback: Callback<AudioStreamDeviceChangeInfo>): void;
+    on(type: 'outputDeviceChangeWithInfo', callback: Callback<AudioStreamDeviceChangeInfo>): void;
 
     /**
      * Unsubscribes output device change event callback.
@@ -4194,8 +4192,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
-     * @deprecated since 11
-     * @useinstead audio.AudioRenderer#event:outputDeviceChangeWithInfo
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
 
@@ -4208,7 +4204,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
-     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
+    off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
   }
 
   /**
