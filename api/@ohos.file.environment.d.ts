@@ -112,7 +112,7 @@ declare namespace Environment {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  function getUserDocumentsDir(): string;
+  function getUserDocumentDir(): string;
 
   /**
    * Get the sandbox directory of the wild card root.

@@ -27,11 +27,11 @@ declare namespace fileShare {
   /**
    * Enumerates the uri operate mode types.
    *
-   * @enum { number } OperateMode
+   * @enum { number } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  export enum OperateMode {
+  export enum OperationMode {
     /**
      * Indicates read permissions.
      *
@@ -88,7 +88,7 @@ declare namespace fileShare {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    FORBIDDEN_TO_BE_PERSISTED = 1,
+    PERSISTENCE_FORBIDDEN = 1,
 
     /**
      * Indicates that the mode of this policy is invalid.
@@ -159,12 +159,12 @@ declare namespace fileShare {
     uri: string;
 
     /**
-     * Indicates the mode of operation for the URI, example { OperateMode.READ_MODE } or { OperateMode.READ_MODE | OperateMode.WRITE_MODE }
+     * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    operateMode: number;
+    OperationMode: number;
   }
 
   /**
@@ -226,7 +226,7 @@ declare namespace fileShare {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function grantPolicy(tokenId: number, policies: Array<PolicyInfo>, policyFlag: number): Promise<void>;
+  function grantPermission(tokenId: number, policies: Array<PolicyInfo>, policyFlag: number): Promise<void>;
 
   /**
    * Set persistence permissions for the URI
@@ -245,7 +245,7 @@ declare namespace fileShare {
   function persistPermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
-   * Desist persistence permissions for the URI
+   * Revoke persistence permissions for the URI
    *
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
@@ -258,7 +258,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  function desistPermission(policies: Array<PolicyInfo>): Promise<void>;
+  function revokePermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
    * Enable the URI that have been permanently authorized
@@ -272,7 +272,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  function activateAccessingUri(policies: Array<PolicyInfo>): Promise<void>;
+  function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
    * Stop the authorized URI that has been enabled
@@ -286,7 +286,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  function deactivateAccessingUri(policies: Array<PolicyInfo>): Promise<void>;
+  function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 }
 
 export default fileShare;
