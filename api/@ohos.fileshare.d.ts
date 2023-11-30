@@ -164,7 +164,7 @@ declare namespace fileShare {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    OperationMode: number;
+    operationMode: number;
   }
 
   /**
