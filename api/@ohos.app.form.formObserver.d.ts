@@ -448,7 +448,7 @@ declare namespace formObserver {
 
   /**
    * Router event listening in registered form.
-   * <p>This interface requires permission to recive callback.</p>
+   * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { 'router' } type - Indicates event type.
@@ -464,7 +464,7 @@ declare namespace formObserver {
 
   /**
    * Router event listening in registered form.
-   * <p>This interface requires permission to recive callback.</p>
+   * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { 'router' } type - Indicates event type.
@@ -497,7 +497,7 @@ declare namespace formObserver {
 
   /**
    * Message event listening in registered form.
-   * <p>This interface requires permission to recive callback.</p>
+   * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { 'message' } type - Indicates event type.
@@ -513,7 +513,7 @@ declare namespace formObserver {
 
   /**
    * Message event listening in registered form.
-   * <p>This interface requires permission to recive callback.</p>
+   * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { 'message' } type - Indicates event type.
@@ -546,7 +546,7 @@ declare namespace formObserver {
 
   /**
    * Call event listening in registered form.
-   * <p>This interface requires permission to recive callback.</p>
+   * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { 'call' } type - Indicates event type.
@@ -562,7 +562,7 @@ declare namespace formObserver {
 
   /**
    * Call event listening in registered form.
-   * <p>This interface requires permission to recive callback.</p>
+   * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { 'call' } type - Indicates event type.
