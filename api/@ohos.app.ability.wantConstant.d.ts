@@ -275,6 +275,13 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
+    /**
+     * Install the specified ability if it's not installed.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
