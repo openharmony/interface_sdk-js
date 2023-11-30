@@ -60,15 +60,16 @@ declare namespace dragInteraction {
      */
     MSG_DRAG_STATE_CANCEL = 3,
   }
+
   /**
    * Abstract of the dragged data.
    *
-   * @interface summary
+   * @interface Summary
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  interface summary {
+  interface Summary {
     /**
      * Type of the dragged object.
      *
@@ -118,12 +119,12 @@ declare namespace dragInteraction {
   /**
    * Obtains the abstract of a dragged object.
    *
-   * @returns { Array<summary> } Data abstract of the dragged object.
+   * @returns { Array<Summary> } Data abstract of the dragged object.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getDataSummary(): Array<summary>;
+  function getDataSummary(): Array<Summary>;
 }
 
 export default dragInteraction;
