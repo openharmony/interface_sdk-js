@@ -370,7 +370,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    enum Role {
+    export enum Role {
       /**
        * ROLE_INVITER: means inviter of cloud sharing.
        *
@@ -398,7 +398,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    enum State {
+    export enum State {
       /**
        * STATE_UNKNOWN: Unknown state.
        *
@@ -444,7 +444,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    enum SharingCode {
+    export enum SharingCode {
       /**
        * SUCCESS: means sharing success.
        *
@@ -580,7 +580,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    interface Result<T> {
+    export interface Result<T> {
       /**
        * Error code.
        *
@@ -620,7 +620,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    interface Privilege {
+    export interface Privilege {
       /**
        * Whether the participants can write the shared data. The value <b>true</b>
        * means the participants can write the shared data; the value <b>false</b>
@@ -690,7 +690,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    interface Participant {
+    export interface Participant {
       /**
        * Identity of participant.
        *
