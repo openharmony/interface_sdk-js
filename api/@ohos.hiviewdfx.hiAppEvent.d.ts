@@ -24,6 +24,16 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @since 9
  */
+/**
+ * Provides the event logging function for applications to log the fault, statistical, security,
+ * and user behavior events reported during running. Based on event information,
+ * you will be able to analyze the running status of applications.
+ *
+ * @namespace hiAppEvent
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @atomicservice
+ * @since 11
+ */
 declare namespace hiAppEvent {
   /**
    * Enumerate application event types.
@@ -32,12 +42,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Enumerate application event types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   enum EventType {
     /**
      * Fault event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Fault event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     FAULT = 1,
 
@@ -47,6 +72,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * Statistic event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     STATISTIC = 2,
 
     /**
@@ -55,6 +87,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * Security event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     SECURITY = 3,
 
     /**
@@ -62,6 +101,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * User behavior event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     BEHAVIOR = 4
   }
@@ -73,6 +119,14 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Preset event.
+   *
+   * @namespace event
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   namespace event {
     /**
      * User login event.
@@ -80,6 +134,14 @@ declare namespace hiAppEvent {
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * User login event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     const USER_LOGIN: string;
 
@@ -90,6 +152,14 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * User logout event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     const USER_LOGOUT: string;
 
     /**
@@ -98,6 +168,14 @@ declare namespace hiAppEvent {
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Distributed service event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     const DISTRIBUTED_SERVICE_START: string;
   }
@@ -109,6 +187,14 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Preset param.
+   *
+   * @namespace param
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   namespace param {
     /**
      * User id.
@@ -116,6 +202,14 @@ declare namespace hiAppEvent {
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * User id.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     const USER_ID: string;
 
@@ -126,6 +220,14 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * Distributed service name.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     const DISTRIBUTED_SERVICE_NAME: string;
 
     /**
@@ -134,6 +236,14 @@ declare namespace hiAppEvent {
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Distributed service instance id.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
   }
@@ -148,6 +258,17 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Application event logging configuration interface.
+   *
+   * @param { ConfigOption } config Application event logging configuration item object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   function configure(config: ConfigOption): void;
 
   /**
@@ -157,12 +278,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Describe the options for the configuration.
+   *
+   * @interface ConfigOption
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   interface ConfigOption {
     /**
      * Configuration item: application event logging switch.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Configuration item: application event logging switch.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     disable?: boolean;
 
@@ -171,6 +307,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Configuration item: event file directory storage quota size.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     maxStorage?: string;
   }
@@ -182,12 +325,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Definition of written application event information.
+   *
+   * @interface AppEventInfo
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   interface AppEventInfo {
     /**
      * The domain of the event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The domain of the event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     domain: string;
 
@@ -197,6 +355,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The name of the event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     name: string;
 
     /**
@@ -205,6 +370,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The type of the event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     eventType: EventType;
 
     /**
@@ -212,6 +384,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The params of the event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     params: object;
   }
@@ -233,6 +412,24 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Write application event.
+   *
+   * @param { AppEventInfo } info Application event information to be written.
+   * @returns { Promise<void> } Return Promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11100001 - Function is disabled.
+   * @throws { BusinessError } 11101001 - Invalid event domain.
+   * @throws { BusinessError } 11101002 - Invalid event name.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   function write(info: AppEventInfo): Promise<void>;
 
   /**
@@ -252,6 +449,24 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Write application event.
+   *
+   * @param { AppEventInfo } info Application event information to be written.
+   * @param { AsyncCallback<void> } callback Callback function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11100001 - Function is disabled.
+   * @throws { BusinessError } 11101001 - Invalid event domain.
+   * @throws { BusinessError } 11101002 - Invalid event name.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
   /**
@@ -261,12 +476,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Definition of the read event package.
+   *
+   * @interface AppEventPackage
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   interface AppEventPackage {
     /**
      * The id of the package.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The id of the package.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     packageId: number;
 
@@ -276,6 +506,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The number of events contained in the package.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     row: number;
 
     /**
@@ -284,6 +521,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The total size of events contained in the package.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     size: number;
 
     /**
@@ -291,6 +535,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The events data contained in the package.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     data: string[];
   }
@@ -301,6 +552,13 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Definition of event holder object, which is used to read the event data monitored by the watcher.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   class AppEventPackageHolder {
     /**
      * Constructor for AppEventPackageHolder.
@@ -308,6 +566,14 @@ declare namespace hiAppEvent {
      * @param { string } watcherName Name of the watcher to read.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Constructor for AppEventPackageHolder.
+     *
+     * @param { string } watcherName Name of the watcher to read.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     constructor(watcherName: string);
 
@@ -320,6 +586,16 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * Set the threshold size per read.
+     *
+     * @param { number } size Threshold size.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     setSize(size: number): void;
 
     /**
@@ -328,6 +604,14 @@ declare namespace hiAppEvent {
      * @returns { AppEventPackage } The read event package.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * Read the event data monitored by the watcher.
+     *
+     * @returns { AppEventPackage } The read event package.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     takeNext(): AppEventPackage;
   }
@@ -339,12 +623,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Definition of the condition for triggering callback when the watcher monitors event data.
+   *
+   * @interface TriggerCondition
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   interface TriggerCondition {
     /**
      * The number of write events that trigger callback.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The number of write events that trigger callback.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     row?: number;
 
@@ -354,6 +653,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The size of write events that trigger callback.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     size?: number;
 
     /**
@@ -361,6 +667,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The interval for triggering callback.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     timeOut?: number;
   }
@@ -372,12 +685,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Definition of event filter object, which is used to filter events monitored by the watcher.
+   *
+   * @interface AppEventFilter
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   interface AppEventFilter {
     /**
      * The name of the event domain to be monitored by the watcher.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The name of the event domain to be monitored by the watcher.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     domain: string;
 
@@ -386,6 +714,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The types of the events to be monitored by the watcher.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     eventTypes?: EventType[];
   }
@@ -397,12 +732,27 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Definition of event watcher object, which is used to monitor written event data.
+   *
+   * @interface Watcher
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   interface Watcher {
     /**
      * The name of watcher.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The name of watcher.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     name: string;
 
@@ -412,6 +762,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The condition for triggering callback.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     triggerCondition?: TriggerCondition;
 
     /**
@@ -420,6 +777,13 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
+    /**
+     * The event filters for monitoring events.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
     appEventFilters?: AppEventFilter[];
 
     /**
@@ -427,6 +791,13 @@ declare namespace hiAppEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
+     */
+    /**
+     * The callback function of watcher.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
      */
     onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
   }
@@ -446,6 +817,22 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Add event watcher.
+   *
+   * @param { Watcher } watcher Watcher object for monitoring events.
+   * @returns { AppEventPackageHolder } Holder object, which is used to read the monitoring data of the watcher.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @throws { BusinessError } 11102002 - Invalid filtering event domain.
+   * @throws { BusinessError } 11102003 - Invalid row value.
+   * @throws { BusinessError } 11102004 - Invalid size value.
+   * @throws { BusinessError } 11102005 - Invalid timeout value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   function addWatcher(watcher: Watcher): AppEventPackageHolder;
 
   /**
@@ -458,6 +845,17 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
+  /**
+   * Remove event watcher.
+   *
+   * @param { Watcher } watcher Watcher object for monitoring events.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
   function removeWatcher(watcher: Watcher): void;
 
   /**
@@ -466,6 +864,14 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
+   */
+  /**
+   * Clear all local logging data of the application.
+   *
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
    */
   function clearData(): void;
 
@@ -477,6 +883,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function setUserId(name: string, value: string): void;
@@ -489,6 +896,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function getUserId(name: string): string;
@@ -501,6 +909,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function setUserProperty(name: string, value: string): void;
@@ -513,6 +922,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function getUserProperty(name: string): string;
@@ -522,6 +932,7 @@ declare namespace hiAppEvent {
    *
    * @interface AppEventReportConfig
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   interface AppEventReportConfig {
@@ -530,6 +941,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     domain?: string;
@@ -539,6 +951,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     name?: string;
@@ -548,6 +961,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     isRealTime?: boolean;
@@ -558,6 +972,7 @@ declare namespace hiAppEvent {
    *
    * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   interface Processor {
@@ -566,6 +981,7 @@ declare namespace hiAppEvent {
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     name: string;
@@ -575,6 +991,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     debugMode?: boolean;
@@ -584,6 +1001,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     routeInfo?: string;
@@ -593,6 +1011,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     appId?: string;
@@ -602,6 +1021,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     onStartReport?: boolean;
@@ -611,6 +1031,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     onBackgroundReport?: boolean;
@@ -620,6 +1041,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     periodReport?: number;
@@ -629,6 +1051,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     batchReport?: number;
@@ -638,6 +1061,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     userIds?: string[];
@@ -647,6 +1071,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     userProperties?: string[];
@@ -656,6 +1081,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?AppEventReportConfig[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
@@ -669,6 +1095,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function addProcessor(processor: Processor): number;
@@ -680,6 +1107,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function removeProcessor(id: number): void;

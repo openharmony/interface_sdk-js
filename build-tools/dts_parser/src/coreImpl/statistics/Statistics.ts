@@ -103,13 +103,6 @@ export class ApiStatisticsHelper {
   static connectDefinedText(apiInfos: BasicApiInfo[], sameNameRawTextMap: Map<string, string>): void {
     apiInfos.forEach((apiInfo: BasicApiInfo) => {
       if (apiInfo.getApiType() === ApiType.METHOD) {
-        const node: ts.Node | undefined = apiInfo.getNode();
-        if (!node) {
-          return;
-        }
-        if (!mergeDefinedTextType.has(node.kind)) {
-          return;
-        }
         if (notMergeDefinedText.has(apiInfo.getApiName())) {
           return;
         }
@@ -155,9 +148,7 @@ export class ApiStatisticsHelper {
     apiRelations: Set<string>
   ): void {
     const apiInfo: ApiInfo = basicApiInfo as ApiInfo;
-    if (!apiRelations.has(ApiStatisticsHelper.joinRelations(basicApiInfo))) {
-      allApiStatisticsInfos.push(ApiStatisticsHelper.initApiStatisticsInfo(apiInfo, sameNameRawTextMap));
-    }
+    allApiStatisticsInfos.push(ApiStatisticsHelper.initApiStatisticsInfo(apiInfo, sameNameRawTextMap, true));
 
     if (!apiStatisticsType.has(basicApiInfo.getApiType())) {
       return;
@@ -188,7 +179,11 @@ export class ApiStatisticsHelper {
     });
   }
 
-  static initApiStatisticsInfo(apiInfo: ApiInfo, sameNameRawTextMap: Map<string, string>): ApiStatisticsInfo {
+  static initApiStatisticsInfo(
+    apiInfo: ApiInfo,
+    sameNameRawTextMap: Map<string, string>,
+    isAll?: boolean
+  ): ApiStatisticsInfo {
     const apiStatisticsInfo: ApiStatisticsInfo = new ApiStatisticsInfo();
     const relations = apiInfo.getHierarchicalRelations();
     if (relations.length > NumberConstant.RELATION_LENGTH) {
@@ -196,10 +191,15 @@ export class ApiStatisticsHelper {
     }
     const apiRelations: string = ApiStatisticsHelper.joinRelations(apiInfo);
     const sameNameDefinedText: string | undefined = sameNameRawTextMap.get(apiRelations);
+
+    if (isAll) {
+      apiStatisticsInfo.setDefinedText(apiInfo.getDefinedText());
+    } else {
+      apiStatisticsInfo.setDefinedText(sameNameDefinedText ? sameNameDefinedText : apiInfo.getDefinedText());
+    }
     apiStatisticsInfo
       .setFilePath(apiInfo.getFilePath())
       .setApiType(apiInfo.getApiType())
-      .setDefinedText(sameNameDefinedText ? sameNameDefinedText : apiInfo.getDefinedText())
       .setApiName(apiInfo.getApiName())
       .setPos(apiInfo.getPos())
       .setHierarchicalRelations(relations.join('/'))

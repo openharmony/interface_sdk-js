@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the option of MenuItem.
+ *
+ * @interface MenuItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface MenuItemOptions {
   /**
    * Defines the start display image info.
@@ -43,6 +52,15 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Defines the start display image info.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   startIcon?: ResourceStr;
 
@@ -61,6 +79,15 @@ declare interface MenuItemOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the content string display info.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   content?: ResourceStr;
 
   /**
@@ -78,6 +105,15 @@ declare interface MenuItemOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the end display image info.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   endIcon?: ResourceStr;
 
   /**
@@ -94,6 +130,15 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Defines the end label info like shortcut.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   labelInfo?: ResourceStr;
 
@@ -139,6 +184,15 @@ declare interface MenuItemOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the MenuItem Component.
+ *
+ * @interface MenuItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface MenuItemInterface {
   /**
    * Creates the MenuItem component.
@@ -156,6 +210,16 @@ interface MenuItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates the MenuItem component.
+   *
+   * @param { MenuItemOptions | CustomBuilder } value
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value?: MenuItemOptions | CustomBuilder): MenuItemAttribute;
 }
@@ -175,6 +239,15 @@ interface MenuItemInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the MenuItem component attribute functions.
+ *
+ * @extends CommonMethod<MenuItemAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Setting whether menuItem is selected.
@@ -192,6 +265,16 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Setting whether menuItem is selected.
+   *
+   * @param { boolean } value
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   selected(value: boolean): MenuItemAttribute;
 
@@ -216,6 +299,20 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether the relevant check icon is displayed when a menu item is selected.
+   * Use type ResourceStr to specify icon instead of the default check mark.
+   *
+   * @param { boolean | ResourceStr } value - Indicates whether to display icon when selected.
+   *                                          true: displays the default check mark when selected.
+   *                                          false: does not displays icon when selected.
+   *                                          ResourceStr: displays the specified icon when selected.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   selectIcon(value: boolean | ResourceStr): MenuItemAttribute;
 
   /**
@@ -235,6 +332,16 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Triggers a callback when a menu item is selected or unchecked.
+   *
+   * @param { function } callback
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onChange(callback: (selected: boolean) => void): MenuItemAttribute;
 
   /**
@@ -247,6 +354,17 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the content font style.
+   * Family and style are not supported currently and will be fixed in future.
+   *
+   * @param { Font } value - Indicates the font style of content text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   contentFont(value: Font): MenuItemAttribute;
 
   /**
@@ -257,6 +375,16 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the font color of content text.
+   *
+   * @param { ResourceColor } value - Indicates the font color of content text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   contentFontColor(value: ResourceColor): MenuItemAttribute;
 
@@ -270,6 +398,17 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the label info font style.
+   * Family and style are not supported currently and will be fixed in future.
+   *
+   * @param { Font } value - Indicates the font style of label info text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   labelFont(value: Font): MenuItemAttribute;
 
   /**
@@ -280,6 +419,16 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the font color of label info text.
+   *
+   * @param { ResourceColor } value - Indicates the font color of label info text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   labelFontColor(value: ResourceColor): MenuItemAttribute;
 }
@@ -297,6 +446,14 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines MenuItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const MenuItem: MenuItemInterface;
 
 /**
@@ -311,5 +468,13 @@ declare const MenuItem: MenuItemInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines MenuItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const MenuItemInstance: MenuItemAttribute;

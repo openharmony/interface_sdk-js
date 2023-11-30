@@ -54,6 +54,18 @@ declare namespace fileUri {
      * @since 10
      */
     readonly name: string;
+
+    /**
+     * Get the full directory uri where the file URI is located
+     *
+     * @returns { string } Return the directory uri
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    getFullDirectoryUri(): string;
   }
   
   /**

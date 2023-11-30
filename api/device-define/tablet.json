@@ -11,6 +11,7 @@
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
     "SystemCapability.Graphic.Graphic2D.WebGL",
+    "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.WindowManager.WindowManager.MutiScreen",
     "SystemCapability.Notification.CommonEvent",
@@ -160,6 +161,7 @@
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
+    "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.KVStore.Core",
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
@@ -210,6 +212,7 @@
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
     "SystemCapability.Multimedia.Media.SoundPool",
-    "SystemCapability.Driver.ExternalDevice"
+    "SystemCapability.Driver.ExternalDevice",
+    "SystemCapability.Multimedia.Audio.Spatialization"
   ]
 }

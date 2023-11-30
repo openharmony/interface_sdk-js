@@ -155,6 +155,17 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @form
    */
   alignContent(value: Alignment): StackAttribute;
+
+  /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { StackAttribute } The attribute of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): StackAttribute;
 }
 
 /**

@@ -629,6 +629,51 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     revertToOriginal(): Promise<void>;
+    /**
+     * Request thumbnails of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels 
+     * @returns { string } Returns request photo task id.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestPhoto(callback: AsyncCallback<image.PixelMap>): string;
+    /**
+     * Request thumbnails of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { RequestPhotoOptions } options - Request photo options
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels 
+     * @returns { string } Returns request photo task id.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestPhoto(options: RequestPhotoOptions, callback: AsyncCallback<image.PixelMap>): string;
+    /**
+     * Cancel photo request
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } requestId - The request id to be canceled
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    cancelPhotoRequest(requestId: string): void;
   }
 
   /**
@@ -925,6 +970,33 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Options to request photo
+   *
+   * @interface RequestPhotoOptions
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 11
+   */
+  interface RequestPhotoOptions {
+    /**
+     * Size of thumbnail
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    size?: image.Size;
+    /**
+     * Type of photo request
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    requestPhotoType?: RequestPhotoType;
+  }
+
+  /**
    * The fetch result of assets or albums
    *
    * @interface FetchResult
@@ -1183,6 +1255,41 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     ANY = 2147483647
+  }
+
+  /**
+   * Request photo type.
+   *
+   * @enum { number } RequestPhotoType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 11
+   */
+  enum RequestPhotoType {
+    /**
+     * Request all thumbnails: fast thumbnail and quality thumbnail
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    REQUEST_ALL_THUMBNAILS = 0,
+    /**
+     * Only request fast thumbnail
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    REQUEST_FAST_THUMBNAIL,
+    /**
+     * Only request quality thumbnail
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    REQUEST_QUALITY_THUMBNAIL
   }
 
   /**
