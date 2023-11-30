@@ -54,6 +54,17 @@ declare interface InputCounterOptions {
    * @since 11
    */
   thresholdPercentage?: number;
+  
+  /**
+   * If the current input character count reaches the maximum character count and users want to exceed the
+   * normal input, the border will turn red. If this parameter is true, the red border displayed.
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  highlightBorder?: boolean;
 }
 
 /**
