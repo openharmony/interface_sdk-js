@@ -1362,6 +1362,17 @@ declare namespace formInfo {
      * @since 11
      */
     readonly formUsageState: FormUsageState;
+
+    /**
+     * Obtains the description of this form.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    readonly formDescription: string;
   }
 
   /**
