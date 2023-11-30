@@ -263,8 +263,10 @@ declare namespace fileShare {
   /**
    * Enable the URI that have been permanently authorized
    *
+   * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
@@ -277,8 +279,10 @@ declare namespace fileShare {
   /**
    * Stop the authorized URI that has been enabled
    *
+   * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.

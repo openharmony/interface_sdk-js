@@ -117,7 +117,9 @@ declare namespace Environment {
   /**
    * Get the sandbox directory of the wild card root.
    *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @returns { string } Return the sandbox directory of the wild card root.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -130,7 +132,9 @@ declare namespace Environment {
   /**
    * Get the sandbox directory of the current user root.
    *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @returns { string } Return the sandbox directory of the current user root.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
