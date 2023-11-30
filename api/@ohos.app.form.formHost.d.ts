@@ -915,5 +915,81 @@ declare namespace formHost {
     * @since 11
     */
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
+
+  /**
+   * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of permanent dynamic ArkTS forms.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setFormsRecyclable(formIds: Array<string>): Promise<void>;
+
+  /**
+   * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of permanent dynamic ArkTS forms.
+   * @param { AsyncCallback<void> } callback - The callback of setFormsRecyclable.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Recover recycled permanent dynamic ArkTS forms.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of recycled permanent dynamic ArkTS forms.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function recoverForms(formIds: Array<string>): Promise<void>;
+
+  /**
+   * Recover recycled permanent dynamic ArkTS forms.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of recycled permanent dynamic ArkTS forms.
+   * @param { AsyncCallback<void> } callback - The callback of recoverForms.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 }
 export default formHost;
