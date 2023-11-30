@@ -135,6 +135,7 @@ cpid
 cpuprofiler
 cpx
 cpy
+creatable
 crl
 crops
 crosshair
@@ -838,6 +839,7 @@ unrestricted
 unsecure
 unsent
 unspec
+unshare
 unsubscribes
 unsuccessfully
 unsupport
