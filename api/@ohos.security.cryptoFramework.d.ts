@@ -3343,7 +3343,88 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
-    RSA_PK_BN = 303
+    RSA_PK_BN = 303,
+
+    /**
+     * Indicates the prime p of DH algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    DH_P_BN = 401,
+
+    /**
+     * Indicates the generator g of DH algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    DH_G_BN = 402,
+
+    /**
+     * Indicates the number of bits of the private key length used in the DH algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    DH_L_NUM = 403,
+
+    /**
+     * Indicates the private value of the DH private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    DH_SK_BN = 404,
+
+    /**
+     * Indicates the public value of the DH public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    DH_PK_BN = 405,
+
+    /**
+     * Indicates the private value of the ED25519 private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    ED25519_SK_BN = 501,
+
+    /**
+     * Indicates the public value of the ED25519 public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    ED25519_PK_BN = 502,
+
+    /**
+     * Indicates the private value of the X25519 private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    X25519_SK_BN = 601,
+
+    /**
+     * Indicates the public value of the X25519 public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    X25519_PK_BN = 602
   }
 
   /**
@@ -4092,7 +4173,313 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
-    static genECCCommonParamsSpec(curveName: string) : ECCCommonParamsSpec;
+    static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
+  }
+
+  /**
+   * Specifies the set of common parameters used in the DH algorithm.
+   *
+   * @typedef DHCommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface DHCommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates the prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    p: bigint;
+
+    /**
+     * Indicates the generator g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    g: bigint;
+
+    /**
+     * Indicates the length of the private key.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    l: number;
+  }
+
+  /**
+   * Specifies the DH private key with its associated parameters.
+   *
+   * @typedef DHPriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface DHPriKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the DH common parameters.
+     *
+     * @type { DHCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    params: DHCommonParamsSpec;
+
+    /**
+     * Indicates the private value of the DH private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    sk: bigint;
+  }
+
+  /**
+   * Specifies the DH public key with its associated parameters.
+   *
+   * @typedef DHPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface DHPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the DH common parameters.
+     *
+     * @type { DHCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    params: DHCommonParamsSpec;
+
+    /**
+     * Indicates the public value of the DH public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the DH keypair with its associated parameters.
+   *
+   * @typedef DHKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface DHKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the DH common parameters.
+     *
+     * @type { DHCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    params: DHCommonParamsSpec;
+
+    /**
+     * Indicates the private value of the DH private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public value of the DH public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Key utilities for DH Algorithm.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  class DHKeyUtil {
+    /**
+     * Create the common parameter set based on the curve name.
+     *
+     * @param { number } pLen - indicates the length of the prime p.
+     * @param { number } skLen - indicates the length of the private key.
+     * @returns { DHCommonParamsSpec } the DH common params spec obj.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    static genDHCommonParamsSpec(pLen: number, skLen?: number): DHCommonParamsSpec;
+  }
+
+  /**
+   * Specifies the ED25519 private key with its associated parameters.
+   *
+   * @typedef ED25519PriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface ED25519PriKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the private value of the ED25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    sk: bigint;
+  }
+
+  /**
+   * Specifies the ED25519 public key with its associated parameters.
+   *
+   * @typedef ED25519PubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface ED25519PubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the public value of the ED25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the ED25519 keypair with its associated parameters.
+   *
+   * @typedef ED25519KeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface ED25519KeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the private value of the ED private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public value of the ED25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the X25519 private key with its associated parameters.
+   *
+   * @typedef X25519PriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface X25519PriKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the private value of the X25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    sk: bigint;
+  }
+
+  /**
+   * Specifies the X25519 public key with its associated parameters.
+   *
+   * @typedef X25519PubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface X25519PubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the public value of the X25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the X25519 keypair with its associated parameters.
+   *
+   * @typedef X25519KeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 11
+   */
+  interface X25519KeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the private value of the X25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public value of the X25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 11
+     */
+    pk: bigint;
   }
 
   /**
