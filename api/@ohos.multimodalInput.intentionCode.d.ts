@@ -21,18 +21,115 @@
  * @since 10
  */
 export declare enum IntentionCode {
+  /**
+   * INTENTION_UNKNOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_UNKNOWN = -1,
+
+  /**
+   * INTENTION_UP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_UP = 1,
+
+  /**
+   * INTENTION_DOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_DOWN = 2,
+
+  /**
+   * INTENTION_LEFT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_LEFT = 3,
+
+  /**
+   * INTENTION_RIGHT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_RIGHT = 4,
+
+  /**
+   * INTENTION_SELECT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_SELECT = 5,
+
+  /**
+   * INTENTION_ESCAPE
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_ESCAPE = 6,
+
+  /**
+   * INTENTION_BACK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_BACK = 7,
+
+  /**
+   * INTENTION_FORWARD
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_FORWARD = 8,
+
+  /**
+   * INTENTION_MENU
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_MENU = 9,
+
+  /**
+   * INTENTION_PAGE_UP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_PAGE_UP = 11,
+
+  /**
+   * INTENTION_PAGE_DOWN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_PAGE_DOWN = 12,
+
+  /**
+   * INTENTION_ZOOM_OUT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_ZOOM_OUT = 13,
+
+  /**
+   * INTENTION_ZOOM_IN
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 10
+   */
   INTENTION_ZOOM_IN = 14
 }

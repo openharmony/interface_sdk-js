@@ -4,8 +4,6 @@
 
 ```
 
-├─deps
-|  └─ohos-typescript-4.2.3-r2.tgz		#工具typescript依赖本地离线包
 ├─src				#工具代码
 |  ├─bin			#命令行执行配置
 |  |  ├─config.ts
@@ -36,6 +34,7 @@
 |  |  ├─Constant.ts		#全局静态常量
 |  |  ├─FileUtils.ts		#文件工具
 |  |  ├─logUtil.ts		#log日志工具
+|  |  ├─FunctionUtils.ts	#公共方法
 |  |  └─StringUtils.ts		#字符串数据处理工具
 |  └─main.ts			#commander调用入口
 ├─test				#工具自动化测试配置及用例
@@ -76,6 +75,14 @@
 1. diffSDK(oldSDKApiMap,newSDKApiMap)
    将两个版本的文件通过基础解析工具解析之后，传入两个结果计算diff
 
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/文件 --new 新版本目录/文件 --old-version 旧版本号 --new-version 新版本号 --output 报告输出目录 --format excel
+```
+
+
+
 ### api统计工具
 
 [代码](src/coreImpl/statistics/ApiStatistics.ts)
@@ -84,6 +91,14 @@
 
 1. getApiStatisticsInfos(apiMap)
    将文件通过基础解析工具解析之后，传入计算api接口
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N collect -C 目录路径/文件路径 --output 报告输出目录 --format excel
+```
+
+
 
 ## 工具调用
 
@@ -129,7 +144,8 @@ node ./package/JS_API_OPTIMIZE_PLUGIN.js  '-N' 'diff' '-C' '.\test\ut\parser\ut_
 
 ### 本地运行
 
-1、运行以下脚本安装相关依赖
+1. 先确认本地node版本是否为14版本，本工具只支持使用14版本的node
+2. 运行以下脚本安装相关依赖
 
 ```
 npm install
