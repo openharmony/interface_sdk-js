@@ -84,7 +84,7 @@ declare namespace Environment {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.File.Environment
    * @since 11
    */
   function getUserDownloadDir(): string;
@@ -97,7 +97,7 @@ declare namespace Environment {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.File.Environment
    * @since 11
    */
   function getUserDesktopDir(): string;
@@ -109,7 +109,7 @@ declare namespace Environment {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.File.Environment
    * @since 11
    */
   function getUserDocumentDir(): string;
@@ -121,7 +121,7 @@ declare namespace Environment {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi Hide this for inner system use.
    * @since 11
    */
@@ -134,7 +134,7 @@ declare namespace Environment {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi Hide this for inner system use.
    * @since 11
    */
