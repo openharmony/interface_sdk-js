@@ -878,7 +878,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 11
    */
-  function isWifidisabled(admin: Want): boolean;
+  function isWifiDisabled(admin: Want): boolean;
 }
 
 export default wifiManager;
