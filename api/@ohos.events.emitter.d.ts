@@ -51,6 +51,17 @@ declare namespace emitter {
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
+   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   *
+   * @param { string } eventId - indicate ID of the event to subscribe to.
+   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function on(eventId: string, callback: Callback<EventData>): void;
+
+  /**
    * Subscribe to a certain event in one-shot manner and unsubscribe from it
    * after the event callback is received.
    *
@@ -72,6 +83,18 @@ declare namespace emitter {
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
+   * Subscribe to a event by specific id in one-shot manner and unsubscribe from it
+   * after the event callback is received.
+   *
+   * @param { string } eventId - indicate ID of the event to subscribe to in one shot.
+   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function once(eventId: string, callback: Callback<EventData>): void;
+
+  /**
    * Unsubscribe from an event.
    *
    * @param { number } eventId - indicate ID of the event to unsubscribe from.
@@ -87,6 +110,16 @@ declare namespace emitter {
    * @since 11
    */
   function off(eventId: number): void;
+
+  /**
+   * Unsubscribe from an event.
+   *
+   * @param { string } eventId - indicate ID of the event to unsubscribe from.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function off(eventId: string): void;
 
   /**
    * Unsubscribe from an event.
@@ -108,6 +141,17 @@ declare namespace emitter {
   function off(eventId: number, callback: Callback<EventData>): void;
 
   /**
+   * Unsubscribe from an event.
+   *
+   * @param { string } eventId - indicates ID of the event to unsubscribe from.
+   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function off(eventId: string, callback: Callback<EventData>): void;
+
+  /**
    * Emits an event to the event queue.
    *
    * @param { InnerEvent } event - indicate event to emit.
@@ -125,6 +169,40 @@ declare namespace emitter {
    * @since 11
    */
   function emit(event: InnerEvent, data?: EventData): void;
+
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
+   * @param { EventData } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function emit(eventId: string, data?: EventData): void;
+
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
+   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
+   * @param { EventData } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function emit(eventId: string, options: Options, data?: EventData): void;
+
+  /**
+   * Obtains the number of subscribe listener count.
+   *
+   * @param { number | string } eventId - indicates ID of the event to unsubscribe from.
+   * @returns { number } Returns the number of listener count.
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  function getListenerCount(eventId: number | string): number;
 
   /**
    * Describes data passed in the event.
@@ -286,6 +364,25 @@ declare namespace emitter {
      * @since 11
      */
     IDLE,
+  }
+
+  /**
+   * Describe the optional arguments of emit operation.
+   *
+   * @typedef Options
+   * @syscap SystemCapability.Notification.Emitter
+   * @since 11
+   */
+  export interface Options {
+    /**
+     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     *
+     * @type { ?EventPriority }
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 11
+     */
+    priority?: EventPriority;
   }
 }
 
