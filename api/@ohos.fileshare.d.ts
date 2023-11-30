@@ -25,6 +25,31 @@ import type wantConstant from './@ohos.ability.wantConstant';
  */
 declare namespace fileShare {
   /**
+   * Enumerates the uri operate mode types.
+   *
+   * @enum { number } OperateMode
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @since 11
+   */
+  export enum OperateMode {
+    /**
+     * Indicates read permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    READ_MODE = 0b1,
+
+    /**
+     * Indicates write permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    WRITE_MODE = 0b10,
+  }
+
+  /**
    * Enumerates the identity of the URI policy.
    *
    * @enum { number } PolicyFlag
@@ -262,31 +287,6 @@ declare namespace fileShare {
    * @since 11
    */
   function deactivateAccessingUri(policies: Array<PolicyInfo>): Promise<void>;
-
-  /**
-   * Enumerates the uri operate mode types.
-   *
-   * @enum { number } OperateMode
-   * @syscap SystemCapability.FileManagement.AppFileService
-   * @since 11
-   */
-  export enum OperateMode {
-    /**
-     * Indicates read permissions.
-     *
-     * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 11
-     */
-    READ_MODE = 0b1,
-
-    /**
-     * Indicates write permissions.
-     *
-     * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 11
-     */
-    WRITE_MODE = 0b10,
-  }
 }
 
 export default fileShare;

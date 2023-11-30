@@ -115,19 +115,6 @@ declare namespace Environment {
   function getUserDocumentsDir(): string;
 
   /**
-   * Get the sandbox directory of the current user root.
-   *
-   * @returns { string } Return the sandbox directory of the current user root.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.AppFileService
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  function getUserHomeDir(): string;
-
-  /**
    * Get the sandbox directory of the wild card root.
    *
    * @returns { string } Return the sandbox directory of the wild card root.
@@ -139,6 +126,19 @@ declare namespace Environment {
    * @since 11
    */
   function getExternalStorageDir(): string;
+
+  /**
+   * Get the sandbox directory of the current user root.
+   *
+   * @returns { string } Return the sandbox directory of the current user root.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getUserHomeDir(): string;
 }
 
 export default Environment;
