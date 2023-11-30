@@ -2009,6 +2009,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2868,6 +2869,7 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
