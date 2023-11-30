@@ -78,7 +78,7 @@ declare namespace dragInteraction {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    udType: string;
+    dataType: string;
 
     /**
      * Data length of the dragged object.
@@ -88,7 +88,7 @@ declare namespace dragInteraction {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    recordSize: number;
+    dataSize: number;
   }
 
   /**
