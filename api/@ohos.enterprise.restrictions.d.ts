@@ -181,7 +181,7 @@ declare namespace restrictions {
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
   
-   /**
+  /**
    * Disables the microphone of device.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
