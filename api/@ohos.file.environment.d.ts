@@ -132,7 +132,7 @@ declare namespace Environment {
    * Get the sandbox directory of the current user root.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Return the sandbox directory of the current user root.
+   * @returns { string } Return the directory of the internal card of the application sandbox path under the current user.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
