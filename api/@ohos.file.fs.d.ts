@@ -297,15 +297,6 @@ declare namespace fileIo {
    * @crossplatform
    * @since 10
    */
-  /**
-   * File open in nonblocking mode.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
     const NONBLOCK = 0o4000;
   /**
    * File is Dir.
@@ -321,15 +312,6 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
-   */
-  /**
-   * File is Dir.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform 
-   * @atomicservice
-   * @since 11
    */
     const DIR = 0o200000;
   /**
@@ -362,15 +344,6 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
-   */
-  /**
-   * SYNC IO.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
-   * @since 11
    */
     const SYNC = 0o4010000;
   }
@@ -932,7 +905,7 @@ declare function copyDirSync(src: string, dest: string, mode?: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 10
+ * @since 11
  */
 declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
 
@@ -988,6 +961,34 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
 
@@ -1045,6 +1046,35 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function copyFile(
   src: string | number,
@@ -1105,6 +1135,34 @@ declare function copyFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Copy file with sync interface.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
@@ -1763,7 +1821,7 @@ declare function fsyncSync(fd: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 10
+ * @since 11
  */
 declare function listFile(
   path: string,
@@ -1817,7 +1875,7 @@ declare function listFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 10
+ * @since 11
  */
 declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
@@ -5974,6 +6032,15 @@ declare interface RandomAccessFile {
  * @crossplatform
  * @since 10
  */
+/**
+ * Stat object.
+ *
+ * @interface Stat
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface Stat {
   /**
    * @type { bigint }
@@ -6009,6 +6076,16 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly mode: number;
   /**
@@ -6068,6 +6145,16 @@ declare interface Stat {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly size: number;
   /**
    * @type { number }
@@ -6086,6 +6173,16 @@ declare interface Stat {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly atime: number;
   /**
    * @type { number }
@@ -6103,6 +6200,16 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly mtime: number;
   /**
