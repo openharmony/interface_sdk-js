@@ -58,6 +58,7 @@
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'reduce'"
@@ -68,6 +69,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<number>"
               ],
@@ -102,6 +104,7 @@
             {
               "apiType": "Param",
               "apiName": "type",
+              "paramType": 183,
               "type": [
                 "'add'",
                 "'reduce'"
@@ -112,6 +115,7 @@
             {
               "apiType": "Param",
               "apiName": "callback",
+              "paramType": 174,
               "type": [
                 "AsyncCallback<number>"
               ],

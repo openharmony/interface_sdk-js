@@ -30,21 +30,39 @@
  * @since 10
  * @form
  */
+/**
+ * Provides ports for relative containers.
+ *
+ * @interface RelativeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface RelativeContainerInterface {
   (): RelativeContainerAttribute;
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<RelativeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * @extends CommonMethod<RelativeContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {}
@@ -64,6 +82,15 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * @since 10
  * @form
  */
+/**
+ * RelativeContainer
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const RelativeContainer: RelativeContainerInterface;
 
 /**
@@ -79,6 +106,15 @@ declare const RelativeContainer: RelativeContainerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * RelativeContainerInstance
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

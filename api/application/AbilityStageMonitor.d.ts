@@ -30,6 +30,16 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
+ * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
+ *
+ * @typedef AbilityStageMonitor
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface AbilityStageMonitor {
   /**
    * The module name of the abilityStage to monitor.
@@ -45,6 +55,15 @@ export interface AbilityStageMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The module name of the abilityStage to monitor.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   moduleName: string;
 
@@ -62,6 +81,15 @@ export interface AbilityStageMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The source path of the abilityStage to monitor.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   srcEntrance: string;
 }

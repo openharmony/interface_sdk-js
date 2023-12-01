@@ -8,6 +8,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_decorator_argument.d.ets/MyComponent",
     "apiName": "MyComponent",
     "deprecatedVersion": "",
@@ -22,7 +23,8 @@
     "modelLimitation": "",
     "decorators": [
       "Component"
-    ]
+    ],
+    "errorCodes": []
   },
   {
     "filePath": "ut_decorator_argument.d.ets",
@@ -33,6 +35,7 @@
     "since": "",
     "isForm": false,
     "isCrossPlatForm": false,
+    "isAutomicService": false,
     "hierarchicalRelations": "ut_decorator_argument.d.ets/MyComponent/count",
     "apiName": "count",
     "deprecatedVersion": "",
@@ -47,6 +50,7 @@
     "modelLimitation": "",
     "decorators": [
       "Provide"
-    ]
+    ],
+    "errorCodes": []
   }
 ]

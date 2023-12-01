@@ -45,6 +45,58 @@ declare namespace cloudData {
   }
 
   /**
+   * ID of the event, which indicates the change of the data in the cloud.
+   *
+   * @constant
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @since 11
+   */
+  const DATA_CHANGE_EVENT_ID = 'cloud_data_change';
+
+  /**
+   * Extra data for data change notification.
+   *
+   * @interface ExtraData
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 11
+   */
+  interface ExtraData {
+    /**
+     * Event ID.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    eventId: string;
+
+    /**
+     * Extra data, which contains the following fields.
+     * {
+     *   "accountId": "aaa",
+     *   "bundleName": "com.bbb.xxx",
+     *   "containerName": "alias",
+     *   "databaseScopes": ["private", "shared"],
+     *   "recordTypes": ["xxx", "yyy", "zzz"],
+     *   "properties": {
+     *     "key": "value"
+     *   },
+     *   "keyId": "",
+     *   "signV3": ""
+     * }
+     * <b>accountId</b> and <b>bundleName</b> are mandatory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    extraData: string;
+  }
+
+  /**
    * Provides methods to set CloudSync config.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -57,7 +109,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
+     * @param { object } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
      * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @param { AsyncCallback<void> } callback - the callback of enableCloud.
@@ -80,7 +132,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
+     * @param { object } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
      * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @returns { Promise<void> } the promise returned by the function.
@@ -202,11 +254,72 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
     /**
+     * Notifies changes of the cloud records.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the data changes.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    static notifyDataChange(extInfo: ExtraData, callback: AsyncCallback<void>): void;
+
+    /**
+     * Notifies changes of the cloud records.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @param { number } userId - Indicates the user ID.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the data changes.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    static notifyDataChange(extInfo: ExtraData, userId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Notifies changes of the cloud records.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @param { number } [userId] - Indicates the user ID.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    static notifyDataChange(extInfo: ExtraData, userId?: number): Promise<void>;
+
+    /**
      * deletes cloud information from local data.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates the way in which the application data is to be cleared.
+     * @param { object } appActions - Indicates the way in which the application data is to be cleared.
      * @param { AsyncCallback<void> } callback - the callback of clear.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -227,7 +340,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates the way in which the application data is to be cleared.
+     * @param { object } appActions - Indicates the way in which the application data is to be cleared.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.

@@ -59,6 +59,17 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+    /**
+   * Query the Wi-Fi status
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
+   * @since 11
+   */
   function isWifiActive(): boolean;
 
   /**
@@ -764,6 +775,51 @@ declare namespace wifiManager {
    * @since 10
    */
   function getStations(): Array<StationInfo>;
+
+   /**
+   * Add the station into the block list, the station can NOT access the hotspot.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { StationInfo } stationInfo - station which will be added in the block list.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function addHotspotBlockList(stationInfo: StationInfo);
+
+  /**
+   * Delete the station from block list, the station can access the hotspot.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { StationInfo } stationInfo - station which will be deleted in the block list.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function delHotspotBlockList(stationInfo: StationInfo);
+
+    /**
+   * Get all the stations in the block list.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @returns { Array<StationInfo> } stations in the block list.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getHotspotBlockList(): Array<StationInfo>;
 
   /**
    * Obtain information about the P2P connection.

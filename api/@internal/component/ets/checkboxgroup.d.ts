@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * CheckboxGroup SelectStatus
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare enum SelectStatus {
   /**
    * All checkboxes are selected.
@@ -57,6 +67,15 @@ declare enum SelectStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * All checkboxes are selected.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   All,
@@ -81,6 +100,15 @@ declare enum SelectStatus {
    * @since 10
    * @form
    */
+  /**
+   * Part of the checkbox is selected.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Part,
   /**
    * None of the checkbox is selected.
@@ -101,6 +129,15 @@ declare enum SelectStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * None of the checkbox is selected.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   None,
@@ -130,6 +167,16 @@ declare enum SelectStatus {
  * @since 10
  * @form
  */
+/**
+ * Defines the options of CheckboxGroup.
+ *
+ * @interface CheckboxGroupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface CheckboxGroupOptions {
   /**
    * Setting the group of CheckboxGroup.
@@ -153,6 +200,16 @@ declare interface CheckboxGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Setting the group of CheckboxGroup.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   group?: string;
@@ -182,6 +239,16 @@ declare interface CheckboxGroupOptions {
  * @since 10
  * @form
  */
+/**
+ * Defines the options of CheckboxGroupResult.
+ *
+ * @interface CheckboxGroupResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface CheckboxGroupResult {
   /**
    * Checkbox name.
@@ -205,6 +272,16 @@ declare interface CheckboxGroupResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Checkbox name.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   name: Array<string>;
@@ -232,6 +309,16 @@ declare interface CheckboxGroupResult {
    * @since 10
    * @form
    */
+  /**
+   * Set the group of status.
+   *
+   * @type { SelectStatus }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   status: SelectStatus;
 }
 
@@ -257,6 +344,16 @@ declare interface CheckboxGroupResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Provides an interface for the CheckboxGroup component.
+ *
+ * @interface CheckboxGroupInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 interface CheckboxGroupInterface {
@@ -287,20 +384,31 @@ interface CheckboxGroupInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when the CheckboxGroup component is used.
+   *
+   * @param { CheckboxGroupOptions } options
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
 }
 
 /**
  * Defines the attribute functions of CheckboxGroup.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the attribute functions of CheckboxGroup.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -308,10 +416,20 @@ interface CheckboxGroupInterface {
 /**
  * Defines the attribute functions of CheckboxGroup.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the attribute functions of CheckboxGroup.
+ *
+ * @extends CommonMethod<CheckboxGroupAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
@@ -340,6 +458,17 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * setting whether all checkbox is selected.
+   *
+   * @param { boolean } value
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   selectAll(value: boolean): CheckboxGroupAttribute;
@@ -371,6 +500,17 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 10
    * @form
    */
+  /**
+   * setting the display color of checkbox.
+   *
+   * @param { ResourceColor } value
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
@@ -382,6 +522,16 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @since 10
    */
+  /**
+   * Set the display border color of unselected checkbox.
+   *
+   * @param { ResourceColor } value - The color of border when checkboxgroup unselected.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
@@ -392,6 +542,16 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the mark style of checkbox.
+   *
+   * @param { MarkStyle } value - The style configuration of checkboxgroup mark.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   mark(value: MarkStyle): CheckboxGroupAttribute;
 
@@ -422,6 +582,17 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 10
    * @form
    */
+  /**
+   * Called when the selection status changes.
+   *
+   * @param { function } callback
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
 }
 
@@ -446,6 +617,15 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
  * @since 10
  * @form
  */
+/**
+ * Defines CheckboxGroup Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const CheckboxGroup: CheckboxGroupInterface;
 
 /**
@@ -467,6 +647,15 @@ declare const CheckboxGroup: CheckboxGroupInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines CheckboxGroup Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const CheckboxGroupInstance: CheckboxGroupAttribute;

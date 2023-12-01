@@ -20,7 +20,6 @@
 * @syscap SystemCapability.HiviewDFX.HiLog
 * @since 7
 */
-
 /**
 * Provides interfaces to generate system logs.
 *
@@ -28,6 +27,15 @@
 * @syscap SystemCapability.HiviewDFX.HiLog
 * @crossplatform
 * @since 10
+*/
+/**
+* Provides interfaces to generate system logs.
+*
+* @namespace hilog
+* @syscap SystemCapability.HiviewDFX.HiLog
+* @crossplatform
+* @atomicservice
+* @since 11
 */
 declare namespace hilog {
 
@@ -41,7 +49,6 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
   /**
    * Outputs debug-level logs.
    *
@@ -52,6 +59,18 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Outputs debug-level logs.
+   *
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes.
+   * @param { string } format Indicates the log format string.
+   * @param { any[] }args Indicates the log parameters.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function debug(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -65,7 +84,6 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
   /**
    * Outputs info-level logs.
    *
@@ -76,6 +94,18 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Outputs info-level logs.
+   *
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes.
+   * @param { string } format Indicates the log format string.
+   * @param { any[] }args Indicates the log parameters.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function info(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -89,7 +119,6 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
   /**
    * Outputs warning-level logs.
    *
@@ -100,6 +129,18 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Outputs warning-level logs.
+   *
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes.
+   * @param { string } format Indicates the log format string.
+   * @param { any[] }args Indicates the log parameters.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function warn(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -113,7 +154,6 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
   /**
    * Outputs error-level logs.
    *
@@ -124,6 +164,18 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Outputs error-level logs.
+   *
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes.
+   * @param { string } format Indicates the log format string.
+   * @param { any[] }args Indicates the log parameters.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function error(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -137,7 +189,6 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
   /**
    * Outputs fatal-level logs.
    *
@@ -148,6 +199,18 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Outputs fatal-level logs.
+   *
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes.
+   * @param { string } format Indicates the log format string.
+   * @param { any[] }args Indicates the log parameters.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function fatal(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -161,6 +224,17 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
+  /**
+   * Checks whether logs of the specified tag, and level can be printed.
+   *
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes.
+   * @param { LogLevel } level log level
+   * @returns { boolean }
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @atomicservice
+   * @since 11
+   */
   function isLoggable(domain: number, tag: string, level: LogLevel): boolean;
 
   /**
@@ -169,7 +243,6 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
   /**
    * Log level define
    *
@@ -177,6 +250,15 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Log level define
+   *
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   enum LogLevel {
     /**
@@ -192,6 +274,14 @@ declare namespace hilog {
      * @crossplatform
      * @since 10
      */
+    /**
+     * DEBUG Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     DEBUG = 3,
     /**
      * INFO Log level define
@@ -205,6 +295,14 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @since 10
+     */
+    /**
+     * INFO Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     INFO = 4,
     /**
@@ -220,6 +318,14 @@ declare namespace hilog {
      * @crossplatform
      * @since 10
      */
+    /**
+     * WARN Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     WARN = 5,
     /**
      * ERROR Log level define
@@ -234,6 +340,14 @@ declare namespace hilog {
      * @crossplatform
      * @since 10
      */
+    /**
+     * ERROR Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ERROR = 6,
     /**
      * FATAL Log level define
@@ -247,6 +361,14 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @since 10
+     */
+    /**
+     * FATAL Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     FATAL = 7
   }

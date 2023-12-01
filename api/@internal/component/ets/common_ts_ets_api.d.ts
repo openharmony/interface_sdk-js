@@ -26,6 +26,14 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * AppStorage singleton is sub-class of see LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ *
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class AppStorage {
   /**
    * Called when a link is set.
@@ -49,6 +57,18 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Create and return a two-way sync "(link") to named property
+   * Same as @see LocalStorage.link()
+   *
+   * @param { string } propName - name of source property in AppStorage
+   * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<T>
+   *           return 'undefined' if named property does not already exist in AppStorage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static link<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -76,6 +96,19 @@ declare class AppStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Like see @link(), but will create and initialize a new source property in AppStorage if missing
+   * Same as see LocalStorage.setAndLink()
+   *
+   * @param { string } propName - name of source property in AppStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage
+   *        default value must be of type T, must not be 'undefined' or 'null'.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
@@ -100,6 +133,18 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Create and return a one-way sync ('prop') to named property
+   * Same as @see LocalStorage.prop()
+   *
+   * @param { string } propName - name of source property in AppStorage
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *           return undefined if named property does not already exist in AppStorage.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static prop<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -127,6 +172,19 @@ declare class AppStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @param { string } propName - name of source property in AppStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage.
+   *        default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *           return undefined if named property does not already exist in AppStorage.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * Like @see prop(), will create and initialize a new source property in AppStorage if missing
+   * Same as see LocalStorage.setAndProp()
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
@@ -152,6 +210,19 @@ declare class AppStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Checks if AppStorage has a property with given name
+   * returns true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   * Same as see LocalStorage.has()
+   *
+   * @param { string } propName - searched property
+   * @returns { boolean } true if property with such name exists in AppStorage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static has(propName: string): boolean;
 
   /**
@@ -174,6 +245,17 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Same as see LocalStorage.get()
+   * Obtain the value of property with given name, returns undefined if the property does not exist in AppStorage.
+   *
+   * @param { string } propName
+   * @returns { T | undefined } property value of type T if found or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static get<T>(propName: string): T | undefined;
 
@@ -202,6 +284,20 @@ declare class AppStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Set value of given property in AppStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null`.
+   * Same as see LocalStorage.set
+   *
+   * @param { string } propName
+   * @param { T } newValue - must be of type T and must not be undefined or null
+   * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static set<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -226,6 +322,19 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
+   * Do nothing and return false if newValue is undefined or null
+   * see LocalStorage.setOrCreate()
+   *
+   * @param { string } propName
+   * @param { T } newValue - must be of type T and must not be undefined or null
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static setOrCreate<T>(propName: string, newValue: T): void;
 
@@ -261,6 +370,28 @@ declare class AppStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Delete property with given name from AppStorage
+   * Use with caution:
+   * Before deleting a prop from AppStorage all its subscribers need to
+   * unsubscribe from the property.
+   * This method fails and returns false if given property still has subscribers
+   * Another reason for failing is unknown property name.
+   * Developer advise:
+   * Subscribers to a property in AppStorage are created with see link(), see prop()
+   * and also via @StorageLink and @StorageProp state variable decorators.
+   * That means as long as their is a @Component instance that uses such decorated variable
+   * or a sync relationship with a SubscribedAbstractProperty variable the property can not
+   * (and also should not!) be deleted from AppStorage.
+   * Same as see LocalStorage.delete()
+   *
+   * @param { string } propName
+   * @returns { boolean } false if method failed
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static delete(propName: string): boolean;
 
   /**
@@ -282,6 +413,17 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Provide names of all properties in AppStorage
+   * same as ES6 Map.prototype.keys()
+   * Same as see LocalStorage.keys()
+   *
+   * @returns { IterableIterator<string> } return a Map Iterator
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static keys(): IterableIterator<string>;
 
@@ -316,6 +458,17 @@ declare class AppStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Delete all properties from the AppStorage.
+   * Precondition is that there are no subscribers, see Delete().
+   *
+   * @returns { boolean } false and deletes no properties if there is any property
+   * that still has subscribers.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static clear(): boolean;
 
   /**
@@ -346,6 +499,15 @@ declare class AppStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Method returns the number of properties currently in AppStorage
+   *
+   * @returns { number } Returns the number of properties currently in AppStorage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static size(): number;
 }
@@ -388,6 +550,24 @@ declare class AppStorage {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ *   SubscribedAbstractProperty<T> is the return value of
+ *   - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
+ *   - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
+ *   'T' can be boolean, string, number or custom class.
+ * Main functions
+ *   see get() reads the linked AppStorage/LocalStorage property value,
+ *   see set(newValue) write a new value to the synched AppStorage/LocalStorage property
+ *   see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
+ *        The app must call this function before the SubscribedAbstractProperty<T> object
+ *        goes out of scope.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare abstract class SubscribedAbstractProperty<T> {
@@ -466,6 +646,16 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Returns the property name,
+   * e.g. let link = AppStorage.Link("foo") then link.info() == "foo"
+   *
+   * @returns { string } the property name if set or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   info(): string;
 
   /**
@@ -487,6 +677,18 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Reads value of the sync'ed AppStorage/LocalStorage property.
+   * `let link : SubscribedAbstractProperty<string> =AppStorage.Link<string>("foo")`
+   * then `link.get()` returns the value of "foo" property in AppStorage.
+   *
+   * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   abstract get(): T;
@@ -512,6 +714,19 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Updates the value of value of the sync'ed AppStorage/LocalStorage property.
+   * Sets new value, must be of type T, and must not be 'undefined' or 'null'.
+   * `let link : SubscribedAbstractProperty<string> =AppStorage.Link<string>("foo")`
+   * then `link.set("Hello")` will set the value of "foo" property in AppStorage.
+   *
+   * @param { T } newValue
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   abstract set(newValue: T): void;
@@ -589,6 +804,17 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * An app needs to call this function before the instance of SubscribedAbstractProperty
+   * goes out of scope / is subject to garbage collection. Its purpose is to unregister the
+   * variable from the two-way/one-way sync relationship that AppStorage/LocalStorage.link()/prop()
+   * and related functions create.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   abstract aboutToBeDeleted(): void;
 }
 
@@ -625,7 +851,7 @@ interface IPropertySubscriber {
 /**
  * Defines the state value.
  *
- * @extends SubscribedAbstractProperty
+ * @extends SubscribedAbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -699,7 +925,7 @@ declare class SyncedPropertyTwoWay<T>
 /**
  * Defines the prop state value.
  *
- * @extends SubscribedAbstractProperty
+ * @extends SubscribedAbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -875,6 +1101,15 @@ declare abstract class SubscribaleAbstract {
  * @crossplatform
  * @since 10
  */
+/**
+ * EnvProps object
+ *
+ * @interface EnvPropsOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface EnvPropsOptions {
   /**
    * Property name
@@ -883,6 +1118,15 @@ declare interface EnvPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Property name
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   key: string;
 
@@ -893,6 +1137,15 @@ declare interface EnvPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * DefaultValue is the default value if cannot get the environment property value
+   *
+   * @type { number | string | boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   defaultValue: number | string | boolean;
 }
@@ -909,6 +1162,14 @@ declare interface EnvPropsOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the Environment interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class Environment {
   /**
@@ -946,6 +1207,20 @@ declare class Environment {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates a new property in AppStorage. The UI framework implementation takes care of updating
+   * its value whenever the named device environment property changes. Recommended use is at app startup.
+   * The function call fails and returns false if a property with given name exists in AppStorage already.
+   * It is wrong API use to access a property with given name in AppStorage before calling Environment.envProp.
+   *
+   * @param { string } key - environment property
+   * @param { S } value - is the default value if cannot get the environment property value
+   * @returns { boolean } false if method failed
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static envProp<S>(key: string, value: S): boolean;
 
   /**
@@ -972,6 +1247,15 @@ declare class Environment {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when multiple property values are checked.
+   *
+   * @param { EnvPropsOptions[] } props
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static envProps(props: EnvPropsOptions[]): void;
 
   /**
@@ -993,6 +1277,15 @@ declare class Environment {
    * @crossplatform
    * @since 10
    */
+  /**
+   * returns an Array<string> of all environment property keys
+   *
+   * @returns { Array<string> } all environment property keys
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static keys(): Array<string>;
 }
 
@@ -1004,6 +1297,15 @@ declare class Environment {
  * @crossplatform
  * @since 10
  */
+/**
+ * PersistProps object
+ *
+ * @interface PersistPropsOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface PersistPropsOptions {
   /**
    * Property name
@@ -1012,6 +1314,15 @@ declare interface PersistPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Property name
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   key: string;
 
@@ -1022,6 +1333,15 @@ declare interface PersistPropsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * If AppStorage does not include this property it will be initialized with this value
+   *
+   * @type { number | string | boolean | Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   defaultValue: number | string | boolean | Object;
 }
@@ -1038,6 +1358,14 @@ declare interface PersistPropsOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the PersistentStorage interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class PersistentStorage {
   /**
@@ -1075,6 +1403,19 @@ declare class PersistentStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Add property 'key' to AppStorage properties whose current value will be
+   * persistent.
+   * If AppStorage does not include this property it will be added and initializes
+   * with given value
+   *
+   * @param { string } key - property name
+   * @param { T } defaultValue - If AppStorage does not include this property it will be initialized with this value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static persistProp<T>(key: string, defaultValue: T): void;
 
   /**
@@ -1095,6 +1436,15 @@ declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Reverse of @see persistProp
+   *
+   * @param { string } key - no longer persist the property named key
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static deleteProp(key: string): void;
 
@@ -1124,6 +1474,17 @@ declare class PersistentStorage {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Persist given AppStorage properties with given names.
+   * If a property does not exist in AppStorage, add it and initialize it with given value
+   * works as @see persistProp for multiple properties.
+   *
+   * @param { PersistPropsOptions[] } props
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   static persistProps(props: PersistPropsOptions[]): void;
 
   /**
@@ -1144,6 +1505,15 @@ declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Inform persisted AppStorage property names
+   *
+   * @returns { Array<string> } array of AppStorage keys
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static keys(): Array<string>;
 }
@@ -1180,6 +1550,19 @@ declare const appStorage: AppStorage;
  * @since 10
  * @form
  */
+/**
+ * LocalStorage
+ * Class implements a Map of ObservableObjectBase UI state variables.
+ * Instances can be created to manage UI state within a limited "local"
+ * access, and life cycle as defined by the app.
+ * AppStorage singleton is sub-class of LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ *
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class LocalStorage {
   /**
    * Construct new instance of LocalStorage
@@ -1200,6 +1583,18 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Construct new instance of LocalStorage
+   * initialize with all properties and their values that Object.keys(params) returns
+   * Property values must not be undefined.
+   *
+   * @param { Object } [initializingProperties] - Object containing keys and values. see set() for valid values
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   constructor(initializingProperties?: Object);
@@ -1227,6 +1622,17 @@ declare class LocalStorage {
    * @since 10
    * @form
    */
+  /**
+   * Get current LocalStorage shared from stage.
+   *
+   * @returns { LocalStorage } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   static getShared(): LocalStorage;
 
   /**
@@ -1252,6 +1658,19 @@ declare class LocalStorage {
    * @since 10
    * @form
    */
+  /**
+   * Check if LocalStorage has a property with given name
+   * return true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   *
+   * @param { string } propName - searched property
+   * @returns { boolean } true if property with such name exists in LocalStorage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   has(propName: string): boolean;
 
   /**
@@ -1271,6 +1690,17 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Provide names of all properties in LocalStorage
+   * same as ES6 Map.prototype.keys()
+   *
+   * @returns { IterableIterator<string> } return a Map Iterator
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   keys(): IterableIterator<string>;
@@ -1294,6 +1724,17 @@ declare class LocalStorage {
    * @since 10
    * @form
    */
+  /**
+   * Returns number of properties in LocalStorage
+   * same as Map.prototype.size()
+   *
+   * @returns { number } return number of properties
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   size(): number;
 
   /**
@@ -1315,6 +1756,18 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Returns value of given property
+   * return undefined if no property with this name
+   *
+   * @param { string } propName
+   * @returns { T | undefined } property value if found or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   get<T>(propName: string): T | undefined;
@@ -1342,6 +1795,20 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set value of given property in LocalStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null` (`undefined`, `null` value are not allowed for state variables).
+   *
+   * @param { string } propName
+   * @param { T } newValue - must be of type T and must not be undefined or null
+   * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   set<T>(propName: string, newValue: T): boolean;
@@ -1373,6 +1840,21 @@ declare class LocalStorage {
    * @since 10
    * @form
    */
+  /**
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name and initialize with given value.
+   * Do nothing and return false if newValue is undefined or null
+   * (undefined, null value is not allowed for state variables)
+   *
+   * @param { string } propName
+   * @param { T } newValue - must be of type T and must not be undefined or null
+   * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   setOrCreate<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -1396,6 +1878,19 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Create and return a two-way sync "(link") to named property
+   *
+   * @param { string } propName - name of source property in LocalStorage
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *           return undefined if named property does not already exist in LocalStorage
+   *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   link<T>(propName: string): SubscribedAbstractProperty<T>;
@@ -1425,6 +1920,20 @@ declare class LocalStorage {
    * @since 10
    * @form
    */
+  /**
+   * Like see link(), but will create and initialize a new source property in LocalStorage if missing
+   *
+   * @param { string } propName - name of source property in LocalStorage
+   * @param { T } defaultValue - value to be used for initializing if new creating new property in LocalStorage
+   *        default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
@@ -1448,6 +1957,19 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Create and return a one-way sync ('prop') to named property
+   *
+   * @param { string } propName - name of source property in LocalStorage
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           return undefined if named property does not already exist in LocalStorage
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   prop<S>(propName: string): SubscribedAbstractProperty<S>;
@@ -1475,6 +1997,20 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Like see prop(), will create and initialize a new source property in LocalStorage if missing
+   *
+   * @param { string } propName - name of source property in LocalStorage
+   * @param { S } defaultValue - value to be used for initializing if new creating new property in LocalStorage.
+   *         Default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
@@ -1520,6 +2056,28 @@ declare class LocalStorage {
    * @since 10
    * @form
    */
+  /**
+   * Delete property from StorageBase
+   * Use with caution:
+   * Before deleting a prop from LocalStorage all its subscribers need to
+   * unsubscribe from the property.
+   * This method fails and returns false if given property still has subscribers
+   * Another reason for failing is unknown property.
+   * Developer advise:
+   * Subscribers are created with see link(), see prop()
+   * and also via @LocalStorageLink and @LocalStorageProp state variable decorators.
+   * That means as long as their is a @Component instance that uses such decorated variable
+   * or a sync relationship with a SubscribedAbstractProperty variable the property can nit
+   * (and also should not!) be deleted from LocalStorage.
+   *
+   * @param { string } propName
+   * @returns { boolean } false if method failed
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   delete(propName: string): boolean;
 
   /**
@@ -1543,6 +2101,19 @@ declare class LocalStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Delete all properties from the LocalStorage instance
+   * Precondition is that there are no subscribers.
+   * method returns false and deletes no properties if there is any property
+   * that still has subscribers
+   *
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   clear(): boolean;

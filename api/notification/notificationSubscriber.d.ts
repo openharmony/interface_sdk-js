@@ -120,6 +120,16 @@ export interface NotificationSubscriber {
    * @since 10
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
+
+  /**
+   * Callback when badge cancel notifications.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 }
 
 /**
@@ -155,7 +165,7 @@ export interface SubscribeCallbackData {
   readonly sortingMap?: NotificationSortingMap;
 
   /**
-   * Delete the reason.
+   * The reason for the deletion.(1:CLICK_REASON_REMOVE,2:CANCEL_REASON_REMOVE)
    *
    * @type { ?number }
    * @readonly

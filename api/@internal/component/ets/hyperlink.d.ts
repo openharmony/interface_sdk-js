@@ -20,6 +20,14 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * Defines the hyperlink interface.
+ *
+ * @interface HyperlinkInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 interface HyperlinkInterface {
   /**
    * Return to get Hyperlink.
@@ -32,15 +40,35 @@ interface HyperlinkInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Return to get Hyperlink.
+   * adress: Web page redirected by the hyperlink component.
+   * content: Hyperlinks in the hyperlink component display text.
+   *
+   * @param { string | Resource } address
+   * @param { string | Resource } content
+   * @returns { HyperlinkAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
 
 /**
  * Defines the hyperlink attribute functions
  *
- * @extends CommonMethod
+ * @extends CommonMethod<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * Defines the hyperlink attribute functions
+ *
+ * @extends CommonMethod<HyperlinkAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
@@ -51,6 +79,15 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Set Color
+   *
+   * @param { Color | number | string | Resource } value
+   * @returns { HyperlinkAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
 
@@ -60,6 +97,13 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * Defines Hyperlink Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare const Hyperlink: HyperlinkInterface;
 
 /**
@@ -67,5 +111,12 @@ declare const Hyperlink: HyperlinkInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * Defines Hyperlink Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare const HyperlinkInterface: HyperlinkAttribute;

@@ -115,7 +115,7 @@ interface FormLinkInterface {
 /**
  * Defines the FormLink attribute.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<FormLinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  * @form

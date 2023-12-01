@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Defines circle options for Circle component.
+ *
+ * @interface CircleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface CircleOptions {
   /**
    * Defines the width property.
@@ -60,6 +70,16 @@ declare interface CircleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Defines the width property.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   width?: string | number;
@@ -86,6 +106,16 @@ declare interface CircleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Defines the height property.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   height?: string | number;
@@ -115,6 +145,16 @@ declare interface CircleOptions {
  * @since 10
  * @form
  */
+/**
+ * Defines circle component.
+ *
+ * @interface CircleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface CircleInterface {
   /**
    * use new function to set the value.
@@ -141,6 +181,17 @@ interface CircleInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * use new function to set the value.
+   * 
+   * @param { CircleOptions } value
+   * @returns { CircleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   new (value?: CircleOptions): CircleAttribute;
@@ -172,20 +223,31 @@ interface CircleInterface {
    * @since 10
    * @form
    */
+  /**
+   * Set the value..
+   *
+   * @param { CircleOptions } value
+   * @returns { CircleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: CircleOptions): CircleAttribute;
 }
 
 /**
  * Circle drawing component attribute functions.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<CircleAttribute> 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Circle drawing component attribute functions.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -193,10 +255,20 @@ interface CircleInterface {
 /**
  * Circle drawing component attribute functions.
  *
- * @extends CommonShapeMethod
+ * @extends CommonShapeMethod<CircleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Circle drawing component attribute functions.
+ *
+ * @extends CommonShapeMethod<CircleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
@@ -222,6 +294,15 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * @since 10
  * @form
  */
+/**
+ * Defines Circle Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Circle: CircleInterface;
 
 /**
@@ -243,6 +324,15 @@ declare const Circle: CircleInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Circle Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const CircleInstance: CircleAttribute;

@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides the interface for scoring bars.
+ *
+ * @interface RatingInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface RatingInterface {
   /**
    * Called when a score bar is created.
@@ -65,20 +75,31 @@ interface RatingInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when a score bar is created.
+   *
+   * @param { object } options
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (options?: { rating: number; indicator?: boolean }): RatingAttribute;
 }
 
 /**
  * Defines the rating attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the rating attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -86,10 +107,20 @@ interface RatingInterface {
 /**
  * Defines the rating attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the rating attribute functions.
+ *
+ * @extends CommonMethod<RatingAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
@@ -118,6 +149,17 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the total number of stars is set.
+   *
+   * @param { number } value
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   stars(value: number): RatingAttribute;
@@ -149,6 +191,17 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the step size of the operation rating.
+   *
+   * @param { number } value
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   stepSize(value: number): RatingAttribute;
 
   /**
@@ -176,6 +229,17 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when a picture is set.
+   *
+   * @param { object } value
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): RatingAttribute;
@@ -207,6 +271,17 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the star rating of the operation scoring bar changes.
+   *
+   * @param { function } callback
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onChange(callback: (value: number) => void): RatingAttribute;
 }
 
@@ -231,6 +306,15 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Rating Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Rating: RatingInterface;
 
 /**
@@ -252,6 +336,15 @@ declare const Rating: RatingInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Rating Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const RatingInstance: RatingAttribute;

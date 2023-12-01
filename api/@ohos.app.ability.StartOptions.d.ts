@@ -20,6 +20,14 @@
  * @StageModelOnly
  * @since 9
  */
+/**
+ * StartOptions is the basic communication component of the system.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
 export default class StartOptions {
   /**
    * The type of {@link ohos.app.ability.AbilityConstant#WindowMode}
@@ -40,5 +48,64 @@ export default class StartOptions {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * The type of displayId
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   displayId?: number;
+
+  /**
+   * The target ability with animation or without
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  withAnimation?: boolean;
+
+  /**
+   * The left position of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowLeft?: number;
+
+  /**
+   * The top position of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowTop?: number;
+
+  /**
+   * The width of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowWidth?: number;
+
+  /**
+   * The height of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowHeight?: number;
 }

@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides an interface for generating QR codes.
+ *
+ * @interface QRCodeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface QRCodeInterface {
   /**
    * Called when a QR code is set.
@@ -65,20 +75,31 @@ interface QRCodeInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when a QR code is set.
+   *
+   * @param { string } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value: string): QRCodeAttribute;
 }
 
 /**
  * Defines the qrcode attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the qrcode attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -86,10 +107,20 @@ interface QRCodeInterface {
 /**
  * Defines the qrcode attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the qrcode attribute functions.
+ *
+ * @extends CommonMethod<QRCodeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
@@ -120,6 +151,17 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the QR code color is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   color(value: ResourceColor): QRCodeAttribute;
 
   /**
@@ -147,6 +189,17 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when setting the QR code background color.
+   *
+   * @param { ResourceColor } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
@@ -183,6 +236,15 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines QRCode Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const QRCode: QRCodeInterface;
 
 /**
@@ -204,6 +266,15 @@ declare const QRCode: QRCodeInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines QRCode Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const QRCodeInstance: QRCodeAttribute;

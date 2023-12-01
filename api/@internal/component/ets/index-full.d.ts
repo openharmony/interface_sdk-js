@@ -106,6 +106,7 @@
 /// <reference path="./text.d.ts" />
 /// <reference path="./text_area.d.ts" />
 /// <reference path="./text_clock.d.ts" />
+/// <reference path="./text_common.d.ts" />
 /// <reference path="./text_input.d.ts" />
 /// <reference path="./text_picker.d.ts" />
 /// <reference path="./text_timer.d.ts" />

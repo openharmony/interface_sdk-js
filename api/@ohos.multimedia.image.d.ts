@@ -1442,6 +1442,16 @@ declare namespace image {
      * @since 10
      */
     fitDensity?: number;
+
+    /**
+     * Color space of the image pixel map.
+     *
+     * @type { ?colorSpaceManager.ColorSpaceManager }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
   }
 
   /**
@@ -1737,6 +1747,16 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
+   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(uri: string): ImageSource;
 
   /**
@@ -1758,6 +1778,17 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(uri: string, options: SourceOptions): ImageSource;
 
   /**
@@ -1776,6 +1807,16 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   *
+   * @param { number } fd ID of a file descriptor.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createImageSource(fd: number): ImageSource;
 
@@ -1798,6 +1839,17 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   *
+   * @param { number } fd ID of a file descriptor.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(fd: number, options: SourceOptions): ImageSource;
 
   /**
@@ -1816,6 +1868,16 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an ImageSource instance based on the buffer.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -1838,6 +1900,17 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Creates an ImageSource instance based on the buffer.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
 
   /**
@@ -1848,6 +1921,7 @@ declare namespace image {
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
@@ -1906,6 +1980,15 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates an ImagePacker instance.
+   *
+   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createImagePacker(): ImagePacker;
 
@@ -2533,6 +2616,10 @@ declare namespace image {
 
     /**
      * Set color space of pixel map.
+     * 
+     * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
+     * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
+     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
      * @throws { BusinessError } 62980111 - If the operation invalid.
@@ -2542,7 +2629,43 @@ declare namespace image {
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
+     /**
+     * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a callback to return the operation result.
+     * 
+     * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
+     * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
+     * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
+     * @throws { BusinessError } 62980108 - If the color space converted failed.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
+
     /**
+     * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a promise to return the result.
+     * 
+     * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
+     * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
+     * @throws { BusinessError } 62980108 - If the color space converted failed.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
+
+     /**
      * Releases this PixelMap object. This method uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
@@ -2612,6 +2735,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains information about an image with the specified sequence number and uses a callback
+     * to return the result.
+     *
+     * @param { number } index Sequence number of an image.
+     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getImageInfo(index: number, callback: AsyncCallback<ImageInfo>): void;
 
     /**
@@ -2628,6 +2762,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains information about this image and uses a callback to return the result.
+     *
+     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
@@ -2647,6 +2790,16 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get image information from image source.
+     *
+     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getImageInfo(index?: number): Promise<ImageInfo>;
 
@@ -3082,6 +3235,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Compresses or packs an image and uses a callback to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     packing(source: ImageSource, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
@@ -3102,6 +3266,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { ImageSource } source Image to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     packing(source: ImageSource, option: PackingOption): Promise<ArrayBuffer>;
 
@@ -3124,6 +3299,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Compresses or packs an image and uses a callback to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
@@ -3144,6 +3330,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 

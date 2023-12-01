@@ -15,7 +15,7 @@
 
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
-import { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import type { LocalStorage } from 'StateManagement';
@@ -163,6 +163,24 @@ declare namespace inputMethodEngine {
    * @since 8
    */
   const PATTERN_PASSWORD: number;
+
+  /**
+   * Editor of type SCREEN LOCK PASSWORD
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  const PATTERN_PASSWORD_SCREEN_LOCK: number;
+
+  /**
+   * Editor of type NUMBER PASSWORD
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  const PATTERN_PASSWORD_NUMBER: number;
 
   /**
    * Editor in SELECTING state
@@ -573,6 +591,37 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
+
+    /**
+     * Subscribe 'securityModeChange' event.
+     *
+     * @param { 'securityModeChange' } type - the type of subscribe event.
+     * @param { Callback<SecurityMode> } callback - the callback of on('securityModeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    on(type: 'securityModeChange', callback: Callback<SecurityMode>): void;
+
+    /**
+     * Unsubscribe 'securityModeChange' event.
+     *
+     * @param { 'securityModeChange' } type - the type of unsubscribe event.
+     * @param { Callback<SecurityMode> } [callback] - optional, the callback of off('securityModeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
+
+
+    /**
+     * Get input method's security mode.
+     *
+     * @returns { SecurityMode } return security mode.
+     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    getSecurityMode(): SecurityMode;
 
     /**
      * Creates a panel.
@@ -1528,6 +1577,19 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     changeFlag(flag: PanelFlag): void;
+
+    /**
+     * Sets ime panel private mode or not.
+     *
+     * @permission ohos.permission.PRIVACY_WINDOW
+     * @param { boolean } isPrivacyMode - if the value is true, the privacy mode will be set,
+     * otherwise the non-privacy mode will be set.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    setPrivacyMode(isPrivacyMode: boolean): void;
   }
 
   /**
@@ -1699,6 +1761,30 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     CURSOR_RIGHT
+  }
+
+  /**
+   * Enumerates the security mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  export enum SecurityMode {
+    /**
+     * Basic security mode
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    BASIC = 0,
+    /**
+     * Full security mode
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    FULL
   }
 
   /**

@@ -15,6 +15,17 @@
 
 import { AsyncCallback } from './@ohos.base';
 
+/**
+ * @namespace zlib
+ * @syscap SystemCapability.BundleManager.Zlib
+ * @since 7
+ */
+/**
+ * @namespace zlib
+ * @syscap SystemCapability.BundleManager.Zlib
+ * @atomicservice
+ * @since 11
+ */
 declare namespace zlib {
   /**
    * ErrorCode
@@ -25,7 +36,17 @@ declare namespace zlib {
    * @deprecated since 9
    */
   export enum ErrorCode {
+    /**
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @since 7
+     * @deprecated since 9
+     */
     ERROR_CODE_OK = 0,
+    /**
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @since 7
+     * @deprecated since 9
+     */
     ERROR_CODE_ERRNO = -1
   }
 
@@ -42,6 +63,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   export enum CompressLevel {
@@ -56,6 +78,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
@@ -70,6 +93,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_LEVEL_BEST_SPEED = 1,
@@ -84,6 +108,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_LEVEL_BEST_COMPRESSION = 9,
@@ -98,6 +123,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
@@ -116,6 +142,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   export enum CompressStrategy {
@@ -130,6 +157,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
@@ -144,6 +172,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_STRATEGY_FILTERED = 1,
@@ -158,6 +187,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
@@ -172,6 +202,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_STRATEGY_RLE = 3,
@@ -186,6 +217,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     COMPRESS_STRATEGY_FIXED = 4
@@ -204,6 +236,7 @@ declare namespace zlib {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   export enum MemLevel {
@@ -218,6 +251,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     MEM_LEVEL_MIN = 1,
@@ -232,6 +266,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     MEM_LEVEL_MAX = 9,
@@ -246,6 +281,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     MEM_LEVEL_DEFAULT = 8
@@ -264,6 +300,7 @@ declare namespace zlib {
    * @typedef Options
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   interface Options {
@@ -278,6 +315,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     level?: CompressLevel;
@@ -292,6 +330,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     memLevel?: MemLevel;
@@ -306,6 +345,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     strategy?: CompressStrategy;
@@ -364,6 +404,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
@@ -393,6 +434,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
@@ -437,6 +479,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
@@ -466,6 +509,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   function decompressFile(inFile: string, outFile: string, callback: AsyncCallback<void>): void;
@@ -510,6 +554,7 @@ declare namespace zlib {
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;

@@ -17,6 +17,11 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class console {
   /**
    * Prints "debug" logs.
@@ -25,6 +30,15 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
+   */
+  /**
+   * Prints "debug" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -36,6 +50,15 @@ export declare class console {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
+  /**
+   * Prints "log" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   static log(message: string, ...arguments: any[]): void;
 
   /**
@@ -45,6 +68,15 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
+   */
+  /**
+   * Prints "info" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -56,6 +88,15 @@ export declare class console {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
+  /**
+   * Prints "warn" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   static warn(message: string, ...arguments: any[]): void;
 
   /**
@@ -65,6 +106,15 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
+   */
+  /**
+   * Prints "error" logs.
+   *
+   * @param { string } message - Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   static error(message: string, ...arguments: any[]): void;
 }

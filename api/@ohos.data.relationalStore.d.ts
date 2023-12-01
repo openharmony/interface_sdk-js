@@ -309,6 +309,16 @@ declare namespace relationalStore {
      * @since 11
      */
     autoCleanDirtyData?: boolean;
+
+    /**
+     * Specifies whether data can be searched.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    isSearchable?: boolean;
   }
 
   /**
@@ -2112,6 +2122,17 @@ declare namespace relationalStore {
     getAssets(columnIndex: number): Assets;
 
     /**
+     * Obtains the values of all columns in the specified row.
+     *
+     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 11
+     */
+    getRow(): ValuesBucket;
+
+    /**
      * Checks whether the value of the specified column in the current row is null.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
@@ -2841,6 +2862,22 @@ declare namespace relationalStore {
       primaryKeys: PRIKeyType[],
       callback: AsyncCallback<ModifyTime>
     ): void;
+
+    /**
+     * Cleans the dirty data, which is the data deleted in the cloud.
+     *
+     * Data with a cursor smaller than the specified cursor will be cleaned up.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } cursor - Indicates the position of the data to be cleaned up.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
 
     /**
      * Cleans all dirty data deleted in the cloud.

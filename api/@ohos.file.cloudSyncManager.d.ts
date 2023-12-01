@@ -218,6 +218,69 @@ declare namespace cloudSyncManager {
    * @since 10
    */
   function clean(accountId: string, appActions: { [bundleName: string]: Action }, callback: AsyncCallback<void>): void;
+
+  /**
+   * Notify the change of data in cloud.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { ExtraData } extraData - The change info from push notification
+   * @returns { Promise<void> } Return Promise
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 11
+   */
+  function notifyDataChange(userId: number, extraData: ExtraData): Promise<void>;
+
+  /**
+   * Notify the change of data in cloud.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { ExtraData } extraData - The change info from push notification
+   * @param { AsyncCallback<void> } callback - Callback function
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 11
+   */
+  function notifyDataChange(userId: number, extraData: ExtraData, callback: AsyncCallback<void>): void;
+
+  /**
+   * The change info from push notification.
+   *
+   * @interface ExtraData
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 11
+   */
+  interface ExtraData {
+    /**
+     * The eventId of the push info.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 11
+     */
+    eventId: string;
+    /**
+     * The change info.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 11
+     */
+    extraData: string;
+  }
 }
 
 export default cloudSyncManager;
