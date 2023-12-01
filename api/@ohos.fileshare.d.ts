@@ -153,6 +153,7 @@ declare namespace fileShare {
     /**
      * Indicates the uri of the policy information.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
@@ -161,6 +162,7 @@ declare namespace fileShare {
     /**
      * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
