@@ -114,10 +114,10 @@ declare namespace Environment {
   function getUserDocumentDir(): string;
 
   /**
-   * Get the sandbox directory of the wild card root.
+   * Get external storage directory of the application sandbox path.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Return the sandbox directory of the wild card root.
+   * @returns { string } Return external storage directory of the application sandbox path.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
