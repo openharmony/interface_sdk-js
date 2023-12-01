@@ -4132,7 +4132,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    decorEnable: boolean;
+    decorEnabled: boolean;
   }
   /**
    * WindowStage
