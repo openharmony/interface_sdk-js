@@ -20,7 +20,6 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace Environment
  * @syscap SystemCapability.FileManagement.File.Environment
- * @systemapi
  * @since 8
  */
 declare namespace Environment {
