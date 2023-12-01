@@ -471,6 +471,44 @@ declare namespace taskpool {
   }
 
   /**
+   * The SequenceRunner class provides an interface to create a task sequence runner.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  class SequenceRunner {
+    /**
+     * Create a SequenceRunner instance.
+     *
+     * @param { Priority } priority - Task execution priority, MEDIUM is default.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    constructor(priority?: Priority);
+
+    /**
+     * Execute a concurrent function.
+     *
+     * @param { Task } task - The task want to execute.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200003 - Worker initialization failure.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - Add dependent task to SequenceRunner.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    execute(task: Task): Promise<Object>;
+  }
+
+  /**
    * The State defines the task state.
    *
    * @enum { number } State
