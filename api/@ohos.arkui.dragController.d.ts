@@ -221,6 +221,8 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -233,6 +235,8 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
