@@ -681,7 +681,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occured in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Core
+   * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
    */
   /**
@@ -699,7 +699,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occured in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Core
+   * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
    */
