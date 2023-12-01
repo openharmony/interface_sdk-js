@@ -216,9 +216,9 @@ declare namespace fileShare {
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @param { number } policyFlag - The identity of the URIs policy, example { PolicyFlag.ALLOWED_PERSIST }.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -234,8 +234,8 @@ declare namespace fileShare {
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -250,8 +250,8 @@ declare namespace fileShare {
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -266,8 +266,8 @@ declare namespace fileShare {
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
@@ -282,8 +282,8 @@ declare namespace fileShare {
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error

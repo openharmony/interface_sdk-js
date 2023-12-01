@@ -80,7 +80,7 @@ declare namespace Environment {
    *
    * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
    * @returns { string } Return the sandbox path to the public download directory.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -93,7 +93,7 @@ declare namespace Environment {
    *
    * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
    * @returns { string } Return the sandbox path to the public desktop directory.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -105,7 +105,7 @@ declare namespace Environment {
    *
    * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
    * @returns { string } Return the sandbox path to the public document directory.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -118,8 +118,8 @@ declare namespace Environment {
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @returns { string } Return the sandbox directory of the wild card root.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -133,8 +133,8 @@ declare namespace Environment {
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @returns { string } Return the sandbox directory of the current user root.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.File.Environment
