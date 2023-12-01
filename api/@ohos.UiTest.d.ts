@@ -4114,7 +4114,7 @@ declare class UiWindow {
    * @syscap SystemCapability.Test.UiTest
    * @since 11
    * @deprecated since 11
-   * @useinstead ohos.UiTest.UiWindown#isActive
+   * @useinstead ohos.UiTest.UiWindow#isActive
    * @test
    */
   isActived(): Promise<boolean>;
