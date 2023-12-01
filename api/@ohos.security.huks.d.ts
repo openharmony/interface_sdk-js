@@ -682,7 +682,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
-   * @since 9
+   * @since 11
    */
   /**
    * Check whether the key exists.
@@ -721,7 +721,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
-   * @since 9
+   * @since 11
    */
   /**
    * Check whether the key exists.
