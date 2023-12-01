@@ -76,10 +76,10 @@ declare namespace Environment {
   function getUserDataDir(callback: AsyncCallback<string>): void;
 
   /**
-   * Get the sandbox path to the public download directory.
+   * Get the public download directory.
    *
    * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
-   * @returns { string } Return the sandbox path to the public download directory.
+   * @returns { string } Return the public download directory.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -89,10 +89,10 @@ declare namespace Environment {
   function getUserDownloadDir(): string;
 
   /**
-   * Get the sandbox path to the public desktop directory.
+   * Get the public desktop directory.
    *
    * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
-   * @returns { string } Return the sandbox path to the public desktop directory.
+   * @returns { string } Return the public desktop directory.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
@@ -100,11 +100,12 @@ declare namespace Environment {
    * @since 11
    */
   function getUserDesktopDir(): string;
+
   /**
-   * Get the sandbox path to the public document directory.
+   * Get the public document directory.
    *
    * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
-   * @returns { string } Return the sandbox path to the public document directory.
+   * @returns { string } Return the public document directory.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
