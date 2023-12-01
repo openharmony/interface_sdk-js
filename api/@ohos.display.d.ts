@@ -998,7 +998,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
-    colorSpace: Array<ColorSpace>;
+    colorSpaces: Array<ColorSpace>;
 
     /**
      * All supported HDR formats.
@@ -1006,7 +1006,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
-    HDRFormats: Array<HDRFormat>;
+    hdrFormats: Array<HDRFormat>;
 
     /**
      * Obtain the cutout info of the display.
