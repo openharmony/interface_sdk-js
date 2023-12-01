@@ -39,6 +39,7 @@ import { ApiNamingCheck } from './naming_check';
 import { CheckHump } from './check_hump';
 import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
+import { ApiChangeCheck } from './check_api_diff';
 
 export class Check {
   /**
@@ -48,7 +49,9 @@ export class Check {
   static scanEntry(url: string): void {
     if (fs.existsSync(url)) {
       const files: Array<string> = Check.getMdFiles(url);
-      files.forEach((filePath: string) => {
+      ApiChangeCheck.checkApiChange();
+      files.forEach((filePath: string, index: number) => {
+        console.log(`scaning file in no ${++index}!`);
         const fileParseResult: FilesMap = Check.parseAPICodeStyle(filePath);
         const baseInfos: BasicApiInfo[] = Parser.getAllBasicApi(fileParseResult);
         Check.checkNodeInfos(baseInfos as ClassInfo[]);
@@ -119,7 +122,9 @@ export class Check {
         // legality check
         const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
         // order check
+        // console.log('name=',singleApi.getApiName())
         const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(apiJsdoc);
+
         // api naming check
         const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
         // tags name check

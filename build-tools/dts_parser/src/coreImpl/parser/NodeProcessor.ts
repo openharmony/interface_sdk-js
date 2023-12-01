@@ -199,7 +199,7 @@ export class NodeProcessorHelper {
    * @return {(ts.TypeNode | undefined)} 满足条件的on/off第一个参数的类型
    */
   static getOnOrOffMethodFirstParamType(apiInfo: BasicApiInfo, methodNode: MethodType): ts.TypeNode | undefined {
-    const subscriotionSet: Set<string> = new Set(EventConstant.EVENT_NAME_LIST);
+    const subscriotionSet: Set<string> = new Set(EventConstant.eventNameList);
     if (!subscriotionSet.has(apiInfo.getApiName())) {
       return undefined;
     }

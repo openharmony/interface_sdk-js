@@ -29,15 +29,24 @@ export class TagInheritCheck {
       state: false,
       errorInfo: '',
     };
-    const apiJsdoc: Comment.JsDocInfo = singleApi.getLastJsDocInfo() as Comment.JsDocInfo;
-    const tagsInfo: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
+    const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
+    if (apiJsdoc === undefined) {
+      return tagNameCheckResult;
+    }
+    const tagsInfo: Comment.CommentTag[] | undefined = apiJsdoc.tags;
     const apiTagsName: string[] = [];
+    if (tagsInfo === undefined) {
+      return tagNameCheckResult;
+    }
     tagsInfo.forEach((tag) => {
       apiTagsName.push(tag.tag);
     });
     const parentApi: ClassInfo = singleApi.getParentApi() as ClassInfo;
     if (parentApi.getApiType() !== ApiType.SOURCE_FILE) {
-      const parentApisJsdoc: Comment.CommentTag[] = parentApi.getLastJsDocInfo()?.tags as Comment.CommentTag[];
+      const parentApisJsdoc: Comment.CommentTag[] | undefined = parentApi.getLastJsDocInfo()?.tags;
+      if (parentApisJsdoc === undefined) {
+        return tagNameCheckResult;
+      }
       parentApisJsdoc.find((parentApiJsdoc: Comment.CommentTag) => {
         const flag: boolean = inheritTagArr.includes(parentApiJsdoc.tag) && !apiTagsName.includes(parentApiJsdoc.tag);
         if (flag) {

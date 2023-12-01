@@ -44,6 +44,8 @@ import { CharMapType, CompareReturnObjType, PermissionsProcessorHelper, RangeCha
 import { DecoratorInfo } from '../../typedef/parser/Decorator';
 import { ApiStatisticsHelper } from '../statistics/Statistics';
 import { FunctionUtils } from '../../utils/FunctionUtils';
+import { CommonFunctions } from '../../utils/checkUtils';
+import { NumberConstant } from '../../utils/Constant';
 
 export namespace DiffProcessorHelper {
   /**
@@ -423,6 +425,59 @@ export namespace DiffProcessorHelper {
     }
   }
 
+  export class ApiCheckHelper {
+    /**
+     * 比较两个API的历史版本jsdoc
+     *
+     * @param {ApiInfo} oldApiInfo
+     * @param {ApiInfo} newApiInfo
+     * @param {BasicDiffInfo[]} diffInfos
+     */
+    static diffHistoricalJsDoc(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+      const currentVersion: string = CommonFunctions.getCheckApiVersion().toString();
+      const oldJsDocTextArr: Array<string> = oldApiInfo.getJsDocText().split('*/');
+      const newJsDocTextArr: Array<string> = newApiInfo.getJsDocText().split('*/');
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+      if (oldApiInfo.getCurrentVersion() === currentVersion) {
+        oldJsDocTextArr.splice(NumberConstant.DELETE_CURRENT_JS_DOC);
+      } else {
+        oldJsDocTextArr.splice(-1);
+      }
+
+      if (newApiInfo.getCurrentVersion() === currentVersion) {
+        newJsDocTextArr.splice(NumberConstant.DELETE_CURRENT_JS_DOC);
+      } else {
+        newJsDocTextArr.splice(-1);
+      }
+
+      if (oldJsDocTextArr.length !== newJsDocTextArr.length) {
+        diffTypeInfo.setDiffType(ApiDiffType.HISTORICAL_JSDOC_CHANGE);
+        const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+        diffInfos.push(diffInfo);
+        return;
+      }
+      for (let i = 0; i < oldJsDocTextArr.length; i++) {
+        if (oldJsDocTextArr[i].replace(/\r\n/g, '') !== newJsDocTextArr[i].replace(/\r\n/g, '')) {
+          diffTypeInfo.setDiffType(ApiDiffType.HISTORICAL_JSDOC_CHANGE);
+          const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+          diffInfos.push(diffInfo);
+        }
+      }
+    }
+
+    static diffHistoricalAPI(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+      const currentVersion: string = CommonFunctions.getCheckApiVersion().toString();
+      const oldApiDefinedText: string = oldApiInfo.getDefinedText();
+      const newApiDefinedText: string = newApiInfo.getDefinedText();
+      const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
+      if (oldApiDefinedText !== newApiDefinedText && newApiInfo.getCurrentVersion() !== currentVersion) {
+        diffTypeInfo.setDiffType(ApiDiffType.HISTORICAL_API_CHANGE);
+        const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
+        diffInfos.push(diffInfo);
+      }
+    }
+  }
+
   /**
    * 处理api节点的diff信息工具
    *
@@ -436,7 +491,11 @@ export namespace DiffProcessorHelper {
      * @param {BasicDiffInfo[]} diffInfos 各个节点diff信息集合
      * @return {void}
      */
-    static diffNodeInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
+    static diffNodeInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
+      if (isCheck) {
+        ApiCheckHelper.diffHistoricalJsDoc(oldApiInfo, newApiInfo, diffInfos);
+        ApiCheckHelper.diffHistoricalAPI(oldApiInfo, newApiInfo, diffInfos);
+      }
       const apiType: string = newApiInfo.getApiType();
       if (oldApiInfo.getApiType() !== apiType) {
         return;

@@ -14,7 +14,7 @@
  */
 
 import ts from 'typescript';
-import { EventConstant } from "../../../utils/Constant";
+import { EventConstant } from '../../../utils/Constant';
 import { EventMethodData, CollectParamStatus } from '../../../typedef/checker/event_method_check_interface';
 import { ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from '../../../typedef/checker/result_type';
 import { ApiType, BasicApiInfo, MethodInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
@@ -167,7 +167,6 @@ export class EventMethodChecker {
             );
           }
         } else if (firstParam.getParamType() !== ts.SyntaxKind.StringKeyword) {
-
           const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_NAME_STRING,
             [firstParam.getApiName()]);
           AddErrorLogs.addAPICheckErrorLogs(
@@ -190,7 +189,7 @@ export class EventMethodChecker {
   }
 
   private checkVersionNeedCheck(eventInfo: BasicApiInfo): boolean {
-    return parseInt(eventInfo.getCurrentVersion()) >= EventConstant.EVENT_METHOD_CHECK_VERSION;
+    return parseInt(eventInfo.getCurrentVersion()) >= EventConstant.eventMethodCheckVersion;
   }
 
   private collectEventCallback(offEvent: MethodInfo,
@@ -198,7 +197,7 @@ export class EventMethodChecker {
     const lastParam: ParamInfo = offEvent.getParams().slice(-1)[0];
     if (lastParam.paramType) {
       const basicTypes = new Set([ts.SyntaxKind.NumberKeyword, ts.SyntaxKind.StringKeyword,
-      ts.SyntaxKind.BooleanKeyword, ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
+        ts.SyntaxKind.BooleanKeyword, ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
       if (!basicTypes.has(lastParam.paramType)) {
         callbackNumber++;
         if (lastParam.getIsRequired()) {
@@ -260,7 +259,7 @@ export class EventMethodChecker {
   }
 
   private isEventMethod(apiName: string): boolean {
-    const eventNameReg: RegExp = new RegExp(`^(${EventConstant.EVENT_NAME_LIST.join('|')})\_`);
+    const eventNameReg: RegExp = new RegExp(`^(${EventConstant.eventNameList.join('|')})\_`);
     return eventNameReg.test(apiName);
   }
 }

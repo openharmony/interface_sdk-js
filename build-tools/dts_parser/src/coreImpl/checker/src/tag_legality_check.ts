@@ -41,7 +41,11 @@ export class LegalityCheck {
     if (Array.isArray(apiLegalityTagsArray)) {
       const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
       const illegalTagsArray = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
-      const apiTags: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
+      const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+      if (apiTags === undefined) {
+        return apiLegalityCheckResult;
+      }
+
       let paramTagNumber: number = 0;
       let paramApiNumber: number =
         singleApi.getApiType() === ApiType.METHOD ? (singleApi as MethodInfo).getParams().length : 0;

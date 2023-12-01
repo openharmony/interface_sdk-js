@@ -110,6 +110,11 @@ export enum NumberConstant {
    * syscap分隔为数组后，index为2的字段是关键字段
    */
   SYSCAP_KEY_FIELD_INDEX = 2,
+
+  /**
+   *当前版本对应的jsdoc
+   */
+  DELETE_CURRENT_JS_DOC = -2,
 }
 
 /**
@@ -126,7 +131,7 @@ export enum PunctuationMark {
 }
 
 export class EventConstant {
-  static EVENT_NAME_LIST: string[] = ['on', 'off', 'emit', 'once'];
-  static EVENT_METHOD_CHECK_VERSION: number = 10;
-  static EVENT_FIRST_PARAM_NAME: string = 'type';
+  static eventNameList: string[] = ['on', 'off', 'emit', 'once'];
+  static eventMethodCheckVersion: number = 10;
+  static eventFirstParamName: string = 'type';
 }

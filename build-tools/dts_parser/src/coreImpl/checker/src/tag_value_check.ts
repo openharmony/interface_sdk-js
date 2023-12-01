@@ -31,9 +31,12 @@ export class TagValueCheck {
    */
   static tagValueCheck(singleApi: ApiInfo, apiJsdoc: Comment.JsDocInfo): ErrorTagFormat[] {
     const tagValueError: ErrorTagFormat[] = [];
-    const tagsName: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
+    const tagsName: Comment.CommentTag[] | undefined = apiJsdoc.tags;
     let throwsIndex: number = 0;
     let paramIndex: number = -1;
+    if (tagsName === undefined) {
+      return tagValueError;
+    }
     tagsName.forEach((tag) => {
       if (tag.tag === 'since') {
         const sincevalueCheckResult = TagValueCheck.sinceTagValueCheck(tag);
@@ -240,6 +243,9 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
+    if (singleApi.getApiType() !== ApiType.PROPERTY) {
+      return typeValueCheckResult;
+    }
     let typeTagValue: string = tag.type.replace(/\s/g, '');
     let typeApiValue: string[] = (singleApi as PropertyInfo).type;
     let typeApiUnionValue: string = typeApiValue.join('|');
@@ -380,6 +386,9 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
+    if (singleApi.getApiType() !== ApiType.METHOD) {
+      return paramValueCheckResult;
+    }
     const paramTagType: string = tag.type;
     const paramTagName: string = tag.name;
     const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
@@ -402,6 +411,7 @@ export class TagValueCheck {
           JSON.stringify(paramIndex + 1),
         ]);
     }
+
     return paramValueCheckResult;
   }
 

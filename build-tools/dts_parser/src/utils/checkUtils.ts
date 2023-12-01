@@ -210,9 +210,10 @@ export class CommonFunctions {
  * The order between labels
  */
 export const tagsArrayOfOrder: string[] = [
-  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
+  'namespace', 'struct', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
   'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated', 'useinstead',
+  'test', 'example'
 ];
 
 /**
@@ -237,7 +238,7 @@ export const inheritTagArr: string[] = ['test', 'famodelonly', 'FAModelOnly', 's
  */
 export const optionalTags: string[] = [
   'throws', 'static', 'fires', 'systemapi', 'famodelonly', 'FAModelOnly', 'stagemodelonly',
-  'StageModelOnly', 'crossplatform', 'deprecated', 'test', 'form', 'example'
+  'StageModelOnly', 'crossplatform', 'deprecated', 'test', 'form', 'example', 'atomicservice'
 ];
 /**
  * conditional optional tag

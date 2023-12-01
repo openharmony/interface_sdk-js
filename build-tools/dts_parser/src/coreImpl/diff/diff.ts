@@ -33,12 +33,12 @@ export class DiffHelper {
    * @param { FilesMap } newSDKApiMap 新版本SDK解析后的结果
    * @returns { BasicDiffInfo[] } 差异结果集
    */
-  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap): BasicDiffInfo[] {
+  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isCheck?: boolean): BasicDiffInfo[] {
     const clonedOldSDKApiMap: FilesMap = _.cloneDeep(oldSDKApiMap);
     const clonedNewSDKApiMap: FilesMap = _.cloneDeep(newSDKApiMap);
     const diffInfos: BasicDiffInfo[] = [];
-    const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap);
-    const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap);
+    const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap, isCheck);
+    const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
@@ -58,7 +58,7 @@ export class DiffHelper {
       }
       // 新旧版本均存在，则进行对比
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap) as ApiInfo[];
-      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos);
+      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
     }
@@ -86,7 +86,7 @@ export class DiffHelper {
    * @param { ApiInfo[] } newApiInfos 新版本API信息
    * @param { BasicDiffInfo[] } diffInfos api差异结果集
    */
-  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[]): void {
+  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
     const diffSets: Map<string, ApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
     const oldReduceNewMap: Map<string, ApiInfo> = diffSets[0];
     const newReduceOldMap: Map<string, ApiInfo> = diffSets[1];
@@ -114,16 +114,21 @@ export class DiffHelper {
       });
       return;
     }
-    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos);
+    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
   }
 
-  static diffSameNumberFunction(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[]): void {
+  static diffSameNumberFunction(
+    oldApiInfos: ApiInfo[],
+    newApiInfos: ApiInfo[],
+    diffInfos: BasicDiffInfo[],
+    isCheck?: boolean
+  ): void {
     if (oldApiInfos.length === newApiInfos.length) {
       const apiNumber: number = oldApiInfos.length;
       for (let i = 0; i < apiNumber; i++) {
         DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos);
         DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[i], newApiInfos[i], diffInfos);
-        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos);
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isCheck);
       }
     } else {
       const methodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
@@ -191,16 +196,16 @@ export class DiffHelper {
     });
   }
 
-  static getApiLocations(apiMap: FilesMap): Map<string, string[]> {
+  static getApiLocations(apiMap: FilesMap, isCheck?: boolean): Map<string, string[]> {
     const apiLocations: Map<string, string[]> = new Map();
     for (const filePath of apiMap.keys()) {
       const fileMap: FileInfoMap = apiMap.get(filePath) as FileInfoMap;
-      DiffHelper.processFileApiMap(fileMap, apiLocations);
+      DiffHelper.processFileApiMap(fileMap, apiLocations, isCheck);
     }
     return apiLocations;
   }
 
-  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>): void {
+  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
     for (const apiKey of fileMap.keys()) {
       if (apiKey === StringConstant.SELF) {
         continue;
@@ -208,12 +213,20 @@ export class DiffHelper {
       const apiInfoMap: ApiInfosMap = fileMap.get(apiKey) as ApiInfosMap;
       const apiInfos: BasicApiInfo[] = apiInfoMap.get(StringConstant.SELF) as BasicApiInfo[];
       apiInfos.forEach((apiInfo: BasicApiInfo) => {
-        DiffHelper.processApiInfo(apiInfo, apiLocations);
+        DiffHelper.processApiInfo(apiInfo, apiLocations, isCheck);
       });
     }
   }
 
-  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>): void {
+  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
+    const apiNode: ts.Node | undefined = basicApiInfo.getNode();
+    if (isCheck) {
+      const jsDocText: string | undefined = apiNode?.getFullText().replace(apiNode.getText(), '');
+      if (jsDocText) {
+        basicApiInfo.setJsDocText(jsDocText);
+      }
+    }
+
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
     basicApiInfo.setParentApi(undefined);
 
@@ -232,7 +245,7 @@ export class DiffHelper {
     }
     const containerApiInfo: ContainerApiInfo = apiInfo as ContainerApiInfo;
     containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
-      DiffHelper.processApiInfo(childApiInfo, apiLocations);
+      DiffHelper.processApiInfo(childApiInfo, apiLocations, isCheck);
     });
   }
 
