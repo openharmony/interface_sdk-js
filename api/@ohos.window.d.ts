@@ -4120,6 +4120,7 @@ declare namespace window {
     /**
      * Indicates subwindow title
      * 
+     * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -4127,6 +4128,7 @@ declare namespace window {
     /**
      * Indicates decor of subwindow
      * 
+     * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
