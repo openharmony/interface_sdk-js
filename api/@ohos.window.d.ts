@@ -4283,8 +4283,8 @@ declare namespace window {
     /**
      * Create sub window of the stage.
      *
-     * @param { string } name window name of sub window
-     * @param { SubWindowOptions } options options of sub window creation
+     * @param { string } name - window name of sub window
+     * @param { SubWindowOptions } options - options of sub window creation
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
