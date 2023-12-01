@@ -129,10 +129,10 @@ declare namespace Environment {
   function getExternalStorageDir(): string;
 
   /**
-   * Get the sandbox directory of the current user root.
+   * Get home directory of the application sandbox path for the current user.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { string } Return the directory of the internal card of the application sandbox path under the current user.
+   * @returns { string } Return home directory of the application sandbox path for the current user.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
