@@ -482,6 +482,180 @@ declare namespace display {
   }
 
   /**
+   * Enumerates the display color space
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 11
+   */
+  enum ColorSpace {
+    /**
+     * UNKNOWN color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    UNKNOWN = 0,
+    /**
+     * ADOBE_RGB color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    ADOBE_RGB = 1,
+    /**
+     * BT2020_HLG color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    BT2020_HLG = 2,
+    /**
+     * BT2020_PQ color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    BT2020_PQ= 3,
+    /**
+     * BT601_EBU color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    BT601_EBU = 4,
+    /**
+     * BT601_SMPTE_C color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    BT601_SMPTE_C = 5,
+    /**
+     * BT709 color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    BT709 = 6,
+    /**
+     * P3_HLG color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    P3_HLG = 7,
+    /**
+     * P3_PQ color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    P3_PQ = 8,
+    /**
+     * DISPLAY_P3 color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    DISPLAY_P3 = 9,
+    /**
+     * SRGB color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    SRGB = 10,
+    /**
+     * LINEAR_SRGB color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    LINEAR_SRGB = 11,
+    /**
+     * LINEAR_P3 color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    LINEAR_P3 = 12,
+    /**
+     * LINEAR_BT2020 color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    LINEAR_BT2020 = 13
+  }
+
+  /**
+   * Enumerates the display HDR Format
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 11
+   */
+  enum HDRFormat {
+    /**
+     * Not support HDR.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    NONE = 0,
+    /**
+     * HLG format supported by video.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    VIDEO_HLG = 1,
+    /**
+     * HDR10 format supported by video.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    VIDEO_HDR10 = 2,
+    /**
+     * HDR Vivid format supported by video.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    VIDEO_HDR_VIVID = 3,
+    /**
+     * HDR Vivid format supported by image, stored in dual JPEG format.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    IMAGE_HDR_VIVID_DUAL = 4,
+    /**
+     * HDR Vivid format supported by image, stored in single HEIF format.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    IMAGE_HDR_VIVID_SINGLE = 5,
+    /**
+     * ISO HDR format supported by image, stored in dual JPEG format.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    IMAGE_HDR_ISO_DUAL = 6,
+    /**
+     * ISO HDR format supported by image, stored in single HEIF format.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    IMAGE_HDR_ISO_SINGLE = 7
+  }
+
+  /**
    * Fold Crease Region
    *
    * @interface FoldCreaseRegion
@@ -817,6 +991,22 @@ declare namespace display {
      * @since 7
      */
     yDPI: number;
+
+    /**
+     * All supported color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    colorSpace: Array<ColorSpace>;
+
+    /**
+     * All supported HDR formats.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    HDRFormats: Array<HDRFormat>;
 
     /**
      * Obtain the cutout info of the display.
