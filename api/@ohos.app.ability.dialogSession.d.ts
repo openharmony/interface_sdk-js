@@ -152,7 +152,7 @@ declare namespace dialogSession {
     /**
      * The description of the params object in dialog session info
      *
-     * @type { Record<string, Object> }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly

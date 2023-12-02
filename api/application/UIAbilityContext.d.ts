@@ -2585,7 +2585,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 11
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
@@ -2606,7 +2606,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 11
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
