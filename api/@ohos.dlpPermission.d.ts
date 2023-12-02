@@ -14,6 +14,8 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type common from './@ohos.app.ability.common';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * Provides the capability to access the data loss prevention (DLP) files.
@@ -517,6 +519,53 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPFileAccessRecords(callback: AsyncCallback<Array<AccessedDLPFileInfo>>): void;
+
+  /**
+   * Represents the return value of the function startDLPManagerForResult.
+   *
+   * @interface DLPManagerResult
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @StageModelOnly
+   * @since 11
+   */
+  export interface DLPManagerResult {
+    /**
+     * Indicates the result code returned after the DLP manager is destroyed.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @StageModelOnly
+     * @since 11
+     */
+    resultCode: number;
+
+    /**
+     * Indicates the data returned after the DLP manager is destroyed.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @StageModelOnly
+     * @since 11
+     */
+    want: Want;
+  }
+
+  /**
+   * Starts the DLP manager. This method uses a promise to return the result.
+   *
+   * @param { common.UIAbilityContext } context - Indicates the UIAbility context of the caller.
+   * @param { Want } want - Indicates the request to the DLP manager.
+   * @returns { Promise<DLPManagerResult> } Returns the {@link DLPManagerResult}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100016 - Uri does not exist in want.
+   * @throws { BusinessError } 19100017 - DisplayName does not exist in want (under parameters).
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @StageModelOnly
+   * @since 11
+   */
+  function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
 
   /**
    * Enumerates the gathering policy types for DLP files.
