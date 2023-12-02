@@ -17,12 +17,12 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage dilog session.
+ * This module provides the capability to manage dialog session.
  *
  * @namespace dialogSession
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
  * @systemapi
+ * @stagemodelonly
  * @since 11
  */
 declare namespace dialogSession {
@@ -32,8 +32,8 @@ declare namespace dialogSession {
    *
    * @typedef DialogAbilityInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   export interface DialogAbilityInfo {
@@ -43,8 +43,8 @@ declare namespace dialogSession {
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     bundleName: string;
@@ -54,8 +54,8 @@ declare namespace dialogSession {
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     moduleName: string;
@@ -65,8 +65,8 @@ declare namespace dialogSession {
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     abilityName: string;
@@ -76,8 +76,8 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     abilityIconId: number;
@@ -87,8 +87,8 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     abilityLabelId: number;
@@ -98,8 +98,8 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     bundleIconId: number;
@@ -109,8 +109,8 @@ declare namespace dialogSession {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     bundleLabelId: number;
@@ -121,8 +121,8 @@ declare namespace dialogSession {
    *
    * @typedef DialogSessionInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   export interface DialogSessionInfo {
@@ -132,8 +132,8 @@ declare namespace dialogSession {
      *
      * @type { DialogAbilityInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     callerAbilityInfo: DialogAbilityInfo;
@@ -143,19 +143,19 @@ declare namespace dialogSession {
      *
      * @type { Array<DialogAbilityInfo> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
     /**
-     * The description of the params object in dilog session info
+     * The description of the params object in dialog session info
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
      * @systemapi
+     * @stagemodelonly
      * @since 11
      */
     parameters?: Record<string, Object>;
@@ -173,31 +173,11 @@ declare namespace dialogSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo;
-
-  /**
-   * Send the selection result of dialog.
-   *
-   * @param { string } dialogSessionId - Send Result by dialog session id.
-   * @param { Want } targetWant - The selection target ability to start.
-   * @param { boolean } isAllowed - allowed or disallowed to start target ability.
-   * @returns { Promise<void> } The promise returned by the sendDialogResult.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
-   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @systemapi
-   * @since 11
-   */
-  function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
   /**
    * Send the selection result of dialog.
@@ -213,8 +193,8 @@ declare namespace dialogSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
    * @systemapi
+   * @stagemodelonly
    * @since 11
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
