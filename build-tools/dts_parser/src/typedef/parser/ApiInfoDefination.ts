@@ -61,6 +61,8 @@ export class BasicApiInfo {
   decorators: DecoratorInfo[] | undefined = undefined; //decorators修饰器集合
   isStruct: boolean = false; //是否为structDeclaration内部api
   syscap: string = '';
+  currentVersion = '-1';
+  jsDocText: string = '';
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -193,6 +195,22 @@ export class BasicApiInfo {
   getSyscap(): string {
     return this.syscap;
   }
+
+  setCurrentVersion(version: string): void {
+    this.currentVersion = version;
+  }
+
+  getCurrentVersion(): string {
+    return this.currentVersion;
+  }
+
+  setJsDocText(jsDocText: string): void {
+    this.jsDocText = jsDocText;
+  }
+
+  getJsDocText(): string {
+    return this.jsDocText;
+  }
 }
 
 export class ExportDefaultInfo extends BasicApiInfo {}
@@ -211,13 +229,13 @@ export class ReferenceInfo extends BasicApiInfo {
 }
 
 export class ExportDeclareInfo extends BasicApiInfo {
-  exportValues: Array<exportImportValue> = [];
+  exportValues: Array<ExportImportValue> = [];
 
   addExportValues(name: string, type: string): void {
     this.exportValues.push({ key: name, value: type || name });
   }
 
-  getExportValues(): Array<exportImportValue> {
+  getExportValues(): Array<ExportImportValue> {
     return this.exportValues;
   }
 }
@@ -226,14 +244,14 @@ export class ExportDeclareInfo extends BasicApiInfo {
  * import导入的信息，包含导入的值和路径信息
  */
 export class ImportInfo extends BasicApiInfo {
-  importValues: Array<exportImportValue> = [];
+  importValues: Array<ExportImportValue> = [];
   importPath: string = '';
 
   addImportValue(name: string, type: string): void {
     this.importValues.push({ key: name, value: type || name });
   }
 
-  getImportValues(): Array<exportImportValue> {
+  getImportValues(): Array<ExportImportValue> {
     return this.importValues;
   }
 
@@ -252,7 +270,8 @@ export class ApiInfo extends BasicApiInfo {
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo) {
     super(apiType, node, parentApi);
     const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node);
-    this.jsDocInfos = jsDocInfos;
+    this.setJsDocText(node.getFullText().replace(node.getText(), ''));
+    this.addJsDocInfos(jsDocInfos);
   }
 
   getJsDocInfos(): Comment.JsDocInfo[] {
@@ -268,10 +287,14 @@ export class ApiInfo extends BasicApiInfo {
   }
 
   addJsDocInfos(jsDocInfos: Comment.JsDocInfo[]): void {
+    if (jsDocInfos.length > 0) {
+      this.setCurrentVersion(jsDocInfos[jsDocInfos.length - 1]?.getSince());
+    }
     this.jsDocInfos.push(...jsDocInfos);
   }
 
   addJsDocInfo(jsDocInfo: Comment.JsDocInfo): void {
+    this.setCurrentVersion(jsDocInfo.getSince());
     this.jsDocInfos.push(jsDocInfo);
   }
 }
@@ -586,7 +609,7 @@ export class ParamInfo {
   }
 }
 
-export type exportImportValue = { key: string; value: string };
+export type ExportImportValue = { key: string; value: string };
 export interface NodeProcessorInterface {
   (node: ts.Node, parentApiInfo: BasicApiInfo): BasicApiInfo;
 }
