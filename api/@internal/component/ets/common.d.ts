@@ -2572,6 +2572,18 @@ declare interface AlignRuleOption {
    * @form
    */
   center?: { anchor: string, align: VerticalAlign };
+
+  /**
+   * Defines the bias ratio in horizontal and vertical direction.
+   *
+   * @type { ?Bias }
+   * @default {horizontal:0.5,vertical:0.5}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bias?: Bias;
 }
 
 /**
