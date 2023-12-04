@@ -16,7 +16,7 @@
 import commander from 'commander';
 import envConfig from './config/env';
 import { getToolConfiguration, ToolConfigType } from './bin/index';
-import { CommandType, optionObjType, PluginType, PluginOptionsType, toolNameType, toolNameSet } from './bin/config';
+import { CommandType, OptionObjType, PluginType, PluginOptionsType, toolNameType, toolNameSet } from './bin/config';
 import { LogUtil } from './utils/logUtil';
 import { FileUtils } from './utils/FileUtils';
 
@@ -32,7 +32,7 @@ class ToolBoxCommander {
       .name(pluginOption.name)
       .description(pluginOption.description)
       .version(pluginOption.version)
-      .action((opts: optionObjType) => {
+      .action((opts: OptionObjType) => {
         this.judgeOpts(opts);
         plugin.start(opts);
         plugin.stop();
@@ -51,9 +51,9 @@ class ToolBoxCommander {
   /**
    * 判断传入命令是否满足工具允许条件，满足正常允许，不满足的时候通过stopRun停止命令行执行
    *
-   * @param {optionObjType} opts
+   * @param {OptionObjType} opts
    */
-  judgeOpts(opts: optionObjType): void {
+  judgeOpts(opts: OptionObjType): void {
     const toolName: string = opts.toolName;
     if (!toolNameSet.has(toolName)) {
       this.stopRun(`error toolName "${toolName}",toolName not in \[${[...toolNameSet]}\] `);

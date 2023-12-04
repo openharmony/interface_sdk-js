@@ -20,8 +20,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace Environment
  * @syscap SystemCapability.FileManagement.File.Environment
- * @systemapi
- * @since 8
+ * @since 11
  */
 declare namespace Environment {
   /**
@@ -75,6 +74,75 @@ declare namespace Environment {
    * @since 8
    */
   function getUserDataDir(callback: AsyncCallback<string>): void;
+
+  /**
+   * Get the public download directory.
+   *
+   * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
+   * @returns { string } Return the public download directory.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment
+   * @since 11
+   */
+  function getUserDownloadDir(): string;
+
+  /**
+   * Get the public desktop directory.
+   *
+   * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
+   * @returns { string } Return the public desktop directory.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment
+   * @since 11
+   */
+  function getUserDesktopDir(): string;
+
+  /**
+   * Get the public document directory.
+   *
+   * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
+   * @returns { string } Return the public document directory.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment
+   * @since 11
+   */
+  function getUserDocumentDir(): string;
+
+  /**
+   * Get external storage directory.
+   *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @returns { string } Return external storage directory.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getExternalStorageDir(): string;
+
+  /**
+   * Get home directory of the application sandbox path for the current user.
+   *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @returns { string } Return home directory of the application sandbox path for the current user.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.File.Environment
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getUserHomeDir(): string;
 }
 
 export default Environment;

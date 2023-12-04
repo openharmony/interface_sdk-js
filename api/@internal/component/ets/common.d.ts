@@ -2572,6 +2572,18 @@ declare interface AlignRuleOption {
    * @form
    */
   center?: { anchor: string, align: VerticalAlign };
+
+  /**
+   * Defines the bias ratio in horizontal and vertical direction.
+   *
+   * @type { ?Bias }
+   * @default {horizontal:0.5,vertical:0.5}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bias?: Bias;
 }
 
 /**
@@ -14508,6 +14520,17 @@ declare class CommonMethod<T> {
   attributeModifier(modifier: AttributeModifier<T>): T;
 
   /**
+   * Adds a background dynamic light up effect to the current component.
+   *
+   * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  backgroundBrightness(params: BackgroundBrightnessOptions): T;
+
+  /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
    *
    * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
@@ -16768,6 +16791,40 @@ declare interface EdgeEffectOptions {
    * @since 11
    */
   alwaysEnabled: boolean;
+}
+
+/**
+ * Define BackgroundBrightness Options.
+ *
+ * @interface BackgroundBrightnessOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface BackgroundBrightnessOptions {
+
+  /**
+   * Rate represents the rate at which lightUpDegree
+   * decreases with increasing pixel brightness.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  rate: number;
+
+  /**
+   * LightUpDegree represents the degree of brightness
+   * of the rgb value changes when its brightness
+   * is 0.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  lightUpDegree: number;
 }
 
 /**

@@ -87,6 +87,15 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Get unit test arguments stored in the AbilityDelegatorArgs object.
+   *
+   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function getArguments(): AbilityDelegatorArgs;
 
   /**

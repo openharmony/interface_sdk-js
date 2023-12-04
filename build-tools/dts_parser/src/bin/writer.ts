@@ -2,7 +2,7 @@ import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
 import { LogUtil } from '../utils/logUtil';
-import { ToolNameExcelCallback, joinNewMessage, joinOldMessage } from './config';
+import { ToolNameExcelCallback, joinNewMessage, joinOldMessage, ToolReturnData } from './config';
 import { BasicDiffInfo, diffTypeMap } from '../typedef/diff/ApiInfoDiff';
 import { FunctionUtils } from '../utils/FunctionUtils';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
@@ -15,7 +15,7 @@ export namespace WriterHelper {
   }
 
   export async function ExcelReporter(
-    data: Array<any>,
+    data: ToolReturnData,
     dest: string,
     fileName: string,
     callback: ToolNameExcelCallback | undefined
