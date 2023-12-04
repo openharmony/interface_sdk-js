@@ -100,6 +100,9 @@ class SystemApiRecognizer {
    * @param {string} fileName 
    */
   visitUIRenderNode(node, fileName) {
+    if (!node.statements) {
+      return;
+    }
     node.statements.forEach((statement) => {
       this.recognizeUIComponents(statement, fileName);
     });
@@ -443,7 +446,7 @@ class SystemApiRecognizer {
         apiMapInParent.set(member, memberValue.valueDeclaration);
       });
     } else {
-      parentSymbol.declarations[0].members.forEach(member => {
+      parentSymbol.declarations[0]?.members?.forEach(member => {
         if (!member.name) {
           return;
         }
