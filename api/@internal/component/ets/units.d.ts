@@ -1618,6 +1618,32 @@ declare interface Position {
   y?: Length;
 }
 
+declare interface Bias {
+  /**
+   * Horizontal ratio of the Bias, it must be >= 0.
+   *
+   * @type { ?number }
+   * @default 0.5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  horizontal?: number;
+
+  /**
+   * Vertical ratio of the Bias, it must be >= 0.
+   *
+   * @type { ?number }
+   * @default 0.5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  vertical?: number;
+}
+
 /**
  * Defines the constrain size options.
  *

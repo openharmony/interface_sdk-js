@@ -474,6 +474,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 11
    */
   lineHeight(value: Length): SpanAttribute;
+
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
 }
 
 /**

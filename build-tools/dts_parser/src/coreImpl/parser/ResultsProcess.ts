@@ -29,7 +29,7 @@ import {
   EnumValueInfo,
   ExportDeclareInfo,
   ExportDefaultInfo,
-  exportImportValue,
+  ExportImportValue,
   ImportInfo,
   InterfaceInfo,
   MethodInfo,
@@ -396,7 +396,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.ImportInfo[] = [];
     const importInfo: ImportInfo = apiInfo as ImportInfo;
     const newInfo: ResultsInfo.ImportInfo = new ResultsInfo.ImportInfo(apiInfo.getApiType());
-    importInfo.getImportValues().forEach((importValue: exportImportValue) => {
+    importInfo.getImportValues().forEach((importValue: ExportImportValue) => {
       newInfo.addImportValue(importValue.key, importValue.value);
     });
     infos.push(newInfo);

@@ -20,6 +20,7 @@ import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
+import type print from './@ohos.print';
 
 /**
  * This module provides the capability to manage web modules.
@@ -3634,7 +3635,6 @@ declare namespace webview {
 	   * @since 11 
 	   */  
     getSecurityLevel(): SecurityLevel;
-
   }
 
   /**

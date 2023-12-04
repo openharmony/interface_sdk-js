@@ -14,24 +14,7 @@
  */
 
 /**
- * custom decorator array
- */
-export const customDoc = ['constant', 'crossplatform', 'default', 'deprecated', 'enum', 'example', 'extends',
-  'famodelonly', 'fires', 'form', 'interface', 'namespace', 'param', 'permission', 'readonly', 'returns', 'since',
-  'stagemodelonly', 'static', 'syscap', 'systemapi', 'type', 'typedef', 'throws', 'test', 'useinstead',
-  'FAModelOnly', 'StageModelOnly'] as const;
-
-/**
- * javascript decorator array
- */
-export const jsDoc = ['abstract', 'access', 'alias', 'async', 'augments', 'author', 'borrows', 'class', 'classdesc', 'constructs',
-  'copyright', 'event', 'exports', 'external', 'file', 'function', 'generator', 'global', 'hideconstructor', 'ignore', 'implements',
-  'inheritdoc', 'inner', 'instance', 'lends', 'license', 'listens', 'member', 'memberof', 'mixes', 'mixin', 'modifies', 'module',
-  'package', 'private', 'property', 'protected', 'public', 'requires', 'see', 'summary', 'this', 'todo', 'tutorial', 'variation',
-  'version', 'yields', 'also', 'description', 'kind', 'name', 'undocumented'] as const;
-
-/**
- * error message type 
+ * error message type
  * @enum { string }
  */
 export enum ErrorType {
@@ -46,9 +29,9 @@ export enum ErrorType {
   WRONG_SCENE = 'wrong scene',
   PARAMETER_ERRORS = 'wrong parameter',
   API_PAIR_ERRORS = 'limited api pair errors',
-  ILLEGAL_ANY = 'illegal any',
+  FORBIDDEN_WORDS = 'forbidden word',
   API_CHANGE_ERRORS = 'api change errors',
-  TS_SYNTAX_ERROR = 'TS syntax error'
+  TS_SYNTAX_ERROR = 'TS syntax error',
 }
 
 /**
@@ -67,20 +50,20 @@ export enum ErrorID {
   WRONG_SCENE_ID = 8,
   PARAMETER_ERRORS_ID = 9,
   API_PAIR_ERRORS_ID = 10,
-  ILLEGAL_ANY_ID = 11,
+  FORBIDDEN_WORDS_ID = 11,
   API_CHANGE_ERRORS_ID = 12,
-  TS_SYNTAX_ERROR_ID = 13
+  TS_SYNTAX_ERROR_ID = 13,
 }
 
 /**
- * error type 
+ * error type
  * @enum { string }
  */
 export enum LogType {
   LOG_API = 'Api',
   LOG_JSDOC = 'JsDoc',
   LOG_FILE = 'File',
-};
+}
 
 /**
  * error message level
@@ -90,7 +73,7 @@ export enum ErrorLevel {
   HIGH = 3,
   MIDDLE = 2,
   LOW = 1,
-};
+}
 
 /**
  * error message infomation
@@ -106,26 +89,26 @@ export enum ErrorMessage {
   ERROR_INFO_VALUE_TYPE = 'the [type] tag type is incorrect. Please check if the type matches the attribute type',
   ERROR_INFO_VALUE_DEFAULT = 'the [default] tag value is incorrect. Please supplement the default value',
   ERROR_INFO_VALUE_PERMISSION = 'the [permission] tag value is incorrect. Please check if the permission field has been configured or update the configuration file',
-  ERROR_INFO_VALUE_DEPRECATED = 'the [deprecated] tag value is incorrect. Please check the usage method',
-  ERROR_INFO_VALUE_SYSCAP = 'the [syscap] tag value is incorrect. Please check if the syscap field is configured',
-  ERROR_INFO_VALUE_NAMESPACE = 'the [namespace] tag value is incorrect. Please check if it matches the namespace name',
-  ERROR_INFO_VALUE_INTERFACE = 'the [interface] label value is incorrect. Please check if it matches the interface name',
-  ERROR_INFO_VALUE_TYPEDEF = 'the [typedef] tag value is incorrect. Please check if it matches the interface name',
-  ERROR_INFO_TYPE_PARAM = 'the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter',
-  ERROR_INFO_VALUE_PARAM = 'the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
-  ERROR_INFO_VALUE1_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError]',
+  ERROR_INFO_VALUE_DEPRECATED = 'the [deprecated] tag value is incorrect. Please check the usage method.',
+  ERROR_INFO_VALUE_SYSCAP = 'the [syscap] tag value is incorrect. Please check if the syscap field is configured.',
+  ERROR_INFO_VALUE_NAMESPACE = 'the [namespace] tag value is incorrect. Please check if it matches the namespace name.',
+  ERROR_INFO_VALUE_INTERFACE = 'the [interface] label value is incorrect. Please check if it matches the interface name.',
+  ERROR_INFO_VALUE_TYPEDEF = 'the [typedef] tag value is incorrect. Please check if it matches the interface name.',
+  ERROR_INFO_TYPE_PARAM = 'the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter.',
+  ERROR_INFO_VALUE_PARAM = 'the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name.',
+  ERROR_INFO_VALUE1_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
   ERROR_INFO_VALUE2_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value',
   ERROR_INFO_INHERIT = 'it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
   ERROR_ORDER = 'JSDoc label order error, please make adjustments',
   ERROR_LABELNAME = 'the [$$] tag does not exist. Please use a valid JSDoc tag',
   ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
   ERROR_USE = 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
-  ERROR_MORELABEL = 'JSDoc tag validity verification failed. The [$$] [$$] tag is redundant. Please check if the tag should be deleted.',
+  ERROR_MORELABEL = 'JSDoc tag validity verification failed.There are [$$] redundant [$$]. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL = 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
   ERROR_USE_INTERFACE = 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
   ERROR_EVENT_NAME_STRING = 'The event name should be string.',
   ERROR_EVENT_NAME_NULL = 'The event name cannot be Null value.',
-  ERROR_EVENT_NAME_SMALL_HUMP = 'The event name should be named by small hump. (Received [\'$$\'])',
+  ERROR_EVENT_NAME_SMALL_HUMP = "The event name should be named by small hump. (Received ['$$'])",
   ERROR_EVENT_CALLBACK_OPTIONAL = 'The callback parameter of off function should be optional.',
   ERROR_EVENT_CALLBACK_MISSING = 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR = 'The on and off event subscription methods do not appear in pair.',
@@ -143,6 +126,14 @@ export enum ErrorMessage {
   ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Previous JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_TRROWS = 'Forbid changes: Throws tag cannot be created.',
   ERROR_CHANGES_JSDOC_PERMISSION = 'Forbid changes: Permission tag cannot be created or modified.',
+  ERROR_WORD = 'The current word [$$] is incompatible with the regulaion, please confirm whether it needs to be corrected to a common word.',
+  ERROR_NAMING = 'Prohibited word in [$$]:{$$}.The word allowed is [$$]',
+  ERROR_SCENARIO = 'Prohibited word in [$$]:{$$} in the [$$] file',
+  ERROR_UPPERCASE_NAME = 'This name [$$] should be named by all uppercase.',
+  ERROR_LARGE_HUMP_NAME = 'This name [$$] should be named by large hump.',
+  ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
+  ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
+  ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
 }
 
 /**
@@ -202,7 +193,7 @@ export class ApiResultSimpleInfo {
 }
 
 /**
- * local excel table error message format 
+ * local excel table error message format
  */
 export class ApiResultInfo {
   errorType: string = '';
@@ -293,4 +284,44 @@ export class ApiResultInfo {
   getBaseName(): string {
     return this.baseName;
   }
+}
+
+/**
+ * error message format
+ */
+export interface ErrorTagFormat {
+  state: boolean;
+  errorInfo: string;
+}
+
+/**
+ * permission message format
+ */
+export interface PermissionData {
+  name: string;
+  grantMode: string;
+  since: number;
+  deprecated: string;
+  availableLevel: string;
+  provisionEnable: boolean;
+  distributedSceneEnable: boolean;
+  label: string;
+  description: string;
+}
+
+/**
+ * naming dictionary format
+ */
+export interface NameDictionaryType {
+  badWord: string;
+  suggestion: string;
+  ignore: string[];
+}
+
+/**
+ * naming dictionary format for file
+ */
+export interface NameScenarioType {
+  word: string;
+  files: string[];
 }

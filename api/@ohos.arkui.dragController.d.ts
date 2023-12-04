@@ -18,6 +18,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
+import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
 
 /**
  * This module allows developers to trigger a drag event.
@@ -60,6 +61,53 @@ declare namespace dragController {
   }
 
   /**
+   * Defines the animation options for drag preview.
+   * 
+   * @interface AnimationOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface AnimationOptions {
+    /**
+     * Animation duration, in ms.
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    duration?: number;
+    /**
+    * Animation curve.
+    * @type { ?(Curve | ICurve) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 11
+    */
+    curve?: Curve | ICurve;
+  }
+
+  /**
+   * Provides the functions of setting color or updating animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  export class DragPreview {
+    /**
+     * change foreground color of preview
+     * @param { ResourceColor } color - color value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    setForegroundColor(color: ResourceColor): void;
+    /**
+     * update preview style with animation
+     * @param { AnimationOptions } options - animation options
+     * @param { function } handler - change style functions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    animate(options: AnimationOptions, handler: () =>void): void;
+  }
+
+  /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
@@ -82,6 +130,13 @@ declare namespace dragController {
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<{
     event: DragEvent, extraParams: string
   }>;
+  /**
+   * Get drag preview object.
+   * @returns { DragPreview } An drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  function getDragPreview(): DragPreview;
 }
 
 export default dragController;
