@@ -8395,12 +8395,12 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Defines sheet detents
    *
-   * @type { ?[(SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length)?] }
+   * @type { ?[(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  detents?: [(SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length)?];
+  detents?: [(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?];
 
   /**
    * Defines sheet background blur Style
@@ -8425,14 +8425,14 @@ declare interface SheetOptions extends BindOptions {
   showClose?: boolean | Resource;
 
   /**
-   * Defines the sheet type
+   * Defines the sheet prefer type
    *
    * @type { ?(SheetType.CENTER | SheetType.POPUP) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  type?: SheetType.CENTER | SheetType.POPUP;
+  preferType?: SheetType.CENTER | SheetType.POPUP;
 
   /**
    * Defines the sheet title
