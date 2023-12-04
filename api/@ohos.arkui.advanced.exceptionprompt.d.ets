@@ -16,13 +16,13 @@ export declare enum HardwareStatusType {
   /**
    * The on style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
     on = 1,
     /**
      * The off style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
+     * @since 11
      */
     off = 0
 }
@@ -30,37 +30,37 @@ export declare enum TypeEnum {
   /**
    * The DEFAULT_HIDE style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
     DEFAULT_HIDE = 0,
     /**
      * The NETWORK_NOT_CONNECTED style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
+     * @since 11
      */
     NETWORK_NOT_CONNECTED = 1,
     /**
      * The NETWORK_CONNECTED_UNSTABLE style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
+     * @since 11
      */
     NETWORK_CONNECTED_UNSTABLE = 2,
     /**
      * The UNSTABLE_CONNECT_SERVER style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
+     * @since 11
      */
     UNSTABLE_CONNECT_SERVER = 3,
     /**
      * The CUSTOM_NETWORK_TIPS style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
+     * @since 11
      */
     CUSTOM_NETWORK_TIPS = 4,
     /**
      * The CUSTOM_TIPS style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
+     * @since 11
      */
     CUSTOM_TIPS = 5
 }
