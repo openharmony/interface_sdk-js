@@ -19,6 +19,7 @@ import type BaseContext from './application/BaseContext';
 import type { RingtonePlayer as _RingtonePlayer } from './multimedia/ringtonePlayer';
 import type { RingtoneOptions as _RingtoneOptions } from './multimedia/ringtonePlayer';
 import type { SystemTonePlayer as _SystemTonePlayer } from './multimedia/systemTonePlayer';
+import type { SystemToneOptions as _SystemToneOptions } from './multimedia/systemTonePlayer';
 
 /**
  * Provides ringtone player interfaces.
@@ -312,6 +313,14 @@ declare namespace systemSoundManager {
    * @since 10
    */
   type RingtoneOptions = _RingtoneOptions;
+
+  /**
+   * System tone options.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 11
+   */
+  type SystemToneOptions = _SystemToneOptions;
 }
 
 export default systemSoundManager;
