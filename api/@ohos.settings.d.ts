@@ -1304,7 +1304,7 @@ declare namespace settings {
   function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
 
  /**
-* Monitor unregistration key(synchronous method)
+* Monitor unregister key(synchronous method)
 *
 * @param { Context } context - Indicates Context instance.
 * @param { string } name - Indicates the name of the character string.
