@@ -119,7 +119,7 @@ declare namespace http {
 
     /**
      * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * extraData can be a string (API 6) or an Object (API 6) or an ArrayBuffer(API 8).
      * @type {?string | Object | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -134,7 +134,7 @@ declare namespace http {
      */
     /**
      * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * extraData can be a string (API 6) or an Object (API 6) or an ArrayBuffer(API 8).
      * @type { ?(string | Object | ArrayBuffer) }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -2233,7 +2233,7 @@ declare namespace http {
 
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } [cacheSize] - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @since 9
@@ -2248,7 +2248,7 @@ declare namespace http {
    */
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } [cacheSize] - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
