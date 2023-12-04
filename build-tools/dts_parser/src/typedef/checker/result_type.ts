@@ -32,6 +32,7 @@ export enum ErrorType {
   FORBIDDEN_WORDS = 'forbidden word',
   API_CHANGE_ERRORS = 'api change errors',
   TS_SYNTAX_ERROR = 'TS syntax error',
+  NO_JSDOC = 'No jsdoc',
 }
 
 /**
@@ -53,6 +54,7 @@ export enum ErrorID {
   FORBIDDEN_WORDS_ID = 11,
   API_CHANGE_ERRORS_ID = 12,
   TS_SYNTAX_ERROR_ID = 13,
+  NO_JSDOC_ID = 14,
 }
 
 /**
@@ -112,6 +114,7 @@ export enum ErrorMessage {
   ERROR_EVENT_CALLBACK_OPTIONAL = 'The callback parameter of off function should be optional.',
   ERROR_EVENT_CALLBACK_MISSING = 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR = 'The on and off event subscription methods do not appear in pair.',
+  ERROR_EVENT_WITHOUT_PARAMETER = 'The event subscription methods should has at least one parameter named [type].',
   ILLEGAL_USE_ANY = 'Illegal [any] keyword used in the API',
   ERROR_CHANGES_VERSION = 'Please check if the changed API version number is 10.',
   ERROR_CHANGES_API_HISTORY_PARAM_REQUIRED_CHANGE = 'Forbid changes: Optional parameters cannot be changed to required parameters.',
@@ -134,6 +137,7 @@ export enum ErrorMessage {
   ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
   ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
   ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
+  ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.'
 }
 
 /**

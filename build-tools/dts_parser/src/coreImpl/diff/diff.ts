@@ -241,7 +241,7 @@ export class DiffHelper {
       return '';
     }
     const clonedApiInfo: ApiInfo = apiInfo as ApiInfo;
-    const latestJsDocInfo: Comment.JsDocInfo | undefined = clonedApiInfo.getLatestJsDocInfo();
+    const latestJsDocInfo: Comment.JsDocInfo | undefined = clonedApiInfo.getLastJsDocInfo();
     if (!latestJsDocInfo) {
       return DiffHelper.searchSyscapFieldInParent(clonedApiInfo);
     }

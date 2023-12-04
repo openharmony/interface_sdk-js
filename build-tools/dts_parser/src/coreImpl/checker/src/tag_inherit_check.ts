@@ -29,7 +29,7 @@ export class TagInheritCheck {
       state: false,
       errorInfo: '',
     };
-    const apiJsdoc: Comment.JsDocInfo = singleApi.getLatestJsDocInfo() as Comment.JsDocInfo;
+    const apiJsdoc: Comment.JsDocInfo = singleApi.getLastJsDocInfo() as Comment.JsDocInfo;
     const tagsInfo: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
     const apiTagsName: string[] = [];
     tagsInfo.forEach((tag) => {
@@ -37,7 +37,7 @@ export class TagInheritCheck {
     });
     const parentApi: ClassInfo = singleApi.getParentApi() as ClassInfo;
     if (parentApi.getApiType() !== ApiType.SOURCE_FILE) {
-      const parentApisJsdoc: Comment.CommentTag[] = parentApi.getLatestJsDocInfo()?.tags as Comment.CommentTag[];
+      const parentApisJsdoc: Comment.CommentTag[] = parentApi.getLastJsDocInfo()?.tags as Comment.CommentTag[];
       parentApisJsdoc.find((parentApiJsdoc: Comment.CommentTag) => {
         const flag: boolean = inheritTagArr.includes(parentApiJsdoc.tag) && !apiTagsName.includes(parentApiJsdoc.tag);
         if (flag) {

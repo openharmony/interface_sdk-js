@@ -68,8 +68,8 @@ export namespace DiffProcessorHelper {
    */
   export class JsDocDiffHelper {
     static diffJsDocInfo(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
-      const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLatestJsDocInfo();
-      const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getLatestJsDocInfo();
+      const oldJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getLastJsDocInfo();
+      const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getLastJsDocInfo();
       JsDocDiffHelper.diffSinceVersion(oldApiInfo, newApiInfo, diffInfos);
       for (let i = 0; i < jsDocDiffProcessors.length; i++) {
         const jsDocDiffProcessor: JsDocDiffProcessor | undefined = jsDocDiffProcessors[i];

@@ -125,15 +125,8 @@ export enum PunctuationMark {
   RIGHT_PARENTHESES = ')',
 }
 
-/**
- * 常用符号存储
- */
-export enum PunctuationMark {
-  QUERY = '?',
-  LEFT_BRACKET = '[',
-  RIGHT_BRACKET = ']',
-  LEFT_BRACE = '{',
-  RIGHT_BRACE = '}',
-  LEFT_PARENTHESES = '(',
-  RIGHT_PARENTHESES = ')'
+export class EventConstant {
+  static EVENT_NAME_LIST: string[] = ['on', 'off', 'emit', 'once'];
+  static EVENT_METHOD_CHECK_VERSION: number = 10;
+  static EVENT_FIRST_PARAM_NAME: string = 'type';
 }

@@ -64,6 +64,9 @@ export class LegalityCheck {
             apiLegalityTagsSet.delete('typedef');
           }
         }
+        if (singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) {
+          apiLegalityTagsSet.delete('returns');
+        }
       });
       // param合法性单独进行校验
       LegalityCheck.paramLegalityCheck(paramTagNumber, paramApiNumber, apiLegalityCheckResult);

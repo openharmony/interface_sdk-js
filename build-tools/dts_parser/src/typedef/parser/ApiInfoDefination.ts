@@ -278,7 +278,7 @@ export class ApiInfo extends BasicApiInfo {
     return this.jsDocInfos;
   }
 
-  getLatestJsDocInfo(): Comment.JsDocInfo | undefined {
+  getLastJsDocInfo(): Comment.JsDocInfo | undefined {
     const length: number = this.jsDocInfos.length;
     if (length === 0) {
       return undefined;
