@@ -4328,7 +4328,7 @@ declare namespace cryptoFramework {
      * Create the common parameter set.
      *
      * @param { number } pLen - indicates the byte length of the prime p.
-     * @param { ?number } skLen - indicates the byte length of the private key.
+     * @param { number } [skLen] - indicates the byte length of the private key.
      * @returns { DHCommonParamsSpec } the DH common params spec obj.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
