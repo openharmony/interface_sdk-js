@@ -1233,7 +1233,7 @@ declare namespace settings {
   /**
    * Get value from settingsdata(synchronous method)
    *
-   *@param { Context } context - Indicates Context instance
+   * @param { Context } context - Indicates Context instance
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
