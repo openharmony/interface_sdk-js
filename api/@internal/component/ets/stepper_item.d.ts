@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * ItemState
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum ItemState {
   /**
    * Default State
@@ -41,6 +50,14 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Default State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Normal,
 
@@ -57,6 +74,14 @@ declare enum ItemState {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Disabled State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Disabled,
 
   /**
@@ -72,6 +97,14 @@ declare enum ItemState {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Waiting State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Waiting,
 
   /**
@@ -86,6 +119,14 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Skip State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Skip,
 }
@@ -105,6 +146,15 @@ declare enum ItemState {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides an interface for switching the stepperItem view on stepper container.
+ *
+ * @interface StepperItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface StepperItemInterface {
   /**
    * Called when the stepperItem component is used.
@@ -120,6 +170,15 @@ interface StepperItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the stepperItem component is used.
+   *
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (): StepperItemAttribute;
 }
@@ -139,6 +198,15 @@ interface StepperItemInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the stepper item attribute functions.
+ *
+ * @extends CommonMethod<StepperItemAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
    * Called when the value of stepperItem prevLabel is set
@@ -156,6 +224,16 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the value of stepperItem prevLabel is set
+   *
+   * @param { string } value
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   prevLabel(value: string): StepperItemAttribute;
 
@@ -176,6 +254,16 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the value of stepperItem nextLabel is set
+   *
+   * @param { string } value
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   nextLabel(value: string): StepperItemAttribute;
 
   /**
@@ -195,6 +283,16 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the value of stepperItem status is set
+   *
+   * @param { ItemState } value
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   status(value?: ItemState): StepperItemAttribute;
 }
 
@@ -211,6 +309,14 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines StepperItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const StepperItemInstance: StepperItemAttribute;
 
 /**
@@ -225,5 +331,13 @@ declare const StepperItemInstance: StepperItemAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines StepperItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const StepperItem: StepperItemInterface;

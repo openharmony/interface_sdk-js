@@ -469,6 +469,18 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
+  /**
+   * Adds an event listener to the worker.
+   *
+   * @param { string } type - type Type of the event to listen for.
+   * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 11
+   */
   addEventListener(type: string, listener: WorkerEventListener): void;
   /**
    * Handle the event defined for the worker.
@@ -1291,6 +1303,7 @@ declare namespace worker {
   /**
    * The RestrictedWorker class contains all Worker functions.
    *
+   * @extends ThreadWorker
    * @syscap SystemCapability.Utils.Lang
    * @since 11
    */

@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * The declare of selectOption.
+ *
+ * @interface SelectOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface SelectOption {
   /**
    * Option string.
@@ -43,6 +52,15 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Option string.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   value: ResourceStr;
 
@@ -60,6 +78,15 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Option icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   icon?: ResourceStr;
 }
@@ -79,6 +106,15 @@ declare interface SelectOption {
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides the select interface.
+ *
+ * @interface SelectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface SelectInterface {
   /**
    * Called when the select is set.
@@ -97,6 +133,16 @@ interface SelectInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the select is set.
+   *
+   * @param { Array<SelectOption> } options
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (options: Array<SelectOption>): SelectAttribute;
 }
 
@@ -108,6 +154,15 @@ interface SelectInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * The enum for arrow position in the select
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum ArrowPosition {
   /**
    * The value of arrow position end
@@ -115,6 +170,14 @@ declare enum ArrowPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The value of arrow position end
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   END = 0,
 
@@ -124,6 +187,14 @@ declare enum ArrowPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The value of arrow position start
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   START = 1
 }
@@ -141,6 +212,7 @@ declare enum ArrowPosition {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum MenuAlignType {
@@ -155,6 +227,7 @@ declare enum MenuAlignType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   START,
@@ -169,6 +242,7 @@ declare enum MenuAlignType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   CENTER,
@@ -183,6 +257,7 @@ declare enum MenuAlignType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   END
@@ -202,6 +277,15 @@ declare enum MenuAlignType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * The commonMethod of select.
+ *
+ * @extends CommonMethod<SelectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
@@ -228,6 +312,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   selected(value: number | Resource): SelectAttribute;
@@ -256,6 +341,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   value(value: ResourceStr): SelectAttribute;
@@ -277,6 +363,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the text properties of the select button itself.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   font(value: Font): SelectAttribute;
 
   /**
@@ -295,6 +391,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the text color of the select button itself.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   fontColor(value: ResourceColor): SelectAttribute;
 
@@ -315,6 +421,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the background color of the selected items in the select.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
@@ -333,6 +449,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the text style of the selected items in the select.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   selectedOptionFont(value: Font): SelectAttribute;
 
@@ -353,6 +479,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the text color of the selected item in the select.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
@@ -371,6 +507,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the background color of the select item.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   optionBgColor(value: ResourceColor): SelectAttribute;
 
@@ -391,6 +537,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the text style for select items.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   optionFont(value: Font): SelectAttribute;
 
   /**
@@ -409,6 +565,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the text color for select items.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   optionFontColor(value: ResourceColor): SelectAttribute;
 
@@ -429,6 +595,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Callback for selecting an item from the select.
+   *
+   * @param { function } callback
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onSelect(callback: (index: number, value: string) => void): SelectAttribute;
 
   /**
@@ -440,6 +616,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Set the space for text and icon in select
+   *
+   * @param { Length } value - indicates the length of the space
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   space(value: Length): SelectAttribute;
 
   /**
@@ -450,6 +636,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the layout direction for text and arrow in select
+   *
+   * @param { ArrowPosition } value - indicates the arrow position in the select
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   arrowPosition(value: ArrowPosition): SelectAttribute;
 
@@ -510,6 +706,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines Select Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const Select: SelectInterface;
 
 /**
@@ -524,5 +728,13 @@ declare const Select: SelectInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines Select Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const SelectInstance: SelectAttribute;

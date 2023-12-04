@@ -142,4 +142,15 @@ export interface NotificationSlot {
    * @since 9
    */
   readonly enabled?: boolean;
+
+  /**
+   * Obtains the notification reminder mode of the current notification entry.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  readonly reminderMode?: number;
 }

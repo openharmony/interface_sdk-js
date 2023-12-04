@@ -263,6 +263,7 @@ declare namespace common {
    * Defines a PacMap object for storing a series of values.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
    * @since 11
    */
   export type PacMap = _PacMap;

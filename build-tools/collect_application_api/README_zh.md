@@ -1,9 +1,34 @@
 # 工具使用说明
 
-## 使用步骤
-在package.json同级目录下执行npm run build命令，生成dist文件夹
+## 使用方式
 
-## 工具包结构
+### 使用工具源码扫描
+
+1. [下载应用API解析工具源码](https://gitee.com/openharmony/interface_sdk-js/tree/master/build-tools/collect_application_api)
+
+2. 在package.json同级目录下执行npm install安装依赖
+
+3. 在package.json同级目录下运行工具：
+
+   扫描单个应用，例：
+
+   ```
+   node .\src\entry\main.js --app 工程根目录 --sdk sdk根目录/9/ets  --output 报告的输出路径 --format excel
+   ```
+
+   扫描多个应用，例：
+
+   ```
+   node .\src\entry\main.js --appDir --sdkRoot sdk根目录 --output 报告的输出路径 --format excel
+   ```
+
+### 使用工具包扫描
+
+1. [下载应用API解析工具源码](https://gitee.com/openharmony/interface_sdk-js/tree/master/build-tools/collect_application_api)
+2. 在package.json同级目录下执行npm install安装依赖
+3. 使用：npm run build进行打包，打包成功后，会生成dist文件夹，文件夹下的apiCollector压缩包即为打包后的工具
+
+#### 工具包结构
 
 ```
 apiCollector-x.x.x.zip
@@ -32,15 +57,16 @@ Options:
   --format <json,excel>  format of the output report
   --scanTest             scan ohosTest
   --debug                output debug logs
+  --noRepeat             apiInfos is not repeat
   -h, --help             display help for command
 ```
 
 工具输出 app_api.xlsx 或者 collectedApi.json，具体格式和路径取决于 --format, --output 参数
 
-## 扫描单个应用
+#### 扫描单个应用
 
 ```shell
-node api-collector.js --app 工程根目录
+node api-collector.js --app 工程根目录 --sdk sdk根目录/9/ets  --output 报告的输出路径 --format excel
 ```
 
 上述命令的行为：
@@ -62,10 +88,10 @@ node api-collector.js --app 工程根目录 --sdkRoot sdk根目录
 node api-collector.js --app 工程根目录 --sdk sdk根目录/9/ets
 ```
 
-## 扫描目录下的多个应用
+#### 扫描目录下的多个应用
 
 ```shell
-node api-collector.js --appDir 文件夹路径
+node .\src\entry\main.js --appDir --sdkRoot sdk根目录 --output 报告的输出路径 --format excel
 ```
 
 上述命令的行为：
@@ -90,20 +116,3 @@ node api-collector.js --appDir 文件夹路径 --sdkRoot sdk根目录
 --scanTest 扫描 ohosTest 目录下的代码
 
 --debug 打开debug日志
-
-## 另一种使用方式
-上述工具运行方式将工具打包成脚本，直接使用。下面展示使用工具源码(便于调试)：
-
-1、[下载应用API解析工具源码](https://gitee.com/openharmony/interface_sdk-js/tree/master/build-tools/collect_application_api)
-
-2、在package.json同级目录下新建deps文件夹，将[typescript源码](https://gitee.com/openharmony/third_party_typescript/tree/master/build_package)下载并放置其中
-
-3、在package.json同级目录下执行npm install安装依赖
-
-4、在package.json同级目录下运行工具，例(扫面单个应用)：
-
-```shell
-node .\src\entry\main.js --app 工程根目录 --sdk sdk路径  --output 报告的输出路径
-```
-
-其余使用方式与前一种方式相同

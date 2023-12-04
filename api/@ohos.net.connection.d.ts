@@ -757,7 +757,7 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
-   * Add a custom {@link host} and corresponding {@link ip} mapping.
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @param { Array<string> } ip - List of IP addresses mapped to the host name.
@@ -773,7 +773,7 @@ declare namespace connection {
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Add a custom {@link host} and corresponding {@link ip} mapping.
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @param { Array<string> } ip - List of IP addresses mapped to the host name.
@@ -789,7 +789,7 @@ declare namespace connection {
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
 
   /**
-   * Remove the custom DNS rule of the {@link host}.
+   * Remove the custom DNS rule of the {@link host} for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @param { AsyncCallback<void> } callback - Returns the callback of removeCustomDnsRule.
@@ -804,7 +804,7 @@ declare namespace connection {
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove the custom DNS rule of the {@link host}.
+   * Remove the custom DNS rule of the {@link host} for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @returns { Promise<void> } the promise returned by the function.
@@ -819,7 +819,7 @@ declare namespace connection {
   function removeCustomDnsRule(host: string): Promise<void>;
 
   /**
-   * Clear all custom DNS rules.
+   * Clear all custom DNS rules for current application.
    * @permission ohos.permission.INTERNET
    * @param { AsyncCallback<void> } callback - Returns the callback of clearCustomDnsRules.
    * @throws { BusinessError } 201 - Permission denied.
@@ -833,7 +833,7 @@ declare namespace connection {
   function clearCustomDnsRules(callback: AsyncCallback<void>): void;
 
   /**
-   * Clear all custom DNS rules.
+   * Clear all custom DNS rules for current application.
    * @permission ohos.permission.INTERNET
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.

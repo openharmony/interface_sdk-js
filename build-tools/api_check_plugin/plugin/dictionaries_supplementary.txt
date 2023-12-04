@@ -8,6 +8,7 @@ accelerates
 accents
 accommodates
 acmmax
+acn
 activates
 actived
 adjusts
@@ -24,6 +25,9 @@ alpnprotocols
 alterase
 alternating
 altitudes
+amb
+ambisonic
+ambisonics
 amr
 animatable
 annually
@@ -198,6 +202,7 @@ dnd
 dnses
 donot
 downlink
+downmix
 dpad
 drains
 dragbar
@@ -264,6 +269,8 @@ fstat
 fsync
 ftruncate
 fulfills
+fuma
+furse
 gamepad
 gba
 geofence
@@ -293,6 +300,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hexadecagonal
 hfp
 hibernates
 hibernating
@@ -417,6 +425,8 @@ luma
 lushort
 lux
 mah
+malham
+map
 mcc
 md5
 mdns
@@ -518,6 +528,7 @@ participating
 passpoint
 pastedata
 patchlevel
+pbap
 pbo
 pda
 pdu
@@ -681,6 +692,7 @@ socid
 softer
 sonification
 sortings
+spatialization
 spawns
 spay
 spdy
@@ -689,6 +701,7 @@ specificed
 speedratings
 spellcheck
 spn
+spooler
 spp
 spry
 spy
@@ -730,6 +743,7 @@ systemapp
 systembar
 systemsize
 systemui
+showcounter
 tailoring
 talkback
 taskmanager
@@ -819,6 +833,7 @@ unregistered
 unregistering
 unregisters
 unremovable
+unrendered
 unrestricted
 unsecure
 unsent

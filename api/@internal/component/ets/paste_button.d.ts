@@ -20,12 +20,27 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Enumerates the icon styles.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare enum PasteIconStyle {
   /**
    * Icon rendered as lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Icon rendered as lines.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   LINES = 0
 }
@@ -37,12 +52,27 @@ declare enum PasteIconStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Enumerates the text that can be displayed on the paste button.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare enum PasteDescription {
   /**
    * Paste
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Paste
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   PASTE = 0
 }
@@ -54,6 +84,14 @@ declare enum PasteDescription {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declares the interface for setting the paste button options.
+ *
+ * @interface PasteButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface PasteButtonOptions {
   /**
    * Style of the icon to be drawn.
@@ -61,6 +99,14 @@ declare interface PasteButtonOptions {
    * @type { ?PasteIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Style of the icon to be drawn.
+   *
+   * @type { ?PasteIconStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   icon?: PasteIconStyle;
 
@@ -71,6 +117,14 @@ declare interface PasteButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Text to be displayed on the button.
+   *
+   * @type { ?PasteDescription }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   text?: PasteDescription;
 
   /**
@@ -79,6 +133,14 @@ declare interface PasteButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Type of the button.
+   *
+   * @type { ?ButtonType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   buttonType?: ButtonType;
 }
@@ -90,12 +152,27 @@ declare interface PasteButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Enumerates the click event results of the paste button.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare enum PasteButtonOnClickResult {
   /**
    * Success.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Success.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   SUCCESS = 0,
 
@@ -104,6 +181,13 @@ declare enum PasteButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Failure because the application is not temporarily authorized for accessing the current pasteboard data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1
 }
@@ -115,6 +199,14 @@ declare enum PasteButtonOnClickResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the interface for setting a paste button.
+ *
+ * @interface PasteButtonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 interface PasteButtonInterface {
   /**
    * Creates a paste button.
@@ -122,6 +214,14 @@ interface PasteButtonInterface {
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Creates a paste button.
+   *
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   (): PasteButtonAttribute;
 
@@ -134,6 +234,16 @@ interface PasteButtonInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Creates a paste button with the specified composition.
+   * If an attribute is not set, the corresponding element will not be drawn.
+   *
+   * @param { PasteButtonOptions } options - Indicates the options of the paste button.
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   (options: PasteButtonOptions): PasteButtonAttribute;
 }
 
@@ -144,6 +254,14 @@ interface PasteButtonInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the attributes of the paste button.
+ *
+ * @extends SecurityComponentMethod<PasteButtonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAttribute> {
   /**
    * Called when the paste button is clicked.
@@ -152,6 +270,15 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called when the paste button is clicked.
+   *
+   * @param { function } event
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   onClick(event: (event: ClickEvent, result: PasteButtonOnClickResult) => void): PasteButtonAttribute;
 }
@@ -163,6 +290,14 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines a button that interacts with the security component service to
+ * request the permission for accessing the current pasteboard data.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare const PasteButton: PasteButtonInterface;
 
 /**
@@ -170,5 +305,12 @@ declare const PasteButton: PasteButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Defines a paste button instance for secure access.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare const PasteButtonInstance: PasteButtonAttribute;

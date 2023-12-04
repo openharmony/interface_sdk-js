@@ -1000,6 +1000,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
+     * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
@@ -1026,6 +1027,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
+     * @throws { BusinessError } 12300004 - Account already exists.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.

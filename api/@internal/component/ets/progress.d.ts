@@ -1010,6 +1010,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  * @form
  */
@@ -1035,6 +1036,15 @@ declare enum ProgressStyle {
    * @since 10
    * @form
    */
+  /**
+   * Linear progress bar style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Linear,
 
   /**
@@ -1056,6 +1066,15 @@ declare enum ProgressStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Ring progress bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Ring,
@@ -1081,6 +1100,15 @@ declare enum ProgressStyle {
    * @since 10
    * @form
    */
+  /**
+   * Eclipse progress bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Eclipse,
 
   /**
@@ -1104,6 +1132,15 @@ declare enum ProgressStyle {
    * @since 10
    * @form
    */
+  /**
+   * ScaleRing progress bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   ScaleRing,
 
   /**
@@ -1125,6 +1162,15 @@ declare enum ProgressStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Capsule progress bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Capsule,

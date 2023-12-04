@@ -3071,6 +3071,17 @@ declare namespace request {
        */
       token?: string;
       /**
+       * The priority of this task.
+       * Front-end tasks have higher priority than back-end tasks.
+       * In tasks of the same mode, the smaller the number, the higher the priority.
+       * The default is 0.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      priority?: number;
+      /**
        * The extras for the configuration.
        *
        * @type { ?object }
@@ -3623,6 +3634,17 @@ declare namespace request {
        * @since 10
        */
       readonly mode: Mode;
+      /**
+       * The priority of this task.
+       * Front-end tasks have higher priority than back-end tasks.
+       * In tasks of the same mode, the smaller the number, the higher the priority.
+       * The default is 0.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 11
+       */
+      readonly priority: number;
       /**
        * The MIME type in the configuration of the task.
        *
