@@ -289,6 +289,48 @@ declare namespace webview {
   }
 
   /**
+   * Defines the security level for the page.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  enum SecurityLevel {
+    /**
+     * Unable to determine whether it is safe or not, the non-http/https protocol used.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    NONE = 0,
+
+    /**
+     * Indicates the HTTPS protocol used by the page and the authentication is successful.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    SECURE = 1,
+
+    /**
+     * The page is insecure. For example, the HTTP protocol is used or the HTTPS protocol
+     * is used but use an legacy TLS version.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    WARNING = 2,
+
+    /**
+     * Attempted HTTPS and failed, the authentication is failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    DANGEROUS = 3,
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    * 
    * @interface HitTestValue
@@ -3626,14 +3668,27 @@ declare namespace webview {
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
-    /** 
-	   * Get the security level of current page. 
-	   * @returns { SecurityLevel } The security level of current page. 
-	   * @throws { BusinessError } 17100017 - No valid WebviewController is associated. 
-	   * @syscap SystemCapability.Web.Webview.Core 
-     * @atomicservice
-	   * @since 11 
-	   */  
+    /**
+     * Create the Web Print Document Adapter.
+     * @param { string } jobName - The name of the currently printed document.
+     * @returns { print.PrintDocumentAdapter } Return the Print Document Adapter.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
+
+    /**
+     * Get the security level of the current page.
+     *
+     * @returns { SecurityLevel } the security level of current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
     getSecurityLevel(): SecurityLevel;
   }
 
@@ -3934,42 +3989,6 @@ declare namespace webview {
      */
     CRASH = 50,
   }
-
-	/** 
-	 * Defines the security level for page. 
-	 * @enum {number} 
-	 * @syscap SystemCapability.Web.Webview.Core 
-	 * @since 12 
-	 */  
-	enum SecurityLevel {  
-	  /** 
-	   * The page is neither absolutely secure nor insecure. For example, some types of non-http/https URLs. 
-	   * @syscap SystemCapability.Web.Webview.Core 
-	   * @since 12 
-	   */  
-	  NONE = 0,  
-	  
-	  /** 
-	   * Indicates the HTTPS protocol used by the page and the trusted certificate used by the page. 
-	   * @syscap SystemCapability.Web.Webview.Core 
-	   * @since 12 
-	   */  
-	  SECURE = 1,  
-	  
-	  /** 
-	   * The page is insecure. For example, the HTTP protocol is used or the HTTPS protocol is used but use an legacy TLS version. 
-	   * @syscap SystemCapability.Web.Webview.Core 
-	   * @since 12 
-	   */  
-	  WARNING = 2,  
-	  
-	  /** 
-	   * Attempted HTTPS and failed, page not authenticated, HTTPS with insecure active content on the page, malware or any other serious security issue that could be dangerous. 
-	   * @syscap SystemCapability.Web.Webview.Core 
-	   * @since 12 
-	   */  
-	  DANGEROUS = 3,  
-	}  
 
   /**
    * Represents a download task, You can use this object to operate the corresponding download task.
