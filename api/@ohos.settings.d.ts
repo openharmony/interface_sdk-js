@@ -42,7 +42,7 @@ declare namespace settings {
      * @syscap SystemCapability.Applications.settings.Core
      * @since 11
      */
-    const DEVICE_SHARED: string
+    const DEVICE_SHARED: string;
 
     /**
      * Provide the domain name for user property.
@@ -53,7 +53,7 @@ declare namespace settings {
      * @syscap SystemCapability.Applications.settings.Core
      * @since 11
      */
-    const USER_PROPERTY: string
+    const USER_PROPERTY: string;
 
     /**
      * Provide the domain name for user security property.
@@ -65,7 +65,7 @@ declare namespace settings {
      * @systemapi
      * @since 11
      */
-    const USER_SECURITY: string
+    const USER_SECURITY: string;
   }
 
   /**
@@ -1304,16 +1304,16 @@ declare namespace settings {
   function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
 
  /**
-* Monitor unregister key(synchronous method)
-*
-* @param { Context } context - Indicates Context instance.
-* @param { string } name - Indicates the name of the character string.
-* @param { string } domainName - Indicates the name of the domain name to set.
-* @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-* @syscap SystemCapability.Applications.settings.Core
-* @StageModelOnly
-* @since 11
-*/
+  * Monitor unregister key(synchronous method)
+  *
+  * @param { Context } context - Indicates Context instance.
+  * @param { string } name - Indicates the name of the character string.
+  * @param { string } domainName - Indicates the name of the domain name to set.
+  * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+  * @syscap SystemCapability.Applications.settings.Core
+  * @StageModelOnly
+  * @since 11
+  */
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 }
 
