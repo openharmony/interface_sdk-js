@@ -222,7 +222,7 @@ export default class UIExtensionContentSession {
    * @since 11
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
-  
+
   /**
    * Starts a new ability using the original caller information. If the caller application is in foreground,
    * you can use this method to start ability; If the caller application is in the background,
@@ -291,7 +291,7 @@ export default class UIExtensionContentSession {
    * @StageModelOnly
    * @since 11
    */
-  startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;  
+  startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.

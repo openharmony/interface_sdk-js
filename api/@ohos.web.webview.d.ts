@@ -20,6 +20,7 @@ import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
+import type print from './@ohos.print';
 
 /**
  * This module provides the capability to manage web modules.
@@ -3634,7 +3635,10 @@ declare namespace webview {
 	   * @since 11 
 	   */  
     getSecurityLevel(): SecurityLevel;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5f3b145bfb838c31d2297f685a96f6e3463a1ae5
   }
 
   /**
@@ -3964,7 +3968,11 @@ declare namespace webview {
 	  WARNING = 2,  
 	  
 	  /** 
+<<<<<<< HEAD
 	   * Attempted HTTPS and failed, page not authenticated, HTTPS with insecure active content on the page, malware or any other serious security issue that could be dangerous. 
+=======
+	   * Attempted HTTPS and failed, page not authenticated, HTTPS with insecure active content on the page, malware, phishing, or any other serious security issue that could be dangerous. 
+>>>>>>> 5f3b145bfb838c31d2297f685a96f6e3463a1ae5
 	   * @syscap SystemCapability.Web.Webview.Core 
 	   * @since 12 
 	   */  
