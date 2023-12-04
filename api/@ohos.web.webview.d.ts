@@ -3626,6 +3626,18 @@ declare namespace webview {
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
+    /**
+     * Create the Web Print Document Adapter.
+     * @param { string } jobName - The name of the currently printed document.
+     * @returns { print.PrintDocumentAdapter } Return the Print Document Adapter.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
+
     /** 
 	   * Get the security level of current page. 
 	   * @returns { SecurityLevel } The security level of current page. 

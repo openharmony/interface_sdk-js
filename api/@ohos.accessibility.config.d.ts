@@ -184,6 +184,7 @@ declare namespace config {
   /**
    * Enable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param { Array<accessibility.Capability> } capability Indicates the ability.
    * @returns { Promise<void> }
@@ -201,6 +202,7 @@ declare namespace config {
   /**
    * Enable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param { Array<accessibility.Capability> } capability Indicates the ability.
    * @param { AsyncCallback<void> } callback
@@ -222,6 +224,7 @@ declare namespace config {
   /**
    * Disable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 - Permission denied.
@@ -237,6 +240,7 @@ declare namespace config {
   /**
    * Disable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } 201 - Permission denied.
@@ -252,6 +256,7 @@ declare namespace config {
   /**
    * Register the listener that watches for changes in the enabled status of accessibility extensions.
    *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'enabledAccessibilityExtensionListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Not system App.
@@ -265,6 +270,7 @@ declare namespace config {
   /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
    *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'enabledAccessibilityExtensionListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Not system App.
@@ -287,6 +293,7 @@ declare namespace config {
     /**
      * Setting configuration value.
      *
+     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
      * @param { T } value Indicates the value.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Permission denied.
@@ -301,6 +308,7 @@ declare namespace config {
     /**
      * Setting configuration value.
      *
+     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
      * @param { T } value Indicates the value.
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } 201 - Permission denied.
@@ -339,6 +347,7 @@ declare namespace config {
     /**
      * Register the listener to listen for configuration changes.
      *
+     * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback Indicates the listener.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -352,6 +361,7 @@ declare namespace config {
     /**
      * Unregister the listener to listen for configuration changes.
      *
+     * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback Indicates the listener.
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
