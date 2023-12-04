@@ -56,12 +56,13 @@ declare namespace settings {
     const USER_PROPERTY: string
 
     /**
-     * Provide the domain name for user security.
+     * Provide the domain name for user security property.
      *
      * <p>This constants is a domain name for user security level key.
      *
      * @constant
      * @syscap SystemCapability.Applications.settings.Core
+     * @systemapi
      * @since 11
      */
     const USER_SECURITY: string
@@ -1062,8 +1063,7 @@ declare namespace settings {
   /**
    * Get value from settingsdata
    *
-   * @param { Context } context - Indicates the Context used to access
-   * the database.
+   * @param { Context } context - Indicates the Context used to access the database.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
@@ -1233,7 +1233,7 @@ declare namespace settings {
   /**
    * Get value from settingsdata(synchronous method)
    *
-   * @param { Context } context - Indicates Context instance
+   *@param { Context } context - Indicates Context instance
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
@@ -1303,17 +1303,17 @@ declare namespace settings {
    */
   function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
 
-  /**
-   * Monitor unregister key(synchronous method)
-   *
-   * @param { Context } context - Indicates Context instance.
-   * @param { string } name - Indicates the name of the character string.
-   * @param { string } domainName - Indicates the name of the domain name to set.
-   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
-   * @StageModelOnly
-   * @since 11
-   */
+ /**
+* Monitor unregistration key(synchronous method)
+*
+* @param { Context } context - Indicates Context instance.
+* @param { string } name - Indicates the name of the character string.
+* @param { string } domainName - Indicates the name of the domain name to set.
+* @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+* @syscap SystemCapability.Applications.settings.Core
+* @StageModelOnly
+* @since 11
+*/
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 }
 
