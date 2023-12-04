@@ -4310,7 +4310,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @atomicservice
-     * @since 10
+     * @since 11
      */
     function remove(id: string): Promise<void>;
 
