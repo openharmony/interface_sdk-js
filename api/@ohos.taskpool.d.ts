@@ -196,6 +196,21 @@ declare namespace taskpool {
     constructor(func: Function, ...args: unknown[]);
 
     /**
+     * Create a Task instance.
+     *
+     * @param { String } name - name name The name of Task.
+     * @param { Function } func - func func Concurrent function to execute in taskpool.
+     * @param { Object[] } args - args args The concurrent function arguments.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    constructor(name: String, func: Function, ...args: Object[]);
+
+    /**
      * Check current running Task is canceled or not.
      *
      * @returns { boolean } Returns {@code true} if current running task is canceled; returns {@code false} otherwise.
@@ -267,6 +282,32 @@ declare namespace taskpool {
     onReceiveData(callback?: Function): void;
 
     /**
+     * Add dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - tasks tasks An array of dependent tasks.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200026 - There is a circular dependency.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    addDependency(...tasks: Task[]): void;
+
+    /**
+     * Remove dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - tasks tasks An array of dependent tasks.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200027 - The dependency does not exist.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    removeDependency(...tasks: Task[]): void;
+
+    /**
      * Concurrent function to execute in taskpool.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -313,6 +354,16 @@ declare namespace taskpool {
      * @since 11
      */
     arguments?: unknown[];
+
+    /**
+     * Task name.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    name: String;
   }
 
   /**
@@ -347,6 +398,18 @@ declare namespace taskpool {
      * @since 11
      */
     constructor();
+
+    /**
+     * Create a TaskGroup instance.
+     *
+     * @param { String } name - name name The name of taskGroup.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    constructor(name: String);
 
     /**
      * Add a Concurrent function into task group.
@@ -395,6 +458,16 @@ declare namespace taskpool {
      * @since 11
      */
     addTask(task: Task): void;
+
+    /**
+     * TaskGroup name.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    name: String;
   }
 
   /**
