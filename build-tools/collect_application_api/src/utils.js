@@ -225,6 +225,7 @@ class Sdk {
     }
     this.esLibs = [];
     FileSystem.listFiles(libPath, (filePath) => path.basename(filePath).endsWith('.d.ts'), this.esLibs);
+    FileSystem.listFiles(libPath, (filePath) => path.basename(filePath).endsWith('.d.ets'), this.esLibs);
     return this.esLibs;
   }
 
@@ -235,6 +236,7 @@ class Sdk {
     }
     const subDir = path.resolve(sdkRoot, dir);
     FileSystem.listFiles(subDir, (filePath) => path.basename(filePath).endsWith('.d.ts'), dest);
+    FileSystem.listFiles(subDir, (filePath) => path.basename(filePath).endsWith('.d.ets'), dest);
   }
 }
 

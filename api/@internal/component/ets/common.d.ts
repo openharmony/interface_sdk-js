@@ -2613,6 +2613,18 @@ declare interface AlignRuleOption {
    * @form
    */
   center?: { anchor: string, align: VerticalAlign };
+
+  /**
+   * Defines the bias ratio in horizontal and vertical direction.
+   *
+   * @type { ?Bias }
+   * @default {horizontal:0.5,vertical:0.5}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bias?: Bias;
 }
 
 /**
@@ -10331,6 +10343,48 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Defines the drag preview mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum DragPreviewMode {
+  /**
+   * Default preview mode, let system process preview scale.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  AUTO = 1,
+  /**
+   * Disable system scale to preview panel
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  DISABLE_SCALE = 2,
+}
+
+/**
+ * Defines the preview options.
+ *
+ * @interface DragPreviewOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface DragPreviewOptions {
+  /**
+  * Drag preview mode.
+  *
+  * @type { ?DragPreviewMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 11
+  */
+  mode?: DragPreviewMode;
+}
+
+/**
  * Define the options of invert
  *
  * @interface InvertOptions
@@ -13641,6 +13695,26 @@ declare class CommonMethod<T> {
   draggable(value: boolean): T;
 
   /**
+   * Set preview of the component for dragging process
+   *
+   * @param { CustomBuilder | DragItemInfo } value - preview of the component for dragging process
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dragPreview(value: CustomBuilder | DragItemInfo): T;
+
+  /**
+   * Set the selectable area drag preview options.
+   *
+   * @param { DragPreviewOptions } value - preview options value.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dragPreviewOptions(value: DragPreviewOptions): T;
+
+  /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
    * @param { string | CustomBuilder } value
@@ -14614,6 +14688,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
+
+  /**
+   * Adds a background dynamic light up effect to the current component.
+   *
+   * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
   /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
@@ -16349,6 +16434,30 @@ declare class CustomComponent extends CommonAttribute {
   onPageHide?(): void;
 
   /**
+   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
+   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
+   * passed back as params in onFormRecover, in which you can recover the form
+   *
+   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  onFormRecycle?(): string;
+
+  /**
+   * onFormRecover Method, this is only for ArkTS form
+   *
+   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  onFormRecover?(statusData: string): void;
+
+  /**
    * onBackPress Method
    *
    * @returns { void | boolean }
@@ -16830,7 +16939,7 @@ declare module "AnimateToParam" {
 declare module 'DragControllerParam' {
   module 'DragControllerParam' {
     // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent };
+    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
   }
 }
 
@@ -16852,6 +16961,40 @@ declare interface EdgeEffectOptions {
    * @since 11
    */
   alwaysEnabled: boolean;
+}
+
+/**
+ * Define BackgroundBrightness Options.
+ *
+ * @interface BackgroundBrightnessOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface BackgroundBrightnessOptions {
+
+  /**
+   * Rate represents the rate at which lightUpDegree
+   * decreases with increasing pixel brightness.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  rate: number;
+
+  /**
+   * LightUpDegree represents the degree of brightness
+   * of the rgb value changes when its brightness
+   * is 0.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  lightUpDegree: number;
 }
 
 /**

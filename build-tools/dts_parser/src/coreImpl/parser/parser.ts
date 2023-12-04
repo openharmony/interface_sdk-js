@@ -143,6 +143,23 @@ export class Parser {
     }
     return '';
   }
+  
+  /**
+   * 获取解析结果的所有api
+   *
+   * @param {FilesMap} parseResult 解析结果
+   * @return  {BasicApiInfo[]} 遍历平铺所有api
+   */
+  static getAllBasicApi(parseResult: FilesMap): BasicApiInfo[] {
+    let apiInfos: BasicApiInfo[] = [];
+    // map的第一层key均为文件路径名
+    for (const filePath of parseResult.keys()) {
+      const fileMap: FileInfoMap = parseResult.get(filePath) as FileInfoMap;
+      const apis: BasicApiInfo[] = ResultsProcessHelper.processFileApiMapForGetBasicApi(fileMap);
+      apiInfos = apiInfos.concat(apis);
+    }
+    return apiInfos;
+  }
 }
 
 export type BasicApiInfoMap = Map<'_self', BasicApiInfo[]>;

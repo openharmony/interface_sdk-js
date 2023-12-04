@@ -29,7 +29,7 @@ import {
   EnumValueInfo,
   ExportDeclareInfo,
   ExportDefaultInfo,
-  exportImportValue,
+  ExportImportValue,
   ImportInfo,
   InterfaceInfo,
   MethodInfo,
@@ -120,6 +120,41 @@ export class ResultsProcessHelper {
     });
   }
 
+  /**
+   * 解析整个文件所有api
+   *
+   * @param {FileInfoMap} fileMap 文件对象
+   * @return {BasicApiInfo[]} 整个文件的所有api
+   */
+  static processFileApiMapForGetBasicApi(fileMap: FileInfoMap): BasicApiInfo[] {
+    let apis: BasicApiInfo[] = [];
+    for (const apiKey of fileMap.keys()) {
+      const apiInfos: BasicApiInfo[] = ResultsProcessHelper.getApiInfosInFileMap(fileMap, apiKey);
+      apiInfos.forEach((apiInfo: BasicApiInfo) => {
+        apis = apis.concat(ResultsProcessHelper.processApiInfoForGetBasicApi(apiInfo));
+      });
+    }
+    return apis;
+  }
+
+  /**
+   * 获取一个api的所有子节点，例如NamespaceInfo | ClassInfo | InterfaceInfo | EnumInfo | ModuleInfo | StructInfo
+   *
+   * @param { BasicApiInfo } basicApiInfo 解析后的api对象
+   * @return { BasicApiInfo[] } 递归获取有子节点的api的所有api
+   */
+  static processApiInfoForGetBasicApi(basicApiInfo: BasicApiInfo): BasicApiInfo[] {
+    let apis: BasicApiInfo[] = [];
+    apis = apis.concat(basicApiInfo);
+    if (!containerApiTypes.has(basicApiInfo.getApiType())) {
+      return apis;
+    }
+    const containerApiInfo: ContainerApiInfo = basicApiInfo as ContainerApiInfo;
+    containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
+      apis = apis.concat(ResultsProcessHelper.processApiInfoForGetBasicApi(childApiInfo));
+    });
+    return apis;
+  }
   /**
    * 获取SourceFile节点下的第一层节点解析后的对象，需要将JsDoc按照since的版本进行拆分
    * 1、子节点的since必须大于等于父节点的since，小于的进行剔除
@@ -361,7 +396,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.ImportInfo[] = [];
     const importInfo: ImportInfo = apiInfo as ImportInfo;
     const newInfo: ResultsInfo.ImportInfo = new ResultsInfo.ImportInfo(apiInfo.getApiType());
-    importInfo.getImportValues().forEach((importValue: exportImportValue) => {
+    importInfo.getImportValues().forEach((importValue: ExportImportValue) => {
       newInfo.addImportValue(importValue.key, importValue.value);
     });
     infos.push(newInfo);

@@ -22,6 +22,14 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  */
+/**
+ * Provide the capabilities to use different pickers.
+ *
+ * @namespace picker
+ * @syscap SystemCapability.FileManagement.UserFileService
+ * @atomicservice
+ * @since 11
+ */
 declare namespace picker {
   /**
    * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
@@ -42,6 +50,13 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 11
+   */
   class PhotoSelectOptions {
     /**
      * The Type of the file in the picker window.
@@ -49,6 +64,14 @@ declare namespace picker {
      * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * The Type of the file in the picker window.
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
      */
     MIMEType?: PhotoViewMIMETypes;
 
@@ -59,6 +82,14 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Maximum number of images for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     maxSelectNumber?: number;
   }
 
@@ -68,6 +99,13 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * PhotoSelectResult Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 11
+   */
   class PhotoSelectResult {
     /**
      * The uris for the selected files.
@@ -75,6 +113,14 @@ declare namespace picker {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * The uris for the selected files.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
      */
     photoUris: Array<string>;
 
@@ -84,6 +130,14 @@ declare namespace picker {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Original option.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
      */
     isOriginalPhoto: boolean;
   }
@@ -111,6 +165,13 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * PhotoViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 11
+   */
   class PhotoViewPicker {
     /**
      * Pull up the photo picker based on the selection mode.
@@ -119,6 +180,15 @@ declare namespace picker {
      * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -130,6 +200,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
@@ -138,6 +217,14 @@ declare namespace picker {
      * @param { AsyncCallback<PhotoSelectResult> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
 
@@ -169,6 +256,39 @@ declare namespace picker {
      * @since 9
      */
     save(callback: AsyncCallback<Array<string>>): void;
+  }
+
+  /**
+   * Enumerates the picker's select mode types.
+   *
+   * @enum { number } DocumentSelectMode
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @since 11
+   */
+  export enum DocumentSelectMode {
+    /**
+     * Indicates that only files are allowed to be selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    FILE = 0,
+
+    /**
+     * Indicates that only folders are allowed to be selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    FOLDER = 1,
+
+    /**
+     * Indicates that files and folders are allowed to be selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    MIXED = 2,
   }
 
   /**
@@ -204,6 +324,15 @@ declare namespace picker {
      * @since 10
      */
     maxSelectNumber?: number;
+
+    /**
+     * Selection mode.
+     *
+     * @type { ?DocumentSelectMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    selectMode?: DocumentSelectMode;
   }
 
   /**

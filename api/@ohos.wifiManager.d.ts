@@ -945,6 +945,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Obtain the information about own device information. 
+   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
+   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiP2pDevice> } Returns the information about own device info.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 11
+   */
   function getP2pLocalDevice(): Promise<WifiP2pDevice>;
   
   /**
@@ -958,6 +970,18 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Obtain the information about own device information. 
+   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
+   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiP2pDevice> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 11
    */
   function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
