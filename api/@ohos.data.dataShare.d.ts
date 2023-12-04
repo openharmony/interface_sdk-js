@@ -124,8 +124,8 @@ declare namespace dataShare {
    * Enables silent access dynamically.
    *
    * @param { Context } context - Indicates the application context.
-   * @param { string } uri - Indicates the path of the file to open.
-   * @returns { Promise<void> } Promise used to return.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 15700011 - The uri is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -139,8 +139,8 @@ declare namespace dataShare {
    * Disables silent access dynamically.
    *
    * @param { Context } context - Indicates the application context.
-   * @param { string } uri - Indicates the path of the file to close.
-   * @returns { Promise<void> } Promise used to return.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 15700011 - The uri is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
