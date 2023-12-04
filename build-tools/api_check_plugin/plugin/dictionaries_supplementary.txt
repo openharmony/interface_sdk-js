@@ -136,6 +136,7 @@ cpuprofiler
 cpx
 cpy
 crl
+crls
 crops
 crosshair
 crowdtest
