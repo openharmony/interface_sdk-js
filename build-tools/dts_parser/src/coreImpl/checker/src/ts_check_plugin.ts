@@ -59,7 +59,7 @@ export class TsSyntaxCheck {
           compositiveResult,
           compositiveLocalResult
         );
-        console.log(`scaning file in no ${++index}!`);
+        console.log(`api check scaning file in no ${++index}!`);
       });
     }
     return tsResult;
