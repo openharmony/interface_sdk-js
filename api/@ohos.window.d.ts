@@ -1079,6 +1079,52 @@ declare namespace window {
   }
 
   /**
+   * Limits of window.
+   *
+   * @interface WindowLimits
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  interface WindowLimits {
+    
+    /**
+     * The maximum width of the window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    maxWidth?: number;
+
+    /**
+     * The maximum height of the window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    maxHeight?: number;
+
+    /**
+     * The minimum width of the window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    minWidth?: number;
+
+    /**
+     * The minimum height of the window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    minHeight?: number;
+  }
+  
+  /**
    * Create a window with a specific configuration
    *
    * @param { Configuration } config - Parameters for window creation.
@@ -4109,6 +4155,32 @@ declare namespace window {
      * @since 11
      */
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
+
+    /**
+     * Get the window limits of current window.
+     *
+     * @returns { WindowLimits } - The limits of window.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    getWindowLimits(): WindowLimits;
+
+    /**
+     * Set the window limits of a window.
+     *
+     * @param { WindowLimits } windowLimits - window limits of the window.
+     * @returns { Promise<WindowLimits> } - Promise is used to return the limits of window.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setWindowLimits(windowLimits: WindowLimits): Promise<WindowLimits>;
   }
   /**
    * Window stage callback event type
