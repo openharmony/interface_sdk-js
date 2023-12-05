@@ -28,6 +28,8 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import * as _VpnExtensionContext from './application/VpnExtensionContext';
+import {VpnConnection  as _VpnConnection}  from './application/VpnExtensionContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -332,6 +334,26 @@ declare namespace common {
    * @since 11
    */
   export type AbilityStartCallback = _AbilityStartCallback;
+
+  /**
+   * The context of vpn extension. It allows access to
+   * vpnExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type VpnExtensionContext = _VpnExtensionContext.default;
+
+  /**
+   * The context of vpn connection. It allows third app access to
+   * vpn config or vpn other methods
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type VpnConnection = _VpnConnection;
 }
 
 export default common;
