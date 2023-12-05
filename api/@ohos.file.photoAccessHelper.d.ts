@@ -2285,6 +2285,15 @@ declare namespace photoAccessHelper {
     maxSelectNumber?: number;
 
     /**
+     * Support search.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    isSearchSupported?: boolean;
+
+    /**
      * Support taking photos.
      *
      * @type { ?boolean }
