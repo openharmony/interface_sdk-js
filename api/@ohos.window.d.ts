@@ -4212,6 +4212,31 @@ declare namespace window {
     PAUSED
   }
   /**
+   * Options for subwindow creation
+   * 
+   * @interface SubWindowOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  interface SubWindowOptions {
+    /**
+     * Indicates subwindow title
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    title: string;
+    /**
+     * Indicates decor of subwindow
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    decorEnabled: boolean;
+  }
+  /**
    * WindowStage
    *
    * @interface WindowStage
@@ -4357,6 +4382,21 @@ declare namespace window {
      * @since 10
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name - window name of sub window
+     * @param { SubWindowOptions } options - options of sub window creation
+     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @since 11
+     */
+    createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
     /**
      * Get sub window of the stage.
      *
