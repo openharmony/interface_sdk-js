@@ -343,7 +343,8 @@
       "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag",
       "SystemCapability.DistributedDataManager.CommonType",
-      "SystemCapability.Multimedia.Audio.Spatialization"
+      "SystemCapability.Multimedia.Audio.Spatialization",
+      "SystemCapability.Multimedia.AudioHaptic.Core"
     ]
   },
   "administrators": [
