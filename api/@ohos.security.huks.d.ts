@@ -685,7 +685,7 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
-  function isKeyItemExistEasy(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
+  function hasKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
   /**
    * Check whether the key exists.
@@ -706,7 +706,7 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
-  function isKeyItemExistEasy(keyAlias: string, options: HuksOptions): Promise<boolean>;
+  function hasKeyItem(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
   /**
    * Init Operation.
