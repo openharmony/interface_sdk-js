@@ -1371,6 +1371,47 @@ declare enum FinishCallbackType {
 }
 
 /**
+ * Defines the touch test strategy object.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum TouchTestStrategy {
+  /**
+  * Do framework touch test.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  * @form
+  */
+  DEFAULT = 0,
+
+  /**
+  * Specify the component to do touch test and follow the framework touch test
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  * @form
+  */
+  FORWARD_COMPETITION = 1,
+
+  /**
+  * Specify the component to do touch test and not follow the framework touch test
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  * @form
+  */
+  FORWARD = 2
+}
+
+/**
  * Defines the animate function params.
  *
  * @interface AnimateParam
@@ -9826,6 +9867,124 @@ declare class ProgressMask {
 }
 
 /**
+ * Defines TouchTestInfo class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class TouchTestInfo {
+  /**
+   * Get the X-coordinate relative to the window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  windowX: number;
+
+  /**
+   * Get the Y-coordinate relative to the window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  windowY: number;
+
+  /**
+   * Get the X-coordinate relative to the current component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  parentX: number;
+
+  /**
+   * Get the Y-coordinate relative to the current component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  parentY: number;
+
+  /**
+   * Get the X-coordinate relative to the sub component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  x: number;
+
+  /**
+   * Get the Y-coordinate relative to the sub component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  y: number;
+
+  /**
+   * Get the rectangle of sub component.
+   *
+   * @type { RectResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  rect: RectResult;
+
+  /**
+   * Get the name of sub component.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  id: string;
+}
+
+/**
+ * Defines TouchResult class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class TouchResult {
+  /**
+   * Defines the touch test strategy.
+   *
+   * @type { TouchTestStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  strategy: TouchTestStrategy;
+
+  /**
+   * Defines the component's name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  id?: string;
+}
+
+/**
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
  *
@@ -10611,6 +10770,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   hitTestBehavior(value: HitTestMode): T;
+
+  /**
+   * Defines the pre-touch test of sub component in touch events.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
   /**
    * layout Weight
