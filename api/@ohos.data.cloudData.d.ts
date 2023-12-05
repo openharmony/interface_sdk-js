@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import type relationalStore from './@ohos.data.relationalStore';
 
 declare namespace cloudData {
   /**
@@ -351,6 +352,793 @@ declare namespace cloudData {
      * @since 10
      */
     static clear(accountId: string, appActions: { [bundleName: string]: ClearAction }): Promise<void>;
+  }
+
+  /**
+   * Provides methods to implement cloud sharing.
+   *
+   * @namespace sharing
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  export namespace sharing {
+    /**
+     * Enumerates the roles.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    enum Role {
+      /**
+       * ROLE_INVITER: means inviter of cloud sharing.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      ROLE_INVITER = 0,
+
+      /**
+       * ROLE_INVITEE: means invitee of cloud sharing.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      ROLE_INVITEE = 1,
+    }
+
+    /**
+     * Enumerates the states of sharing invitation.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    enum State {
+      /**
+       * STATE_UNKNOWN: Unknown state.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      STATE_UNKNOWN = 0,
+
+      /**
+       * STATE_ACCEPTED: Accept the sharing invitation.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      STATE_ACCEPTED = 1,
+
+      /**
+       * STATE_REJECTED: Reject the sharing invitation.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      STATE_REJECTED = 2,
+
+      /**
+       * STATE_SUSPENDED: Suspend the sharing process.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      STATE_SUSPENDED = 3,
+    }
+
+    /**
+     * Enumerates the error code of sharing invitation.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    enum SharingCode {
+      /**
+       * SUCCESS: means sharing success.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      SUCCESS = 0,
+
+      /**
+       * REPEATED_REQUEST: means the user has been invited.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      REPEATED_REQUEST = 1,
+
+      /**
+       * NOT_INVITER: means the participant is not inviter.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      NOT_INVITER = 2,
+
+      /**
+       * NOT_INVITER_OR_INVITEE: means the participant is not inviter or invitee.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      NOT_INVITER_OR_INVITEE = 3,
+
+      /**
+       * OVER_QUOTA: means the number of sharing times today of current user has reached maximum.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      OVER_QUOTA = 4,
+
+      /**
+       * TOO_MANY_PARTICIPANTS: means the number of participants reaches the maximum.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      TOO_MANY_PARTICIPANTS = 5,
+
+      /**
+       * INVALID_ARGS: means invalid arguments.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      INVALID_ARGS = 6,
+
+      /**
+       * NETWORK_ERROR: means the network is unavailable.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      NETWORK_ERROR = 7,
+
+      /**
+       * CLOUD_DISABLED: means cloud is disabled.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      CLOUD_DISABLED = 8,
+
+      /**
+       * SERVER_ERROR: means invoke cloud space failed.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      SERVER_ERROR = 9,
+
+      /**
+       * INNER_ERROR: means an unknown error has occurred.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      INNER_ERROR = 10,
+
+      /**
+       * INVALID_INVITATION: means the invitation has expired or does not exist.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      INVALID_INVITATION = 11,
+
+      /**
+       * RATE_LIMIT: means the data transfer is rate-limited.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      RATE_LIMIT = 12,
+
+      /**
+       * CUSTOM_ERROR: means error codes that exceed this enumerated value are custom error codes.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      CUSTOM_ERROR = 1000,
+    }
+
+    /**
+     * Result interface.
+     *
+     * @interface Result
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    interface Result<T> {
+      /**
+       * Error code.
+       *
+       * @type { number }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      code: number;
+
+      /**
+       * Error code description.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      description?: string;
+
+      /**
+       * The result value.
+       *
+       * @type { ?T }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      value?: T;
+    }
+
+    /**
+     * Privilege for the shared data.
+     *
+     * @interface Privilege
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    interface Privilege {
+      /**
+       * Whether the participants can write the shared data. The value <b>true</b>
+       * means the participants can write the shared data; the value <b>false</b>
+       * means the opposite.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      writable?: boolean;
+
+      /**
+       * Whether the participants can read the shared data. The value <b>true</b>
+       * means the participants can read the shared data; the value <b>false</b>
+       * means the opposite.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      readable?: boolean;
+
+      /**
+       * Whether the participants can create data. The value <b>true</b>
+       * means the participants can create data; the value <b>false</b>
+       * means the opposite.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      creatable?: boolean;
+
+      /**
+       * Whether the participants can delete the shared data. The value <b>true</b>
+       * means the participants can delete the shared data; the value <b>false</b>
+       * means the opposite.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      deletable?: boolean;
+
+      /**
+       * Whether the participants can share the data. The value <b>true</b>
+       * means the participants can share the data; the value <b>false</b>
+       * means the opposite.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      shareable?: boolean;
+    }
+
+    /**
+     * Participants in cloud sharing.
+     *
+     * @interface Participant
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    interface Participant {
+      /**
+       * Identity of participant.
+       *
+       * @type { string }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      identity: string;
+
+      /**
+       * Role of the participant, which can be inviter or invitee.
+       *
+       * @type { ?Role }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      role?: Role;
+
+      /**
+       * State of the sharing invitation.
+       *
+       * @type { ?State }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      state?: State;
+
+      /**
+       * Permissions for the shared data.
+       *
+       * @type { ?Privilege }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      privilege?: Privilege;
+
+      /**
+       * Attach information.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 11
+       */
+      attachInfo?: string;
+    }
+
+    /**
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
+     *
+     * @param { string } storeId - Indicates relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<Participant> } participants - Participants to share.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
+     * callback invoked to return the {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndShare(
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      callback: AsyncCallback<relationalStore.ResultSet>
+    ): void;
+
+    /**
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
+     *
+     * @param { string } storeId - Indicates relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<Participant> } participants - Participants to share.
+     * @param { Array<string> } columns - Columns to be shared.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
+     * callback invoked to return the {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndShare(
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      columns: Array<string>,
+      callback: AsyncCallback<relationalStore.ResultSet>
+    ): void;
+
+    /**
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
+     *
+     * @param { string } storeId - Indicates relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<Participant> } participants - Participants to share.
+     * @param { Array<string> } [columns] - Columns to be shared.
+     * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndShare(
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      columns?: Array<string>
+    ): Promise<relationalStore.ResultSet>;
+
+    /**
+     * Shares data with the specified privilege to participants.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved in the data sharing.
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
+     * callback invoked to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function share(
+      sharingResource: string,
+      participants: Array<Participant>,
+      callback: AsyncCallback<Result<Array<Result<Participant>>>>
+    ): void;
+
+    /**
+     * Shares data with the specified privilege to participants.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved in the data sharing.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function share(
+      sharingResource: string,
+      participants: Array<Participant>
+    ): Promise<Result<Array<Result<Participant>>>>;
+
+    /**
+     * UnShares data.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved.
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the callback invoked
+     * to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function unshare(
+      sharingResource: string,
+      participants: Array<Participant>,
+      callback: AsyncCallback<Result<Array<Result<Participant>>>>
+    ): void;
+
+    /**
+     * UnShares data.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function unshare(
+      sharingResource: string,
+      participants: Array<Participant>
+    ): Promise<Result<Array<Result<Participant>>>>;
+
+    /**
+     * Exit sharing.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { AsyncCallback<Result<void>> } callback - The callback of exit.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function exit(sharingResource: string, callback: AsyncCallback<Result<void>>): void;
+
+    /**
+     * Exit sharing.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @returns { Promise<Result<void>> } - The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function exit(sharingResource: string): Promise<Result<void>>;
+
+    /**
+     * Changes the permissions for the shared data.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * whose permissions are to be changed.
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
+     * callback invoked to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function changePrivilege(
+      sharingResource: string,
+      participants: Array<Participant>,
+      callback: AsyncCallback<Result<Array<Result<Participant>>>>
+    ): void;
+
+    /**
+     * Changes the permissions for the shared data.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * whose permissions are to be changed.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function changePrivilege(
+      sharingResource: string,
+      participants: Array<Participant>
+    ): Promise<Result<Array<Result<Participant>>>>;
+
+    /**
+     * Queries the participants based on the specified shared data.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
+     * callback invoked to return the participants obtained.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function queryParticipants(sharingResource: string, callback: AsyncCallback<Result<Array<Participant>>>): void;
+
+    /**
+     * Queries the participants based on the specified shared data.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function queryParticipants(sharingResource: string): Promise<Result<Array<Participant>>>;
+
+    /**
+     * Queries the participants based on the specified invitation code.
+     *
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
+     * callback invoked to return the participants obtained.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function queryParticipantsByInvitation(
+      invitationCode: string,
+      callback: AsyncCallback<Result<Array<Participant>>>
+    ): void;
+
+    /**
+     * Queries the participants based on the specified invitation code.
+     *
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function queryParticipantsByInvitation(invitationCode: string): Promise<Result<Array<Participant>>>;
+
+    /**
+     * Confirms the invitation of cloud sharing.
+     *
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @param { State } state - Indicates the state of invitation.
+     * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
+     * invoked to return the sharing resource.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function confirmInvitation(invitationCode: string, state: State, callback: AsyncCallback<Result<string>>): void;
+
+    /**
+     * Confirms the invitation of cloud sharing.
+     *
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @param { State } state - Indicates the state of invitation.
+     * @returns { Promise<Result<string>> } - Promise used to return the sharing resource.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function confirmInvitation(invitationCode: string, state: State): Promise<Result<string>>;
+
+    /**
+     * Changes confirmation of shared record.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { State } state - Indicates the state of invitation.
+     * @param { AsyncCallback<Result<void>> } callback - Indicates the callback.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function changeConfirmation(sharingResource: string, state: State, callback: AsyncCallback<Result<void>>): void;
+
+    /**
+     * Changes confirmation of shared record.
+     *
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { State } state - Indicates the state of invitation.
+     * @returns { Promise<Result<void>> } - The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function changeConfirmation(sharingResource: string, state: State): Promise<Result<void>>;
   }
 }
 

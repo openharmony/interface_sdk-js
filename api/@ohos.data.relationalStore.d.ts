@@ -923,7 +923,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
-    PRIVILEGE_FIELD = '#_cloud_privilege'
+    PRIVILEGE_FIELD = '#_cloud_privilege',
+
+    /**
+     * Sharing resource field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
 
   /**
@@ -2908,6 +2916,53 @@ declare namespace relationalStore {
      * @since 11
      */
     cleanDirtyData(table: string, cursor?: number): Promise<void>;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The specified columns to query.
+     * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } [columns] - The specified columns to query.
+     * @returns { Promise<ResultSet> } -The promise returned by the function.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
