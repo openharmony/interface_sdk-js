@@ -1984,6 +1984,13 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
+  /**
+   * Describes the data of the common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   export type CommonEventData = _CommonEventData;
 
   /**
@@ -1991,6 +1998,13 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Describes the subscriber of common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
@@ -2000,6 +2014,13 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
 
   /**
@@ -2007,6 +2028,13 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }
