@@ -888,8 +888,8 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { string } instanceName - the exact key used in registration
    * @param { string } methodName - a string which is same to the method called on globalCallObject.
    * @param { number } timeout - the specific milliseconds that will wait for result to return, between 0 and 5000.
-   * @param { unknown[] } args - the method argument called on registered globalCallObject.
-   * @returns { unknown } Return the result of method if it has a return value, otherwise return void.
+   * @param { Object[] } args - the method argument called on registered globalCallObject.
+   * @returns { Object } Return the result of method if it has a return value, otherwise return void.
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -900,7 +900,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @crossplatform
    * @since 11
    */
-  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: unknown[]): unknown;
+  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: Object[]): Object;
 }
 
 /**
