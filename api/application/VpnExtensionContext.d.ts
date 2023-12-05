@@ -73,26 +73,6 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @since 11
    */
   stopVpnExtensionAbility(want: Want): Promise<void>;
-
-  /**
-   * Create a VPN connection using the AbilityContext.
-   * @param { AbilityContext } context - Indicates the context of application or capability.
-   * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @since 11
-   */
-  createVpnConnection(context: AbilityContext): VpnConnection;
-
-  /**
-   * update a VPN dialog Authorize information
-   * @param { isAuthorize } boolean - Authorize or not
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @since 11
-   */
-  updateVpnDataBase(isAuthorize: boolean): Promise<void>;
 }
 
 export interface VpnConnection {
@@ -140,6 +120,26 @@ export interface VpnConnection {
    * @since 11
    */
   destroy(): Promise<void>;
+
+  /**
+   * Create a VPN connection using the AbilityContext.
+   * @param { AbilityContext } context - Indicates the context of application or capability.
+   * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
+  createVpnConnection(context: AbilityContext): VpnConnection;
+
+  /**
+   * update a VPN dialog Authorize information
+   * @param { isAuthorize } boolean - Authorize or not
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
+  updateVpnDataBase(isAuthorize: boolean): Promise<void>;
 }
 
 export interface VpnConfig {
