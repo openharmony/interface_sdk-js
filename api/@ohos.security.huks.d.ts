@@ -682,47 +682,11 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
-   * @since 11
-   */
-  /**
-   * Check whether the key exists.
-   *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
-   * @throws { BusinessError } 401 - argument is invalid
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
    */
   function isKeyItemExistEasy(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
-  /**
-   * Check whether the key exists.
-   *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 401 - argument is invalid
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @since 11
-   */
   /**
    * Check whether the key exists.
    *
