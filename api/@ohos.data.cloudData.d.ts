@@ -221,38 +221,24 @@ declare namespace cloudData {
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
     /**
-     * notifies changes of the cloud records
+     * Notifies changes of the cloud records.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName - Indicates the name of application.
-     * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @param { number } [userId] - Indicates the user ID.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 11
      */
-    static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
-
-    /**
-     * notifies changes of the cloud records
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { string } bundleName - Indicates the name of application.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-     * @systemapi
-     * @since 10
-     */
-    static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
+    static notifyDataChange(extInfo: ExtraData, userId?: number): Promise<void>;
 
     /**
      * Notifies changes of the cloud records.
@@ -296,24 +282,38 @@ declare namespace cloudData {
     static notifyDataChange(extInfo: ExtraData, userId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Notifies changes of the cloud records.
+     * notifies changes of the cloud records
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Indicates the extra data for
-     * notification {@link ExtraData}.
-     * @param { number } [userId] - Indicates the user ID.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, which is
-     * returned when the system API is not called by a system application.
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName - Indicates the name of application.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
-     * @since 11
+     * @since 10
      */
-    static notifyDataChange(extInfo: ExtraData, userId?: number): Promise<void>;
+    static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
+
+    /**
+     * notifies changes of the cloud records
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName - Indicates the name of application.
+     * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 10
+     */
+    static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
      * deletes cloud information from local data.
@@ -749,6 +749,32 @@ declare namespace cloudData {
      * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
+     * @param { Array<string> } [columns] - Columns to be shared.
+     * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndShare(
+        storeId: string,
+        predicates: relationalStore.RdbPredicates,
+        participants: Array<Participant>,
+        columns?: Array<string>
+    ): Promise<relationalStore.ResultSet>;
+
+    /**
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
+     *
+     * @param { string } storeId - Indicates relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<Participant> } participants - Participants to share.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
      * callback invoked to return the {@link relationalStore.ResultSet}.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -795,32 +821,6 @@ declare namespace cloudData {
       columns: Array<string>,
       callback: AsyncCallback<relationalStore.ResultSet>
     ): void;
-
-    /**
-     * Allocates shared resources based on conditions,
-     * and shares data with the specified privilege to participants.
-     *
-     * @param { string } storeId - Indicates relational store name.
-     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
-     * @param { Array<Participant> } participants - Participants to share.
-     * @param { Array<string> } [columns] - Columns to be shared.
-     * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, which is
-     * returned when the system API is not called by a system application.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 11
-     */
-    function allocResourceAndShare(
-      storeId: string,
-      predicates: relationalStore.RdbPredicates,
-      participants: Array<Participant>,
-      columns?: Array<string>
-    ): Promise<relationalStore.ResultSet>;
 
     /**
      * Shares data with the specified privilege to participants.
