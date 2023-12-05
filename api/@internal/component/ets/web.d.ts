@@ -729,6 +729,15 @@ declare enum RenderExitReason {
   ProcessExitUnknown,
 }
 
+  /**
+   * The callback of custom hide of the context menu.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  type OnContextMenuHideCallback = () => void;
+
 /**
  * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
  *
@@ -5081,6 +5090,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when called to allow custom hide of the context menu.
+   *
+   * @param { OnContextMenuHideCallback } callback The triggered function when called to allow custom hide of the context menu.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  onContextMenuHide(callback: OnContextMenuHideCallback): WebAttribute;
 
   /**
    * Set whether media playback needs to be triggered by user gestures.
