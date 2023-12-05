@@ -1721,8 +1721,8 @@ declare namespace audio {
     /**
      * Sets extra audio parameters. This method uses a promise to return the result.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
-     * @param { string } mainKey - Main key of the audio parameter to set.
-     * @param { string } kvpairs - Key-value pairs to set.
+     * @param { string } mainKey - Main key of the audio parameters to set.
+     * @param { string } kvpairs - Key-value pairs with subkeys and values to set.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -1734,7 +1734,8 @@ declare namespace audio {
 
     /**
      * Obtains the values of a certain key. This method uses a promise to return the query result.
-     * @param { string } mainKey - Main key of the audio parameter to get.
+     * @param { string } mainKey - Main key of the audio parameters to get.
+     * @param { Array<string> } subKeys - Sub keys of the audio parameters to get.
      * @returns { Promise<Record<string, string>> } Promise used to return the key-value pairs.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -1742,7 +1743,7 @@ declare namespace audio {
      * @systemapi
      * @since 11
      */
-    getExtraParameters(mainKey: string): Promise<Record<string, string>>;
+    getExtraParameters(mainKey: string, subKeys?: Array<string>): Promise<Record<string, string>>;
 
     /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
