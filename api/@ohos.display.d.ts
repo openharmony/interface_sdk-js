@@ -823,6 +823,7 @@ declare namespace display {
     /**
      * All supported color spaces.
      *
+     * @type { colorSpaceManager.ColorSpace }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
@@ -831,6 +832,7 @@ declare namespace display {
     /**
      * All supported HDR formats.
      *
+     * @type { hdrCapability.HDRFormat }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
