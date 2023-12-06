@@ -14,13 +14,13 @@
  */
 export declare enum HardwareStatusType {
   /**
-   * The on style.
+   * on of HardwareStatusType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
     on = 1,
     /**
-     * The off style.
+     * off of HardwareStatusType.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
@@ -28,37 +28,37 @@ export declare enum HardwareStatusType {
 }
 export declare enum TypeEnum {
   /**
-   * The DEFAULT_HIDE style.
+   * DEFAULT_HIDE of TypeEnum.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
     DEFAULT_HIDE = 0,
     /**
-     * The NETWORK_NOT_CONNECTED style.
+     * NETWORK_NOT_CONNECTED of TypeEnum.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
     NETWORK_NOT_CONNECTED = 1,
     /**
-     * The NETWORK_CONNECTED_UNSTABLE style.
+     * NETWORK_CONNECTED_UNSTABLE of TypeEnum.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
     NETWORK_CONNECTED_UNSTABLE = 2,
     /**
-     * The UNSTABLE_CONNECT_SERVER style.
+     * UNSTABLE_CONNECT_SERVER of TypeEnum.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
     UNSTABLE_CONNECT_SERVER = 3,
     /**
-     * The CUSTOM_NETWORK_TIPS style.
+     * CUSTOM_NETWORK_TIPS of TypeEnum.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
     CUSTOM_NETWORK_TIPS = 4,
     /**
-     * The CUSTOM_TIPS style.
+     * CUSTOM_TIPS of TypeEnum.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
@@ -75,7 +75,7 @@ export interface OptionType {
      */
     HardwareStatus: HardwareStatusType;
     /**
-     * Icon of optionType.
+     * HardwareStatus of optionType.
      *
      * @type {ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -84,7 +84,7 @@ export interface OptionType {
      */
     Icon?: ResourceStr;
     /**
-     * TipContent of optionType.
+     * HardwareStatus of optionType.
      *
      * @type {ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -93,7 +93,7 @@ export interface OptionType {
      */
     TipContent?: ResourceStr;
     /**
-     * ContentText of optionType.
+     * HardwareStatus of optionType.
      *
      * @type {ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -101,6 +101,15 @@ export interface OptionType {
      * @since 11
      */
     ContentText?: ResourceStr;
+    /**
+     * PaddingStatus of optionType.
+     *
+     * @type {boolean}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    PaddingStatus: boolean;
 }
 
 @Component
