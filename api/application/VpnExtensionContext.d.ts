@@ -142,11 +142,11 @@ export interface VpnConnection {
   updateVpnDataBase(appdata: VpnDataBase): Promise<void>;
 }
 
-export interface VpnDataBase{
+export interface VpnDataBase {
 
   /**
    * The boolean of vpn is authorize or not
-   * @type {?boolean}
+   * @type {boolean}
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
