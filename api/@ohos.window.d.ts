@@ -4177,6 +4177,21 @@ declare namespace window {
      * @since 11
      */
     setWindowLimits(windowLimits: WindowLimits): Promise<WindowLimits>;
+
+    /**
+     * Set whether to enable the single frame composer.
+     *
+     * @param { boolean } enable - Enable the single frame composer if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
   }
   /**
    * Window stage callback event type
