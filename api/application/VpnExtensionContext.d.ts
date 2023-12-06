@@ -166,7 +166,7 @@ export interface VpnDataBase {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  vpnkey: string;
+  key: string;
 }
 
 export interface VpnConfig {
