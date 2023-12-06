@@ -236,7 +236,7 @@ declare namespace restrictions {
   function setFingerprintAuthDisabled(admin: Want, disabled: boolean): void;
 
   /**
-   * Queries device fingerprint authorization capablity is disabled or enabled.
+   * Queries device fingerprint authorization capability is disabled or enabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the administrator ability information.
