@@ -22,6 +22,14 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Sensors.MiscDevice
  * @since 8
  */
+/**
+ * This module provides the capability to control motor vibration.
+ *
+ * @namespace vibrator
+ * @syscap SystemCapability.Sensors.MiscDevice
+ * @atomicservice
+ * @since 11
+ */
 declare namespace vibrator {
   /**
    * The trigger motor vibrates for a specified length of time.
@@ -89,6 +97,21 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
+  /**
+   * Trigger vibrator vibration.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @param { VibrateEffect } effect - Indicate vibrate effect, {@code VibrateEffect}.
+   * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
+   * @param { AsyncCallback<void> } callback - The callback of startVibration.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
+   */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
 
   /**
@@ -105,6 +128,21 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
+  /**
+   * Trigger vibrator vibration.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @param { VibrateEffect } effect - Indicate vibrate effect, {@code VibrateEffect}.
+   * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
+   */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
   /**
@@ -117,6 +155,18 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
+   */
+  /**
+   * Stop the vibrator from vibrating.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @param { VibratorStopMode } stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
    */
   function stopVibration(stopMode: VibratorStopMode): Promise<void>;
 
@@ -237,6 +287,13 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
+  /**
+   * The use of vibration.
+   *
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
+   */
   type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
   'touch' | 'media' | 'physicalFeedback' | 'simulateReality';
 
@@ -246,6 +303,14 @@ declare namespace vibrator {
    * @interface VibrateAttribute
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
+   */
+  /**
+   * The attribute of vibration.
+   * 
+   * @interface VibrateAttribute
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
    */
   interface VibrateAttribute {
     id?: number; /** Vibrator id, default is 0. */
@@ -266,6 +331,14 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
+  /**
+   * Describes the effect of vibration.
+   *
+   * @type { VibrateTime }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
+   */
   type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile;
 
   /**
@@ -274,6 +347,14 @@ declare namespace vibrator {
    * @interface VibrateTime
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
+   */
+  /**
+   * Vibrate continuously for a period of time at the default intensity of the system.
+   *
+   * @interface VibrateTime
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
    */
   interface VibrateTime {
     type: 'time';
