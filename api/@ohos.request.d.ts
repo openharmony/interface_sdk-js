@@ -4193,11 +4193,8 @@ declare namespace request {
      */
     /**
      * Creates a task for upload or download and enqueue it.
-     * Only foreground application can create the frontend task.
-     * It can deal only one frontend task at a time.
-     * A in processing frontend task will be forced to stop when its application had switched to background.
-     * A new frontend task will interrupt a existed in processing frontend task.
-     * The background task is highly recommended.
+     * When an application enters the background, the frontend tasks associated
+     * with it will gradually be paused until the application returns to the foreground. 
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
