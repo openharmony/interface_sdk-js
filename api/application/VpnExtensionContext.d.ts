@@ -139,7 +139,34 @@ export interface VpnConnection {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  updateVpnDataBase(isAuthorize: number): Promise<void>;
+  updateVpnDataBase(vpndata: VpnDataBase): Promise<void>;
+}
+
+export interface VpnDataBase{
+
+  /**
+   * The boolean of vpn isauthorize or not
+   * @type {?Array<RouteInfo>}
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
+  isAuthorize: boolean;
+
+  /**
+   * key of database item
+   * @type {?Array<RouteInfo>}
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
+  key?: string;
+
+  /**
+   * value of database item
+   * @type {?Array<RouteInfo>}
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
+  value?: number;
 }
 
 export interface VpnConfig {
