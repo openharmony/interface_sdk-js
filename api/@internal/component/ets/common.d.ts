@@ -4699,6 +4699,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_THIN,
 
@@ -4716,6 +4717,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_REGULAR,
 
@@ -4733,6 +4735,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_THICK,
 
@@ -4750,6 +4753,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_ULTRA_THICK,
 
@@ -4771,6 +4775,56 @@ declare enum BlurStyle {
    * @form
    */  
   NONE,    
+
+  /**
+   * Defines the ultra thin component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_ULTRA_THIN = 8,
+
+  /**
+   * Defines the thin component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_THIN = 9,
+
+  /**
+   * Defines the regular component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_REGULAR = 10,
+
+  /**
+   * Defines the thick component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_THICK = 11,
+
+  /**
+   * Defines the ultra thick component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_ULTRA_THICK = 12,
 }
 
 /**
