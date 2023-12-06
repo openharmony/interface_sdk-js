@@ -228,7 +228,7 @@ class SystemApiRecognizer {
     if (symbol) {
       const apiDecInfo = this.getSdkApiDeclarationWithSymbol(symbol, node, useDeclarations);
       const position = ts.getLineAndCharacterOfPosition(node.getSourceFile(), positionCallback(node));
-      if (symbol.valueDeclaration) {
+      if (symbol.valueDeclaration && this.isSdkApi(symbol.valueDeclaration.getSourceFile().fileName)) {
         this.recognizeDecorators(symbol.valueDeclaration, fileName, position);
       }
       if (apiDecInfo) {
@@ -426,6 +426,9 @@ class SystemApiRecognizer {
     node.properties.forEach(property => {
       const apiNode = apiMapInParent.get(property.name.escapedText);
       if (!apiNode) {
+        return;
+      }
+      if (ts.isTypeLiteralNode(apiNode.parent)) {
         return;
       }
       const apiDecInfo = this.getSdkApiFromValueDeclaration(apiNode, property, fileName);
