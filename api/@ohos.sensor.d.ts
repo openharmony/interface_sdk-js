@@ -35,6 +35,13 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
    */
+  /**
+   * Enum for obtain the type of sensor.
+   * @enum { number }
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
+   */
   enum SensorId {
     /**
      * Acceleration sensor.
