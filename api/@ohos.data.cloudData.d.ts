@@ -762,10 +762,10 @@ declare namespace cloudData {
      * @since 11
      */
     function allocResourceAndShare(
-        storeId: string,
-        predicates: relationalStore.RdbPredicates,
-        participants: Array<Participant>,
-        columns?: Array<string>
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      columns?: Array<string>
     ): Promise<relationalStore.ResultSet>;
 
     /**
