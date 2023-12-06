@@ -921,6 +921,14 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 8
    */
+  /**
+   * Type of allowing the specified of color space.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 11
+   */
   enum ColorSpace {
     /**
      * Default color space.
@@ -928,12 +936,26 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
      */
+    /**
+     * Default color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     DEFAULT,
     /**
      * Wide gamut color space. The specific wide color gamut depends on thr screen.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
+     */
+    /**
+     * Wide gamut color space. The specific wide color gamut depends on thr screen.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     WIDE_GAMUT
   }
@@ -3634,6 +3656,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Sets the specified color space.
+     *
+     * @param { ColorSpace } colorSpace the specified color space.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     setWindowColorSpace(colorSpace: ColorSpace): Promise<void>;
 
     /**
@@ -3645,6 +3678,17 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Sets the specified color space.
+     *
+     * @param { ColorSpace } colorSpace the specified color space.
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     setWindowColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
@@ -3677,6 +3721,15 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Obtains the set color space.
+     *
+     * @returns { ColorSpace } Color space obtained.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     getWindowColorSpace(): ColorSpace;
 
