@@ -312,7 +312,7 @@ export class TagValueCheck {
     const isNumber: boolean = /^\d+$/.test(deprecatedVersion);
     if (deprecatedFixedField !== 'since' || !isNumber) {
       deprecatedValueCheckResult.state = false;
-      deprecatedValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_DEFAULT;
+      deprecatedValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_DEPRECATED;
     }
     return deprecatedValueCheckResult;
   }
