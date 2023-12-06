@@ -132,8 +132,8 @@ export interface VpnConnection {
   createVpnConnection(context: AbilityContext): VpnConnection;
 
   /**
-   * update a VPN dialog Authorize information
-   * @param { isAuthorize } number - Authorize or not
+   * update a VPN dialog authorize information
+   * @param { VpnDataBase } database - authorize or not
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -145,8 +145,8 @@ export interface VpnConnection {
 export interface VpnDataBase{
 
   /**
-   * The boolean of vpn isauthorize or not
-   * @type {?Array<RouteInfo>}
+   * The boolean of vpn is authorize or not
+   * @type {?boolean}
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
