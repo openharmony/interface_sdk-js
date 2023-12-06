@@ -4048,30 +4048,26 @@ declare namespace window {
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
     /**
-     * Minimize app main window.
+     * Minimize app main window and hide app subWindow.
      *
      * @param { AsyncCallback<void> } callback - The callback of Minimize.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     minimize(callback: AsyncCallback<void>): void;
 
     /**
-     * Minimize app main window.
+     * Minimize app main window and hide app subWindow.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     minimize(): Promise<void>;
 
