@@ -218,11 +218,11 @@ declare namespace restrictions {
   function isMicrophoneDisabled(admin: Want): boolean;
 
   /**
-   * Disallows device fingerprint authorization capability.
+   * Sets the device fingerprint authorization capability disabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { boolean } disable - true if the fingerprint authorization capability is disallowed.
+   * @param { boolean } disabled - true if set the fingerprint authorization capability disabled.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -233,14 +233,14 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 11
    */
-  function disableFingerprintAuth(admin: Want, disable: boolean): void;
+  function setFingerprintAuthDisabled(admin: Want, disabled: boolean): void;
 
   /**
-   * Queries device fingerprint authorization capability is disallowed or allowed.
+   * Queries device fingerprint authorization capablity is disabled or enabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { boolean } true if the fingerprint authorization capability is disallowed.
+   * @returns { boolean } true if the fingerprint authorization capability is disabled.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
