@@ -133,13 +133,13 @@ export interface VpnConnection {
 
   /**
    * update a VPN dialog Authorize information
-   * @param { isAuthorize } boolean - Authorize or not
+   * @param { isAuthorize } number - Authorize or not
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  updateVpnDataBase(isAuthorize: boolean): Promise<void>;
+  updateVpnDataBase(isAuthorize: number): Promise<void>;
 }
 
 export interface VpnConfig {
