@@ -2231,6 +2231,17 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     encodeSync(src: Uint8Array): Uint8Array;
 
     /**
