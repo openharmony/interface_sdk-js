@@ -30,6 +30,7 @@ import type { AbilityStartCallback as _AbilityStartCallback } from './applicatio
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type {VpnConnection as _VpnConnection} from './application/VpnExtensionContext';
+import type {VpnDataBase as _VpnDataBase} from './application/VpnExtensionContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -354,6 +355,15 @@ declare namespace common {
    * @since 11
    */
   export type VpnConnection = _VpnConnection;
+
+  /**
+   * the vpn data of data base for vpn button
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type VpnDataBase = _VpnDataBase;
 }
 
 export default common;
