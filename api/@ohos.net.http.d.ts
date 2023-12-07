@@ -440,11 +440,11 @@ declare namespace http {
 
     /**
      * The path of the client certificate private key file.
-     * @type {?string}
+     * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    keyPath?: string;
+    keyPath: string;
 
     /**
      * Password required to use the client certificate private key.
