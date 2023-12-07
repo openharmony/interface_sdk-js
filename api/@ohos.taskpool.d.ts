@@ -212,6 +212,23 @@ declare namespace taskpool {
     static isCanceled(): boolean;
 
     /**
+     * Send data back to the host side and trigger the registered callback
+     *
+     * @param { Object[] } args - Data to be used as the input parameter of the registered callback.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200022 - The function is not called in the taskpool thread.
+     * @throws { BusinessError } 10200023 - The function is not called in the concurrent function.
+     * @throws { BusinessError } 10200024 - The callback is not registered on the host side.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    static sendData(...args: Object[]): void;
+
+    /**
      * Set transfer list for this task.
      *
      * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
@@ -231,6 +248,18 @@ declare namespace taskpool {
      * @since 11
      */
     setTransferList(transfer?: ArrayBuffer[]): void;
+
+    /**
+     * Register a callback for this task to receive and handle data from the taskpool worker thread.
+     *
+     * @param { Function } callback - Callback to be registered and executed later on the host side.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    onReceiveData(callback?: Function): void;
 
     /**
      * Concurrent function to execute in taskpool.
