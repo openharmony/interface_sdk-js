@@ -335,6 +335,124 @@ declare namespace http {
      * @since 11
      */
     caPath?: string;
+
+    /**
+     * Used to set to uploading or downloading the start bytes. The default value is 0.
+     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
+     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    resumeFrom?: number;
+
+    /**
+     * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
+     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
+     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    resumeTo?: number;
+
+    /**
+     * Support the application to pass in client certificates, allowing the server to verify the client's identity.
+     * @type {?ClientCert}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    clientCert?: ClientCert;
+
+    /**
+     * If this parameter is set, incoming DNS resolution server URL for the DoH server to use for name resolving.
+     * The parameter must be URL-encoded in the following format: "https://host:port/path".
+     * It MUST specify an HTTPS URL.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dnsOverHttps?: string;
+
+    /**
+     * If this parameter is set, use the specified DNS server for DNS resolution.
+     * Multiple DNS resolution servers can be set up, with a maximum of 3 servers.
+     * Only take the first three if there are more than three.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dnsServers?: Array<string>;
+  }
+
+  /**
+   * Enum for certificate types
+   * @enum {string}
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export enum CertType {
+    /**
+     * PEM format certificate
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    PEM = 'PEM',
+
+    /**
+     * DER format certificate
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    DER = 'DER',
+
+    /**
+     * P12 format certificate
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    P12 = 'P12'
+  }
+
+  /**
+   * The clientCert field of the client certificate, which includes 4 attributes:
+   * client certificate (cert), client certificate type (certType), certificate private key (key), and passphrase (keyPassword).
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface ClientCert {
+    /**
+     * The path to the client certificate file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    certPath: string;
+
+    /**
+     * The type of the client certificate.
+     * @type {?CertType}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    certType?: CertType;
+
+    /**
+     * The path of the client certificate private key file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPath: string;
+
+    /**
+     * Password required to use the client certificate private key.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPassword?: string;
   }
 
   /**
@@ -1024,6 +1142,24 @@ declare namespace http {
      * @since 10
      */
     off(type: 'dataReceiveProgress', callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+
+    /**
+     * Registers an observer for progress of sendSize HTTP Response data events.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<{ sendSize: number, totalSize: number }> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'dataSendProgress', callback: Callback<{ sendSize: number, totalSize: number }>): void
+
+    /**
+     * Unregisters an observer for progress of sendSize HTTP Response data events.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<{ sendSize: number, totalSize: number }> } callback - the callback of off.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'dataSendProgress', callback?: Callback<{ sendSize: number, totalSize: number }>): void
   }
 
   /**
@@ -1998,7 +2134,16 @@ declare namespace http {
      * @atomicservice
      * @since 11
      */
-    HTTP2
+    HTTP2,
+
+    /**
+     * Protocol http3 for https only.
+     * Cause error if using http only or not supporting http3 on this device.
+     * Fallback to http2 or http1.1 if needed.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    HTTP3
   }
 
   /**
@@ -2229,6 +2374,102 @@ declare namespace http {
      * @since 11
      */
     cookies: string;
+
+    /**
+     * The time taken of various stages of HTTP request.
+     * @type {PerformanceTiming}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    performanceTiming: PerformanceTiming;
+  }
+
+  /**
+   * Counting the time taken of various stages of HTTP request.
+   * @interface PerformanceTiming
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface PerformanceTiming {
+    /**
+     * Time taken from startup to DNS resolution completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dnsTiming: number;
+
+    /**
+     * Time taken from startup to TCP connection completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    tcpTiming: number;
+
+    /**
+     * Time taken from startup to TLS connection completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    tlsTiming: number;
+
+    /**
+     * Time taken from startup to start sending the first byte, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    firstSendTiming: number;
+
+    /**
+     * Time taken from startup to receiving the first byte, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    firstReceiveTiming: number;
+
+    /**
+     * Time taken from startup to the completion of the request, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    totalFinishTiming: number;
+
+    /**
+     * Time taken from startup to completion of all redirection steps, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    redirectTiming: number;
+
+    /**
+     * Time taken from HTTP request to header completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    responseHeaderTiming: number;
+
+    /**
+     * Time taken from HTTP Request to body completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    responseBodyTiming: number;
+
+    /**
+     * Time taken from HTTP Request to callback to the application, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    totalTiming: number;
   }
 
   /**
