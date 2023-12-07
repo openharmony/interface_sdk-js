@@ -2228,12 +2228,12 @@ declare namespace notificationManager {
      * Additional information of the live view notification.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11
      */
-    extraInfos?: { [key: string]: object };
+    extraInfos?: Record<string, Object>;
   }
 
   /**
