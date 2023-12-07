@@ -317,6 +317,58 @@ declare namespace window {
   }
 
   /**
+   * Describes the window status of an application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  enum WindowStatusType {
+    /**
+     * Undefined status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    UNDEFINED = 0,
+    /**
+     * Full screen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    FULL_SCREEN,
+    /**
+     * Maximize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    MAXIMIZE,
+    /**
+     * Minimize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    MINIMIZE,
+    /**
+     * Floating status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    FLOATING,
+    /**
+     * Split screen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    SPLIT_SCREEN
+  }
+
+  /**
    * Properties of status bar and navigation bar, it couldn't update automatically
    *
    * @interface SystemBarProperties
@@ -3088,6 +3140,30 @@ declare namespace window {
      * @since 11
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Register the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
      * Bind dialog to the target window.
