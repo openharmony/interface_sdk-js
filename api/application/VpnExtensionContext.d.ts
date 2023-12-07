@@ -154,19 +154,19 @@ export interface VpnDataBase {
 
   /**
    * vpn authorize data save path
-   * @type {string}
+   * @type {?string}
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  uri: string;
+  uri?: string;
 
   /**
    * the key that vpn save to the database
-   * @type {string}
+   * @type {?string}
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  key: string;
+  key?: string;
 }
 
 export interface VpnConfig {
