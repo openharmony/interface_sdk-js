@@ -2767,8 +2767,6 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2778,21 +2776,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
-
-    /**
-     * Mutes or unmutes the microphone. This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 11
-     */
-    setMicMute(mute: boolean): Promise<void>;
 
     /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
