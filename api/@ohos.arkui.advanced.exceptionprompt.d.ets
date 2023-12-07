@@ -53,13 +53,14 @@ export declare enum TypeEnum {
     UNSTABLE_CONNECT_SERVER = 3,
     /**
      * CUSTOM_NETWORK_TIPS of TypeEnum.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
     CUSTOM_NETWORK_TIPS = 4,
     /**
      * CUSTOM_TIPS of TypeEnum.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
