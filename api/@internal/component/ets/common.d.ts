@@ -1278,6 +1278,42 @@ declare interface Rectangle {
 }
 
 /**
+ * Interface for ExpectedFrameRateRange.
+ *
+ * @interface ExpectedFrameRateRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface ExpectedFrameRateRange {
+  /**
+   * The minimum animation drawing FPS.
+   * The minimum value should be less than or equal to the maximum value.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  min: number,
+  /**
+   * The maximum animation drawing FPS.
+   * The maximum value should be greater than or equal to the minimum value.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+  */
+  max: number,
+  /**
+   * The expected frame rate of dynamical callback rate range.
+   * The value should be between the minimum and maximum value.
+   * Otherwise, the actual callback rate will be dynamically
+   * adjusted to better align with other animation sources.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+  */
+  expected: number,
+}
+
+/**
  * global $r function
  *
  * @param { string } value
@@ -1700,6 +1736,15 @@ declare interface AnimateParam {
    * @form
    */
   finishCallbackType?: FinishCallbackType;
+
+  /**
+   * Set the animation drawing FPS.
+   *
+   * @type { ?ExpectedFrameRateRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  expectedFrameRateRange?: ExpectedFrameRateRange;
 }
 
 /**
@@ -17015,6 +17060,13 @@ declare module 'DragControllerParam' {
   module 'DragControllerParam' {
     // @ts-ignore
     export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
+  }
+}
+
+declare module 'ExpectedFrameRateRange' {
+  module 'ExpectedFrameRateRange' {
+    // @ts-ignore
+    export type { ExpectedFrameRateRange };
   }
 }
 
