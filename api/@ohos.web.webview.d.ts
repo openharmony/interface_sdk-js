@@ -293,6 +293,7 @@ declare namespace webview {
    *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   enum SecurityLevel {
@@ -300,6 +301,7 @@ declare namespace webview {
      * Unable to determine whether it is safe or not, the non-http/https protocol used.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     NONE = 0,
@@ -308,6 +310,7 @@ declare namespace webview {
      * Indicates the HTTPS protocol used by the page and the authentication is successful.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     SECURE = 1,
@@ -317,6 +320,7 @@ declare namespace webview {
      * is used but use an legacy TLS version.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     WARNING = 2,
@@ -325,6 +329,7 @@ declare namespace webview {
      * Attempted HTTPS and failed, the authentication is failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     DANGEROUS = 3,
@@ -3687,6 +3692,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getSecurityLevel(): SecurityLevel;
