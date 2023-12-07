@@ -120,7 +120,7 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  function constructLocalSocketInstance(): LocalSocket; 
+  function constructLocalSocketInstance(): LocalSocket;
 
   /**
    * Creates a LocalSocketServer object.
