@@ -538,6 +538,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
      */
     getReadOnlyFd(callback: AsyncCallback<number>): void;
     /**
@@ -551,6 +552,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
      */
     getReadOnlyFd(): Promise<number>;
     /**
@@ -563,6 +565,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -575,6 +578,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
      */
     close(fd: number): Promise<void>;
     /**
@@ -1749,6 +1753,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#addAssets
      */
     addAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1763,6 +1769,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#addAssets
      */
     addAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
@@ -1777,6 +1785,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#removeAssets
      */
     removeAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1791,6 +1801,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#removeAssets
      */
     removeAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
@@ -2347,6 +2359,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#deleteAssets
      */
     createDeleteRequest(uriList: Array<string>, callback: AsyncCallback<void>): void;
     /**
@@ -2361,6 +2375,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#deleteAssets
      */
     createDeleteRequest(uriList: Array<string>): Promise<void>;
     /**
