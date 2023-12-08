@@ -509,6 +509,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -525,6 +526,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
      */
     open(mode: string): Promise<number>;
     /**
@@ -632,6 +634,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#setFavorite
      */
     setFavorite(favoriteState: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -648,6 +652,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#setFavorite
      */
     setFavorite(favoriteState: boolean): Promise<void>;
     /**
@@ -664,6 +670,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#setHidden
      */
     setHidden(hiddenState: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -680,6 +688,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#setHidden
      */
     setHidden(hiddenState: boolean): Promise<void>;
     /**
@@ -696,6 +706,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#setUserComment
      */
     setUserComment(userComment: string, callback: AsyncCallback<void>): void;
     /**
@@ -712,6 +724,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#setUserComment
      */
     setUserComment(userComment: string): Promise<void>;
     /**
@@ -1807,6 +1821,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#recoverAssets
      */
     recoverAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1823,6 +1839,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#recoverAssets
      */
     recoverAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
@@ -1839,6 +1857,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#deleteAssets
      */
     deleteAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1855,6 +1875,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#deleteAssets
      */
     deleteAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
@@ -1871,6 +1893,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#setCoverUri
      */
     setCoverUri(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1887,6 +1911,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#setCoverUri
      */
     setCoverUri(uri: string): Promise<void>;
   }
@@ -2126,6 +2152,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#createAlbumRequest
      */
     createAlbum(name: string, callback: AsyncCallback<Album>): void;
     /**
@@ -2143,6 +2171,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#createAlbumRequest
      */
     createAlbum(name: string): Promise<Album>;
     /**
@@ -2159,6 +2189,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#deleteAlbums
      */
     deleteAlbums(albums: Array<Album>, callback: AsyncCallback<void>): void;
     /**
@@ -2175,6 +2207,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAlbumChangeRequest#deleteAlbums
      */
     deleteAlbums(albums: Array<Album>): Promise<void>;
     /**
@@ -2291,6 +2325,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#deleteAssets
      */
     deleteAssets(uriList: Array<string>, callback: AsyncCallback<void>): void;
     /**
@@ -2308,6 +2344,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     * @deprecated since 11
+     * @useinstead photoAccessHelper.MediaAssetChangeRequest#deleteAssets
      */
     deleteAssets(uriList: Array<string>): Promise<void>;
     /**
