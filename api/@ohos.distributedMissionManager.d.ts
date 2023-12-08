@@ -61,6 +61,36 @@ declare namespace distributedMissionManager {
   }
 
   /**
+   * ContinueCallbackInfo.
+   *
+   * @interface ContinueCallbackInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface ContinueCallbackInfo {
+    /**
+     * Continue state event.
+     *
+     * @type { ContinueState }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    state: ContinueState;
+
+    /**
+     * Continuable information corresponding to ability.
+     *
+     * @type { ContinuableInfo }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    info: ContinuableInfo;
+  }
+
+  /**
    * Start sync missions from remote device.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -190,7 +220,19 @@ declare namespace distributedMissionManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'continueStateChange', callback: Callback<{ state: ContinueState, info: ContinuableInfo }>): void;
+  /**
+   * Register continuable info listener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'continueStateChange' } type - Indicate the event type.
+   * @param { Callback<ContinueCallbackInfo> } callback - The callback of continueStateChange.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'continueStateChange', callback: Callback<ContinueCallbackInfo>): void;
 
   /**
    * Unregister continuable info listener to ams.
@@ -204,7 +246,19 @@ declare namespace distributedMissionManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'continueStateChange', callback?: Callback<{ state: ContinueState, info: ContinuableInfo }>): void;
+  /**
+   * Unregister continuable info listener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'continueStateChange' } type - Indicate the event type.
+   * @param { Callback<ContinueCallbackInfo> } callback - The callback of continueStateChange.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'continueStateChange', callback?: Callback<ContinueCallbackInfo>): void;
 
   /**
    * Continue mission
