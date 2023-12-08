@@ -383,6 +383,67 @@ declare namespace http {
      * @since 11
      */
     dnsServers?: Array<string>;
+
+    /**
+     * The data fields which is supported by the HTTP protocol to post
+     * forms and by the SMTP and IMAP protocols to provide
+     * the email data to send/upload.
+     * @type {?Array<MultiFormData>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    multiFormDataList?: Array<MultiFormData>;
+  }
+
+  /**
+   * Represents the properties of a form object.
+   * @interface MultiFormData
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface MultiFormData {
+    /**
+     * MIME name for the data field.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    name: string;
+
+    /**
+     * Content type of the data field.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    contentType: string;
+
+    /**
+     * Remote file name for the data field.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    remoteFileName?: string;
+
+    /**
+     * This parameter sets a mime part's body content from memory data.
+     * @type {?(string | Object | ArrayBuffer)}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    data?: string | Object | ArrayBuffer;
+
+    /**
+     * This parameter sets a mime part's body content from the file's contents.
+     * This is an alternative to curl_mime_data for setting data to a mime part.
+     * If data is empty, filePath must be set.
+     * If data has a value, filePath does not take effect.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    filePath?: string;
   }
 
   /**
