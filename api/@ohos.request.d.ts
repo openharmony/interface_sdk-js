@@ -4258,6 +4258,21 @@ declare namespace request {
     function create(context: BaseContext, config: Config): Promise<Task>;
 
     /**
+     * Gets the task with the specified id.
+     *
+     * @param { BaseContext } context - context of the caller.
+     * @param { string } id - the id of the task.
+     * @param { string } token - the token of the task.
+     * @returns { Promise<Task> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 11
+     */
+    function getTask(context: BaseContext, id: string, token?: string): Promise<Task>;
+
+    /**
      * Removes specified task belongs to the caller.
      * The task will be forced to stop if in processing.
      *
