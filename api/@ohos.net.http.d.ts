@@ -383,6 +383,14 @@ declare namespace http {
      * @since 11
      */
     dnsServers?: Array<string>;
+    /**
+     * The maximum limit of the response body. The default value is 5 * 1024 * 1024, in Byte.
+     * The maximum value is 100 * 1024 *1024, in Byte.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    maxLimit?: number;
   }
 
   /**
