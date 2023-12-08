@@ -167,7 +167,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    dataGroupId?: string;
+    dataGroupId?: string | null | undefined;
   }
 
   /**
@@ -1531,7 +1531,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    on(type: 'change', callback: (key: string) => void): void;
+    on(type: 'change', callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
@@ -1554,7 +1554,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    on(type: 'multiProcessChange', callback: (key: string) => void): void;
+    on(type: 'multiProcessChange', callback: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1586,7 +1586,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    off(type: 'change', callback?: (key: string) => void): void;
+    off(type: 'change', callback: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1607,7 +1607,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    off(type: 'multiProcessChange', callback?: (key: string) => void): void;
+    off(type: 'multiProcessChange', callback: Callback<string>): void;
   }
 }
 
