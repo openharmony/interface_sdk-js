@@ -213,7 +213,7 @@ export class BasicApiInfo {
   }
 }
 
-export class ExportDefaultInfo extends BasicApiInfo {}
+export class ExportDefaultInfo extends BasicApiInfo { }
 
 export class ReferenceInfo extends BasicApiInfo {
   pathName: string = '';
@@ -421,6 +421,7 @@ export class PropertyInfo extends ApiInfo {
   isReadOnly: boolean = false; // 属性是否为只读
   isRequired: boolean = false; // 属性是否为必选
   isStatic: boolean = false; // 属性是否为静态
+  typeKind: ts.SyntaxKind = -1; //type类型的kind值
 
   addType(type: string[]): void {
     this.type.push(...type);
@@ -452,6 +453,14 @@ export class PropertyInfo extends ApiInfo {
 
   getIsStatic(): boolean {
     return this.isStatic;
+  }
+
+  setTypeKind(typeKind: ts.SyntaxKind): void {
+    this.typeKind = typeKind;
+  }
+
+  getTypeKind(): ts.SyntaxKind {
+    return this.typeKind;
   }
 }
 
@@ -510,6 +519,7 @@ export class MethodInfo extends ApiInfo {
   returnValue: string[] = []; // 方法的返回值类型
   isStatic: boolean = false; // 方法是否是静态
   sync: string = ''; //同步函数标志
+  returnValueType: ts.SyntaxKind = -1;
 
   setCallForm(callForm: string): void {
     this.callForm = callForm;
@@ -533,6 +543,14 @@ export class MethodInfo extends ApiInfo {
 
   getReturnValue(): string[] {
     return this.returnValue;
+  }
+
+  setReturnValueType(returnValueType: ts.SyntaxKind): void {
+    this.returnValueType = returnValueType;
+  }
+
+  getReturnValueType(): ts.SyntaxKind {
+    return this.returnValueType;
   }
 
   setIsStatic(isStatic: boolean): void {
