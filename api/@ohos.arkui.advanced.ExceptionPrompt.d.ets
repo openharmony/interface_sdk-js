@@ -14,40 +14,52 @@
  */
 export declare enum HardwareStatusType {
   /**
-   * on of HardwareStatusType.
+   * ON of HardwareStatusType.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
-    on = 1,
-    /**
-     * off of HardwareStatusType.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    off = 0
+  ON = 0,
+  /**
+   * OFF of HardwareStatusType.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  OFF = 1
 }
 export declare enum TypeEnum {
   /**
    * DEFAULT_HIDE of TypeEnum.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
     DEFAULT_HIDE = 0,
     /**
      * NETWORK_NOT_CONNECTED of TypeEnum.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 11
      */
     NETWORK_NOT_CONNECTED = 1,
     /**
      * NETWORK_CONNECTED_UNSTABLE of TypeEnum.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 11
      */
     NETWORK_CONNECTED_UNSTABLE = 2,
     /**
      * UNSTABLE_CONNECT_SERVER of TypeEnum.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 11
      */
     UNSTABLE_CONNECT_SERVER = 3,
@@ -55,6 +67,7 @@ export declare enum TypeEnum {
      * CUSTOM_NETWORK_TIPS of TypeEnum.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 11
      */
     CUSTOM_NETWORK_TIPS = 4,
@@ -62,62 +75,63 @@ export declare enum TypeEnum {
      * CUSTOM_TIPS of TypeEnum.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 11
      */
     CUSTOM_TIPS = 5
 }
 export interface OptionType {
     /**
-     * HardwareStatus of optionType.
+     * hardwareStatus of OptionType.
      *
      * @type {HardwareStatusType}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    HardwareStatus: HardwareStatusType;
+    hardwareStatus: HardwareStatusType;
     /**
-     * HardwareStatus of optionType.
+     * icon of OptionType.
      *
      * @type {ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    Icon?: ResourceStr;
+    icon?: ResourceStr;
     /**
-     * HardwareStatus of optionType.
+     * tipContent of OptionType.
      *
      * @type {ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    TipContent?: ResourceStr;
+    tipContent?: ResourceStr;
     /**
-     * HardwareStatus of optionType.
+     * contentText of OptionType.
      *
      * @type {ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    ContentText?: ResourceStr;
+    contentText?: ResourceStr;
     /**
-     * PaddingStatus of optionType.
+     * isPaddingStatus of OptionType.
      *
      * @type {boolean}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    PaddingStatus: boolean;
+    isPaddingStatus: boolean;
 }
 
 @Component
 export declare struct ExceptionPrompt {
     /**
-     * Type of ExceptionPrompt.
+     * type of ExceptionPrompt.
      *
      * @type { TypeEnum }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -125,35 +139,35 @@ export declare struct ExceptionPrompt {
      * @since 11
      */
     @Link
-    Type: TypeEnum;
+    type: TypeEnum;
     /**
-     * Options of ExceptionPrompt.
+     * options of ExceptionPrompt.
      *
-     * @type { optionType }
+     * @type { OptionType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
     @Link
-    Options: optionType;
+    options: OptionType;
     /**
-     * ReconnectionFunction of ExceptionPrompt.
+     * reconnectionFunction of ExceptionPrompt.
      *
      * @type { () => void  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    ReconnectionFunction?: () => void;
+    reconnectionFunction?: () => void;
     /**
-     * ConfigureNetworkFunction of ExceptionPrompt.
+     * configureNetworkFunction of ExceptionPrompt.
      *
      * @type { () => void  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    ConfigureNetworkFunction?: () => void;
+    configureNetworkFunction?: () => void;
     /**
      * Build function of ExceptionPrompt.
      * Build function of GridObjectEditSort.
