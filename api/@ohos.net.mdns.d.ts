@@ -260,7 +260,7 @@ declare namespace mdns {
     /**
      * Enables listening for discoveryStart events of mDNS services.
      * @param { 'discoveryStart' } type - Indicates Event name.
-     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
@@ -277,7 +277,7 @@ declare namespace mdns {
     /**
      * Cancels listening for discoveryStart events of mDNS services.
      * @param { 'discoveryStart' } type - Indicates Event name.
-     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
@@ -294,7 +294,7 @@ declare namespace mdns {
     /**
      * Enables listening for discoveryStop events of mDNS services.
      * @param { 'discoveryStop' } type - Indicates Event name.
-     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
@@ -311,7 +311,7 @@ declare namespace mdns {
     /**
      * Cancels listening for discoveryStop events of mDNS services.
      * @param { 'discoveryStop' } type - Indicates Event name.
-     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
