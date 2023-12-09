@@ -148,6 +148,26 @@ export interface MeasureOptions {
    * @since 10
    */
   textCase?: number | TextCase;
+ 
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textIndent?: number | string;
+
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  wordBreak?: WordBreak;
 }
 
 /**
