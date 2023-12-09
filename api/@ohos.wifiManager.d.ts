@@ -687,7 +687,7 @@ declare namespace wifiManager {
   function isMeteredHotspot(): boolean;
 
   /**
-   * Reset all saved device configures.
+   * Reset all saved device configure.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
