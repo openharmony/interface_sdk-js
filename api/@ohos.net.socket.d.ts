@@ -993,19 +993,6 @@ declare namespace socket {
     /**
      * Binds the Local address.
      * @param { LocalAddress } address - Destination address. {@link LocalAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301013 - Permission denied.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301098 - Address already in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    bind(address: LocalAddress, callback: AsyncCallback<void>): void;
-
-    /**
-     * Binds the Local address.
-     * @param { LocalAddress } address - Destination address. {@link LocalAddress}
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301013 - Permission denied.
@@ -1015,20 +1002,6 @@ declare namespace socket {
      * @since 11
      */
     bind(address: LocalAddress): Promise<void>;
-
-    /**
-     * Sets up a connection to the specified Local address .
-     * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301013 - Permission denied.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301111 - Connection refused.
-     * @throws { BusinessError } 2301099 - Cannot assign requested address.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    connect(options: LocalConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
      * Sets up a connection to the specified Local address .
@@ -1047,17 +1020,6 @@ declare namespace socket {
     /**
      * Sends data over a LocalSocket connection.
      * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301011 - Operation would block.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    send(options: LocalSendOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sends data over a LocalSocket connection.
-     * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
@@ -1065,15 +1027,6 @@ declare namespace socket {
      * @since 11
      */
     send(options: LocalSendOptions): Promise<void>;
-
-    /**
-     * Closes a LocalSocket connection.
-     * @param { AsyncCallback<void> } callback - the callback of close.
-     * @syscap SystemCapability.Communication.NetStack
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @since 11
-     */
-    close(callback: AsyncCallback<void>): void;
 
     /**
      * Closes a LocalSocket connection.
@@ -1086,27 +1039,11 @@ declare namespace socket {
 
     /**
      * Obtains the status of the LocalSocket connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getState(callback: AsyncCallback<SocketStateBase>): void;
-
-    /**
-     * Obtains the status of the LocalSocket connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     getState(): Promise<SocketStateBase>;
-
-    /**
-     * Obtains the file descriptor of the LocalSocket connection.
-     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the LocalSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getSocketFd(callback: AsyncCallback<number>): void;
 
     /**
      * Obtains the file descriptor of the LocalSocket connection.
@@ -1119,17 +1056,6 @@ declare namespace socket {
     /**
      * Sets other attributes of the LocalSocket connection.
      * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    setExtraOptions(options: ExtraOptionsBase, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
@@ -1137,17 +1063,6 @@ declare namespace socket {
      * @since 11
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
-
-    /**
-     * Gets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getExtraOptions(callback: AsyncCallback<ExtraOptionsBase>): void;
 
     /**
      * Gets other attributes of the LocalSocket connection.
@@ -1239,17 +1154,6 @@ declare namespace socket {
     /**
      * Sends data over a LocalSocketServer connection to client.
      * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301011 - Operation would block.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    send(options: LocalSendOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sends data over a LocalSocketServer connection to client.
-     * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
@@ -1257,16 +1161,6 @@ declare namespace socket {
      * @since 11
      */
     send(options: LocalSendOptions): Promise<void>;
-
-    /**
-     * Closes a LocalSocket client connection.
-     * @param { AsyncCallback<void> } callback - The callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    close(callback: AsyncCallback<void>): void;
 
     /**
      * Closes a LocalSocket client connection.
@@ -1350,22 +1244,6 @@ declare namespace socket {
      * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
      * @param { LocalAddress } address - Network address information {@link LocalAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of listen.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2301013 - Permission denied.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301098 - Address already in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    listen(address: LocalAddress, callback: AsyncCallback<void>): void;
-
-    /**
-     * Binds the Local address.
-     * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @param { LocalAddress } address - Network address information {@link LocalAddress}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303109 - Bad file number.
@@ -1379,31 +1257,11 @@ declare namespace socket {
 
     /**
      * Obtains the status of the LocalSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getState(callback: AsyncCallback<SocketStateBase>): void;
-
-    /**
-     * Obtains the status of the LocalSocketServer connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     getState(): Promise<SocketStateBase>;
-
-    /**
-     * Sets other attributes of the LocalSocketServer connection.
-     * @param { ExtraOptionsBase } options - Parameters of the attributes {@link ExtraOptionsBase}.
-     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    setExtraOptions(options: ExtraOptionsBase, callback: AsyncCallback<void>): void;
 
     /**
      * Sets other attributes of the LocalSocketServer connection.
@@ -1415,16 +1273,6 @@ declare namespace socket {
      * @since 11
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
-
-    /**
-     * Gets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getExtraOptions(callback: AsyncCallback<ExtraOptionsBase>): void;
 
     /**
      * Gets other attributes of the LocalSocket connection.
