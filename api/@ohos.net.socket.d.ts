@@ -995,7 +995,7 @@ declare namespace socket {
      * @param { LocalAddress } address - Destination address. {@link LocalAddress}
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301013 - Permission denied.
+     * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301098 - Address already in use.
      * @syscap SystemCapability.Communication.NetStack
@@ -1008,7 +1008,7 @@ declare namespace socket {
      * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301013 - Permission denied.
+     * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301111 - Connection refused.
      * @throws { BusinessError } 2301099 - Cannot assign requested address.
@@ -1068,7 +1068,6 @@ declare namespace socket {
      * Gets other attributes of the LocalSocket connection.
      * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -1247,7 +1246,7 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2301013 - Permission denied.
+     * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301098 - Address already in use.
      * @syscap SystemCapability.Communication.NetStack
