@@ -234,6 +234,16 @@ interface CommonSegmentButtonOptions {
    * @since 11
    */
   textMargin?: Margin | Dimension;
+
+  /**
+   * The blurStyle of background.
+   *
+   * @type { ?BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 declare type ItemRestriction<T> = [T, T, T?, T?, T?];
@@ -661,6 +671,16 @@ declare class SegmentButtonOptions {
   textMargin: Margin | Dimension;
 
   /**
+   * The blurStyle of background.
+   *
+   * @type { BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle: BlurStyle;
+
+  /**
    * The constructor used to create a SegmentButtonOptions object.
    *
    * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - The options of SegmentButton.
@@ -728,5 +748,15 @@ export {
   TabSegmentButtonOptions,
   TabSegmentButtonConstructionOptions,
   CapsuleSegmentButtonOptions,
-  CapsuleSegmentButtonConstructionOptions
+  CapsuleSegmentButtonConstructionOptions,
+  SegmentButtonTextItem,
+  SegmentButtonIconItem,
+  SegmentButtonIconTextItem,
+  DimensionNoPercentage,
+  CommonSegmentButtonOptions,
+  ItemRestriction,
+  SegmentButtonItemTuple,
+  SegmentButtonItemArray,
+  SegmentButtonItemOptionsConstructorOptions,
+  SegmentButtonItemOptions
 };
