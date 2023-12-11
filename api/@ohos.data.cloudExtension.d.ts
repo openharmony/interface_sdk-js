@@ -83,46 +83,6 @@ declare namespace cloudExtension {
   type CloudValuesBucket = { [key: string]: CloudValueType; };
 
   /**
-   * Defines the result.
-   *
-   * @interface Result
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  export interface Result<T> {
-    /**
-     * Error code.
-     *
-     * @type { number }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-     * @systemapi
-     * @since 11
-     */
-    code: number;
-
-    /**
-     * Error code description.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-     * @systemapi
-     * @since 11
-     */
-    description?: string;
-
-    /**
-     * Result value.
-     *
-     * @type { ?T }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-     * @systemapi
-     * @since 11
-     */
-    value?: T;
-  }
-
-  /**
    * Defines cloud information.
    *
    * @interface CloudInfo
@@ -823,6 +783,46 @@ declare namespace cloudExtension {
      * @since 11
      */
     NO_SPACE_FOR_ASSET
+  }
+
+  /**
+   * Defines the result.
+   *
+   * @interface Result
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  export interface Result<T> {
+    /**
+     * Error code.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    code: number;
+
+    /**
+     * Error code description.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    description?: string;
+
+    /**
+     * Result value.
+     *
+     * @type { ?T }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    value?: T;
   }
 
   /**
