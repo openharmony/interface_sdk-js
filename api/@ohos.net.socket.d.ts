@@ -1031,8 +1031,8 @@ declare namespace socket {
     /**
      * Closes a LocalSocket connection.
      * @returns { Promise<void> } The promise returned by the function.
-     * @syscap SystemCapability.Communication.NetStack
      * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     close(): Promise<void>;
