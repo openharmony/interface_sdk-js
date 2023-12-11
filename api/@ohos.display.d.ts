@@ -783,6 +783,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     densityPixels: number;
