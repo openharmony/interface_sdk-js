@@ -1586,7 +1586,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    off(type: 'change', callback: Callback<string>): void;
+    off(type: 'change', callback?: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1607,7 +1607,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    off(type: 'multiProcessChange', callback: Callback<string>): void;
+    off(type: 'multiProcessChange', callback?: Callback<string>): void;
   }
 }
 
