@@ -50,31 +50,6 @@ declare namespace fileShare {
   }
 
   /**
-   * Enumerates the identity of the URI policy.
-   *
-   * @enum { number } PolicyFlag
-   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
-   */
-  export enum PolicyFlag {
-    /**
-     * Indicates that the URI is allowed to be persisted.
-     *
-     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
-     */
-    ALLOW_PERSISTENCE = 0b1,
-
-    /**
-     * Indicates that the URI is forbidden to be persisted.
-     *
-     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
-     */
-    FORBID_PERSISTENCE = 0b10,
-  }
-
-  /**
    * Enumerates the error code of the permission policy for the URI operation.
    *
    * @enum { number } PolicyErrorCode
@@ -209,26 +184,6 @@ declare namespace fileShare {
    * @since 9
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
-
-  /**
-   * Grant the selected URI temporary permissions.
-   *
-   * @permission ohos.permission.SET_SANDBOX_POLICY
-   * @param { number } tokenId the token id of app
-   * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
-   * @param { number } policyFlag - The identity of the URIs policy, example { PolicyFlag.ALLOWED_PERSIST }.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900001 - Operation not permitted.
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  function grantPermission(tokenId: number, policies: Array<PolicyInfo>, policyFlag: number): Promise<void>;
 
   /**
    * Set persistence permissions for the URI
