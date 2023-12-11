@@ -1066,8 +1066,7 @@ declare namespace socket {
 
     /**
      * Gets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -1095,24 +1094,44 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Listens for connection or close events of the LocalSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
+     * Listens for connection events of the LocalSocket connection.
+     * @param { 'connect' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'connect' | 'close', callback: Callback<void>): void;
+    on(type: 'connect', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the LocalSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
+     * Cancels listening for connection events of the LocalSocket connection.
+     * @param { 'connect' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'connect' | 'close', callback?: Callback<void>): void;
+    off(type: 'connect', callback?: Callback<void>): void;
+
+    /**
+     * Listens for close events of the LocalSocket connection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'close', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for close events of the LocalSocket connection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'close', callback?: Callback<void>): void;
 
     /**
      * Listens for error events of the LocalSocket connection.
@@ -1275,8 +1294,7 @@ declare namespace socket {
 
     /**
      * Gets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
