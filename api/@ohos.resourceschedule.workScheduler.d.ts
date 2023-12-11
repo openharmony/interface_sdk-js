@@ -36,6 +36,7 @@ declare namespace workScheduler {
      * The id of the current work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     workId: number;
@@ -43,6 +44,7 @@ declare namespace workScheduler {
      * The bundle name of the current work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     bundleName: string;
@@ -50,6 +52,7 @@ declare namespace workScheduler {
      * The ability name of the current work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     abilityName: string;
@@ -57,6 +60,7 @@ declare namespace workScheduler {
      * Whether the current work will be saved.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     isPersisted?: boolean;
@@ -64,6 +68,7 @@ declare namespace workScheduler {
      * The network type of the current work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     networkType?: NetworkType;
@@ -71,6 +76,7 @@ declare namespace workScheduler {
      * Whether a charging state has been set for triggering the work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     isCharging?: boolean;
@@ -78,6 +84,7 @@ declare namespace workScheduler {
      * The charger type based on which the work is triggered.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     chargerType?: ChargingType;
@@ -85,6 +92,7 @@ declare namespace workScheduler {
      * The battery level for triggering a work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     batteryLevel?: number;
@@ -92,6 +100,7 @@ declare namespace workScheduler {
      * The battery status for triggering a work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     batteryStatus?: BatteryStatus;
@@ -99,6 +108,7 @@ declare namespace workScheduler {
      * Whether a storage state has been set for triggering the work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     storageRequest?: StorageRequest;
@@ -106,6 +116,7 @@ declare namespace workScheduler {
      * The interval at which the work is repeated.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     repeatCycleTime?: number;
@@ -113,6 +124,7 @@ declare namespace workScheduler {
      * Whether the work has been set to repeat at the specified interval.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     isRepeat?: boolean;
@@ -120,6 +132,7 @@ declare namespace workScheduler {
      * The repeat of the current work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     repeatCount?: number;
@@ -127,6 +140,7 @@ declare namespace workScheduler {
      * Whether the device deep idle state has been set for triggering the work.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     isDeepIdle?: boolean;
@@ -134,6 +148,7 @@ declare namespace workScheduler {
      * The idle wait time based on which the work is triggered.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     idleWaitTime?: number;
@@ -141,9 +156,10 @@ declare namespace workScheduler {
      * The parameters of the work. The value is only supported basic type(Number, String, Boolean).
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
-    parameters?: { [key: string]: number | string | boolean };
+    parameters?: Record<string, number | string | boolean>;
   }
 
   /**
@@ -230,7 +246,7 @@ declare namespace workScheduler {
   /**
    * Get all works of the calling application.
    *
-   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @param { AsyncCallback<Array<WorkInfo>> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
@@ -290,7 +306,7 @@ declare namespace workScheduler {
    * Check whether last work running is timeout. The interface is for repeating work.
    *
    * @param { number } workId - The id of work.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @param { AsyncCallback<boolean> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
@@ -321,17 +337,18 @@ declare namespace workScheduler {
   /**
    * Describes network type.
    *
-   * @name NetworkType
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
+   * @name NetworkType
   */
   export enum NetworkType {
     /**
      * Describes any network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     NETWORK_TYPE_ANY = 0,
@@ -339,6 +356,7 @@ declare namespace workScheduler {
      * Describes a mobile network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     NETWORK_TYPE_MOBILE,
@@ -346,6 +364,7 @@ declare namespace workScheduler {
      * Describes a wifi network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     NETWORK_TYPE_WIFI,
@@ -353,6 +372,7 @@ declare namespace workScheduler {
      * Describes a bluetooth network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     NETWORK_TYPE_BLUETOOTH,
@@ -360,6 +380,7 @@ declare namespace workScheduler {
      * Describes a wifi p2p network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     NETWORK_TYPE_WIFI_P2P,
@@ -367,6 +388,7 @@ declare namespace workScheduler {
      * Describes a wifi wire network connection.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     NETWORK_TYPE_ETHERNET
@@ -375,17 +397,18 @@ declare namespace workScheduler {
   /**
    * Describes charging type.
    *
-   * @name ChargingType
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
+   * @name ChargingType
   */
   export enum ChargingType {
     /**
      * Describes any charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     CHARGING_PLUGGED_ANY = 0,
@@ -393,6 +416,7 @@ declare namespace workScheduler {
      * Describes ac charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     CHARGING_PLUGGED_AC,
@@ -400,6 +424,7 @@ declare namespace workScheduler {
      * Describes usb charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     CHARGING_PLUGGED_USB,
@@ -407,6 +432,7 @@ declare namespace workScheduler {
      * Describes wireless charger is connected.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     CHARGING_PLUGGED_WIRELESS
@@ -415,17 +441,18 @@ declare namespace workScheduler {
   /**
    * Describes the battery status.
    *
-   * @name BatteryStatus
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
+   * @name BatteryStatus
   */
   export enum BatteryStatus {
     /**
      * Describes battery status is to low.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     BATTERY_STATUS_LOW = 0,
@@ -433,6 +460,7 @@ declare namespace workScheduler {
      * Describes battery status is to ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     BATTERY_STATUS_OKAY,
@@ -440,6 +468,7 @@ declare namespace workScheduler {
      * Describes battery status is to low or ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     BATTERY_STATUS_LOW_OR_OKAY
@@ -448,17 +477,18 @@ declare namespace workScheduler {
   /**
    * Describes the storage request.
    *
-   * @name StorageRequest
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
+   * @name StorageRequest
   */
   export enum StorageRequest {
     /**
      * Describes storage is to low.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     STORAGE_LEVEL_LOW = 0,
@@ -466,6 +496,7 @@ declare namespace workScheduler {
      * Describes storage is to ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     STORAGE_LEVEL_OKAY,
@@ -473,6 +504,7 @@ declare namespace workScheduler {
      * Describes storage is to low or ok.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
      * @since 9
      */
     STORAGE_LEVEL_LOW_OR_OKAY
