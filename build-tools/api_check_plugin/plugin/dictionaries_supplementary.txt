@@ -469,6 +469,7 @@ multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -720,6 +721,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers
