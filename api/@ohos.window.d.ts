@@ -1883,6 +1883,15 @@ declare namespace window {
      */
     WINDOW_HIDDEN = 4
   }
+
+  /**
+   * Specific system bar type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
+
   interface Window {
     /**
      * Hide window.
@@ -2518,6 +2527,20 @@ declare namespace window {
      * @since 10
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
+
+    /**
+     * Set specific system bar to have visible.
+     *
+     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
 
     /**
      * Set the properties of system bar
