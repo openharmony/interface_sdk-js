@@ -146,11 +146,11 @@ export interface VpnDataBase {
 
   /**
    * The boolean of vpn is authorize or not
-   * @type {boolean}
+   * @type {number}
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  authorize: boolean;
+  authorize: number;
 
   /**
    * vpn authorize data save path
