@@ -1505,7 +1505,7 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @param { Callback<string>} callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
@@ -1514,7 +1514,7 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1524,7 +1524,7 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1537,7 +1537,7 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1547,7 +1547,7 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1560,7 +1560,7 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
@@ -1569,7 +1569,7 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
@@ -1579,20 +1579,20 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    off(type: 'change', callback?: Callback<string>): void;
+    off(type: 'change', callback: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
@@ -1601,13 +1601,13 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11
      */
-    off(type: 'multiProcessChange', callback?: Callback<string>): void;
+    off(type: 'multiProcessChange', callback: Callback<string>): void;
   }
 }
 
