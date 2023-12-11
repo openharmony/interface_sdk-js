@@ -415,11 +415,19 @@ declare namespace socket {
 
   /**
    * Defines information about the local socket connection.
-   * @interface LocalSocketRemoteInfo
+   * @interface LocalSocketMessageInfo
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export interface LocalSocketRemoteInfo {
+  export interface LocalSocketMessageInfo {
+    /**
+     * Message data.
+     * @type {ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    message: ArrayBuffer;
+
     /**
      * Bound local socket address.
      * @type {string}
@@ -462,7 +470,7 @@ declare namespace socket {
   export interface LocalConnectOptions {
     /**
      * Bound Local address.
-     * @type { LocalAddress }
+     * @type {LocalAddress}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -470,7 +478,7 @@ declare namespace socket {
 
     /**
      * Timeout duration of the LocalSocket connection, in milliseconds.
-     * @type { ?number }
+     * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -486,7 +494,7 @@ declare namespace socket {
   export interface LocalSendOptions {
     /**
      * Data to send.
-     * @type { string | ArrayBuffer }
+     * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -494,7 +502,7 @@ declare namespace socket {
 
     /**
      * Character encoding format.
-     * @type { ?string }
+     * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -1076,22 +1084,22 @@ declare namespace socket {
     /**
      * Listens for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
      * Listens for connection events of the LocalSocket connection.
@@ -1192,22 +1200,22 @@ declare namespace socket {
     /**
      * Listens for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
+     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of off.
+     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
      * Listens for close events of the LocalSocketConnection.
