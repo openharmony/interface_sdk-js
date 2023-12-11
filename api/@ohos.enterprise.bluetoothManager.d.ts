@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MDM Kit
+ */
+
 import type Want from './@ohos.app.ability.Want';
 import type constant from './@ohos.bluetooth.constant';
 import type access from './@ohos.bluetooth.access';

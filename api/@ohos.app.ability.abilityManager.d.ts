@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';

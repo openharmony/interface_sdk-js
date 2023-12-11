@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Test Kit
+ */
+
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';

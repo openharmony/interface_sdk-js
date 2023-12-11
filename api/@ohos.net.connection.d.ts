@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Network Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';

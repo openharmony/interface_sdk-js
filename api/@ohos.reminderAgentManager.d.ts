@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Background Tasks Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';

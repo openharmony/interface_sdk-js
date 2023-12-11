@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { Resource } from 'GlobalResource';

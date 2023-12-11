@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * Want is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityBase

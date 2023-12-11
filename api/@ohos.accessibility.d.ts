@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Accessibility Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type { Callback } from './@ohos.base';
 

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Driver Development Kit
+ */
+
 import type rpc from './@ohos.rpc';
 import type Want from './@ohos.app.ability.Want';
 import _DriverExtensionContext from './application/DriverExtensionContext';

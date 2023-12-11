@@ -13,6 +13,11 @@
   * limitations under the License.
   */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -25,6 +30,8 @@ import { ResourceStr } from 'GlobalResource';
  * @crossplatform
  * @since 11
  */
+
+
 interface SegmentButtonTextItem {
   /**
    * The text of text only item.

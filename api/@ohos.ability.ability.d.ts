@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { DataAbilityHelper as _DataAbilityHelper } from './ability/dataAbilityHelper';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { DataAbilityOperation as _DataAbilityOperation } from './ability/dataAbilityOperation';

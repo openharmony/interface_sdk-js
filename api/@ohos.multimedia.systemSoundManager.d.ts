@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Audio Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type Context from './application/Context';
 import type BaseContext from './application/BaseContext';

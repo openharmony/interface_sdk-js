@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit ArkGraphics 2D
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**
@@ -22,6 +27,8 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @since 9
  */
+
+
 declare namespace colorSpaceManager {
   /**
    * Enumerates color space types.

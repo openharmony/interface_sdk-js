@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 
 /**
