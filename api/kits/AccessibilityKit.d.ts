@@ -18,12 +18,12 @@ import accessibility from '../@ohos.accessibility';
 import { GesturePath } from '../@ohos.accessibility.GesturePath';
 import { GesturePoint } from '../@ohos.accessibility.GesturePoint';
 import AccessibilityExtensionAbility, {
-    AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
-    ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType
+  type AccessibilityElement, type AccessibilityExtensionContext, type ElementAttributeKeys,
+  type ElementAttributeValues, type FocusDirection, type FocusType, type Rect, type WindowType
 } from '../@ohos.application.AccessibilityExtensionAbility';
 
 export {
-    AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, ElementAttributeKeys,
-    ElementAttributeValues, FocusDirection, FocusType, GesturePath, GesturePoint, Rect, WindowType, accessibility,
-    config
+  type AccessibilityElement, AccessibilityExtensionAbility, type AccessibilityExtensionContext,
+  type ElementAttributeKeys, type ElementAttributeValues, type FocusDirection, type FocusType, GesturePath,
+  GesturePoint, type Rect, type WindowType, accessibility, config
 };

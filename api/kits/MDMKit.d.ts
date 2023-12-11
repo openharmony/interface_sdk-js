@@ -34,7 +34,7 @@ import usbManager from '../@ohos.enterprise.usbManager';
 import wifiManager from '../@ohos.enterprise.wifiManager';
 
 export {
-    EnterpriseAdminExtensionAbility, accountManager, adminManager, applicationManager, bluetoothManager, browser,
-    bundleManager, configPolicy, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
-    networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager
+  EnterpriseAdminExtensionAbility, accountManager, adminManager, applicationManager, bluetoothManager, browser,
+  bundleManager, configPolicy, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
+  networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager
 };

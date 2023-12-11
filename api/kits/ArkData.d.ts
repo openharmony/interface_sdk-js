@@ -19,7 +19,8 @@ import commonType from '../@ohos.data.commonType';
 import dataAbility from '../@ohos.data.dataAbility';
 import dataShare from '../@ohos.data.dataShare';
 import dataSharePredicates from '../@ohos.data.dataSharePredicates';
-import DataShareResultSet, { DataType } from '../@ohos.data.DataShareResultSet';
+import type DataShareResultSet from '../@ohos.data.DataShareResultSet';
+import { DataType } from '../@ohos.data.DataShareResultSet';
 import distributedData from '../@ohos.data.distributedData';
 import distributedDataObject from '../@ohos.data.distributedDataObject';
 import distributedKVStore from '../@ohos.data.distributedKVStore';
@@ -29,14 +30,14 @@ import relationalStore from '../@ohos.data.relationalStore';
 import storage from '../@ohos.data.storage';
 import unifiedDataChannel from '../@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '../@ohos.data.uniformTypeDescriptor';
-import { ValueType, ValuesBucket } from '../@ohos.data.ValuesBucket';
+import { type ValueType, type ValuesBucket } from '../@ohos.data.ValuesBucket';
 import Storage, {
-    ClearStorageOptions, DeleteStorageOptions, GetStorageOptions, SetStorageOptions
+  type ClearStorageOptions, type DeleteStorageOptions, type GetStorageOptions, type SetStorageOptions
 } from '../@system.storage';
 
 export {
-    ClearStorageOptions, DataShareExtensionAbility, DataShareResultSet, DataType, DeleteStorageOptions,
-    GetStorageOptions, SetStorageOptions, Storage, ValueType, ValuesBucket, cloudData, commonType, dataAbility,
-    dataShare, dataSharePredicates, distributedData, distributedDataObject, distributedKVStore, preferences, rdb,
-    relationalStore, storage, unifiedDataChannel, uniformTypeDescriptor
+  type ClearStorageOptions, DataShareExtensionAbility, type DataShareResultSet, DataType, type DeleteStorageOptions,
+  type GetStorageOptions, type SetStorageOptions, Storage, type ValueType, type ValuesBucket, cloudData, commonType,
+  dataAbility, dataShare, dataSharePredicates, distributedData, distributedDataObject, distributedKVStore,
+  preferences, rdb, relationalStore, storage, unifiedDataChannel, uniformTypeDescriptor
 };

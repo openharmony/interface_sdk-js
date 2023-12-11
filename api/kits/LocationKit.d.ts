@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import inputMethod from '../@ohos.inputMethod';
-import inputMethodEngine from '../@ohos.inputMethodEngine';
-import InputMethodExtensionAbility from '../@ohos.InputMethodExtensionAbility';
-import InputMethodExtensionContext from '../@ohos.InputMethodExtensionContext';
-import InputMethodSubtype from '../@ohos.InputMethodSubtype';
+import geolocation from '../@ohos.geolocation';
+import geoLocationManager from '../@ohos.geoLocationManager';
+import Geolocation, {
+  type GeolocationResponse, type GetLocationOption, type GetLocationTypeOption, type GetLocationTypeResponse,
+  type SubscribeLocationOption
+} from '../@system.geolocation';
 
 export {
-    InputMethodExtensionAbility, InputMethodExtensionContext, InputMethodSubtype, inputMethod, inputMethodEngine
+  Geolocation, type GeolocationResponse, type GetLocationOption, type GetLocationTypeOption,
+  type GetLocationTypeResponse, type SubscribeLocationOption, geoLocationManager, geolocation
 };

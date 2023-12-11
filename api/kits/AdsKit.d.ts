@@ -13,14 +13,10 @@
  * limitations under the License.
  */
 
-import geolocation from '../@ohos.geolocation';
-import geoLocationManager from '../@ohos.geoLocationManager';
-import Geolocation, {
-    GeolocationResponse, GetLocationOption, GetLocationTypeOption, GetLocationTypeResponse,
-    SubscribeLocationOption
-} from '../@system.geolocation';
+import { AdComponent } from '../@ohos.advertising.AdComponent';
+import AdsServiceExtensionAbility, { type RespCallback } from '../@ohos.advertising.AdsServiceExtensionAbility';
+import { AutoAdComponent } from '../@ohos.advertising.AutoAdComponent';
+import advertising from '../@ohos.advertising';
+import identifier from '../@ohos.identifier.oaid';
 
-export {
-    Geolocation, GeolocationResponse, GetLocationOption, GetLocationTypeOption, GetLocationTypeResponse,
-    SubscribeLocationOption, geoLocationManager, geolocation
-};
+export { AdComponent, AdsServiceExtensionAbility, AutoAdComponent, type RespCallback, advertising, identifier };

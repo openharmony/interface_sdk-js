@@ -37,13 +37,13 @@ import wifiext from '../@ohos.wifiext';
 import wifiManager from '../@ohos.wifiManager';
 import wifiManagerExt from '../@ohos.wifiManagerExt';
 import Bluetooth, {
-    BLEFoundResponse, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
-    SubscribeBLEFoundOptions
+  type BLEFoundResponse, type BluetoothDevice, type StartBLEScanOptions, type StopBLEScanOptions,
+  type SubscribeBLEFoundOptions
 } from '../@system.bluetooth';
 
 export {
-    BLEFoundResponse, Bluetooth, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
-    SubscribeBLEFoundOptions, a2dp, access, baseProfile, ble, bluetooth, bluetoothManager, cardEmulation,
-    connectedTag, connection, constant, hfp, hid, nfcController, omapi, pan, pbap, socket, tag, wearDetection, wifi,
-    wifiManager, wifiManagerExt, wifiext
+  type BLEFoundResponse, Bluetooth, type BluetoothDevice, type StartBLEScanOptions, type StopBLEScanOptions,
+  type SubscribeBLEFoundOptions, a2dp, access, baseProfile, ble, bluetooth, bluetoothManager, cardEmulation,
+  connectedTag, connection, constant, hfp, hid, nfcController, omapi, pan, pbap, socket, tag, wearDetection, wifi,
+  wifiManager, wifiManagerExt, wifiext
 };

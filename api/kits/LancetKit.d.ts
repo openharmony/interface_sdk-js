@@ -13,7 +13,18 @@
  * limitations under the License.
  */
 
-import DriverExtensionAbility, { DriverExtensionContext } from '../@ohos.app.ability.DriverExtensionAbility';
-import deviceManager from '../@ohos.driver.deviceManager';
+import bytrace from '../@ohos.bytrace';
+import FaultLogger from '../@ohos.faultLogger';
+import hiAppEvent from '../@ohos.hiviewdfx.hiAppEvent';
+import hichecker from '../@ohos.hichecker';
+import hidebug from '../@ohos.hidebug';
+import hilog from '../@ohos.hilog';
+import hiSysEvent from '../@ohos.hiSysEvent';
+import hiTraceChain from '../@ohos.hiTraceChain';
+import hiTraceMeter from '../@ohos.hiTraceMeter';
+import logLibrary from '../@ohos.logLibrary';
 
-export { DriverExtensionAbility, DriverExtensionContext, deviceManager };
+export {
+  FaultLogger, bytrace, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
+  logLibrary
+};

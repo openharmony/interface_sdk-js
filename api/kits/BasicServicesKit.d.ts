@@ -17,7 +17,7 @@ import appAccount from '../@ohos.account.appAccount';
 import distributedAccount from '../@ohos.account.distributedAccount';
 import osAccount from '../@ohos.account.osAccount';
 import PrintExtensionAbility from '../@ohos.app.ability.PrintExtensionAbility';
-import { AsyncCallback, BusinessError, Callback, ErrorCallback } from '../@ohos.base';
+import { type AsyncCallback, type BusinessError, type Callback, type ErrorCallback } from '../@ohos.base';
 import batteryInfo from '../@ohos.batteryInfo';
 import batteryStats from '../@ohos.batteryStatistics';
 import brightness from '../@ohos.brightness';
@@ -44,25 +44,26 @@ import usbManager from '../@ohos.usbManager';
 import wallpaper from '../@ohos.wallpaper';
 import WallpaperExtensionAbility from '../@ohos.WallpaperExtensionAbility';
 import zlib from '../@ohos.zlib';
-import Battery, { BatteryResponse, GetStatusOptions } from '../@system.battery';
+import Battery, { type BatteryResponse, type GetStatusOptions } from '../@system.battery';
 import Brightness, {
-    BrightnessModeResponse, BrightnessResponse, GetBrightnessModeOptions, GetBrightnessOptions,
-    SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions
+  type BrightnessModeResponse, type BrightnessResponse, type GetBrightnessModeOptions, type GetBrightnessOptions,
+  type SetBrightnessModeOptions, type SetBrightnessOptions, type SetKeepScreenOnOptions
 } from '../@system.brightness';
-import Device, { DeviceResponse, GetDeviceOptions } from '../@system.device';
+import Device, { type DeviceResponse, type GetDeviceOptions } from '../@system.device';
 import Request, {
-    DownloadRequestOptions, DownloadResponse, OnDownloadCompleteOptions, OnDownloadCompleteResponse,
-    RequestData, RequestFile, UploadRequestOptions, UploadResponse
+  type DownloadRequestOptions, type DownloadResponse, type OnDownloadCompleteOptions,
+  type OnDownloadCompleteResponse, type RequestData, type RequestFile, type UploadRequestOptions, type UploadResponse
 } from '../@system.request';
 
 export {
-    AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse, BrightnessResponse,
-    BusinessError, Callback, Device, DeviceResponse, DownloadRequestOptions, DownloadResponse, ErrorCallback,
-    GetBrightnessModeOptions, GetBrightnessOptions, GetDeviceOptions, GetStatusOptions, OnDownloadCompleteOptions,
-    OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile, SetBrightnessModeOptions,
-    SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions, UploadResponse, WallpaperExtensionAbility,
-    appAccount, batteryInfo, batteryStats, brightness, charger, deviceAttest, deviceInfo, distributedAccount,
-    osAccount, pasteboard, power, print, request, runningLock, screenLock, settings, systemCapability,
-    systemDateTime, systemParameter, systemParameterEnhance, systemTime, systemTimer, thermal, update, usb, usbManager,
-    wallpaper, zlib
+  type AsyncCallback, Battery, type BatteryResponse, Brightness, type BrightnessModeResponse,
+  type BrightnessResponse, type BusinessError, type Callback, Device, type DeviceResponse,
+  type DownloadRequestOptions, type DownloadResponse, type ErrorCallback, type GetBrightnessModeOptions,
+  type GetBrightnessOptions, type GetDeviceOptions, type GetStatusOptions, type OnDownloadCompleteOptions,
+  type OnDownloadCompleteResponse, PrintExtensionAbility, Request, type RequestData, type RequestFile,
+  type SetBrightnessModeOptions, type SetBrightnessOptions, type SetKeepScreenOnOptions, type UploadRequestOptions,
+  type UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger,
+  deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
+  screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
+  systemTimer, thermal, update, usb, usbManager, wallpaper, zlib
 };

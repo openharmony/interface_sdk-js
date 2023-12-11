@@ -14,14 +14,14 @@
  */
 
 import abilityDelegatorRegistry from '../@ohos.app.ability.abilityDelegatorRegistry';
-import TestRunner from '../@ohos.application.testRunner';
+import type TestRunner from '../@ohos.application.testRunner';
 import {
-    BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-    UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow, WindowMode
+  BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
+  type UIElementInfo, type UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow, WindowMode
 } from '../@ohos.UiTest';
 
 export {
-    BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-    TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow, WindowMode,
-    abilityDelegatorRegistry
+  BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
+  type TestRunner, type UIElementInfo, type UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
+  WindowMode, abilityDelegatorRegistry
 };

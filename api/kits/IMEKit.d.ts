@@ -13,18 +13,12 @@
  * limitations under the License.
  */
 
-import bytrace from '../@ohos.bytrace';
-import FaultLogger from '../@ohos.faultLogger';
-import hiAppEvent from '../@ohos.hiviewdfx.hiAppEvent';
-import hichecker from '../@ohos.hichecker';
-import hidebug from '../@ohos.hidebug';
-import hilog from '../@ohos.hilog';
-import hiSysEvent from '../@ohos.hiSysEvent';
-import hiTraceChain from '../@ohos.hiTraceChain';
-import hiTraceMeter from '../@ohos.hiTraceMeter';
-import logLibrary from '../@ohos.logLibrary';
+import inputMethod from '../@ohos.inputMethod';
+import inputMethodEngine from '../@ohos.inputMethodEngine';
+import InputMethodExtensionAbility from '../@ohos.InputMethodExtensionAbility';
+import InputMethodExtensionContext from '../@ohos.InputMethodExtensionContext';
+import type InputMethodSubtype from '../@ohos.InputMethodSubtype';
 
 export {
-    FaultLogger, bytrace, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
-    logLibrary
+  InputMethodExtensionAbility, InputMethodExtensionContext, type InputMethodSubtype, inputMethod, inputMethodEngine
 };

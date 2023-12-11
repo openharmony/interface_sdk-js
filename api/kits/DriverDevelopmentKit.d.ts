@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import cryptoFramework from '../@ohos.security.cryptoFramework';
-import Cipher, { CipherAesOptions, CipherResponse, CipherRsaOptions } from '../@system.cipher';
+import DriverExtensionAbility, { type DriverExtensionContext } from '../@ohos.app.ability.DriverExtensionAbility';
+import deviceManager from '../@ohos.driver.deviceManager';
 
-export { Cipher, CipherAesOptions, CipherResponse, CipherRsaOptions, cryptoFramework };
+export { DriverExtensionAbility, type DriverExtensionContext, deviceManager };

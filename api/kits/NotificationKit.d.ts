@@ -21,10 +21,10 @@ import emitter from '../@ohos.events.emitter';
 import notification from '../@ohos.notification';
 import notificationManager from '../@ohos.notificationManager';
 import notificationSubscribe from '../@ohos.notificationSubscribe';
-import Notification, { ActionResult, ShowNotificationOptions } from '../@system.notification';
+import Notification, { type ActionResult, type ShowNotificationOptions } from '../@system.notification';
 
 export {
-    ActionResult, Notification, ShowNotificationOptions, StaticSubscriberExtensionAbility,
-    StaticSubscriberExtensionContext, commonEvent, commonEventManager, emitter, notification, notificationManager,
-    notificationSubscribe
+  type ActionResult, Notification, type ShowNotificationOptions, StaticSubscriberExtensionAbility,
+  StaticSubscriberExtensionContext, commonEvent, commonEventManager, emitter, notification, notificationManager,
+  notificationSubscribe
 };
