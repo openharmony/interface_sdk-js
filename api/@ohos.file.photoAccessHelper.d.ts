@@ -117,6 +117,55 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of different recommendation type
+   *
+   * @enum { number } RecommendationType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 11
+   */
+  enum RecommendationType {
+    /**
+     * QR_OR_BAR_CODE indicates that QR code or barcode photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    QR_OR_BAR_CODE = 1,
+
+    /**
+     * QR_CODE indicates that QR code photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    QR_CODE = 2,
+
+    /**
+     * BAR_CODE indicates that barcode photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    BAR_CODE = 3,
+
+    /**
+     * ID_CARD indicates that QR code or barcode photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    ID_CARD = 4,
+
+    /**
+     * PROFILE_PICTURE indicates that profile picture photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    PROFILE_PICTURE = 5
+  }
+
+  /**
    * Indicates the type of photo asset member.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -2310,6 +2359,32 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     isEditSupported?: boolean;
+
+    /**
+    * The recommendation options when use recommendation photo function.
+    *
+    * @type { ?RecommendationOptions }
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 11
+    */
+    recommendationOptions?: RecommendationOptions;
+  }
+
+  /**
+   * Options for recommend photos
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 11
+   */
+  class RecommendationOptions {
+    /**
+     * The recommendation photo type when select photo in photo picker.
+     *
+     * @type { ?RecommendationType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    recommendationType?: RecommendationType;
   }
 
   /**
