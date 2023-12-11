@@ -17211,3 +17211,37 @@ declare interface LightSource {
    */
   intensity: number;
 }
+
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
+
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class WrappedBuilder<Args extends Object[]> {
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  builder: (...args: Args) => void;
+
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  constructor(builder: (...args: Args) => void);
+}
