@@ -521,7 +521,7 @@ declare namespace cloudExtension {
      * Array of data queried, including the data values and extension
      * values {@link ExtensionValue}.
      *
-     * @type { Array<ValuesBucket> }
+     * @type { Array<CloudValuesBucket> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -894,10 +894,10 @@ declare namespace cloudExtension {
      * Inserts data to the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { ValuesBucket[] } values - Indicates the data to insert.
-     * @param { ValuesBucket[] } extValues - Indicates the extension
+     * @param { CloudValuesBucket[] } values - Indicates the data to insert.
+     * @param { CloudValuesBucket[] } extValues - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Result<ValuesBucket>> } Returns the insert result.
+     * @returns { Promise<Result<CloudValuesBucket>> } Returns the insert result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -912,10 +912,10 @@ declare namespace cloudExtension {
      * Updates data in the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { ValuesBucket[] } values - Indicates the new data.
-     * @param { ValuesBucket[] } extValues - Indicates the extension
+     * @param { CloudValuesBucket[] } values - Indicates the new data.
+     * @param { CloudValuesBucket[] } extValues - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Result<ValuesBucket>> } Returns the update result.
+     * @returns { Promise<Result<CloudValuesBucket>> } Returns the update result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -930,9 +930,9 @@ declare namespace cloudExtension {
      * Deletes data.
      *
      * @param { string } table - Indicates the table name.
-     * @param { ValuesBucket[] } extValues - Indicates the extension
+     * @param { CloudValuesBucket[] } extValues - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Result<ValuesBucket>> } Returns the delete result.
+     * @returns { Promise<Result<CloudValuesBucket>> } Returns the delete result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -1237,8 +1237,8 @@ declare namespace cloudExtension {
      * @since 11
      */
     subscribe(
-        subInfo: { [bundleName: string]: Array<Database> },
-        expirationTime: number
+      subInfo: { [bundleName: string]: Array<Database> },
+      expirationTime: number
     ): Promise<Result<SubscribeInfo>>;
 
     /**
