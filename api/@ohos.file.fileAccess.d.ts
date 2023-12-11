@@ -839,7 +839,27 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 10
      */
-    NOTIFY_MOVE_SELF
+    NOTIFY_MOVE_SELF,
+
+    /**
+     * Event type of device online.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    NOTIFY_DEVICE_ONLINE,
+
+    /**
+     * Event type of device offline.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    NOTIFY_DEVICE_OFFLINE
   }
 
   /**
@@ -943,6 +963,17 @@ declare namespace fileAccess {
      */
     errMsg: string;
   }
+
+  /**
+   * Indicates the root uri of the device
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  const DEVICES_URI = 'file://docs';
 
   /**
    * FileAccessHelper Object
