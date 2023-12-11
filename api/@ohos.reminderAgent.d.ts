@@ -539,16 +539,32 @@ declare namespace reminderAgent {
    * @useinstead reminderAgentManager.ReminderRequestTimer
    */
   interface ReminderRequestTimer extends ReminderRequest {
+    /**
+     * value of triggerTimeInSeconds.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 7
+     * @deprecated since 9
+     * @useinstead reminderAgentManager.ReminderRequestTimer.triggerTimeInSeconds
+     */
     triggerTimeInSeconds: number;
   }
 
+  /**
+   * Local DateTime information.
+   *
+   * @interface LocalDateTime
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 7
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.LocalDateTime
+   */
   interface LocalDateTime {
     /**
      * value of year.
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.year
+     * @useinstead reminderAgentManager.LocalDateTime.year
      */
     year: number;
 
@@ -557,7 +573,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.month
+     * @useinstead reminderAgentManager.LocalDateTime.month
      */
     month: number;
 
@@ -566,7 +582,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.day
+     * @useinstead reminderAgentManager.LocalDateTime.day
      */
     day: number;
 
@@ -575,7 +591,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.hour
+     * @useinstead reminderAgentManager.LocalDateTime.hour
      */
     hour: number;
 
@@ -584,7 +600,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.minute
+     * @useinstead reminderAgentManager.LocalDateTime.minute
      */
     minute: number;
 
@@ -593,7 +609,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.second
+     * @useinstead reminderAgentManager.LocalDateTime.second
      */
     second?: number;
   }
