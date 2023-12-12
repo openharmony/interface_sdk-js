@@ -214,7 +214,7 @@ class SystemApiRecognizer {
 
     try {
       let symbol = this.typeChecker.getSymbolAtLocation(node);
-      if (symbol.flags === ts.SymbolFlags.Alias) {
+      if (symbol && symbol.flags === ts.SymbolFlags.Alias) {
         symbol = this.typeChecker.getAliasedSymbol(symbol);
       }
       return this.recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations);
@@ -256,12 +256,22 @@ class SystemApiRecognizer {
       this.recognizeApiWithNode(node.expression, fileName, (node) => node.getStart());
     } else if (ts.isStructDeclaration(node)) {
       this.recognizeHeritageClauses(node, fileName);
-    } else if (ts.isTypeReferenceNode(node) && ts.isQualifiedName(node.typeName)) {
-      this.recognizeApiWithNode(node.typeName.right, fileName, (node) => node.getStart(), true);
+    } else if (ts.isTypeReferenceNode(node)) {
+      this.recognizeTypeReferenceNode(node, fileName);
     } else if (ts.isObjectLiteralExpression(node)) {
       this.recognizeObjectLiteralExpression(node, fileName);
     } else if (ts.isCallExpression(node)) {
       this.recognizeEtsComponentAndAttributeApi(node.expression, fileName);
+    }
+  }
+
+  recognizeTypeReferenceNode(node, fileName) {
+    if (ts.isTypeReferenceNode(node)) {
+      this.recognizeTypeReferenceNode(node.typeName, fileName);
+    } else if (ts.isQualifiedName(node)) {
+      this.recognizeApiWithNode(node.typeName?.right, fileName, (node) => node.getStart(), true);
+    } else if (ts.isIdentifier(node)) {
+      this.recognizeApiWithNode(node, fileName, (node) => node.getStart(), true);
     }
   }
 
@@ -276,6 +286,8 @@ class SystemApiRecognizer {
     } else if (ts.isPropertyAccessExpression(node)) {
       this.recognizeNormalCallExpression(node.expression, fileName);
       return this.recognizePropertyAccessExpression(node, fileName);
+    } else if (ts.isIdentifier(node)) {
+      return this.recognizeApiWithNode(node, fileName, (node) => node.getStart());
     } else {
       return undefined;
     }
@@ -794,6 +806,9 @@ class SystemApiRecognizer {
    */
   findBestMatchedDeclaration(callExpressionNode, symbol) {
     const callExpArgLen = callExpressionNode.arguments.length;
+    if (callExpArgLen === 0) {
+      return undefined;
+    }
     let matchedDecs = [];
     for (let dec of symbol.declarations) {
       if (dec.parameters && dec.parameters.length === callExpArgLen) {

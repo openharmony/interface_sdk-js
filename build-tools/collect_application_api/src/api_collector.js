@@ -19,6 +19,7 @@ const { SystemApiRecognizer } = require('./api_recognizer');
 const { ReporterFormat } = require('./configs');
 const ts = require('typescript');
 const fs = require('fs');
+const path = require('path');
 
 class ProgramFactory {
   setLibPath(libPath) {
@@ -138,6 +139,10 @@ class ApiCollector {
     if (!sdkPath || !fs.existsSync(sdkPath)) {
       return;
     }
+    const handleFilePath = path.join(sdkPath, '/api/@internal/full/global.d.ts');
+    const originalContent = fs.readFileSync(handleFilePath, 'utf-8');
+    let newContent = originalContent.replace(/\import|export/g, '');
+    fs.writeFileSync(handleFilePath, newContent);
     Logger.info(this.logTag, `scan app ${this.project.getPath()}`);
     Logger.info(this.logTag, `sdk is in ${sdkPath}`);
     const apiLibs = this.sdk.getApiLibs();
@@ -176,6 +181,7 @@ class ApiCollector {
     systemApiRecognizer = undefined;
     program = undefined;
     await apiWriter.flush();
+    fs.writeFileSync(handleFilePath, originalContent);
   }
 
   getApiWriter() {
