@@ -17245,3 +17245,10 @@ declare class WrappedBuilder<Args extends Object[]> {
    */
   constructor(builder: (...args: Args) => void);
 }
+
+declare module "wrappedBuilderObject" {
+  module "wrappedBuilderObject" {
+    // @ts-ignore
+    export { WrappedBuilder };
+  }
+}
