@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -25,6 +30,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  *
  */
+
+
 declare namespace storage {
   /**
    * Obtains a {@link Storage} instance matching a specified storage file name.

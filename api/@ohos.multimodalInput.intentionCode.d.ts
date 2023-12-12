@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Input Kit
+ */
+
+/**
  * IntentionCode
  *
  * @enum { number }

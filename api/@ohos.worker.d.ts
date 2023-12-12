@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * @typedef WorkerOptions
  * Provides options that can be set for the worker to create.
  * @syscap SystemCapability.Utils.Lang

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Telephony Kit
+ */
+
 import type { Callback } from './@ohos.base';
 import type radio from './@ohos.telephony.radio';
 import type data from './@ohos.telephony.data';

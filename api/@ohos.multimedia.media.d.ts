@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit Media Kit
+ */
+
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
 import type image from './@ohos.multimedia.image';
@@ -23,6 +28,8 @@ import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
  * @namespace media
  * @since 6
  */
+
+
 declare namespace media {
   /**
    * Creates an AVPlayer instance.

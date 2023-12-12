@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The process is mainly used to obtain the relevant ID of the process, obtain and modify
  * the working directory of the process, exit and close the process.
  *
