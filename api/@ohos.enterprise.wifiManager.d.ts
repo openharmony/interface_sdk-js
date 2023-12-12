@@ -859,7 +859,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 11
    */
-function setWifiDisabled(admin: Want, disabled: boolean): void
+  function setWifiDisabled(admin: Want, disabled: boolean): void;
 
   /**
    * Gets state of whether the Wi-Fi is disabled.
