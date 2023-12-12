@@ -53,12 +53,14 @@ declare namespace preferences {
   /**
    * Indicates possible value types
    * 
+   * @type { number | string | boolean | Array<number> | Array<string> | Array<boolean> }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 10
    */
   /**
-   * Indicates possible value types，include number, string, boolean,
-   *    Array<number>, Array<string>, Array<boolean>, Uint8Array
+   * Indicates possible value types
+   * 
+   * @type { number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 11
