@@ -45,13 +45,13 @@ import Context from './application/BaseContext';
  */
 declare namespace preferences {
   /**
-   * Indicates possible value types number | string | boolean | Array<number> | Array<string> | Array<boolean>
+   * Indicates possible value types
    * 
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
   /**
-   * Indicates possible value types number | string | boolean | Array<number> | Array<string> | Array<boolean>
+   * Indicates possible value types
    * 
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 10
