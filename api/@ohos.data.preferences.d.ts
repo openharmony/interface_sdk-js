@@ -57,8 +57,8 @@ declare namespace preferences {
    * @since 10
    */
   /**
-   * Indicates possible value types must be one of the following 8  types 
-   * 
+   * Indicates possible value types，include number, string, boolean,
+   *    Array<number>, Array<string>, Array<boolean>, Uint8Array
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 11
