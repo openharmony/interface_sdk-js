@@ -74,24 +74,6 @@ declare namespace cloudExtension {
   type CloudType = null | number | string | boolean | Uint8Array | CloudAsset | CloudAssets;
 
   /**
-   * Cloud values in buckets are stored in key-value pairs.
-   *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  type CloudBucket = { [key: string]: CloudType; };
-
-  /**
-   * Application information is stored in key-value pairs.
-   *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  type AppInfo = { [bundleName: string]: AppBriefInfo };
-
-  /**
    * Defines cloud information.
    *
    * @interface CloudInfo
@@ -113,12 +95,12 @@ declare namespace cloudExtension {
     /**
      * Defines brief application information.
      *
-     * @type { AppInfo }
+     * @type { Map<AppBriefInfo> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    apps: AppInfo;
+    apps: Map<AppBriefInfo>;
   }
 
   /**
@@ -530,12 +512,12 @@ declare namespace cloudExtension {
      * Array of data queried, including the data values and extension
      * values {@link ExtensionValue}.
      *
-     * @type { Array<CloudBucket> }
+     * @type { Array<Map<CloudType>> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    values: Array<CloudBucket>;
+    values: Array<Map<CloudType>>;
   }
 
   /**
@@ -560,12 +542,12 @@ declare namespace cloudExtension {
     /**
      * Data to be observed.
      *
-     * @type { object }
+     * @type { Map<Array<SubscribeId>> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    subscribe: { [bundleName: string]: Array<SubscribeId> };
+    subscribe: Map<Array<SubscribeId>>;
   }
 
   /**
@@ -835,6 +817,18 @@ declare namespace cloudExtension {
   }
 
   /**
+   * Defines the map type, and the key is string.
+   *
+   * @interface Map
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  export interface Map<T> {
+    [key: string]: T;
+  }
+
+  /**
    * Creates a share service stub with the specified instance.
    *
    * @param { ShareCenter } instance - Indicates the <b>ShareCenter</b> instance.
@@ -892,67 +886,67 @@ declare namespace cloudExtension {
      * The IDs must be unique for each table.
      *
      * @param { number } count - Indicates the number of IDs to generate.
-     * @returns { Promise<Result<string[]>> } Returns the IDs generated.
+     * @returns { Promise<Result<Array<string>>> } Returns the IDs generated.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    generateId(count: number): Promise<Result<string[]>>;
+    generateId(count: number): Promise<Result<Array<string>>>;
 
     /**
      * Inserts data to the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { Array<CloudBucket> } values - Indicates the data to insert.
-     * @param { Array<CloudBucket> } extensions - Indicates the extension
+     * @param { Array<Map<CloudType>> } values - Indicates the data to insert.
+     * @param { Array<Map<CloudType>> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Array<Result<CloudBucket>>> } Returns the insert result.
+     * @returns { Promise<Array<Result<Map<CloudType>>>> } Returns the insert result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
     insert(
       table: string,
-      values: Array<CloudBucket>,
-      extensions: Array<CloudBucket>
-    ): Promise<Array<Result<CloudBucket>>>;
+      values: Array<Map<CloudType>>,
+      extensions: Array<Map<CloudType>>
+    ): Promise<Array<Result<Map<CloudType>>>>;
 
     /**
      * Updates data in the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { Array<CloudBucket> } values - Indicates the new data.
-     * @param { Array<CloudBucket> } extensions - Indicates the extension
+     * @param { Array<Map<CloudType>> } values - Indicates the new data.
+     * @param { Array<Map<CloudType>> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Array<Result<CloudBucket>>> } Returns the update result.
+     * @returns { Promise<Array<Result<Map<CloudType>>>> } Returns the update result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
     update(
       table: string,
-      values: Array<CloudBucket>,
-      extensions: Array<CloudBucket>
-    ): Promise<Array<Result<CloudBucket>>>;
+      values: Array<Map<CloudType>>,
+      extensions: Array<Map<CloudType>>
+    ): Promise<Array<Result<Map<CloudType>>>>;
 
     /**
      * Deletes data.
      *
      * @param { string } table - Indicates the table name.
-     * @param { Array<CloudBucket> } extensions - Indicates the extension
+     * @param { Array<Map<CloudType>> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Array<Result<CloudBucket>>> } Returns the delete result.
+     * @returns { Promise<Array<Result<Map<CloudType>>>> } Returns the delete result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    delete(table: string, extensions: Array<CloudBucket>): Promise<Array<Result<CloudBucket>>>;
+    delete(table: string, extensions: Array<Map<CloudType>>): Promise<Array<Result<Map<CloudType>>>>;
 
     /**
      * Queries data.
      *
      * @param { string } table - Indicates the table name.
-     * @param { string[] } fields - Indicates the columns to query.
+     * @param { Array<string> } fields - Indicates the columns to query.
      * @param { number } queryCount - Indicates the number of data records
      * to query.
      * @param { string } queryCursor - Indicates the cursor.
@@ -961,7 +955,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    query(table: string, fields: string[], queryCount: number, queryCursor: string): Promise<Result<CloudData>>;
+    query(table: string, fields: Array<string>, queryCount: number, queryCursor: string): Promise<Result<CloudData>>;
 
     /**
      * Locks the cloud database.
@@ -1014,26 +1008,26 @@ declare namespace cloudExtension {
      * @param { string } table - Indicates the name of the table.
      * @param { string } gid - Indicates the GID.
      * @param { string } prefix - Indicates the prefix information.
-     * @param { CloudAsset[] } assets - Indicates the assets to download.
-     * @returns { Promise<Result<CloudAsset>[]> } Returns the asset download result.
+     * @param { Array<CloudAsset> } assets - Indicates the assets to download.
+     * @returns { Promise<Array<Result<CloudAsset>>> } Returns the asset download result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    download(table: string, gid: string, prefix: string, assets: CloudAsset[]): Promise<Result<CloudAsset>[]>;
+    download(table: string, gid: string, prefix: string, assets: Array<CloudAsset>): Promise<Array<Result<CloudAsset>>>;
 
     /**
      * Uploads assets.
      *
      * @param { string } table - Indicates the name of the table.
      * @param { string } gid - Indicates the GID.
-     * @param { CloudAsset[] } assets - Indicates the assets to upload.
-     * @returns { Promise<Result<CloudAsset>[]> } Returns the asset upload result.
+     * @param { Array<CloudAsset> } assets - Indicates the assets to upload.
+     * @returns { Promise<Array<Result<CloudAsset>>> } Returns the asset upload result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    upload(table: string, gid: string, assets: CloudAsset[]): Promise<Result<CloudAsset>[]>;
+    upload(table: string, gid: string, assets: Array<CloudAsset>): Promise<Array<Result<CloudAsset>>>;
   }
 
   /**
@@ -1210,14 +1204,14 @@ declare namespace cloudExtension {
     /**
      * Obtains the brief application information.
      *
-     * @returns { Promise<AppInfo> }
+     * @returns { Promise<Map<AppBriefInfo>> }
      * Returns the key-value pairs corresponding to <b>bundle</b> and
      * <b>AppBriefInfo</b>.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    getAppBriefInfo(): Promise<AppInfo>;
+    getAppBriefInfo(): Promise<Map<AppBriefInfo>>;
 
     /**
      * Obtains the application schema information.
@@ -1235,7 +1229,7 @@ declare namespace cloudExtension {
      * When the cloud server data is changed, the server notifies the device of
      * the data change.
      *
-     * @param { object } subInfo - Indicates
+     * @param {  Map<Array<Database>> } subInfo - Indicates
      * the data to be subscribed to, that is, the key-value pairs corresponding
      * to an array of bundle names and databases.
      * @param { number } expirationTime - Indicates the subscription expiration
@@ -1246,14 +1240,14 @@ declare namespace cloudExtension {
      * @since 11
      */
     subscribe(
-      subInfo: { [bundleName: string]: Array<Database> },
+      subInfo: Map<Array<Database>>,
       expirationTime: number
     ): Promise<Result<SubscribeInfo>>;
 
     /**
      * Unsubscribes from the data changes in the cloud.
      *
-     * @param { object } unsubscribeInfo - Indicates
+     * @param { Map<Array<string>> } unsubscribeInfo - Indicates
      * the data to be unsubscribe from, that is, the key-value pairs
      *  corresponding to an array of bundle names and databases.
      * @returns { Promise<number> } Returns unsubscribeInfo result.
@@ -1261,7 +1255,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    unsubscribe(unsubscribeInfo: { [bundleName: string]: Array<string> }): Promise<number>;
+    unsubscribe(unsubscribeInfo: Map<Array<string>>): Promise<number>;
 
     /**
      * Connects to a database.
