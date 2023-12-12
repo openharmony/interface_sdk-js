@@ -843,12 +843,12 @@ declare namespace wifiManager {
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
 
   /**
-   * Enable or disable the Wi-Fi.
+   * Sets the Wi-Fi disabled.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { boolean } isDisabled - true if disable the Wi-Fi, otherwise false.
+   * @param { boolean } disabled - true if set the Wi-Fi disabled, otherwise false.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -859,7 +859,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 11
    */
-  function disableWifi(admin: Want, isDisabled: boolean): void;
+function setWifiDisabled(admin: Want, disabled: boolean): void
 
   /**
    * Gets state of whether the Wi-Fi is disabled.
