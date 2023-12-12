@@ -617,7 +617,7 @@ declare namespace connection {
    * @systemapi
    * @since 11
    */
-  function getRemoteProductId(deviceId: string): number
+  function getRemoteProductId(deviceId: string): number;
 
   /**
    * Disconnects all allowed bluetooth profiles between the local and remote device.
