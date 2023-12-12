@@ -71,7 +71,7 @@ declare namespace observer {
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<NetworkState> } callback - Indicates the callback for getting
    * an instance of the {@code NetworkState} class.
@@ -84,7 +84,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
+  function on(type: 'networkStateChange', options: ObserverOptions, callback: Callback<NetworkState>): void;
 
   /**
    * Cancel callback when the network state is updated.
@@ -122,7 +122,7 @@ declare namespace observer {
    * Callback when the signal strength corresponding to a monitored {@code slotId} is updated.
    *
    * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
    * an array of instances of the classes derived from {@link SignalInformation}.
@@ -134,7 +134,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'signalInfoChange', options: { slotId: number }, callback: Callback<Array<SignalInformation>>): void;
+  function on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
   /**
    * Cancel callback when the signal strength is updated.
@@ -177,7 +177,7 @@ declare namespace observer {
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
    * an array of instances of the classes derived from {@link CellInformation}.
@@ -192,7 +192,7 @@ declare namespace observer {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function on(type: 'cellInfoChange', options: { slotId: number }, callback: Callback<Array<CellInformation>>): void;
+  function on(type: 'cellInfoChange', options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
   /**
    * Cancel callback when the cell information is updated.
@@ -217,7 +217,7 @@ declare namespace observer {
    *
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to be subscribed to.
-   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for
+   * @param { Callback<DataConnectStateInfo> } callback - Indicates the callback for
    * getting the cellular data link connection state, and networkType Indicates the radio access technology
    * for cellular data services.
    * @throws { BusinessError } 401 - Parameter error.
@@ -228,17 +228,16 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'cellularDataConnectionStateChange',
-    callback: Callback<{ state: DataConnectState, network: RatType }>): void;
+  function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectStateInfo>): void;
 
   /**
    * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for
+   * @param { Callback<DataConnectStateInfo> } callback - Indicates the callback for
    * getting the cellular data link connection state, and networkType Indicates the radio access technology for
    * cellular data services.
    * @throws { BusinessError } 401 - Parameter error.
@@ -249,15 +248,15 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'cellularDataConnectionStateChange', options: { slotId: number },
-    callback: Callback<{ state: DataConnectState, network: RatType }>): void;
+  function on(type: 'cellularDataConnectionStateChange', options: ObserverOptions,
+    callback: Callback<DataConnectStateInfo>): void;
 
   /**
    * Cancel callback when the cellular data link connection state is updated.
    *
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to unsubscribe from.
-   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback to unsubscribe
+   * @param { Callback<DataConnectStateInfo> } callback - Indicates the callback to unsubscribe
    * from the cellularDataConnectionStateChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -267,8 +266,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function off(type: 'cellularDataConnectionStateChange',
-    callback?: Callback<{ state: DataConnectState, network: RatType }>): void;
+  function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectStateInfo>): void;
 
   /**
    * Callback when the uplink and downlink data flow state of cellular data services
@@ -291,7 +289,7 @@ declare namespace observer {
    * corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
    * @throws { BusinessError } 401 - Parameter error.
@@ -302,7 +300,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'cellularDataFlowChange', options: { slotId: number }, callback: Callback<DataFlowType>): void;
+  function on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
   /**
    * Cancel callback when the uplink and downlink data flow state of cellular data services is updated.
@@ -324,7 +322,7 @@ declare namespace observer {
    * Callback when the call state corresponding to the default sim card is updated.
    *
    * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for
+   * @param { Callback<CallStateInfo> } callback - Indicates the callback for
    * getting the call state and the called number.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -334,15 +332,15 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: string }>): void;
+  function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for
+   * @param { Callback<CallStateInfo> } callback - Indicates the callback for
    * getting the call state and the called number.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -352,14 +350,13 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'callStateChange', options: { slotId: number }, 
-    callback: Callback<{ state: CallState, number: string }>): void;
+  function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
   /**
    * Cancel callback when the call state is updated.
    *
    * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to unsubscribe from.
-   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback to
+   * @param { Callback<CallStateInfo> } callback - Indicates the callback to
    * unsubscribe from the callStateChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -369,7 +366,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: string }>): void;
+  function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
   /**
    * Callback when the sim state corresponding to the default sim card is updated.
@@ -391,7 +388,7 @@ declare namespace observer {
    * Callback when the sim state corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
+   * @param { ObserverOptions } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
    * @throws { BusinessError } 401 - Parameter error.
@@ -402,7 +399,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'simStateChange', options: { slotId: number }, callback: Callback<SimStateData>): void;
+  function on(type: 'simStateChange', options: ObserverOptions, callback: Callback<SimStateData>): void;
 
   /**
    * Cancel callback when the sim state is updated.
@@ -486,6 +483,78 @@ declare namespace observer {
      * @since 8
      */
     reason: LockReason;
+  }
+
+  /**
+   * Indicates call state and number.
+   *
+   * @interface CallStateInfo
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  export interface CallStateInfo {
+    /**
+     * Indicates call state.
+     *
+     * @type { CallState }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    callState: CallState;
+
+    /**
+     * Indicates call number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    number: string;
+  }
+
+  /**
+   * Indicates cellular data connect state and technology type.
+   *
+   * @interface DataConnectStateInfo
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  export interface DataConnectStateInfo {
+    /**
+     * Indicates cellular data connect state.
+     *
+     * @type { DataConnectState }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    state: DataConnectState;
+
+    /**
+     * Indicates technology type.
+     *
+     * @type { RatType }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    network: RatType;
+  }
+
+  /**
+   * Indicates observer options.
+   *
+   * @interface ObserverOptions
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  export interface ObserverOptions {
+    /**
+     * Indicates the ID of the target card slot.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    slotId: number;
   }
 
   /**
