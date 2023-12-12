@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Local Authentication Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkWeb
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { AsyncCallback } from './@ohos.base';

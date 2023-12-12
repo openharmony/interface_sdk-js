@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit AVSession Kit
+ */
+
 import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
@@ -27,6 +32,8 @@ import type Context from './application/BaseContext';
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @since 9
  */
+
+
 declare namespace avSession {
   /**
    * Create an AVSession instance. An ability can only create one AVSession

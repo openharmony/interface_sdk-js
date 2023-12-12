@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkData
+ */
+
+/**
  * Indicates the {@code DataType}.
  * <p>{@code DataType} is obtained based on the value.
  *

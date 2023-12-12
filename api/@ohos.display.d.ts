@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**

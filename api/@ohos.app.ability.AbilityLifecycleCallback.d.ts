@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import UIAbility from './@ohos.app.ability.UIAbility';
 import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';

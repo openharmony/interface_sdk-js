@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * JS cross-thread task executor.
  *
  * @namespace taskpool

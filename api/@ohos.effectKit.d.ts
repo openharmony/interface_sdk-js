@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit ArkGraphics 2D
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
@@ -20,6 +25,8 @@ import image from './@ohos.multimedia.image';
  * @name  effectKit
  * @since 9
  */
+
+
 declare namespace effectKit {
 
   /**

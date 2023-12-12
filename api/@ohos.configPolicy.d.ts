@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MDM Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**

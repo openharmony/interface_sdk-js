@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
  *

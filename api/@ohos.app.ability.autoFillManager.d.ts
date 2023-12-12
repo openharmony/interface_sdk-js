@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type { UIContext } from './@ohos.arkui.UIContext';
 import type * as _ViewData from './application/ViewData';
 import type * as _PageNodeInfo from './application/PageNodeInfo';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Lancet Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**

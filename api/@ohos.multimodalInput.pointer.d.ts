@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Input Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type image from './@ohos.multimedia.image';
 

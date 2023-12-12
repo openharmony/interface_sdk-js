@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Lancet Kit
+ */
+
+/**
 * Provides interfaces to generate system logs.
 *
 * @namespace hilog

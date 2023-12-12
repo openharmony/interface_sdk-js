@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Localization Kit
+ */
+
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './@ohos.base';
@@ -3792,7 +3797,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3801,7 +3806,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
@@ -3813,7 +3818,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3822,7 +3827,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11

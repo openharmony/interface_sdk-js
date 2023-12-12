@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type constant from './@ohos.bluetooth.constant';
 

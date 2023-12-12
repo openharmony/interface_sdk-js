@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Basic Services Kit
+ */
+
+/**
  * This module provides the capability of manage USB device.
  *
  * @namespace usbManager
