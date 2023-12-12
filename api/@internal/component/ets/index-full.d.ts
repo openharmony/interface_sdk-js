@@ -66,6 +66,7 @@
 /// <reference path="./nav_router.d.ts" />
 /// <reference path="./navigation.d.ts" />
 /// <reference path="./navigator.d.ts" />
+/// <reference path="./node_container.d.ts" />
 /// <reference path="./page_transition.d.ts" />
 /// <reference path="./panel.d.ts" />
 /// <reference path="./particle.d.ts" />
