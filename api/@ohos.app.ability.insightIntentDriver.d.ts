@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 

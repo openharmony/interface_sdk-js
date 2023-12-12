@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Audio Kit
+ */
+
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 
 /**

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { ContinuableInfo as _ContinuableInfo } from './application/ContinuableInfo';
 import type { ContinueCallback as _ContinueCallback } from './application/ContinueCallback';

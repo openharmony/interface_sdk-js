@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Accessibility Kit
+ */
+
 import type accessibility from './@ohos.accessibility';
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import type {

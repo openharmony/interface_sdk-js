@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The convertxml module provides utilities for converting XML text to Javascript object.
  *
  * @namespace xml

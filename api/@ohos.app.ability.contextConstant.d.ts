@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * The context of an application. It allows access to application-specific resources.
  *
  * @namespace contextConstant

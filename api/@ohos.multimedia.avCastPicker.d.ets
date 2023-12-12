@@ -14,6 +14,11 @@
 */
 
 /**
+ * @file
+ * @kit AVSession Kit
+ */
+
+/**
  * Definition of av cast picker state
  * @enum { number }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10

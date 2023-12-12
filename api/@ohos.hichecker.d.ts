@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Lancet Kit
+ */
+
+/**
  * This module provides the capability to check bad code usage.
  *
  * @namespace hichecker

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Crypto Architecture Kit
+ */
+
+/**
  * Defines the cipher response.
  *
  * @typedef CipherResponse

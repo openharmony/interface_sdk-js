@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Form Kit
+ */
+
+/**
  * interface of formBindingData.
  *
  * @namespace formBindingData
