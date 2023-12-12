@@ -18,7 +18,7 @@ import Context from './application/BaseContext';
 
 /**
  * Provides interfaces to obtain and modify preferences data.
- *
+ * 
  * @namespace preferences
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @since 9
