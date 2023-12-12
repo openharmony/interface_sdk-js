@@ -65,13 +65,13 @@ declare namespace cloudExtension {
   type CloudAssets = Array<CloudAsset>;
 
   /**
-   * Indicates possible cloud value types.
+   * Indicates possible cloud types.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
-  type CloudValueType = null | number | string | boolean | Uint8Array | CloudAsset | CloudAssets;
+  type CloudType = null | number | string | boolean | Uint8Array | CloudAsset | CloudAssets;
 
   /**
    * Cloud values in buckets are stored in key-value pairs.
@@ -80,7 +80,16 @@ declare namespace cloudExtension {
    * @systemapi
    * @since 11
    */
-  type CloudValuesBucket = { [key: string]: CloudValueType; };
+  type CloudBucket = { [key: string]: CloudType; };
+
+  /**
+   * Application information is stored in key-value pairs.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  type AppInfo = { [bundleName: string]: AppBriefInfo };
 
   /**
    * Defines cloud information.
@@ -104,12 +113,12 @@ declare namespace cloudExtension {
     /**
      * Defines brief application information.
      *
-     * @type { object }
+     * @type { AppInfo }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    apps: { [bundleName: string]: AppBriefInfo };
+    apps: AppInfo;
   }
 
   /**
@@ -399,12 +408,12 @@ declare namespace cloudExtension {
     /**
      * Fields in the table. For details, see {@link Field}.
      *
-     * @type { Field[] }
+     * @type { Array<Field> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    fields: Field[];
+    fields: Array<Field>;
   }
 
   /**
@@ -439,12 +448,12 @@ declare namespace cloudExtension {
     /**
      * Tables in the database. For details, see {@link Table}.
      *
-     * @type { Table[] }
+     * @type { Array<Table> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    tables: Table[];
+    tables: Array<Table>;
   }
 
   /**
@@ -521,12 +530,12 @@ declare namespace cloudExtension {
      * Array of data queried, including the data values and extension
      * values {@link ExtensionValue}.
      *
-     * @type { Array<CloudValuesBucket> }
+     * @type { Array<CloudBucket> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    values: Array<CloudValuesBucket>;
+    values: Array<CloudBucket>;
   }
 
   /**
@@ -702,14 +711,14 @@ declare namespace cloudExtension {
     interval: number;
 
     /**
-     * Session ID for locking the cloud database.
+     * Lock ID for locking the cloud database.
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    sessionId: number;
+    lockId: number;
   }
 
   /**
@@ -894,50 +903,50 @@ declare namespace cloudExtension {
      * Inserts data to the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { CloudValuesBucket[] } values - Indicates the data to insert.
-     * @param { CloudValuesBucket[] } extValues - Indicates the extension
+     * @param { Array<CloudBucket> } values - Indicates the data to insert.
+     * @param { Array<CloudBucket> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Result<CloudValuesBucket>> } Returns the insert result.
+     * @returns { Promise<Array<Result<CloudBucket>>> } Returns the insert result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
     insert(
       table: string,
-      values: CloudValuesBucket[],
-      extValues: CloudValuesBucket[]
-    ): Promise<Result<CloudValuesBucket>>;
+      values: Array<CloudBucket>,
+      extensions: Array<CloudBucket>
+    ): Promise<Array<Result<CloudBucket>>>;
 
     /**
      * Updates data in the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { CloudValuesBucket[] } values - Indicates the new data.
-     * @param { CloudValuesBucket[] } extValues - Indicates the extension
+     * @param { Array<CloudBucket> } values - Indicates the new data.
+     * @param { Array<CloudBucket> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Result<CloudValuesBucket>> } Returns the update result.
+     * @returns { Promise<Array<Result<CloudBucket>>> } Returns the update result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
     update(
       table: string,
-      values: CloudValuesBucket[],
-      extValues: CloudValuesBucket[]
-    ): Promise<Result<CloudValuesBucket>>;
+      values: Array<CloudBucket>,
+      extensions: Array<CloudBucket>
+    ): Promise<Array<Result<CloudBucket>>>;
 
     /**
      * Deletes data.
      *
      * @param { string } table - Indicates the table name.
-     * @param { CloudValuesBucket[] } extValues - Indicates the extension
+     * @param { Array<CloudBucket> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Result<CloudValuesBucket>> } Returns the delete result.
+     * @returns { Promise<Array<Result<CloudBucket>>> } Returns the delete result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    delete(table: string, extValues: CloudValuesBucket[]): Promise<Result<CloudValuesBucket>>;
+    delete(table: string, extensions: Array<CloudBucket>): Promise<Array<Result<CloudBucket>>>;
 
     /**
      * Queries data.
@@ -970,24 +979,24 @@ declare namespace cloudExtension {
     /**
      * Uses the heartbeat to extend the lock interval if it is not enough.
      *
-     * @param { number } sessionId - Indicates the session ID of the heartbeat.
+     * @param { number } lockId - Indicates the lock ID of the heartbeat.
      * @returns { Promise<Result<LockInfo>> } Returns the time.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    heartbeat(sessionId: number): Promise<Result<LockInfo>>;
+    heartbeat(lockId: number): Promise<Result<LockInfo>>;
 
     /**
      * Unlocks the cloud database.
      *
-     * @param { number } sessionId - Indicates the session ID.
+     * @param { number } lockId - Indicates the lock ID.
      * @returns { Promise<Result<boolean>> } Returns the unlock result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    unlock(sessionId: number): Promise<Result<boolean>>;
+    unlock(lockId: number): Promise<Result<boolean>>;
   }
 
   /**
@@ -1201,14 +1210,14 @@ declare namespace cloudExtension {
     /**
      * Obtains the brief application information.
      *
-     * @returns { Promise<{ [bundleName: string]: AppBriefInfo }> }
+     * @returns { Promise<AppInfo> }
      * Returns the key-value pairs corresponding to <b>bundle</b> and
      * <b>AppBriefInfo</b>.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    getAppBriefInfo(): Promise<{ [bundleName: string]: AppBriefInfo }>;
+    getAppBriefInfo(): Promise<AppInfo>;
 
     /**
      * Obtains the application schema information.
