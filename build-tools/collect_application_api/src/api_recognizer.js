@@ -804,7 +804,7 @@ class SystemApiRecognizer {
       return matchedDecs[0];
     }
     if ('on' === callExpressionNode.expression.name.getText()) {
-      return matchedDecs[0];
+      return this.findBestMatchedApi(callExpressionNode, matchedDecs);
     }
     const lastArgument = callExpressionNode.arguments[callExpArgLen - 1];
     if (this.isAsyncCallbackCallExp(lastArgument)) {
@@ -817,6 +817,44 @@ class SystemApiRecognizer {
       });
     }
     return matchedDecs.length > 0 ? matchedDecs[0] : undefined;
+  }
+
+  /**
+   * 通过匹配type字符串找到正确的API
+   * 
+   * @param { ts.Node } callExpressionNode 
+   * @param { Array } matchedDecs 
+   * @returns 
+   */
+  findBestMatchedApi(callExpressionNode, matchedDecs) {
+    let apiNode = undefined;
+    if (ts.isStringLiteral(callExpressionNode.arguments[0])) {
+      const useType = callExpressionNode.arguments[0].text;
+      for (let i = 0; i < matchedDecs.length; i++) {
+        const matchDec = matchedDecs[i];
+        const apiSubscribeTypes = this.getSubscribeApiType(matchDec.parameters[0].type);
+        if (apiSubscribeTypes.has(useType)) {
+          apiNode = matchDec;
+        }
+      }
+    }
+
+    if (!apiNode) {
+      apiNode = matchedDecs[0];
+    }
+    return apiNode;
+  }
+
+  getSubscribeApiType(typeNode) {
+    const literalTypeSet = new Set();
+    if (ts.isLiteralTypeNode(typeNode)) {
+      literalTypeSet.add(typeNode.literal.text);
+    } else if (ts.isUnionTypeNode(typeNode)) {
+      typeNode.types.forEach(type => {
+        literalTypeSet.add(type.literal.text);
+      });
+    }
+    return literalTypeSet;
   }
 
   isAsyncCallbackCallExp(node) {
