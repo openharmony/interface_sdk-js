@@ -95,12 +95,12 @@ declare namespace cloudExtension {
     /**
      * Defines brief application information.
      *
-     * @type { Map<AppBriefInfo> }
+     * @type { CloudMap<AppBriefInfo> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    apps: Map<AppBriefInfo>;
+    apps: CloudMap<AppBriefInfo>;
   }
 
   /**
@@ -512,12 +512,12 @@ declare namespace cloudExtension {
      * Array of data queried, including the data values and extension
      * values {@link ExtensionValue}.
      *
-     * @type { Array<Map<CloudType>> }
+     * @type { Array<CloudMap<CloudType>> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    values: Array<Map<CloudType>>;
+    values: Array<CloudMap<CloudType>>;
   }
 
   /**
@@ -542,12 +542,12 @@ declare namespace cloudExtension {
     /**
      * Data to be observed.
      *
-     * @type { Map<Array<SubscribeId>> }
+     * @type { CloudMap<Array<SubscribeId>> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    subscribe: Map<Array<SubscribeId>>;
+    subscribe: CloudMap<Array<SubscribeId>>;
   }
 
   /**
@@ -817,14 +817,14 @@ declare namespace cloudExtension {
   }
 
   /**
-   * Defines the map type, and the key is string.
+   * Defines the cloud map type, and the key is string.
    *
-   * @interface Map
+   * @interface CloudMap
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
-  export interface Map<T> {
+  export interface CloudMap<T> {
     [key: string]: T;
   }
 
@@ -897,50 +897,50 @@ declare namespace cloudExtension {
      * Inserts data to the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { Array<Map<CloudType>> } values - Indicates the data to insert.
-     * @param { Array<Map<CloudType>> } extensions - Indicates the extension
+     * @param { Array<CloudMap<CloudType>> } values - Indicates the data to insert.
+     * @param { Array<CloudMap<CloudType>> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Array<Result<Map<CloudType>>>> } Returns the insert result.
+     * @returns { Promise<Array<Result<CloudMap<CloudType>>>> } Returns the insert result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
     insert(
       table: string,
-      values: Array<Map<CloudType>>,
-      extensions: Array<Map<CloudType>>
-    ): Promise<Array<Result<Map<CloudType>>>>;
+      values: Array<CloudMap<CloudType>>,
+      extensions: Array<CloudMap<CloudType>>
+    ): Promise<Array<Result<CloudMap<CloudType>>>>;
 
     /**
      * Updates data in the cloud.
      *
      * @param { string } table - Indicates the table name.
-     * @param { Array<Map<CloudType>> } values - Indicates the new data.
-     * @param { Array<Map<CloudType>> } extensions - Indicates the extension
+     * @param { Array<CloudMap<CloudType>> } values - Indicates the new data.
+     * @param { Array<CloudMap<CloudType>> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Array<Result<Map<CloudType>>>> } Returns the update result.
+     * @returns { Promise<Array<Result<CloudMap<CloudType>>>> } Returns the update result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
     update(
       table: string,
-      values: Array<Map<CloudType>>,
-      extensions: Array<Map<CloudType>>
-    ): Promise<Array<Result<Map<CloudType>>>>;
+      values: Array<CloudMap<CloudType>>,
+      extensions: Array<CloudMap<CloudType>>
+    ): Promise<Array<Result<CloudMap<CloudType>>>>;
 
     /**
      * Deletes data.
      *
      * @param { string } table - Indicates the table name.
-     * @param { Array<Map<CloudType>> } extensions - Indicates the extension
+     * @param { Array<CloudMap<CloudType>> } extensions - Indicates the extension
      * values {@link ExtensionValue}.
-     * @returns { Promise<Array<Result<Map<CloudType>>>> } Returns the delete result.
+     * @returns { Promise<Array<Result<CloudMap<CloudType>>>> } Returns the delete result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    delete(table: string, extensions: Array<Map<CloudType>>): Promise<Array<Result<Map<CloudType>>>>;
+    delete(table: string, extensions: Array<CloudMap<CloudType>>): Promise<Array<Result<CloudMap<CloudType>>>>;
 
     /**
      * Queries data.
@@ -1204,14 +1204,14 @@ declare namespace cloudExtension {
     /**
      * Obtains the brief application information.
      *
-     * @returns { Promise<Map<AppBriefInfo>> }
+     * @returns { Promise<CloudMap<AppBriefInfo>> }
      * Returns the key-value pairs corresponding to <b>bundle</b> and
      * <b>AppBriefInfo</b>.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    getAppBriefInfo(): Promise<Map<AppBriefInfo>>;
+    getAppBriefInfo(): Promise<CloudMap<AppBriefInfo>>;
 
     /**
      * Obtains the application schema information.
@@ -1229,7 +1229,7 @@ declare namespace cloudExtension {
      * When the cloud server data is changed, the server notifies the device of
      * the data change.
      *
-     * @param {  Map<Array<Database>> } subInfo - Indicates
+     * @param {  CloudMap<Array<Database>> } subInfo - Indicates
      * the data to be subscribed to, that is, the key-value pairs corresponding
      * to an array of bundle names and databases.
      * @param { number } expirationTime - Indicates the subscription expiration
@@ -1240,14 +1240,14 @@ declare namespace cloudExtension {
      * @since 11
      */
     subscribe(
-      subInfo: Map<Array<Database>>,
+      subInfo: CloudMap<Array<Database>>,
       expirationTime: number
     ): Promise<Result<SubscribeInfo>>;
 
     /**
      * Unsubscribes from the data changes in the cloud.
      *
-     * @param { Map<Array<string>> } unsubscribeInfo - Indicates
+     * @param { CloudMap<Array<string>> } unsubscribeInfo - Indicates
      * the data to be unsubscribe from, that is, the key-value pairs
      *  corresponding to an array of bundle names and databases.
      * @returns { Promise<number> } Returns unsubscribeInfo result.
@@ -1255,7 +1255,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    unsubscribe(unsubscribeInfo: Map<Array<string>>): Promise<number>;
+    unsubscribe(unsubscribeInfo: CloudMap<Array<string>>): Promise<number>;
 
     /**
      * Connects to a database.
