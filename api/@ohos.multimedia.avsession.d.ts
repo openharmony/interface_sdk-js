@@ -663,11 +663,16 @@ declare namespace avSession {
   function stopCasting(session: SessionToken): Promise<void>;
 
   /**
-   * session type.
+   * Session type, support audio & video
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
-  type AVSessionType = 'audio' | 'video';
+  /**
+   * Session type, support voice_call
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  type AVSessionType = 'audio' | 'video' | 'voice_call';
 
   /**
    * AVSession object.
@@ -3910,8 +3915,13 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * The type of control command, add new support 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute'
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute';
 
   /**
    * The definition of command to be sent to the session
