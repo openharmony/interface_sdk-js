@@ -18,7 +18,7 @@
  * @kit Basic Services Kit
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 
 /**
