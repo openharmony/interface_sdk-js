@@ -345,25 +345,6 @@ declare namespace common {
    * @since 11
    */
   export type VpnExtensionContext = _VpnExtensionContext.default;
-
-  /**
-   * The context of vpn connection. It allows third app access to
-   * vpn config or vpn other methods
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 11
-   */
-  export type VpnConnection = _VpnConnection;
-
-  /**
-   * the vpn data of data base for vpn button
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 11
-   */
-  export type VpnDataBase = _VpnDataBase;
 }
 
 export default common;
