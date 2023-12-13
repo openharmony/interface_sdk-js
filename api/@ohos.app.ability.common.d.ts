@@ -29,8 +29,6 @@ import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
-import type {VpnConnection as _VpnConnection} from './application/VpnExtensionContext';
-import type {VpnDataBase as _VpnDataBase} from './application/VpnExtensionContext';
 
 /**
  * This module provides application context classes and common data structures.
