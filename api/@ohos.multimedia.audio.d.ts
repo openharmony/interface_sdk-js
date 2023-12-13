@@ -3813,6 +3813,8 @@ declare namespace audio {
      *        Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
     /**
@@ -3822,6 +3824,8 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer): Promise<number>;
 
@@ -4510,6 +4514,8 @@ declare namespace audio {
      * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the buffer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:readData
      */
     read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void;
     /**
@@ -4520,6 +4526,8 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:readData
      */
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
 
