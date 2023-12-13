@@ -30,7 +30,9 @@
       "test",
       "useinstead",
       "FAModelOnly",
-      "StageModelOnly"
+      "StageModelOnly",
+      "kit",
+      "file"
     ],
     "jsDoc": [
       "abstract",
@@ -47,7 +49,6 @@
       "event",
       "exports",
       "external",
-      "file",
       "function",
       "generator",
       "global",
