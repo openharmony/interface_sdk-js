@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * Stack is implemented based on the array data structure. 
  * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
  *

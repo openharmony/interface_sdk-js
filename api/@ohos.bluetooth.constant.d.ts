@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Connectivity Kit
+ */
+
+/**
  * The definition of constant.
  *
  * @namespace constant

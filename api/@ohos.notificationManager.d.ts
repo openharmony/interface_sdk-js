@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Notification Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';

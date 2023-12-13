@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Sensor Service Kit
+ */
+
+/**
  * @interface VibrateOptions
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite

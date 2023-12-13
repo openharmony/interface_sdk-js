@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Sensor Service Kit
+ */
+
+/**
  * @interface AccelerometerResponse
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite

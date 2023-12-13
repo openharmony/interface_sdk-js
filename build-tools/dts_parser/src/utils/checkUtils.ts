@@ -237,13 +237,13 @@ export const inheritTagArr: string[] = ['test', 'famodelonly', 'FAModelOnly', 's
  * Optional tag
  */
 export const optionalTags: string[] = [
-  'throws', 'static', 'fires', 'systemapi', 'famodelonly', 'FAModelOnly', 'stagemodelonly',
+  'static', 'fires', 'systemapi', 'famodelonly', 'FAModelOnly', 'stagemodelonly',
   'StageModelOnly', 'crossplatform', 'deprecated', 'test', 'form', 'example', 'atomicservice'
 ];
 /**
  * conditional optional tag
  */
-export const conditionalOptionalTags: string[] = ['type', 'default', 'readonly', 'permission'];
+export const conditionalOptionalTags: string[] = ['type', 'default', 'readonly', 'permission', 'throws'];
 
 /**
  * All api types that can use the permission tag.
@@ -263,18 +263,18 @@ export const permissionOptionalTags: ts.SyntaxKind[] = [
  * Each api type corresponds to a set of available tags.
  */
 export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
-  [ts.SyntaxKind.CallSignature, ['param', 'returns', 'permission', 'syscap', 'since']],
+  [ts.SyntaxKind.CallSignature, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
   [ts.SyntaxKind.ClassDeclaration, ['extends', 'syscap', 'since']],
-  [ts.SyntaxKind.Constructor, ['param', 'syscap', 'permission', 'since']],
+  [ts.SyntaxKind.Constructor, ['param', 'syscap', 'permission', 'throws', 'since']],
   [ts.SyntaxKind.EnumDeclaration, ['enum', 'syscap', 'since']],
-  [ts.SyntaxKind.FunctionDeclaration, ['param', 'returns', 'permission', 'syscap', 'since']],
+  [ts.SyntaxKind.FunctionDeclaration, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
   [ts.SyntaxKind.InterfaceDeclaration, ['interface', 'typedef', 'extends', 'syscap', 'since']],
-  [ts.SyntaxKind.MethodDeclaration, ['param', 'returns', 'permission', 'syscap', 'since']],
+  [ts.SyntaxKind.MethodDeclaration, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
   [ts.SyntaxKind.MethodSignature, ['param', 'returns', 'permission', 'syscap', 'since']],
   [ts.SyntaxKind.ModuleDeclaration, ['namespace', 'syscap', 'since']],
-  [ts.SyntaxKind.PropertyDeclaration, ['type', 'default', 'permission', 'readonly', 'syscap', 'since']],
-  [ts.SyntaxKind.PropertySignature, ['type', 'default', 'permission', 'readonly', 'syscap', 'since']],
-  [ts.SyntaxKind.VariableStatement, ['constant', 'default', 'permission', 'syscap', 'since']],
+  [ts.SyntaxKind.PropertyDeclaration, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
+  [ts.SyntaxKind.PropertySignature, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
+  [ts.SyntaxKind.VariableStatement, ['constant', 'default', 'permission', 'throws', 'syscap', 'since']],
 ]);
 
 /**
@@ -286,3 +286,7 @@ export const compositiveResult: ApiResultSimpleInfo[] = [];
  * An array of local error messages
  */
 export const compositiveLocalResult: ApiResultInfo[] = [];
+
+export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',
+  '\\,', '\\;', '\\(', '\\)', '\\"', '\\/', '\\_', '\\-', '\\=', '\\?', '\\<', '\\>', '\\,', '\\!', '\\#', '\：', '\，',
+  '\\:', '\\|', '\\%', '\\+', '\\`', '\\\\', '\\\'']);
