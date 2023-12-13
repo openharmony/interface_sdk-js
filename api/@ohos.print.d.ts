@@ -23,6 +23,7 @@ import type Context from './application/Context';
 
 /**
  * System print
+ * 
  * @namespace print
  * @syscap SystemCapability.Print.PrintFramework
  * @since 10
