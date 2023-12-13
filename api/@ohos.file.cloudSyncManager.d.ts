@@ -100,7 +100,7 @@ declare namespace cloudSyncManager {
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
    * @param { string } accountId - Current account id.
-   * @param { object } switches - Indicates switches information of all applications.
+   * @param { Record<string, boolean> } switches - Indicates switches information of all applications.
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -109,14 +109,14 @@ declare namespace cloudSyncManager {
    * @systemapi
    * @since 10
    */
-  function enableCloud(accountId: string, switches: { [bundleName: string]: boolean }): Promise<void>;
+  function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
   /**
    * Enable the cloud file synchronization function.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
    * @param { string } accountId - Current account id
-   * @param { object } switches - Indicates switches information of all applications.
+   * @param { Record<string, boolean> } switches - Indicates switches information of all applications.
    * @param { AsyncCallback<void> } [callback] - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -125,11 +125,7 @@ declare namespace cloudSyncManager {
    * @systemapi
    * @since 10
    */
-  function enableCloud(
-    accountId: string,
-    switches: { [bundleName: string]: boolean },
-    callback: AsyncCallback<void>
-  ): void;
+  function enableCloud(accountId: string, switches: Record<string, boolean>, callback: AsyncCallback<void>): void;
 
   /**
    * Disable the cloud file synchronization function.
@@ -197,7 +193,7 @@ declare namespace cloudSyncManager {
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
    * @param { string } accountId - Current account id.
-   * @param { object } appActions - Indicates information about cloud file need to clear in which way.
+   * @param { Record<string, Action> } appActions - Indicates information about cloud file need to clear in which way.
    * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -206,14 +202,14 @@ declare namespace cloudSyncManager {
    * @systemapi
    * @since 10
    */
-  function clean(accountId: string, appActions: { [bundleName: string]: Action }): Promise<void>;
+  function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
   /**
    * Clean up cloud-related file data based on specific action.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
    * @param { string } accountId - Current account id.
-   * @param { object } appActions - Indicates information about cloud file need to clear in which way.
+   * @param { Record<string, Action> } appActions - Indicates information about cloud file need to clear in which way.
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -222,7 +218,7 @@ declare namespace cloudSyncManager {
    * @systemapi
    * @since 10
    */
-  function clean(accountId: string, appActions: { [bundleName: string]: Action }, callback: AsyncCallback<void>): void;
+  function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
   /**
    * Notify the change of data in cloud.
