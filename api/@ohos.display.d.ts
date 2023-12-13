@@ -15,7 +15,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
-import type hdrCapability from './@ohos.graphics.hdrCapability'
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * Interface of display manager.
