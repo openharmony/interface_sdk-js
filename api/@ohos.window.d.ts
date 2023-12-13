@@ -1886,7 +1886,14 @@ declare namespace window {
      * @crossplatform
      * @since 11
      */
-    WINDOW_HIDDEN = 4
+    WINDOW_HIDDEN = 4,
+    /**
+     * The value of window event is window destroy
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    WINDOW_DESTROYED = 7
   }
 
   /**
