@@ -19,6 +19,8 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * Interface of display manager.
@@ -822,6 +824,24 @@ declare namespace display {
      * @since 7
      */
     yDPI: number;
+
+    /**
+     * All supported color spaces.
+     *
+     * @type { Array<colorSpaceManager.ColorSpace> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    colorSpaces: Array<colorSpaceManager.ColorSpace>;
+
+    /**
+     * All supported HDR formats.
+     *
+     * @type { Array<hdrCapability.HDRFormat> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    hdrFormats: Array<hdrCapability.HDRFormat>;
 
     /**
      * Obtain the cutout info of the display.
