@@ -50,6 +50,7 @@
 /// <reference path="./hyperlink.d.ts" />
 /// <reference path="./image.d.ts" />
 /// <reference path="./image_animator.d.ts" />
+/// <reference path="./image_common.d.ts" />
 /// <reference path="./lazy_for_each.d.ts" />
 /// <reference path="./line.d.ts" />
 /// <reference path="./list.d.ts" />
