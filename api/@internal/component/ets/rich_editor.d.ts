@@ -1864,6 +1864,19 @@ declare interface SelectionMenuOptions {
   onDisappear?: () => void;
 }
 
+/**
+ * Provides Controller for RichEditor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+/**
+ * Provides Controller for RichEditor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare class RichEditorController {
   /**
    * Get caret offset from controller.

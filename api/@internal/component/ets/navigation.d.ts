@@ -435,6 +435,23 @@ declare enum NavigationTitleMode {
   Mini,
 }
 
+/**
+ * Navigation menu item, include menu icon and menu info
+ *
+ * @interface NavigationMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Navigation menu item, include menu icon and menu info
+ *
+ * @interface NavigationMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface NavigationMenuItem {
   /**
    * The value of navigation menu item.
@@ -591,6 +608,21 @@ declare class NavPathInfo {
   param?: unknown;
 }
 
+/**
+ * Indicates the information of route page.Providers methods for controlling destination page in the stack
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Indicates the information of route page.Providers methods for controlling destination page in the stack
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class NavPathStack {
   /**
    * Creates an instance of NavPathStack.

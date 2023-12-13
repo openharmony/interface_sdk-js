@@ -535,10 +535,16 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll snap options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Define scroll snap options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare interface ScrollSnapOptions {
   /**
