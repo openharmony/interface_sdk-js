@@ -1346,21 +1346,18 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksSessionHandle
      */
     errorCode: number;
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksSessionHandle
      */
     handle: number;
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksSessionHandle
      */
     token?: Uint8Array;
   }
@@ -1455,28 +1452,24 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksReturnResult
      */
     errorCode: number;
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksReturnResult
      */
     outData?: Uint8Array;
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksReturnResult
      */
     properties?: Array<HuksParam>;
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksReturnResult
      */
     certChains?: Array<string>;
   }
@@ -1543,469 +1536,402 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_SUCCESS = 0,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_FAILURE = -1,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_BAD_STATE = -2,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_ARGUMENT = -3,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_NOT_SUPPORTED = -4,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_NO_PERMISSION = -5,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INSUFFICIENT_DATA = -6,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_BUFFER_TOO_SMALL = -7,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INSUFFICIENT_MEMORY = -8,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_COMMUNICATION_FAILURE = -9,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_STORAGE_FAILURE = -10,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_HARDWARE_FAILURE = -11,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_ALREADY_EXISTS = -12,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_NOT_EXIST = -13,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_NULL_POINTER = -14,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_FILE_SIZE_FAIL = -15,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_READ_FILE_FAIL = -16,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_PUBLIC_KEY = -17,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_PRIVATE_KEY = -18,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_KEY_INFO = -19,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_HASH_NOT_EQUAL = -20,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_MALLOC_FAIL = -21,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_WRITE_FILE_FAIL = -22,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_REMOVE_FILE_FAIL = -23,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_OPEN_FILE_FAIL = -24,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CLOSE_FILE_FAIL = -25,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_MAKE_DIR_FAIL = -26,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_KEY_FILE = -27,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_IPC_MSG_FAIL = -28,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_REQUEST_OVERFLOWS = -29,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_PARAM_NOT_EXIST = -30,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CRYPTO_ENGINE_ERROR = -31,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_COMMUNICATION_TIMEOUT = -32,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_IPC_INIT_FAIL = -33,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_IPC_DLOPEN_FAIL = -34,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_EFUSE_READ_FAIL = -35,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_NEW_ROOT_KEY_MATERIAL_EXIST = -36,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_UPDATE_ROOT_KEY_MATERIAL_FAIL = -37,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_VERIFICATION_FAILED = -38,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_ALG_FAIL = -100,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_KEY_SIZE_FAIL = -101,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_PADDING_FAIL = -102,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_PURPOSE_FAIL = -103,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_DIGEST_FAIL = -104,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_MODE_FAIL = -105,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_NONCE_FAIL = -106,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_AAD_FAIL = -107,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_IV_FAIL = -108,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_AE_TAG_FAIL = -109,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_SALT_FAIL = -110,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_CHECK_GET_ITERATION_FAIL = -111,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_ALGORITHM = -112,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_KEY_SIZE = -113,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_PADDING = -114,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_PURPOSE = -115,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_MODE = -116,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_DIGEST = -117,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_SIGNATURE_SIZE = -118,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_IV = -119,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_AAD = -120,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_NONCE = -121,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_AE_TAG = -122,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_SALT = -123,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_ITERATION = -124,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INVALID_OPERATION = -125,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_INTERNAL_ERROR = -999,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      */
     HUKS_ERROR_UNKNOWN_ERROR = -1000
   }
@@ -2423,27 +2349,27 @@ declare namespace huks {
    */
   export enum HuksCipherMode {
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_MODE_ECB = 1,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_MODE_CBC = 2,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_MODE_CTR = 3,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_MODE_OFB = 4,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_MODE_CCM = 31,
@@ -2754,7 +2680,7 @@ declare namespace huks {
      */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
