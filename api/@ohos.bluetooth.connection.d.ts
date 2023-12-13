@@ -605,7 +605,7 @@ declare namespace connection {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { number } Returns the remote device's product ID.
+   * @returns { string } Returns the remote device's product ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter.
@@ -617,7 +617,7 @@ declare namespace connection {
    * @systemapi
    * @since 11
    */
-  function getRemoteProductId(deviceId: string): number;
+  function getRemoteProductId(deviceId: string): string;
 
   /**
    * Disconnects all allowed bluetooth profiles between the local and remote device.
