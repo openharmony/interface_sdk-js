@@ -284,7 +284,7 @@ declare namespace observer {
    *
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to be subscribed to.
-   * @param { Callback<DataConnectStateInfo> } callback - Indicates the callback for
+   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback for
    * getting the cellular data link connection state, and networkType Indicates the radio access technology
    * for cellular data services.
    * @throws { BusinessError } 401 - Parameter error.
@@ -295,7 +295,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11
    */
-  function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectStateInfo>): void;
+  function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectionStateInfo>): void;
 
   /**
    * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
@@ -321,7 +321,7 @@ declare namespace observer {
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to be subscribed to.
    * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<DataConnectStateInfo> } callback - Indicates the callback for
+   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback for
    * getting the cellular data link connection state, and networkType Indicates the radio access technology for
    * cellular data services.
    * @throws { BusinessError } 401 - Parameter error.
@@ -333,7 +333,7 @@ declare namespace observer {
    * @since 11
    */
   function on(type: 'cellularDataConnectionStateChange', options: ObserverOptions,
-    callback: Callback<DataConnectStateInfo>): void;
+    callback: Callback<DataConnectionStateInfo>): void;
 
   /**
    * Cancel callback when the cellular data link connection state is updated.
@@ -355,7 +355,7 @@ declare namespace observer {
    *
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to unsubscribe from.
-   * @param { Callback<DataConnectStateInfo> } callback - Indicates the callback to unsubscribe
+   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback to unsubscribe
    * from the cellularDataConnectionStateChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -365,7 +365,7 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11
    */
-  function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectStateInfo>): void;
+  function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectionStateInfo>): void;
 
   /**
    * Callback when the uplink and downlink data flow state of cellular data services
@@ -686,11 +686,11 @@ declare namespace observer {
   /**
    * Indicates cellular data connect state and technology type.
    *
-   * @interface DataConnectStateInfo
+   * @interface DataConnectionStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11
    */
-  export interface DataConnectStateInfo {
+  export interface DataConnectionStateInfo {
     /**
      * Indicates cellular data connect state.
      *
