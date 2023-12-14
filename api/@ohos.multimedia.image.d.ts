@@ -2949,7 +2949,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
@@ -2977,7 +2977,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
@@ -3007,7 +3007,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
@@ -3030,7 +3030,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
@@ -3052,7 +3052,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
@@ -3074,7 +3074,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
@@ -3095,7 +3095,7 @@ declare namespace image {
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980112 - If the image format mismatch.
-     * @throws { BusinessError } 62980113 - If the image unknown format.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
      * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
