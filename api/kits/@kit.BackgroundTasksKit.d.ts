@@ -21,10 +21,10 @@ import deviceStandby from '../@ohos.resourceschedule.deviceStandby';
 import usageStatistics from '../@ohos.resourceschedule.usageStatistics';
 import workScheduler from '../@ohos.resourceschedule.workScheduler';
 import WorkSchedulerExtensionAbility, {
-  type WorkSchedulerExtensionContext
+  WorkSchedulerExtensionContext
 } from '../@ohos.WorkSchedulerExtensionAbility';
 
 export {
-  WorkSchedulerExtensionAbility, type WorkSchedulerExtensionContext, backgroundTaskManager, bundleState,
+  WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext, backgroundTaskManager, bundleState,
   deviceStandby, reminderAgent, reminderAgentManager, usageStatistics, workScheduler
 };

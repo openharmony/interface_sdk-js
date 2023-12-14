@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import type ability from '../@ohos.ability.ability';
+import ability from '../@ohos.ability.ability';
 import { ErrorCode } from '../@ohos.ability.errorCode';
 import featureAbility from '../@ohos.ability.featureAbility';
 import particleAbility from '../@ohos.ability.particleAbility';
 import abilityAccessCtrl, {
-  type Context, type PermissionRequestResult, Permissions
+  Context, PermissionRequestResult, Permissions
 } from '../@ohos.abilityAccessCtrl';
 import Ability from '../@ohos.app.ability.Ability';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
@@ -34,8 +34,8 @@ import autoFillManager from '../@ohos.app.ability.autoFillManager';
 import autoStartupManager from '../@ohos.app.ability.autoStartupManager';
 import ChildProcess from '../@ohos.app.ability.ChildProcess';
 import childProcessManager from '../@ohos.app.ability.childProcessManager';
-import type common from '../@ohos.app.ability.common';
-import { type Configuration } from '../@ohos.app.ability.Configuration';
+import common from '../@ohos.app.ability.common';
+import { Configuration } from '../@ohos.app.ability.Configuration';
 import ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 import dataUriUtils from '../@ohos.app.ability.dataUriUtils';
@@ -55,14 +55,14 @@ import ServiceExtensionAbility from '../@ohos.app.ability.ServiceExtensionAbilit
 import ShareExtensionAbility from '../@ohos.app.ability.ShareExtensionAbility';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 import UIAbility, {
-  type Callee, type CalleeCallback, type Caller, type OnReleaseCallback, type OnRemoteStateChangeCallback
+  Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
 } from '../@ohos.app.ability.UIAbility';
 import UIExtensionAbility from '../@ohos.app.ability.UIExtensionAbility';
 import UIExtensionContentSession from '../@ohos.app.ability.UIExtensionContentSession';
 import UserAuthExtensionAbility from '../@ohos.app.ability.UserAuthExtensionAbility';
 import Want from '../@ohos.app.ability.Want';
 import wantConstant from '../@ohos.app.ability.wantConstant';
-import wantAgent, { type WantAgent } from '../@ohos.app.ability.wantAgent';
+import wantAgent, { WantAgent } from '../@ohos.app.ability.wantAgent';
 import businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
 import uriPermissionManager from '../@ohos.application.uriPermissionManager';
 import appControl from '../@ohos.bundle.appControl';
@@ -73,7 +73,7 @@ import bundle from '../@ohos.bundle';
 import defaultAppManager from '../@ohos.bundle.defaultAppManager';
 import distributedBundleManager from '../@ohos.bundle.distributedBundleManager';
 import freeInstall from '../@ohos.bundle.freeInstall';
-import innerBundleManager, { type BundleStatusCallback } from '../@ohos.bundle.innerBundleManager';
+import innerBundleManager, { BundleStatusCallback } from '../@ohos.bundle.innerBundleManager';
 import installer from '../@ohos.bundle.installer';
 import launcherBundleManager from '../@ohos.bundle.launcherBundleManager';
 import overlay from '../@ohos.bundle.overlay';
@@ -81,20 +81,20 @@ import continuationManager from '../@ohos.continuation.continuationManager';
 import distributedBundle from '../@ohos.distributedBundle';
 import distributedMissionManager from '../@ohos.distributedMissionManager';
 import Package, {
-  type CheckPackageHasInstalledOptions, type CheckPackageHasInstalledResponse
+  CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
 } from '../@system.package';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
-  ApplicationStateChangeCallback, AutoFillExtensionAbility, type BundleStatusCallback, type Callee,
-  type CalleeCallback, type Caller, type CheckPackageHasInstalledOptions, type CheckPackageHasInstalledResponse,
-  ChildProcess, type Configuration, ConfigurationConstant, type Context, EnvironmentCallback, ErrorCode,
+  ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
+  CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
+  ChildProcess, Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
   ExtensionAbility, InsightIntentContext, InsightIntentExecutor, MediaControlExtensionAbility,
-  type OnReleaseCallback, type OnRemoteStateChangeCallback, Package, type PermissionRequestResult, Permissions,
+  OnReleaseCallback, OnRemoteStateChangeCallback, Package, PermissionRequestResult, Permissions,
   ServiceExtensionAbility, ShareExtensionAbility, StartOptions, UIAbility, UIExtensionAbility,
-  UIExtensionContentSession, UserAuthExtensionAbility, Want, type WantAgent, type ability, abilityAccessCtrl,
+  UIExtensionContentSession, UserAuthExtensionAbility, Want, WantAgent, ability, abilityAccessCtrl,
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
-  bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, type common, contextConstant,
+  bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,

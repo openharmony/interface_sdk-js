@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import DriverExtensionAbility, { type DriverExtensionContext } from '../@ohos.app.ability.DriverExtensionAbility';
+import DriverExtensionAbility, { DriverExtensionContext } from '../@ohos.app.ability.DriverExtensionAbility';
 import deviceManager from '../@ohos.driver.deviceManager';
 
-export { DriverExtensionAbility, type DriverExtensionContext, deviceManager };
+export { DriverExtensionAbility, DriverExtensionContext, deviceManager };

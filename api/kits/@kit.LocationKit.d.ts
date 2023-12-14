@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
-import cryptoFramework from '../@ohos.security.cryptoFramework';
-import Cipher, { type CipherAesOptions, type CipherResponse, type CipherRsaOptions } from '../@system.cipher';
+import geolocation from '../@ohos.geolocation';
+import geoLocationManager from '../@ohos.geoLocationManager';
+import Geolocation, {
+  GeolocationResponse, GetLocationOption, GetLocationTypeOption, GetLocationTypeResponse,
+  SubscribeLocationOption
+} from '../@system.geolocation';
 
-export { Cipher, type CipherAesOptions, type CipherResponse, type CipherRsaOptions, cryptoFramework };
+export {
+  Geolocation, GeolocationResponse, GetLocationOption, GetLocationTypeOption,
+  GetLocationTypeResponse, SubscribeLocationOption, geoLocationManager, geolocation
+};
