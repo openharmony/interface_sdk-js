@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
-import type _AbilityContext from './application/UIAbilityContext';
+import type _VpnExtensionContext from './application/VpnExtensionContext';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * Provides VPN related interfaces.
@@ -26,19 +26,92 @@ import type _AbilityContext from './application/UIAbilityContext';
 declare namespace vpn {
   export type LinkAddress = connection.LinkAddress;
   export type RouteInfo = connection.RouteInfo;
-  export type AbilityContext = _AbilityContext;
+  export type VpnExtensionContext = _VpnExtensionContext;
+  
+  /**
+   * Starts a new vpn extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function startVpnExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Create a VPN connection using the AbilityContext.
-   * @param { AbilityContext } context - Indicates the context of application or capability.
+   * Stops a service within the same application.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function stopVpnExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Set the Enable/Disable Always on VPN mode for a device.
+   * @param { boolean } enable - Always on enable or disable
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 11
+   */
+  function setAlwaysOnVpn(enable: boolean): Promise<void>;
+
+  /**
+   * get the Always on VPN mode status for a device.
+   * @returns { Promise<boolean>;} return the mode for alway on vpn status
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 11
+   */
+  function getAlwaysOnVpn(): Promise<boolean>;
+
+  /**
+   * update a VPN dialog authorize information
+   * @param { string } bundleName - authorize or not
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 11
+   */
+  function addRight(bundleName: string): boolean;
+  /**
+   * Create a VPN connection using the VpnExtensionContext.
+   * @param { VpnExtensionContext } context - Indicates the context of application or capability.
    * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
    */
-  function createVpnConnection(context: AbilityContext): VpnConnection;
- 
+  function createVpnConnection(context: VpnExtensionContext): VpnConnection;
+
   /**
    * Defines a VPN connection.
    * @interface VpnConnection
@@ -46,23 +119,6 @@ declare namespace vpn {
    * @since 11
    */
   export interface VpnConnection {
-    /**
-     * Create a VPN network using the VpnConfig.
-     * @permission ohos.permission.MANAGE_VPN
-     * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
-     * @param { AsyncCallback<number> } callback - The callback is used to return file descriptor of VPN interface.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2200001 - Invalid parameter value.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203001 - VPN creation denied, please check the user type.
-     * @throws { BusinessError } 2203002 - VPN exist already, please execute destroy first.
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @since 11
-     */
-    setUp(config: VpnConfig, callback: AsyncCallback<number>): void;
  
     /**
      * Create a VPN network using the VpnConfig.
@@ -70,7 +126,6 @@ declare namespace vpn {
      * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
      * @returns { Promise<number> } The promise returns file descriptor of VPN interface.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -87,27 +142,8 @@ declare namespace vpn {
      * underlying network so its traffic will not be forwarded through the VPN.
      * @permission ohos.permission.MANAGE_VPN
      * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
-     * @param { AsyncCallback<void> } callback - The callback of protect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2200001 - Invalid parameter value.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @since 11
-     */
-    protect(socketFd: number, callback: AsyncCallback<void>): void;
- 
-    /**
-     * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
-     * underlying network so its traffic will not be forwarded through the VPN.
-     * @permission ohos.permission.MANAGE_VPN
-     * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -121,23 +157,8 @@ declare namespace vpn {
     /**
      * Destroy the VPN network.
      * @permission ohos.permission.MANAGE_VPN
-     * @param { AsyncCallback<void> } callback - The callback of destroy.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @since 11
-     */
-    destroy(callback: AsyncCallback<void>): void;
- 
-    /**
-     * Destroy the VPN network.
-     * @permission ohos.permission.MANAGE_VPN
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.

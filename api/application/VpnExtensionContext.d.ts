@@ -13,11 +13,8 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from '../@ohos.base';
 import type ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
-import type connection from '../@ohos.net.connection';
-import type _AbilityContext from '../application/UIAbilityContext';
 
 /**
  * The context of vpn extension. It allows access to
@@ -69,37 +66,5 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @since 11
    */
   stopVpnExtensionAbility(want: Want): Promise<void>;
-
-  /**
-   * update a VPN dialog authorize information
-   * @param { boolean } isAuthorize - authorize or not
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @StageModelOnly
-   * @since 11
-   */
-  updateVpnDataBase(isAuthorize: boolean): Promise<void>;
-
-  /**
-   * Set the Enable/Disable Always on VPN mode for a device.
-   * @param { boolean } enable - Always on enable or disable
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @StageModelOnly
-   * @since 11
-   */
-  setAlwaysOnVpn(enable: boolean): Promise<void>;
-
-  /**
-   * get the Always on VPN mode status for a device.
-   * @returns { Promise<boolean>;} return the mode for alway on vpn status
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @StageModelOnly
-   * @since 11
-   */
-  getAlwaysOnVpn(): Promise<boolean>;
 }
 
