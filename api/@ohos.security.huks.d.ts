@@ -2856,6 +2856,14 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_AUTH_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 311,
 
+    /**
+     * Security level of access control for key file storage, whose optional values are from enum HuksAuthStorageLevel.
+     *
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
+
     /* Attestation related TAG: 501 - 600 */
     /**
      * @syscap SystemCapability.Security.Huks.Extension

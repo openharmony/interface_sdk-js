@@ -211,6 +211,22 @@ declare namespace avSession {
   function castAudio(session: SessionToken | 'all', audioDevices: Array<audio.AudioDeviceDescriptor>): Promise<void>;
 
   /**
+   * Start an application for media playback.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } bundleName - Specifies the bundleName which to be started.
+   * @param { string } assetId - Specifies the assetId to be started.
+   * @returns { Promise<void> } void promise when executed successfully
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 11
+   */
+  function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
+
+  /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
@@ -663,11 +679,16 @@ declare namespace avSession {
   function stopCasting(session: SessionToken): Promise<void>;
 
   /**
-   * session type.
+   * Session type, support audio & video
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
-  type AVSessionType = 'audio' | 'video';
+  /**
+   * Session type, support voice_call
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
+  type AVSessionType = 'audio' | 'video' | 'voice_call';
 
   /**
    * AVSession object.
@@ -1951,6 +1972,32 @@ declare namespace avSession {
     off(type: 'seekDone'): void;
 
     /**
+     * Register the valid commands of the casted session changed callback
+     * @param { 'validCommandChange' } type - 'validCommandChange'
+     * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
+     * The callback function provides an array of AVCastControlCommandType.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>);
+
+    /**
+     * Unregister the valid commands of the casted session changed callback
+     * @param { 'validCommandChange' } type - 'validCommandChange'
+     * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
+     * The callback function provides an array of AVCastControlCommandType.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>);
+
+    /**
      * Register listener for video size change event, used at remote side.
      * @param { 'videoSizeChange' } type - Type of the 'videoSizeChange' to listen for.
      * @param { function } callback - Callback used to return video size.
@@ -2275,6 +2322,14 @@ declare namespace avSession {
      * @since 11
      */
     skipIntervals?: SkipIntervals;
+
+    /**
+     * The display tags supported by application to be displayed on media center
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    displayTags?: number;
   }
 
   /**
@@ -3910,8 +3965,13 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * The type of control command, add new support 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute'
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 11
+   */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute';
 
   /**
    * The definition of command to be sent to the session

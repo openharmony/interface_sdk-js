@@ -364,11 +364,12 @@ function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?:
   sheet.views = [{ xSplit: 1 }];
   sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
+    const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
     sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
       diffTypeMap.get(diffInfo.getDiffType()),
       joinOldMessage(diffInfo),
       joinNewMessage(diffInfo),
-      diffInfo.getNewDtsName(),
+      dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
     ];
   });
@@ -382,10 +383,8 @@ export function joinOldMessage(diffInfo: BasicDiffInfo): string {
   }
   const relation: string[] = diffInfo.getOldHierarchicalRelations();
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
-  return (
-    `文件名：${diffInfo.getOldDtsName()}；\n类名：${parentModuleName}；\n` +
-    `API声明：${diffInfo.getOldApiDefinedText()}\n差异内容：${diffInfo.getOldDescription()}`
-  );
+  const oldDescription = diffInfo.getOldDescription() === '-1' ? 'NA' : diffInfo.getOldDescription();
+  return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getOldApiDefinedText()}\n差异内容：${oldDescription}`;
 }
 
 export function joinNewMessage(diffInfo: BasicDiffInfo): string {
@@ -394,10 +393,8 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
   }
   const relation: string[] = diffInfo.getNewHierarchicalRelations();
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
-  return (
-    `文件名：${diffInfo.getNewDtsName()}；\n类名：${parentModuleName}；\n` +
-    `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${diffInfo.getNewDescription()}`
-  );
+  const newDescription = diffInfo.getOldDescription() === '-1' ? 'NA' : diffInfo.getNewDescription();
+  return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${newDescription}`;
 }
 
 /**
