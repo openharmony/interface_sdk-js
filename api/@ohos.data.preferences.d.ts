@@ -172,7 +172,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    dataGroupId?: string;
+    dataGroupId?: string | null | undefined;
   }
 
   /**
@@ -1529,14 +1529,14 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    on(type: 'change', callback: (key: string) => void): void;
+    on(type: 'change', callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
@@ -1552,14 +1552,14 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11
      */
-    on(type: 'multiProcessChange', callback: (key: string) => void): void;
+    on(type: 'multiProcessChange', callback: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1584,14 +1584,14 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    off(type: 'change', callback?: (key: string) => void): void;
+    off(type: 'change', callback?: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1606,13 +1606,13 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11
      */
-    off(type: 'multiProcessChange', callback?: (key: string) => void): void;
+    off(type: 'multiProcessChange', callback?: Callback<string>): void;
   }
 }
 
