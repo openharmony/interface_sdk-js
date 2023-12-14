@@ -222,25 +222,27 @@ interface CommonSegmentButtonOptions {
   imageSize?: SizeOptions;
 
   /**
-   * The margin of buttons.
+   * The padding of buttons.
    *
-   * @type { ?Margin | Dimension }
+   * @type { ?Padding | Dimension }
+   * @default For text only / icon only buttons Padding { top: 4, right: 8, bottom: 4, left: 8 }.
+   *          For text & icon buttons Padding { top: 6, right: 8, bottom: 6, left: 8 }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  buttonMargin?: Margin | Dimension;
+  buttonPadding?: Padding | Dimension;
 
   /**
-   * The margin of text in button.
+   * The padding of text in button.
    *
-   * @type { ?Margin | Dimension }
-   * @default Margin { top: 4, right: 8, bottom: 4, left: 8 }
+   * @type { ?Padding | Dimension }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  textMargin?: Margin | Dimension;
+  textPadding?: Padding | Dimension;
 
   /**
    * The blurStyle of background.
@@ -475,7 +477,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Removes the last element from SegmentButtonItemOptionsArray.
    *
-   * @returns { SegmentButtonItemOptions | undefined } Returns the new SegmentButtonItemOptionsArray.
+   * @returns { SegmentButtonItemOptions | undefined } Returns the removed element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -485,7 +487,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Removes the first element from SegmentButtonItemOptionsArray.
    *
-   * @returns { SegmentButtonItemOptions | undefined } Returns the new SegmentButtonItemOptionsArray.
+   * @returns { SegmentButtonItemOptions | undefined } Returns the removed element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -509,7 +511,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @param { number } start - The zero-based location in the array from which to start removing elements.
    * @param { number } deleteCount - The number of elements to remove.
    * @param { SegmentButtonItemOptions[] } items - Elements to insert into the array in place of the deleted elements.
-   * @returns { SegmentButtonItemOptions[] } Returns the new SegmentButtonItemOptions array.
+   * @returns { SegmentButtonItemOptions[] } Returns a SegmentButtonItemOptions array containing the deleted elements.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -658,24 +660,24 @@ declare class SegmentButtonOptions {
   imageSize: SizeOptions;
 
   /**
-   * The margin of buttons.
+   * The padding of buttons.
    *
-   * @type { Margin | Dimension }
+   * @type { Padding | Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  buttonMargin: Margin | Dimension;
+  buttonPadding: Padding | Dimension;
 
   /**
-   * The margin of text in button.
+   * The padding of text in button.
    *
-   * @type { Margin | Dimension }
+   * @type { Padding | Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  textMargin: Margin | Dimension;
+  textPadding: Padding | Dimension;
 
   /**
    * The blurStyle of background.
