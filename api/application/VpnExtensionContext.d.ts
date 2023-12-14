@@ -76,16 +76,18 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @StageModelOnly
    * @since 11
    */
   updateVpnDataBase(isAuthorize: boolean): Promise<void>;
 
   /**
    * Set the Enable/Disable Always on VPN mode for a device.
-   * @param { boolean } enable - Always on enable or disenable
+   * @param { boolean } enable - Always on enable or disable
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @StageModelOnly
    * @since 11
    */
   setAlwaysOnVpn(enable: boolean): Promise<void>;
@@ -95,6 +97,7 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @returns { Promise<boolean>;} return the mode for alway on vpn status
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @StageModelOnly
    * @since 11
    */
   getAlwaysOnVpn(): Promise<boolean>;

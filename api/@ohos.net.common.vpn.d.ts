@@ -35,7 +35,6 @@ declare namespace vpn {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
    * @since 11
    */
   function createVpnConnection(context: AbilityContext): VpnConnection;
@@ -44,7 +43,6 @@ declare namespace vpn {
    * Defines a VPN connection.
    * @interface VpnConnection
    * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
    * @since 11
    */
   export interface VpnConnection {
@@ -153,7 +151,6 @@ declare namespace vpn {
    * Define configuration of the VPN network.
    * @interface VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
-   * @systemapi Hide this for inner system use.
    * @since 11
    */
   export interface VpnConfig {
