@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
+import type { AbilityInfo } from './bundleManager/AbilityInfo';
 
 /**
  * Provides methods to operate or manage NFC card emulation.
@@ -126,6 +132,19 @@ declare namespace cardEmulation {
    * @since 9
    */
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
+
+  /**
+   * Gets all payment services.
+   *
+   * @permission ohos.permission.NFC_CARD_EMULATION
+   * @returns { AbilityInfo[] } Returns all payment services.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getPaymentServices(): AbilityInfo[];
 
   /**
    * A class for NFC host application.

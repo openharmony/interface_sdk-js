@@ -236,5 +236,9 @@
     "syscap": "Advertising",
     "subsystem": "广告服务",
     "fileName": "advertising"
+  },{
+    "syscap": "XTS",
+    "subsystem": "XTS",
+    "fileName": "xts"
   }
 ]

@@ -21,6 +21,7 @@ let lastNoteStr = '';
 let lastNodeName = '';
 const referencesMap = new Map();
 const referencesModuleMap = new Map();
+const kitFileNeedDeleteMap = new Map();
 /**
  * @enum {string} references地址的切换类型
  */
@@ -43,10 +44,130 @@ function collectDeclaration(url) {
     const utFiles = [];
     readFile(utPath, utFiles); // 读取文件
     tsTransform(utFiles, deleteSystemApi);
+    tsTransformKitFile(utPath);
   } catch (error) {
     console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
   }
 }
+
+/**
+ * 解析url目录下方的kit文件，删除对应systemapi
+ * @param { string } url api文件路径
+ */
+function tsTransformKitFile(url) {
+  kitFileNeedDeleteMap.delete('');
+  if (kitFileNeedDeleteMap.length === 0) {
+    return;
+  }
+  const kitPath = path.resolve(url, './kit');
+  const kitFiles = [];
+  readFile(kitPath, kitFiles); // 读取文件
+  kitFiles.forEach((kitFile) => {
+    const kitName = processFileNameWithoutExt(kitFile);
+    if (!kitFileNeedDeleteMap.has(kitName)) {
+      return;
+    }
+    const content = fs.readFileSync(kitFile, 'utf-8');
+    const fileName = processFileName(kitFile);
+    let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
+    sourceFile = getKitNewSourceFile(sourceFile, kitName);
+    const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+    let result = printer.printNode(ts.EmitHint.Unspecified, sourceFile, sourceFile);
+    writeFile(kitFile, result);
+  });
+}
+
+/**
+ * 处理kit中需要删除的节点，在其他文件被systemapi修饰的api
+ * @param { ts.sourceFile } sourceFile
+ * @param { string } kitName
+ * @returns 删除完的节点，全部删除为空字符串
+ */
+function getKitNewSourceFile(sourceFile, kitName) {
+  const newStatements = [];
+  const needDeleteExportName = new Set();
+  const needDeleteMap = kitFileNeedDeleteMap.get(kitName);
+  // 初始化ts工厂
+  const factory = ts.factory;
+  sourceFile.statements.forEach((statement) => {
+    if (ts.isImportDeclaration(statement)) {
+      const newStatement = processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName);
+      if (newStatement) {
+        newStatements.push(newStatement);
+      }
+    } else if (ts.isExportDeclaration(statement)) {
+      const exportSpecifiers = statement.exportClause.elements.filter((item) => {
+        return !needDeleteExportName.has(item.name.escapedText.toString());
+      });
+      if (exportSpecifiers.length !== 0) {
+        statement.exportClause = factory.updateNamedExports(statement.exportClause, exportSpecifiers);
+        newStatements.push(statement);
+      }
+    }
+  });
+  sourceFile = factory.updateSourceFile(sourceFile, newStatements);
+  return sourceFile;
+}
+
+/**
+ * 根据节点和需要删除的节点数据生成新节点
+ * @param { ts.ImportDeclaration } statement 需要处理的import节点
+ * @param { Map} needDeleteMap 需要删除的节点数据
+ * @param { Map} needDeleteExportName 需要删除的导出节点
+ * @returns { ts.ImportDeclaration | undefined } 返回新的import节点，全部删除为undefined
+ */
+function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName) {
+  // 初始化ts工厂
+  const factory = ts.factory;
+  const importClause = statement.importClause;
+  if (!ts.isImportClause(importClause)) {
+    return statement;
+  }
+  const importPath = statement.moduleSpecifier.text.replace('../', '');
+  if (!needDeleteMap.has(importPath)) {
+    return statement;
+  }
+  const currImportInfo = needDeleteMap.get(importPath);
+  let defaultName = '';
+  let importNodeNamedBindings = [];
+  if (importClause.name) {
+    if (currImportInfo.default === importClause.name.escapedText.toString()) {
+      //import buffer from "../@ohos.buffer";
+      needDeleteExportName.add(currImportInfo.default);
+    } else {
+      defaultName = importClause.name.escapedText.toString();
+    }
+  }
+  const namedBindings = importClause.namedBindings;
+  if (namedBindings !== undefined && ts.isNamedImports(namedBindings)) {
+    const elements = namedBindings.elements;
+    elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      if (!currImportInfo.exportName.has(exportName)) {
+        importNodeNamedBindings.push(factory.createImportSpecifier(element.propertyName, element.name));
+      } else {
+        needDeleteExportName.add(element.name.escapedText.toString());
+      }
+    });
+  }
+  if (defaultName !== '' || importNodeNamedBindings.length !== 0) {
+    const newImportNode = factory.createImportDeclaration(
+      undefined,
+      undefined,
+      factory.createImportClause(
+        false,
+        defaultName === '' ? undefined : factory.createIdentifier(defaultName),
+        importNodeNamedBindings.length === 0 ? undefined : factory.createNamedImports(importNodeNamedBindings)
+      ),
+      statement.moduleSpecifier
+    );
+    return newImportNode;
+  }
+  return undefined;
+}
+
 /**
  * 统一处理文件名称，修改后缀等
  * @param {string} filePath 文件路径
@@ -57,6 +178,14 @@ function processFileName(filePath) {
     .basename(filePath)
     .replace(/.d.ts/g, '.ts')
     .replace(/.d.ets/g, '.ets');
+}
+
+function processFileNameWithoutExt(filePath) {
+  return path
+    .basename(filePath)
+    .replace(/.d.ts/g, '')
+    .replace(/.d.ets/g, '')
+    .replace(/.ts/g, '');
 }
 
 /**
@@ -183,11 +312,15 @@ function writeFile(url, data, option) {
     fs.rmdirSync(outputPath, { recursive: true });
   }
   const newFilePath = path.resolve(outputPath, path.relative(__dirname, url));
-  fs.mkdir(path.relative(__dirname, path.dirname(newFilePath)), { recursive: true }, (err) => {
+  fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
     if (err) {
       console.log(`ERROR FOR CREATE PATH ${err}`);
     } else {
-      fs.writeFile(newFilePath, data, option, (err) => {
+      if (data === '') {
+        fs.rmSync(newFilePath);
+        return;
+      }
+      fs.writeFileSync(newFilePath, data, option, (err) => {
         if (err) {
           console.log(`ERROR FOR CREATE FILE ${err}`);
         }
@@ -438,12 +571,14 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
 function deleteSystemApi(url) {
   return (context) => {
     return (node) => {
-      const copyrightMessage = node
-        .getFullText()
-        .replace(node.getText(), '')
-        .split(/\/\*\*/)[0];
+      const fullText = String(node.getFullText());
+      const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0];
+      let kitName = '';
+      if (fullText.match(/\@kit (.*)\r\n/g)) {
+        kitName = RegExp.$1.replace(/\s/g, '');
+      }
       sourceFile = node;
-      const deleteNode = processSourceFile(node); // 处理最外层节点
+      const deleteNode = processSourceFile(node, kitName); // 处理最外层节点
       node = processVisitEachChild(context, deleteNode.node);
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
@@ -475,35 +610,21 @@ exports.deleteSystemApi = deleteSystemApi;
 
 /**
  * 处理最外层的节点看是否删除
- * @param  node 解析过后的节点
+ * @param node 解析过后的节点
+ * @param kitName 当前文件kitName
  * @returns
  */
-function processSourceFile(node) {
+function processSourceFile(node, kitName) {
   let isCopyrightDeleted = false;
   const newStatements = [];
   const newStatementsWithoutExport = [];
   const deleteSystemApiSet = new Set();
-  node.statements.forEach((statement, index) => {
-    if (isSystemapi(statement)) {
-      if (index == 0) {
-        isCopyrightDeleted = true;
-      }
-      if (ts.isVariableStatement(statement)) {
-        deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
-      } else if (
-        ts.isModuleDeclaration(statement) ||
-        ts.isInterfaceDeclaration(statement) ||
-        ts.isClassDeclaration(statement) ||
-        ts.isEnumDeclaration(statement)
-      ) {
-        if (statement && statement.name && statement.name.escapedText) {
-          deleteSystemApiSet.add(statement.name.escapedText.toString());
-        }
-      }
-    } else {
-      newStatements.push(statement);
-    }
-  });
+  let needDeleteExport = {
+    fileName: '',
+    default: '',
+    exportName: new Set(),
+  };
+  isCopyrightDeleted = addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport);
   newStatements.forEach((statement) => {
     const names = getExportIdentifierName(statement);
     if (names.length === 0) {
@@ -517,27 +638,97 @@ function processSourceFile(node) {
       newStatementsWithoutExport.push(statement);
       return;
     }
-    //export {test1 as test,testa as test2}
-    if (ts.isExportDeclaration(statement)) {
-      let needExport = false;
-      const newSpecifiers = [];
-      names.forEach((name, index) => {
-        if (!deleteSystemApiSet.has(name)) {
-          newSpecifiers.push(statement.exportClause.elements[index]);
-          needExport = true;
-        }
-      });
-      if (needExport) {
-        statement.exportClause = ts.factory.updateNamedExports(statement.exportClause, newSpecifiers);
-        newStatementsWithoutExport.push(statement);
-      }
-    }
+    processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport);
   });
+  if (needDeleteExport.fileName !== '') {
+    let kitMap = kitFileNeedDeleteMap.get(kitName);
+    if (kitMap === undefined) {
+      kitMap = new Map([[needDeleteExport.fileName, needDeleteExport]]);
+    } else {
+      kitMap.set(needDeleteExport.fileName, needDeleteExport);
+    }
+    kitFileNeedDeleteMap.set(kitName, kitMap);
+  }
   return {
     node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles),
     isCopyrightDeleted,
   };
 }
+
+function processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport) {
+  //删除export节点信息
+  if (ts.isExportAssignment(statement)) {
+    //export default abilityAccessCtrl;
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = statement.expression.escapedText.toString();
+  } else if (ts.isExportDeclaration(statement)) {
+    //export {test1 as test,testa as test2}
+    let needExport = false;
+    const newSpecifiers = [];
+    names.forEach((name, index) => {
+      if (!deleteSystemApiSet.has(name)) {
+        //未被删除的节点
+        newSpecifiers.push(statement.exportClause.elements[index]);
+        needExport = true;
+      } else {
+        //被删除的节点
+        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+        needDeleteExport.exportName.add(statement.name.escapedText.toString());
+      }
+    });
+    if (needExport) {
+      statement.exportClause = ts.factory.updateNamedExports(statement.exportClause, newSpecifiers);
+      newStatementsWithoutExport.push(statement);
+    }
+  }
+}
+
+function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport) {
+  let isCopyrightDeleted = false;
+  node.statements.forEach((statement, index) => {
+    if (!isSystemapi(statement)) {
+      newStatements.push(statement);
+      return;
+    }
+    if (index === 0) {
+      isCopyrightDeleted = true;
+    }
+    if (ts.isVariableStatement(statement)) {
+      deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
+    } else if (
+      ts.isModuleDeclaration(statement) ||
+      ts.isInterfaceDeclaration(statement) ||
+      ts.isClassDeclaration(statement) ||
+      ts.isEnumDeclaration(statement) ||
+      ts.isStructDeclaration(statement)
+    ) {
+      setDeleteExport(statement, node, needDeleteExport);
+      if (statement && statement.name && statement.name.escapedText) {
+        deleteSystemApiSet.add(statement.name.escapedText.toString());
+      }
+    }
+  });
+
+  return isCopyrightDeleted;
+}
+
+function setDeleteExport(statement, node, needDeleteExport) {
+  //export namespace test {}
+  const modifiers = statement.modifiers;
+  if (modifiers === undefined) {
+    return;
+  }
+  const exportFlag = modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword);
+  const defaultFlag = modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.DefaultKeyword);
+  if (exportFlag && defaultFlag) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = statement.name.escapedText.toString();
+  } else if (exportFlag) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.exportName.add(statement.name.escapedText.toString());
+  }
+}
+
 /**
  * 获取export节点的名字，只获取第一个关键词
  * @param {ts.node} statement

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -59,6 +64,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 11
      */
     TYPE_SYSTEM_ALERT,
     /**
@@ -313,6 +319,58 @@ declare namespace window {
      * @since 9
      */
     WINDOW_LAYOUT_MODE_TILE
+  }
+
+  /**
+   * Describes the window status of an application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  enum WindowStatusType {
+    /**
+     * Undefined status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    UNDEFINED = 0,
+    /**
+     * Full screen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    FULL_SCREEN,
+    /**
+     * Maximize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    MAXIMIZE,
+    /**
+     * Minimize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    MINIMIZE,
+    /**
+     * Floating status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    FLOATING,
+    /**
+     * Split screen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    SPLIT_SCREEN
   }
 
   /**
@@ -1828,8 +1886,24 @@ declare namespace window {
      * @crossplatform
      * @since 11
      */
-    WINDOW_HIDDEN = 4
+    WINDOW_HIDDEN = 4,
+    /**
+     * The value of window event is window destroy
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    WINDOW_DESTROYED = 7
   }
+
+  /**
+   * Specific system bar type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
+
   interface Window {
     /**
      * Hide window.
@@ -2467,6 +2541,20 @@ declare namespace window {
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
     /**
+     * Set specific system bar to have visible.
+     *
+     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
+
+    /**
      * Set the properties of system bar
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
@@ -3087,6 +3175,30 @@ declare namespace window {
      * @since 11
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Register the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
      * Bind dialog to the target window.
@@ -4048,30 +4160,26 @@ declare namespace window {
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
     /**
-     * Minimize app main window.
+     * Minimize app main window and hide app subWindow.
      *
      * @param { AsyncCallback<void> } callback - The callback of Minimize.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     minimize(callback: AsyncCallback<void>): void;
 
     /**
-     * Minimize app main window.
+     * Minimize app main window and hide app subWindow.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     minimize(): Promise<void>;
 
@@ -4181,6 +4289,35 @@ declare namespace window {
      * @since 11
      */
     setWindowLimits(windowLimits: WindowLimits): Promise<WindowLimits>;
+
+    /**
+     * Set whether to enable the single frame composer.
+     *
+     * @param { boolean } enable - Enable the single frame composer if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
+
+    /*
+     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     *
+     * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    keepKeyboardOnFocus(keepKeyboardFlag: boolean): void;
   }
   /**
    * Window stage callback event type

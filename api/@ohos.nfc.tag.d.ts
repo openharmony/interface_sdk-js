@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';
 import {
   IsoDepTag as _IsoDepTag,
@@ -599,6 +604,37 @@ declare namespace tag {
    * @since 10
    */
   function unregisterForegroundDispatch(elementName: ElementName): void;
+
+  /**
+   * Set reader mode enabled when the specific application is foreground. Dispatches to this application only if a tag discovered.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { 'readerMode' } type - The callback type to be registered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 11
+   */
+  function on(type: 'readerMode', elementName: ElementName, discTech: number[], callback: AsyncCallback<TagInfo>): void;
+
+  /**
+   * Disable foreground reader mode settings explicitly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { 'readerMode' } type - The callback type to be unregistered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 11
+   */
+  function off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
 
   /**
    * Provides tag information.

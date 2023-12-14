@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
@@ -763,6 +768,49 @@ declare namespace relationalStore {
   }
 
   /**
+   * Indicates the reference between tables.
+   *
+   * @interface Reference
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @since 11
+   */
+  interface Reference {
+    /**
+     * Indicates the table that references another table.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    sourceTable: string;
+
+    /**
+     * Indicates the table to be referenced.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    targetTable: string;
+
+    /**
+     * Indicates the reference fields.
+     *
+     * @type { object }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    refFields: {
+      [src: string]: string;
+    };
+  }
+
+
+  /**
    * Manages the distributed configuration of the table.
    *
    * @interface DistributedConfig
@@ -777,6 +825,16 @@ declare namespace relationalStore {
      * @since 10
      */
     autoSync: boolean;
+
+    /**
+     * Specifies the reference relationships between tables.
+     *
+     * @type { ?Array<Reference> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    references?: Array<Reference>;
   }
 
   /**
@@ -2921,6 +2979,22 @@ declare namespace relationalStore {
      * Obtains sharing resource of rows corresponding to the predicates.
      *
      * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } [columns] - The specified columns to query.
+     * @returns { Promise<ResultSet> } -The promise returned by the function.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
      * {@link ResultSet} is query result.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2947,22 +3021,6 @@ declare namespace relationalStore {
      * @since 11
      */
     querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-
-    /**
-     * Obtains sharing resource of rows corresponding to the predicates.
-     *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } [columns] - The specified columns to query.
-     * @returns { Promise<ResultSet> } -The promise returned by the function.
-     * {@link ResultSet} is query result.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @systemapi
-     * @since 11
-     */
-    querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.

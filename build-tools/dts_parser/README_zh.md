@@ -78,7 +78,7 @@
 工具调用命令
 
 ```
-node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/文件 --new 新版本目录/文件 --old-version 旧版本号 --new-version 新版本号 --output 报告输出目录 --format excel
+node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/文件（sdk/windows/ets） --new 新版本目录/文件（sdk/windows/ets) --old-version 旧版本号 --new-version 新版本号 --output 报告输出目录 --format excel
 ```
 
 

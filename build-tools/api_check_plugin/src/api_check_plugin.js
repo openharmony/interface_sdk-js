@@ -26,6 +26,7 @@ const { checkJSDoc } = require('./check_legality');
 const { checkNaming } = require('./check_naming');
 const { checkEventSubscription } = require('./check_event_subscription');
 const { checkAnyInAPI } = require('./check_any');
+const { checkFileTagOrder } = require('./check_file_tag_order');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList, splitPath,
   isWhiteListFile } = require('./utils');
 const ts = requireTypescriptModule();
@@ -100,6 +101,10 @@ function checkAllNode(node, sourcefile, fileName) {
     checkPermission(node, sourcefile, fileName);
     // check event subscription
     checkEventSubscription(node, sourcefile, fileName);
+    // check file tag order
+    if (ts.isSourceFile(node)) {
+      checkFileTagOrder(node, sourcefile, fileName);
+    }
 
     const uesWhiteList = !isWhiteListFile(fileName, whiteLists.JSDocCheck);
     if (commentNodeWhiteList.includes(node.kind) && uesWhiteList) {

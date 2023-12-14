@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Sensor Service Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -34,6 +39,13 @@ declare namespace sensor {
    * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
+   */
+  /**
+   * Enum for obtain the type of sensor.
+   * @enum { number }
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 11
    */
   enum SensorId {
     /**

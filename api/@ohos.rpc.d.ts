@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IPC Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 declare namespace rpc {

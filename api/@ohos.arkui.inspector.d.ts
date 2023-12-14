@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Used to do observer layout and draw event for component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

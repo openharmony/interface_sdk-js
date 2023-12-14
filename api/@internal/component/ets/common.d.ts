@@ -54,6 +54,17 @@ declare interface InputCounterOptions {
    * @since 11
    */
   thresholdPercentage?: number;
+  
+  /**
+   * If the current input character count reaches the maximum character count and users want to exceed the
+   * normal input, the border will turn red. If this parameter is true, the red border displayed.
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  highlightBorder?: boolean;
 }
 
 /**
@@ -308,6 +319,16 @@ declare const BuilderParam: PropertyDecorator;
  * @form
  */
 declare const State: PropertyDecorator;
+
+/**
+ * Defining Track PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare const Track: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
@@ -1257,6 +1278,42 @@ declare interface Rectangle {
 }
 
 /**
+ * Interface for ExpectedFrameRateRange.
+ *
+ * @interface ExpectedFrameRateRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface ExpectedFrameRateRange {
+  /**
+   * The minimum animation drawing FPS.
+   * The minimum value should be less than or equal to the maximum value.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  min: number,
+  /**
+   * The maximum animation drawing FPS.
+   * The maximum value should be greater than or equal to the minimum value.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+  */
+  max: number,
+  /**
+   * The expected frame rate of dynamical callback rate range.
+   * The value should be between the minimum and maximum value.
+   * Otherwise, the actual callback rate will be dynamically
+   * adjusted to better align with other animation sources.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+  */
+  expected: number,
+}
+
+/**
  * global $r function
  *
  * @param { string } value
@@ -1679,6 +1736,15 @@ declare interface AnimateParam {
    * @form
    */
   finishCallbackType?: FinishCallbackType;
+
+  /**
+   * Set the animation drawing FPS.
+   *
+   * @type { ?ExpectedFrameRateRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  expectedFrameRateRange?: ExpectedFrameRateRange;
 }
 
 /**
@@ -4678,6 +4744,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_THIN,
 
@@ -4695,6 +4762,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_REGULAR,
 
@@ -4712,6 +4780,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_THICK,
 
@@ -4729,6 +4798,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   BACKGROUND_ULTRA_THICK,
 
@@ -4750,6 +4820,56 @@ declare enum BlurStyle {
    * @form
    */  
   NONE,    
+
+  /**
+   * Defines the ultra thin component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_ULTRA_THIN = 8,
+
+  /**
+   * Defines the thin component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_THIN = 9,
+
+  /**
+   * Defines the regular component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_REGULAR = 10,
+
+  /**
+   * Defines the thick component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_THICK = 11,
+
+  /**
+   * Defines the ultra thick component material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  COMPONENT_ULTRA_THICK = 12,
 }
 
 /**
@@ -8395,12 +8515,12 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Defines sheet detents
    *
-   * @type { ?[(SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length)?] }
+   * @type { ?[(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  detents?: [(SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length), (SheetSize.LARGE | SheetSize.MEDIUM | Length)?];
+  detents?: [(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?];
 
   /**
    * Defines sheet background blur Style
@@ -8425,14 +8545,14 @@ declare interface SheetOptions extends BindOptions {
   showClose?: boolean | Resource;
 
   /**
-   * Defines the sheet type
+   * Defines the sheet prefer type
    *
    * @type { ?(SheetType.CENTER | SheetType.POPUP) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  type?: SheetType.CENTER | SheetType.POPUP;
+  preferType?: SheetType.CENTER | SheetType.POPUP;
 
   /**
    * Defines the sheet title
@@ -16943,6 +17063,13 @@ declare module 'DragControllerParam' {
   }
 }
 
+declare module 'ExpectedFrameRateRange' {
+  module 'ExpectedFrameRateRange' {
+    // @ts-ignore
+    export type { ExpectedFrameRateRange };
+  }
+}
+
 /**
  * Define EdgeEffect Options.
  *
@@ -17083,4 +17210,45 @@ declare interface LightSource {
    * @since 11
    */
   intensity: number;
+}
+
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
+
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class WrappedBuilder<Args extends Object[]> {
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  builder: (...args: Args) => void;
+
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  constructor(builder: (...args: Args) => void);
+}
+
+declare module "wrappedBuilderObject" {
+  module "wrappedBuilderObject" {
+    // @ts-ignore
+    export { WrappedBuilder };
+  }
 }

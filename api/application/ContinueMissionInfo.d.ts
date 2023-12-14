@@ -57,5 +57,13 @@ export interface ContinueMissionInfo {
    * @systemapi Hide this for inner system user.
    * @since 10
    */
-  wantParam: { [key: string]: Object };
+  /**
+   * Indicates the extended param.
+   *
+   * @type { Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system user.
+   * @since 11
+   */
+  wantParam: Record<string, Object>;
 }

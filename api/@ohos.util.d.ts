@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
  *
@@ -2230,6 +2235,17 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     encodeSync(src: Uint8Array): Uint8Array;
 
