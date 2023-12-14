@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
  *
  * @namespace xml

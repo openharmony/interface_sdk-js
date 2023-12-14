@@ -12,7 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
+/**
+ * @file
+ * @kit ArkTS
+ */
+
 /**
  * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has
  * references pointing to the previous element and the next element. When querying an element,

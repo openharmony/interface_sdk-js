@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Localization Kit
+ */
+
+/**
  * Provides internationalization related APIs.
  *
  * @namespace intl

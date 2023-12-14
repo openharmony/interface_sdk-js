@@ -62,6 +62,9 @@ class Project {
 
     if (profile.app.products) {
       const compileSdkVersion = profile.app.products[0].compileSdkVersion;
+      if (typeof compileSdkVersion === 'number') {
+        return compileSdkVersion;
+      }
       const version = compileSdkVersion.match(/\((.+)\)/g)[0].replace(/\(|\)/g, '');
       return version;
     }

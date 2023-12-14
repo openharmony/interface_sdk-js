@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Telephony Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -721,6 +726,26 @@ declare namespace sim {
    * @since 6
    */
   function getIMSI(slotId: number): Promise<string>;
+
+  /**
+   * Indicates whether the SIM card in a specified slot is a specified operator.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { OperatorSimCard } operator - Indicates the operator of sim.
+   * @returns { boolean } Returns {@code true} if the SIM card is specified operator; return {@code false} otherwise.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function isOperatorSimCard(slotId: number, operator: OperatorSimCard): boolean;
 
   /**
    * Checks whether a SIM card is inserted in a specified slot.
@@ -2904,6 +2929,25 @@ declare namespace sim {
      * @since 11
      */
     DSDS_MODE_V5_DSDA = 3,
+  }
+
+  /**
+   * Indicates the operator of SIM.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum OperatorSimCard {
+    /**
+     * Indicates the China Telecom card.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    CHINA_TELECOM_CARD = 'china_telecom_card',
   }
 }
 

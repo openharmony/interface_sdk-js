@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -43,6 +48,15 @@ declare namespace childProcessManager {
      * @since 11
      */
     SELF_FORK = 0,
+
+    /**
+     * Fork child process by app spawn.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 11
+     */
+    APP_SPAWN_FORK = 1,
   }
 
   /**

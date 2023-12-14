@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ads Kit
+ */
+
 import type common from './@ohos.app.ability.common';
 import type { Advertisement as _Advertisement } from './advertising/advertisement';
 

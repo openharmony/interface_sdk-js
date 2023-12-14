@@ -27,13 +27,13 @@ interface NotificationSortingMap {
   /**
    * An array of notification sort information.
    *
-   * @type { object }
+   * @type { Record<string, NotificationSorting> }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
    */
-  readonly sortings: { [key: string]: NotificationSorting };
+  readonly sortings: Record<string, NotificationSorting>;
 
   /**
    * Notification unique identification array.

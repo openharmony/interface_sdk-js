@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Distributed Service Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**

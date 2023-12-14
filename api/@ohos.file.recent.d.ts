@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Core File Kit
+ */
+
+/**
  * Provides the recycling ability to the file manager.
  *
  * @namespace recent
