@@ -62,6 +62,9 @@ class Project {
 
     if (profile.app.products) {
       const compileSdkVersion = profile.app.products[0].compileSdkVersion;
+      if (typeof compileSdkVersion === 'number') {
+        return compileSdkVersion;
+      }
       const version = compileSdkVersion.match(/\((.+)\)/g)[0].replace(/\(|\)/g, '');
       return version;
     }
@@ -225,6 +228,7 @@ class Sdk {
     }
     this.esLibs = [];
     FileSystem.listFiles(libPath, (filePath) => path.basename(filePath).endsWith('.d.ts'), this.esLibs);
+    FileSystem.listFiles(libPath, (filePath) => path.basename(filePath).endsWith('.d.ets'), this.esLibs);
     return this.esLibs;
   }
 
@@ -235,6 +239,7 @@ class Sdk {
     }
     const subDir = path.resolve(sdkRoot, dir);
     FileSystem.listFiles(subDir, (filePath) => path.basename(filePath).endsWith('.d.ts'), dest);
+    FileSystem.listFiles(subDir, (filePath) => path.basename(filePath).endsWith('.d.ets'), dest);
   }
 }
 

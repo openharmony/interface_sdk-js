@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { ValueType } from './@ohos.data.ValuesBucket';
 
 /**

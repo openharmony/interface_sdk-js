@@ -43,10 +43,11 @@ class ApiJsonWriter {
 }
 
 class ApiExcelWriter {
-  constructor(outputDir) {
+  constructor(outputDir, noRepeat) {
     this.outputDir = outputDir;
     this.apiInfos = [];
     this.enable = true;
+    this.noRepeat = noRepeat;
   }
 
   close() {
@@ -67,6 +68,11 @@ class ApiExcelWriter {
     if (!this.enable) {
       return;
     }
+    this.writeSubscribeApi();
+    this.writeAppApi();
+  }
+
+  async writeSubscribeApi() {
     const apiInfoSet = new Set();
     const subscribeWorkbook = new exceljs.Workbook();
     const subscribeSheet = subscribeWorkbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
@@ -74,8 +80,9 @@ class ApiExcelWriter {
     let lineNumber = 0;
     const STARTING_LINE_NUMBER = 2;
     this.apiInfos.forEach((apiInfo, index) => {
-      const typeName = apiInfo.qualifiedTypeName ? apiInfo.qualifiedTypeName : (apiInfo.typeName ? apiInfo.typeName : 'unnamed');
-      
+      const typeName = apiInfo.qualifiedTypeName ? apiInfo.qualifiedTypeName :
+        (apiInfo.typeName ? apiInfo.typeName : 'unnamed');
+
       if (!apiInfoSet.has(formatInfo(apiInfo, typeName))) {
         subscribeSheet.getRow(lineNumber + STARTING_LINE_NUMBER).values = [
           typeName,
@@ -91,31 +98,48 @@ class ApiExcelWriter {
     const subscribeBuffer = await subscribeWorkbook.xlsx.writeBuffer();
     const subscribeOutputFile = path.resolve(this.outputDir, 'subscribe_api.xlsx');
     fs.writeFileSync(subscribeOutputFile, subscribeBuffer);
+  }
+
+  async writeAppApi() {
+    let lineNumber = 0;
+    const apiInfoSet = new Set();
     const workbook = new exceljs.Workbook();
     const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
     sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '文件位置'];
     this.apiInfos.forEach((apiInfo, index) => {
       const typeName = apiInfo.componentName ? apiInfo.componentName :
         (apiInfo.typeName ? apiInfo.typeName : apiInfo.qualifiedTypeName);
-      sheet.getRow(index + STARTING_LINE_NUMBER).values = [
-        path.basename(apiInfo.packageName, '.d.ts').replace('@', ''),
-        typeName,
-        apiInfo.propertyName,
-        apiInfo.apiRawText,
-        `${apiInfo.sourceFileName}(${apiInfo.pos})`
-      ];
+      if (this.noRepeat && !apiInfoSet.has(formatInfo(apiInfo, typeName))) {
+        this.createSheet(sheet, typeName, apiInfo, lineNumber);
+        apiInfoSet.add(formatInfo(apiInfo, typeName));
+        lineNumber++;
+      } else if (!this.noRepeat) {
+        this.createSheet(sheet, typeName, apiInfo, index);
+      }
     });
     const buffer = await workbook.xlsx.writeBuffer();
     const outputFile = path.resolve(this.outputDir, 'app_api.xlsx');
     fs.writeFileSync(outputFile, buffer);
     Logger.info('ApiExcelWriter', `report is in ${outputFile}`);
   }
+
+  createSheet(sheet, typeName, apiInfo, lineNumber) {
+    const STARTING_LINE_NUMBER = 2;
+    sheet.getRow(lineNumber + STARTING_LINE_NUMBER).values = [
+      path.basename(apiInfo.packageName, '.d.ts').replace('@', ''),
+      typeName,
+      apiInfo.propertyName,
+      apiInfo.apiRawText,
+      `${apiInfo.sourceFileName}(${apiInfo.pos})`
+    ];
+  }
 }
 
 class ApiWriter {
-  constructor(outputPath, formatFlag) {
+  constructor(outputPath, formatFlag, noRepeat) {
     this.outputPath = outputPath;
     this.formatFlag = formatFlag;
+    this.noRepeat = noRepeat;
     this.apiInfos = [];
   }
 
@@ -143,7 +167,7 @@ class ApiWriter {
   }
 
   async writeExcel(apiInfos) {
-    const apiExcelWriter = new ApiExcelWriter(this.outputPath);
+    const apiExcelWriter = new ApiExcelWriter(this.outputPath, this.noRepeat);
     apiExcelWriter.add(apiInfos);
     await apiExcelWriter.flush();
   }

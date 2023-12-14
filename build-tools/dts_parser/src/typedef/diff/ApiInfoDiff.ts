@@ -443,6 +443,8 @@ export enum ApiDiffType {
   SINCE_VERSION_NA_TO_HAVE,
   SINCE_VERSION_HAVE_TO_NA,
   SINCE_VERSION_A_TO_B,
+  HISTORICAL_JSDOC_CHANGE,
+  HISTORICAL_API_CHANGE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -579,6 +581,8 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_A_TO_B, '起始版本号变更'],
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, '起始版本号删除'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本号新增'],
+  [ApiDiffType.HISTORICAL_JSDOC_CHANGE, '历史版本jsdoc变更'],
+  [ApiDiffType.HISTORICAL_API_CHANGE, '历史版本API变更'],
 ]);
 
 export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
@@ -616,4 +620,6 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.TYPE_ALIAS_REDUCE,
   ApiDiffType.ENUM_MEMBER_VALUE_CHANGE,
   ApiDiffType.REDUCE,
+  ApiDiffType.HISTORICAL_JSDOC_CHANGE,
+  ApiDiffType.HISTORICAL_API_CHANGE,
 ]);

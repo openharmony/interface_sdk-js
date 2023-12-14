@@ -330,6 +330,35 @@ declare enum EnterKeyType {
 }
 
 /**
+ * Provides the method of keeping TextInput editable state when submitted.
+ *
+ * @interface TextInputOptions -> SubmitEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface SubmitEvent {
+  /**
+   * Keeps TextInput editable state when submitted
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  keepEditableState(): void;
+
+  /**
+   * Sets the current value of TextInput.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  text: string;
+}
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
@@ -995,14 +1024,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { function } callback
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
+  onSubmit(callback: (enterKey: EnterKeyType, event: SubmitEvent) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
@@ -1360,13 +1389,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when using the Clipboard menu
    *
    * @param { function } callback
-   * @returns { TextInputAttribute }
+   *          Executed when a paste operation is performed.
+   *          { string } value - The text content to be pasted.
+   *          { PasteEvent } event - The user-defined paste event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPaste(callback: (value: string) => void): TextInputAttribute;
+  onPaste(callback: (value: string, event: PasteEvent) => void): TextInputAttribute;
 
   /**
    * Called when the copy option is set.

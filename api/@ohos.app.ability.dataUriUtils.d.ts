@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * Utility class used for handling objects that use the DataAbilityHelper scheme.
  *
  * @namespace dataUriUtils

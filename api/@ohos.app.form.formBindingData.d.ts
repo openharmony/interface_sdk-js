@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Form Kit
+ */
+
 import { BusinessError } from './@ohos.base';
 
 /**

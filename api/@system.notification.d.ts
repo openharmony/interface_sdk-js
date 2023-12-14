@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Notification Kit
+ */
+
+/**
  * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
  * @since 3

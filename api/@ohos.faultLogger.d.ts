@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit Lancet Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -21,6 +26,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
  * @since 8
  */
+
+
 declare namespace FaultLogger {
   /**
    * The type of fault type.

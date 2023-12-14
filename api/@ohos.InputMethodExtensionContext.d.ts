@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IME Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import ExtensionContext from './application/ExtensionContext';
 

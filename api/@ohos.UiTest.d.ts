@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Test Kit
+ */
+
 import type { Callback } from './@ohos.base';
 
 /**
@@ -1153,6 +1158,7 @@ declare interface WindowFilter {
    * @since 11
    */
   bundleName?: string;
+
   /**
    * The title of the window.
    *
@@ -1169,6 +1175,7 @@ declare interface WindowFilter {
    * @since 11
    */
   title?: string;
+
   /**
    * The focal state of the window.
    *
@@ -1185,6 +1192,7 @@ declare interface WindowFilter {
    * @since 11
    */
   focused?: boolean;
+
   /**
    * The active state of the window.
    *
@@ -1197,10 +1205,21 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @deprecated since 11
+   * @useinstead ohos.UiTest.WindowFilter#active
+   */
+  actived?: boolean;
+
+  /**
+   * The active state of the window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
    */
-  actived?: boolean;
+  active?: boolean;
 }
 
 /**
@@ -1905,6 +1924,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1930,6 +1950,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1955,6 +1976,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1983,6 +2005,20 @@ declare class On {
    * @test
    */
   inWindow(bundleName: string): On;
+
+  /**
+   * Specifies the description for the target Component.
+   *
+   * @param { string } val The description value.
+   * @param { MatchPattern } pattern The {@link MatchPattern} of the description value, default to {@link MatchPattern.EQUALS}
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 11
+   * @test
+   */
+  description(val: string, pattern?: MatchPattern): On;
 }
 
 /**
@@ -2796,6 +2832,7 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -2823,11 +2860,25 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
    */
   pinchIn(scale: number): Promise<void>;
+
+  /**
+   * Get the description attribute value.
+   *
+   * @returns { Promise<string> } the description value.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 11
+   * @test
+   */
+  getDescription(): Promise<string>;
 }
 
 /**
@@ -3138,6 +3189,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -3167,6 +3219,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -3654,6 +3707,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -3970,6 +4024,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -4062,8 +4117,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @since 11
+   * @deprecated since 11
+   * @useinstead ohos.UiTest.UiWindow#isActive
    * @test
    */
   isActived(): Promise<boolean>;
@@ -4279,6 +4335,19 @@ declare class UiWindow {
    * @test
    */
   close(): Promise<void>;
+
+  /**
+   * Get the active status of this {@link UiWindow}.
+   *
+   * @returns { Promise<boolean> } the active status.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 11
+   * @test
+   */
+  isActive(): Promise<boolean>;
 }
 
 /**
@@ -4309,6 +4378,7 @@ declare class PointerMatrix {
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -4334,6 +4404,7 @@ declare class PointerMatrix {
    * @param { Point } point The coordinate of target step to set.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test

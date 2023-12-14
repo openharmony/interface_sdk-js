@@ -1618,6 +1618,32 @@ declare interface Position {
   y?: Length;
 }
 
+declare interface Bias {
+  /**
+   * Horizontal ratio of the Bias, it must be >= 0.
+   *
+   * @type { ?number }
+   * @default 0.5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  horizontal?: number;
+
+  /**
+   * Vertical ratio of the Bias, it must be >= 0.
+   *
+   * @type { ?number }
+   * @default 0.5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  vertical?: number;
+}
+
 /**
  * Defines the constrain size options.
  *
@@ -2214,9 +2240,43 @@ declare class ColorFilter {
   constructor(value: number[]);
 }
 
+/**
+ * Defines TouchPoint
+ *
+ * @interface TouchPoint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface TouchPoint {
+  /**
+   * Define the touch point x coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  x: Dimension;
+
+  /**
+   * Define the touch point y coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  y: Dimension;
+}
+
 declare module "GlobalResource" {
   module "GlobalResource" {
     // @ts-ignore
     export type { Resource, ResourceStr };
+  }
+}
+
+declare module 'DragControllerUnitParam' {
+  module 'DragControllerUnitParam' {
+    // @ts-ignore
+    export type {ResourceColor, TouchPoint };
   }
 }

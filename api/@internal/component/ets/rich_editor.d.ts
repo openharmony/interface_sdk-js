@@ -327,6 +327,16 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   decoration?: { type: TextDecorationType; color?: ResourceColor; };
+
+  /**
+   * Text shadow
+   *
+   * @type { ?(ShadowOptions | Array<ShadowOptions>) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textShadow?: ShadowOptions | Array<ShadowOptions>;
 }
 
 
@@ -1265,6 +1275,26 @@ declare interface RichEditorImageSpanOptions {
 }
 
 /**
+ * Defines the builder span options of RichEditor.
+ *
+ * @interface RichEditorBuilderSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorBuilderSpanOptions {
+  /**
+   * The offset that add custom builder span at.
+   *
+   * @type { ?number } Indicates the index where the builder will be inserted
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  offset?: number;
+}
+
+/**
  * Defines span style option of RichEditor.
  *
  * @interface RichEditorSpanStyleOptions
@@ -1722,6 +1752,18 @@ declare class RichEditorController {
    * @since 11
    */
   addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
+
+  /**
+   * Add a builder span.
+   *
+   * @param { CustomBuilder } value - Indicates the custom builder node
+   * @param { RichEditorBuilderSpanOptions } [options] - span option.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): number;
 
   /**
    * Modify span style.

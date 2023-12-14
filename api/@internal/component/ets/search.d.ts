@@ -889,13 +889,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Called when using the Clipboard menu
    *
    * @param { function } callback
-   * @returns { SearchAttribute }
+   *          Executed when a paste operation is performed.
+   *          { string } value - The text content to be pasted.
+   *          { PasteEvent } event - The user-defined paste event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPaste(callback: (value: string) => void): SearchAttribute;
+  onPaste(callback: (value: string, event: PasteEvent) => void): SearchAttribute;
 
   /**
    * Called when the copy option is set.

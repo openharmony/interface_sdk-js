@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * LightWeightSet stores a set of values, each of which must be unique.
  *
  * @namespace LightWeightSet

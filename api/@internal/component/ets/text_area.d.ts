@@ -821,13 +821,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when using the Clipboard menu
    *
    * @param { function } callback
-   * @returns { TextAreaAttribute }
+   *          Executed when a paste operation is performed.
+   *          { string } value - The text content to be pasted.
+   *          { PasteEvent } event - The user-defined paste event.
+   * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPaste(callback: (value: string) => void): TextAreaAttribute;
+  onPaste(callback: (value: string, event: PasteEvent) => void): TextAreaAttribute;
 
   /**
    * Called when the copy option is set.

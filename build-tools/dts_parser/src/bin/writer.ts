@@ -2,7 +2,7 @@ import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
 import { LogUtil } from '../utils/logUtil';
-import { ToolNameExcelCallback, joinNewMessage, joinOldMessage } from './config';
+import { ToolNameExcelCallback, joinNewMessage, joinOldMessage, ToolReturnData } from './config';
 import { BasicDiffInfo, diffTypeMap } from '../typedef/diff/ApiInfoDiff';
 import { FunctionUtils } from '../utils/FunctionUtils';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
@@ -15,7 +15,7 @@ export namespace WriterHelper {
   }
 
   export async function ExcelReporter(
-    data: Array<any>,
+    data: ToolReturnData,
     dest: string,
     fileName: string,
     callback: ToolNameExcelCallback | undefined
@@ -69,10 +69,11 @@ export namespace WriterHelper {
         '| 操作 | 旧版本 | 新版本 | d.ts文件 |\n' + '| ---- | ------ | ------ | -------- |\n';
       for (let i = 0; i < diffInfos.length; i++) {
         let diffInfo: BasicDiffInfo = diffInfos[i];
+        const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
         markDownContent +=
           `|${diffTypeMap.get(diffInfo.getDiffType())}|${MarkdownReporter.formatDiffMessage(
             joinOldMessage(diffInfo)
-          )}` + `|${MarkdownReporter.formatDiffMessage(joinNewMessage(diffInfo))}|${diffInfo.getNewDtsName()}|\n`;
+          )}` + `|${MarkdownReporter.formatDiffMessage(joinNewMessage(diffInfo))}|${dtsName.replace(/\\/g, '/')}|\n`;
       }
       const mdFilesDir = `${dest}\\diff合集`;
       if (!fs.existsSync(mdFilesDir)) {

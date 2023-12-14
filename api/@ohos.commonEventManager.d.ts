@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Notification Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
@@ -1975,7 +1980,17 @@ declare namespace commonEventManager {
       * @systemapi
       * @since 10
       */
-    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
+
+    /**
+      * Indicates that the privacy status is changed.
+      * This is a protected common event that can only be sent by system.
+      *
+      * @syscap SystemCapability.Notification.CommonEvent
+      * @systemapi
+      * @since 11
+      */
+    COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
   }
 
   /**
@@ -1983,6 +1998,13 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Describes the data of the common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export type CommonEventData = _CommonEventData;
 
@@ -1992,6 +2014,13 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
+  /**
+   * Describes the subscriber of common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
   /**
@@ -2000,6 +2029,13 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
 
   /**
@@ -2007,6 +2043,13 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }
