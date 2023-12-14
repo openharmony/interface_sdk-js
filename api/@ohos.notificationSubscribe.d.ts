@@ -113,7 +113,7 @@ declare namespace notificationSubscribe {
    * Subscribe self notifications.
    *
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { AsyncCallback<void> } callback - The callback of subscribe.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -124,7 +124,7 @@ declare namespace notificationSubscribe {
    * @systemapi
   * @since 11
    */
-  function subscribeSelf(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
+  function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
    * Subscribe to notifications.
