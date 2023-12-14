@@ -8651,6 +8651,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
+
+  /**
+   * Set whether interaction is allowed outside the sheet.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enableOutsideInteractive?: boolean;
 }
 
 /**
