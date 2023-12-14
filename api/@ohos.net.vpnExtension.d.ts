@@ -69,6 +69,8 @@ declare namespace vpn {
 
   /**
    * Set the Enable/Disable Always on VPN mode for a device.
+   * 
+   * @permission ohos.permission.MANAGE_VPN
    * @param { boolean } enable - Always on enable or disable
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
@@ -77,10 +79,12 @@ declare namespace vpn {
    * @StageModelOnly
    * @since 11
    */
-  function setAlwaysOnVpn(enable: boolean): Promise<void>;
+  function setAlwaysOnVpnEnabled(enable: boolean): Promise<void>;
 
   /**
-   * get the Always on VPN mode status for a device.
+   * Get the Always on VPN mode status for a device.
+   * 
+   * @permission ohos.permission.MANAGE_VPN
    * @returns { Promise<boolean>} return the mode for alway on vpn status
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -88,10 +92,12 @@ declare namespace vpn {
    * @StageModelOnly
    * @since 11
    */
-  function getAlwaysOnVpn(): Promise<boolean>;
+  function isAlwaysOnVpnEnabled(): Promise<boolean>;
 
   /**
-   * update a VPN dialog authorize information
+   * Update a VPN dialog authorize information
+   * 
+   * @permission ohos.permission.MANAGE_VPN
    * @param { string } bundleName - authorize or not
    * @returns { boolean } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
@@ -100,9 +106,10 @@ declare namespace vpn {
    * @StageModelOnly
    * @since 11
    */
-  function addRight(bundleName: string): boolean;
+  function updateVpnAuthorizeState(bundleName: string): boolean;
   /**
    * Create a VPN connection using the VpnExtensionContext.
+   * 
    * @param { VpnExtensionContext } context - Indicates the context of application or capability.
    * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -114,6 +121,7 @@ declare namespace vpn {
 
   /**
    * Defines a VPN connection.
+   * 
    * @interface VpnConnection
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
@@ -122,6 +130,7 @@ declare namespace vpn {
  
     /**
      * Create a VPN network using the VpnConfig.
+     * 
      * @permission ohos.permission.MANAGE_VPN
      * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
      * @returns { Promise<number> } The promise returns file descriptor of VPN interface.
@@ -140,6 +149,7 @@ declare namespace vpn {
     /**
      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
      * underlying network so its traffic will not be forwarded through the VPN.
+     * 
      * @permission ohos.permission.MANAGE_VPN
      * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
      * @returns { Promise<void> } The promise returned by the function.
@@ -156,6 +166,7 @@ declare namespace vpn {
  
     /**
      * Destroy the VPN network.
+     * 
      * @permission ohos.permission.MANAGE_VPN
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -170,6 +181,7 @@ declare namespace vpn {
 
   /**
    * Define configuration of the VPN network.
+   * 
    * @interface VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
@@ -177,6 +189,7 @@ declare namespace vpn {
   export interface VpnConfig {
     /**
      * The array of addresses for VPN interface.
+     * 
      * @type {Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -185,6 +198,7 @@ declare namespace vpn {
  
     /**
      * The array of routes for VPN interface.
+     * 
      * @type {?Array<RouteInfo>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -193,6 +207,7 @@ declare namespace vpn {
 
     /**
      * The array of DNS servers for the VPN network.
+     * 
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -201,6 +216,7 @@ declare namespace vpn {
  
     /**
      * The array of search domains for the DNS resolver.
+     * 
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -209,6 +225,7 @@ declare namespace vpn {
  
     /**
      * The maximum transmission unit (MTU) for the VPN interface.
+     * 
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -217,6 +234,7 @@ declare namespace vpn {
  
     /**
      * Whether ipv4 is supported. The default value is true.
+     * 
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -225,6 +243,7 @@ declare namespace vpn {
  
     /**
      * Whether ipv6 is supported. The default value is false.
+     * 
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -233,6 +252,7 @@ declare namespace vpn {
  
     /**
      * Whether to use the built-in VPN. The default value is false.
+     * 
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -241,6 +261,7 @@ declare namespace vpn {
  
     /**
      * Whether the VPN interface's file descriptor is in blocking/non-blocking mode. The default value is false.
+     * 
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -249,6 +270,7 @@ declare namespace vpn {
  
     /**
      * The array of trustlist for the VPN network. The string indicates package name.
+     * 
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
@@ -257,6 +279,7 @@ declare namespace vpn {
  
     /**
      * The array of blocklist for the VPN network. The string indicates package name.
+     * 
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
