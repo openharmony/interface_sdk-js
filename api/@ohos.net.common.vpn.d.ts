@@ -81,7 +81,7 @@ declare namespace vpn {
 
   /**
    * get the Always on VPN mode status for a device.
-   * @returns { Promise<boolean>;} return the mode for alway on vpn status
+   * @returns { Promise<boolean>} return the mode for alway on vpn status
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
@@ -93,7 +93,7 @@ declare namespace vpn {
   /**
    * update a VPN dialog authorize information
    * @param { string } bundleName - authorize or not
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { boolean } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
