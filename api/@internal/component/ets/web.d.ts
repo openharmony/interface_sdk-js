@@ -5864,6 +5864,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onNativeEmbedGestureEvent(callback: (event: NativeEmbedTouchInfo) => void): WebAttribute;
+
+  /**
+   * Called to set copy option
+   * 
+   * @param { CopyOptions } value - copy option.
+   * @returns { WebAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  copyOptions(value: CopyOptions): WebAttribute;
 }
 
 /**
