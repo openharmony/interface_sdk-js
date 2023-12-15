@@ -28,7 +28,10 @@ export class TagNameCheck {
       errorInfo: '',
     };
     const legalTagArr: string[] = tagsArrayOfOrder.concat(officialTagArr);
-    const tagsName: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
+    const tagsName: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+    if (tagsName === undefined) {
+      return tagNameCheckResult;
+    }
     tagsName.forEach((tag) => {
       if (!legalTagArr.includes(tag.tag)) {
         tagNameCheckResult.state = false;

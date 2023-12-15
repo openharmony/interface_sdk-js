@@ -38,7 +38,6 @@ export class ApiNamingCheck {
     const lowIdentifier: string = singleApi.getDefinedText().toLowerCase();
     ApiNamingCheck.checkApiNamingWords(lowIdentifier, tagNameCheckResult);
     ApiNamingCheck.checkApiNamingScenario(lowIdentifier, tagNameCheckResult, singleApi);
-    console.log(apiVersionToBeVerified);
     return tagNameCheckResult;
   }
 

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
  *
  * @namespace curves

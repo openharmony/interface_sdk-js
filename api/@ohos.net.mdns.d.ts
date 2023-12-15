@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Network Kit
+ */
+
 import { AsyncCallback, Callback } from "./@ohos.base";
 import connection from "./@ohos.net.connection";
 import Context from "./application/Context";

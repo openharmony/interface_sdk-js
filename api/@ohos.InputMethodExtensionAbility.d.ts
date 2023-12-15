@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IME Kit
+ */
+
 import Want from './@ohos.app.ability.Want';
 import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContext';
 

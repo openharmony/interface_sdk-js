@@ -27,7 +27,10 @@ export class OrderCheck {
       state: true,
       errorInfo: '',
     };
-    const tagsOrder: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
+    const tagsOrder: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+    if (tagsOrder === undefined) {
+      return orderCheckResult;
+    }
     for (let tagIndex = 0; tagIndex < tagsOrder.length; tagIndex++) {
       if (tagIndex + 1 < tagsOrder.length) {
         // 获取前后两个tag下标

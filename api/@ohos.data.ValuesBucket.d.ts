@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkData
+ */
+
+/**
  * Indicates possible value types
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core

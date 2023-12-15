@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The uri module provides utilities for URI resolution and parsing.
  *
  * @namespace uri

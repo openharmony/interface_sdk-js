@@ -14,11 +14,18 @@
 */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the popup text options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
+
+
 export interface PopupTextOptions {
   /**
    * Set the text display content.

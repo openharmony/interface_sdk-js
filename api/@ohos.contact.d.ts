@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Contacts Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 

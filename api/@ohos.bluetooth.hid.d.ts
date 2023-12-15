@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import type baseProfile from './@ohos.bluetooth.baseProfile';
 
 /**

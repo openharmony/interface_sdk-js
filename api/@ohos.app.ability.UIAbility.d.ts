@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import UIAbilityContext from './application/UIAbilityContext';

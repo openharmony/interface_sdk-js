@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit IME Kit
+ */
+
+/**
  * Input method subtype
  *
  * @interface InputMethodSubtype

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import distributedAccount from './@ohos.account.distributedAccount';
 import { AsyncCallback, Callback } from './@ohos.base';
 

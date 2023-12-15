@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Multimodal Awareness Kit
+ */
+
 import type { Callback } from './@ohos.base';
 
 /**
