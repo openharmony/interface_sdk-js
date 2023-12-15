@@ -2450,24 +2450,175 @@ declare namespace appAccount {
    * @deprecated since 9
    */
   enum ResultCode {
+    /**
+    * Indicates the success result.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     SUCCESS = 0,
+
+    /**
+    * Indicates the result of account not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_ACCOUNT_NOT_EXIST = 10001,
+
+    /**
+    * Indicates the result of account service exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
+
+    /**
+    * Indicates the result of password is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_PASSWORD = 10003,
+
+    /**
+    * Indicates the result of request is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_REQUEST = 10004,
+
+    /**
+    * Indicates the result of response is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_RESPONSE = 10005,
+
+    /**
+    * Indicates the result of network exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_NETWORK_EXCEPTION = 10006,
+
+    /**
+    * Indicates the result of network exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
+
+    /**
+    * Indicates the result of auth has been canceled.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_CANCELED = 10008,
+
+    /**
+    * Indicates the result of auth list is too large.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_LIST_TOO_LARGE = 10009,
+
+    /**
+    * Indicates the result of auth service is busy.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SERVICE_BUSY = 10010,
+
+    /**
+    * Indicates the result of auth service exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
+
+    /**
+    * Indicates the result of auth session is not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
+
+    /**
+    * Indicates the result of auth timeout.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TIMEOUT = 10013,
+
+    /**
+    * Indicates the result of token is not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
+
+    /**
+    * Indicates the result of token is too many.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
+
+    /**
+    * Indicates the result of not supported action.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
+
+    /**
+    * Indicates the result of not supported auth type.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
+
+    /**
+    * Indicates the result of permission denied.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_PERMISSION_DENIED = 10018
   }
 

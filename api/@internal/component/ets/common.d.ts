@@ -9898,6 +9898,26 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * Callback function before the context menu animation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToAppear?: () => void;
+
+  /**
+   * Callback function before the context menu popAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToDisappear?: () => void;
   
   /**
    * The preview animator options.
