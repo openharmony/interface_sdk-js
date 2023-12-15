@@ -20,7 +20,6 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 interface SymbolGlyphInterface {
   /**
@@ -31,7 +30,6 @@ interface SymbolGlyphInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   (value: Resource): SymbolGlyphAttribute;
 }
@@ -43,7 +41,6 @@ interface SymbolGlyphInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare enum SymbolRenderingStrategy {
   /**
@@ -52,7 +49,6 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   SINGLE = 0,
 
@@ -62,7 +58,6 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   MULTIPLE_COLOR = 1,
 
@@ -72,7 +67,6 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   MULTIPLE_OPACITY = 2,
 }
@@ -84,7 +78,6 @@ declare enum SymbolRenderingStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare enum SymbolEffectStrategy {
   /**
@@ -93,7 +86,6 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   NONE = 0,
 
@@ -103,7 +95,6 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   SCALE = 1,
 
@@ -113,7 +104,6 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   HIERARCHICAL = 2,
 }
@@ -123,7 +113,6 @@ declare enum SymbolEffectStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
@@ -134,7 +123,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
@@ -146,7 +134,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
@@ -158,7 +145,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
@@ -170,7 +156,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
@@ -182,7 +167,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 }
@@ -193,7 +177,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare const SymbolGlyph: SymbolGlyphInterface;
 
@@ -203,6 +186,5 @@ declare const SymbolGlyph: SymbolGlyphInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare const SymbolGlyphInstance: SymbolGlyphAttribute;

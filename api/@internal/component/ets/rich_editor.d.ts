@@ -869,7 +869,7 @@ declare interface RichEditorSymbolSpanStyleResult {
   /**
    * Font weight.
    *
-   * @type { ?(number | FontWeight | string) }
+   * @type { number | FontWeight | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -889,7 +889,7 @@ declare interface RichEditorSymbolSpanStyleResult {
   /**
    * Symbol span renderingstrategy.
    *
-   * @type { ?SymbolRenderingStrategy }
+   * @type { SymbolRenderingStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -931,7 +931,7 @@ declare interface RichEditorTextSpanResult {
   spanPosition: RichEditorSpanPosition;
 
   /**
-   * The content of the text span.pan
+   * The content of the text span.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1652,7 +1652,7 @@ declare interface RichEditorSelection {
   /**
    * The selected text content.
    *
-   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11

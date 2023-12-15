@@ -20,7 +20,6 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 interface SymbolSpanInterface {
   /**
@@ -31,7 +30,6 @@ interface SymbolSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   (value: Resource): SymbolSpanAttribute;
 }
@@ -41,7 +39,6 @@ interface SymbolSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
@@ -52,7 +49,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
@@ -64,7 +60,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
@@ -76,7 +71,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
@@ -88,7 +82,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
@@ -100,7 +93,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 }
@@ -111,7 +103,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -121,6 +112,5 @@ declare const SymbolSpan: SymbolSpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;
