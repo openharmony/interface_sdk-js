@@ -10515,7 +10515,47 @@ declare interface AttributeModifier<T> {
    * @crossplatform
    * @since 11
    */
-  applyNormalAttribute(instance: T) : void;
+  applyNormalAttribute?(instance: T) : void;
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyPressedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyFocusedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyDisabledAttribute?(instance: T) : void;
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applySelectedAttribute?(instance: T) : void;
 }
 
 /**
