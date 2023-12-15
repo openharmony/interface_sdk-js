@@ -23,7 +23,7 @@
  */
 interface SymbolGlyphInterface {
   /**
-   * Called when anything is entered in SymbolGlyph.
+   * Called when resource is entered in SymbolGlyph.
    *
    * @param { Resource } value
    * @returns { SymbolGlyphAttribute }

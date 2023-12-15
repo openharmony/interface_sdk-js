@@ -23,7 +23,7 @@
  */
 interface SymbolSpanInterface {
   /**
-   * Called when anything is entered in SymbolSpan.
+   * Called when resource is entered in SymbolSpan.
    * 
    * @param { Resource } value
    * @returns { SymbolSpanAttribute }
