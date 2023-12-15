@@ -544,9 +544,25 @@ declare namespace reminderAgent {
    * @useinstead reminderAgentManager.ReminderRequestTimer
    */
   interface ReminderRequestTimer extends ReminderRequest {
+    /**
+     * value of triggerTimeInSeconds.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 7
+     * @deprecated since 9
+     * @useinstead reminderAgentManager.ReminderRequestTimer.triggerTimeInSeconds
+     */
     triggerTimeInSeconds: number;
   }
 
+  /**
+   * Local DateTime information.
+   *
+   * @interface LocalDateTime
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 7
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.ReminderRequestTimer
+   */
   interface LocalDateTime {
     /**
      * value of year.
