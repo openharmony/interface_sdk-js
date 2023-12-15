@@ -89,7 +89,6 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
-     *
      */
     cloudInfo: ServiceInfo;
 
