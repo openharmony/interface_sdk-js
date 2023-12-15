@@ -23,7 +23,7 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Communication.NetManager.Vpn
  * @since 11
  */
-declare namespace vpn {
+declare namespace vpnExtension {
   export type LinkAddress = connection.LinkAddress;
   export type RouteInfo = connection.RouteInfo;
   export type VpnExtensionContext = _VpnExtensionContext;
@@ -79,7 +79,7 @@ declare namespace vpn {
    * @StageModelOnly
    * @since 11
    */
-  function setAlwaysOnVpnEnabled(enable: boolean): Promise<void>;
+  function setAlwaysOnVpnEnabled(enable: boolean, bundleName: string): Promise<void>;
 
   /**
    * Get the Always on VPN mode status for a device.
@@ -92,7 +92,7 @@ declare namespace vpn {
    * @StageModelOnly
    * @since 11
    */
-  function isAlwaysOnVpnEnabled(): Promise<boolean>;
+  function isAlwaysOnVpnEnabled(bundleName: string): Promise<boolean>;
 
   /**
    * Update a VPN dialog authorize information
@@ -112,7 +112,6 @@ declare namespace vpn {
    * 
    * @param { VpnExtensionContext } context - Indicates the context of application or capability.
    * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 11
