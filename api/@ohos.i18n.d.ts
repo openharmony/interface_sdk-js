@@ -27,6 +27,14 @@ import { BusinessError } from './@ohos.base';
  * @syscap SystemCapability.Global.I18n
  * @since 7
  */
+/**
+ * Provides international settings related APIs.
+ *
+ * @namespace i18n
+ * @syscap SystemCapability.Global.I18n
+ * @form
+ * @since 11
+ */
 declare namespace i18n {
   /**
    * Obtains the country or region name localized for display on a given locale.
@@ -107,6 +115,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
    */
@@ -234,6 +243,7 @@ declare namespace i18n {
      * @returns { string } the language currently used by the system.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 11
      */
@@ -338,6 +348,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Check out whether system is 24-hour system.
+     *
+     * @returns { boolean } a boolean represent whether system is 24-hour system.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @since 11
      */
     static is24HourClock(): boolean;
 
