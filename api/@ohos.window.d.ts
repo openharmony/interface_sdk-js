@@ -728,6 +728,15 @@ declare namespace window {
     windowRect: Rect;
 
     /**
+     * The position relative to the window and size of drawable area
+     *
+     * @type { Rect } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    drawableRect: Rect;
+    
+    /**
      * Window type
      *
      * @type { WindowType }
