@@ -29,6 +29,14 @@ import { Resource } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
+/**
+ * Defines the options of MeasureText.
+ *
+ * @interface MeasureOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 export interface MeasureOptions {
   /**
    * Text to display.
@@ -190,6 +198,15 @@ export default class MeasureText {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Displays the textWidth.
+   *
+   * @param { MeasureOptions } options - Options.
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   static measureText(options: MeasureOptions): number;
 
   /**
@@ -199,6 +216,15 @@ export default class MeasureText {
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Displays the text width and height.
+   *
+   * @param { MeasureOptions } options - Options of measure area occupied by text.
+   * @returns { SizeOptions } width and height for text to display \
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
 }
