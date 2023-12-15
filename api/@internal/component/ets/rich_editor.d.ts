@@ -856,56 +856,6 @@ declare interface RichEditorSymbolSpanStyleResult {
 }
 
 /**
- * Defines the symbol span result.
- *
- * @interface RichEditorSymbolSpanResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
-declare interface RichEditorSymbolSpanResult {
-  /**
-   * The position of the symbol span.
-   *
-   * @type { RichEditorSpanPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  spanPosition: RichEditorSpanPosition;
-
-  /**
-   * Symbol span style.
-   *
-   * @type { RichEditorSymbolSpanStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  symbolSpanStyle: RichEditorSymbolSpanStyle;
-
-  /**
-   * The resource string of the symbol span.
-   *
-   * @type { ?Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  valueResource?: Resource;
-
-  /**
-   * get offset in symbol span.
-   *
-   * @type { [number, number] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  offsetInSpan: [number, number];
-}
-
-/**
  * Defines the text span result.
  *
  * @interface RichEditorTextSpanResult
@@ -1680,12 +1630,12 @@ declare interface RichEditorSelection {
   /**
    * The selected text content.
    *
-   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult> }
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  spans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult>;
+  spans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
 
 /**
@@ -1816,12 +1766,12 @@ declare interface RichEditorDeleteValue {
   /**
    * The deleted span object.
    *
-   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult> }
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult>;
+  richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
 /**
  * Defines the options of RichEditor.
