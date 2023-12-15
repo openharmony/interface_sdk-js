@@ -438,6 +438,31 @@ declare const Link: PropertyDecorator;
 declare const ObjectLink: PropertyDecorator;
 
 /**
+ * Defines the options of Provide PropertyDecorator.
+ *
+ * @interface ProvideOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ProvideOptions {
+  /**
+   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
+   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  allowOverride?: string,
+}
+
+/**
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -467,7 +492,7 @@ declare const ObjectLink: PropertyDecorator;
  * @since 11
  * @form
  */
-declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
  * Defining Consume PropertyDecorator.
