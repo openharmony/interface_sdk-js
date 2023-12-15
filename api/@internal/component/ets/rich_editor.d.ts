@@ -795,56 +795,6 @@ declare interface RichEditorParagraphResult {
   range: [number, number];
 }
 
-/**
- * Defines the symbol span result.
- *
- * @interface RichEditorSymbolSpanResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
- */
-declare interface RichEditorSymbolSpanResult {
-  /**
-   * The position of the symbol span.
-   *
-   * @type { RichEditorSpanPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  spanPosition: RichEditorSpanPosition;
-
-  /**
-   * Symbol span style.
-   *
-   * @type { RichEditorSymbolSpanStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  symbolSpanStyle: RichEditorSymbolSpanStyle;
-
-  /**
-   * The resource string of the symbol span.
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  valueResourceStr: Resource;
-
-  /**
-   * Get offset in symbol span.
-   *
-   * @type { [number, number] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  offsetInSpan: [number, number];
-}
-
 declare interface RichEditorSymbolSpanStyleResult {
   /**
    * Font size.
@@ -980,6 +930,26 @@ declare interface RichEditorTextSpanResult {
    * @since 11
    */
   offsetInSpan: [number, number];
+
+  /**
+   * Symbol span style.
+   *
+   * @type { RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolSpanStyle: RichEditorSymbolSpanStyle;
+
+  /**
+   * The resource string of the symbol span.
+   *
+   * @type { Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  valueResource: Resource;
 }
 
 /**
@@ -2044,12 +2014,12 @@ declare class RichEditorController {
    * Get span content.
    *
    * @param { RichEditorRange } [value] - range for getting span info.
-   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult | RichEditorSymbolSpanResult> }
+   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult | RichEditorSymbolSpanResult>;
+  getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
 
   /**
    * Get span content.
