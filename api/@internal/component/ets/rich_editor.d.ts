@@ -942,7 +942,7 @@ declare interface RichEditorTextSpanResult {
   /**
    * Symbol span style.
    *
-   * @type { RichEditorSymbolSpanStyle }
+   * @type { ?RichEditorSymbolSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -952,7 +952,7 @@ declare interface RichEditorTextSpanResult {
   /**
    * The resource string of the symbol span.
    *
-   * @type { Resource }
+   * @type { ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
