@@ -882,7 +882,7 @@ declare interface RichEditorSymbolSpanResult {
    * @crossplatform
    * @since 11
    */
-  symbolSpanStyle?: RichEditorSymbolSpanStyle;
+  symbolSpanStyle: RichEditorSymbolSpanStyle;
 
   /**
    * The resource string of the symbol span.
@@ -897,7 +897,7 @@ declare interface RichEditorSymbolSpanResult {
   /**
    * get offset in symbol span.
    *
-   * @type { ?[number, number] }
+   * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
