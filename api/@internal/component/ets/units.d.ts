@@ -789,7 +789,7 @@ declare type BorderRadiuses = {
  */
 declare type OutlineRadiuses = {
   /**
-   * top-left outline radius property.
+   * top-left property.
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -800,7 +800,7 @@ declare type OutlineRadiuses = {
   topLeft?: Dimension;
 
   /**
-   * top-right outline radius property.
+   * top-right property.
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -811,7 +811,7 @@ declare type OutlineRadiuses = {
   topRight?: Dimension;
 
   /**
-   * bottom-left outline radius property.
+   * bottom-left property.
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -822,7 +822,7 @@ declare type OutlineRadiuses = {
   bottomLeft?: Dimension;
 
   /**
-   * bottom-right outline radius property.
+   * bottom-right property.
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1127,7 +1127,7 @@ declare type EdgeStyles = {
  */
 declare type EdgeOutlineStyles = {
   /**
-   * top outline style property.
+   * top property.
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1138,7 +1138,7 @@ declare type EdgeOutlineStyles = {
   top?: OutlineStyle;
 
   /**
-   * right outline style property.
+   * right property.
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1149,7 +1149,7 @@ declare type EdgeOutlineStyles = {
   right?: OutlineStyle;
 
   /**
-   * bottom outline style property.
+   * bottom property.
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1160,7 +1160,7 @@ declare type EdgeOutlineStyles = {
   bottom?: OutlineStyle;
 
   /**
-   * left outline style property.
+   * left property.
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

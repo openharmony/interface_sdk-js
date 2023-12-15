@@ -30,7 +30,6 @@ ambisonic
 ambisonics
 amr
 animatable
-animatetoparam
 annually
 antialias
 apdu
@@ -53,7 +52,6 @@ atomicservice
 atqa
 attaches
 attachment0
-attributemodifier
 attribs
 audios
 authenticates
@@ -210,7 +208,6 @@ downmix
 dpad
 drains
 dragbar
-dragcontrollerparam
 drawbuffer
 dsda
 dsds
@@ -704,7 +701,6 @@ spawns
 spay
 spdy
 speakerphone
-specialevent
 specificed
 speedratings
 spellcheck
@@ -854,7 +850,6 @@ unsuspended
 uplink
 useriam
 userspace
-usesizetype
 usim
 ussd
 utilized
