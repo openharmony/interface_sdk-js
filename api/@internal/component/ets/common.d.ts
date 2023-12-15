@@ -257,6 +257,17 @@ declare const Observed: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
+ * Defining Require PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare const Require: PropertyDecorator;
+
+/**
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
