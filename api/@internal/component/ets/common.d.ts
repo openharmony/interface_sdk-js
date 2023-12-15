@@ -10519,6 +10519,47 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Outline Style
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum OutlineStyle {
+  /**
+   * Shows as a solid line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  SOLID = 0,
+
+  /**
+   * Shows as a series of short square dashed lines.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  DASHED = 1,
+
+  /**
+   * Displays as a series of dots with a radius of half the borderWidth.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  DOTTED = 2,
+}
+
+/**
  * Defines the drag preview mode.
  *
  * @enum { number }
@@ -11623,6 +11664,67 @@ declare class CommonMethod<T> {
    * @form
    */
   borderImage(value: BorderImageOption): T;
+
+  /**
+   * Opacity
+   * width:Outline width;color:Outline color;radius:Outline radius;
+   *
+   * @param { OutlineOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outline(value: OutlineOptions): T;
+
+  /**
+   * Outline style
+   *
+   * @param { OutlineStyle | EdgeOutlineStyles } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
+
+  /**
+   * Outline width
+   *
+   * @param { Dimension | EdgeOutlineWidths } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineWidth(value: Dimension | EdgeOutlineWidths): T;
+
+  /**
+   * Outline color
+   *
+   * @param { ResourceColor | EdgeColors } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineColor(value: ResourceColor | EdgeColors): T;
+
+  /**
+   * Outline radius
+   *
+   * @param { Dimension | OutlineRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineRadius(value: Dimension | OutlineRadiuses): T;
 
   /**
    * Provides the general foreground color capability of UI components, and assigns color values
