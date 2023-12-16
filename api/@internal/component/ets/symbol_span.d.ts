@@ -88,7 +88,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
   /**
-   * Called when the symbolGlyph renderingstrategy is set.
+   * Called when the symbolGlyph rendering strategy is set.
    *
    * @param { SymbolRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
