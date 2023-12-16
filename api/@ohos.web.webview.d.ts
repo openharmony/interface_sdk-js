@@ -294,6 +294,53 @@ declare namespace webview {
   }
 
   /**
+   * Defines the security level for the page.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  enum SecurityLevel {
+    /**
+     * Unable to determine whether it is safe or not, the non-http/https protocol used.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    NONE = 0,
+
+    /**
+     * Indicates the HTTPS protocol used by the page and the authentication is successful.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    SECURE = 1,
+
+    /**
+     * The page is insecure. For example, the HTTP protocol is used or the HTTPS protocol
+     * is used but use an legacy TLS version.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    WARNING = 2,
+
+    /**
+     * Attempted HTTPS and failed, the authentication is failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    DANGEROUS = 3,
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    * 
    * @interface HitTestValue
@@ -3695,6 +3742,18 @@ declare namespace webview {
      * @since 11
      */
     createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
+
+    /**
+     * Get the security level of the current page.
+     *
+     * @returns { SecurityLevel } the security level of current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    getSecurityLevel(): SecurityLevel;
 
     /**
      * Whether the incognito mode is set.
