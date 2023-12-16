@@ -35,7 +35,7 @@ interface SymbolGlyphInterface {
 }
 
 /**
- * Set The symbol renderingstrategy.
+ * The symbol renderingstrategy.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -44,7 +44,7 @@ interface SymbolGlyphInterface {
  */
 declare enum SymbolRenderingStrategy {
   /**
-   * Set a single strategy.
+   * The single renderingstrategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -53,7 +53,7 @@ declare enum SymbolRenderingStrategy {
   SINGLE = 0,
 
   /**
-   * Set a multiple color strategy.
+   * The multiple color renderingstrategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -62,7 +62,7 @@ declare enum SymbolRenderingStrategy {
   MULTIPLE_COLOR = 1,
 
   /**
-   * Set a multiple opacity strategy.
+   * The multiple opacity renderingstrategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -72,7 +72,7 @@ declare enum SymbolRenderingStrategy {
 }
 
 /**
- * Set The symbol effectstrategy.
+ * The symbol effectstrategy.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -81,7 +81,7 @@ declare enum SymbolRenderingStrategy {
  */
 declare enum SymbolEffectStrategy {
   /**
-   * There is no strategy.
+   * There is no effectstrategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -90,7 +90,7 @@ declare enum SymbolEffectStrategy {
   NONE = 0,
 
   /**
-   * The scale strategy.
+   * The scale effectstrategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -99,7 +99,7 @@ declare enum SymbolEffectStrategy {
   SCALE = 1,
 
   /**
-   * The hierarchical strategy.
+   * The hierarchical effectstrategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
