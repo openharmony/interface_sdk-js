@@ -137,6 +137,7 @@ cpx
 cpy
 creatable
 crl
+crls
 crops
 crosshair
 crowdtest

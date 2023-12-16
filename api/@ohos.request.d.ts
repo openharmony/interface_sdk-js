@@ -2314,9 +2314,11 @@ declare namespace request {
    * Uses `multipart/form-data` in client request for upload.
    * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
    * More details, please see the architecture documents of the request subsystem.
+   * Only front-end mode is supported in cross-platform scenarios.
    *
    * @namespace agent
    * @syscap SystemCapability.Request.FileTransferAgent
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -2333,6 +2335,7 @@ declare namespace request {
      *
      * @enum { number } Action
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2347,6 +2350,7 @@ declare namespace request {
        * Indicates download task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2361,6 +2365,7 @@ declare namespace request {
        * Indicates upload task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2379,6 +2384,7 @@ declare namespace request {
      *
      * @enum { number } Mode
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2400,6 +2406,7 @@ declare namespace request {
        * Indicates foreground task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2418,6 +2425,7 @@ declare namespace request {
      *
      * @enum { number } Network
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2432,6 +2440,7 @@ declare namespace request {
        * Indicates no restriction on network type.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2446,6 +2455,7 @@ declare namespace request {
        * Indicates Wi-Fi only.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2460,6 +2470,7 @@ declare namespace request {
        * Indicates cellular only.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2497,6 +2508,7 @@ declare namespace request {
      *
      * @typedef FileSpec
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2513,6 +2525,7 @@ declare namespace request {
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2531,6 +2544,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2547,6 +2561,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2563,6 +2578,7 @@ declare namespace request {
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2581,6 +2597,7 @@ declare namespace request {
      *
      * @typedef FormItem
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2597,6 +2614,7 @@ declare namespace request {
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2613,6 +2631,7 @@ declare namespace request {
        *
        * @type { string | FileSpec | Array<FileSpec> }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2635,6 +2654,7 @@ declare namespace request {
      *
      * @typedef Config
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2651,6 +2671,7 @@ declare namespace request {
        *
        * @type { Action }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2671,6 +2692,7 @@ declare namespace request {
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2691,6 +2713,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2711,6 +2734,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2730,12 +2754,15 @@ declare namespace request {
        * The default is background.
        * For frontend task, it has callbacks.
        * For background task, it has notifications and fallback.
+       * The cross-platform default is FOREGROUND.
        *
        * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
+
       mode?: Mode;
       /**
        * The solution choice when path already exists during download.
@@ -2755,6 +2782,7 @@ declare namespace request {
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2777,6 +2805,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2797,6 +2826,7 @@ declare namespace request {
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2819,6 +2849,7 @@ declare namespace request {
        *
        * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2843,6 +2874,7 @@ declare namespace request {
        * @type { ?string }
        * @default ./
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2861,6 +2893,7 @@ declare namespace request {
        * @type { ?Network }
        * @default Network.ANY
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2881,6 +2914,7 @@ declare namespace request {
        * @type { ?boolean }
        * @default false
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2899,6 +2933,7 @@ declare namespace request {
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2935,6 +2970,7 @@ declare namespace request {
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2955,6 +2991,7 @@ declare namespace request {
        *
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -2979,6 +3016,7 @@ declare namespace request {
        *
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3003,6 +3041,7 @@ declare namespace request {
        *
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3043,6 +3082,7 @@ declare namespace request {
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3071,6 +3111,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3098,6 +3139,7 @@ declare namespace request {
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3116,6 +3158,7 @@ declare namespace request {
      *
      * @enum { number } State
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3130,6 +3173,7 @@ declare namespace request {
        * Indicates a task created by `new Task(Config)`.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3144,6 +3188,7 @@ declare namespace request {
        * Indicates a task lack of resources or conditions to run or retry.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3158,6 +3203,7 @@ declare namespace request {
        * Indicates a task in processing now.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3172,6 +3218,7 @@ declare namespace request {
        * Indicates a task failed once at least and in processing again now.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3186,6 +3233,7 @@ declare namespace request {
        * Indicates a paused task which tends to be resumed for continuous work.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3200,6 +3248,7 @@ declare namespace request {
        * Indicates a stopped task which must be started again.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3214,6 +3263,7 @@ declare namespace request {
        * Indicates a completed task which finish its data transfer.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3228,6 +3278,7 @@ declare namespace request {
        * Indicates a failed task which interrupted by some error.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3242,6 +3293,7 @@ declare namespace request {
        * Indicates a removed task which can not be processed again.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3276,6 +3328,7 @@ declare namespace request {
      *
      * @typedef Progress
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3294,6 +3347,7 @@ declare namespace request {
        * @type { State }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3312,6 +3366,7 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3330,6 +3385,7 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3348,6 +3404,7 @@ declare namespace request {
        * @type { Array<number> }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3372,6 +3429,7 @@ declare namespace request {
        * @type { ?object }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3390,6 +3448,7 @@ declare namespace request {
      *
      * @enum { number }
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3404,6 +3463,7 @@ declare namespace request {
        * Indicates others failure.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3418,6 +3478,7 @@ declare namespace request {
        * Indicates network disconnection.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3432,6 +3493,7 @@ declare namespace request {
        * Indicates task timeout.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3446,6 +3508,7 @@ declare namespace request {
        * Indicates protocol error, such as 5xx response from server.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3460,6 +3523,7 @@ declare namespace request {
        * Indicates filesystem io error, such as open/seek/read/write/close.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3474,6 +3538,16 @@ declare namespace request {
      * @typedef Filter
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
+     */
+    /**
+     * The filter data structure.
+     * Used for search, given fields works as **LOGICAL AND**.
+     * Invalid value may cause a parameter error.
+     *
+     * @typedef Filter
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
      */
     interface Filter {
       /**
@@ -3495,6 +3569,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Specify the end Unix timestamp.
+       * The default is the moment of calling.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       before?: number;
       /**
        * Specify the start Unix timestamp.
@@ -3503,6 +3586,15 @@ declare namespace request {
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Specify the start Unix timestamp.
+       * The default is "`before` - 24 hours".
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       after?: number;
       /**
@@ -3513,6 +3605,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Specify the state of tasks.
+       * The default is any state.
+       *
+       * @type { ?State }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       state?: State;
       /**
        * Specify the action of tasks, "upload" or "download", case insensitive.
@@ -3522,6 +3623,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Specify the action of tasks, "upload" or "download", case insensitive.
+       * The default is upload and download.
+       *
+       * @type { ?Action }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       action?: Action;
       /**
        * Specify task's mode.
@@ -3530,6 +3640,15 @@ declare namespace request {
        * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Specify task's mode.
+       * The default is frontend.
+       *
+       * @type { ?Mode }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       mode?: Mode;
     }
@@ -3541,6 +3660,15 @@ declare namespace request {
      * @typedef TaskInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
+     */
+    /**
+     * The task information data structure for query results.
+     * Provides common query and advanced query, visible range of fields is different.
+     *
+     * @typedef TaskInfo
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
      */
     interface TaskInfo {
       /**
@@ -3572,6 +3700,14 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The path to save the downloaded file.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly saveas?: string;
       /**
        * The url of a task.
@@ -3583,6 +3719,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The url of a task.
+       * For `${ show }` and `${ touch }`.
+       *
+       * @type { ?string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly url?: string;
       /**
        * The arguments.
@@ -3593,6 +3739,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The arguments.
+       * For `${ show }` and `${ touch }`.
+       *
+       * @type { ?(string | Array<FormItem>) }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly data?: string | Array<FormItem>;
       /**
        * The task id.
@@ -3601,6 +3756,15 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The task id.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       readonly tid: string;
       /**
@@ -3611,6 +3775,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The task title.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly title: string;
       /**
        * The task details.
@@ -3619,6 +3792,15 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The task details.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       readonly description: string;
       /**
@@ -3629,6 +3811,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The task action.
+       *
+       * @type { Action }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly action: Action;
       /**
        * Specify task mode.
@@ -3637,6 +3828,15 @@ declare namespace request {
        * @type { Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * Specify task mode.
+       * The default is frontend.
+       *
+       * @type { Mode }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       readonly mode: Mode;
       /**
@@ -3658,6 +3858,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The MIME type in the configuration of the task.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly mimeType: string;
       /**
        * An instance of `Progress` for a task.
@@ -3666,6 +3875,15 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * An instance of `Progress` for a task.
+       *
+       * @type { Progress }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       readonly progress: Progress;
       /**
@@ -3686,6 +3904,16 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The creating date and time of a task in Unix timestamp.
+       * It is generated by system of current device.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly ctime: number;
       /**
        * The modified date and time of a task in Unix timestamp.
@@ -3695,6 +3923,16 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The modified date and time of a task in Unix timestamp.
+       * It is generated by system of current device.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       readonly mtime: number;
       /**
@@ -3724,6 +3962,15 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The faults case of a task.
+       *
+       * @type { Faults }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly faults: Faults;
       /**
        * The reason of a waiting/failed/stopped/paused task.
@@ -3732,6 +3979,15 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
+       */
+      /**
+       * The reason of a waiting/failed/stopped/paused task.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
        */
       readonly reason: string;
       /**
@@ -3744,13 +4000,22 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * The extras of a task.
+       * For frontend, nothing now.
+       *
+       * @type { ?object }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 11
+       */
       readonly extras?: object;
     }
 
     /**
      * The task entry.
      * New task' status is "initialized" and enqueue.
-     * For background, no callbacks.
      * Can `start` a initialized task.
      * Can `pause` a waiting/running/retrying background task.
      * Can `resume` a paused background task.
@@ -3763,7 +4028,6 @@ declare namespace request {
     /**
      * The task entry.
      * New task' status is "initialized" and enqueue.
-     * For background, no callbacks.
      * Can `start` a initialized task.
      * Can `pause` a waiting/running/retrying background task.
      * Can `resume` a paused background task.
@@ -3771,6 +4035,7 @@ declare namespace request {
      *
      * @typedef Task
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3791,6 +4056,7 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3807,6 +4073,7 @@ declare namespace request {
        *
        * @type { Config }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3828,6 +4095,7 @@ declare namespace request {
        * @param { function } callback - callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3849,6 +4117,7 @@ declare namespace request {
        * @param { function } callback - callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3870,6 +4139,7 @@ declare namespace request {
        * @param { function } callback - callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3891,6 +4161,7 @@ declare namespace request {
        * @param { function } callback - callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3912,6 +4183,7 @@ declare namespace request {
        * @param { function } callback - callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -3933,6 +4205,7 @@ declare namespace request {
        * @param { function } callback - callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -4017,6 +4290,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - task service ability error.
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -4041,6 +4315,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - task service ability error.
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -4149,6 +4424,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - task service ability error.
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -4169,6 +4445,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - task service ability error.
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 11
        */
@@ -4198,7 +4475,7 @@ declare namespace request {
      */
     /**
      * Creates a task for upload or download and enqueue it.
-     * When an application enters the background, the frontend tasks associated
+     * When an application enters the background, the frontend tasks associated.
      * with it will gradually be paused until the application returns to the foreground. 
      *
      * @permission ohos.permission.INTERNET
@@ -4212,6 +4489,7 @@ declare namespace request {
      * @throws { BusinessError } 21900004 - application task queue full error.
      * @throws { BusinessError } 21900005 - task mode error.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4240,11 +4518,8 @@ declare namespace request {
      */
     /**
      * Creates a task for upload or download and enqueue it.
-     * Only foreground application can create the frontend task.
-     * It can deal only one frontend task at a time.
-     * A in processing frontend task will be forced to stop when its application had switched to background.
-     * A new frontend task will interrupt a existed in processing frontend task.
-     * The background task is highly recommended.
+     * When an application enters the background, the frontend tasks associated.
+     * with it will gradually be paused until the application returns to the foreground.
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
@@ -4257,6 +4532,7 @@ declare namespace request {
      * @throws { BusinessError } 21900004 - application task queue full error.
      * @throws { BusinessError } 21900005 - task mode error.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4299,6 +4575,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4326,6 +4603,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4342,6 +4620,18 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Shows specified task details belongs to the caller.
+     *
+     * @param { string } id the task id.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
+     */
     function show(id: string, callback: AsyncCallback<TaskInfo>): void;
 
     /**
@@ -4354,6 +4644,18 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
+     */
+    /**
+     * Shows specified task details belongs to the caller.
+     *
+     * @param { string } id the task id.
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
      */
     function show(id: string): Promise<TaskInfo>;
 
@@ -4369,6 +4671,19 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Touches specified task with token.
+     *
+     * @param { string } id the task id.
+     * @param { string } token the in-application isolation key.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
+     */
     function touch(id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
 
     /**
@@ -4383,6 +4698,19 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Touches specified task with token.
+     *
+     * @param { string } id the task id.
+     * @param { string } token the in-application isolation key.
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
+     */
     function touch(id: string, token: string): Promise<TaskInfo>;
 
     /**
@@ -4393,6 +4721,16 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
+     */
+    /**
+     * Searches tasks, for system.
+     *
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
      */
     function search(callback: AsyncCallback<Array<string>>): void;
 
@@ -4406,6 +4744,17 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
+    /**
+     * Searches tasks, for system.
+     *
+     * @param { Filter } filter an instance of `Filter`.
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 10
+     */
     function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -4417,6 +4766,17 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
+     */
+    /**
+     * Searches tasks, for system.
+     *
+     * @param { Filter } filter an instance of `Filter`.
+     * @returns { Promise<Array<string>> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
+     * @since 11
      */
     function search(filter?: Filter): Promise<Array<string>>;
 

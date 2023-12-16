@@ -257,6 +257,17 @@ declare const Observed: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
+ * Defining Require PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare const Require: PropertyDecorator;
+
+/**
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -427,6 +438,31 @@ declare const Link: PropertyDecorator;
 declare const ObjectLink: PropertyDecorator;
 
 /**
+ * Defines the options of Provide PropertyDecorator.
+ *
+ * @interface ProvideOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ProvideOptions {
+  /**
+   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
+   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  allowOverride?: string,
+}
+
+/**
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -456,7 +492,7 @@ declare const ObjectLink: PropertyDecorator;
  * @since 11
  * @form
  */
-declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
  * Defining Consume PropertyDecorator.
@@ -9868,6 +9904,26 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * Callback function before the context menu animation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToAppear?: () => void;
+
+  /**
+   * Callback function before the context menu popAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToDisappear?: () => void;
 }
 
 /**
@@ -10459,7 +10515,88 @@ declare interface AttributeModifier<T> {
    * @crossplatform
    * @since 11
    */
-  applyNormalAttribute(instance: T) : void;
+  applyNormalAttribute?(instance: T) : void;
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyPressedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyFocusedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyDisabledAttribute?(instance: T) : void;
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applySelectedAttribute?(instance: T) : void;
+}
+
+/**
+ * Outline Style
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum OutlineStyle {
+  /**
+   * Shows as a solid line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  SOLID = 0,
+
+  /**
+   * Shows as a series of short square dashed lines.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  DASHED = 1,
+
+  /**
+   * Displays as a series of dots with a radius of half the borderWidth.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  DOTTED = 2,
 }
 
 /**
@@ -11567,6 +11704,67 @@ declare class CommonMethod<T> {
    * @form
    */
   borderImage(value: BorderImageOption): T;
+
+  /**
+   * Opacity
+   * width:Outline width;color:Outline color;radius:Outline radius;
+   *
+   * @param { OutlineOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outline(value: OutlineOptions): T;
+
+  /**
+   * Outline style
+   *
+   * @param { OutlineStyle | EdgeOutlineStyles } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
+
+  /**
+   * Outline width
+   *
+   * @param { Dimension | EdgeOutlineWidths } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineWidth(value: Dimension | EdgeOutlineWidths): T;
+
+  /**
+   * Outline color
+   *
+   * @param { ResourceColor | EdgeColors } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineColor(value: ResourceColor | EdgeColors): T;
+
+  /**
+   * Outline radius
+   *
+   * @param { Dimension | OutlineRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineRadius(value: Dimension | OutlineRadiuses): T;
 
   /**
    * Provides the general foreground color capability of UI components, and assigns color values
