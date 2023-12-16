@@ -3959,6 +3959,18 @@ declare interface DragItemInfo {
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
+ * Define animation functions for immediate distribution.
+ *
+ * @param { AnimateParam } value - Set animation effect parameters.
+ * @param { function } event - Specify the closure function that displays dynamic effects,
+ * and the system will automatically insert transition animations for state changes caused by the closure function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare function animateToImmediately(value: AnimateParam, event: () => void): void;
+
+/**
  * Converts a value in vp units to a value in px.
  *
  * @param { number } value
