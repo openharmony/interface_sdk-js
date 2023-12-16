@@ -14,7 +14,7 @@
  */
 
 /**
- * Provides an interface for symbol span.
+ * Provides an interface for SymbolSpan.
  *
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23,7 +23,7 @@
  */
 interface SymbolSpanInterface {
   /**
-   * Called when resource is entered in Symbol Span.
+   * Called when resource is entered in SymbolSpan.
    * 
    * @param { Resource } value
    * @returns { SymbolSpanAttribute }
@@ -44,7 +44,7 @@ interface SymbolSpanInterface {
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
-   * Called when the SymbolGlyph size is set.
+   * Called when the SymbolSpan size is set.
    *
    * @param { number | string | Resource } value
    * @returns { SymbolSpanAttribute }
@@ -55,7 +55,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
   /**
-   * Called when the symbolGlyph color is set.
+   * Called when the SymbolSpan color is set.
    *
    * @param { Array<ResourceColor> } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
@@ -66,7 +66,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
   /**
-   * Called when the font symbolGlyph weight is set.
+   * Called when the font SymbolSpan weight is set.
    *
    * @param { number | FontWeight | string } value
    * @returns { SymbolSpanAttribute }
@@ -77,7 +77,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
   /**
-   * Called when the symbolGlyph effect is set.
+   * Called when the SymbolSpan effect is set.
    *
    * @param { SymbolEffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
@@ -88,7 +88,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
   /**
-   * Called when the symbolGlyph rendering strategy is set.
+   * Called when the SymbolSpan rendering strategy is set.
    *
    * @param { SymbolRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.

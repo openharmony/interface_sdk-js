@@ -14,7 +14,7 @@
  */
 
 /**
- * Provides an interface for Symbol Glyph.
+ * Provides an interface for SymbolGlyph.
  *
  * @interface SymbolGlyphInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23,7 +23,7 @@
  */
 interface SymbolGlyphInterface {
   /**
-   * Called when resource is entered in Symbol Glyph.
+   * Called when resource is entered in SymbolGlyph.
    *
    * @param { Resource } value
    * @returns { SymbolGlyphAttribute }
