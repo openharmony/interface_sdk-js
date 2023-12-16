@@ -599,7 +599,7 @@ declare interface RichEditorImageSpanStyle {
  */
 declare interface RichEditorSymbolSpanStyle {
   /**
-   * Font size.
+   * The font size.
    *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -609,7 +609,7 @@ declare interface RichEditorSymbolSpanStyle {
   fontSize?: number | string | Resource;
 
   /**
-   * Font color.
+   * The font color.
    *
    * @type { ?Array<ResourceColor> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -619,7 +619,7 @@ declare interface RichEditorSymbolSpanStyle {
   fontColor?: Array<ResourceColor>;
 
   /**
-   * Font weight.
+   * The font weight.
    *
    * @type { ?(number | FontWeight | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -629,7 +629,7 @@ declare interface RichEditorSymbolSpanStyle {
   fontWeight?: number | FontWeight | string;
 
   /**
-   * Symbol span effectstrategy.
+   * The symbol span effectstrategy.
    *
    * @type { ?SymbolEffectStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -639,7 +639,7 @@ declare interface RichEditorSymbolSpanStyle {
   effectStrategy?: SymbolEffectStrategy;
 
   /**
-   * Symbol span renderingstrategy.
+   * The symbol span renderingstrategy.
    *
    * @type { ?SymbolRenderingStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -805,7 +805,7 @@ declare interface RichEditorParagraphResult {
  */
 declare interface RichEditorSymbolSpanStyleResult {
   /**
-   * Font size.
+   * The font size.
    *
    * @type { number | string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -815,7 +815,7 @@ declare interface RichEditorSymbolSpanStyleResult {
   fontSize: number | string | Resource;
 
   /**
-   * Font color.
+   * The font color.
    *
    * @type { Array<ResourceColor> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -825,7 +825,7 @@ declare interface RichEditorSymbolSpanStyleResult {
   fontColor: Array<ResourceColor>;
 
   /**
-   * Font weight.
+   * The font weight.
    *
    * @type { number | FontWeight | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -835,7 +835,7 @@ declare interface RichEditorSymbolSpanStyleResult {
   fontWeight: number | FontWeight | string;
 
   /**
-   * Symbol span effectstrategy.
+   * The symbol span effectstrategy.
    *
    * @type { SymbolEffectStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -845,7 +845,7 @@ declare interface RichEditorSymbolSpanStyleResult {
   effectStrategy: SymbolEffectStrategy;
 
   /**
-   * Symbol span renderingstrategy.
+   * The symbol span renderingstrategy.
    *
    * @type { SymbolRenderingStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1547,7 +1547,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
  */
 declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
-   * Symbol span style.
+   * Update the symbol span style.
    *
    * @type { RichEditorSymbolSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1577,7 +1577,7 @@ declare interface RichEditorSymbolSpanOptions {
   offset?: [number, number];
 
   /**
-   * Symbol style
+   * The style that add custom symbol span at.
    *
    * @type { ?RichEditorSymbolSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
