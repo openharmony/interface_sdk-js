@@ -14,7 +14,7 @@
  */
 
 /**
- * Provides an interface for symbolspan.
+ * Provides an interface for symbol span.
  *
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23,7 +23,7 @@
  */
 interface SymbolSpanInterface {
   /**
-   * Called when resource is entered in SymbolSpan.
+   * Called when resource is entered in Symbol Span.
    * 
    * @param { Resource } value
    * @returns { SymbolSpanAttribute }
