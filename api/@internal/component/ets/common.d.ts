@@ -2157,6 +2157,26 @@ declare interface sharedTransitionOptions {
 }
 
 /**
+ * Defines the options of geometry transition.
+ *
+ * @interface GeometryTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface GeometryTransitionOptions {
+  /**
+   * whether follow target for the component still in the hierarchy, default: false, stay current.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  follow?: boolean;
+}
+
+/**
  * Defines the options of translate.
  *
  * @interface TranslateOptions
@@ -14514,6 +14534,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   geometryTransition(id: string): T;
+  /**
+   * Shared geometry transition
+   *
+   * @param { string } id - geometry transition id
+   * @param { GeometryTransitionOptions } options - Indicates the options of geometry transition.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
   /**
    * Popup control
