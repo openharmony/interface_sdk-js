@@ -35,6 +35,8 @@ interface SymbolSpanInterface {
 }
 
 /**
+ * Provides attribute for SymbolSpan.
+ * 
  * @extends CommonMethod<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

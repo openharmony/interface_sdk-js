@@ -109,6 +109,8 @@ declare enum SymbolEffectStrategy {
 }
 
 /**
+ * Provides attribute for SymbolGlyph.
+ * 
  * @extends CommonMethod<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
