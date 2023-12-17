@@ -591,14 +591,14 @@ declare namespace promptAction {
    * Open the custom dialog.
    *
    * @param { CustomDialogOptions } options - Options.
-   * @returns { number } return the dialog id that will be used by closeCustomDialog.
+   * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  function openCustomDialog(options: CustomDialogOptions): number;
+  function openCustomDialog(options: CustomDialogOptions): Promise<number>;
 
   /**
    * Close the custom dialog.
