@@ -9877,6 +9877,36 @@ declare enum MenuPreviewMode {
 }
 
 /**
+ * Defines the animator range of start and end property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare type AnimationRange<T> = [from: T, to: T];
+
+/**
+ * Defines the ContextMenu's preview animator options.
+ *
+ * @interface ContextMenuAnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface ContextMenuAnimationOptions {
+  /**
+   * Sets the start animator scale and end animator scale.
+   *
+   * @type { ?AnimationRange<number> }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  scale?: AnimationRange<number>;
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -10044,6 +10074,16 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   aboutToDisappear?: () => void;
+  
+  /**
+   * The preview animator options.
+   *
+   * @type { ?ContextMenuAnimationOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  previewAnimationOptions?: ContextMenuAnimationOptions;
 }
 
 /**
