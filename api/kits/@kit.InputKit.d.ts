@@ -13,33 +13,33 @@
  * limitations under the License.
  */
 
-import { PanelFlag, type PanelInfo, PanelType } from '../@ohos.inputMethod.Panel';
+import { PanelFlag, PanelInfo, PanelType } from '../@ohos.inputMethod.Panel';
 import { InputMethodListDialog, Pattern, PatternOptions } from '../@ohos.inputMethodList';
 import {
-  ActionType, type FourFingersSwipe, type Pinch, type Rotate, type ThreeFingersSwipe, type ThreeFingersTap
+  ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap
 } from '../@ohos.multimodalInput.gestureEvent';
 import inputConsumer from '../@ohos.multimodalInput.inputConsumer';
 import inputDevice from '../@ohos.multimodalInput.inputDevice';
 import inputDeviceCooperate from '../@ohos.multimodalInput.inputDeviceCooperate';
-import { type InputEvent } from '../@ohos.multimodalInput.inputEvent';
+import { InputEvent } from '../@ohos.multimodalInput.inputEvent';
 import inputEventClient from '../@ohos.multimodalInput.inputEventClient';
 import inputMonitor from '../@ohos.multimodalInput.inputMonitor';
 import { IntentionCode } from '../@ohos.multimodalInput.intentionCode';
 import { KeyCode } from '../@ohos.multimodalInput.keyCode';
-import { Action, type Key, type KeyEvent } from '../@ohos.multimodalInput.keyEvent';
+import { Action, Key, KeyEvent } from '../@ohos.multimodalInput.keyEvent';
 import {
-  Action as MouseAction, Axis, type AxisValue, Button, type MouseEvent, ToolType as MouseToolType
+  Action as MouseAction, Axis, AxisValue, Button, MouseEvent, ToolType as MouseToolType
 } from '../@ohos.multimodalInput.mouseEvent';
 import pointer from '../@ohos.multimodalInput.pointer';
 import shortKey from '../@ohos.multimodalInput.shortKey';
 import {
-  Action as KeyAction, SourceType, ToolType, type Touch, type TouchEvent
+  Action as KeyAction, SourceType, ToolType, Touch, TouchEvent
 } from '../@ohos.multimodalInput.touchEvent';
 
 export {
-  Action, ActionType, Axis, type AxisValue, Button, type FourFingersSwipe, type InputEvent, InputMethodListDialog,
-  IntentionCode, type Key, KeyAction, KeyCode, type KeyEvent, MouseAction, type MouseEvent, MouseToolType, PanelFlag,
-  type PanelInfo, PanelType, Pattern, PatternOptions, type Pinch, type Rotate, SourceType, type ThreeFingersSwipe,
-  type ThreeFingersTap, ToolType, type Touch, type TouchEvent, inputConsumer, inputDevice, inputDeviceCooperate,
+  Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, InputMethodListDialog,
+  IntentionCode, Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, PanelFlag,
+  PanelInfo, PanelType, Pattern, PatternOptions, Pinch, Rotate, SourceType, ThreeFingersSwipe,
+  ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer, inputDevice, inputDeviceCooperate,
   inputEventClient, inputMonitor, pointer, shortKey
 };

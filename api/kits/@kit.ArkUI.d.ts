@@ -14,8 +14,8 @@
  */
 
 import windowAnimationManager from '../@ohos.animation.windowAnimationManager';
-import Animator, { type AnimatorOptions, AnimatorResult } from '../@ohos.animator';
-import WindowExtensionAbility, { type WindowExtensionContext } from '../@ohos.application.WindowExtensionAbility';
+import Animator, { AnimatorOptions, AnimatorResult } from '../@ohos.animator';
+import WindowExtensionAbility, { WindowExtensionContext } from '../@ohos.application.WindowExtensionAbility';
 import { Breadcrumb, LabelInfo } from '../@ohos.arkui.advanced.Breadcrumb';
 import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
@@ -61,7 +61,7 @@ import inspector from '../@ohos.arkui.inspector';
 import uiObserver from '../@ohos.arkui.observer';
 import performanceMonitor from '../@ohos.arkui.performanceMonitor';
 import {
-  type AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, PromptAction, Router,
+  AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, PromptAction, Router,
   UIContext, UIInspector, UIObserver
 } from '../@ohos.arkui.UIContext';
 import curves from '../@ohos.curves';
@@ -69,7 +69,7 @@ import dragInteraction from '../@ohos.deviceStatus.dragInteraction';
 import display from '../@ohos.display';
 import font from '../@ohos.font';
 import matrix4 from '../@ohos.matrix4';
-import MeasureText, { type MeasureOptions } from '../@ohos.measure';
+import MeasureText, { MeasureOptions } from '../@ohos.measure';
 import mediaquery from '../@ohos.mediaquery';
 import PiPWindow from '../@ohos.PiPWindow';
 import pluginComponentManager from '../@ohos.pluginComponent';
@@ -80,39 +80,39 @@ import screen from '../@ohos.screen';
 import screenshot from '../@ohos.screenshot';
 import uiAppearance from '../@ohos.uiAppearance';
 import window from '../@ohos.window';
-import App, { type AppResponse, type RequestFullWindowOptions, type ScreenOnVisibleOptions } from '../@system.app';
-import Configuration, { type LocaleResponse } from '../@system.configuration';
-import SystemMediaQuery, { type MediaQueryEvent, type MediaQueryList } from '../@system.mediaquery';
+import App, { AppResponse, RequestFullWindowOptions, ScreenOnVisibleOptions } from '../@system.app';
+import Configuration, { LocaleResponse } from '../@system.configuration';
+import SystemMediaQuery, { MediaQueryEvent, MediaQueryList } from '../@system.mediaquery';
 import Prompt, {
-  type Button, type ShowActionMenuOptions, type ShowDialogOptions, type ShowDialogSuccessResponse,
-  type ShowToastOptions
+  Button, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
+  ShowToastOptions
 } from '../@system.prompt';
 import SystemRouter, {
-  type BackRouterOptions, type DisableAlertBeforeBackPageOptions, type EnableAlertBeforeBackPageOptions,
-  type RouterOptions, type RouterState
+  BackRouterOptions, DisableAlertBeforeBackPageOptions, EnableAlertBeforeBackPageOptions,
+  RouterOptions, RouterState
 } from '../@system.router';
 
 export {
-  AlertDialog, Animator, type AnimatorOptions, AnimatorResult, App, type AppResponse, type AtomicServiceBar,
-  type BackRouterOptions, Breadcrumb, type Button, ButtonOptions, CallbackParam,
+  AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
+  BackRouterOptions, Breadcrumb, Button, ButtonOptions, CallbackParam,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem,
-  CounterComponent, CounterOptions, CounterType, DateData, type DisableAlertBeforeBackPageOptions, DragController,
+  CounterComponent, CounterOptions, CounterType, DateData, DisableAlertBeforeBackPageOptions, DragController,
   DrawableDescriptor, EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditorEventInfo,
-  EditorMenuOptions, type EnableAlertBeforeBackPageOptions, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
+  EditorMenuOptions, EnableAlertBeforeBackPageOptions, ExpandedMenuOptions, Filter, FilterParams, FilterResult,
   FilterType, Font, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelInfo, LabelMarginOptions,
-  LabelOptions, LayeredDrawableDescriptor, LoadingDialog, type LocaleResponse, type MeasureOptions, MeasureText,
-  MediaQuery, type MediaQueryEvent, type MediaQueryList, NodeParam, OperateButton, OperateCheck, OperateIcon,
+  LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MeasureOptions, MeasureText,
+  MediaQuery, MediaQueryEvent, MediaQueryList, NodeParam, OperateButton, OperateCheck, OperateIcon,
   OperateItem, OperationOption, OperationType, PiPWindow, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
-  PopupTextOptions, PrefixIconOptions, ProgressButton, Prompt, PromptAction, type RequestFullWindowOptions, Router,
-  type RouterOptions, type RouterState, type ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
+  PopupTextOptions, PrefixIconOptions, ProgressButton, Prompt, PromptAction, RequestFullWindowOptions, Router,
+  RouterOptions, RouterState, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
-  SelectionMenuOptions, type ShowActionMenuOptions, type ShowDialogOptions, type ShowDialogSuccessResponse,
-  type ShowToastOptions, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SystemMediaQuery, SystemRouter,
+  SelectionMenuOptions, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
+  ShowToastOptions, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SystemMediaQuery, SystemRouter,
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility,
-  type WindowExtensionContext, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
+  WindowExtensionContext, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiObserver, window, windowAnimationManager
 };

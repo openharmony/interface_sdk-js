@@ -35,16 +35,16 @@ import TreeMap from '../@ohos.util.TreeMap';
 import TreeSet from '../@ohos.util.TreeSet';
 import Vector from '../@ohos.util.Vector';
 import worker, {
-  type DedicatedWorkerGlobalScope, type ErrorEvent, type Event, type EventListener, type EventTarget,
-  type MessageEvent, type MessageEvents, type PostMessageOptions, type ThreadWorkerGlobalScope,
-  type WorkerEventListener, type WorkerEventTarget, type WorkerOptions
+  DedicatedWorkerGlobalScope, ErrorEvent, Event, EventListener, EventTarget,
+  MessageEvent, MessageEvents, PostMessageOptions, ThreadWorkerGlobalScope,
+  WorkerEventListener, WorkerEventTarget, WorkerOptions
 } from '../@ohos.worker';
 import xml from '../@ohos.xml';
 
 export {
-  ArrayList, convertxml, type DedicatedWorkerGlobalScope, Deque, type ErrorEvent, type Event, type EventListener,
-  type EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, type MessageEvent,
-  type MessageEvents, PlainArray, type PostMessageOptions, Queue, Stack, type ThreadWorkerGlobalScope, TreeMap,
-  TreeSet, Vector, type WorkerEventListener, type WorkerEventTarget, type WorkerOptions, buffer, process, taskpool,
+  ArrayList, convertxml, DedicatedWorkerGlobalScope, Deque, ErrorEvent, Event, EventListener,
+  EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
+  MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
+  TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, buffer, process, taskpool,
   uri, url, util, worker, xml
 };

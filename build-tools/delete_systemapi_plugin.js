@@ -59,7 +59,7 @@ function tsTransformKitFile(url) {
   if (kitFileNeedDeleteMap.length === 0) {
     return;
   }
-  const kitPath = path.resolve(url, './kit');
+  const kitPath = path.resolve(url, './kits');
   const kitFiles = [];
   readFile(kitPath, kitFiles); // 读取文件
   kitFiles.forEach((kitFile) => {
@@ -70,16 +70,19 @@ function tsTransformKitFile(url) {
     const content = fs.readFileSync(kitFile, 'utf-8');
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
-    sourceFile = getKitNewSourceFile(sourceFile, kitName);
+    const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
     const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-    let result = printer.printNode(ts.EmitHint.Unspecified, sourceFile, sourceFile);
+    let result = printer.printNode(ts.EmitHint.Unspecified, sourceInfo.sourceFile, sourceFile);
+    if (sourceInfo.copyrightMessage !== '') {
+      result = sourceInfo.copyrightMessage + result;
+    }
     writeFile(kitFile, result);
   });
 }
 
 /**
  * 处理kit中需要删除的节点，在其他文件被systemapi修饰的api
- * @param { ts.sourceFile } sourceFile
+ * @param { ts.SourceFile } sourceFile
  * @param { string } kitName
  * @returns 删除完的节点，全部删除为空字符串
  */
@@ -87,13 +90,16 @@ function getKitNewSourceFile(sourceFile, kitName) {
   const newStatements = [];
   const needDeleteExportName = new Set();
   const needDeleteMap = kitFileNeedDeleteMap.get(kitName);
+  let copyrightMessage = '';
   // 初始化ts工厂
   const factory = ts.factory;
-  sourceFile.statements.forEach((statement) => {
+  sourceFile.statements.forEach((statement, index) => {
     if (ts.isImportDeclaration(statement)) {
       const newStatement = processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName);
       if (newStatement) {
         newStatements.push(newStatement);
+      } else if (index === 0) {
+        copyrightMessage = sourceFile.getFullText().replace(sourceFile.getText(), '');
       }
     } else if (ts.isExportDeclaration(statement)) {
       const exportSpecifiers = statement.exportClause.elements.filter((item) => {
@@ -106,7 +112,7 @@ function getKitNewSourceFile(sourceFile, kitName) {
     }
   });
   sourceFile = factory.updateSourceFile(sourceFile, newStatements);
-  return sourceFile;
+  return { sourceFile, copyrightMessage };
 }
 
 /**

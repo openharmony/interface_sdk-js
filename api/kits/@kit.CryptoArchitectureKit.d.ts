@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-import { AdComponent } from '../@ohos.advertising.AdComponent';
-import AdsServiceExtensionAbility, { type RespCallback } from '../@ohos.advertising.AdsServiceExtensionAbility';
-import { AutoAdComponent } from '../@ohos.advertising.AutoAdComponent';
-import advertising from '../@ohos.advertising';
-import identifier from '../@ohos.identifier.oaid';
+import cryptoFramework from '../@ohos.security.cryptoFramework';
+import Cipher, { CipherAesOptions, CipherResponse, CipherRsaOptions } from '../@system.cipher';
 
-export { AdComponent, AdsServiceExtensionAbility, AutoAdComponent, type RespCallback, advertising, identifier };
+export { Cipher, CipherAesOptions, CipherResponse, CipherRsaOptions, cryptoFramework };
