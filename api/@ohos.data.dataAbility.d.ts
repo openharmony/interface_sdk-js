@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import rdb from './@ohos.data.rdb';
 

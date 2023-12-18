@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo } from './wantAgent/wantAgentInfo';

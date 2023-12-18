@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Network Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 import type _AbilityContext from './application/UIAbilityContext';

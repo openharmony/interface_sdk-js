@@ -27,7 +27,8 @@ import {
 import { BasicApiInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { tagsArrayOfOrder, officialTagArr, CommonFunctions } from '../../../utils/checkUtils';
 import { AddErrorLogs } from './compile_info';
-import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, punctuationMarkSet } from '../../../utils/checkUtils';
+import { Set } from 'typescript';
 
 const dictionariesContent: string = fs.readFileSync(path.resolve(__dirname, '../config/dictionaries.txt'), 'utf-8');
 const dictionariesArr: string[] = dictionariesContent.split(/[(\r\n)\r\n]+/g);
@@ -66,8 +67,14 @@ export class WordsCheck {
    */
   static wordsCheck(apiText: string, baseInfo: BasicApiInfo): void {
     const reg = /\s{2,}/g;
-    const regx = /(\/\*|\*\/|\*)|\{|\}|\\n|\\r|\@|\.|\:|\,|\;|\(|\)|\"|\'|\//g;
-    const fullText = apiText.replace(regx, ' ').replace(reg, ' ');
+    const regx = /(\/\*|\*\/|\*)|\\n|\\r/g;
+    let fullText: string = apiText.replace(regx, ' ');
+    punctuationMarkSet.forEach(punctuationMark => {
+      const punctuationMarkReg = new RegExp(punctuationMark, 'g');
+      if (punctuationMarkReg.test(fullText)) {
+        fullText = fullText.replace(punctuationMarkReg, ' ').replace(reg, ' ');
+      }
+    });
     let apiWordsArr = fullText.split(/\s/g);
     const errorWords: string[] = [];
     apiWordsArr.forEach((apiWord) => {

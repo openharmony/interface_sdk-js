@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * StartOptions is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

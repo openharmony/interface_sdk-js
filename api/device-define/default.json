@@ -221,6 +221,7 @@
     "SystemCapability.Multimedia.Media.AVScreenCapture",
     "SystemCapability.AI.IntelligentVoice.Core",
     "SystemCapability.Multimedia.Media.SoundPool",
-    "SystemCapability.Multimedia.Audio.Spatialization"
+    "SystemCapability.Multimedia.Audio.Spatialization",
+    "SystemCapability.Multimedia.AudioHaptic.Core"
   ]
 }

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Localization Kit
+ */
+
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './@ohos.base';
@@ -3792,7 +3797,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3801,7 +3806,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
@@ -3813,7 +3818,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
@@ -3822,7 +3827,7 @@ declare namespace resourceManager {
      *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
@@ -4327,6 +4332,52 @@ declare namespace resourceManager {
      * @since 11
      */
     getLocales(includeSystem?: boolean): Array<string>;
+
+    /**
+     * Obtains the symbol resource corresponding to the specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { number } Indicates the integer reference value representing the symbol data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @atomicservice
+     * @since 11
+     */
+    getSymbol(resId: number) : number;
+
+    /**
+     * Obtains the symbol resource corresponding to the specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { number } Indicates the integer reference value representing the symbol data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 11
+     */
+    getSymbol(resource: Resource) : number;
+
+    /**
+     * Obtains the symbol resource corresponding to the specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @returns { number } Indicates the integer reference value representing the symbol data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @atomicservice
+     * @since 11
+     */
+    getSymbolByName(resName: string) : number;
   }
 
   /**

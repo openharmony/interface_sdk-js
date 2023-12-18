@@ -743,6 +743,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @since 11
    */
   popupPosition(value: Position): AlphabetIndexerAttribute;
+
+  /**
+   * Automatically collapses the characters when the indexer bar not high enough to display all characters.
+   *
+   * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  autoCollapse(value: boolean): AlphabetIndexerAttribute;
 }
 
 /**

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Basic Services Kit
+ */
+
+/**
  * Obtains battery information of a device.
  * <p>Battery information includes the remaining battery power,
  * voltage, temperature, model, and charger type.

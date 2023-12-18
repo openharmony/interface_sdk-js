@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Background Tasks Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notification';
 import { NotificationSlot } from './notification/notificationSlot';
@@ -539,9 +544,25 @@ declare namespace reminderAgent {
    * @useinstead reminderAgentManager.ReminderRequestTimer
    */
   interface ReminderRequestTimer extends ReminderRequest {
+    /**
+     * value of triggerTimeInSeconds.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 7
+     * @deprecated since 9
+     * @useinstead reminderAgentManager.ReminderRequestTimer.triggerTimeInSeconds
+     */
     triggerTimeInSeconds: number;
   }
 
+  /**
+   * Local DateTime information.
+   *
+   * @interface LocalDateTime
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 7
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.ReminderRequestTimer
+   */
   interface LocalDateTime {
     /**
      * value of year.

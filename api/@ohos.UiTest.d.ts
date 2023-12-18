@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Test Kit
+ */
+
 import type { Callback } from './@ohos.base';
 
 /**

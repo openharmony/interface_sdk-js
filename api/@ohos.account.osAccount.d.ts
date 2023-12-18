@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import distributedAccount from './@ohos.account.distributedAccount';
 import { AsyncCallback, Callback } from './@ohos.base';
 
@@ -174,6 +179,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     checkOsAccountActivated(localId: number, callback: AsyncCallback<boolean>): void;
 
@@ -190,8 +196,26 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     checkOsAccountActivated(localId: number): Promise<boolean>;
+
+    /**
+     * Checks whether an OS account is activated based on its local ID.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<boolean> } - Returns {@code true} if the OS account is activated; returns {@code false} otherwise.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    isOsAccountActivated(localId: number): Promise<boolean>;
 
     /**
      * Checks whether a constraint has been enabled for an OS account based on its local ID.
@@ -263,6 +287,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
 
@@ -289,8 +314,57 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
+
+    /**
+     * Checks whether the given constraint is enabled for the current OS account.
+     *
+     * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
+     *        <ul>
+     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     *        </li>
+     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     *        </li>
+     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
+     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     *        from unknown sources.</li>
+     *        </ul>
+     * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the current OS account.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 11
+     */
+    isOsAccountConstraintEnabled(constraint: string): Promise<boolean>;
+
+    /**
+     * Checks whether the given constraint is enabled for the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
+     *        <ul>
+     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     *        </li>
+     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     *        </li>
+     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
+     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     *        from unknown sources.</li>
+     *        </ul>
+     * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the specified OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    isOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
 
     /**
      * Checks whether this OS account is a test OS account.
@@ -384,6 +458,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
+     * @useinstead osAccount.AccountManager#isOsAccountUnlocked
      */
     checkOsAccountVerified(callback: AsyncCallback<boolean>): void;
 
@@ -394,6 +470,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
+     * @useinstead osAccount.AccountManager#isOsAccountUnlocked
      */
     checkOsAccountVerified(): Promise<boolean>;
 
@@ -410,6 +488,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     checkOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
 
@@ -426,8 +505,36 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     checkOsAccountVerified(localId: number): Promise<boolean>;
+
+    /**
+     * Checks whether the current OS account is unlocked.
+     *
+     * @returns { Promise<boolean> } Returns whether the current OS account is unlocked.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 11
+     */
+    isOsAccountUnlocked(): Promise<boolean>;
+
+    /**
+     * Checks whether the specified OS account is unlocked.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<boolean> } Returns whether the specified OS account is unlocked.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    isOsAccountUnlocked(localId: number): Promise<boolean>;
 
     /**
      * Removes an OS account based on its local ID.
@@ -850,6 +957,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -866,8 +974,26 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     getOsAccountConstraints(localId: number): Promise<Array<string>>;
+
+    /**
+     * Gets all enabled constraints of the specified OS account by its local ID.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<Array<string>> } Returns a list of constraints.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    getEnabledOsAccountConstraints(localId: number): Promise<Array<string>>;
 
     /**
      * Queries the list of all the OS accounts that have been created in the system.
@@ -1071,6 +1197,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     /**
      * Gets information about the current OS account.
@@ -1082,6 +1209,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 10
+     * @deprecated since 11
      */
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
 
@@ -1095,6 +1223,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     * @deprecated since 11
      */
     /**
      * Gets information about the current OS account.
@@ -1106,8 +1235,23 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 10
+     * @deprecated since 11
      */
     getCurrentOsAccount(): Promise<OsAccountInfo>;
+
+    /**
+     * Queries the current OS account information.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
+     * @returns { Promise<OsAccountInfo> } Returns information about the current OS account
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    queryOsAccount(): Promise<OsAccountInfo>;
 
     /**
      * Queries OS account information based on the local ID.
@@ -1658,8 +1802,19 @@ declare namespace osAccount {
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8
+     * @deprecated since 11
+     * @useinstead osAccount.OsAccountInfo#isUnlocked
      */
     isVerified: boolean;
+
+    /**
+     * The OS account is unlocked or not.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 11
+     */
+    isUnlocked: boolean;
 
     /**
      * OS account photo.
@@ -1703,8 +1858,19 @@ declare namespace osAccount {
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8
+     * @deprecated since 11
+     * @useinstead osAccount.OsAccountInfo#isActivated
      */
     isActived: boolean;
+
+    /**
+     * The OS account is activated or not.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 11
+     */
+    isActivated: boolean;
 
     /**
      * Os account create completed or not.

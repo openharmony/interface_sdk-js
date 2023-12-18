@@ -135,7 +135,9 @@ cpid
 cpuprofiler
 cpx
 cpy
+creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -224,6 +226,7 @@ egid
 ehrpd
 ejectclosecd
 emption
+emphasized
 encapsulates
 encompassed
 encrypts
@@ -292,6 +295,7 @@ hankaku
 hapmodule
 haps
 haptic
+haptics
 hce
 headed
 headersreceive
@@ -838,6 +842,7 @@ unrestricted
 unsecure
 unsent
 unspec
+unshare
 unsubscribes
 unsuccessfully
 unsupport

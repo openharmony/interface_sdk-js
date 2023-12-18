@@ -211,7 +211,7 @@ export class ApiStatisticsHelper {
     if (firstJsDocInfo) {
       apiStatisticsInfo.setSince(firstJsDocInfo.getSince());
     }
-    const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLatestJsDocInfo();
+    const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLastJsDocInfo();
     if (jsDocInfo) {
       apiStatisticsInfo
         .setSyscap(jsDocInfo.getSyscap() ? jsDocInfo.getSyscap() : ApiStatisticsHelper.extendSyscap(apiInfo))
@@ -246,7 +246,7 @@ export class ApiStatisticsHelper {
     const node: ts.Node | undefined = curApiInfo.getNode();
     try {
       while (node && curApiInfo && !ts.isSourceFile(node)) {
-        const jsdoc: Comment.JsDocInfo | undefined = curApiInfo.getLatestJsDocInfo();
+        const jsdoc: Comment.JsDocInfo | undefined = curApiInfo.getLastJsDocInfo();
         if (jsdoc) {
           syscap = jsdoc.getSyscap();
         }

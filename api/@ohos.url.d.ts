@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The url module provides utilities for URL resolution and parsing.
  *
  * @namespace url
@@ -121,7 +126,7 @@ declare namespace url {
      * @deprecated since 9
      * @useinstead ohos.url.URLParams.forEach
      */
-    forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
+    forEach(callbackFn: (value: string, key: string, searchParams: URLSearchParams) => void, thisArg?: Object): void;
 
     /**
      * Returns the first value associated to the given search parameter.

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Core File Kit
+ */
+
+/**
  * @interface FileResponse
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3

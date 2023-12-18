@@ -41,7 +41,11 @@ export class LegalityCheck {
     if (Array.isArray(apiLegalityTagsArray)) {
       const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
       const illegalTagsArray = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
-      const apiTags: Comment.CommentTag[] = apiJsdoc.tags as Comment.CommentTag[];
+      const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+      if (apiTags === undefined) {
+        return apiLegalityCheckResult;
+      }
+
       let paramTagNumber: number = 0;
       let paramApiNumber: number =
         singleApi.getApiType() === ApiType.METHOD ? (singleApi as MethodInfo).getParams().length : 0;
@@ -60,9 +64,16 @@ export class LegalityCheck {
         apiLegalityTagsSet.delete('param');
         if (apiLegalityTagsSet.has(apiTag.tag)) {
           apiLegalityTagsSet.delete(apiTag.tag);
-          if (singleApi.getApiType() === ApiType.INTERFACE) {
-            apiLegalityTagsSet.delete('typedef');
-          }
+        }
+        if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
+          apiLegalityTagsSet.delete('typedef');
+          apiLegalityTagsSet.delete('interface');
+        }
+        if (singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) {
+          apiLegalityTagsSet.delete('returns');
+        }
+        if (apiLegalityTagsSet.has('extends') && (singleApi as ClassInfo).getParentClasses().length === 0) {
+          apiLegalityTagsSet.delete('extends');
         }
       });
       // param合法性单独进行校验
