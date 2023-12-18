@@ -14977,6 +14977,18 @@ declare class CommonMethod<T> {
   accessibilityLevel(value: string): T;
 
   /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  accessibilityVirtualNode(builder: CustomBuilder): T;
+
+  /**
    * Sets obscured
    *
    * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
