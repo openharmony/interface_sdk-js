@@ -68,7 +68,7 @@ export interface ImageTextEditableComponentItem {
   state: boolean;
 
   /**
-   * order of ImageTextEditableComponentItem, Used for sorting dataList.
+   * order of ImageTextEditableComponentItem, Used for sorting dataList. 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
