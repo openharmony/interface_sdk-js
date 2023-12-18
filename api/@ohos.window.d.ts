@@ -4674,6 +4674,18 @@ declare namespace window {
      * @since 11
      */
     keepKeyboardOnFocus(keepKeyboardFlag: boolean): void;
+
+    /**
+     * Recover app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300001 - Repeated operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    recover(): Promise<void>;
   }
   /**
    * Window stage callback event type
