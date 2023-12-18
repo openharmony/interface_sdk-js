@@ -17,12 +17,14 @@
  * Controls the style types of ImageTextEditableComponent.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 export declare enum ImageTextEditableComponentType {
   /**
    * The ImageTextEditableComponent image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   IMAGE_TEXT = "image_text",
@@ -30,6 +32,7 @@ export declare enum ImageTextEditableComponentType {
   /**
    * The ImageTextEditableComponent text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   TEXT = "text"
@@ -40,6 +43,7 @@ export declare enum ImageTextEditableComponentType {
  * Declaration of the ImageTextEditableComponent item.
  * @interface ImageTextEditableComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 export interface ImageTextEditableComponentItem {
@@ -47,6 +51,7 @@ export interface ImageTextEditableComponentItem {
    * id of ImageTextEditableComponent item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   id: number | string;
@@ -55,6 +60,7 @@ export interface ImageTextEditableComponentItem {
    * ImageTextEditableComponent item id.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   text: ResourceStr;
@@ -63,14 +69,16 @@ export interface ImageTextEditableComponentItem {
    * state of ImageTextEditableComponent item.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   state: boolean;
 
   /**
-   * order of ImageTextEditableComponentItem, Used for sorting dataList. 
+   * order of ImageTextEditableComponentItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   order: number;
@@ -79,6 +87,7 @@ export interface ImageTextEditableComponentItem {
    * image resource path of the ImageTextEditableComponent item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   url?: ResourceStr;
@@ -88,6 +97,7 @@ export interface ImageTextEditableComponentItem {
  * ImageTextEditableComponentOptions of ImageTextEditableComponent.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 export interface ImageTextEditableComponentOptions {
@@ -96,6 +106,7 @@ export interface ImageTextEditableComponentOptions {
    * @type { ImageTextEditableComponentType }
    * @default ImageTextEditableComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   type?: ImageTextEditableComponentType;
@@ -104,6 +115,7 @@ export interface ImageTextEditableComponentOptions {
    * The size of the ImageTextEditableComponent image.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   imageSize?: number;
@@ -112,6 +124,7 @@ export interface ImageTextEditableComponentOptions {
    * The title displayed in the unedited state of the  ImageTextEditableComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   title?: ResourceStr;
@@ -120,6 +133,7 @@ export interface ImageTextEditableComponentOptions {
    * The title displayed in the ImageTextEditableComponent edit state.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   editTitle?: ResourceStr;
@@ -128,6 +142,7 @@ export interface ImageTextEditableComponentOptions {
    * First subtitle of the ImageTextEditableComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   firstSubtitle?: ResourceStr;
@@ -136,6 +151,7 @@ export interface ImageTextEditableComponentOptions {
    * second subtitle of the ImageTextEditableComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   secondSubtitle?: ResourceStr;
@@ -144,6 +160,7 @@ export interface ImageTextEditableComponentOptions {
 /**
  * Declare struct ImageTextEditableComponent.
  * @struct { ImageTextEditableComponent }
+ * @crossplatform
  * @since 11
  */
 @Component
@@ -152,6 +169,7 @@ export declare struct ImageTextEditableComponent {
    * Component types and parameters of the ImageTextEditableComponent.
    * @type { ImageTextEditableComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   @Prop
@@ -161,6 +179,7 @@ export declare struct ImageTextEditableComponent {
    * data list of ImageTextEditableComponent.
    * @type { Array<ImageTextEditableComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   dataList: Array<ImageTextEditableComponentItem>;
@@ -169,6 +188,7 @@ export declare struct ImageTextEditableComponent {
    * Callback when Obtain edited data.
    * @type { (select: Array<ImageTextEditableComponentItem>, unselect: Array<ImageTextEditableComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   onSave: (select: Array<ImageTextEditableComponentItem>, unselect: Array<ImageTextEditableComponentItem>) => void;
@@ -177,6 +197,7 @@ export declare struct ImageTextEditableComponent {
    * Cancel callback for saving data.
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   onCancel: () => void;
@@ -184,6 +205,7 @@ export declare struct ImageTextEditableComponent {
   /**
    * Build function of ImageTextEditableComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   build(): void;
