@@ -41,6 +41,17 @@ declare namespace photoAccessHelper {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Returns an instance of PhotoAccessHelper
+   *
+   * @param { Context } context - Hap context information
+   * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
+   * @throws { BusinessError } 401 - if parameter is invalid
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
 
   /**
@@ -245,6 +256,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Modify metadata of the asset
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { AsyncCallback<void> } callback - Returns void.
+     * @throws { BusinessError } 401 - if values to commit is invalid
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify metadata of the asset
@@ -258,6 +283,20 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Modify metadata of the asset
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 401 - if values to commit is invalid
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     commitModify(): Promise<void>;
     /**
@@ -1737,6 +1776,24 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Create a photo asset:
+     *   1. (Suggested)Integrate security component without WRITE_IMAGEVIDEO permission;
+     *   2. Get WRITE_IMAGEVIDEO permission by ACL;
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Photo asset type
+     * @param { string } extension - Asset extension
+     * @param { CreateOptions } options - Asset create option
+     * @param { AsyncCallback<string> } callback - Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - if type createOption is wrong
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     createAsset(photoType: PhotoType, extension: string, options: CreateOptions, callback: AsyncCallback<string>): void;
     /**
      * Create a photo asset:
@@ -1753,6 +1810,23 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Create a photo asset:
+     *   1. (Suggested)Integrate security component without WRITE_IMAGEVIDEO permission;
+     *   2. Get WRITE_IMAGEVIDEO permission by ACL;
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Photo asset type
+     * @param { string } extension - Asset extension
+     * @param { AsyncCallback<string> } callback - Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - if type createOption is wrong
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     createAsset(photoType: PhotoType, extension: string, callback: AsyncCallback<string>): void;
     /**
@@ -1771,6 +1845,24 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Create a photo asset:
+     *   1. (Suggested)Integrate security component without WRITE_IMAGEVIDEO permission;
+     *   2. Get WRITE_IMAGEVIDEO permission by ACL;
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Photo asset type
+     * @param { string } extension - Asset extension
+     * @param { CreateOptions } [options] - Optional asset create option
+     * @returns { Promise<string> } Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - if type createOption is wrong
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise<string>;
     /**
