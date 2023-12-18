@@ -1114,6 +1114,14 @@ export class DragController {
    * @since 11
    */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
+
+  /**
+   * Get a drag preview object.
+   * @returns { dragController.DragPreview } A drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  getDragPreview(): dragController.DragPreview;
 }
 
 /**
