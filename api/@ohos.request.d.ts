@@ -2395,6 +2395,13 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates background task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       BACKGROUND,
       /**
        * Indicates foreground task.
