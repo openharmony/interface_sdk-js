@@ -13,12 +13,10 @@
  * limitations under the License.
  */
 
-import inputMethod from '../@ohos.inputMethod';
-import inputMethodEngine from '../@ohos.inputMethodEngine';
-import InputMethodExtensionAbility from '../@ohos.InputMethodExtensionAbility';
-import InputMethodExtensionContext from '../@ohos.InputMethodExtensionContext';
-import type InputMethodSubtype from '../@ohos.InputMethodSubtype';
+import { AdComponent } from '../@ohos.advertising.AdComponent';
+import AdsServiceExtensionAbility, { RespCallback } from '../@ohos.advertising.AdsServiceExtensionAbility';
+import { AutoAdComponent } from '../@ohos.advertising.AutoAdComponent';
+import advertising from '../@ohos.advertising';
+import identifier from '../@ohos.identifier.oaid';
 
-export {
-  InputMethodExtensionAbility, InputMethodExtensionContext, type InputMethodSubtype, inputMethod, inputMethodEngine
-};
+export { AdComponent, AdsServiceExtensionAbility, AutoAdComponent, RespCallback, advertising, identifier };

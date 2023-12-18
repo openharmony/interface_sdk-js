@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import BackupExtensionAbility, { type BundleVersion } from '../@ohos.application.BackupExtensionAbility';
+import BackupExtensionAbility, { BundleVersion } from '../@ohos.application.BackupExtensionAbility';
 import document from '../@ohos.document';
 import backup from '../@ohos.file.backup';
 import cloudSync from '../@ohos.file.cloudSync';
@@ -23,8 +23,8 @@ import fileAccess from '../@ohos.file.fileAccess';
 import fileExtensionInfo from '../@ohos.file.fileExtensionInfo';
 import fileUri from '../@ohos.file.fileuri';
 import fileIo, {
-  type ConflictFiles, type Filter, type Options, type ReaderIteratorResult, type WatchEvent, type WatchEventListener,
-  type Watcher
+  ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
+  Watcher
 } from '../@ohos.file.fs';
 import hash from '../@ohos.file.hash';
 import picker from '../@ohos.file.picker';
@@ -39,19 +39,19 @@ import userFileManager from '../@ohos.filemanagement.userFileManager';
 import fileShare from '../@ohos.fileshare';
 import Statfs from '../@ohos.statfs';
 import File, {
-  type FileAccessOption, type FileCopyOption, type FileDeleteOption, type FileGetOption, type FileListOption,
-  type FileListResponse, type FileMkdirOption, type FileMoveOption, type FileReadArrayBufferOption,
-  type FileReadArrayBufferResponse, type FileReadTextOption, type FileReadTextResponse, type FileResponse,
-  type FileRmdirOption, type FileWriteArrayBufferOption, type FileWriteTextOption
+  FileAccessOption, FileCopyOption, FileDeleteOption, FileGetOption, FileListOption,
+  FileListResponse, FileMkdirOption, FileMoveOption, FileReadArrayBufferOption,
+  FileReadArrayBufferResponse, FileReadTextOption, FileReadTextResponse, FileResponse,
+  FileRmdirOption, FileWriteArrayBufferOption, FileWriteTextOption
 } from '../@system.file';
 
 export {
-  BackupExtensionAbility, type BundleVersion, type ConflictFiles, Environment, File, type FileAccessOption,
-  type FileCopyOption, type FileDeleteOption, type FileGetOption, type FileListOption, type FileListResponse,
-  type FileMkdirOption, type FileMoveOption, type FileReadArrayBufferOption, type FileReadArrayBufferResponse,
-  type FileReadTextOption, type FileReadTextResponse, type FileResponse, type FileRmdirOption,
-  type FileWriteArrayBufferOption, type FileWriteTextOption, type Filter, type Options, type ReaderIteratorResult,
-  Statfs, type WatchEvent, type WatchEventListener, type Watcher, backup, cloudSync, cloudSyncManager, document,
+  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, File, FileAccessOption,
+  FileCopyOption, FileDeleteOption, FileGetOption, FileListOption, FileListResponse,
+  FileMkdirOption, FileMoveOption, FileReadArrayBufferOption, FileReadArrayBufferResponse,
+  FileReadTextOption, FileReadTextResponse, FileResponse, FileRmdirOption,
+  FileWriteArrayBufferOption, FileWriteTextOption, Filter, Options, ReaderIteratorResult,
+  Statfs, WatchEvent, WatchEventListener, Watcher, backup, cloudSync, cloudSyncManager, document,
   fileAccess, fileExtensionInfo, fileIO, fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager
 };

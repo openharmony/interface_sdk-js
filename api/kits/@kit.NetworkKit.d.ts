@@ -23,10 +23,10 @@ import socket from '../@ohos.net.socket';
 import statistics from '../@ohos.net.statistics';
 import vpn from '../@ohos.net.vpn';
 import webSocket from '../@ohos.net.webSocket';
-import Fetch, { type FetchResponse } from '../@system.fetch';
-import Network, { type NetworkResponse } from '../@system.network';
+import Fetch, { FetchResponse } from '../@system.fetch';
+import Network, { NetworkResponse } from '../@system.network';
 
 export {
-  Fetch, type FetchResponse, Network, type NetworkResponse, connection, ethernet, http, mdns, policy, sharing,
+  Fetch, FetchResponse, Network, NetworkResponse, connection, ethernet, http, mdns, policy, sharing,
   socket, statistics, vpn, webSocket
 };

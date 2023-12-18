@@ -19,8 +19,7 @@ import commonType from '../@ohos.data.commonType';
 import dataAbility from '../@ohos.data.dataAbility';
 import dataShare from '../@ohos.data.dataShare';
 import dataSharePredicates from '../@ohos.data.dataSharePredicates';
-import type DataShareResultSet from '../@ohos.data.DataShareResultSet';
-import { DataType } from '../@ohos.data.DataShareResultSet';
+import DataShareResultSet, { DataType } from '../@ohos.data.DataShareResultSet';
 import distributedData from '../@ohos.data.distributedData';
 import distributedDataObject from '../@ohos.data.distributedDataObject';
 import distributedKVStore from '../@ohos.data.distributedKVStore';
@@ -30,14 +29,14 @@ import relationalStore from '../@ohos.data.relationalStore';
 import storage from '../@ohos.data.storage';
 import unifiedDataChannel from '../@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '../@ohos.data.uniformTypeDescriptor';
-import { type ValueType, type ValuesBucket } from '../@ohos.data.ValuesBucket';
+import { ValueType, ValuesBucket } from '../@ohos.data.ValuesBucket';
 import Storage, {
-  type ClearStorageOptions, type DeleteStorageOptions, type GetStorageOptions, type SetStorageOptions
+  ClearStorageOptions, DeleteStorageOptions, GetStorageOptions, SetStorageOptions
 } from '../@system.storage';
 
 export {
-  type ClearStorageOptions, DataShareExtensionAbility, type DataShareResultSet, DataType, type DeleteStorageOptions,
-  type GetStorageOptions, type SetStorageOptions, Storage, type ValueType, type ValuesBucket, cloudData, commonType,
+  ClearStorageOptions, DataShareExtensionAbility, DataShareResultSet, DataType, DeleteStorageOptions,
+  GetStorageOptions, SetStorageOptions, Storage, ValueType, ValuesBucket, cloudData, commonType,
   dataAbility, dataShare, dataSharePredicates, distributedData, distributedDataObject, distributedKVStore,
   preferences, rdb, relationalStore, storage, unifiedDataChannel, uniformTypeDescriptor
 };
