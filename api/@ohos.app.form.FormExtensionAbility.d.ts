@@ -71,6 +71,19 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Called to return a {@link formBindingData#FormBindingData} object.
+   *
+   * @param { Want } want - Indicates the detailed information for creating a {@link formBindingData#FormBindingData}.
+   *                        The {@code Want} object must include the form ID, form name, and grid style of the form.
+   *                        Such form information must be managed as persistent data for further form
+   *                        acquisition, update, and deletion.
+   * @returns { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
   /**
@@ -81,6 +94,15 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
+   *
+   * @param { string } formId - Indicates the ID of the form.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   onCastToNormalForm(formId: string): void;
 
   /**
@@ -90,6 +112,15 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called to notify the form provider to update a specified form.
+   *
+   * @param { string } formId - Indicates the ID of the form to update.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onUpdateForm(formId: string): void;
 
@@ -122,6 +153,19 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Called when a specified message event defined by the form provider is triggered. This method is valid only for
+   * JS forms.
+   *
+   * @param { string } formId - Indicates the ID of the form on which the message event is triggered, which is
+   *                            provided by the client to the form provider.
+   * @param { string } message - Indicates the value of the {@code params} field of the message event. This parameter
+   *                             is used to identify the specific component on which the event is triggered.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   onFormEvent(formId: string, message: string): void;
 
   /**
@@ -132,6 +176,16 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called to notify the form provider that a specified form has been destroyed. Override this method if
+   * you want your application, as the form provider, to be notified of form deletion.
+   *
+   * @param { string } formId - Indicates the ID of the destroyed form.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onRemoveForm(formId: string): void;
 
