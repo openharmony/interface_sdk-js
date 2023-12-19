@@ -2944,11 +2944,24 @@ declare namespace image {
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980099 - If the shared memory data abnormal.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980106 - If the image too large.
+     * @throws { BusinessError } 62980109 - If the image crop failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
+     * @throws { BusinessError } 62980173 - If the DMA memory not exist.
+     * @throws { BusinessError } 62980174 - If the DMA memory data abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2959,11 +2972,24 @@ declare namespace image {
      * Creates a PixelMap array. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980099 - If the shared memory data abnormal.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980106 - If the image too large.
+     * @throws { BusinessError } 62980109 - If the image crop failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
+     * @throws { BusinessError } 62980173 - If the DMA memory not exist.
+     * @throws { BusinessError } 62980174 - If the DMA memory data abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2976,11 +3002,24 @@ declare namespace image {
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980099 - If the shared memory data abnormal.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980106 - If the image too large.
+     * @throws { BusinessError } 62980109 - If the image crop failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
+     * @throws { BusinessError } 62980173 - If the DMA memory not exist.
+     * @throws { BusinessError } 62980174 - If the DMA memory data abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2991,13 +3030,18 @@ declare namespace image {
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
      * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
+     * @throws { BusinessError } 62980149 - If the media invalid parameter.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -3008,13 +3052,18 @@ declare namespace image {
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
      * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
+     * @throws { BusinessError } 62980149 - If the media invalid parameter.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -3025,13 +3074,17 @@ declare namespace image {
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
      * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -3042,13 +3095,17 @@ declare namespace image {
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - If the operation failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
      * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980137 - If the media invalid operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
