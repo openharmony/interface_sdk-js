@@ -5961,6 +5961,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
+   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  javaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
    * Set web layout Mode.
    * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
    * @returns { WebAttribute }
