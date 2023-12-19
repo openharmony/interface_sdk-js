@@ -844,6 +844,16 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const Concurrent: MethodDecorator;
 
 /**
+ * Defining Sendable ClassDecorator
+ * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare const Sendable: ClassDecorator;
+
+/**
  * Defining  CustomDialog ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9414,6 +9424,50 @@ declare interface PopupOptions {
    * @since 11
    */
   arrowPointPosition?: ArrowPointPosition;
+
+ /**
+   * The width of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 16.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowWidth?: Dimension;
+
+  /**
+   * The height of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 8.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowHeight?: Dimension;
+
+  /**
+   * The round corners of the popup.
+   *
+   * @type { ?Dimension }
+   * @default 20.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension;
+
+  /**
+   * The style of popup Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @default ShadowStyle.OUTER_DEFAULT_MD.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -9759,6 +9813,50 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   arrowPointPosition?: ArrowPointPosition;
+
+  /**
+   * The width of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 16.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowWidth?: Dimension;
+
+  /**
+   * The height of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 8.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowHeight?: Dimension;
+
+  /**
+   * The round corners of the popup.
+   *
+   * @type { ?Dimension }
+   * @default 20.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension;
+
+  /**
+   * The style of popup Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @default ShadowStyle.OUTER_DEFAULT_MD.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -15015,6 +15113,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   accessibilityLevel(value: string): T;
+
+  /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
    * Sets obscured

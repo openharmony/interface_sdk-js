@@ -204,6 +204,16 @@ export class CommonFunctions {
     }
     return checkApiVersion;
   }
+
+  static judgeSpecialCase(type: ts.SyntaxKind): string[] {
+    let specialCaseType: string[] = [];
+    if (type === ts.SyntaxKind.TypeLiteral) {
+      specialCaseType = ['object'];
+    } else if (type === ts.SyntaxKind.FunctionType) {
+      specialCaseType = ['function'];
+    }
+    return specialCaseType;
+  }
 }
 
 /**
