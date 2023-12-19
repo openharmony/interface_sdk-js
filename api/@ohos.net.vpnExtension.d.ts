@@ -36,7 +36,6 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -56,7 +55,6 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -73,6 +71,8 @@ declare namespace vpnExtension {
    * @permission ohos.permission.MANAGE_VPN
    * @param { boolean } enable - Always on enable or disable
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
@@ -86,6 +86,8 @@ declare namespace vpnExtension {
    * 
    * @permission ohos.permission.MANAGE_VPN
    * @returns { Promise<boolean>} return the mode for alway on vpn status
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
@@ -100,6 +102,8 @@ declare namespace vpnExtension {
    * @permission ohos.permission.MANAGE_VPN
    * @param { string } bundleName - authorize or not
    * @returns { boolean } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
@@ -130,10 +134,8 @@ declare namespace vpnExtension {
     /**
      * Create a VPN network using the VpnConfig.
      * 
-     * @permission ohos.permission.MANAGE_VPN
      * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
      * @returns { Promise<number> } The promise returns file descriptor of VPN interface.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -149,10 +151,8 @@ declare namespace vpnExtension {
      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
      * underlying network so its traffic will not be forwarded through the VPN.
      * 
-     * @permission ohos.permission.MANAGE_VPN
      * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -166,9 +166,7 @@ declare namespace vpnExtension {
     /**
      * Destroy the VPN network.
      * 
-     * @permission ohos.permission.MANAGE_VPN
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
