@@ -1644,6 +1644,22 @@ declare namespace window {
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
+   * Shift window focus within the same application. And the window type contains only main window and subwindow.
+   *
+   * @param { number } sourceWindowId - Window id which the focus shift from.
+   * @param { number } targetWindowId - Window id which the focus shift to.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
