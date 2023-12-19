@@ -139,7 +139,23 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 9
    */
-  onChangeFormVisibility(newStatus: { [key: string]: number }): void;
+  /**
+   * Called when the form provider receives form events from the system.
+   *
+   * @param { Record<string, number> } newStatus - Indicates the form events occurred. The key in the {@code Map}
+   *                                               object indicates the form ID, and the value indicates the event
+   *                                               type, which can be either
+   *                                               {@link formInfo#VisibilityType#FORM_VISIBLE} or
+   *                                               {@link formInfo#VisibilityType#FORM_INVISIBLE}.
+   *                                               {@link formInfo#VisibilityType#FORM_VISIBLE}
+   *                                               means that the form becomes visible,
+   *                                               {@link formInfo#VisibilityType#FORM_INVISIBLE} means that the form
+   *                                               becomes invisible.
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @since 11
+   */
+  onChangeFormVisibility(newStatus: Record<string, number>): void;
 
   /**
    * Called when a specified message event defined by the form provider is triggered. This method is valid only for
@@ -247,7 +263,17 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 9
    */
-  onShareForm?(formId: string): { [key: string]: Object };
+  /**
+   * Called when the system shares the form.
+   *
+   * @param { string } formId - Indicates the ID of the form.
+   * @returns { Record<string, Object> } Returns the wantParams object.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  onShareForm?(formId: string): Record<string, Object>;
 
   /**
    * Called when the system acquire the form data.
@@ -259,5 +285,15 @@ export default class FormExtensionAbility {
    * @StageModelOnly
    * @since 10
    */
-  onAcquireFormData?(formId: string): { [key: string]: Object };
+  /**
+   * Called when the system acquire the form data.
+   *
+   * @param { string } formId - Indicates the ID of the form.
+   * @returns { Record<string, Object> } Returns the wantParams object.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  onAcquireFormData?(formId: string): Record<string, Object>;
 }

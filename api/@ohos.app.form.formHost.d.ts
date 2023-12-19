@@ -817,7 +817,25 @@ declare namespace formHost {
    * @StageModelOnly
    * @since 10
    */
-  function acquireFormData(formId: string, callback: AsyncCallback<{ [key: string]: Object }>): void;
+  /**
+   * Acquire form data by formId.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form ID.
+   * @param { AsyncCallback<Record<string, Object>> } callback - The callback of acquireFormData.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   *                                      invalid input parameter during form operation
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  function acquireFormData(formId: string, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
    * Acquire form data by formId.
@@ -837,7 +855,25 @@ declare namespace formHost {
    * @StageModelOnly
    * @since 10
    */
-  function acquireFormData(formId: string): Promise<{ [key: string]: Object }>;
+  /**
+   * Acquire form data by formId.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form ID.
+   * @returns { Promise<Record<string, Object>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   *                                      invalid input parameter during form operation
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  function acquireFormData(formId: string): Promise<Record<string, Object>>;
 
   /**
    * Notify the form framework to set a router proxy for the specified cards.

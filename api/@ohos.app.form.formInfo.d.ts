@@ -361,12 +361,12 @@ declare namespace formInfo {
     /**
      * Obtains the custom data defined in this form.
      *
-     * @type { object }
+     * @type { Record<string, string> }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
      */
-    customizeData: { [key: string]: [value: string] };
+    customizeData: Record<string, string>;
 
     /**
      * Obtains whether this form is a dynamic form.
