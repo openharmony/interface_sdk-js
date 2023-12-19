@@ -46,9 +46,11 @@ export interface SystemTonePlayer {
 
   /**
    * Start playing the system tone. By default, the audio and haptic will not be muted. Using tone options to mute audio
-   * or haptics.
+   * or haptics. If haptics is needed, caller should have the permission of ohos.permission.VIBRATE.
+   * @permission ohos.permission.VIBRATE
    * @param { SystemToneOptions } toneOptions - Tone options used for this play.
    * @returns { Promise<number> } Promise used to return the id of this playback.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400102 - Operation not allowed.
