@@ -185,7 +185,16 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  NEW_PASSWORD = 11
+  NEW_PASSWORD = 11,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
