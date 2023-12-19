@@ -5197,7 +5197,7 @@ declare namespace audio {
     CH_LAYOUT_OCTAGONAL = 0x737,
     /**
      * Channel Layout For 5.1.2, 8 channels in total
-     * Speaker layout: 5.1-Back plus two top side speakers.
+     * Speaker layout: 5.1 plus two top side speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
