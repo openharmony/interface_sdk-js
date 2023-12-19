@@ -14,15 +14,15 @@
  */
 
 /**
- * Controls the style types of ImageTextEditableComponent.
+ * Controls the style types of GridObjectSortComponent.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export declare enum ImageTextEditableComponentType {
+export declare enum GridObjectSortComponentType {
   /**
-   * The ImageTextEditableComponent image text type.
+   * The GridObjectSortComponent image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -30,7 +30,7 @@ export declare enum ImageTextEditableComponentType {
   IMAGE_TEXT = "image_text",
 
   /**
-   * The ImageTextEditableComponent text type.
+   * The GridObjectSortComponent text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -40,15 +40,15 @@ export declare enum ImageTextEditableComponentType {
 
 
 /**
- * Declaration of the ImageTextEditableComponent item.
- * @interface ImageTextEditableComponentIteml
+ * Declaration of the GridObjectSortComponent item.
+ * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface ImageTextEditableComponentItem {
+export interface GridObjectSortComponentItem {
   /**
-   * id of ImageTextEditableComponent item.
+   * id of GridObjectSortComponent item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -57,7 +57,7 @@ export interface ImageTextEditableComponentItem {
   id: number | string;
 
   /**
-   * ImageTextEditableComponent item id.
+   * GridObjectSortComponent item id.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -66,7 +66,7 @@ export interface ImageTextEditableComponentItem {
   text: ResourceStr;
 
   /**
-   * state of ImageTextEditableComponent item.
+   * state of GridObjectSortComponent item.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -75,7 +75,7 @@ export interface ImageTextEditableComponentItem {
   state: boolean;
 
   /**
-   * order of ImageTextEditableComponentItem, Used for sorting dataList.
+   * order of GridObjectSortComponentItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -84,7 +84,7 @@ export interface ImageTextEditableComponentItem {
   order: number;
 
   /**
-   * image resource path of the ImageTextEditableComponent item.
+   * image resource path of the GridObjectSortComponent item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -94,43 +94,43 @@ export interface ImageTextEditableComponentItem {
 }
 
 /**
- * ImageTextEditableComponentOptions of ImageTextEditableComponent.
+ * GridObjectSortComponentOptions of GridObjectSortComponent.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface ImageTextEditableComponentOptions {
+export interface GridObjectSortComponentOptions {
   /**
-   * Configuration ImageTextEditableComponent type.
-   * @type { ImageTextEditableComponentType }
-   * @default ImageTextEditableComponentType.TEXT
+   * Configuration GridObjectSortComponent type.
+   * @type { GridObjectSortComponentType }
+   * @default GridObjectSortComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  type?: ImageTextEditableComponentType;
+  type?: GridObjectSortComponentType;
 
   /**
-   * The size of the ImageTextEditableComponent image.
+   * The size of the GridObjectSortComponent image.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  imageSize?: number;
+  imageSize?: number | Resource;
 
   /**
-   * The title displayed in the unedited state of the  ImageTextEditableComponent.
+   * The title displayed in the unedited state of the  GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  title?: ResourceStr;
+  normalTitle?: ResourceStr;
 
   /**
-   * The title displayed in the ImageTextEditableComponent edit state.
+   * The title displayed in the GridObjectSortComponent edit state.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -139,59 +139,59 @@ export interface ImageTextEditableComponentOptions {
   editTitle?: ResourceStr;
 
   /**
-   * First subtitle of the ImageTextEditableComponent.
+   * Display Area Title, First subtitle of the GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  firstSubtitle?: ResourceStr;
+  showAreaTitle?: ResourceStr;
 
   /**
-   * second subtitle of the ImageTextEditableComponent.
+   * Add Zone Title, second subtitle of the GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  secondSubtitle?: ResourceStr;
+  addAreaTitle?: ResourceStr;
 }
 
 /**
- * Declare struct ImageTextEditableComponent.
- * @struct { ImageTextEditableComponent }
+ * Declare struct GridObjectSortComponent.
+ * @struct { GridObjectSortComponent }
  * @crossplatform
  * @since 11
  */
 @Component
-export declare struct ImageTextEditableComponent {
+export declare struct GridObjectSortComponent {
   /**
-   * Component types and parameters of the ImageTextEditableComponent.
-   * @type { ImageTextEditableComponentOptions }
+   * Component types and parameters of the GridObjectSortComponent.
+   * @type { GridObjectSortComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   @Prop
-  options: ImageTextEditableComponentOptions;
+  options: GridObjectSortComponentOptions;
 
   /**
-   * data list of ImageTextEditableComponent.
-   * @type { Array<ImageTextEditableComponentItem> }
+   * data list of GridObjectSortComponent.
+   * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  dataList: Array<ImageTextEditableComponentItem>;
+  dataList: Array<GridObjectSortComponentItem>;
 
   /**
    * Callback when Obtain edited data.
-   * @type { (select: Array<ImageTextEditableComponentItem>, unselect: Array<ImageTextEditableComponentItem>) => void }
+   * @type { (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  onSave: (select: Array<ImageTextEditableComponentItem>, unselect: Array<ImageTextEditableComponentItem>) => void;
+  onSave: (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void;
 
   /**
    * Cancel callback for saving data.
@@ -203,7 +203,7 @@ export declare struct ImageTextEditableComponent {
   onCancel: () => void;
 
   /**
-   * Build function of ImageTextEditableComponent.
+   * Build function of GridObjectSortComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
