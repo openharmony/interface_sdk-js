@@ -2887,15 +2887,16 @@ declare class WebResourceResponse {
    * Sets the response data.
    * Number represents file handle
    *
-   * @param { string | number | Resource } data - the response data.
+   * @param { string | number | Resource | ArrayBuffer } data - the response data.
    *                                              string type indicate strings in HTML format.
    *                                              number type indicate file handle.
    *                                              Resource type indicate $rawfile resource.
+   *                                              ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
-  setResponseData(data: string | number | Resource);
+  setResponseData(data: string | number | Resource | ArrayBuffer);
 
   /**
    * Sets the response encoding.
