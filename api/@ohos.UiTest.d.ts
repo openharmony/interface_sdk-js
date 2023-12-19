@@ -2631,7 +2631,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefine.
+   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2672,7 +2672,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefine.
+   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3387,7 +3387,7 @@ declare class Driver {
    * @param { number } starty The y-coordinate of the starting point.
    * @param { number } endx The x-coordinate of the ending point.
    * @param { number } endy The y-coordinate of the ending point.
-   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefine.
+   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3421,7 +3421,7 @@ declare class Driver {
    * @param { number } starty The y-coordinate of the starting point.
    * @param { number } endx The x-coordinate of the ending point.
    * @param { number } endy The y-coordinate of the ending point.
-   * @param { number } speed The speed of drag(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefine.
+   * @param { number } speed The speed of drag(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3702,7 +3702,7 @@ declare class Driver {
    * Inject multi-pointer action on the device display.
    *
    * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefine.
+   * @param { number } speed The speed of swipe(pixels per second),default is 600,ranges from 200 to 40000.Set it default if out of range or null or undefined.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
