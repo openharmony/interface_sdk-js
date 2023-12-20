@@ -3837,7 +3837,7 @@ declare class Driver {
    * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
    * @param { number } key1 - the first keyCode.
    * @param { number } key2 - the second keyCode.
-   * @param { number } [speed] - The Speed of mouse whell rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
+   * @param { number } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
