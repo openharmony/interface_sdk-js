@@ -301,6 +301,20 @@ declare namespace display {
   function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
 
   /**
+   * set fold status locked or not.
+   *
+   * @param { boolean } locked - fold status is locked or not.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setFoldStatusLocked(locked: boolean): void;
+
+  /**
    * Enumerates the fold status.
    *
    * @enum { number }
