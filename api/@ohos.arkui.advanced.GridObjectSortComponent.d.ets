@@ -66,13 +66,13 @@ export interface GridObjectSortComponentItem {
   text: ResourceStr;
 
   /**
-   * state of GridObjectSortComponent item.
+   * selected of GridObjectSortComponent item, true is show area, false is add area.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  state: boolean;
+  selected: boolean;
 
   /**
    * order of GridObjectSortComponentItem, Used for sorting dataList.
