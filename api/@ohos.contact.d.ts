@@ -1421,6 +1421,13 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
+  /**
+   * Provides methods for contact information
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 11
+   */
   class Contact {
     /**
      * Indicates the contact invalid ID.
