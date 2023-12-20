@@ -42,6 +42,15 @@ import { UIContext } from './@ohos.arkui.UIContext';
  * @crossplatform
  * @since 10
  */
+/**
+ * Window manager.
+ *
+ * @namespace window
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace window {
   /**
    * The type of a window.
@@ -527,6 +536,15 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Rectangle
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Rect {
 
     /**
@@ -594,6 +612,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The height of the Rect.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     height: number;
   }
@@ -848,6 +874,15 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Brightness value of window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     brightness: number;
 
     /**
@@ -873,6 +908,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether keep screen on.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     isKeepScreenOn: boolean;
 
@@ -1964,6 +2008,7 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   enum WindowEventType {
@@ -1978,6 +2023,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_SHOWN = 1,
@@ -1992,6 +2038,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_ACTIVE = 2,
@@ -2006,6 +2053,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_INACTIVE = 3,
@@ -2020,6 +2068,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_HIDDEN = 4,
@@ -2027,6 +2076,7 @@ declare namespace window {
      * The value of window event is window destroy
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 11
      */
     WINDOW_DESTROYED = 7
@@ -2036,10 +2086,27 @@ declare namespace window {
    * Specific system bar type.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 11
    */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
+  /**
+   * Window
+   * 
+   * @interface Window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 6
+   */
+  /**
+   * Window
+   * 
+   * @interface Window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Window {
     /**
      * Hide window.
@@ -3019,17 +3086,6 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
-    /**
-     * Loads content
-     *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 11
-     * @deprecated since 9
-     * @useinstead ohos.window.Window#setUIContent
-     */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -3039,17 +3095,6 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.window.Window#setUIContent
-     */
-    /**
-     * Loads content
-     *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @returns { Promise<void> } Promise that returns no value.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 11
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
@@ -4773,6 +4818,16 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Window stage callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
@@ -4896,6 +4951,15 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * WindowStage
+   *
+   * @interface WindowStage
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   interface WindowStage {
     /**
