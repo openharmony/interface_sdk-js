@@ -265,7 +265,20 @@ declare namespace abilityManager {
    * @systemapi
    * @since 10
    */
-  function acquireShareData(missionId: number, callback: AsyncCallback<{ [key: string]: Object }>): void;
+  /**
+   * Acquire the shared data from target ability.
+   *
+   * @param { number } missionId - The missionId of target ability.
+   * @param { AsyncCallback<Record<string, Object>> } callback - The callback is used to return the params of sharing
+   *                                                             data and result code.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function acquireShareData(missionId: number, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
    * Acquire the shared data from target ability.
@@ -279,7 +292,19 @@ declare namespace abilityManager {
    * @systemapi
    * @since 10
    */
-  function acquireShareData(missionId: number): Promise<{ [key: string]: Object }>;
+  /**
+   * Acquire the shared data from target ability.
+   *
+   * @param { number } missionId - The missionId of target ability.
+   * @returns { Promise<Record<string, Object>> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function acquireShareData(missionId: number): Promise<Record<string, Object>>;
 
   /**
    * Notify the result of save as to target ability.

@@ -92,4 +92,15 @@ export interface WantAgentInfo {
    * @since 7
    */
   extraInfo?: { [key: string]: any };
+
+  /**
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
+  extraInfos?: Record<string, Object>;
 }
