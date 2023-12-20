@@ -33,6 +33,7 @@ import { BusinessError } from './@ohos.base';
  * @namespace i18n
  * @syscap SystemCapability.Global.I18n
  * @form
+ * @atomicservice
  * @since 11
  */
 declare namespace i18n {
@@ -2103,7 +2104,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides the informations holiday locale name.
+   * Provides the informations holiday local name.
    *
    * @interface HolidayLocalName
    * @syscap SystemCapability.Global.I18n
@@ -2111,7 +2112,7 @@ declare namespace i18n {
    */
   export interface HolidayLocalName {
     /**
-     * Holiday locale name language id.
+     * Holiday local name language id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
