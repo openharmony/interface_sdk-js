@@ -126,6 +126,36 @@ declare namespace dataShare {
   ): Promise<DataShareHelper>;
 
   /**
+   * Enables silent access dynamically.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  function enableSilentProxy(context: Context, uri?: string): Promise<void>;
+
+  /**
+   * Disables silent access dynamically.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  function disableSilentProxy(context: Context, uri?: string): Promise<void>;
+
+  /**
    * Specifies the {@link Template} id structure.
    * A template is marked by the template id. Note that the template id is auto generated in {@link DataShareHelper#addTemplate}.
    * After {@link DataShareHelper#addTemplate}, can use the template id to direct a template.
