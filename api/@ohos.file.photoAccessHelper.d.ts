@@ -687,7 +687,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } editData - editData to be saved.
      * @param { string } uri - uri of the edited asset within the applications's own sandbox.
-     * @returns { Promise<void> } Returns void
+     * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
