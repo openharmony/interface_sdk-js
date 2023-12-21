@@ -1778,18 +1778,18 @@ declare interface NavigationAnimatedTransition {
    * @crossplatform
    * @since 11
    */
-  transition: (transitionContext: NavigationTransitionContext) => void
+  transition: (transitionProxy: NavigationTransitionProxy) => void
 }
 
 /**
- * Navigation transition animation context.
+ * Navigation transition proxy.
  *
- * @interface NavigationTransitionContext
+ * @interface NavigationTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-declare interface NavigationTransitionContext {
+declare interface NavigationTransitionProxy {
   /**
    * From navigation content info.
    *
