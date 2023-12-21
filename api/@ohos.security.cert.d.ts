@@ -339,12 +339,6 @@ declare namespace cert {
      * The value of cert chain PKCS7 format.
      *
      * @syscap SystemCapability.Security.Cert
-     * @since 11
-     */
-    /**
-     * The value of cert chain PKCS7 format.
-     *
-     * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
      */
