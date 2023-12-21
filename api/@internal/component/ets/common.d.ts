@@ -12947,7 +12947,6 @@ declare class CommonMethod<T> {
    * Add an attribute to control whether the shadows of the child nodes overlap each other.
    *
    * @param { boolean } value - true means the shadows of the child nodes overlap each other effect and drawn in batches.
-   * @default false
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
