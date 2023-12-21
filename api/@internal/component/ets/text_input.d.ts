@@ -336,6 +336,24 @@ declare enum EnterKeyType {
    * @since 11
    */
   Done,
+
+  /**
+   * Showed as 'previous' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PREVIOUS = 7,
+
+  /**
+   * Showed as 'new line' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NEW_LINE = 8,
 }
 
 /**
