@@ -2104,7 +2104,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides the informations holiday local name.
+   * Provides the informations holiday locale name.
    *
    * @interface HolidayLocalName
    * @syscap SystemCapability.Global.I18n
@@ -2112,7 +2112,7 @@ declare namespace i18n {
    */
   export interface HolidayLocalName {
     /**
-     * Holiday local name language id.
+     * Holiday locale name language id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
