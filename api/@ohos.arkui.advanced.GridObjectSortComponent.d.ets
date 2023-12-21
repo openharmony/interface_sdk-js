@@ -38,7 +38,6 @@ export declare enum GridObjectSortComponentType {
   TEXT = "text"
 }
 
-
 /**
  * Declaration of the GridObjectSortComponent item.
  * @interface GridObjectSortComponentIteml
@@ -57,7 +56,7 @@ export interface GridObjectSortComponentItem {
   id: number | string;
 
   /**
-   * GridObjectSortComponent item id.
+   * GridObjectSortComponent item text.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -113,7 +112,7 @@ export interface GridObjectSortComponentOptions {
 
   /**
    * The size of the GridObjectSortComponent image.
-   * @type { ?number }
+   * @type { ?number | ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
