@@ -2061,7 +2061,6 @@ declare namespace notificationManager {
    *
    * @param { SystemLiveViewSubscriber } subscriber - The system live vie notification subscriber.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
