@@ -185,7 +185,15 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
-    FORMAT_PEM = 1
+    FORMAT_PEM = 1,
+
+    /**
+     * The value of cert chain PKCS7 format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    FORMAT_PKCS7 = 2
   }
 
   /**
@@ -1847,6 +1855,208 @@ declare namespace cert {
    */
   function createCertCRLCollection(certs: Array<X509Cert>, crls?: Array<X509CRL>): CertCRLCollection;
 
+  /**
+   * X509 Certification chain object.
+   *
+   * @typedef X509CertChain
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  interface X509CertChain {
+    /**
+     * Get the X509 certificate list.
+     *
+     * @returns { Array<X509Cert> } the X509 certificate list.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    getCertList(): Array<X509Cert>;
+
+    /**
+     * Validate the cert chain with validate parameters.
+     *
+     * @param { CertChainValidationParameters } param - indicate the cert chain Validate parameters.
+     * @returns { Promise<CertChainValidationResult> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - the certificate has expired.
+     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    validate(param: CertChainValidationParameters): Promise<CertChainValidationResult>;
+
+    /**
+     * Validate the cert chain with validate parameters.
+     *
+     * @param { CertChainValidationParameters } param - indicate the cert chain validate parameters.
+     * @param { AsyncCallback<CertChainValidationResult> } callback - indicate the cert chain validate result.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - the certificate has expired.
+     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    validate(param: CertChainValidationParameters, callback: AsyncCallback<CertChainValidationResult>): void;
+  }
+
+  /**
+   * Provides to create X509 certificate chain object.
+   * The returned object provides the data parsing or verification capability.
+   *
+   * @param { EncodingBlob } inStream - indicate the input cert data.
+   * @returns { Promise<X509CertChain> }
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  function createX509CertChain(inStream: EncodingBlob): Promise<X509CertChain>;
+
+  /**
+   * Provides to create X509 certificate chain object.
+   * The returned object provides the data parsing or verification capability.
+   *
+   * @param { EncodingBlob } inStream - indicate the input cert data.
+   * @param { AsyncCallback<X509CertChain> } callback
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  function createX509CertChain(inStream: EncodingBlob, callback: AsyncCallback<X509CertChain>): void;
+
+  /**
+   * Create certificate chain object with certificate array.
+   *
+   * @param { Array<X509Cert> } certs - indicate the certificate array.
+   * @returns { X509CertChain } the certificate chain object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  function createX509CertChain(certs: Array<X509Cert>): X509CertChain;
+
+  /**
+   * Provides the x509 trust anchor type.
+   *
+   * @typedef X509TrustAnchor
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  interface X509TrustAnchor {
+    /**
+     * The trust CA cert.
+     *
+     * @type { ?X509Cert }
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    CACert?: X509Cert;
+
+    /**
+     * The trust CA public key in DER format.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    CAPubKey?: Uint8Array;
+
+    /**
+     * The trust CA subject in DER format.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    CASubject?: Uint8Array;
+  }
+
+  /**
+   * Provides the certificate chain validate parameters type.
+   *
+   * @typedef CertChainValidationParameters
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  interface CertChainValidationParameters {
+    /**
+     * The datetime to verify the certificate chain validity period.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    date?: string;
+
+    /**
+     * The trust ca certificates to verify the certificate chain.
+     *
+     * @type { Array<X509TrustAnchor> }
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    trustAnchors: Array<X509TrustAnchor>;
+
+    /**
+     * The cert and CRL list to build cert chain and verify the certificate chain revocation state.
+     *
+     * @type { ?Array<CertCRLCollection> }
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    certCRLs?: Array<CertCRLCollection>;
+  }
+
+  /**
+   * Certification chain validate result.
+   *
+   * @typedef CertChainValidationResult
+   * @syscap SystemCapability.Security.Cert
+   * @since 11
+   */
+  interface CertChainValidationResult {
+    /**
+     * The cert chain trust anchor.
+     *
+     * @type { X509TrustAnchor }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    readonly trustAnchor: X509TrustAnchor;
+
+    /**
+     * The target certificate.
+     *
+     * @type { X509Cert }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @since 11
+     */
+    readonly entityCert: X509Cert;
+  }
 }
 
 export default cert;
