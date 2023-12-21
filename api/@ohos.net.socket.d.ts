@@ -645,7 +645,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the UDPSocket connection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the UDPSocket connection.
@@ -662,7 +670,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the UDPSocket connection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for data packet message events or close events of the UDPSocket connection.
@@ -1393,7 +1409,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TCPSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
@@ -1410,7 +1434,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TCPSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
 
     /**
@@ -1689,7 +1721,16 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TLSSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
@@ -1708,7 +1749,16 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TLSSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for connection or close events of the TLSSocket connection.
@@ -2558,7 +2608,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TCPSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocketConnection.
@@ -2568,7 +2626,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TCPSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for close events of the TCPSocketConnection.
@@ -2924,7 +2990,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TLSSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TLSSocketConnection.
@@ -2934,7 +3008,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TLSSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for close events of the TLSSocketConnection.
@@ -2975,6 +3057,29 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines the socket connection information.
+   * @interface SocketMessageInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface SocketMessageInfo {
+    /**
+     * Receive the message event.
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    message: ArrayBuffer;
+    /**
+     * Socket connection information.
+     * @type { SocketRemoteInfo }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    remoteInfo: SocketRemoteInfo;
   }
 
   /**
