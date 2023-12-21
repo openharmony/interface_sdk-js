@@ -8653,7 +8653,7 @@ declare interface SheetOptions extends BindOptions {
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
 
   /**
-   * Set whether interaction is allowed outside the sheet.
+   * Set whether interaction is allowed outside the sheet
    *
    * @type { ?boolean }
    * @default false
