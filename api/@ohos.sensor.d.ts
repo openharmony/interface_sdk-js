@@ -237,6 +237,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 201 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -250,6 +251,7 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 201 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -832,6 +834,7 @@ declare namespace sensor {
    * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
@@ -843,6 +846,7 @@ declare namespace sensor {
    * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
