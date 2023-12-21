@@ -497,7 +497,7 @@ declare namespace dataShare {
      *
      * @param { 'publishedDataChange' } type - Type must be 'publishedDataChange'.
      * @param { Array<string> } uris - Indicates the uris of the data to operate.
-     * @param { string } subscriberId - The template of off.
+     * @param { string } subscriberId - The subscriberId of off.
      * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of off.
      * @returns { Array<OperationResult> } : The operation result.
      * @throws { BusinessError } 401 - Parameter error.
