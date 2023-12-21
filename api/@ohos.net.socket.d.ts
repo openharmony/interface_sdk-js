@@ -415,11 +415,11 @@ declare namespace socket {
 
   /**
    * Defines information about the local socket connection.
-   * @interface LocalSocketMessageInfo
+   * @interface messageReceive
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export interface LocalSocketMessageInfo {
+  export interface messageReceive {
     /**
      * Message data.
      * @type {ArrayBuffer}
@@ -1084,22 +1084,22 @@ declare namespace socket {
     /**
      * Listens for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
+     * @param { Callback<messageReceive> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
+    on(type: 'message', callback: Callback<messageReceive>): void;
 
     /**
      * Cancels listening for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
+     * @param { Callback<messageReceive> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
+    off(type: 'message', callback?: Callback<messageReceive>): void;
 
     /**
      * Listens for connection events of the LocalSocket connection.
@@ -1200,22 +1200,22 @@ declare namespace socket {
     /**
      * Listens for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
+     * @param { Callback<messageReceive> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
+    on(type: 'message', callback: Callback<messageReceive>): void;
 
     /**
      * Cancels listening for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
+     * @param { Callback<messageReceive> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
+    off(type: 'message', callback?: Callback<messageReceive>): void;
 
     /**
      * Listens for close events of the LocalSocketConnection.
@@ -1239,6 +1239,7 @@ declare namespace socket {
 
     /**
      * Listens for error events of the LocalSocketConnection.
+     * When an unexpected situation causes the connection to disconnect, it will be called.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1331,6 +1332,7 @@ declare namespace socket {
 
     /**
      * Listens for error events of the LocalSocketServer connection.
+     * When some errors occur, such as accepting failure, it will be called.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
