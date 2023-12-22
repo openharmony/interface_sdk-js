@@ -65,6 +65,7 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra

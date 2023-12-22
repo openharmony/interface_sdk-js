@@ -12944,6 +12944,18 @@ declare class CommonMethod<T> {
   hueRotate(value: number | string): T;
 
   /**
+   * Add an attribute to control whether the shadows of the child nodes overlap each other.
+   *
+   * @param { boolean } value - true means the shadows of the child nodes overlap each other effect and drawn in batches.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  useShadowBatching(value: boolean): T;
+
+  /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
    * If multiple parent effectComponents are found, the nearest one will be used.
    * If no parent effectComponent is found, this method has no effect.
