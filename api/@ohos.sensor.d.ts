@@ -237,10 +237,21 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14500101 - Service exception.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
+   */
+  /**
+   * Subscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { Callback<ColorResponse> } callback - callback color data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 11
    */
   function on(type: SensorId.COLOR, callback: Callback<ColorResponse>, options?: Options): void;
 
@@ -251,10 +262,21 @@ declare namespace sensor {
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14500101 - Service exception.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
+   */
+  /**
+   * Subscribe to SAR sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { Callback<SarResponse> } callback - callback sar data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 11
    */
   function on(type: SensorId.SAR, callback: Callback<SarResponse>, options?: Options): void;
 
@@ -834,10 +856,19 @@ declare namespace sensor {
    * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
    * @param { Callback<ColorResponse> } callback - callback color data.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
+   */
+  /**
+   * Unsubscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { Callback<ColorResponse> } callback - callback color data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 11
    */
   function off(type: SensorId.COLOR, callback?: Callback<ColorResponse>): void;
 
@@ -846,10 +877,19 @@ declare namespace sensor {
    * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
    * @param { Callback<SarResponse> } callback - callback sar data.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10
+   */
+  /**
+   * Unsubscribe to sar sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { Callback<SarResponse> } callback - callback sar data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 11
    */
   function off(type: SensorId.SAR, callback?: Callback<SarResponse>): void;
 
