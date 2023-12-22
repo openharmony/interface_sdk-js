@@ -13,18 +13,10 @@
  * limitations under the License.
  */
 
-import StaticSubscriberExtensionAbility from '../@ohos.application.StaticSubscriberExtensionAbility';
-import StaticSubscriberExtensionContext from '../@ohos.application.StaticSubscriberExtensionContext';
-import commonEvent from '../@ohos.commonEvent';
-import commonEventManager from '../@ohos.commonEventManager';
-import emitter from '../@ohos.events.emitter';
-import notification from '../@ohos.notification';
 import notificationManager from '../@ohos.notificationManager';
 import notificationSubscribe from '../@ohos.notificationSubscribe';
 import Notification, { ActionResult, ShowNotificationOptions } from '../@system.notification';
 
 export {
-  ActionResult, Notification, ShowNotificationOptions, StaticSubscriberExtensionAbility,
-  StaticSubscriberExtensionContext, commonEvent, commonEventManager, emitter, notification, notificationManager,
-  notificationSubscribe
+  ActionResult, Notification, ShowNotificationOptions, notificationManager, notificationSubscribe
 };
