@@ -964,6 +964,15 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
  * @crossplatform
  * @since 10
  */
+/**
+ * JS cross-thread communication tool
+ *
+ * @namespace worker
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace worker {
   /**
    * The ThreadWorker class contains all Worker functions.

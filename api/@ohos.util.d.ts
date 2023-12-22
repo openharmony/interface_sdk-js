@@ -35,6 +35,16 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
+ * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
+ *
+ * @namespace util
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace util {
   /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
