@@ -33,7 +33,7 @@ export interface CipherResponse {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   text: string;
 }
@@ -44,7 +44,7 @@ export interface CipherResponse {
  * @typedef CipherRsaOptions
  * @syscap SystemCapability.Security.Cipher
  * @since 3
- * @deprecated since 9
+ * @deprecated since 11
  */
 export interface CipherRsaOptions {
   /**
@@ -56,7 +56,7 @@ export interface CipherRsaOptions {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   action: string;
 
@@ -71,7 +71,7 @@ export interface CipherRsaOptions {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   text: string;
 
@@ -83,7 +83,7 @@ export interface CipherRsaOptions {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   key: string;
 
@@ -94,7 +94,7 @@ export interface CipherRsaOptions {
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   transformation?: string;
 
@@ -104,7 +104,7 @@ export interface CipherRsaOptions {
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   success: (data: CipherResponse) => void;
 
@@ -114,7 +114,7 @@ export interface CipherRsaOptions {
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   fail: (data: string, code: number) => void;
 
@@ -124,7 +124,7 @@ export interface CipherRsaOptions {
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   complete: () => void;
 }
@@ -135,7 +135,7 @@ export interface CipherRsaOptions {
  * @typedef CipherAesOptions
  * @syscap SystemCapability.Security.Cipher
  * @since 3
- * @deprecated since 9
+ * @deprecated since 11
  */
 export interface CipherAesOptions {
   /**
@@ -147,7 +147,7 @@ export interface CipherAesOptions {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   action: string;
 
@@ -160,7 +160,7 @@ export interface CipherAesOptions {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   text: string;
 
@@ -170,7 +170,7 @@ export interface CipherAesOptions {
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   key: string;
 
@@ -181,7 +181,7 @@ export interface CipherAesOptions {
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   transformation?: string;
 
@@ -193,7 +193,7 @@ export interface CipherAesOptions {
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   iv?: string;
 
@@ -204,7 +204,7 @@ export interface CipherAesOptions {
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   ivOffset?: string;
 
@@ -215,7 +215,7 @@ export interface CipherAesOptions {
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   ivLen?: string;
 
@@ -225,7 +225,7 @@ export interface CipherAesOptions {
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   success: (data: CipherResponse) => void;
 
@@ -235,7 +235,7 @@ export interface CipherAesOptions {
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   fail: (data: string, code: number) => void;
 
@@ -245,7 +245,7 @@ export interface CipherAesOptions {
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
-   * @deprecated since 9
+   * @deprecated since 11
    */
   complete: () => void;
 }
