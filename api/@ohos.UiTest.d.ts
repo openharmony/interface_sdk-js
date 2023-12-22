@@ -3212,9 +3212,9 @@ declare class Driver {
   /**
    * Press two or three key combinations
    *
-   * @param { number } key0 - the first keyCode.
-   * @param { number } key1 - the second keyCode.
-   * @param { number } key2 - the third keyCode.
+   * @param { number } [key0] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key1] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3760,8 +3760,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3818,8 +3818,8 @@ declare class Driver {
    * @param { Point } p - the coordinate of the specified location.
    * @param { boolean } down - whether the mouse wheel rolls down.
    * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3835,8 +3835,8 @@ declare class Driver {
    * @param { Point } p - the coordinate of the specified location.
    * @param { boolean } down - whether the mouse wheel rolls down.
    * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @param { number } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -3901,8 +3901,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3918,8 +3918,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
