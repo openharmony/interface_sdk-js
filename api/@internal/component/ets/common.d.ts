@@ -17746,3 +17746,10 @@ declare interface KeyframeState {
    */
   event: () => void;
 }
+
+declare module 'touchEvent'{
+  module 'touchEvent' {
+    // @ts-ignore
+    export { TouchEvent };
+  }
+}
