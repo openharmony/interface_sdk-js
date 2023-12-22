@@ -37,6 +37,15 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  * @crossplatform
  * @since 10
  */
+/**
+ * Interface of display manager.
+ *
+ * @namespace display
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace display {
   /**
    * Obtain the default display.

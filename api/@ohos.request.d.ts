@@ -35,6 +35,13 @@ import BaseContext from './application/BaseContext';
  * @namespace request
  * @since 10
  */
+/**
+ * upload and download
+ *
+ * @namespace request
+ * @atomicservice
+ * @since 11
+ */
 declare namespace request {
   /**
    * Error code 201 - the permissions check fails.

@@ -873,7 +873,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
-     /**
+    /**
      * Get X509 cert serial number.
      *
      * @returns { bigint } X509 cert serial number.

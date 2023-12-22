@@ -84,7 +84,24 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
+  /**
+   * Callback when the network state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<NetworkState> } callback - Indicates the callback for getting
+   * an instance of the {@code NetworkState} class.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'networkStateChange', options: ObserverOptions, callback: Callback<NetworkState>): void;
 
   /**
    * Cancel callback when the network state is updated.
@@ -134,7 +151,22 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'signalInfoChange', options: { slotId: number }, callback: Callback<Array<SignalInformation>>): void;
+  /**
+   * Callback when the signal strength corresponding to a monitored {@code slotId} is updated.
+   *
+   * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
+   * an array of instances of the classes derived from {@link SignalInformation}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
   /**
    * Cancel callback when the signal strength is updated.
@@ -192,7 +224,26 @@ declare namespace observer {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function on(type: 'cellInfoChange', options: { slotId: number }, callback: Callback<Array<CellInformation>>): void;
+  /**
+   * Callback when the cell information corresponding to a monitored {@code slotId} is updated.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
+   * an array of instances of the classes derived from {@link CellInformation}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'cellInfoChange', options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
   /**
    * Cancel callback when the cell information is updated.
@@ -228,8 +279,23 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'cellularDataConnectionStateChange',
-    callback: Callback<{ state: DataConnectState, network: RatType }>): void;
+  /**
+   * Callback when the cellular data link connection state corresponding to the default sim card is updated.
+   *
+   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
+   * event to be subscribed to.
+   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback for
+   * getting the cellular data link connection state, and networkType Indicates the radio access technology
+   * for cellular data services.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectionStateInfo>): void;
 
   /**
    * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
@@ -249,8 +315,25 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'cellularDataConnectionStateChange', options: { slotId: number },
-    callback: Callback<{ state: DataConnectState, network: RatType }>): void;
+  /**
+   * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
+   * event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback for
+   * getting the cellular data link connection state, and networkType Indicates the radio access technology for
+   * cellular data services.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'cellularDataConnectionStateChange', options: ObserverOptions,
+    callback: Callback<DataConnectionStateInfo>): void;
 
   /**
    * Cancel callback when the cellular data link connection state is updated.
@@ -267,8 +350,22 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function off(type: 'cellularDataConnectionStateChange',
-    callback?: Callback<{ state: DataConnectState, network: RatType }>): void;
+  /**
+   * Cancel callback when the cellular data link connection state is updated.
+   *
+   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
+   * event to unsubscribe from.
+   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback to unsubscribe
+   * from the cellularDataConnectionStateChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectionStateInfo>): void;
 
   /**
    * Callback when the uplink and downlink data flow state of cellular data services
@@ -302,7 +399,22 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'cellularDataFlowChange', options: { slotId: number }, callback: Callback<DataFlowType>): void;
+  /**
+   * Callback when the uplink and downlink data flow state of cellular data services
+   * corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
   /**
    * Cancel callback when the uplink and downlink data flow state of cellular data services is updated.
@@ -334,7 +446,21 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: string }>): void;
+  /**
+   * Callback when the call state corresponding to the default sim card is updated.
+   *
+   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
+   * @param { Callback<CallStateInfo> } callback - Indicates the callback for
+   * getting the call state and the called number.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
@@ -352,8 +478,22 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'callStateChange', options: { slotId: number }, 
-    callback: Callback<{ state: CallState, number: string }>): void;
+  /**
+   * Callback when the call state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<CallStateInfo> } callback - Indicates the callback for
+   * getting the call state and the called number.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
   /**
    * Cancel callback when the call state is updated.
@@ -369,7 +509,21 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: string }>): void;
+  /**
+   * Cancel callback when the call state is updated.
+   *
+   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to unsubscribe from.
+   * @param { Callback<CallStateInfo> } callback - Indicates the callback to
+   * unsubscribe from the callStateChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
   /**
    * Callback when the sim state corresponding to the default sim card is updated.
@@ -402,7 +556,21 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7
    */
-  function on(type: 'simStateChange', options: { slotId: number }, callback: Callback<SimStateData>): void;
+  /**
+   * Callback when the sim state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  function on(type: 'simStateChange', options: ObserverOptions, callback: Callback<SimStateData>): void;
 
   /**
    * Cancel callback when the sim state is updated.
@@ -486,6 +654,78 @@ declare namespace observer {
      * @since 8
      */
     reason: LockReason;
+  }
+
+  /**
+   * Indicates call state and number.
+   *
+   * @interface CallStateInfo
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  export interface CallStateInfo {
+    /**
+     * Indicates call state.
+     *
+     * @type { CallState }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    state: CallState;
+
+    /**
+     * Indicates call number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    number: string;
+  }
+
+  /**
+   * Indicates cellular data connect state and technology type.
+   *
+   * @interface DataConnectionStateInfo
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  export interface DataConnectionStateInfo {
+    /**
+     * Indicates cellular data connect state.
+     *
+     * @type { DataConnectState }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    state: DataConnectState;
+
+    /**
+     * Indicates technology type.
+     *
+     * @type { RatType }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    network: RatType;
+  }
+
+  /**
+   * Indicates observer options.
+   *
+   * @interface ObserverOptions
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 11
+   */
+  export interface ObserverOptions {
+    /**
+     * Indicates the ID of the target card slot.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 11
+     */
+    slotId: number;
   }
 
   /**

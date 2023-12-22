@@ -184,6 +184,7 @@ declare namespace resourceManager {
      * Indicates a tablet.
      *
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -205,6 +206,7 @@ declare namespace resourceManager {
      * Indicates a car.
      *
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -226,6 +228,7 @@ declare namespace resourceManager {
      * Indicates a PC.
      *
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -247,6 +250,7 @@ declare namespace resourceManager {
      * Indicates a smart TV.
      *
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -268,6 +272,7 @@ declare namespace resourceManager {
      * Indicates a wearable device.
      *
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -277,6 +282,7 @@ declare namespace resourceManager {
      * Indicates a 2in1 device.
      *
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -689,6 +695,7 @@ declare namespace resourceManager {
    * @throws { BusinessError } 9001009 - If application can't access system resource
    *         which is not mapped to application sandbox, This error code will be thrown.
    * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1036,6 +1043,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1110,6 +1118,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1212,6 +1221,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1284,6 +1294,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1832,6 +1843,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1901,6 +1913,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -1973,6 +1986,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2040,6 +2054,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2975,6 +2990,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3042,6 +3058,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3114,6 +3131,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3181,6 +3199,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3509,6 +3528,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3532,6 +3552,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3561,6 +3582,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3588,6 +3610,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3619,6 +3642,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3648,6 +3672,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3677,6 +3702,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3704,6 +3730,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3731,6 +3758,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3760,6 +3788,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3787,6 +3816,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3808,6 +3838,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3829,6 +3860,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001010 - If the overlay path is invalid.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3852,6 +3884,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3873,6 +3906,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3896,6 +3930,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3919,6 +3954,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3948,6 +3984,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3979,6 +4016,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4008,6 +4046,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4039,6 +4078,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4072,6 +4112,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4107,6 +4148,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4134,6 +4176,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4163,6 +4206,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4196,6 +4240,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4225,6 +4270,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4254,6 +4300,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4281,6 +4328,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4298,6 +4346,7 @@ declare namespace resourceManager {
      *
      * @returns { Configuration } the device configuration.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4315,6 +4364,7 @@ declare namespace resourceManager {
      *
      * @returns { DeviceCapability } the device capability.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4328,6 +4378,7 @@ declare namespace resourceManager {
      * @returns { Array<string> } the list of strings for the locales.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4343,6 +4394,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4359,6 +4411,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -4374,6 +4427,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
      * @atomicservice
      * @since 11
      */

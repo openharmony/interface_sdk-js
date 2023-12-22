@@ -28,6 +28,14 @@ import type { Callback } from './@ohos.base';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 7
  */
+/**
+ * Accessibility
+ *
+ * @namespace accessibility
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @atomicservice
+ * @since 11
+ */
 declare namespace accessibility {
   /**
    * The type of the Ability app.

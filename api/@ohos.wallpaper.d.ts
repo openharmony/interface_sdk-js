@@ -474,6 +474,7 @@ declare namespace wallpaper {
 
   /**
    * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
+   * Only the static wallpaper set by using setImage can be obtained.
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
@@ -489,7 +490,8 @@ declare namespace wallpaper {
 
   /**
    * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
-   *
+   * Only the static wallpaper set by using setImage can be obtained.
+   * 
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<image.PixelMap> } the promise returned by the function.
@@ -570,7 +572,7 @@ declare namespace wallpaper {
    * Registers a listener for wallpaper color changes to receive notifications about the changes.
    *
    * @param { 'colorChange' } type - the incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes.
-   * @param { (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void } callback - provides dominant colors of the wallpaper.
+   * @param { function } callback - provides dominant colors of the wallpaper.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7
    * @deprecated since 9
@@ -581,7 +583,7 @@ declare namespace wallpaper {
    * Registers a listener for wallpaper changes to receive notifications about the changes.
    *
    * @param { 'wallpaperChange' } type - the incoming wallpaperChange table open receiver when the user modifies the wallpaper settings.
-   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void } callback - wallpaperType indicates the wallpaper type.
+   * @param { function } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
    * uri indicates the wallpaper resource address.
    * @throws { BusinessError } 401 - parameter error.
@@ -599,7 +601,7 @@ declare namespace wallpaper {
    * Unregisters a listener for wallpaper color changes.
    *
    * @param { 'colorChange' } type - incoming colorChange table delete receiver to pick up a color change wallpaper wallpaper color changes
-   * @param { (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void } callback - provides dominant colors of the wallpaper.
+   * @param { function } callback - provides dominant colors of the wallpaper.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7
    * @deprecated since 9
@@ -610,7 +612,7 @@ declare namespace wallpaper {
    * Unregisters a listener for wallpaper changes.
    *
    * @param { 'wallpaperChange' } type - the incoming wallpaperChange table delete receiver when the user modifies the wallpaper settings.
-   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void } callback - wallpaperType indicates the wallpaper type.
+   * @param { function } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
    * uri indicates the wallpaper resource address.
    * @throws { BusinessError } 401 - parameter error.

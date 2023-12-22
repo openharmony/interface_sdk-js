@@ -25,6 +25,7 @@
  *
  * @interface Resource
  * @syscap SystemCapability.Global.ResourceManager
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -41,6 +42,7 @@ export interface Resource {
    *
    * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -58,6 +60,7 @@ export interface Resource {
    *
    * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -75,6 +78,7 @@ export interface Resource {
    *
    * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -92,6 +96,7 @@ export interface Resource {
    *
    * @type { ?any[] }
    * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -109,6 +114,7 @@ export interface Resource {
    *
    * @type { ?number }
    * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
