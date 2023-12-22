@@ -24,7 +24,7 @@
  * @typedef CipherResponse
  * @syscap SystemCapability.Security.Cipher
  * @since 3
- * @deprecated since 9
+ * @deprecated since 11
  */
 export interface CipherResponse {
   /**
