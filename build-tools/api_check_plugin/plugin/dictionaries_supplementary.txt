@@ -739,6 +739,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing
