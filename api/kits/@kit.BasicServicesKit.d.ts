@@ -44,6 +44,10 @@ import usbManager from '../@ohos.usbManager';
 import wallpaper from '../@ohos.wallpaper';
 import WallpaperExtensionAbility from '../@ohos.WallpaperExtensionAbility';
 import zlib from '../@ohos.zlib';
+import commonEventManager from '../@ohos.commonEventManager';
+import emitter from '../@ohos.events.emitter';
+import StaticSubscriberExtensionAbility from '../@ohos.application.StaticSubscriberExtensionAbility';
+import StaticSubscriberExtensionContext from '../@ohos.application.StaticSubscriberExtensionContext';
 import Battery, { BatteryResponse, GetStatusOptions } from '../@system.battery';
 import Brightness, {
   BrightnessModeResponse, BrightnessResponse, GetBrightnessModeOptions, GetBrightnessOptions,
@@ -65,5 +69,6 @@ export {
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger,
   deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
-  systemTimer, thermal, update, usb, usbManager, wallpaper, zlib
+  systemTimer, thermal, update, usb, usbManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  StaticSubscriberExtensionContext
 };
