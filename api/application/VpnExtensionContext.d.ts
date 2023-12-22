@@ -21,7 +21,7 @@ import type ExtensionContext from './ExtensionContext';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 

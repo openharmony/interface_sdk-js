@@ -42,7 +42,7 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function startVpnExtensionAbility(want: Want): Promise<void>;
@@ -60,7 +60,7 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function stopVpnExtensionAbility(want: Want): Promise<void>;
@@ -76,7 +76,7 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function setAlwaysOnVpnEnabled(enable: boolean, bundleName: string): Promise<void>;
@@ -91,7 +91,7 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function isAlwaysOnVpnEnabled(bundleName: string): Promise<boolean>;
@@ -107,10 +107,10 @@ declare namespace vpnExtension {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
-  function updateVpnAuthorize(bundleName: string): boolean;
+  function updateVpnAuthorizedState(bundleName: string): boolean;
   /**
    * Create a VPN connection using the VpnExtensionContext.
    * 
@@ -145,7 +145,7 @@ declare namespace vpnExtension {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
      */
-    setUp(config: VpnConfig): Promise<number>;
+    create(config: VpnConfig): Promise<number>;
  
     /**
      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
@@ -254,7 +254,7 @@ declare namespace vpnExtension {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
      */
-    isLegacy?: boolean;
+    isInternal?: boolean;
  
     /**
      * Whether the VPN interface's file descriptor is in blocking/non-blocking mode. The default value is false.
@@ -284,5 +284,5 @@ declare namespace vpnExtension {
     blockedApplications?: Array<string>;
   }
 }
-export default vpn;
+export default vpnExtension;
  
