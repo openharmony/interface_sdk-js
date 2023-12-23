@@ -59,15 +59,16 @@ function tsTransformKitFile(url) {
   if (kitFileNeedDeleteMap.length === 0) {
     return;
   }
-  const kitPath = path.resolve(url, './kits');
+  const kitPath = path.resolve(url, '../kits');
   const kitFiles = [];
   readFile(kitPath, kitFiles); // 读取文件
   kitFiles.forEach((kitFile) => {
-    const kitName = processFileNameWithoutExt(kitFile);
+    const kitName = processFileNameWithoutExt(kitFile).replace('@kit.', '');
+    const content = fs.readFileSync(kitFile, 'utf-8');
     if (!kitFileNeedDeleteMap.has(kitName)) {
+      writeFile(kitFile, content);
       return;
     }
-    const content = fs.readFileSync(kitFile, 'utf-8');
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
     const sourceInfo = getKitNewSourceFile(sourceFile, kitName);

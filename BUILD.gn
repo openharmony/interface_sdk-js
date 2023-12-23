@@ -39,6 +39,17 @@ template("ohos_copy_internal") {
   }
 }
 
+ohos_copy("bundle_kits") {
+  if (sdk_build_public || product_name == "ohos-sdk") {
+    sources = [ "//out/sdk-public/public_interface/sdk-js/kits" ]
+  } else {
+    sources = [ "//interface/sdk-js/kits" ]
+  }
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
 ohos_copy_internal("ets_internal_api") {
   iv_input = "//interface/sdk-js/api/@internal/ets"
 }
