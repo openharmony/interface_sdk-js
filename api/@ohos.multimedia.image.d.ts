@@ -1167,6 +1167,8 @@ declare namespace image {
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
      * @since 11
      */
     size: Size;
@@ -1202,7 +1204,6 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
      * @atomicservice
      * @since 11
      */
