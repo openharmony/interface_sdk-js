@@ -27,11 +27,6 @@ import type resourceManager from './@ohos.resourceManager';
  * @namespace image
  * @since 6
  */
-/**
- * @namespace image
- * @crossplatform
- * @since 11
- */
 declare namespace image {
   /**
    * Enumerates pixel map formats.
@@ -1172,8 +1167,6 @@ declare namespace image {
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
      * @since 11
      */
     size: Size;
@@ -1431,6 +1424,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes image decoding parameters.
+   *
+   * @typedef DecodingOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface DecodingOptions {
     /**
      * Number of image frames.
@@ -1446,6 +1448,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Number of image frames.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     index?: number;
 
@@ -1464,6 +1475,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sampling ratio of the image pixel map.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     sampleSize?: number;
 
     /**
@@ -1481,6 +1501,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     rotate?: number;
 
     /**
@@ -1497,6 +1526,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether the image pixel map is editable.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     editable?: boolean;
 
@@ -1517,6 +1555,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
+     * based on the original image size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     desiredSize?: Size;
 
     /**
@@ -1533,6 +1581,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Cropping region of the image pixel map.
+     *
+     * @type { ?Region }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     desiredRegion?: Region;
 
@@ -1551,6 +1608,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Data format of the image pixel map.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     desiredPixelFormat?: PixelMapFormat;
 
     /**
@@ -1568,6 +1634,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The density for image pixel map.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     fitDensity?: number;
 
     /**
@@ -1576,6 +1651,7 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
@@ -2242,6 +2318,15 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * PixelMap instance.
+   *
+   * @typedef PixelMap
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   interface PixelMap {
     /**
@@ -3049,6 +3134,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
     /**
@@ -3065,6 +3161,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Creates a PixelMap object. This method uses a callback to return the object.
+     *
+     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     createPixelMap(callback: AsyncCallback<PixelMap>): void;
 
@@ -3086,6 +3191,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
+     * return the object.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
 
@@ -3680,6 +3796,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Compresses or packs an image and uses a callback to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
@@ -3700,6 +3827,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { PixelMap } source PixelMap to be processed.
+     * @param { PackingOption } option Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
