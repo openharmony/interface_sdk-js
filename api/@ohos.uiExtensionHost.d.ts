@@ -38,8 +38,8 @@ declare namespace uiExtensionHost {
     /**
      * Get the avoid area
      *
-     * @param { AvoidAreaType } type - Type of the area
-     * @returns { AvoidArea } Area where the window cannot be displayed.
+     * @param { window.AvoidAreaType } type - Type of the area
+     * @returns { window.AvoidArea } Area where the window cannot be displayed.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -107,7 +107,7 @@ declare namespace uiExtensionHost {
   }
 
   /**
-   * Properties of UIExtesnion window
+   * Properties of UIExtension window
    *
    * @interface UIExtensionHostWindowProxyProperties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
