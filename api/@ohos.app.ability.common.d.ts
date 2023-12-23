@@ -33,6 +33,8 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
+import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 
 /**
  * This module provides application context classes and common data structures.
@@ -337,6 +339,24 @@ declare namespace common {
    * @since 11
    */
   export type AbilityStartCallback = _AbilityStartCallback;
+
+  /**
+   * The class of auto startup info.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AutoStartupInfo = _AutoStartupInfo;
+
+  /**
+   * The class of auto startup callback.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AutoStartupCallback = _AutoStartupCallback;
 }
 
 export default common;
