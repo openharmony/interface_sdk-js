@@ -36,7 +36,7 @@ import type componentUtils from './@ohos.arkui.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
-import { AnimateParam } from 'AnimateToParam';
+import type { AnimateParam, KeyframeAnimateParam, KeyframeState } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
@@ -1455,6 +1455,17 @@ export class UIContext {
    * @since 11
    */
   getDragController(): DragController;
+
+  /**
+   * Defining keyframe animation function.
+   *
+   * @param { KeyframeAnimateParam } param - overall animation parameters
+   * @param { Array<KeyframeState> } keyframes - all keyframe states
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 }
 
 /**

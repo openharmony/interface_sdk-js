@@ -17455,7 +17455,7 @@ declare module "SpecialEvent" {
 declare module "AnimateToParam" {
   module "AnimateToParam" {
     // @ts-ignore
-    export { AnimateParam };
+    export type { AnimateParam, KeyframeAnimateParam, KeyframeState };
   }
 }
 
@@ -17654,4 +17654,84 @@ declare module "wrappedBuilderObject" {
     // @ts-ignore
     export { WrappedBuilder };
   }
+}
+
+/**
+ * Defines the overall animation parameters of the keyframe animation.
+ *
+ * @interface KeyframeAnimateParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface KeyframeAnimateParam {
+  /**
+   * Animation delay time, in ms.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  delay?: number;
+
+  /**
+   * Animation iterations.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  iterations?: number;
+
+  /**
+   * Callback invoked when the whole keyframe animation is complete.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onFinish?: () => void;
+}
+
+/**
+ * Defines a keyframe state.
+ *
+ * @interface KeyframeState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface KeyframeState {
+  /**
+   * Animation duration of this keyframe, in ms.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  duration: number;
+
+  /**
+   * Animation curve of this keyframe.
+   *
+   * @type { ?(Curve | string | ICurve) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  curve?: Curve | string | ICurve;
+
+  /**
+   * The closure function to specify the terminating state of this keyframe.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  event: () => void;
 }
