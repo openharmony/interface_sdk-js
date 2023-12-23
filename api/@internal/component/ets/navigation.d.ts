@@ -1832,7 +1832,7 @@ declare interface NavContentInfo {
   /**
    * Navigation content name.
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -1852,7 +1852,7 @@ declare interface NavContentInfo {
   /**
    * Navigation content mode.
    *
-   * @type { NavDestinationMode }
+   * @type { ?NavDestinationMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
