@@ -1758,7 +1758,7 @@ declare interface NavigationAnimatedTransition {
    * @crossplatform
    * @since 11
    */
-  onTransitionEnded?: (success: boolean) => void
+  onTransitionEnd?: (success: boolean) => void
 
   /**
    * Define the limit duration of the transition animation.
