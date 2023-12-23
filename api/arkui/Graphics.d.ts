@@ -51,17 +51,7 @@ export interface Size {
  * @crossplatform
  * @since 11
  */
-export interface DrawContext {
-  /**
-   * Function to get the size of the drawContext.
-   *
-   * @returns { Size } - Size of the drawContext, which includes width and height.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  get size(): Size;
-}
+export interface DrawContext { }
 
 /**
   * Defined a vector with two values.

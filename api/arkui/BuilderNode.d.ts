@@ -17,6 +17,70 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 import { TouchEvent } from 'touchEvent';
 import { FrameNode } from './FrameNode';
+import { Size } from './Graphics';
+
+/**
+ * Render type of the node using for indicating that
+ * if the node will be shown on the display or rendered to a texture
+ *
+ * @enum { number } Render type
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum NodeRenderType {
+  /**
+   * Display type.The node will be shown on the display.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  RENDER_TYPE_DISPLAY = 0,
+
+  /**
+   * Exporting texture type.The node will be render to a  texture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  RENDER_TYPE_TEXTURE = 1,
+}
+
+/**
+ * RenderOptions info.
+ *
+ * @interface RenderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export interface RenderOptions {
+  /**
+   * The ideal size of the node.
+   * @type { ?Size } selfIdealSize - The ideal size of the node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  selfIdealSize?: Size;
+
+  /**
+   * Render type of the node.
+   * @type { ?NodeRenderType } type - Render type of the node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  type?: NodeRenderType;
+
+  /**
+   * The surfaceId of a texture consumer
+   * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  surfaceId?: string;
+}
 
 /**
  * Defines BuilderNode.
@@ -30,11 +94,12 @@ export class BuilderNode<Args extends Object[]> {
    * Constructor.
    *
    * @param { UIContext } uiContext - uiContext used to create the BuilderNode
+   * @param { RenderOptions } options - Render options of the Builder Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(uiContext: UIContext);
+  constructor(uiContext: UIContext, options?: RenderOptions);
 
   /**
    * Build the BuilderNode with the builder.

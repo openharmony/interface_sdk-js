@@ -167,7 +167,7 @@ export class RenderNode {
   /**
    * Get opacity of the RenderNode.
    *
-   * @returns { number } - Returns the opacity of the RenderNode.
+   * @returns { number } Returns the opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -207,7 +207,7 @@ export class RenderNode {
   /**
    * Get frame position of the RenderNode.
    *
-   * @returns { Position } The position of the RenderNode frame.
+   * @returns { Position } - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
