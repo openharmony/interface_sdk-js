@@ -27,6 +27,11 @@ import type resourceManager from './@ohos.resourceManager';
  * @namespace image
  * @since 6
  */
+/**
+ * @namespace image
+ * @crossplatform
+ * @since 11
+ */
 declare namespace image {
   /**
    * Enumerates pixel map formats.
@@ -1137,6 +1142,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes image information.
+   *
+   * @typedef ImageInfo
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ImageInfo {
     /**
      * Indicates image dimensions specified by a {@link Size} interface.
@@ -1152,6 +1166,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates image dimensions specified by a {@link Size} interface.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1170,6 +1193,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates image default density.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     density: number;
 
     /**
@@ -1177,6 +1209,8 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
      * @since 11
      */
     stride: number;
@@ -1197,6 +1231,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes the option for image packing.
+   *
+   * @typedef PackingOption
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface PackingOption {
     /**
      * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
@@ -1212,6 +1255,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     format: string;
 
@@ -1229,6 +1281,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     quality: number;
 
@@ -1248,6 +1309,16 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * BufferSize of the target image.
+     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     bufferSize?: number;
   }
@@ -1672,6 +1743,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Initialization options for ImageSource.
+   *
+   * @typedef SourceOptions
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface SourceOptions {
     /**
      * The density for ImageSource.
@@ -1687,6 +1767,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The density for ImageSource.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     sourceDensity: number;
 
@@ -1705,6 +1794,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * PixelMap expected format.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     sourcePixelFormat?: PixelMapFormat;
 
     /**
@@ -1721,6 +1819,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * PixelMap size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     sourceSize?: Size;
   }
@@ -2826,6 +2933,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * ImageSource instance.
+   *
+   * @typedef ImageSource
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ImageSource {
     /**
      * Obtains information about an image with the specified sequence number and uses a callback
@@ -3471,6 +3587,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * ImagePacker instance.
+   *
+   * @typedef ImagePacker
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ImagePacker {
     /**
      * Compresses or packs an image and uses a callback to return the result.
@@ -3555,17 +3680,6 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Compresses or packs an image and uses a callback to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
@@ -3586,17 +3700,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
-     */
-    /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11
      */
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
