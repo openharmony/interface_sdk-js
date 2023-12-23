@@ -1987,6 +1987,14 @@ declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9
    */
+  /**
+   * During inter-process communication, objects of the class are written to the {@link MessageSequence} and
+   * they are recovered from the {@link MessageSequence}.
+   * 
+   * @typedef Parcelable
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
+   */
   interface Parcelable {
     /**
      * Marshal this {@code Parcelable} object into a {@link MessageSequence}.
@@ -2110,6 +2118,13 @@ declare namespace rpc {
   /**
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
+   */
+  /**
+   * Used to query or get interface descriptors, add or remove death notifications, dump object status to
+   * a specific file, and send messages.
+   * 
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
    */
   abstract class IRemoteObject {
     /**
@@ -2350,6 +2365,13 @@ declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
    */
+  /**
+   * Used to define the communication interface of the IPC communication objects.
+   * 
+   * @typedef IRemoteBroker
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
+   */
   interface IRemoteBroker {
     /**
      * Obtains a proxy or remote object. This method must be implemented by its derived classes.
@@ -2367,6 +2389,20 @@ declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
    */
+  /**
+   * Used to subscribe to death notifications for remote objects. 
+   * <p>
+   * When a remote object subscribed to the notification dies, the local end can receive a message and call
+   * the onRemoteDied operation. The death of a remote object can be caused by the death of the process to which the
+   * remote object belongs, the shutdown or restart of the device to which the remote object belongs,
+   * or the death of the remote object when the remote object and the local object belong to different devices,
+   * and when the remote object leaves the network.
+   * </p>
+   * 
+   * @typedef DeathRecipient
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
+   */
   interface DeathRecipient {
     /**
      * Called to perform subsequent operations when a death notification of the remote object is received.
@@ -2380,6 +2416,12 @@ declare namespace rpc {
   /**
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
+   */
+  /**
+   * Public Message Option, using the specified flag type, constructs the specified MessageOption object.
+   * 
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
    */
   class MessageOption {
     /**
@@ -2497,6 +2539,13 @@ declare namespace rpc {
    * @extends IRemoteObject
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
+   */
+  /**
+   * Implement remote objects. The service provider must inherit this class.
+   * 
+   * @extends IRemoteObject
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
    */
   class RemoteObject extends IRemoteObject {
     /**
@@ -2760,7 +2809,14 @@ declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
    */
-  class RemoteProxy implements IRemoteObject {
+  /**
+   * Implement the IRemoteObject proxy object.
+   * 
+   * @extends IRemoteObject
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
+   */
+  class RemoteProxy extends IRemoteObject {
     /**
      * Indicates the message code for a Ping operation.
      *
@@ -3039,6 +3095,13 @@ declare namespace rpc {
   /**
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
+   */
+  /**
+   * Used to obtain IPC context information, including obtaining the UID and PID, obtaining the local and
+   * peer device IDs, and checking whether the API call is on the same device.
+   * 
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 11
    */
   class IPCSkeleton {
     /**
