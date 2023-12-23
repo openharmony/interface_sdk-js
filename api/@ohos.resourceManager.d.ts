@@ -3419,7 +3419,7 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3432,9 +3432,9 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @param { number } type - The optional parameter means the media type, the default value 0 means
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3450,7 +3450,7 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3463,9 +3463,9 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @param { number } type - The optional parameter means the media type, the default value 0 means
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3481,7 +3481,7 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3495,9 +3495,9 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @param { number } type - The optional parameter means the media type, the default value 0 means
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3964,7 +3964,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3977,7 +3977,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -3994,7 +3994,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource object.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4008,7 +4008,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource object.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4026,7 +4026,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4039,7 +4039,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4056,7 +4056,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to the specified resource object.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4070,7 +4070,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to the specified resource object.
      *
      * @param { Resource } resource - Indicates the resource object.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4250,7 +4250,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Uint8Array } The obtained specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4263,7 +4263,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Uint8Array } The obtained specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4280,7 +4280,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { string } The obtained Base64 code of the specified screen density media file.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4293,7 +4293,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { string } The obtained Base64 code of the specified screen density media file.
      * @throws { BusinessError } 401 - If the input parameter invalid.
@@ -4373,7 +4373,7 @@ declare namespace resourceManager {
     /**
      * Obtains locales list.
      *
-     * @param { boolean } includeSystem - the parameter controls whether to include system resources,
+     * @param { boolean } [includeSystem] - the parameter controls whether to include system resources,
      *     the default value is false, it has no effect when only system resources query the locales list.
      * @returns { Array<string> } the list of strings for the locales.
      * @throws { BusinessError } 401 - If the input parameter invalid.
