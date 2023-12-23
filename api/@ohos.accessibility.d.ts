@@ -559,6 +559,16 @@ declare namespace accessibility {
   class EventInfo {
     constructor(jsonObject);
     /**
+     * A constructor used to create a EventInfo object.
+     *
+     * @param { EventType } type - The type of the accessibility event.
+     * @param { string } bundleName - The name of the bundle.
+     * @param { Action } triggerAction - The action that the ability can execute.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 11
+     */
+    constructor(type: EventType, bundleName: string, triggerAction: Action);
+    /**
      * The type of an accessibility event.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
