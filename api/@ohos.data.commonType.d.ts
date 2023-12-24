@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkData
+ */
+
+/**
  * Indicates the common data types.
  *
  * @namespace commonType

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides extended methods to operate or manage Wi-Fi.

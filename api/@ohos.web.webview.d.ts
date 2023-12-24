@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkWeb
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { AsyncCallback } from './@ohos.base';
@@ -289,6 +294,53 @@ declare namespace webview {
   }
 
   /**
+   * Defines the security level for the page.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  enum SecurityLevel {
+    /**
+     * Unable to determine whether it is safe or not, the non-http/https protocol used.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    NONE = 0,
+
+    /**
+     * Indicates the HTTPS protocol used by the page and the authentication is successful.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    SECURE = 1,
+
+    /**
+     * The page is insecure. For example, the HTTP protocol is used or the HTTPS protocol
+     * is used but use an legacy TLS version.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    WARNING = 2,
+
+    /**
+     * Attempted HTTPS and failed, the authentication is failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    DANGEROUS = 3,
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    * 
    * @interface HitTestValue
@@ -466,11 +518,13 @@ declare namespace webview {
     /**
      * Delete all the storage data.
      *
+     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
+     *                                {@code false} otherwise.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static deleteAllData(): void;
+    static deleteAllData(incognito?: boolean): void;
 
     /**
      * Delete the storage data with the origin.
@@ -731,13 +785,15 @@ declare namespace webview {
     /**
      * Allow geolocation permissions for specifies source.
      * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} Allow geolocation permissions for specifies source
+     *                                in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static allowGeolocation(origin: string): void;
+    static allowGeolocation(origin: string, incognito?: boolean): void;
 
     /**
      * Delete geolocation permissions for specifies source.
@@ -750,36 +806,40 @@ declare namespace webview {
     /**
      * Delete geolocation permissions for specifies source.
      * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} delete geolocation permissions for specifies source
+     *                                in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static deleteGeolocation(origin: string): void;
+    static deleteGeolocation(origin: string, incognito?: boolean): void;
 
     /**
      * Delete all geolocation permissions.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Delete all geolocation permissions.
-     * 
+     *
+     * @param { boolean } incognito - {@code true} delete all geolocation in incognito mode;
+     *                                {@code false} otherwise.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static deleteAllGeolocation(): void;
+    static deleteAllGeolocation(incognito?: boolean): void;
 
     /**
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
      * @returns { Promise<boolean> } A Promise instance that obtains the permission
      *                               status of the specified source and obtains successfully,
-     *                               true for authorization, false for access denial. Failed 
-     *                               to get, indicating that the permission status of the 
+     *                               true for authorization, false for access denial. Failed
+     *                               to get, indicating that the permission status of the
      *                               specified source does not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -789,10 +849,12 @@ declare namespace webview {
     /**
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
+     *                                specified source in incognito mode; {@code false} otherwise.
      * @returns { Promise<boolean> } A Promise instance that obtains the permission
      *                               status of the specified source and obtains successfully,
-     *                               true for authorization, false for access denial. Failed 
-     *                               to get, indicating that the permission status of the 
+     *                               true for authorization, false for access denial. Failed
+     *                               to get, indicating that the permission status of the
      *                               specified source does not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -800,7 +862,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    static getAccessibleGeolocation(origin: string): Promise<boolean>;
+    static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise<boolean>;
 
     /**
      * Gets the geolocation permission status of the specified source.
@@ -809,7 +871,7 @@ declare namespace webview {
      *                                              the specified source. Successful acquisition, 
      *                                              true means authorized, false means access is
      *                                              denied. Failed to get, indicating that the
-     *                                              permission status of the specified source does 
+     *                                              permission status of the specified source does
      *                                              not exist.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -820,21 +882,24 @@ declare namespace webview {
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
      * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
-     *                                              the specified source. Successful acquisition, 
+     *                                              the specified source. Successful acquisition,
      *                                              true means authorized, false means access is
      *                                              denied. Failed to get, indicating that the
-     *                                              permission status of the specified source does 
+     *                                              permission status of the specified source does
      *                                              not exist.
+     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
+     *                                specified source in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>): void;
+    static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>, incognito?: boolean): void;
 
     /**
      * Get all stored geolocation permission url source.
+     *
      * @returns { Promise<Array<string>> } A Promise instance that gets all source information about 
      *                                     the stored geolocation permission state.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -843,14 +908,16 @@ declare namespace webview {
      */
     /**
      * Get all stored geolocation permission url source.
-     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about 
+     * @param { boolean } incognito - {@code true} get all stored geolocation permission url source
+     *                                in incognito mode; {@code false} otherwise.
+     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
      *                                     the stored geolocation permission state.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static getStoredGeolocation(): Promise<Array<string>>;
+    static getStoredGeolocation(incognito?: boolean): Promise<Array<string>>;
 
     /**
      * Get all stored geolocation permission url source.
@@ -862,14 +929,16 @@ declare namespace webview {
      */
     /**
      * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for 
+     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
      *                                                    stored geolocation permission states.
+     * @param { boolean } incognito - {@code true} gets all stored geolocation permission url
+     *                                source in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static getStoredGeolocation(callback: AsyncCallback<Array<string>>): void;
+    static getStoredGeolocation(callback: AsyncCallback<Array<string>>, incognito?: boolean): void;
   }
 
   /**
@@ -905,6 +974,8 @@ declare namespace webview {
      * Gets all cookies for the given URL.
      *
      * @param { string } url - The URL for which the cookies are requested.
+     * @param { boolean } incognito - {@code true} gets all cookies for the given URL
+     *                                in incognito mode; {@code false} otherwise.
      * @returns { string } - The cookie value for the given URL.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100002 - Invalid url.
@@ -912,7 +983,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    static fetchCookieSync(url: string): string;
+    static fetchCookieSync(url: string, incognito?: boolean): string;
 
     /**
      * Gets all cookies for the given URL Asynchronously.
@@ -962,6 +1033,8 @@ declare namespace webview {
      *
      * @param { string } url - The URL for which the cookie is to be set.
      * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { boolean } incognito - {@code true} set a single cookie (key-value pair) for the given URL
+     *                                in incognito mode; {@code false} otherwise.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
@@ -969,7 +1042,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    static configCookieSync(url: string, value: string): void;
+    static configCookieSync(url: string, value: string, incognito?: boolean): void;
 
     /**
      * Set a single cookie (key-value pair) for the given URL Asynchronously.
@@ -1123,12 +1196,14 @@ declare namespace webview {
     /**
      * Check whether exists any cookies.
      *
+     * @param { boolean } incognito - {@code true} check whether exists any cookies.
+     *                                in incognito mode; {@code false} otherwise.
      * @returns { boolean } True if exists more than one cookie else false;
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static existCookie(): boolean;
+    static existCookie(incognito?: boolean): boolean;
 
     /**
      * Remove all cookies.
@@ -1141,11 +1216,14 @@ declare namespace webview {
 
     /**
      * Remove all cookies.
+     *
+     * @param { boolean } incognito - {@code true} remove all cookies in incognito mode;
+     *                                {@code false} otherwise.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
-    static clearAllCookiesSync(): void;
+    static clearAllCookiesSync(incognito?: boolean): void;
 
     /**
      * Remove all cookies Asynchronously.
@@ -2106,6 +2184,16 @@ declare namespace webview {
    */
   class WebviewController {
     /**
+     * A constructor used to create a WebviewController object.
+     *
+     * @param { string } [webTag] - specified the name of the web component, Empty by default.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    constructor(webTag?: string);
+
+    /**
      * Initialize the web engine before loading the Web components.
      * This is a global static API that must be called on the UI thread, and it will have no effect if any
      * Web components are loaded.
@@ -2376,7 +2464,6 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3664,6 +3751,30 @@ declare namespace webview {
      * @since 11
      */
     createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
+
+    /**
+     * Get the security level of the current page.
+     *
+     * @returns { SecurityLevel } the security level of current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    getSecurityLevel(): SecurityLevel;
+
+    /**
+     * Whether the incognito mode is set.
+     *
+     * @returns { boolean } {@code true} has been set the incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isIncognitoMode(): boolean;
   }
 
   /**

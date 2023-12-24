@@ -146,6 +146,78 @@ declare enum ButtonType {
 }
 
 /**
+ * Enum for button style type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum ButtonStyleMode {
+  /**
+   * Normal button (with normal background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  NORMAL = 0,
+
+  /**
+   * Emphasized button (with emphasized background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  EMPHASIZED = 1,
+
+  /**
+   * Textual button (with none background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  TEXTUAL = 2,
+}
+
+/**
+ * Enum for Control Size.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum ControlSize {
+  /**
+   * The component size is small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  SMALL = 'small',
+
+  /**
+   * The component size is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  NORMAL = 'normal',
+}
+
+/**
  * Defines the button options.
  *
  * @interface ButtonOptions
@@ -251,6 +323,30 @@ declare interface ButtonOptions {
    * @form
    */
   stateEffect?: boolean;
+
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonStyleMode }
+   * @default ButtonStyleMode.EMPHASIZED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  buttonStyle?: ButtonStyleMode;
+
+  /**
+   * Describes the button size.
+   *
+   * @type { ?ControlSize }
+   * @default ControlSize.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  controlSize?: ControlSize;
 }
 
 /**
@@ -656,6 +752,30 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    */
   stateEffect(value: boolean): ButtonAttribute;
+
+  /**
+   * Describes the button style.
+   *
+   * @param { ButtonStyleMode } value - button style mode
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  buttonStyle(value: ButtonStyleMode): ButtonAttribute;
+  
+  /** 
+   * Set the Button size.
+   * 
+   * @param { ControlSize } value - control size
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  controlSize(value: ControlSize): ButtonAttribute;
 
   /**
    * Text color.

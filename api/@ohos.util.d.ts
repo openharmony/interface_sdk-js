@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
  *
@@ -29,6 +34,16 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
+ */
+/**
+ * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
+ * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
+ *
+ * @namespace util
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare namespace util {
   /**
@@ -2231,6 +2246,17 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     encodeSync(src: Uint8Array): Uint8Array;
 
     /**
@@ -3128,6 +3154,59 @@ declare namespace util {
      * @since 10
      */
     isWeakSet(value: Object): boolean;
+  }
+  /**
+   * Insert before/after logic into a class method or replace implementation for a class method.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 11
+   */
+  class Aspect {
+    /**
+     * Insert some logic before the method. In implementation the method will be replaced with a new function,
+     * which will execute 'before' with the args 'this' and the args of the original method, and then execute
+     * the original method. The return value of the new function is returned by the original method.
+     *
+     * @param { Object } targetClass - The operated class.
+     * @param { string } methodName - The name of the operated method.
+     * @param { boolean } isStatic - The flag whether the method is static.
+     * @param { Function } before - The logic inserted before the method.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    static addBefore(targetClass: Object, methodName: string, isStatic: boolean, before: Function): void;
+    /**
+     * Insert some logic after the method. In implementation the method will be replaced with a new function,
+     * which will execute the original method, and then execute 'after' with the args 'this' and the return value of
+     * the original method, and the args of the original method. The return value of the new function is returned by 'after'.
+     *
+     * @param { Object } targetClass - The operated class.
+     * @param { string } methodName - The name of the operated method.
+     * @param { boolean } isStatic - The flag whether the method is static.
+     * @param { Function } after - The logic inserted after the method.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    static addAfter(targetClass: Object, methodName: string, isStatic: boolean, after: Function): void;
+    /**
+     * Replace the original method with a new function, which will execute 'instead' with the args 'this' and the args
+     * of the original method. The return value of the new function is returned by 'instead'.
+     *
+     * @param { Object } targetClass - The operated class.
+     * @param { string } methodName - The name of the operated method.
+     * @param { boolean } isStatic - The flag whether the method is static.
+     * @param { Function } instead - The logic replaced with the method.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    static replace(targetClass: Object, methodName: string, isStatic: boolean, instead: Function) : void;
   }
 }
 export default util;

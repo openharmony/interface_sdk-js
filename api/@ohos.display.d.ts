@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * Interface of display manager.
@@ -29,6 +36,15 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @crossplatform
  * @since 10
+ */
+/**
+ * Interface of display manager.
+ *
+ * @namespace display
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare namespace display {
   /**
@@ -292,6 +308,20 @@ declare namespace display {
    * @since 10
    */
   function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
+
+  /**
+   * set fold status locked or not.
+   *
+   * @param { boolean } locked - fold status is locked or not.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setFoldStatusLocked(locked: boolean): void;
 
   /**
    * Enumerates the fold status.
@@ -783,6 +813,7 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     densityPixels: number;
@@ -817,6 +848,24 @@ declare namespace display {
      * @since 7
      */
     yDPI: number;
+
+    /**
+     * All supported color spaces.
+     *
+     * @type { Array<colorSpaceManager.ColorSpace> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    colorSpaces: Array<colorSpaceManager.ColorSpace>;
+
+    /**
+     * All supported HDR formats.
+     *
+     * @type { Array<hdrCapability.HDRFormat> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    hdrFormats: Array<hdrCapability.HDRFormat>;
 
     /**
      * Obtain the cutout info of the display.

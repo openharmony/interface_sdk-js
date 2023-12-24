@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import * as _UIAbilityContext from './application/UIAbilityContext';
 import type * as _UIExtensionContext from './application/UIExtensionContext';
 import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
@@ -29,6 +34,8 @@ import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
+import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
+import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 
 /**
  * This module provides application context classes and common data structures.
@@ -337,12 +344,23 @@ declare namespace common {
   /**
    * The context of vpn extension. It allows access to
    * vpnExtension-specific resources.
+   * The class of auto startup info.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
    */
   export type VpnExtensionContext = _VpnExtensionContext.default;
+  export type AutoStartupInfo = _AutoStartupInfo;
+
+  /**
+   * The class of auto startup callback.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AutoStartupCallback = _AutoStartupCallback;
 }
 
 export default common;

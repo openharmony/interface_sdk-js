@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * interface of insightIntent.
  *
  * @namespace insightIntent

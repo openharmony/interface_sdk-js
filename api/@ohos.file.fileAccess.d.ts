@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Core File Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
@@ -839,7 +844,27 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 10
      */
-    NOTIFY_MOVE_SELF
+    NOTIFY_MOVE_SELF,
+
+    /**
+     * Event type of device online.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    NOTIFY_DEVICE_ONLINE,
+
+    /**
+     * Event type of device offline.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    NOTIFY_DEVICE_OFFLINE
   }
 
   /**
@@ -943,6 +968,17 @@ declare namespace fileAccess {
      */
     errMsg: string;
   }
+
+  /**
+   * Indicates the root uri of the device
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  const DEVICES_URI = 'file://docs';
 
   /**
    * FileAccessHelper Object
@@ -1462,6 +1498,84 @@ declare namespace fileAccess {
      * @since 10
      */
     copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>): void;
+
+    /**
+     * copy the file with the specified file name in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be moved.
+     * @param { string } destUri - Represents the destination folder.
+     * @param { string } fileName - Represents the name of the specified file.
+     * @returns { Promise<string> } Returns the generated new file uri.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    copyFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
+
+    /**
+     * copy the file with the specified file name in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be moved.
+     * @param { string } destUri - Represents the destination folder.
+     * @param { string } fileName - Represents the name of the specified file.
+     * @param { AsyncCallback<string> } callback - Returns the generated new file uri.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    copyFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
 
     /**
      * Rename the selected file or directory.

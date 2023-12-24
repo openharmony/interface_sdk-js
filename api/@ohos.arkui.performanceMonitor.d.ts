@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides interfaces to monitor a scene for performance measurement.
  *
  * <p>These interfaces are used to monitor the begin, end, and value changes of finger processes that last for at least 3 ms.

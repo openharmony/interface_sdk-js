@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Accessibility Kit
+ */
+
 import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
 
 /**

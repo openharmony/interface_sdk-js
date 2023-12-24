@@ -117,7 +117,7 @@ export enum ErrorMessage {
   ERROR_EVENT_CALLBACK_MISSING = 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR = 'The on and off event subscription methods do not appear in pair.',
   ERROR_EVENT_WITHOUT_PARAMETER = 'The event subscription methods should has at least one parameter.',
-  ILLEGAL_USE_ANY = 'Illegal [any] keyword used in the API',
+  ILLEGAL_USE_ANY = 'Illegal [$$] keyword used in the API',
   ERROR_CHANGES_VERSION = 'Please check if the changed API version number is 10.',
   ERROR_WORD = 'The current word [$$] is incompatible with the regulaion, please confirm whether it needs to be corrected to a common word.',
   ERROR_NAMING = 'Prohibited word in [$$]:{$$}.The word allowed is [$$]',

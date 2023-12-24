@@ -40,6 +40,7 @@ import { CheckHump } from './check_hump';
 import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 import { ApiChangeCheck } from './check_api_diff';
+import { TagInheritCheck } from './tag_inherit_check';
 
 export class Check {
   /**
@@ -122,14 +123,13 @@ export class Check {
         // legality check
         const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
         // order check
-        // console.log('name=',singleApi.getApiName())
         const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(apiJsdoc);
-
         // api naming check
         const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
         // tags name check
         const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
         // tags inherit check
+        const tagInheritCheckResult: ErrorTagFormat = TagInheritCheck.tagInheritCheck(singleApi);
         // tags value check
         const tagValueCheckResult: ErrorTagFormat[] = TagValueCheck.tagValueCheck(singleApi, apiJsdoc);
         // tags repeat check
@@ -196,6 +196,22 @@ export class Check {
             singleApi.getApiName(),
             singleApi.getDefinedText(),
             namingCheckResult.errorInfo,
+            compositiveResult,
+            compositiveLocalResult
+          );
+        }
+        if (!tagInheritCheckResult.state) {
+          AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.WRONG_SCENE_ID,
+            ErrorLevel.MIDDLE,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.WRONG_SCENE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            tagInheritCheckResult.errorInfo,
             compositiveResult,
             compositiveLocalResult
           );

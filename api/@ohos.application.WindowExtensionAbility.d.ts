@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import rpc from './@ohos.rpc';
 import _WindowExtensionContext from './application/WindowExtensionContext';
 import Want from './@ohos.app.ability.Want';

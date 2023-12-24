@@ -64,12 +64,16 @@ export class LegalityCheck {
         apiLegalityTagsSet.delete('param');
         if (apiLegalityTagsSet.has(apiTag.tag)) {
           apiLegalityTagsSet.delete(apiTag.tag);
-          if (singleApi.getApiType() === ApiType.INTERFACE) {
-            apiLegalityTagsSet.delete('typedef');
-          }
+        }
+        if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
+          apiLegalityTagsSet.delete('typedef');
+          apiLegalityTagsSet.delete('interface');
         }
         if (singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) {
           apiLegalityTagsSet.delete('returns');
+        }
+        if (apiLegalityTagsSet.has('extends') && (singleApi as ClassInfo).getParentClasses().length === 0) {
+          apiLegalityTagsSet.delete('extends');
         }
       });
       // param合法性单独进行校验

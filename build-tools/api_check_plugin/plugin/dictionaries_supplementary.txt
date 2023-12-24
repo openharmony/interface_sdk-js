@@ -65,6 +65,7 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra
@@ -135,7 +136,9 @@ cpid
 cpuprofiler
 cpx
 cpy
+creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -224,6 +227,7 @@ egid
 ehrpd
 ejectclosecd
 emption
+emphasized
 encapsulates
 encompassed
 encrypts
@@ -466,6 +470,7 @@ multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -664,6 +669,7 @@ sece
 secinfo
 seeked
 semicircles
+sendable
 sensing
 sequenceable
 settingsdata
@@ -717,6 +723,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers
@@ -732,6 +740,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing
@@ -839,6 +848,7 @@ unrestricted
 unsecure
 unsent
 unspec
+unshare
 unsubscribes
 unsuccessfully
 unsupport

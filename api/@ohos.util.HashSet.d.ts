@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * HashSet is implemented based on HashMap. In HashSet, only the value object is processed.
  *
  * @namespace HashSet
