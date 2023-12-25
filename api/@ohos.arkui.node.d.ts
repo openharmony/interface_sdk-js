@@ -18,3 +18,4 @@ export * from './arkui/NodeController';
 export * from './arkui/FrameNode';
 export * from './arkui/Graphics';
 export * from './arkui/RenderNode';
+export * from './arkui/XComponentNode';
