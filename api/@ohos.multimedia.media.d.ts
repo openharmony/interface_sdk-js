@@ -28,8 +28,11 @@ import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
  * @namespace media
  * @since 6
  */
-
-
+/**
+ * @namespace media
+ * @atomicservice
+ * @since 11
+ */
 declare namespace media {
   /**
    * Creates an AVPlayer instance.
@@ -3701,17 +3704,37 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
    */
+  /**
+   * Enumerates seek mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   enum SeekMode {
     /**
      * seek to the next sync frame of the given timestamp
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
+    /**
+     * seek to the next sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     SEEK_NEXT_SYNC = 0,
     /**
      * seek to the previous sync frame of the given timestamp
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     */
+    /**
+     * seek to the previous sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     SEEK_PREV_SYNC = 1,
   }
