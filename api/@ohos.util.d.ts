@@ -2162,6 +2162,15 @@ declare namespace util {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Type represents two different encoding formats for base64
+   *
+   * @enum { number } Type
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum Type {
     /**
      * The value indicates that the encoding format of base64 is BASIC
@@ -2169,12 +2178,26 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The value indicates that the encoding format of base64 is BASIC
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BASIC,
     /**
      * The value indicates that the encoding format of base64 is MIME
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The value indicates that the encoding format of base64 is MIME
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     MIME
   }
