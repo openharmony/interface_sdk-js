@@ -19,7 +19,7 @@ import type Want from './@ohos.app.ability.Want';
 
 /**
  * Provides VPN related interfaces.
- * @namespace vpn
+ * @namespace vpnExtension
  * @syscap SystemCapability.Communication.NetManager.Vpn
  * @since 11
  */
@@ -70,6 +70,7 @@ declare namespace vpnExtension {
    * 
    * @permission ohos.permission.MANAGE_VPN
    * @param { boolean } enable - Always on enable or disable
+   * @param { bundleName } string - bundleName is used to set always on.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -85,6 +86,7 @@ declare namespace vpnExtension {
    * Get the Always on VPN mode status for a device.
    * 
    * @permission ohos.permission.MANAGE_VPN
+   * @param { string } bundleName - bundleName is used to retrieve whether it has the always on.
    * @returns { Promise<boolean>} return the mode for alway on vpn status
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
