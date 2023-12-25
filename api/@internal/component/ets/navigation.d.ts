@@ -1048,6 +1048,43 @@ declare enum ToolbarItemStatus {
 }
 
 /**
+ * Defines the operation of current navigation transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum NavigationOperation {
+  /**
+   * Push operation of navigation transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PUSH = 1,
+
+  /**
+   * Pop operation of navigation transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  POP = 2,
+
+  /**
+   * Replace operation of navigation transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  REPLACE = 3,
+}
+
+/**
  * Defines configurable parameters for toolbar item.
  *
  * @interface ToolbarItem
@@ -1690,6 +1727,136 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 11
    */
   navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
+
+  /**
+   * Set custom navigation content transition animation.
+   *
+   * @param { function } delegate - Custom transition delegate.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
+}
+
+/**
+* Navigation transition animation protocol.
+*
+* @interface NavigationAnimatedTransition
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 11
+*/
+declare interface NavigationAnimatedTransition {
+  /**
+   * This method is called after the transition ends to notify whether the transition was successful.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onTransitionEnd?: (success: boolean) => void
+
+  /**
+   * Define the limit duration of the transition animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  timeout?: number;
+
+  /**
+   * Configure the animations associated with custom transition.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  transition: (transitionProxy: NavigationTransitionProxy) => void
+}
+
+/**
+ * Navigation transition proxy.
+ *
+ * @interface NavigationTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface NavigationTransitionProxy {
+  /**
+   * From navigation content info.
+   *
+   * @type { NavContentInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  from: NavContentInfo;
+
+  /**
+   * To navigation content info.
+   *
+   * @type { NavContentInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  to: NavContentInfo;
+
+  /**
+   * Notification system transition animation completed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  finishTransition(): void;
+}
+
+/**
+ * Navigation content info.
+ *
+ * @interface NavContentInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface NavContentInfo {
+  /**
+   * Navigation content name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  name?: string;
+
+  /**
+   * Navigation content index.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  index: number;
+
+  /**
+   * Navigation content mode.
+   *
+   * @type { ?NavDestinationMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  mode?: NavDestinationMode;
 }
 
 /**
