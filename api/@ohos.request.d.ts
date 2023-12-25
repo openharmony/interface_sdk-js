@@ -3439,6 +3439,7 @@ declare namespace request {
        * Such as headers and body of response from server.
        * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
        * {"headers": {"key": v}, "body": "contents"}.
+       * The "body" field is not supported in cross-platform scenarios.
        *
        * @type { ?object }
        * @readonly
