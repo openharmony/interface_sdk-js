@@ -1239,7 +1239,6 @@ declare namespace socket {
 
     /**
      * Listens for error events of the LocalSocketConnection.
-     * When an unexpected situation causes the connection to disconnect, it will be called.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1332,7 +1331,6 @@ declare namespace socket {
 
     /**
      * Listens for error events of the LocalSocketServer connection.
-     * When some errors occur, such as accepting failure, it will be called.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
