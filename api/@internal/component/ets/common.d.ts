@@ -17454,6 +17454,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   onScrollStop(event: () => void): T;
+
+  /**
+   * Limit the max speed when fling.
+   *
+   * @param { number } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   *                                The unit is vp/s.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  flingSpeedLimit(speedLimit: number): T;
 }
 
 declare module "SpecialEvent" {
