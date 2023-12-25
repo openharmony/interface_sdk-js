@@ -70,7 +70,7 @@ declare namespace vpnExtension {
    * 
    * @permission ohos.permission.MANAGE_VPN
    * @param { boolean } enable - Always on enable or disable
-   * @param { bundleName } string - bundleName is used to set always on.
+   * @param { string } bundleName - bundleName is used to set always on.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.

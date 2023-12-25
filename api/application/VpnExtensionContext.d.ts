@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type * as _VpnExtensionContext from './ExtensionContext';
+import type * as ExtensionContext from './ExtensionContext';
 
 /**
  * The context of vpn extension. It allows access to
@@ -25,7 +25,6 @@ import type * as _VpnExtensionContext from './ExtensionContext';
  * @since 11
  */
 
-export default class VpnExtensionContext extends _VpnExtensionContext.default {
-
+export default class VpnExtensionContext extends ExtensionContext.default {
 }
 
