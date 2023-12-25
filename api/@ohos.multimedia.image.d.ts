@@ -1204,6 +1204,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
      * @since 11
      */
     stride: number;
@@ -1651,6 +1652,7 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
