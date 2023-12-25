@@ -24,6 +24,7 @@ import type { AsyncCallback } from './@ohos.base';
 import type { LocalStorage } from 'StateManagement';
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
+import type uiExtensionHost from './@ohos.uiExtensionHost';
 
 /**
  * class of ui extension content session.
@@ -551,4 +552,17 @@ export default class UIExtensionContentSession {
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
+
+  /**
+   * Get the UIExtension Host Window proxy.
+   *
+   * @returns { uiExtensionHost.UIExtensionHostWindowProxy } Returns the UIExtension Host Window proxy.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  getUIExtensionHostWindowProxy(): uiExtensionHost.UIExtensionHostWindowProxy;
 }
