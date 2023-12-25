@@ -234,10 +234,11 @@ declare namespace audioHaptic {
     /**
      * Unsubscribes end of stream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
-    off(type: 'endOfStream'): void;
+    off(type: 'endOfStream', callback?: Callback<void>): void;
 
     /**
      * Subscribes audio interrupt event.
@@ -251,10 +252,11 @@ declare namespace audioHaptic {
     /**
      * Unsubscribes audio interrupt event.
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
-    off(type: 'audioInterrupt'): void;
+    off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
   }
 }
 export default audioHaptic;
