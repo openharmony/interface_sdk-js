@@ -1758,7 +1758,7 @@ declare interface NavigationAnimatedTransition {
    * @crossplatform
    * @since 11
    */
-  onTransitionEnded?: (success: boolean) => void
+  onTransitionEnd?: (success: boolean) => void
 
   /**
    * Define the limit duration of the transition animation.
@@ -1778,18 +1778,18 @@ declare interface NavigationAnimatedTransition {
    * @crossplatform
    * @since 11
    */
-  transition: (transitionContext: NavigationTransitionContext) => void
+  transition: (transitionProxy: NavigationTransitionProxy) => void
 }
 
 /**
- * Navigation transition animation context.
+ * Navigation transition proxy.
  *
- * @interface NavigationTransitionContext
+ * @interface NavigationTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-declare interface NavigationTransitionContext {
+declare interface NavigationTransitionProxy {
   /**
    * From navigation content info.
    *
@@ -1832,7 +1832,7 @@ declare interface NavContentInfo {
   /**
    * Navigation content name.
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -1852,7 +1852,7 @@ declare interface NavContentInfo {
   /**
    * Navigation content mode.
    *
-   * @type { NavDestinationMode }
+   * @type { ?NavDestinationMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
