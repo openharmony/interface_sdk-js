@@ -342,15 +342,13 @@ declare namespace common {
   export type AbilityStartCallback = _AbilityStartCallback;
 
   /**
-   * The context of vpn extension. It allows access to
-   * vpnExtension-specific resources.
    * The class of auto startup info.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
    */
-  export type VpnExtensionContext = _VpnExtensionContext.default;
+
   export type AutoStartupInfo = _AutoStartupInfo;
 
   /**
@@ -361,6 +359,17 @@ declare namespace common {
    * @since 11
    */
   export type AutoStartupCallback = _AutoStartupCallback;
+
+  /**
+   * The context of vpn extension. It allows access to
+   * vpnExtension-specific resources.
+   * The class of auto startup info.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 11
+   */
+  export type VpnExtensionContext = _VpnExtensionContext.default;
 }
 
 export default common;
