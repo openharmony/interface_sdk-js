@@ -1737,8 +1737,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @crossplatform
    * @since 11
    */
-  customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation)
-    => NavigationAnimatedTransition | undefined): NavigationAttribute;
+  customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
 }
 
 /**
