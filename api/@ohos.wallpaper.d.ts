@@ -474,7 +474,6 @@ declare namespace wallpaper {
 
   /**
    * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
-   * Only the static wallpaper set by using setImage can be obtained.
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
@@ -490,7 +489,6 @@ declare namespace wallpaper {
 
   /**
    * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
-   * Only the static wallpaper set by using setImage can be obtained.
    * 
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
