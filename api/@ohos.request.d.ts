@@ -3719,6 +3719,7 @@ declare namespace request {
        * The path to save the downloaded file.
        *
        * @type { ?string }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
@@ -3759,6 +3760,7 @@ declare namespace request {
        * For `${ show }` and `${ touch }`.
        *
        * @type { ?(string | Array<FormItem>) }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
@@ -3849,6 +3851,7 @@ declare namespace request {
        * The default is frontend.
        *
        * @type { Mode }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
@@ -3861,6 +3864,7 @@ declare namespace request {
        * The default is 0.
        *
        * @type { number }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
