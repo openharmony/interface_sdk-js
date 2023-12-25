@@ -348,7 +348,6 @@ declare namespace common {
    * @StageModelOnly
    * @since 11
    */
-
   export type AutoStartupInfo = _AutoStartupInfo;
 
   /**
