@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * LabelInfo of Breadcrumb.
  *
  * @interface LabelInfo

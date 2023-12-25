@@ -33,9 +33,9 @@ export interface NotificationTemplate {
   /**
    * Obtains the data of a notification template.
    *
-   * @type { object }
+   * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
-  data: { [key: string]: Object };
+  data: Record<string, Object>;
 }

@@ -30,7 +30,9 @@
       "test",
       "useinstead",
       "FAModelOnly",
-      "StageModelOnly"
+      "StageModelOnly",
+      "kit",
+      "file"
     ],
     "jsDoc": [
       "abstract",
@@ -47,7 +49,6 @@
       "event",
       "exports",
       "external",
-      "file",
       "function",
       "generator",
       "global",
@@ -116,8 +117,8 @@
       "SystemCapability.Graphic.Graphic2D.WebGL",
       "SystemCapability.Graphic.Graphic2D.WebGL2",
       "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
-      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.Window.SessionManager",
+      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
       "SystemCapability.WindowManager.WindowManager.MutiScreen",
       "SystemCapability.Notification.CommonEvent",
@@ -342,7 +343,9 @@
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag",
-      "SystemCapability.DistributedDataManager.CommonType"
+      "SystemCapability.DistributedDataManager.CommonType",
+      "SystemCapability.Multimedia.Audio.Spatialization",
+      "SystemCapability.Multimedia.AudioHaptic.Core"
     ]
   },
   "administrators": [
@@ -360,6 +363,12 @@
     },
     {
       "user": "12626261"
+    },
+    {
+      "user": "6570462"
+    },
+    {
+      "user": "10183964"
     }
   ],
   "ciId":"7387629"

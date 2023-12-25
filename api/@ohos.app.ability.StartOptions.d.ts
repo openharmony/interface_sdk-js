@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * StartOptions is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -58,4 +63,54 @@ export default class StartOptions {
    * @since 11
    */
   displayId?: number;
+
+  /**
+   * The target ability with animation or without
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  withAnimation?: boolean;
+
+  /**
+   * The left position of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowLeft?: number;
+
+  /**
+   * The top position of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowTop?: number;
+
+  /**
+   * The width of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowWidth?: number;
+
+  /**
+   * The height of window rectangle
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  windowHeight?: number;
 }

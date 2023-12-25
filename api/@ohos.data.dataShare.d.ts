@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
@@ -119,6 +124,36 @@ declare namespace dataShare {
     uri: string,
     options?: DataShareHelperOptions
   ): Promise<DataShareHelper>;
+
+  /**
+   * Enables silent access dynamically.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  function enableSilentProxy(context: Context, uri?: string): Promise<void>;
+
+  /**
+   * Disables silent access dynamically.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the uri of the data share silent proxy resource.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  function disableSilentProxy(context: Context, uri?: string): Promise<void>;
 
   /**
    * Specifies the {@link Template} id structure.
@@ -462,7 +497,7 @@ declare namespace dataShare {
      *
      * @param { 'publishedDataChange' } type - Type must be 'publishedDataChange'.
      * @param { Array<string> } uris - Indicates the uris of the data to operate.
-     * @param { string } subscriberId - The template of off.
+     * @param { string } subscriberId - The subscriberId of off.
      * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of off.
      * @returns { Array<OperationResult> } : The operation result.
      * @throws { BusinessError } 401 - Parameter error.

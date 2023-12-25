@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkData
+ */
+
+/**
  * @typedef GetStorageOptions
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly

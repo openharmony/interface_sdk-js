@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * The definition of AbilityConstant.
  *
  * @namespace AbilityConstant

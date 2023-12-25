@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import ts from 'typescript';
 import { ApiResultSimpleInfo, ApiResultInfo } from '../../../typedef/checker/result_type';
 
 export class AddErrorLogs {
@@ -30,23 +30,36 @@ export class AddErrorLogs {
    * @param { string } message -error infomation
    * @param { ApiResultSimpleInfo[] }  checkErrorInfos -array for storing error information
    */
-  static addAPICheckErrorLogs(id: number, level: number, filePath: string, location: string, errorType: string,
-    apiType: string, version: number, apiName: string, apiFullText: string,
-    message: string, checkErrorInfos: ApiResultSimpleInfo[], checkErrorAllInfos: ApiResultInfo[]): void {
+  static addAPICheckErrorLogs(
+    id: number,
+    level: number,
+    filePath: string,
+    pos: ts.LineAndCharacter,
+    errorType: string,
+    apiType: string,
+    version: number,
+    apiName: string,
+    apiFullText: string,
+    message: string,
+    checkErrorInfos: ApiResultSimpleInfo[],
+    checkErrorAllInfos: ApiResultInfo[]
+  ): void {
+    const location = `${filePath}(line:${pos.line},character:${pos.character})`;
+    const errorMessage: string = `API check error of [${errorType}]: ${message}`;
     const apiChecktSimpleErrorLog: ApiResultSimpleInfo = new ApiResultSimpleInfo();
     apiChecktSimpleErrorLog
       .setID(id)
       .setLevel(level)
       .setLocation(location)
       .setFilePath(filePath)
-      .setMessage(message);
+      .setMessage(errorMessage);
 
     const apiCheckErrorLog: ApiResultInfo = new ApiResultInfo();
     apiCheckErrorLog
       .setErrorType(errorType)
       .setLocation(location)
       .setApiType(apiType)
-      .setMessage(message)
+      .setMessage(errorMessage)
       .setVersion(version)
       .setLevel(level)
       .setApiName(apiName)
@@ -56,4 +69,3 @@ export class AddErrorLogs {
     checkErrorAllInfos.push(apiCheckErrorLog);
   }
 }
-

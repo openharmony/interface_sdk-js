@@ -607,6 +607,17 @@ declare class SubTabBarStyle {
    * @since 11
    */
   padding(value: Padding | Dimension): SubTabBarStyle;
+
+  /**
+   * Set an id to the sub tab bar to identify it
+   *
+   * @param { string } value - id of the sub tab bar to identify it
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  id(value: string): SubTabBarStyle;
 }
 
 /**
@@ -789,6 +800,17 @@ declare class BottomTabBarStyle {
    * @since 11
    */
   symmetricExtensible(value: boolean): BottomTabBarStyle;
+
+  /**
+   * Set an id to the bottom tab bar to identify it
+   *
+   * @param { string } value - id of the bottom tab bar to identify it
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  id(value: string): BottomTabBarStyle;
 }
 
 /**

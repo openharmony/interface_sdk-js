@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BasicApiInfo as nodeBaseApiInfo, exportImportValue } from '../../typedef/parser/ApiInfoDefination';
+import { BasicApiInfo as nodeBaseApiInfo, ExportImportValue } from '../../typedef/parser/ApiInfoDefination';
 
 import { StringConstant } from '../../utils/Constant';
 import { Comment } from './Comment';
@@ -255,7 +255,7 @@ export class ExportDefaultInfo extends BasicApiInfo {
 }
 
 export class ImportInfo extends BasicApiInfo {
-  importValues: Array<exportImportValue> = [];
+  importValues: Array<ExportImportValue> = [];
 
   addImportValue(name: string, type: string): ImportInfo {
     this.importValues.push({ key: name, value: type || name });

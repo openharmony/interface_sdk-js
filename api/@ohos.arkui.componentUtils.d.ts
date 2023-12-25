@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full

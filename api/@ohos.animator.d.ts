@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the animator options.
  * @interface AnimatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 
@@ -167,7 +172,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    dataGroupId?: string;
+    dataGroupId?: string | null | undefined;
   }
 
   /**
@@ -838,6 +843,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
      *        returns the default value otherwise.
@@ -850,6 +856,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
      *        returns the default value otherwise.
@@ -863,6 +870,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
      *        returns the default value otherwise.
@@ -879,6 +887,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
      *          returns the default value otherwise.
@@ -891,6 +900,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
      *          returns the default value otherwise.
@@ -904,6 +914,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
      *          returns the default value otherwise.
@@ -920,6 +931,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { ValueType } The value matching the specified key if it is found;
      *          returns the default value otherwise.
@@ -933,6 +945,7 @@ declare namespace preferences {
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } defValue - Indicates the default value to return.
      * @returns { ValueType } The value matching the specified key if it is found;
      *          returns the default value otherwise.
@@ -1029,6 +1042,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
      *         with the specified key;returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1039,6 +1053,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
      *         with the specified key;returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1050,6 +1065,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
      *         with the specified key;returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1064,6 +1080,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1074,6 +1091,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1085,6 +1103,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1100,6 +1119,7 @@ declare namespace preferences {
      * is executed synchronously.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @returns { boolean } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1112,6 +1132,7 @@ declare namespace preferences {
      * is executed synchronously.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
      * @returns { boolean } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1508,14 +1529,14 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    on(type: 'change', callback: (key: string) => void): void;
+    on(type: 'change', callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
@@ -1531,14 +1552,14 @@ declare namespace preferences {
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11
      */
-    on(type: 'multiProcessChange', callback: (key: string) => void): void;
+    on(type: 'multiProcessChange', callback: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1563,14 +1584,14 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    off(type: 'change', callback?: (key: string) => void): void;
+    off(type: 'change', callback?: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1585,13 +1606,13 @@ declare namespace preferences {
      * Unregisters an existing observer.
      *
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
-     * @param { Function } callback - Indicates the callback function.
+     * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11
      */
-    off(type: 'multiProcessChange', callback?: (key: string) => void): void;
+    off(type: 'multiProcessChange', callback?: Callback<string>): void;
   }
 }
 

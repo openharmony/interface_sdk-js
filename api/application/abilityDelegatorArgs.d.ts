@@ -82,13 +82,13 @@ export interface AbilityDelegatorArgs {
   /**
    * the parameters used for unit testing.
    *
-   * @type { object }
+   * @type { Record<string, string> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  parameters: { [key: string]: string };
+  parameters: Record<string, string>;
 
   /**
    * the class names of all test cases.

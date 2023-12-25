@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -662,6 +667,44 @@ declare namespace wifiManager {
   function getDisconnectedReason(): DisconnectedReason;
 
   /**
+   * Start Portal certification.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function startPortalCertification(): void;
+
+  /**
+   * Whether the hotspot is metered hotspot or not.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { boolean } Returns {@code true} if the hotspot is metered hotspot, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 11
+   */
+  function isMeteredHotspot(): boolean;
+
+  /**
+   * Reset all saved device configure.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function factoryReset(): void;
+
+  /**
    * Enable Wi-Fi hotspot function.
    * This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
@@ -945,6 +988,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Obtain the information about own device information. 
+   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
+   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiP2pDevice> } Returns the information about own device info.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 11
+   */
   function getP2pLocalDevice(): Promise<WifiP2pDevice>;
   
   /**
@@ -958,6 +1013,18 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Obtain the information about own device information. 
+   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
+   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiP2pDevice> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 11
    */
   function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 

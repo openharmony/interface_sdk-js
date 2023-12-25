@@ -20,12 +20,27 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines delete text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare enum RichEditorDeleteDirection {
   /**
    * Delete backward.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Delete backward.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   BACKWARD,
 
@@ -34,6 +49,13 @@ declare enum RichEditorDeleteDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Delete forward.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   FORWARD,
 }
@@ -45,12 +67,27 @@ declare enum RichEditorDeleteDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines span type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare enum RichEditorSpanType {
   /**
    * text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   TEXT = 0,
 
@@ -60,6 +97,13 @@ declare enum RichEditorSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   IMAGE = 1,
 
   /**
@@ -67,6 +111,13 @@ declare enum RichEditorSpanType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * mixed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   MIXED = 2,
 }
@@ -115,6 +166,14 @@ declare enum RichEditorResponseType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the span position.
+ *
+ * @interface RichEditorSpanPosition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorSpanPosition {
   /**
    * Define the index of span.
@@ -122,6 +181,14 @@ declare interface RichEditorSpanPosition {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define the index of span.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spanIndex: number;
 
@@ -131,6 +198,14 @@ declare interface RichEditorSpanPosition {
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The range of span.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spanRange: [number, number];
 }
@@ -142,6 +217,14 @@ declare interface RichEditorSpanPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the span text style.
+ *
+ * @interface RichEditorTextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorTextStyle {
   /**
    * font color.
@@ -149,6 +232,14 @@ declare interface RichEditorTextStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * font color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontColor?: ResourceColor;
 
@@ -159,6 +250,14 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * font size.
+   *
+   * @type { ?(Length | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontSize?: Length | number;
 
   /**
@@ -167,6 +266,14 @@ declare interface RichEditorTextStyle {
    * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * font style.
+   *
+   * @type { ?FontStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontStyle?: FontStyle;
 
@@ -177,6 +284,14 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * font weight.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontWeight?: number | FontWeight | string;
 
   /**
@@ -185,6 +300,14 @@ declare interface RichEditorTextStyle {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * font family.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontFamily?: ResourceStr;
 
@@ -195,7 +318,25 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * font decoration.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   decoration?: { type: TextDecorationType; color?: ResourceColor; };
+
+  /**
+   * Text shadow
+   *
+   * @type { ?(ShadowOptions | Array<ShadowOptions>) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textShadow?: ShadowOptions | Array<ShadowOptions>;
 }
 
 
@@ -279,6 +420,14 @@ declare interface PasteEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the text span.
+ *
+ * @interface RichEditorTextSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorTextSpan {
   /**
    * The position of the text span.
@@ -286,6 +435,14 @@ declare interface RichEditorTextSpan {
    * @type { RichEditorSpanPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The position of the text span.
+   *
+   * @type { RichEditorSpanPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -296,6 +453,14 @@ declare interface RichEditorTextSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The content of the text span.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   value: string;
 
   /**
@@ -304,6 +469,14 @@ declare interface RichEditorTextSpan {
    * @type { ?RichEditorTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * text style.
+   *
+   * @type { ?RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   textStyle?: RichEditorTextStyle;
 }
@@ -345,6 +518,14 @@ interface RichEditorLayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the span image style.
+ *
+ * @interface RichEditorImageSpanStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorImageSpanStyle {
   /**
    * image size.
@@ -352,6 +533,14 @@ declare interface RichEditorImageSpanStyle {
    * @type { ?[Dimension, Dimension] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * image size.
+   *
+   * @type { ?[Dimension, Dimension] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   size?: [Dimension, Dimension];
 
@@ -362,6 +551,14 @@ declare interface RichEditorImageSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * image vertical align.
+   *
+   * @type { ?ImageSpanAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   verticalAlign?: ImageSpanAlignment;
 
   /**
@@ -370,6 +567,14 @@ declare interface RichEditorImageSpanStyle {
    * @type { ?ImageFit }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * image fit.
+   *
+   * @type { ?ImageFit }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   objectFit?: ImageFit;
 
@@ -385,11 +590,79 @@ declare interface RichEditorImageSpanStyle {
 }
 
 /**
+ * Defines the symbol span style.
+ *
+ * @interface RichEditorSymbolSpanStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanStyle {
+  /**
+   * The font size.
+   *
+   * @type { ?(number | string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontSize?: number | string | Resource;
+
+  /**
+   * The font color.
+   *
+   * @type { ?Array<ResourceColor> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontColor?: Array<ResourceColor>;
+
+  /**
+   * The font weight.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontWeight?: number | FontWeight | string;
+
+  /**
+   * The symbol span effect strategy.
+   *
+   * @type { ?SymbolEffectStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  effectStrategy?: SymbolEffectStrategy;
+
+  /**
+   * The symbol span rendering strategy.
+   *
+   * @type { ?SymbolRenderingStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  renderingStrategy?: SymbolRenderingStrategy;
+}
+
+/**
  * Defines the text style result.
  *
  * @interface RichEditorTextStyleResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Defines the text style result.
+ *
+ * @interface RichEditorTextStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare interface RichEditorTextStyleResult {
   /**
@@ -398,6 +671,14 @@ declare interface RichEditorTextStyleResult {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * font color.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontColor: ResourceColor;
 
@@ -408,6 +689,14 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * font size.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontSize: number;
 
   /**
@@ -416,6 +705,14 @@ declare interface RichEditorTextStyleResult {
    * @type { FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * font style.
+   *
+   * @type { FontStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   fontStyle: FontStyle;
 
@@ -426,6 +723,14 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * font weight.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontWeight: number;
 
   /**
@@ -435,6 +740,14 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * font family.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fontFamily: string;
 
   /**
@@ -443,6 +756,14 @@ declare interface RichEditorTextStyleResult {
    * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * font decoration.
+   *
+   * @type { object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
 }
@@ -475,11 +796,79 @@ declare interface RichEditorParagraphResult {
 }
 
 /**
+ * Defines the symbol span style result.
+ *
+ * @interface RichEditorSymbolSpanStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanStyleResult {
+  /**
+   * The font size.
+   *
+   * @type { number | string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontSize: number | string | Resource;
+
+  /**
+   * The font color.
+   *
+   * @type { Array<ResourceColor> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontColor: Array<ResourceColor>;
+
+  /**
+   * The font weight.
+   *
+   * @type { number | FontWeight | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontWeight: number | FontWeight | string;
+
+  /**
+   * The symbol span effect strategy.
+   *
+   * @type { SymbolEffectStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  effectStrategy: SymbolEffectStrategy;
+
+  /**
+   * The symbol span rendering strategy.
+   *
+   * @type { SymbolRenderingStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  renderingStrategy: SymbolRenderingStrategy;
+}
+
+/**
  * Defines the text span result.
  *
  * @interface RichEditorTextSpanResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Defines the text span result.
+ *
+ * @interface RichEditorTextSpanResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare interface RichEditorTextSpanResult {
   /**
@@ -488,6 +877,14 @@ declare interface RichEditorTextSpanResult {
    * @type { RichEditorSpanPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The position of the text span.
+   *
+   * @type { RichEditorSpanPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -498,6 +895,14 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The content of the text span.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   value: string;
 
   /**
@@ -506,6 +911,14 @@ declare interface RichEditorTextSpanResult {
    * @type { RichEditorTextStyleResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * text style.
+   *
+   * @type { RichEditorTextStyleResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   textStyle: RichEditorTextStyleResult;
 
@@ -516,7 +929,35 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * get offset in span.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   offsetInSpan: [number, number];
+
+  /**
+   * Symbol span style.
+   *
+   * @type { ?RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolSpanStyle?: RichEditorSymbolSpanStyle;
+
+  /**
+   * The resource string of the symbol span.
+   *
+   * @type { ?Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  valueResource?: Resource;
 }
 
 /**
@@ -526,6 +967,14 @@ declare interface RichEditorTextSpanResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the span image style result.
+ *
+ * @interface RichEditorImageSpanStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorImageSpanStyleResult {
   /**
    * image size.
@@ -533,6 +982,14 @@ declare interface RichEditorImageSpanStyleResult {
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * image size.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   size: [number, number];
 
@@ -543,6 +1000,14 @@ declare interface RichEditorImageSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * image vertical align.
+   *
+   * @type { ImageSpanAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   verticalAlign: ImageSpanAlignment;
 
   /**
@@ -551,6 +1016,14 @@ declare interface RichEditorImageSpanStyleResult {
    * @type { ImageFit }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * image fit.
+   *
+   * @type { ImageFit }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   objectFit: ImageFit;
 }
@@ -562,6 +1035,14 @@ declare interface RichEditorImageSpanStyleResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the image span.
+ *
+ * @interface RichEditorImageSpanResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorImageSpanResult {
   /**
    * The position of the image span.
@@ -569,6 +1050,14 @@ declare interface RichEditorImageSpanResult {
    * @type { RichEditorSpanPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The position of the image span.
+   *
+   * @type { RichEditorSpanPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -579,6 +1068,14 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The pixel map of the image span.
+   *
+   * @type { ?PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   valuePixelMap?: PixelMap;
 
   /**
@@ -587,6 +1084,14 @@ declare interface RichEditorImageSpanResult {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The resource string of the image span.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   valueResourceStr?: ResourceStr;
 
@@ -597,6 +1102,14 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * image attribute.
+   *
+   * @type { RichEditorImageSpanStyleResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   imageStyle: RichEditorImageSpanStyleResult;
 
   /**
@@ -605,6 +1118,14 @@ declare interface RichEditorImageSpanResult {
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * get offset in span.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   offsetInSpan: [number, number];
 }
@@ -616,6 +1137,14 @@ declare interface RichEditorImageSpanResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the image span.
+ *
+ * @interface RichEditorImageSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorImageSpan {
   /**
    * The position of the image span.
@@ -623,6 +1152,14 @@ declare interface RichEditorImageSpan {
    * @type { RichEditorSpanPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The position of the image span.
+   *
+   * @type { RichEditorSpanPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -633,6 +1170,14 @@ declare interface RichEditorImageSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The content of the image span.
+   *
+   * @type { PixelMap | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   value: PixelMap | ResourceStr;
 
   /**
@@ -641,6 +1186,14 @@ declare interface RichEditorImageSpan {
    * @type { ?RichEditorImageSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * image style.
+   *
+   * @type { ?RichEditorImageSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   imageStyle?: RichEditorImageSpanStyle;
 }
@@ -652,6 +1205,14 @@ declare interface RichEditorImageSpan {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines range of RichEditor.
+ *
+ * @interface RichEditorRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorRange {
   /**
    * start offset.
@@ -660,6 +1221,15 @@ declare interface RichEditorRange {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * start offset.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   start?: number;
 
@@ -670,6 +1240,15 @@ declare interface RichEditorRange {
    * @default text length
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * end offset.
+   *
+   * @type { ?number }
+   * @default text length
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   end?: number;
 }
@@ -711,6 +1290,14 @@ declare interface RichEditorGesture {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the span options of RichEditor.
+ *
+ * @interface RichEditorTextSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorTextSpanOptions {
   /**
    * the offset that add a text span at.
@@ -718,6 +1305,14 @@ declare interface RichEditorTextSpanOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * the offset that add a text span at.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   offset?: number;
 
@@ -727,6 +1322,14 @@ declare interface RichEditorTextSpanOptions {
    * @type { ?RichEditorTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * text style.
+   *
+   * @type { ?RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   style?: RichEditorTextStyle;
 
@@ -757,6 +1360,14 @@ declare interface RichEditorTextSpanOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the image span options of RichEditor.
+ *
+ * @interface RichEditorImageSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorImageSpanOptions {
   /**
    * the offset that add image span at.
@@ -764,6 +1375,14 @@ declare interface RichEditorImageSpanOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * the offset that add image span at.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   offset?: number;
 
@@ -773,6 +1392,14 @@ declare interface RichEditorImageSpanOptions {
    * @type { ?RichEditorImageSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * image style.
+   *
+   * @type { ?RichEditorImageSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   imageStyle?: RichEditorImageSpanStyle;
 
@@ -788,11 +1415,39 @@ declare interface RichEditorImageSpanOptions {
 }
 
 /**
+ * Defines the builder span options of RichEditor.
+ *
+ * @interface RichEditorBuilderSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorBuilderSpanOptions {
+  /**
+   * The offset that add custom builder span at.
+   *
+   * @type { ?number } Indicates the index where the builder will be inserted
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  offset?: number;
+}
+
+/**
  * Defines span style option of RichEditor.
  *
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Defines span style option of RichEditor.
+ *
+ * @interface RichEditorSpanStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 
@@ -821,6 +1476,14 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines text span style option of RichEditor.
+ *
+ * @interface RichEditorUpdateTextSpanStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
    * text style.
@@ -828,6 +1491,14 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @type { RichEditorTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * text style.
+   *
+   * @type { RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   textStyle: RichEditorTextStyle;
 }
@@ -839,6 +1510,14 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines image span style option of RichEditor.
+ *
+ * @interface RichEditorUpdateImageSpanStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
    * image style.
@@ -847,7 +1526,65 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * image style.
+   *
+   * @type { RichEditorImageSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   imageStyle: RichEditorImageSpanStyle;
+}
+
+/**
+ * Defines symbol span style option of RichEditor.
+ *
+ * @interface RichEditorUpdateSymbolSpanStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
+  /**
+   * Update the symbol span style.
+   *
+   * @type { RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolStyle: RichEditorSymbolSpanStyle;
+}
+
+/**
+ * Defines the symbol span options of RichEditor.
+ *
+ * @interface RichEditorSymbolSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanOptions {
+  /**
+   * The offset that add custom symbol span at.
+   *
+   * @type { ?[number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  offset?: [number, number];
+
+  /**
+   * The style that add custom symbol span at.
+   *
+   * @type { ?RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  style?: RichEditorSymbolSpanStyle;
 }
 
 /**
@@ -857,6 +1594,14 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the text information for editing.
+ *
+ * @interface RichEditorSelection
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorSelection {
   /**
    * The location info.
@@ -864,6 +1609,14 @@ declare interface RichEditorSelection {
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The location info.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   selection: [number, number];
 
@@ -873,6 +1626,14 @@ declare interface RichEditorSelection {
    * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The selected text content.
+   *
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   spans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
@@ -884,6 +1645,14 @@ declare interface RichEditorSelection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the inserted text value info.
+ *
+ * @interface RichEditorInsertValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorInsertValue {
   /**
    * The location info where the value will be inserted.
@@ -891,6 +1660,14 @@ declare interface RichEditorInsertValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The location info where the value will be inserted.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   insertOffset: number;
 
@@ -900,6 +1677,14 @@ declare interface RichEditorInsertValue {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The inserted value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   insertValue: string;
 }
@@ -911,6 +1696,14 @@ declare interface RichEditorInsertValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Provides an interface for deleting value from text.
+ *
+ * @interface RichEditorDeleteValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorDeleteValue {
   /**
    * The offset of deleting.
@@ -918,6 +1711,14 @@ declare interface RichEditorDeleteValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The offset of deleting.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   offset: number;
 
@@ -928,6 +1729,14 @@ declare interface RichEditorDeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The deleted direction.
+   *
+   * @type { RichEditorDeleteDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   direction: RichEditorDeleteDirection;
 
   /**
@@ -936,6 +1745,14 @@ declare interface RichEditorDeleteValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The deleted text length.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   length: number;
 
@@ -946,6 +1763,14 @@ declare interface RichEditorDeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The deleted span object.
+   *
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
 /**
@@ -955,6 +1780,14 @@ declare interface RichEditorDeleteValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the options of RichEditor.
+ *
+ * @interface RichEditorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare interface RichEditorOptions {
   /**
    * RichEditor controller.
@@ -962,6 +1795,14 @@ declare interface RichEditorOptions {
    * @type { RichEditorController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * RichEditor controller.
+   *
+   * @type { RichEditorController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   controller: RichEditorController;
 }
@@ -974,6 +1815,15 @@ declare interface RichEditorOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the selection menu options.
+ * 
+ * @interface SelectionMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface SelectionMenuOptions {
   /**
    * Callback function when the selection menu appears.
@@ -982,6 +1832,15 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Callback function when the selection menu appears.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onAppear?: () => void;
 
@@ -992,6 +1851,15 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Callback function when the selection menu disappears.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onDisappear?: () => void;
 }
@@ -1004,6 +1872,14 @@ declare class RichEditorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Get caret offset from controller.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   getCaretOffset(): number;
 
   /**
@@ -1013,6 +1889,15 @@ declare class RichEditorController {
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Set caret offset.
+   *
+   * @param { number } offset - caret offset.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   setCaretOffset(offset: number): boolean;
 
@@ -1025,6 +1910,16 @@ declare class RichEditorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Add a text span.
+   *
+   * @param { string } value - text value.
+   * @param { RichEditorTextSpanOptions } [options] - span info.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   addTextSpan(value: string, options?: RichEditorTextSpanOptions): number;
 
   /**
@@ -1036,8 +1931,42 @@ declare class RichEditorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Add a image span.
+   *
+   * @param { PixelMap | ResourceStr } value - image value.
+   * @param { RichEditorImageSpanOptions } [options] - image span info.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
 
+  /**
+   * Add a builder span.
+   *
+   * @param { CustomBuilder } value - Indicates the custom builder node
+   * @param { RichEditorBuilderSpanOptions } [options] - span option.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): number;
+
+  /**
+   * Add a symbol span.
+   *
+   * @param { ResourceStr } value - symbol span value
+   * @param { RichEditorSymbolSpanOptions } [options] - symbol span option.
+   * @returns { number } symbol span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  addSymbolSpan(value: ResourceStr, options?: RichEditorSymbolSpanOptions ): number;
+  
   /**
    * Modify span style.
    *
@@ -1045,7 +1974,15 @@ declare class RichEditorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions): void;
+  /**
+   * Modify span style.
+   *
+   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions): void;
 
   /**
    * Modify span style.
@@ -1063,6 +2000,14 @@ declare class RichEditorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Delete span.
+   *
+   * @param { RichEditorRange } [value] - range for deleting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   deleteSpans(value?: RichEditorRange): void;
 
   /**
@@ -1072,6 +2017,15 @@ declare class RichEditorController {
    * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get span content.
+   *
+   * @param { RichEditorRange } [value] - range for getting span info.
+   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
 
@@ -1090,6 +2044,13 @@ declare class RichEditorController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * close the select menu when menu is on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   closeSelectionMenu(): void;
 
@@ -1142,6 +2103,14 @@ declare class RichEditorController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Provides attribute for RichEditor.
+ *
+ * @extends CommonMethod<RichEditorAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Called when on ready.
@@ -1150,6 +2119,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called when on ready.
+   *
+   * @param { function } callback - The triggered function when rich editor is ready.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   onReady(callback: () => void): RichEditorAttribute;
 
@@ -1161,6 +2139,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Called when the content is selected.
+   *
+   * @param { function } callback - The triggered function when select text.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   onSelect(callback: (value: RichEditorSelection) => void): RichEditorAttribute;
 
   /**
@@ -1170,6 +2157,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { function } callback - The triggered function when text content is about to insert.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   aboutToIMEInput(callback: (value: RichEditorInsertValue) => boolean): RichEditorAttribute;
 
@@ -1181,6 +2177,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Get text value information when completed input.
+   *
+   * @param { function } callback - The triggered function when text content has been inserted.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   onIMEInputComplete(callback: (value: RichEditorTextSpanResult) => void): RichEditorAttribute;
 
   /**
@@ -1190,6 +2195,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { function } callback - The triggered function when text content is about to delete.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   aboutToDelete(callback: (value: RichEditorDeleteValue) => boolean): RichEditorAttribute;
 
@@ -1201,6 +2215,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Notify that the deletion has been completed
+   *
+   * @param { function } callback - The triggered function when text content has been deleted.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   onDeleteComplete(callback: () => void): RichEditorAttribute;
 
   /**
@@ -1211,6 +2234,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Allow replication.
+   *
+   * @param { CopyOptions } value - Indicates the type of copy option.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   copyOptions(value: CopyOptions): RichEditorAttribute;
@@ -1250,6 +2284,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   customKeyboard(value: CustomBuilder): RichEditorAttribute;
 
@@ -1292,6 +2335,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Provides an interface for writing texts.
+ *
+ * @interface RichEditorInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 interface RichEditorInterface {
   /**
    * Called when create RichEditor.
@@ -1300,6 +2351,15 @@ interface RichEditorInterface {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called when create RichEditor.
+   *
+   * @param { RichEditorOptions } value
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   (value: RichEditorOptions): RichEditorAttribute;
 }
@@ -1310,6 +2370,13 @@ interface RichEditorInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines RichEditor Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare const RichEditorInstance: RichEditorAttribute;
 
 /**
@@ -1317,5 +2384,12 @@ declare const RichEditorInstance: RichEditorAttribute;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Defines RichEditor Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare const RichEditor: RichEditorInterface;

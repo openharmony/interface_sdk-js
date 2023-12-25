@@ -20,6 +20,15 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Provides an interface for RichText component.
+ *
+ * @interface RichTextInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface RichTextInterface {
   /**
    * Set value.
@@ -28,6 +37,16 @@ interface RichTextInterface {
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * Set value.
+   *
+   * @param { string } content
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (content: string): RichTextAttribute;
 }
@@ -39,6 +58,15 @@ interface RichTextInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Defines the RichText attribute functions.
+ *
+ * @extends CommonMethod<RichTextAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**
    * Triggered when the RichText loading starts.
@@ -47,6 +75,16 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * Triggered when the RichText loading starts.
+   *
+   * @param { function } callback
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onStart(callback: () => void): RichTextAttribute;
 
@@ -58,6 +96,16 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
+  /**
+   * Triggered when the RichText loading ends.
+   *
+   * @param { function } callback
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onComplete(callback: () => void): RichTextAttribute;
 }
 
@@ -67,6 +115,14 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Defines RichText Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const RichText: RichTextInterface;
 
 /**
@@ -74,5 +130,13 @@ declare const RichText: RichTextInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
+ */
+/**
+ * Defines RichText Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const RichTextInstance: RichTextAttribute;

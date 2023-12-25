@@ -12,6 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
@@ -203,7 +209,21 @@ declare namespace screenLock {
    * @since 9
    */
   interface SystemEvent {
+    /**
+     * Indicates the system event type related to the screenlock management service.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     eventType: EventType;
+    /**
+     * Identifies the customized extended parameter of an event.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     params: string;
   }
 

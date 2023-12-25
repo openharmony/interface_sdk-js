@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Defines the Gauge component.
+ *
+ * @interface GaugeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface GaugeInterface {
   /**
    * value:Current data value.
@@ -69,6 +79,19 @@ interface GaugeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * value:Current data value.
+   * min: Current Segment Minimum Value
+   * max: Current Segment Maximum Value
+   *
+   * @param { object } options
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (options: { value: number; min?: number; max?: number }): GaugeAttribute;
@@ -135,6 +158,14 @@ declare interface GaugeIndicatorOptions {
  * @since 10
  * @form
  */
+/**
+ * @extends CommonMethod<GaugeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets the value for the current profile.
@@ -161,6 +192,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Sets the value for the current profile.
+   *
+   * @param { number } value
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   value(value: number): GaugeAttribute;
@@ -192,6 +234,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   startAngle(angle: number): GaugeAttribute;
 
   /**
@@ -219,6 +272,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   endAngle(angle: number): GaugeAttribute;
@@ -290,6 +354,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Sets the thickness of the ring chart.
+   *
+   * @param { Length } length
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   strokeWidth(length: Length): GaugeAttribute;
 
   /**
@@ -347,6 +422,15 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Gauge Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Gauge: GaugeInterface;
 
 /**
@@ -368,6 +452,15 @@ declare const Gauge: GaugeInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Gauge Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const GaugeInstance: GaugeAttribute;

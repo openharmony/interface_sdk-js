@@ -8,6 +8,7 @@ accelerates
 accents
 accommodates
 acmmax
+acn
 activates
 actived
 adjusts
@@ -24,10 +25,14 @@ alpnprotocols
 alterase
 alternating
 altitudes
+amb
+ambisonic
+ambisonics
 amr
 animatable
 annually
 antialias
+antialiasing
 apdu
 apecified
 appselect
@@ -61,6 +66,7 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra
@@ -131,7 +137,9 @@ cpid
 cpuprofiler
 cpx
 cpy
+creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -198,6 +206,7 @@ dnd
 dnses
 donot
 downlink
+downmix
 dpad
 drains
 dragbar
@@ -219,6 +228,7 @@ egid
 ehrpd
 ejectclosecd
 emption
+emphasized
 encapsulates
 encompassed
 encrypts
@@ -264,6 +274,8 @@ fstat
 fsync
 ftruncate
 fulfills
+fuma
+furse
 gamepad
 gba
 geofence
@@ -285,6 +297,7 @@ hankaku
 hapmodule
 haps
 haptic
+haptics
 hce
 headed
 headersreceive
@@ -293,6 +306,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hexadecagonal
 hfp
 hibernates
 hibernating
@@ -417,6 +431,7 @@ luma
 lushort
 lux
 mah
+malham
 map
 mcc
 md5
@@ -456,6 +471,7 @@ multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -654,6 +670,7 @@ sece
 secinfo
 seeked
 semicircles
+sendable
 sensing
 sequenceable
 settingsdata
@@ -683,6 +700,7 @@ socid
 softer
 sonification
 sortings
+spatialization
 spawns
 spay
 spdy
@@ -691,6 +709,7 @@ specificed
 speedratings
 spellcheck
 spn
+spooler
 spp
 spry
 spy
@@ -705,6 +724,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers
@@ -720,6 +741,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing
@@ -822,10 +844,12 @@ unregistered
 unregistering
 unregisters
 unremovable
+unrendered
 unrestricted
 unsecure
 unsent
 unspec
+unshare
 unsubscribes
 unsuccessfully
 unsupport
