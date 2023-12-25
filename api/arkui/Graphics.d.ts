@@ -46,12 +46,22 @@ export interface Size {
 /**
  * Defines DrawContext.
  *
- * @interface DrawContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface DrawContext { }
+export class DrawContext {
+
+  /**
+   * Get size of the DrawContext.
+   *
+   * @returns { Size } The size of the DrawContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  get size(): Size;
+}
 
 /**
   * Defined a vector with two values.
