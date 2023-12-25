@@ -548,7 +548,7 @@ declare namespace statistics {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     iface: string;
     /**
@@ -556,7 +556,7 @@ declare namespace statistics {
      * @type { ?number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     uid?: number;
   }

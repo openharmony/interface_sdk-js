@@ -3014,7 +3014,7 @@ declare namespace socket {
      * @param { Callback<SocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 11
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
@@ -3063,6 +3063,7 @@ declare namespace socket {
    * Defines the socket connection information.
    * @interface SocketMessageInfo
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface SocketMessageInfo {
@@ -3070,14 +3071,16 @@ declare namespace socket {
      * Receive the message event.
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     message: ArrayBuffer;
     /**
      * Socket connection information.
      * @type { SocketRemoteInfo }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     remoteInfo: SocketRemoteInfo;
   }

@@ -996,7 +996,7 @@ declare namespace policy {
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     uid: number;
     /**
@@ -1004,7 +1004,7 @@ declare namespace policy {
      * @type { NetUidRule }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     rule: NetUidRule;
   }
@@ -1022,7 +1022,7 @@ declare namespace policy {
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     uid: number;
     /**
@@ -1030,7 +1030,7 @@ declare namespace policy {
      * @type { NetUidPolicy }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 11
      */
     policy: NetUidPolicy;
   }

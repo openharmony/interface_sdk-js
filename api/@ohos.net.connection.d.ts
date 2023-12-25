@@ -938,11 +938,11 @@ declare namespace connection {
     /**
      * Registers a listener for netBlockStatusChange events.
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
-     * @param { Callback<NetBlockStatusChangeCallback> } callback - the callback used to return the result.
+     * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11
      */
-    on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusChangeCallback>): void;
+    on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
 
     /**
      * Registers a listener for **netCapabilitiesChange** events.
@@ -980,11 +980,11 @@ declare namespace connection {
     /**
      * Registers a listener for netConnectionPropertiesChange events.
      * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
-     * @param { Callback<NetConnPropInfo> } callback - the callback used to return the result.
+     * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11
      */
-    on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnPropInfo>): void;
+    on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
     /**
      * Registers a listener for **netLost** events.
@@ -1432,24 +1432,15 @@ declare namespace connection {
 
   /**
    * Get information about network connections.
-   * @interface NetConnPropInfo
+   * @interface NetConnectionPropertyInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
    */
-  export interface NetConnPropInfo {
+  export interface NetConnectionPropertyInfo {
     /**
      * Defines the handle of the data network.
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Defines the handle of the data network.
-     * @type { NetHandle }
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
      * @since 11
      */
     netHandle: NetHandle;
@@ -1457,31 +1448,22 @@ declare namespace connection {
      * Defines the network connection properties.
      * @type { ConnectionProperties }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 11
      */
     connectionProperties: ConnectionProperties;
   }
 
   /**
    * Get network status information.
-   * @interface NetBlockStatusChangeCallback
+   * @interface NetBlockStatusInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11
    */
-  export interface NetBlockStatusChangeCallback {
+  export interface NetBlockStatusInfo {
     /**
      * Defines the handle of the data network.
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Defines the handle of the data network.
-     * @type { NetHandle }
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
-     * @atomicservice
      * @since 11
      */
     netHandle: NetHandle;
@@ -1489,7 +1471,7 @@ declare namespace connection {
      * Check whether the current state is blocked.
      * @type { boolean }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
+     * @since 11
      */
     blocked: boolean;
   }

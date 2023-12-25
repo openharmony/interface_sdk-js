@@ -220,7 +220,7 @@ declare namespace ethernet {
    * @since 10
    */
   /**
-   * Register a callback for the ethernet interface active state change.
+   * Unregister a callback from the ethernet interface active state change.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { 'interfaceStateChange' } type - Indicates Event name.
    * @param { Callback<InterfaceStateInfo> } callback - Including iface Indicates the ethernet interface,
@@ -328,7 +328,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     iface: string;
     /**
@@ -336,7 +336,7 @@ declare namespace ethernet {
      * @type { boolean }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     active: boolean;
   }

@@ -523,7 +523,7 @@ declare namespace sharing {
      * @type { SharingIfaceType }
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     type: SharingIfaceType;
     /**
@@ -531,7 +531,7 @@ declare namespace sharing {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     iface: string;
     /**
@@ -539,7 +539,7 @@ declare namespace sharing {
      * @type { SharingIfaceState }
      * @syscap SystemCapability.Communication.NetManager.NetSharing
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 11
      */
     state: SharingIfaceState;
   }
