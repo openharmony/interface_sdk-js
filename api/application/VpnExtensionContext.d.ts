@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ExtensionContext from './ExtensionContext';
+import type ExtensionContext from './ExtensionContext';
 /**
  * The context of vpn extension. It allows access to
  * serviceExtension-specific resources.
