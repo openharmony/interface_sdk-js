@@ -329,6 +329,16 @@ export interface NotificationRequest {
    * @systemapi
    * @since 8
    */
+  /**
+   * Whether the notification can be remove.
+   *
+   * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
   isRemoveAllowed?: boolean;
 
   /**
