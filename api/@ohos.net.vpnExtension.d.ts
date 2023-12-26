@@ -120,6 +120,7 @@ declare namespace vpnExtension {
    * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @stagemodelonly
    * @since 11
    */
   function createVpnConnection(context: VpnExtensionContext): VpnConnection;
