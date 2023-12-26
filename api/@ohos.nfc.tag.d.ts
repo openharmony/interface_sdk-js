@@ -628,7 +628,7 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { 'readerMode' } type - The callback type to be unregistered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
