@@ -1491,7 +1491,6 @@ export const enum KeyboardAvoidMode {
    * Resize Type, resize the page when keyBoard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   RESIZE = 1
