@@ -1784,7 +1784,7 @@ declare interface AnimateParam {
   finishCallbackType?: FinishCallbackType;
 
   /**
-   * Set the animation drawing FPS.
+   * Indicates expectedFrameRateRange including minimum、maximum and expected frame rate.
    *
    * @type { ?ExpectedFrameRateRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
