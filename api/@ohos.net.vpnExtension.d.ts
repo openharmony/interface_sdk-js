@@ -112,6 +112,7 @@ declare namespace vpnExtension {
    * @stagemodelonly
    * @since 11
    */
+
   function updateVpnAuthorizedState(bundleName: string): boolean;
   /**
    * Create a VPN connection using the VpnExtensionContext.
