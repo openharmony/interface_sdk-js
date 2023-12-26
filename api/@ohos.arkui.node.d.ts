@@ -13,9 +13,57 @@
  * limitations under the License.
  */
 
-export * from './arkui/BuilderNode';
-export * from './arkui/NodeController';
-export * from './arkui/FrameNode';
-export * from './arkui/Graphics';
-export * from './arkui/RenderNode';
-export * from './arkui/XComponentNode';
+/**
+ * Export NodeRenderType, RenderOptions, BuilderNode, which is used to create a node trees by builder function and manage the update of the tree.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode';
+
+/**
+ * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the associated NodeContainer
+ * and methods to control the child node of the NodeContainer.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export { NodeController } from './arkui/NodeController';
+
+/**
+ * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export { FrameNode } from './arkui/FrameNode';
+
+/**
+ * Export Graphics. Defines the basic types related to the Graphics.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame } from './arkui/Graphics';
+
+/**
+ * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export { RenderNode } from './arkui/RenderNode';
+
+
+/**
+ * Export XComponentNode, which extends FrameNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export { XComponentNode } from './arkui/XComponentNode';
