@@ -414,7 +414,7 @@ declare namespace socket {
   }
 
   /**
-   * Defines information about the local socket connection.
+   * Defines message received from a local socket connection.
    * @interface MessageReceive
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
