@@ -15,6 +15,7 @@
 
 import { Callback } from './basic';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 
 /**
  * Global input event listener
