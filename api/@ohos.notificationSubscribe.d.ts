@@ -26,7 +26,6 @@ import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 
-
 /**
  * @namespace notificationSubscribe
  * @syscap SystemCapability.Notification.Notification
