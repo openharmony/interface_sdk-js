@@ -948,6 +948,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
+    /**
+     * Reset AVPlayer, it will to idle state and can set src again.
+     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
+     */
     reset(callback: AsyncCallback<void>): void;
 
     /**
@@ -956,6 +964,14 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
+     */
+    /**
+     * Reset AVPlayer, it will to idle state and can set src again.
+     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
      */
     reset(): Promise<void>;
 
