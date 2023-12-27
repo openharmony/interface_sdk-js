@@ -64,7 +64,7 @@ export interface RespCallback {
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
-  (respData: Map<string, Array<advertising.Advertisement>>);
+  (respData: Map<string, Array<advertising.Advertisement>>): void;
 }
 
 
