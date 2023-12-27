@@ -256,7 +256,7 @@ declare namespace url {
      * The input parameter is a character string.
      * The input parameter is the URLParams object.
      *
-     * @param { string[][] | Record<string, string> | string | URLParams } init - init init
+     * @param { string[][] | Record<string, string> | string | URLParams } [init] - init init
      * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
      * or string or URLParams object.
      * @syscap SystemCapability.Utils.Lang
@@ -270,7 +270,7 @@ declare namespace url {
      * The input parameter is a character string.
      * The input parameter is the URLParams object.
      *
-     * @param { string[][] | Record<string, string> | string | URLParams } init - init init
+     * @param { string[][] | Record<string, string> | string | URLParams } [init] - init init
      * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
      * or string or URLParams object.
      * @syscap SystemCapability.Utils.Lang
@@ -285,7 +285,7 @@ declare namespace url {
      * The input parameter is a character string.
      * The input parameter is the URLParams object.
      *
-     * @param { string[][] | Record<string, string> | string | URLParams } init - init init
+     * @param { string[][] | Record<string, string> | string | URLParams } [init] - init init
      * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
      * or string or URLParams object.
      * @syscap SystemCapability.Utils.Lang
@@ -422,7 +422,7 @@ declare namespace url {
      *
      * @param { function } callbackFn - callbackFn value Current traversal key value,
 	 * key Indicates the name of the key that is traversed.
-     * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
+     * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -432,7 +432,7 @@ declare namespace url {
      *
      * @param { function } callbackFn - callbackFn value Current traversal key value,
 	 * key Indicates the name of the key that is traversed.
-     * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
+     * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -443,7 +443,7 @@ declare namespace url {
      *
      * @param { function } callbackFn - callbackFn value Current traversal key value,
 	 * key Indicates the name of the key that is traversed.
-     * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
+     * @param { Object } [thisArg] - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -759,7 +759,7 @@ declare namespace url {
      *
      * @param { string } url - url url Absolute or relative input URL to resolve. Base is required if input is relative.
      * If input is an absolute value, base ignores the value.
-     * @param { string | URL } base - base base Base URL to parse if input is not absolute.
+     * @param { string | URL } [base] - base base Base URL to parse if input is not absolute.
      * @returns { URL }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid url string.
@@ -771,7 +771,7 @@ declare namespace url {
      *
      * @param { string } url - url url Absolute or relative input URL to resolve. Base is required if input is relative.
      * If input is an absolute value, base ignores the value.
-     * @param { string | URL } base - base base Base URL to parse if input is not absolute.
+     * @param { string | URL } [base] - base base Base URL to parse if input is not absolute.
      * @returns { URL }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid url string.
@@ -784,7 +784,7 @@ declare namespace url {
      *
      * @param { string } url - url url Absolute or relative input URL to resolve. Base is required if input is relative.
      * If input is an absolute value, base ignores the value.
-     * @param { string | URL } base - base base Base URL to parse if input is not absolute.
+     * @param { string | URL } [base] - base base Base URL to parse if input is not absolute.
      * @returns { URL }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid url string.
