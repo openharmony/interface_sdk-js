@@ -225,7 +225,6 @@
     "SystemCapability.AI.IntelligentVoice.Core",
     "SystemCapability.Multimedia.Media.SoundPool",
     "SystemCapability.Multimedia.Audio.Spatialization",
-    "SystemCapability.Multimedia.AudioHaptic.Core",
-    "SystemCapability.ArkUi.Graphics3D"
+    "SystemCapability.Multimedia.AudioHaptic.Core"
   ]
 }
