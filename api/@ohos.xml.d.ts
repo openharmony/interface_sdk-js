@@ -76,7 +76,7 @@ declare namespace xml {
      * The input parameter is an encoding format of string type.
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
-     * @param { string } encoding - [encoding='utf8']  this is its encoding.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -89,7 +89,7 @@ declare namespace xml {
      * The input parameter is an encoding format of string type.
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
-     * @param { string } encoding - [encoding='utf8']  this is its encoding.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -103,7 +103,7 @@ declare namespace xml {
      * The input parameter is an encoding format of string type.
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
-     * @param { string } encoding - [encoding='utf8']  this is its encoding.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1113,7 +1113,7 @@ declare namespace xml {
      * A constructor used to create a new XmlPullParser instance.
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
-     * @param { string } encoding - [encoding='utf8']  this is its encoding.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -1122,7 +1122,7 @@ declare namespace xml {
      * A constructor used to create a new XmlPullParser instance.
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
-     * @param { string } encoding - [encoding='utf8']  this is its encoding.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1132,7 +1132,7 @@ declare namespace xml {
      * A constructor used to create a new XmlPullParser instance.
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
-     * @param { string } encoding - [encoding='utf8']  this is its encoding.
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
