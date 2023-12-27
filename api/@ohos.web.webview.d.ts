@@ -2249,6 +2249,26 @@ declare namespace webview {
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
     /**
+     * Enable the ability to check website security risks.
+     * Illegal and fraudulent websites are mandatory enabled and can't be disabled by this function.
+     * @param { boolean } enable - {@code true} enable check the website security risks; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    enableSafeBrowsing(enable: boolean): void;
+
+    /**
+     * Get whether checking website security risks is enabled.
+     * @returns { boolean } True if enable the ability to check website security risks else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isSafeBrowsingEnabled(): boolean;
+ 
+    /**
      * Checks whether the web page can go forward.
      * @returns { boolean } True if the web page can go forward else false.
      * @throws { BusinessError } 17100001 - Init error.
