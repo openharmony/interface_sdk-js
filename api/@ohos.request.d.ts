@@ -2723,7 +2723,7 @@ declare namespace request {
       /**
        * The title for a task, give a meaningful title please.
        * The maximum length is 256 characters.
-       * The default is the same with its action.
+       * The default is upload or download, consistent with its action.
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2765,7 +2765,7 @@ declare namespace request {
        */
       /**
        * Indicates task's mode.
-       * The default is background.
+       * The default is BACKGROUND.
        * For frontend task, it has callbacks.
        * For background task, it has notifications and fallback.
        * The cross-platform default is FOREGROUND.
@@ -2790,6 +2790,7 @@ declare namespace request {
        */
       /**
        * The solution choice when path already exists during download.
+       * The default is false.
        * Currently support:
        * true, rewrite the existed file.
        * false, go to fail.
@@ -2980,7 +2981,7 @@ declare namespace request {
        */
       /**
        * Allows redirect or not.
-       * The default is yes.
+       * The default is true.
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3092,7 +3093,7 @@ declare namespace request {
       /**
        * Breaks when fail to fetch filesize before upload/download or not.
        * Uses filesize for a precise gauge.
-       * The default is not, set size as -1 indicating the case.
+       * The default is false, set size as -1 indicating the case.
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3658,7 +3659,7 @@ declare namespace request {
        */
       /**
        * Specify task's mode.
-       * The default is frontend.
+       * The default is FOREGROUND and BACKGROUND.
        *
        * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
