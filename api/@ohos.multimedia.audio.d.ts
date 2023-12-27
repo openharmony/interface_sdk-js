@@ -1724,6 +1724,8 @@ declare namespace audio {
      * @param { string } mainKey - Main key of the audio parameters to set.
      * @param { string } kvpairs - Key-value pairs with subkeys and values to set.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1737,6 +1739,7 @@ declare namespace audio {
      * @param { string } mainKey - Main key of the audio parameters to get.
      * @param { Array<string> } subKeys - Sub keys of the audio parameters to get.
      * @returns { Promise<Record<string, string>> } Promise used to return the key-value pairs.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Core
