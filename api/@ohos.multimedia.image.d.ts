@@ -27,6 +27,11 @@ import type resourceManager from './@ohos.resourceManager';
  * @namespace image
  * @since 6
  */
+/**
+ * @namespace image
+ * @crossplatform
+ * @since 11
+ */
 declare namespace image {
   /**
    * Enumerates pixel map formats.
