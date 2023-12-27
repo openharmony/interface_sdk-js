@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import type rpc from './@ohos.rpc';
 import type cloudData from './@ohos.data.cloudData';
 import type relationalStore from './@ohos.data.relationalStore';
