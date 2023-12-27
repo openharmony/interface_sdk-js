@@ -47,8 +47,10 @@ declare namespace deviceManager {
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
-   * @param { AsyncCallback } callback - Indicates the bind result including device ID and remote object.
+   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
+   * success.
+   * @param { AsyncCallback<{deviceId: number, remote: rpc.IRemoteObject}> } callback - Indicates the bind result
+   * including device ID and remote object.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -62,8 +64,10 @@ declare namespace deviceManager {
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
-   * @param { AsyncCallback } callback - Indicates the bind result including device ID and remote object.
+   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
+   * success.
+   * @param { AsyncCallback<RemoteDeviceDriver> } callback - Indicates the bind result including device ID and
+   * remote object.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -77,8 +81,10 @@ declare namespace deviceManager {
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
-   * @returns { Promise } Indicates the bind result including device ID and remote object.
+   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
+   * success.
+   * @returns { Promise<{deviceId: number, remote: rpc.IRemoteObject}> } Indicates the bind result including device
+   * ID and remote object.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -92,8 +98,9 @@ declare namespace deviceManager {
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
-   * @returns { Promise } Indicates the bind result including device ID and remote object.
+   * @param { AsyncCallback<number> } onDisconnect - Callback is invoked when device is disconnected after bind
+   * success.
+   * @returns { Promise<RemoteDeviceDriver> } Indicates the bind result including device ID and remote object.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -106,7 +113,7 @@ declare namespace deviceManager {
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @param { AsyncCallback } callback - Indicates the unbind result invoked when unbind is finished.
+   * @param { AsyncCallback<number> } callback - Indicates the unbind result invoked when unbind is finished.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -119,7 +126,7 @@ declare namespace deviceManager {
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
-   * @returns { Promise } - Indicates the unbind result invoked when unbind is finished.
+   * @returns { Promise<number> } - Indicates the unbind result invoked when unbind is finished.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
