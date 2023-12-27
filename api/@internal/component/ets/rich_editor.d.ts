@@ -590,6 +590,66 @@ declare interface RichEditorImageSpanStyle {
 }
 
 /**
+ * Defines the symbol span style.
+ *
+ * @interface RichEditorSymbolSpanStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanStyle {
+  /**
+   * The font size.
+   *
+   * @type { ?(number | string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontSize?: number | string | Resource;
+
+  /**
+   * The font color.
+   *
+   * @type { ?Array<ResourceColor> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontColor?: Array<ResourceColor>;
+
+  /**
+   * The font weight.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontWeight?: number | FontWeight | string;
+
+  /**
+   * The symbol span effect strategy.
+   *
+   * @type { ?SymbolEffectStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  effectStrategy?: SymbolEffectStrategy;
+
+  /**
+   * The symbol span rendering strategy.
+   *
+   * @type { ?SymbolRenderingStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  renderingStrategy?: SymbolRenderingStrategy;
+}
+
+/**
  * Defines the text style result.
  *
  * @interface RichEditorTextStyleResult
@@ -736,6 +796,66 @@ declare interface RichEditorParagraphResult {
 }
 
 /**
+ * Defines the symbol span style result.
+ *
+ * @interface RichEditorSymbolSpanStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanStyleResult {
+  /**
+   * The font size.
+   *
+   * @type { number | string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontSize: number | string | Resource;
+
+  /**
+   * The font color.
+   *
+   * @type { Array<ResourceColor> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontColor: Array<ResourceColor>;
+
+  /**
+   * The font weight.
+   *
+   * @type { number | FontWeight | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontWeight: number | FontWeight | string;
+
+  /**
+   * The symbol span effect strategy.
+   *
+   * @type { SymbolEffectStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  effectStrategy: SymbolEffectStrategy;
+
+  /**
+   * The symbol span rendering strategy.
+   *
+   * @type { SymbolRenderingStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  renderingStrategy: SymbolRenderingStrategy;
+}
+
+/**
  * Defines the text span result.
  *
  * @interface RichEditorTextSpanResult
@@ -818,6 +938,26 @@ declare interface RichEditorTextSpanResult {
    * @since 11
    */
   offsetInSpan: [number, number];
+
+  /**
+   * Symbol span style.
+   *
+   * @type { ?RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolSpanStyle?: RichEditorSymbolSpanStyle;
+
+  /**
+   * The resource string of the symbol span.
+   *
+   * @type { ?Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  valueResource?: Resource;
 }
 
 /**
@@ -1398,6 +1538,56 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 }
 
 /**
+ * Defines symbol span style option of RichEditor.
+ *
+ * @interface RichEditorUpdateSymbolSpanStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
+  /**
+   * Update the symbol span style.
+   *
+   * @type { RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolStyle: RichEditorSymbolSpanStyle;
+}
+
+/**
+ * Defines the symbol span options of RichEditor.
+ *
+ * @interface RichEditorSymbolSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanOptions {
+  /**
+   * The offset that add custom symbol span at.
+   *
+   * @type { ?[number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  offset?: [number, number];
+
+  /**
+   * The style that add custom symbol span at.
+   *
+   * @type { ?RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  style?: RichEditorSymbolSpanStyle;
+}
+
+/**
  * Defines the text information for editing.
  *
  * @interface RichEditorSelection
@@ -1766,6 +1956,18 @@ declare class RichEditorController {
   addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): number;
 
   /**
+   * Add a symbol span.
+   *
+   * @param { ResourceStr } value - symbol span value
+   * @param { RichEditorSymbolSpanOptions } [options] - symbol span option.
+   * @returns { number } symbol span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  addSymbolSpan(value: ResourceStr, options?: RichEditorSymbolSpanOptions ): number;
+  
+  /**
    * Modify span style.
    *
    * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions } value
@@ -1775,12 +1977,12 @@ declare class RichEditorController {
   /**
    * Modify span style.
    *
-   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions } value
+   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions): void;
+  updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions): void;
 
   /**
    * Modify span style.

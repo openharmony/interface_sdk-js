@@ -32,6 +32,7 @@ amr
 animatable
 annually
 antialias
+antialiasing
 apdu
 apecified
 appselect
@@ -65,6 +66,7 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra
@@ -739,6 +741,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing

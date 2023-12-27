@@ -37,7 +37,7 @@ declare namespace hardwareManager {
    */
   enum DistributedHardwareType {
     /**
-     * 
+     * Indicates all hardware
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11

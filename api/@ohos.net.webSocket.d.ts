@@ -93,6 +93,56 @@ declare namespace webSocket {
      * @since 10
      */
     header?: Object;
+
+    /**
+     * File path for client cert.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    caPath?: string;
+
+    /**
+     * Client cert.
+     * @type {?ClientCert}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    clientCert?: ClientCert;
+  }
+
+  /**
+   * The clientCert field of the client certificate, which includes three attributes:
+   * client certificate (certPath) and only support PEM format, certificate private key (keyPath), 
+   * and passphrase (keyPassword).
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface ClientCert {
+    /**
+     * The path to the client certificate file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    certPath: string;
+    
+    /**
+     * The path of the client certificate private key file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPath: string;
+
+    /**
+     * Client certificate password.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPassword?: string;
   }
 
   /**
@@ -677,7 +727,7 @@ declare namespace webSocket {
     /**
      * Cancels listening for receiving data ends events of a WebSocket connection.
      * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * @param { Callback<void> } [ callback ] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */

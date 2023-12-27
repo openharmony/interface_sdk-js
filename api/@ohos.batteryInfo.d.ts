@@ -34,7 +34,6 @@ declare namespace batteryInfo {
    * @param { string } sceneName - Indicates the battery charging scene name.
    * @param { string } sceneValue - Indicates the battery charging scene value.
    * @returns { number } Return to set the charging configuration result.
-   * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - If the reason is not valid.
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
@@ -49,7 +48,6 @@ declare namespace batteryInfo {
    *
    * @param { string } sceneName - Indicates the battery charging scene name.
    * @returns { string } Returns the battery charging configuration, returns "" otherwise.
-   * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - If the reason is not valid.
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
@@ -64,7 +62,6 @@ declare namespace batteryInfo {
    *
    * @param { string } sceneName - Indicates the battery charging scene name.
    * @returns { boolean } Returns true if the device supports the charging scene, returns false otherwise.
-   * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 202 - If the system permission is denied.
    * @throws { BusinessError } 401 - If the reason is not valid.
    * @throws { BusinessError } 4900101 - If connecting to the service failed.

@@ -254,6 +254,14 @@ interface SearchInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
+    /**
+     * Text input in the search text box
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     value?: string;
 
     /**
@@ -270,6 +278,14 @@ interface SearchInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * Text displayed when there is no input
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     placeholder?: ResourceStr;
 
     /**
@@ -279,6 +295,14 @@ interface SearchInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
+    /**
+     * Path to the search icon
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     icon?: string;
 
     /**
@@ -287,6 +311,14 @@ interface SearchInterface {
      * @type { ?SearchController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     */
+    /**
+     * Controller of the <Search> component
+     *
+     * @type { ?SearchController }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     controller?: SearchController
   }): SearchAttribute;

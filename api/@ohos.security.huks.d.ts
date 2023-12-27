@@ -1338,6 +1338,7 @@ declare namespace huks {
    * @returns { string } the character string of the sdk version.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
+   * @deprecated since 11
    */
   function getSdkVersion(options: HuksOptions): string;
 
@@ -2181,7 +2182,7 @@ declare namespace huks {
     HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
     /**
      * Device password is required but not set.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
@@ -2206,13 +2207,13 @@ declare namespace huks {
   export enum HuksKeyPurpose {
     /**
      * Usable with RSA, EC and AES keys.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
      * Usable with RSA, EC and AES keys.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2220,13 +2221,13 @@ declare namespace huks {
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
     /**
      * Usable with RSA, EC and AES keys.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
      * Usable with RSA, EC and AES keys.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -2373,7 +2374,7 @@ declare namespace huks {
      */
     HUKS_PADDING_PKCS5 = 4,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_PADDING_PKCS7 = 5
@@ -2531,6 +2532,7 @@ declare namespace huks {
      * @since 11
      */
     HUKS_AES_KEY_SIZE_256 = 256,
+
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
@@ -2722,7 +2724,7 @@ declare namespace huks {
    */
   export enum HuksKeyFlag {
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
@@ -2732,12 +2734,12 @@ declare namespace huks {
      */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_KEY_FLAG_AGREE_KEY = 3,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_KEY_FLAG_DERIVE_KEY = 4
@@ -2765,14 +2767,14 @@ declare namespace huks {
     HUKS_STORAGE_PERSISTENT = 1,
     /**
      * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
      * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -2814,7 +2816,7 @@ declare namespace huks {
   export enum HuksRsaPssSaltLenType {
     /**
      * Salt length that matches the digest length.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -2822,7 +2824,7 @@ declare namespace huks {
 
     /**
      * Maximum salt length.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -2874,7 +2876,7 @@ declare namespace huks {
     HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
     /**
      * Auth type for always valid.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
@@ -2882,8 +2884,8 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key file storage authentication level. 
-   * 
+   * Enum for huks key file storage authentication level.
+   *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
@@ -3160,7 +3162,7 @@ declare namespace huks {
      */
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
@@ -3186,15 +3188,15 @@ declare namespace huks {
      */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
 
     /**
      * Key derivation TAG.
-     * 
-     * @syscap SystemCapability.Security.Huks.Extension
+     *
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 11,
@@ -3217,8 +3219,8 @@ declare namespace huks {
 
     /**
      * choose from enum HuksKeyGenerateType.
-     * 
-     * @syscap SystemCapability.Security.Huks.Extension
+     *
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_KEY_GENERATE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 15,
@@ -3293,7 +3295,7 @@ declare namespace huks {
 
     /**
      * Key storage type, which can be HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -3301,7 +3303,7 @@ declare namespace huks {
 
     /**
      * RSA salt length type. For details, see HuksRsaPssSaltLenType.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -3510,14 +3512,14 @@ declare namespace huks {
      */
 
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1001,
     /**
      * choose from enum HuksKeyStorageType.
-     * 
-     * @syscap SystemCapability.Security.Huks.Extension
+     *
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1002,
@@ -3543,8 +3545,8 @@ declare namespace huks {
     HUKS_TAG_KEY_ROLE = HuksTagType.HUKS_TAG_TYPE_UINT | 1006,
     /**
      * choose from enum HuksKeyFlag.
-     * 
-     * @syscap SystemCapability.Security.Huks.Extension
+     *
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_KEY_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1007,
@@ -3566,19 +3568,19 @@ declare namespace huks {
      */
     HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
     /**
      * Key access control based on device password setting status. True means the key can only be generated and used when the password is set.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     HUKS_TAG_IS_DEVICE_PASSWORD_SET = HuksTagType.HUKS_TAG_TYPE_BOOL | 1012,
-    
+
     /* Inner-use TAG: 10001 - 10999 */
 
     /**
@@ -3612,7 +3614,7 @@ declare namespace huks {
      */
     HUKS_TAG_CRYPTO_CTX = HuksTagType.HUKS_TAG_TYPE_ULONG | 10005,
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 10006,
@@ -3639,7 +3641,7 @@ declare namespace huks {
      * @since 11
      */
     HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
-  
+
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
@@ -3649,7 +3651,7 @@ declare namespace huks {
 
     /**
      * Os version related TAG.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
@@ -3670,7 +3672,7 @@ declare namespace huks {
      */
 
     /**
-     * @syscap SystemCapability.Security.Huks.Extension
+     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_SYMMETRIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20001,

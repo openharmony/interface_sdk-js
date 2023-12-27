@@ -28,8 +28,11 @@ import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
  * @namespace media
  * @since 6
  */
-
-
+/**
+ * @namespace media
+ * @atomicservice
+ * @since 11
+ */
 declare namespace media {
   /**
    * Creates an AVPlayer instance.
@@ -945,6 +948,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
+    /**
+     * Reset AVPlayer, it will to idle state and can set src again.
+     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
+     */
     reset(callback: AsyncCallback<void>): void;
 
     /**
@@ -953,6 +964,14 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
+     */
+    /**
+     * Reset AVPlayer, it will to idle state and can set src again.
+     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
      */
     reset(): Promise<void>;
 
@@ -3701,17 +3720,37 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
    */
+  /**
+   * Enumerates seek mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   enum SeekMode {
     /**
      * seek to the next sync frame of the given timestamp
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
+    /**
+     * seek to the next sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     SEEK_NEXT_SYNC = 0,
     /**
      * seek to the previous sync frame of the given timestamp
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     */
+    /**
+     * seek to the previous sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     SEEK_PREV_SYNC = 1,
   }

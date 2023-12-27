@@ -916,6 +916,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   pointLight(value: PointLightStyle): ImageAttribute;
 
   /**
+   * SVG anti-aliasing.
+   * The range of the parameter values is (0.333, 1.333].
+   * Default value is 0.0.
+   *
+   * @param { number } value - The degree of anti-aliasing.
+   * @returns { ImageAttribute } The attribute of the image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  edgeAntialiasing(value: number): ImageAttribute;
+
+  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *

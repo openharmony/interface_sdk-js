@@ -34,8 +34,11 @@ declare namespace autoStartupManager {
   /**
    * Register the listener that watches for all applications auto startup state.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { 'systemAutoStartup' } type - Indicates the type of event.
    * @param { AutoStartupCallback } callback - Auto startup callback.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -48,8 +51,11 @@ declare namespace autoStartupManager {
   /**
    * Unregister listener that watches for all applications auto startup state.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { 'systemAutoStartup' } type - Indicates the type of event.
    * @param { AutoStartupCallback } [callback] - Auto startup callback.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -62,8 +68,11 @@ declare namespace autoStartupManager {
   /**
    * Set application auto startup state.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { AutoStartupInfo } info - The application info.
    * @param { AsyncCallback<void> } callback - The callback of setApplicationAutoStartup.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -76,8 +85,11 @@ declare namespace autoStartupManager {
   /**
    * Set application auto startup state.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { AutoStartupInfo } info - The application info.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -90,8 +102,11 @@ declare namespace autoStartupManager {
   /**
    * Cancel application auto startup state.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { AutoStartupInfo } info - The application info.
    * @param { AsyncCallback<void> } callback - The callback of cancelApplicationAutoStartup.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -104,8 +119,11 @@ declare namespace autoStartupManager {
   /**
    * Cancel application auto startup state.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { AutoStartupInfo } info - The application info.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -118,8 +136,11 @@ declare namespace autoStartupManager {
   /**
    * Query the current auto startup status of all applications.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @param { AsyncCallback<Array<AutoStartupInfo>> } callback - The callback is used to return the array of
    *                                                             AutoStartupInfo.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -132,7 +153,10 @@ declare namespace autoStartupManager {
   /**
    * Query the current auto startup status of all applications.
    *
+   * @permission ohos.permission.MANAGE_APP_BOOT
    * @returns { Promise<Array<AutoStartupInfo>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

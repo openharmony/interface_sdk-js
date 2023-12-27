@@ -3828,38 +3828,69 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
+    
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param { AudioRendererRate } rate - Audio render rate.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate): Promise<void>;
+
+    /**
+     * Sets the playback speed.
+     * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setSpeed(speed: number): void;
 
     /**
      * Obtains the current render rate. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<AudioRendererRate> } callback - Callback used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
+    
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
      * @returns { Promise<AudioRendererRate> } Promise used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(): Promise<AudioRendererRate>;
+
     /**
      * Obtains the current render rate.
      * @returns { AudioRendererRate } The audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRateSync(): AudioRendererRate;
+
+    /**
+     * Obtains the current playback speed.
+     * @returns { number } The playback speed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    getSpeed(): number;
 
     /**
      * Set interrupt mode.
@@ -5197,7 +5228,7 @@ declare namespace audio {
     CH_LAYOUT_OCTAGONAL = 0x737,
     /**
      * Channel Layout For 5.1.2, 8 channels in total
-     * Speaker layout: 5.1-Back plus two top side speakers.
+     * Speaker layout: 5.1 plus two top side speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */

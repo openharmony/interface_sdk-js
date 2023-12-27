@@ -1784,7 +1784,7 @@ declare interface AnimateParam {
   finishCallbackType?: FinishCallbackType;
 
   /**
-   * Set the animation drawing FPS.
+   * Indicates expectedFrameRateRange including minimum、maximum and expected frame rate.
    *
    * @type { ?ExpectedFrameRateRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8651,6 +8651,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
+
+  /**
+   * Set whether interaction is allowed outside the sheet
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enableOutsideInteractive?: boolean;
 }
 
 /**
@@ -12942,6 +12953,18 @@ declare class CommonMethod<T> {
    * @form
    */
   hueRotate(value: number | string): T;
+
+  /**
+   * Add an attribute to control whether the shadows of the child nodes overlap each other.
+   *
+   * @param { boolean } value - true means the shadows of the child nodes overlap each other effect and drawn in batches.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  useShadowBatching(value: boolean): T;
 
   /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
@@ -17431,6 +17454,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   onScrollStop(event: () => void): T;
+
+  /**
+   * Limit the max speed when fling.
+   *
+   * @param { number } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   *                                The unit is vp/s.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  flingSpeedLimit(speedLimit: number): T;
 }
 
 declare module "SpecialEvent" {
@@ -17443,7 +17479,7 @@ declare module "SpecialEvent" {
 declare module "AnimateToParam" {
   module "AnimateToParam" {
     // @ts-ignore
-    export { AnimateParam };
+    export type { AnimateParam, KeyframeAnimateParam, KeyframeState };
   }
 }
 
@@ -17641,5 +17677,92 @@ declare module "wrappedBuilderObject" {
   module "wrappedBuilderObject" {
     // @ts-ignore
     export { WrappedBuilder };
+  }
+}
+
+/**
+ * Defines the overall animation parameters of the keyframe animation.
+ *
+ * @interface KeyframeAnimateParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface KeyframeAnimateParam {
+  /**
+   * Animation delay time, in ms.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  delay?: number;
+
+  /**
+   * Animation iterations.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  iterations?: number;
+
+  /**
+   * Callback invoked when the whole keyframe animation is complete.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onFinish?: () => void;
+}
+
+/**
+ * Defines a keyframe state.
+ *
+ * @interface KeyframeState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface KeyframeState {
+  /**
+   * Animation duration of this keyframe, in ms.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  duration: number;
+
+  /**
+   * Animation curve of this keyframe.
+   *
+   * @type { ?(Curve | string | ICurve) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  curve?: Curve | string | ICurve;
+
+  /**
+   * The closure function to specify the terminating state of this keyframe.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  event: () => void;
+}
+
+declare module 'touchEvent'{
+  module 'touchEvent' {
+    // @ts-ignore
+    export { TouchEvent };
   }
 }

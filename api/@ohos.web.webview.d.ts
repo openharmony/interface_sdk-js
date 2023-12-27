@@ -2184,6 +2184,16 @@ declare namespace webview {
    */
   class WebviewController {
     /**
+     * A constructor used to create a WebviewController object.
+     *
+     * @param { string } [webTag] - specified the name of the web component, Empty by default.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    constructor(webTag?: string);
+
+    /**
      * Initialize the web engine before loading the Web components.
      * This is a global static API that must be called on the UI thread, and it will have no effect if any
      * Web components are loaded.
@@ -2454,7 +2464,6 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice

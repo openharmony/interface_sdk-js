@@ -168,7 +168,7 @@ declare namespace usbManager {
    * Queries whether USB is disabled.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { boolean } true if USB is disabled, otherwise false.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.

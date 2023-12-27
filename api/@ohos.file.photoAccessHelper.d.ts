@@ -200,6 +200,7 @@ declare namespace photoAccessHelper {
     /**
      * uri of the asset.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -207,6 +208,7 @@ declare namespace photoAccessHelper {
     /**
      * Photo type, image or video
      *
+     * @type { PhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -214,6 +216,7 @@ declare namespace photoAccessHelper {
     /**
      * Display name (with a file name extension) of the asset.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -222,7 +225,7 @@ declare namespace photoAccessHelper {
      * Returns the value of the specified member.
      *
      * @param { string } member - Photo asset member. for example : get(PhotoKeys.SIZE)
-     * @returns { MemberType }
+     * @returns { MemberType } Returns the value of the specified photo asset member
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000014 - Member is not a valid PhotoKey
@@ -412,7 +415,7 @@ declare namespace photoAccessHelper {
      * Get thumbnail of the asset
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { image.Size } size - Thumbnail's size
+     * @param { image.Size } [size] - Thumbnail's size
      * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900012 - Permission denied
@@ -475,7 +478,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900012 - Permission denied
@@ -553,7 +556,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { boolean } pendingState - true: Set asset in pending status; false: Recover asset from pending status.
-     * @param { AsyncCallback<void> } callback - Returns the callback
+     * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
@@ -568,7 +571,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { boolean } pendingState - true: Set asset in pending status; false: Recover asset from pending status.
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
@@ -668,7 +671,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } editData - editData to be saved.
      * @param { string } uri - uri of the edited asset within the applications's own sandbox.
-     * @param { AsyncCallback<void> } callback - Returns callback.
+     * @param { AsyncCallback<void> } callback - Returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
@@ -684,7 +687,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } editData - editData to be saved.
      * @param { string } uri - uri of the edited asset within the applications's own sandbox.
-     * @returns { Promise<void> } Returns promise.
+     * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
@@ -698,7 +701,7 @@ declare namespace photoAccessHelper {
      * Revert asset edits to original state.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { AsyncCallback<void> } callback - Returns callback.
+     * @param { AsyncCallback<void> } callback - Returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
@@ -712,7 +715,7 @@ declare namespace photoAccessHelper {
      * Revert asset edits to original state.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @returns { Promise<void> } Returns promise.
+     * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
@@ -1004,6 +1007,7 @@ declare namespace photoAccessHelper {
     /**
      * Indicates the members to query.
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1011,6 +1015,7 @@ declare namespace photoAccessHelper {
     /**
      * Predicates to query
      *
+     * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1029,6 +1034,7 @@ declare namespace photoAccessHelper {
     /**
      * Specify subtype of the asset to create
      *
+     * @type { ?PhotoSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -1056,6 +1062,7 @@ declare namespace photoAccessHelper {
     /**
      * Title of the asset
      *
+     * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1074,6 +1081,7 @@ declare namespace photoAccessHelper {
     /**
      * Size of thumbnail
      *
+     * @type { ?image.Size }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11
@@ -1082,6 +1090,7 @@ declare namespace photoAccessHelper {
     /**
      * Type of photo request
      *
+     * @type { ?RequestPhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11
@@ -1396,6 +1405,7 @@ declare namespace photoAccessHelper {
     /**
      * Album type
      *
+     * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1403,6 +1413,7 @@ declare namespace photoAccessHelper {
     /**
      * Album subtype
      *
+     * @type { AlbumSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1410,6 +1421,7 @@ declare namespace photoAccessHelper {
     /**
      * Album name.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1417,6 +1429,7 @@ declare namespace photoAccessHelper {
     /**
      * Album uri.
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1424,6 +1437,7 @@ declare namespace photoAccessHelper {
     /**
      * Number of assets in the album
      *
+     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1431,6 +1445,7 @@ declare namespace photoAccessHelper {
     /**
      * Cover uri for the album
      *
+     * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1546,7 +1561,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to remove
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
@@ -1576,7 +1591,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to recover
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @throws { BusinessError } 13900012 - Permission denied
@@ -1608,7 +1623,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to delete
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @throws { BusinessError } 13900012 - Permission denied
@@ -1920,7 +1935,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<Album> } albums - Specify which albums to delete
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900012 - Permission denied
@@ -2354,6 +2369,7 @@ declare namespace photoAccessHelper {
     /**
      * The NotifyType of ChangeData
      *
+     * @type { NotifyType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -2361,6 +2377,7 @@ declare namespace photoAccessHelper {
     /**
      * The changed uris
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -2368,6 +2385,7 @@ declare namespace photoAccessHelper {
     /**
      * Change details of the asset uris to an album.
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -2520,7 +2538,7 @@ declare namespace photoAccessHelper {
     /**
      * Pull up the photo picker based on the selection mode.
      *
-     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { PhotoSelectOptions } [option] - represents the options provided in select mode.
      * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900042 - Unknown error
@@ -2533,7 +2551,7 @@ declare namespace photoAccessHelper {
      * Pull up the photo picker based on the selection mode.
      *
      * @param { PhotoSelectOptions } option - represents the options provided in select mode.
-     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @param { AsyncCallback<PhotoSelectResult> } callback - Returns the PhotoSelectResult by photo picker
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -2544,7 +2562,7 @@ declare namespace photoAccessHelper {
     /**
      * Pull up the photo picker based on the selection mode.
      *
-     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @param { AsyncCallback<PhotoSelectResult> } callback - Returns the PhotoSelectResult by photo picker
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core

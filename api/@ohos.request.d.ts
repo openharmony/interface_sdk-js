@@ -35,6 +35,13 @@ import BaseContext from './application/BaseContext';
  * @namespace request
  * @since 10
  */
+/**
+ * upload and download
+ *
+ * @namespace request
+ * @atomicservice
+ * @since 11
+ */
 declare namespace request {
   /**
    * Error code 201 - the permissions check fails.
@@ -3432,6 +3439,7 @@ declare namespace request {
        * Such as headers and body of response from server.
        * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
        * {"headers": {"key": v}, "body": "contents"}.
+       * The "body" field is not supported in cross-platform scenarios.
        *
        * @type { ?object }
        * @readonly
