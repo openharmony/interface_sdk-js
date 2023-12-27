@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import UIAbilityContext from './application/UIAbilityContext';
 import Want from './@ohos.app.ability.Want';
 

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Basic Services Kit
+ */
+
+/**
  * @interface BrightnessResponse
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3

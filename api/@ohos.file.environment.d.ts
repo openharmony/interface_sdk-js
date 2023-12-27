@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Core File Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -83,7 +88,7 @@ declare namespace Environment {
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @since 11
    */
   function getUserDownloadDir(): string;
@@ -96,7 +101,7 @@ declare namespace Environment {
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @since 11
    */
   function getUserDesktopDir(): string;
@@ -109,7 +114,7 @@ declare namespace Environment {
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @since 11
    */
   function getUserDocumentDir(): string;
@@ -123,7 +128,7 @@ declare namespace Environment {
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @systemapi Hide this for inner system use.
    * @since 11
    */
@@ -138,7 +143,7 @@ declare namespace Environment {
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.File.Environment
+   * @syscap SystemCapability.FileManagement.File.Environment.FolderObtain
    * @systemapi Hide this for inner system use.
    * @since 11
    */

@@ -13,12 +13,18 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type { AbilityResult } from './ability/abilityResult';
 import type { AbilityStartCallback } from './application/AbilityStartCallback';
 import type { AsyncCallback } from './@ohos.base';
 import type { LocalStorage } from 'StateManagement';
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
+import type uiExtensionHost from './@ohos.uiExtensionHost';
 
 /**
  * class of ui extension content session.
@@ -40,7 +46,19 @@ export default class UIExtensionContentSession {
    * @StageModelOnly
    * @since 10
    */
-  sendData(data: { [key: string]: Object }): void;
+  /**
+   * Send data from an ui extension to an ui extension component.
+   *
+   * @param { Record<string, Object> } data - Indicates the data send to ui extension component.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  sendData(data: Record<string, Object>): void;
 
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
@@ -54,7 +72,7 @@ export default class UIExtensionContentSession {
    * @StageModelOnly
    * @since 10
    */
-  setReceiveDataCallback(callback: (data: { [key: string]: Object }) => void): void;
+  setReceiveDataCallback(callback: (data: Record<string, Object>) => void): void;
 
   /**
    * Sets the callback with return value for the ui extension to receive data from an ui extension component.
@@ -68,7 +86,7 @@ export default class UIExtensionContentSession {
    * @StageModelOnly
    * @since 11
    */
-  setReceiveDataForResultCallback(callback: (data: { [key: string]: Object }) => { [key: string]: Object }): void;
+  setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>): void;
 
   /**
    * Loads an UI extension content.
@@ -534,4 +552,17 @@ export default class UIExtensionContentSession {
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
+
+  /**
+   * Get the UIExtension Host Window proxy.
+   *
+   * @returns { uiExtensionHost.UIExtensionHostWindowProxy } Returns the UIExtension Host Window proxy.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  getUIExtensionHostWindowProxy(): uiExtensionHost.UIExtensionHostWindowProxy;
 }

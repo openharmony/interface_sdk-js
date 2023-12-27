@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Driver Development Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type rpc from './@ohos.rpc';
 

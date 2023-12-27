@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';
 import {
   IsoDepTag as _IsoDepTag,
@@ -611,6 +616,7 @@ declare namespace tag {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 11
    */
@@ -626,6 +632,7 @@ declare namespace tag {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100203 - The off() can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 11
    */

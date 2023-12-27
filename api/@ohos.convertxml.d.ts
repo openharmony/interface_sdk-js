@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The convertxml module provides utilities for converting XML text to Javascript object.
  *
  * @namespace xml
@@ -500,7 +505,7 @@ declare namespace xml {
      * To convert XML text to JavaScript object.
      *
      * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid xml string.
@@ -511,7 +516,7 @@ declare namespace xml {
      * To convert XML text to JavaScript object.
      *
      * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid xml string.
@@ -523,7 +528,7 @@ declare namespace xml {
      * To convert XML text to JavaScript object.
      *
      * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid xml string.

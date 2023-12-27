@@ -39,12 +39,32 @@ template("ohos_copy_internal") {
   }
 }
 
+ohos_copy("bundle_kits") {
+  if (sdk_build_public || product_name == "ohos-sdk") {
+    sources = [ "//out/sdk-public/public_interface/sdk-js/kits" ]
+  } else {
+    sources = [ "//interface/sdk-js/kits" ]
+  }
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
 ohos_copy_internal("ets_internal_api") {
   iv_input = "//interface/sdk-js/api/@internal/ets"
 }
 
 ohos_copy_internal("ets_component") {
   iv_input = "//interface/sdk-js/api/@internal/component/ets"
+}
+
+ohos_copy("device_define_common") {
+  process_script = "//developtools/syscap_codec/tools/syscap_collector.py"
+  exec_script(process_script)
+  sources = [ "//interface/sdk-js/api/device-define-common" ]
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
 }
 
 ohos_copy("common_api") {

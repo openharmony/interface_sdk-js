@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 
@@ -845,7 +850,7 @@ declare namespace print {
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PAGE_ISO_B5 = 3,
+    PAGE_JIS_B5 = 3,
 
     /**
     * C5 page.

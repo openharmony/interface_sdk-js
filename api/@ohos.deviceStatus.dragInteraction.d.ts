@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { Callback } from './@ohos.base';
 
 /**
@@ -120,6 +125,7 @@ declare namespace dragInteraction {
    * Obtains the abstract of a dragged object.
    *
    * @returns { Array<Summary> } Data abstract of the dragged object.
+   * @throws {BusinessError} 202 - Not system application.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11

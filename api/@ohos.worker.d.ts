@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * @typedef WorkerOptions
  * Provides options that can be set for the worker to create.
  * @syscap SystemCapability.Utils.Lang
@@ -251,6 +256,14 @@ export interface MessageEvent<T> extends Event {
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef MessageEvents
+ * Saves the data transferred between worker thread and host thread.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
@@ -264,6 +277,14 @@ export interface MessageEvents extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Data transferred when an exception occurs.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly data;
 }
@@ -283,6 +304,15 @@ export interface MessageEvents extends Event {
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef PostMessageOptions
+ * Specifies the object whose ownership need to be transferred during data transfer.
+ * The object must be ArrayBuffer.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface PostMessageOptions {
   /**
    * ArrayBuffer array used to transfer the ownership.
@@ -296,6 +326,14 @@ export interface PostMessageOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * ArrayBuffer array used to transfer the ownership.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   transfer?: Object[];
 }
@@ -508,7 +546,7 @@ export interface WorkerEventTarget {
    * Remove an event defined for the worker.
    *
    * @param { string } type - type Type of the event for which the event listener is cancelled.
-   * @param { WorkerEventListener } callback - callback Callback of the event listener to remove.
+   * @param { WorkerEventListener } [callback] - callback Callback of the event listener to remove.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @syscap SystemCapability.Utils.Lang
@@ -518,7 +556,7 @@ export interface WorkerEventTarget {
    * Remove an event defined for the worker.
    *
    * @param { string } type - type Type of the event for which the event listener is cancelled.
-   * @param { WorkerEventListener } callback - callback Callback of the event listener to remove.
+   * @param { WorkerEventListener } [callback] - callback Callback of the event listener to remove.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @syscap SystemCapability.Utils.Lang
@@ -722,6 +760,14 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef ThreadWorkerGlobalScope
+ * Specifies the thread-worker running environment, which is isolated from the host-thread environment
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface ThreadWorkerGlobalScope extends GlobalScope {
   /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -848,7 +894,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * Send a message to be host thread from the worker
    *
    * @param { Object } messageObject - messageObject Data to be sent to the worker
-   * @param { PostMessageOptions } options - options Option can be set for postmessage.
+   * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -859,7 +905,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * Send a message to be host thread from the worker
    *
    * @param { Object } messageObject - messageObject Data to be sent to the worker
-   * @param { PostMessageOptions } options - options Option can be set for postmessage.
+   * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -871,7 +917,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * Send a message to be host thread from the worker
    *
    * @param { Object } messageObject - messageObject Data to be sent to the worker
-   * @param { PostMessageOptions } options - options Option can be set for postmessage.
+   * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -888,8 +934,8 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { string } instanceName - the exact key used in registration
    * @param { string } methodName - a string which is same to the method called on globalCallObject.
    * @param { number } timeout - the specific milliseconds that will wait for result to return, between 0 and 5000.
-   * @param { unknown[] } args - the method argument called on registered globalCallObject.
-   * @returns { unknown } Return the result of method if it has a return value, otherwise return void.
+   * @param { Object[] } args - the method argument called on registered globalCallObject.
+   * @returns { Object } Return the result of method if it has a return value, otherwise return void.
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -900,7 +946,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @crossplatform
    * @since 11
    */
-  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: unknown[]): unknown;
+  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: Object[]): Object;
 }
 
 /**
@@ -918,6 +964,15 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
  * @crossplatform
  * @since 10
  */
+/**
+ * JS cross-thread communication tool
+ *
+ * @namespace worker
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace worker {
   /**
    * The ThreadWorker class contains all Worker functions.
@@ -932,12 +987,20 @@ declare namespace worker {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The ThreadWorker class contains all Worker functions.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class ThreadWorker implements WorkerEventTarget {
     /**
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } options - options Options that can be set for the worker
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
@@ -948,13 +1011,26 @@ declare namespace worker {
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } options - options Options that can be set for the worker
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Creates a worker instance
+     *
+     * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200003 - Worker initialization failure.
+     * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     constructor(scriptURL: string, options?: WorkerOptions);
     /**
@@ -977,6 +1053,18 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The onexit attribute of the worker specifies the event handler to be called
+     * when the worker exits. The handler is executed in the host thread.
+     *
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     onexit?: (code: number) => void;
     /**
@@ -1094,13 +1182,28 @@ declare namespace worker {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sends a message to the worker thread.
+     * The data is transferred using the structured clone algorithm.
+     *
+     * @param { Object } message - message Data to be sent to the worker
+     * @param { ArrayBuffer[] } transfer - transfer ArrayBuffer instance that can be transferred.
+     * The transferList array cannot contain null.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     postMessage(message: Object, transfer: ArrayBuffer[]): void;
     /**
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
      *
      * @param { Object } message - message Data to be sent to the worker
-     * @param { PostMessageOptions } options - options
+     * @param { PostMessageOptions } [options] - options
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -1112,7 +1215,7 @@ declare namespace worker {
      * The data is transferred using the structured clone algorithm.
      *
      * @param { Object } message - message Data to be sent to the worker
-     * @param { PostMessageOptions } options - options
+     * @param { PostMessageOptions } [options] - options
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -1125,7 +1228,7 @@ declare namespace worker {
      * The data is transferred using the structured clone algorithm.
      *
      * @param { Object } message - message Data to be sent to the worker
-     * @param { PostMessageOptions } options - options
+     * @param { PostMessageOptions } [options] - options
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -1189,7 +1292,7 @@ declare namespace worker {
      * Removes an event listener to the worker.
      *
      * @param { string } type - type Type of the event for which the event listener is removed.
-     * @param { WorkerEventListener } listener - listener Callback of the event listener to remove.
+     * @param { WorkerEventListener } [listener] - listener Callback of the event listener to remove.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
@@ -1200,7 +1303,7 @@ declare namespace worker {
      * Removes an event listener to the worker.
      *
      * @param { string } type - type Type of the event for which the event listener is removed.
-     * @param { WorkerEventListener } listener - listener Callback of the event listener to remove.
+     * @param { WorkerEventListener } [listener] - listener Callback of the event listener to remove.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
@@ -1284,7 +1387,7 @@ declare namespace worker {
      * Remove an event defined for the worker.
      *
      * @param { string } type - type Type of the event for which the event listener is cancelled.
-     * @param { WorkerEventListener } callback - callback Callback of the event listener to remove.
+     * @param { WorkerEventListener } [callback] - callback Callback of the event listener to remove.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
@@ -1294,7 +1397,7 @@ declare namespace worker {
      * Remove an event defined for the worker.
      *
      * @param { string } type - type Type of the event for which the event listener is cancelled.
-     * @param { WorkerEventListener } callback - callback Callback of the event listener to remove.
+     * @param { WorkerEventListener } [callback] - callback Callback of the event listener to remove.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
@@ -1333,7 +1436,7 @@ declare namespace worker {
 
     /**
      * Remove registered globalCallObject and release strong reference to registered object.
-     * @param { string } instanceName - The exact key that used in registration.
+     * @param { string } [instanceName] - The exact key that used in registration.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
@@ -1355,7 +1458,7 @@ declare namespace worker {
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } options - options Options that can be set for the worker
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.

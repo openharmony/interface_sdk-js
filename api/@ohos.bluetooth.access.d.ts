@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import type { Callback } from './@ohos.base';
+/**
+ * @file
+ * @kit Connectivity Kit
+ */
+
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides methods for enabling/disabling bluetooth or monitoring bluetooth state.
@@ -77,6 +82,39 @@ declare namespace access {
   function getState(): BluetoothState;
 
   /**
+   * Restoring bluetooth settings.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 11
+   */
+  function factoryReset(callback: AsyncCallback<void>): void;
+
+  /**
+   * Restoring bluetooth settings.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 11
+   */
+  function factoryReset(): Promise<void>;
+
+  /**
    * Subscribe the event reported when the Bluetooth state changes.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -113,12 +151,27 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
+  /**
+   * The enum of bluetooth state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum BluetoothState {
     /**
      * Indicates the local Bluetooth is off
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is off
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_OFF = 0,
     /**
@@ -127,12 +180,26 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Indicates the local Bluetooth is turning on
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_TURNING_ON = 1,
     /**
      * Indicates the local Bluetooth is on, and ready for use
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is on, and ready for use
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_ON = 2,
     /**
@@ -141,12 +208,26 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Indicates the local Bluetooth is turning off
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_TURNING_OFF = 3,
     /**
      * Indicates the local Bluetooth is turning LE mode on
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is turning LE mode on
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_BLE_TURNING_ON = 4,
     /**
@@ -155,12 +236,26 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Indicates the local Bluetooth is in LE only mode
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_BLE_ON = 5,
     /**
      * Indicates the local Bluetooth is turning off LE only mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is turning off LE only mode
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_BLE_TURNING_OFF = 6
   }

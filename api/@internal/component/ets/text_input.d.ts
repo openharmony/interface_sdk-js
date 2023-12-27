@@ -185,7 +185,16 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  NEW_PASSWORD = 11
+  NEW_PASSWORD = 11,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
@@ -327,6 +336,53 @@ declare enum EnterKeyType {
    * @since 11
    */
   Done,
+
+  /**
+   * Showed as 'previous' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PREVIOUS = 7,
+
+  /**
+   * Showed as 'new line' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NEW_LINE = 8,
+}
+
+/**
+ * Provides the method of keeping TextInput editable state when submitted.
+ *
+ * @interface TextInputOptions -> SubmitEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface SubmitEvent {
+  /**
+   * Keeps TextInput editable state when submitted
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  keepEditableState(): void;
+
+  /**
+   * Sets the current value of TextInput.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  text: string;
 }
 
 /**
@@ -995,14 +1051,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { function } callback
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
+  onSubmit(callback: (enterKey: EnterKeyType, event: SubmitEvent) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.

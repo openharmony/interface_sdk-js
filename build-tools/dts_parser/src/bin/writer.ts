@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
@@ -69,10 +84,11 @@ export namespace WriterHelper {
         '| 操作 | 旧版本 | 新版本 | d.ts文件 |\n' + '| ---- | ------ | ------ | -------- |\n';
       for (let i = 0; i < diffInfos.length; i++) {
         let diffInfo: BasicDiffInfo = diffInfos[i];
+        const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
         markDownContent +=
           `|${diffTypeMap.get(diffInfo.getDiffType())}|${MarkdownReporter.formatDiffMessage(
             joinOldMessage(diffInfo)
-          )}` + `|${MarkdownReporter.formatDiffMessage(joinNewMessage(diffInfo))}|${diffInfo.getNewDtsName()}|\n`;
+          )}` + `|${MarkdownReporter.formatDiffMessage(joinNewMessage(diffInfo))}|${dtsName.replace(/\\/g, '/')}|\n`;
       }
       const mdFilesDir = `${dest}\\diff合集`;
       if (!fs.existsSync(mdFilesDir)) {

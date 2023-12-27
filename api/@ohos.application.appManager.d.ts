@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AbilityStateData from './application/AbilityStateData';

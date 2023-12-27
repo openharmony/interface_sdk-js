@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Background Tasks Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';
@@ -349,12 +354,12 @@ declare namespace reminderAgentManager {
     /**
      * Indicates filter criteria.
      *
-     * @type { object }
+     * @type { Record<string, number | string | boolean> }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    equalTo: { [key: string]: number | string | boolean };
+    equalTo: Record<string, number | string | boolean>;
 
     /**
      * Indicates the data to update. This parameter can be null.

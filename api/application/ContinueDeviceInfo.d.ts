@@ -57,5 +57,13 @@ export interface ContinueDeviceInfo {
    * @systemapi
    * @since 9
    */
-  wantParam: { [key: string]: any };
+  /**
+   * Indicates the extended param.
+   *
+   * @type { Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 11
+   */
+  wantParam: Record<string, Object>;
 }

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IME Kit
+ */
+
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import type { AsyncCallback, Callback } from './@ohos.base';

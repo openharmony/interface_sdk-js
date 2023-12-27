@@ -170,6 +170,34 @@ declare interface NavDestinationCustomTitle {
 }
 
 /**
+ * NavDestination mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum NavDestinationMode {
+  /**
+   * Standard mode is default mode of NavDestination.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  STANDARD = 0,
+
+  /**
+   * Dialog mode is transparent by default and does not affect the life cycle of other NavDestination.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  DIALOG = 1,
+}
+
+/**
  * The construct function of NavDestination.
  *
  * @interface NavDestinationInterface
@@ -366,6 +394,17 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   onBackPressed(callback: () => boolean): NavDestinationAttribute;
+
+  /**
+   * Sets the different mode of NavDestination.
+   *
+   * @param { NavDestinationMode } value - NavDestinationMode
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  mode(value: NavDestinationMode): NavDestinationAttribute;
 }
 
 /**
