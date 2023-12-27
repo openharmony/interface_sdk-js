@@ -2745,6 +2745,7 @@ declare namespace audio {
      * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Volume
