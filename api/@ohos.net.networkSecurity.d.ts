@@ -72,7 +72,8 @@ declare namespace networkSecurity {
    * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { Promise<number> } The promise returned by the function.Number equals 0 if verify of certification from server succeed, else verify failed.
+   * @returns { Promise<number> } The promise returned by the function.
+   * Number equals 0 if verify of certification from server succeed, else verify failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
