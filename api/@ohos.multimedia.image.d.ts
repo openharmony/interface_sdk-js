@@ -27,6 +27,14 @@ import type resourceManager from './@ohos.resourceManager';
  * @namespace image
  * @since 6
  */
+/**
+ * This module provides the capability of image codec and access
+ * @namespace image
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace image {
   /**
    * Enumerates pixel map formats.
