@@ -349,7 +349,8 @@
       "SystemCapability.DistributedDataManager.CommonType",
       "SystemCapability.Multimedia.Audio.Spatialization",
       "SystemCapability.Multimedia.AudioHaptic.Core",
-      "SystemCapability.ArkUi.Graphics3D"
+      "SystemCapability.ArkUi.Graphics3D",
+      "SystemCapability.Multimedia.Drm.Core"
     ]
   },
   "administrators": [
