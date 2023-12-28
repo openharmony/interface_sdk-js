@@ -2153,7 +2153,7 @@ declare namespace media {
 
     /**
     * Get AudioCapturer info from current AVRecorder.
-    * @returns { Promise<void> } A Promise instance used to return AudioCapturerChangeInfo.
+    * @returns { Promise<audio.AudioCapturerChangeInfo> } A Promise instance used to return AudioCapturerChangeInfo.
     * @throws { BusinessError } 5400102 - Operation not allowed.
     * @throws { BusinessError } 5400103 - I/O error.
     * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -2174,7 +2174,7 @@ declare namespace media {
 
     /**
     * Get max audio capturer amplitude from current AVRecorder.
-    * @returns { Promise<void> } A Promise instance used to return max Amplitude.
+    * @returns { Promise<number> } A Promise instance used to return max Amplitude.
     * @throws { BusinessError } 5400102 - Operation not allowed.
     * @throws { BusinessError } 5400105 - Service died. Return by promise.
     * @syscap SystemCapability.Multimedia.Media.AVRecorder
