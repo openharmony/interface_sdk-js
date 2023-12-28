@@ -1982,14 +1982,14 @@ declare namespace media {
     getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
 
     /**
-    * Get AVRecorderConfig.it must be called after prepare.
-    * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
-    * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-    * @throws { BusinessError } 5400103 - IO error. Return by promise.
-    * @throws { BusinessError } 5400105 - Service died. Return by promise.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 11
-    */
+     * Get AVRecorderConfig.it must be called after prepare.
+     * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     getAVRecorderConfig(): Promise<AVRecorderConfig>; 
 
     /**
@@ -2152,54 +2152,54 @@ declare namespace media {
     getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-    * Get AudioCapturer info from current AVRecorder.
-    * @returns { Promise<audio.AudioCapturerChangeInfo> } A Promise instance used to return AudioCapturerChangeInfo.
-    * @throws { BusinessError } 5400102 - Operation not allowed.
-    * @throws { BusinessError } 5400103 - I/O error.
-    * @throws { BusinessError } 5400105 - Service died. Return by promise.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 11
-    */
+     * Get AudioCapturer info from current AVRecorder.
+     * @returns { Promise<audio.AudioCapturerChangeInfo> } A Promise instance used to return AudioCapturerChangeInfo.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
 
     /**
-    * Get max audio capturer amplitude from current AVRecorder.
-    * @param { AsyncCallback<number> } callback - A callback used to return max Amplitude.
-    * @throws { BusinessError } 5400102 - Operation not allowed.
-    * @throws { BusinessError } 5400105 - Service died. Return by callback.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 11
-    */
+     * Get max audio capturer amplitude from current AVRecorder.
+     * @param { AsyncCallback<number> } callback - A callback used to return max Amplitude.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void;
 
     /**
-    * Get max audio capturer amplitude from current AVRecorder.
-    * @returns { Promise<number> } A Promise instance used to return max Amplitude.
-    * @throws { BusinessError } 5400102 - Operation not allowed.
-    * @throws { BusinessError } 5400105 - Service died. Return by promise.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 11
-    */
+     * Get max audio capturer amplitude from current AVRecorder.
+     * @returns { Promise<number> } A Promise instance used to return max Amplitude.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     getAudioCapturerMaxAmplitude(): Promise<number>;
 
     /**
-    * Get available encoder and encoder info for AVRecorder.
-    * @param { AsyncCallback<Array<EncoderInfo>> } callback - A callback used to return available encoder info.
-    * @throws { BusinessError } 5400102 - Operation not allowed.
-    * @throws { BusinessError } 5400105 - Service died. Return by callback.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 11
-    */
+     * Get available encoder and encoder info for AVRecorder.
+     * @param { AsyncCallback<Array<EncoderInfo>> } callback - A callback used to return available encoder info.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
 
     /**
-    * Get available encoder and encoder info for AVRecorder.
-    * @returns { Promise<Array<EncoderInfo>> } A Promise instance used to return available encoder info.
-    * @throws { BusinessError } 5400102 - Operation not allowed.
-    * @throws { BusinessError } 5400105 - Service died. Return by promise.
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 11
-    */
+     * Get available encoder and encoder info for AVRecorder.
+     * @returns { Promise<Array<EncoderInfo>> } A Promise instance used to return available encoder info.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     getAvailableEncoder(): Promise<Array<EncoderInfo>>;
 
     /**
@@ -3757,27 +3757,27 @@ declare namespace media {
   }
   
   /**
-     * Provides Range with lower and upper limit.
-     *
-     * @typedef Range
+   * Provides Range with lower and upper limit.
+   *
+   * @typedef Range
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @since 11
+   */
+  interface Range {
+    /**
+     * lower limit of the range
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-  interface Range {
-    /**
-       * lower limit of the range
-       * @type { number }
-       * @syscap SystemCapability.Multimedia.Media.AVRecorder
-       * @since 11
-       */
     min: number;
   
     /**
-       * upper limit of the range
-       * @type { number }
-       * @syscap SystemCapability.Multimedia.Media.AVRecorder
-       * @since 11
-       */
+     * upper limit of the range
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     max: number;
   }
 
