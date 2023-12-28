@@ -241,8 +241,26 @@ declare namespace webview {
    * @since 9
    */
   interface WebStorageOrigin {
+  /**
+   * Url source.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
     origin: string;
+  /**
+   * Specify the amount of storage for the source.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
     usage: number;
+  /**
+   * the callback of getOriginUsage.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
     quota: number;
   }
 
@@ -989,6 +1007,12 @@ declare namespace webview {
     setError(message: Error): void;
   }
 
+  /**
+   * WebMessage type supplied to {@link onMessageEventExt} for indicating the type of web message.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   type WebMessage = ArrayBuffer | string;
   /**
    * Define html web message port.
@@ -1295,16 +1319,16 @@ declare namespace webview {
     /**
      * Checks whether the web page can go back.
      * @returns { boolean } True if the web page can go back else false.
-     *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Checks whether the web page can go back.
      * @returns { boolean } True if the web page can go back else false.
-     *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @since 11
