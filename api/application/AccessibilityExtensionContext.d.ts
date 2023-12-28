@@ -749,8 +749,36 @@ type WindowType = 'application' | 'system';
  * @since 9
  */
 interface Rect {
+  /**
+   * The left position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   left: number;
+  /**
+   * The top position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   top: number;
+  /**
+   * The width position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   width: number;
+  /**
+   * The height position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   height: number;
 }

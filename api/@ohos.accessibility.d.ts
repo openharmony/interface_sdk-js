@@ -502,17 +502,25 @@ declare namespace accessibility {
      */
     readonly id: string;
 
-    /* The ability name.
+    /**
+     * The ability name.
+     * 
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
     readonly name: string;
 
-    /* The bundle name of the ability.
+    /**
+     * The bundle name of the ability.
+     * 
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
     readonly bundleName: string;
-
-    /* The target bundle name for the observation.
+    /**
+     * The target bundle name for the observation.
+     * 
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 9
      */
     readonly targetBundleNames: Array<string>;
