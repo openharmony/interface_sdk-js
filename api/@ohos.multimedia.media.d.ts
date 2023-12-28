@@ -779,7 +779,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 11
      */
-     AVERR_AUDIO_INTERRUPTED = 5400107,
+    AVERR_AUDIO_INTERRUPTED = 5400107,
   }
 
   /**
@@ -1979,18 +1979,18 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-     getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
+    getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
 
-     /**
-      * Get AVRecorderConfig.it must be called after prepare.
-      * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
-      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-      * @throws { BusinessError } 5400103 - IO error. Return by promise.
-      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     getAVRecorderConfig(): Promise<AVRecorderConfig>; 
+    /**
+    * Get AVRecorderConfig.it must be called after prepare.
+    * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
+    * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+    * @throws { BusinessError } 5400103 - IO error. Return by promise.
+    * @throws { BusinessError } 5400105 - Service died. Return by promise.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 11
+    */
+    getAVRecorderConfig(): Promise<AVRecorderConfig>; 
 
     /**
      * Get input surface.it must be called between prepare completed and start.
@@ -2149,58 +2149,58 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-     getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
+    getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
 
-     /**
-      * Get AudioCapturer info from current AVRecorder.
-      * @returns { Promise<void> } A Promise instance used to return AudioCapturerChangeInfo.
-      * @throws { BusinessError } 5400102 - Operation not allowed.
-      * @throws { BusinessError } 5400103 - I/O error.
-      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
- 
-     /**
-      * Get max audio capturer amplitude from current AVRecorder.
-      * @param { AsyncCallback<number> } callback - A callback used to return max Amplitude.
-      * @throws { BusinessError } 5400102 - Operation not allowed.
-      * @throws { BusinessError } 5400105 - Service died. Return by callback.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void;
- 
-     /**
-      * Get max audio capturer amplitude from current AVRecorder.
-      * @returns { Promise<void> } A Promise instance used to return max Amplitude.
-      * @throws { BusinessError } 5400102 - Operation not allowed.
-      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     getAudioCapturerMaxAmplitude(): Promise<number>;
- 
-     /**
-      * Get available encoder and encoder info for AVRecorder.
-      * @param { AsyncCallback<Array<EncoderInfo>> } callback - A callback used to return available encoder info.
-      * @throws { BusinessError } 5400102 - Operation not allowed.
-      * @throws { BusinessError } 5400105 - Service died. Return by callback.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
- 
-     /**
-      * Get available encoder and encoder info for AVRecorder.
-      * @returns { Promise<Array<EncoderInfo>> } A Promise instance used to return available encoder info.
-      * @throws { BusinessError } 5400102 - Operation not allowed.
-      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     getAvailableEncoder(): Promise<Array<EncoderInfo>>;
+    /**
+    * Get AudioCapturer info from current AVRecorder.
+    * @returns { Promise<void> } A Promise instance used to return AudioCapturerChangeInfo.
+    * @throws { BusinessError } 5400102 - Operation not allowed.
+    * @throws { BusinessError } 5400103 - I/O error.
+    * @throws { BusinessError } 5400105 - Service died. Return by promise.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 11
+    */
+    getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
+
+    /**
+    * Get max audio capturer amplitude from current AVRecorder.
+    * @param { AsyncCallback<number> } callback - A callback used to return max Amplitude.
+    * @throws { BusinessError } 5400102 - Operation not allowed.
+    * @throws { BusinessError } 5400105 - Service died. Return by callback.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 11
+    */
+    getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void;
+
+    /**
+    * Get max audio capturer amplitude from current AVRecorder.
+    * @returns { Promise<void> } A Promise instance used to return max Amplitude.
+    * @throws { BusinessError } 5400102 - Operation not allowed.
+    * @throws { BusinessError } 5400105 - Service died. Return by promise.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 11
+    */
+    getAudioCapturerMaxAmplitude(): Promise<number>;
+
+    /**
+    * Get available encoder and encoder info for AVRecorder.
+    * @param { AsyncCallback<Array<EncoderInfo>> } callback - A callback used to return available encoder info.
+    * @throws { BusinessError } 5400102 - Operation not allowed.
+    * @throws { BusinessError } 5400105 - Service died. Return by callback.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 11
+    */
+    getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
+
+    /**
+    * Get available encoder and encoder info for AVRecorder.
+    * @returns { Promise<Array<EncoderInfo>> } A Promise instance used to return available encoder info.
+    * @throws { BusinessError } 5400102 - Operation not allowed.
+    * @throws { BusinessError } 5400105 - Service died. Return by promise.
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @since 11
+    */
+    getAvailableEncoder(): Promise<Array<EncoderInfo>>;
 
     /**
      * Recorder state.
@@ -2218,7 +2218,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
-     on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
+    on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
      * Listens for recording stateChange events.
