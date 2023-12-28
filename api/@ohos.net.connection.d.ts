@@ -50,8 +50,8 @@ declare namespace connection {
 
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -59,8 +59,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -69,8 +69,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core

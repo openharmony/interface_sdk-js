@@ -5638,6 +5638,40 @@ interface CanvasInterface {
   (context?: CanvasRenderingContext2D): CanvasAttribute;
 }
 
+/**
+ * Provides attribute for Canvas.
+ *
+ * @extends CommonMethod<CanvasAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 8
+ */
+/**
+ * Provides attribute for Canvas.
+ *
+ * @extends CommonMethod<CanvasAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Provides attribute for Canvas.
+ *
+ * @extends CommonMethod<CanvasAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * Provides attribute for Canvas.
+ *
+ * @extends CommonMethod<CanvasAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.

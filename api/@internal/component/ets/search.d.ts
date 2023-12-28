@@ -246,6 +246,33 @@ declare enum SearchType {
  * @since 11
  */
 interface SearchInterface {
+  /**
+   * The options of SearchInterface
+   *
+   * @param { object } options
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * The options of SearchInterface
+   *
+   * @param { object } options
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The options of SearchInterface
+   *
+   * @param { object } options
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (options?: {
     /**
      * Text input in the search text box

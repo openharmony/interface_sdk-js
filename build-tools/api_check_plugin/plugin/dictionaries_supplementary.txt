@@ -306,6 +306,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hevc
 hexadecagonal
 hfp
 hibernates
@@ -817,6 +818,7 @@ unducked
 unequal
 unfiltered
 unfocused
+unhealthy
 unhold
 unicom
 unicon
