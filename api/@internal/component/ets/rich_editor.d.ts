@@ -1569,12 +1569,12 @@ declare interface RichEditorSymbolSpanOptions {
   /**
    * The offset that add custom symbol span at.
    *
-   * @type { ?[number, number] }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  offset?: [number, number];
+  offset?: number;
 
   /**
    * The style that add custom symbol span at.
@@ -1971,14 +1971,14 @@ declare class RichEditorController {
   /**
    * Add a symbol span.
    *
-   * @param { ResourceStr } value - symbol span value
+   * @param { Resource } value - symbol span value
    * @param { RichEditorSymbolSpanOptions } [options] - symbol span option.
    * @returns { number } symbol span index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  addSymbolSpan(value: ResourceStr, options?: RichEditorSymbolSpanOptions ): number;
+  addSymbolSpan(value: Resource, options?: RichEditorSymbolSpanOptions ): number;
   
   /**
    * Modify span style.
