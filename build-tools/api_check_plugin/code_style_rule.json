@@ -348,7 +348,8 @@
       "SystemCapability.Msdp.DeviceStatus.Drag",
       "SystemCapability.DistributedDataManager.CommonType",
       "SystemCapability.Multimedia.Audio.Spatialization",
-      "SystemCapability.Multimedia.AudioHaptic.Core"
+      "SystemCapability.Multimedia.AudioHaptic.Core",
+      "SystemCapability.ArkUi.Graphics3D"
     ]
   },
   "administrators": [
