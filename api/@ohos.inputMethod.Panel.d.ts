@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Input Kit
+ * @kit IME Kit
  */
 
 /**

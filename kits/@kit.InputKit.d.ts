@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { PanelFlag, PanelInfo, PanelType } from '@ohos.inputMethod.Panel';
-import { InputMethodListDialog, Pattern, PatternOptions } from '@ohos.inputMethodList';
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap
 } from '@ohos.multimodalInput.gestureEvent';
@@ -37,9 +35,8 @@ import {
 } from '@ohos.multimodalInput.touchEvent';
 
 export {
-  Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, InputMethodListDialog,
-  IntentionCode, Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, PanelFlag,
-  PanelInfo, PanelType, Pattern, PatternOptions, Pinch, Rotate, SourceType, ThreeFingersSwipe,
-  ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer, inputDevice, inputDeviceCooperate,
-  inputEventClient, inputMonitor, pointer, shortKey
+  Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode,
+  Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
+  SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
+  inputDevice, inputDeviceCooperate, inputEventClient, inputMonitor, pointer, shortKey
 };
