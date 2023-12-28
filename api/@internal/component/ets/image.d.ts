@@ -1083,6 +1083,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
+
+  /**
+   * Set image resizable options.
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  resizable(value: ResizableOptions): ImageAttribute;
 }
 
 /**
@@ -1271,4 +1282,24 @@ declare interface ImageError {
    * @form
    */
   message: string
+}
+
+/**
+ * Image resizable options
+ * 
+ * @interface ResizableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface ResizableOptions {
+  /**
+   * Image slice widths.
+   *
+   * @type { ?EdgeWidths }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  slice?: EdgeWidths;
 }
