@@ -163,6 +163,161 @@ declare namespace font {
   }
 
   /**
+   * @typedef UIFontConfig
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface UIFontConfig {
+    /**
+     * The paths of system font files.
+     * @type { Array<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    fontDir: Array<string>;
+
+    /**
+     * The generic font info.
+     * @type { Array<UIFontGenericInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    generic: Array<UIFontGenericInfo>;
+
+    /**
+     * The fallback font info.
+     * @type { Array<UIFontFallbackGroupInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    fallbackGroups: Array<UIFontFallbackGroupInfo>;
+  }
+  
+  /**
+   * @typedef UIFontGenericInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface UIFontGenericInfo {
+    /**
+     * Name of the font set.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    family: string;
+
+    /**
+     * Alias info of the font set.
+     * @type { Array<UIFontAliasInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    alias: Array<UIFontAliasInfo>;
+
+    /**
+     * Adjust info of the font set.
+     * @type { Array<UIFontAdjustInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    adjust: Array<UIFontAdjustInfo>;
+  }
+
+  /**
+   * @typedef UIFontAliasInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface UIFontAliasInfo {
+    /**
+     * Font set name.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    name: string;
+
+    /**
+     * Weight the font set contains only fonts with, if weight = 0,
+     * this font set can contain fonts with any weight.
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    weight: number;
+  }
+
+  /**
+   * @typedef UIFontAdjustInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface UIFontAdjustInfo {
+    /**
+     * Original weight of the font
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    weight: number;
+    /**
+     * Font weight displayed in the app
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    to: number;
+  }
+
+  /**
+   * @typedef UIFontFallbackGroupInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface UIFontFallbackGroupInfo {
+    /**
+     * Indicates which font set uses following list for fallback font
+     * if the font set name is "", it means that the following list can be fallback font for all font sets.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    fontSetName: string;
+
+    /**
+     * Fallback font list related.
+     * @type { Array<UIFontFallbackInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    fallback: Array<UIFontFallbackInfo>;
+  }
+  
+  /**
+   * @typedef UIFontFallbackInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface UIFontFallbackInfo {
+    /**
+     * Language that font set support.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    language: string;
+
+    /**
+     * Font name related.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    family: string;
+  }
+
+  /**
    * Register a customized font in the FontManager.
    *
    * @param { FontOptions } options - FontOptions
@@ -189,6 +344,15 @@ declare namespace font {
    * @since 10
    */
   function getFontByName(fontName: string): FontInfo;
+
+  /**
+   * Get font details according to the font name.
+   *
+   * @returns { UIFontConfig } Returns the ui font config
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  function getUIFontConfig(): UIFontConfig;
 }
 
 export default font;
