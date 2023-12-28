@@ -2283,12 +2283,12 @@ declare namespace media {
     off(type: 'error'): void;
 
     /**
-      * Cancel Listens for recording audioCapturerChange events.
-      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
-      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 11
-      */
-     off(type: 'audioCapturerChange'): void;
+     * Cancel Listens for recording audioCapturerChange events.
+     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    off(type: 'audioCapturerChange'): void;
   }
 
   /**
@@ -3690,7 +3690,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 11
    */
-   interface EncoderInfo {
+  interface EncoderInfo {
     /**
      * encoder format MIME
      * @type { CodecMimeType }
