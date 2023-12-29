@@ -1516,6 +1516,27 @@ declare namespace media {
      * @since 11
      */
     off(type: 'error'): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
+     * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 11
+     */
+    on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 11
+     */
+    off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
   }
 
   /**
