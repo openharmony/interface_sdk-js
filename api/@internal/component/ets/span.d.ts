@@ -14,6 +14,57 @@
  */
 
 /**
+ * Define the background style of span.
+ *
+ * @interface TextBackgroundStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface TextBackgroundStyle {
+  /**
+   * Background color of span.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  color?: ResourceColor;
+  
+  /**
+   * Background radius of span.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension | BorderRadiuses;
+}
+
+/**
+ * Define the BaseSpan class, contains the common methods of span.
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class BaseSpan<T> extends CommonMethod<T> {
+  /**
+   * Span background style.
+   *
+   * @param { TextBackgroundStyle } style - The background style of span.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textBackgroundStyle(style: TextBackgroundStyle): T;
+}
+
+/**
  * Provide text decoration.
  *
  * @interface SpanInterface
@@ -108,14 +159,14 @@ interface SpanInterface {
  * @form
  */
 /**
- * @extends CommonMethod<SpanAttribute>
+ * @extends BaseSpan<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  * @form
  */
-declare class SpanAttribute extends CommonMethod<SpanAttribute> {
+declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   /**
    * Called when the font is set.
    *

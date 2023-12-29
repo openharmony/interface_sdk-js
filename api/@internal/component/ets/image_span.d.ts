@@ -64,13 +64,13 @@ interface ImageSpanInterface {
 /**
  * Define the ImageSpan attribute functions.
  *
- * @extends CommonMethod<ImageSpanAttribute>
+ * @extends BaseSpan<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
+declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
    * Called when the alignment of image span is set.
    *
