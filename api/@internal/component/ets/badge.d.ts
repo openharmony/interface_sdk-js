@@ -420,14 +420,14 @@ declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?(BadgePosition | Position) }
+   * @type { ?(BadgePosition) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?(BadgePosition | Position) }
+   * @type { ?(BadgePosition) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
