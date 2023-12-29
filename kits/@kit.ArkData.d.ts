@@ -15,28 +15,21 @@
 
 import DataShareExtensionAbility from '@ohos.application.DataShareExtensionAbility';
 import cloudData from '@ohos.data.cloudData';
+import cloudExtension from '@ohos.data.cloudExtension';
 import commonType from '@ohos.data.commonType';
-import dataAbility from '@ohos.data.dataAbility';
 import dataShare from '@ohos.data.dataShare';
 import dataSharePredicates from '@ohos.data.dataSharePredicates';
 import DataShareResultSet, { DataType } from '@ohos.data.DataShareResultSet';
-import distributedData from '@ohos.data.distributedData';
 import distributedDataObject from '@ohos.data.distributedDataObject';
 import distributedKVStore from '@ohos.data.distributedKVStore';
 import preferences from '@ohos.data.preferences';
-import rdb from '@ohos.data.rdb';
 import relationalStore from '@ohos.data.relationalStore';
-import storage from '@ohos.data.storage';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
-import Storage, {
-  ClearStorageOptions, DeleteStorageOptions, GetStorageOptions, SetStorageOptions
-} from '@system.storage';
 
 export {
-  ClearStorageOptions, DataShareExtensionAbility, DataShareResultSet, DataType, DeleteStorageOptions,
-  GetStorageOptions, SetStorageOptions, Storage, ValueType, ValuesBucket, cloudData, commonType,
-  dataAbility, dataShare, dataSharePredicates, distributedData, distributedDataObject, distributedKVStore,
-  preferences, rdb, relationalStore, storage, unifiedDataChannel, uniformTypeDescriptor
+  DataShareExtensionAbility, DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
+  commonType, dataShare, dataSharePredicates, distributedDataObject, distributedKVStore, preferences,
+  relationalStore, unifiedDataChannel, uniformTypeDescriptor
 };
