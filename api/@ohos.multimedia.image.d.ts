@@ -2890,6 +2890,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
+    /**
+     * Get color space of pixel map.
+     *
+     * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform  
+     * @since 11
+     */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
     /**
@@ -2928,6 +2939,20 @@ declare namespace image {
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
+     */
+    /**
+     * Set color space of pixel map.
+     * 
+     * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
+     * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
+     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @throws { BusinessError } 62980111 - If the operation invalid.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform 
+     * @since 11
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
