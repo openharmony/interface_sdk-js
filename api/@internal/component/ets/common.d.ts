@@ -844,6 +844,16 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const Concurrent: MethodDecorator;
 
 /**
+ * Defining Sendable ClassDecorator
+ * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare const Sendable: ClassDecorator;
+
+/**
  * Defining  CustomDialog ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1774,7 +1784,7 @@ declare interface AnimateParam {
   finishCallbackType?: FinishCallbackType;
 
   /**
-   * Set the animation drawing FPS.
+   * Indicates expectedFrameRateRange including minimum、maximum and expected frame rate.
    *
    * @type { ?ExpectedFrameRateRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8641,6 +8651,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
+
+  /**
+   * Set whether interaction is allowed outside the sheet
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enableOutsideInteractive?: boolean;
 }
 
 /**
@@ -9414,6 +9435,50 @@ declare interface PopupOptions {
    * @since 11
    */
   arrowPointPosition?: ArrowPointPosition;
+
+ /**
+   * The width of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 16.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowWidth?: Dimension;
+
+  /**
+   * The height of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 8.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowHeight?: Dimension;
+
+  /**
+   * The round corners of the popup.
+   *
+   * @type { ?Dimension }
+   * @default 20.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension;
+
+  /**
+   * The style of popup Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @default ShadowStyle.OUTER_DEFAULT_MD.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -9759,6 +9824,50 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   arrowPointPosition?: ArrowPointPosition;
+
+  /**
+   * The width of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 16.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowWidth?: Dimension;
+
+  /**
+   * The height of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 8.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowHeight?: Dimension;
+
+  /**
+   * The round corners of the popup.
+   *
+   * @type { ?Dimension }
+   * @default 20.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension;
+
+  /**
+   * The style of popup Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @default ShadowStyle.OUTER_DEFAULT_MD.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -9786,6 +9895,36 @@ declare enum MenuPreviewMode {
    * @since 11
    */
   IMAGE = 1
+}
+
+/**
+ * Defines the animator range of start and end property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare type AnimationRange<T> = [from: T, to: T];
+
+/**
+ * Defines the ContextMenu's preview animator options.
+ *
+ * @interface ContextMenuAnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface ContextMenuAnimationOptions {
+  /**
+   * Sets the start animator scale and end animator scale.
+   *
+   * @type { ?AnimationRange<number> }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  scale?: AnimationRange<number>;
 }
 
 /**
@@ -9956,6 +10095,16 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   aboutToDisappear?: () => void;
+  
+  /**
+   * The preview animator options.
+   *
+   * @type { ?ContextMenuAnimationOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  previewAnimationOptions?: ContextMenuAnimationOptions;
 }
 
 /**
@@ -12806,6 +12955,18 @@ declare class CommonMethod<T> {
   hueRotate(value: number | string): T;
 
   /**
+   * Add an attribute to control whether the shadows of the child nodes overlap each other.
+   *
+   * @param { boolean } value - true means the shadows of the child nodes overlap each other effect and drawn in batches.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  useShadowBatching(value: boolean): T;
+
+  /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
    * If multiple parent effectComponents are found, the nearest one will be used.
    * If no parent effectComponent is found, this method has no effect.
@@ -14975,6 +15136,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   accessibilityLevel(value: string): T;
+
+  /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
    * Sets obscured
@@ -17281,6 +17454,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   onScrollStop(event: () => void): T;
+
+  /**
+   * Limit the max speed when fling.
+   *
+   * @param { number } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   *                                The unit is vp/s.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  flingSpeedLimit(speedLimit: number): T;
 }
 
 declare module "SpecialEvent" {
@@ -17293,7 +17479,7 @@ declare module "SpecialEvent" {
 declare module "AnimateToParam" {
   module "AnimateToParam" {
     // @ts-ignore
-    export { AnimateParam };
+    export type { AnimateParam, KeyframeAnimateParam, KeyframeState };
   }
 }
 
@@ -17491,5 +17677,92 @@ declare module "wrappedBuilderObject" {
   module "wrappedBuilderObject" {
     // @ts-ignore
     export { WrappedBuilder };
+  }
+}
+
+/**
+ * Defines the overall animation parameters of the keyframe animation.
+ *
+ * @interface KeyframeAnimateParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface KeyframeAnimateParam {
+  /**
+   * Animation delay time, in ms.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  delay?: number;
+
+  /**
+   * Animation iterations.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  iterations?: number;
+
+  /**
+   * Callback invoked when the whole keyframe animation is complete.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onFinish?: () => void;
+}
+
+/**
+ * Defines a keyframe state.
+ *
+ * @interface KeyframeState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface KeyframeState {
+  /**
+   * Animation duration of this keyframe, in ms.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  duration: number;
+
+  /**
+   * Animation curve of this keyframe.
+   *
+   * @type { ?(Curve | string | ICurve) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  curve?: Curve | string | ICurve;
+
+  /**
+   * The closure function to specify the terminating state of this keyframe.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  event: () => void;
+}
+
+declare module 'touchEvent'{
+  module 'touchEvent' {
+    // @ts-ignore
+    export { TouchEvent };
   }
 }

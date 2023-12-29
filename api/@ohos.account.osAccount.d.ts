@@ -2825,7 +2825,7 @@ declare namespace osAccount {
     /**
      * Gets the business access token of the current domain account.
      *
-     * @param { object } businessParams - Indicates the business parameters.
+     * @param { Record<string, Object> } businessParams - Indicates the business parameters.
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -2841,12 +2841,12 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    static getAccessToken(businessParams: { [key: string]: Object }, callback: AsyncCallback<Uint8Array>): void;
+    static getAccessToken(businessParams: Record<string, Object>, callback: AsyncCallback<Uint8Array>): void;
 
     /**
      * Gets the business access token for the current domain account.
      *
-     * @param { object } businessParams - Indicates the business parameters.
+     * @param { Record<string, Object> } businessParams - Indicates the business parameters.
      * @returns { Promise<Uint8Array> } The promise returned by the function.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -2862,7 +2862,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    static getAccessToken(businessParams: { [key: string]: Object }): Promise<Uint8Array>;
+    static getAccessToken(businessParams: Record<string, Object>): Promise<Uint8Array>;
   }
 
   /**

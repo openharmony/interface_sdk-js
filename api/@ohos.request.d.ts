@@ -35,6 +35,13 @@ import BaseContext from './application/BaseContext';
  * @namespace request
  * @since 10
  */
+/**
+ * upload and download
+ *
+ * @namespace request
+ * @atomicservice
+ * @since 11
+ */
 declare namespace request {
   /**
    * Error code 201 - the permissions check fails.
@@ -2395,6 +2402,13 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
+      /**
+       * Indicates background task.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
       BACKGROUND,
       /**
        * Indicates foreground task.
@@ -2709,7 +2723,7 @@ declare namespace request {
       /**
        * The title for a task, give a meaningful title please.
        * The maximum length is 256 characters.
-       * The default is the same with its action.
+       * The default is upload or download, consistent with its action.
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2751,7 +2765,7 @@ declare namespace request {
        */
       /**
        * Indicates task's mode.
-       * The default is background.
+       * The default is BACKGROUND.
        * For frontend task, it has callbacks.
        * For background task, it has notifications and fallback.
        * The cross-platform default is FOREGROUND.
@@ -2776,6 +2790,7 @@ declare namespace request {
        */
       /**
        * The solution choice when path already exists during download.
+       * The default is false.
        * Currently support:
        * true, rewrite the existed file.
        * false, go to fail.
@@ -2966,7 +2981,7 @@ declare namespace request {
        */
       /**
        * Allows redirect or not.
-       * The default is yes.
+       * The default is true.
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3078,7 +3093,7 @@ declare namespace request {
       /**
        * Breaks when fail to fetch filesize before upload/download or not.
        * Uses filesize for a precise gauge.
-       * The default is not, set size as -1 indicating the case.
+       * The default is false, set size as -1 indicating the case.
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3425,6 +3440,7 @@ declare namespace request {
        * Such as headers and body of response from server.
        * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
        * {"headers": {"key": v}, "body": "contents"}.
+       * The "body" field is not supported in cross-platform scenarios.
        *
        * @type { ?object }
        * @readonly
@@ -3643,7 +3659,7 @@ declare namespace request {
        */
       /**
        * Specify task's mode.
-       * The default is frontend.
+       * The default is FOREGROUND and BACKGROUND.
        *
        * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3704,6 +3720,7 @@ declare namespace request {
        * The path to save the downloaded file.
        *
        * @type { ?string }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
@@ -3744,6 +3761,7 @@ declare namespace request {
        * For `${ show }` and `${ touch }`.
        *
        * @type { ?(string | Array<FormItem>) }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
@@ -3834,6 +3852,7 @@ declare namespace request {
        * The default is frontend.
        *
        * @type { Mode }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
@@ -3846,6 +3865,7 @@ declare namespace request {
        * The default is 0.
        *
        * @type { number }
+       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */

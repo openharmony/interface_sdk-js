@@ -423,7 +423,14 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
-    extraInfo?: { [key: string]: Object };
+    /**
+     * Extra data collected by the common event.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 11
+     */
+    extraInfo?: Record<string, Object>;
   }
 
   /**

@@ -136,10 +136,13 @@ declare namespace audioHaptic {
     setStreamUsage(id: number, usage: audio.StreamUsage): void;
 
     /**
-     * Create an audio haptic player. This method uses a promise to return the result.
+     * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
+     * should have the permission of ohos.permission.VIBRATE.
+     * @permission ohos.permission.VIBRATE
      * @param { number } id - Source id.
      * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -231,10 +234,11 @@ declare namespace audioHaptic {
     /**
      * Unsubscribes end of stream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
-    off(type: 'endOfStream'): void;
+    off(type: 'endOfStream', callback?: Callback<void>): void;
 
     /**
      * Subscribes audio interrupt event.
@@ -248,10 +252,11 @@ declare namespace audioHaptic {
     /**
      * Unsubscribes audio interrupt event.
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11
      */
-    off(type: 'audioInterrupt'): void;
+    off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
   }
 }
 export default audioHaptic;

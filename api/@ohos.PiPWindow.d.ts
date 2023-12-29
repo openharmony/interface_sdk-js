@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import type AsyncCallback from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 import type BaseContext from './application/BaseContext';
 
 /**
@@ -153,6 +153,13 @@ declare namespace PiPWindow {
      * @since 11
      */
     VIDEO_MEETING,
+
+    /**
+     * Indicates the content to show in picture-in-picture window is video live
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    VIDEO_LIVE,
   }
 
   /**
@@ -218,13 +225,33 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent;
+  type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
 
   type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
 
-  type PiPCallActionEvent = 'hangUp';
+  /**
+   * Describe picture-in-picture call template action event type.
+   * 
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged';
 
-  type PiPMeetingActionEvent = 'hangUp';
+  /**
+   * Describe picture-in-picture meeting template action event type.
+   * 
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged';
+
+  /**
+   * Describe picture-in-picture live template action event type.
+   * 
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  type PiPLiveActionEvent = 'playbackStateChanged';
 
   /**
    * PiPController

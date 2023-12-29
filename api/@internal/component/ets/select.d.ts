@@ -666,6 +666,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */ 
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;

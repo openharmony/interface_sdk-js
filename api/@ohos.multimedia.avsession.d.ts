@@ -449,8 +449,7 @@ declare namespace avSession {
      * The default cast type "local", media can be routed on the same device, 
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     TYPE_LOCAL = 0,
 

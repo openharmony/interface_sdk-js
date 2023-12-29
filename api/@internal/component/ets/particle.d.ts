@@ -301,7 +301,15 @@ interface ParticleConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */    
+   */
+  /**
+   * Point-like Particle.
+   * @type { PointParticleParameters } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleType.POINT]: PointParticleParameters;
 
   /**
@@ -310,7 +318,15 @@ interface ParticleConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */      
+   */
+  /**
+   * Image-like Particle.
+   * @type { ImageParticleParameters } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleType.IMAGE]: ImageParticleParameters;
 }
 
@@ -522,7 +538,14 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */  
+   */
+  /**
+   * No effect of particle updater.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleUpdater.NONE]: void;
 
   /**
@@ -531,7 +554,15 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */    
+   */
+  /**
+   * Random effect of particle updater.
+   * @type { [T, T] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleUpdater.RANDOM]: [T, T];
 
   /**
@@ -540,7 +571,15 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */    
+   */
+  /**
+   * Curve effect of particle updater.
+   * @type { Array<ParticlePropertyAnimation<T>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleUpdater.CURVE]: Array<ParticlePropertyAnimation<T>>;
 }
 
@@ -621,7 +660,14 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */    
+   */
+  /**
+   * No effect of particle color property updater.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleUpdater.NONE]: void;
 
   /**
@@ -630,7 +676,15 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */  
+   */
+  /**
+   * Random effect of particle color property updater.
+   * @type { object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleUpdater.RANDOM]: {
     r: [number, number];
     g: [number, number];
@@ -645,7 +699,16 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */   
+   */
+  /**
+   * Curve effect of particle color property updater.
+   * 
+   * @type { Array<ParticlePropertyAnimation<ResourceColor>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   [ParticleUpdater.CURVE]: Array<ParticlePropertyAnimation<ResourceColor>>;
 }
 
@@ -831,6 +894,16 @@ interface ParticleInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * create a particle array.
+   * @param { object } value - Particle value
+   * particles - list of ParticleOptions.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   <
     PARTICLE extends ParticleType,

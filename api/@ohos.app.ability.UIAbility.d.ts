@@ -689,14 +689,14 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability prepares to continue.
    *
-   * @param { object } wantParam - Indicates the want parameter.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
    * @since 11
    */
-  onContinue(wantParam: { [key: string]: Object }): AbilityConstant.OnContinueResult;
+  onContinue(wantParam: Record<string, Object>): AbilityConstant.OnContinueResult;
 
   /**
    * Called when the launch mode of an ability is set to singleton.
@@ -771,7 +771,7 @@ export default class UIAbility extends Ability {
    * Called back when an ability prepares to save.
    *
    * @param { AbilityConstant.StateType } reason - state type when save.
-   * @param { object } wantParam - Indicates the want parameter.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
    *                                           agrees to save data successfully, otherwise errcode.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -779,7 +779,7 @@ export default class UIAbility extends Ability {
    * @atomicservice
    * @since 11
    */
-  onSaveState(reason: AbilityConstant.StateType, wantParam: { [key: string]: Object }): AbilityConstant.OnSaveResult;
+  onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
   /**
    * Called back when an ability shares data.
@@ -792,13 +792,13 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability shares data.
    *
-   * @param { object } wantParam - Indicates the want parameter.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
    * @since 11
    */
-  onShare(wantParam: { [key: string]: Object }): void;
+  onShare(wantParam: Record<string, Object>): void;
 
   /**
    * Called back when an ability prepare to terminate.

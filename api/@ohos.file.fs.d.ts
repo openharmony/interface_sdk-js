@@ -1929,7 +1929,7 @@ declare function fsyncSync(fd: number): void;
  * List file.
  *
  * @param { string } path - path.
- * @param { object } [options] - options.
+ * @param { ListFileOptions } [options] - options.
  * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria.
  *      If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1944,11 +1944,7 @@ declare function fsyncSync(fd: number): void;
  */
 declare function listFile(
   path: string,
-  options?: {
-    recursion?: boolean;
-    listNum?: number;
-    filter?: Filter;
-  }
+  options?: ListFileOptions
 ): Promise<string[]>;
 
 /**
@@ -2033,7 +2029,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * List file.
  *
  * @param { string } path - path.
- * @param { object } [options] - options.
+ * @param { ListFileOptions } [options] - options.
  * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
  *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2048,11 +2044,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  */
 declare function listFile(
   path: string,
-  options: {
-    recursion?: boolean;
-    listNum?: number;
-    filter?: Filter;
-  },
+  options: ListFileOptions,
   callback: AsyncCallback<string[]>
 ): void;
 
@@ -2089,7 +2081,7 @@ declare function listFile(
  * List file with sync interface.
  *
  * @param { string } path - path.
- * @param { object } [options] - options.
+ * @param { ListFileOptions } [options] - options.
  * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2103,11 +2095,7 @@ declare function listFile(
  */
 declare function listFileSync(
   path: string,
-  options?: {
-    recursion?: boolean;
-    listNum?: number;
-    filter?: Filter;
-  }
+  options?: ListFileOptions
 ): string[];
 
 /**
@@ -3499,7 +3487,7 @@ declare function openSync(path: string, mode?: number): File;
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { ReadOptions } [options] - options.
  * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3518,10 +3506,7 @@ declare function openSync(path: string, mode?: number): File;
 declare function read(
   fd: number,
   buffer: ArrayBuffer,
-  options?: {
-    offset?: number;
-    length?: number;
-  }
+  options?: ReadOptions
 ): Promise<number>;
 
 /**
@@ -3627,7 +3612,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { ReadOptions } [options] - options.
  * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3646,10 +3631,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
 declare function read(
   fd: number,
   buffer: ArrayBuffer,
-  options: {
-    offset?: number;
-    length?: number;
-  },
+  options: ReadOptions,
   callback: AsyncCallback<number>
 ): void;
 
@@ -3697,7 +3679,7 @@ declare function read(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { ReadOptions } [options] - options.
  * @returns { number } Returns the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3716,10 +3698,7 @@ declare function read(
 declare function readSync(
   fd: number,
   buffer: ArrayBuffer,
-  options?: {
-    offset?: number;
-    length?: number;
-  }
+  options?: ReadOptions
 ): number;
 
 /**
@@ -3863,7 +3842,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { object } [options] - options.
+ * @param { ReadTextOptions } [options] - options.
  * @returns { Promise<string> } Returns the contents of the read file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3885,11 +3864,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  */
 declare function readText(
   filePath: string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: ReadTextOptions
 ): Promise<string>;
 
 /**
@@ -4009,7 +3984,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { object } [options] - options.
+ * @param { ReadTextOptions } [options] - options.
  * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4031,11 +4006,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  */
 declare function readText(
   filePath: string,
-  options: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  },
+  options: ReadTextOptions,
   callback: AsyncCallback<string>
 ): void;
 
@@ -4088,7 +4059,7 @@ declare function readText(
  * Read text with sync interface.
  *
  * @param { string } filePath - file path.
- * @param { object } [options] - options.
+ * @param { ReadTextOptions } [options] - options.
  * @returns { string } Returns the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4110,11 +4081,7 @@ declare function readText(
  */
 declare function readTextSync(
   filePath: string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: ReadTextOptions
 ): string;
 
 /**
@@ -5450,7 +5417,7 @@ declare function utimes(path: string, mtime: number): void;
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { WriteOptions } [options] - options.
  * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5472,11 +5439,7 @@ declare function utimes(path: string, mtime: number): void;
 declare function write(
   fd: number,
   buffer: ArrayBuffer | string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: WriteOptions
 ): Promise<number>;
 
 /**
@@ -5597,7 +5560,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { WriteOptions } [options] - options.
  * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5619,11 +5582,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
 declare function write(
   fd: number,
   buffer: ArrayBuffer | string,
-  options: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  },
+  options: WriteOptions,
   callback: AsyncCallback<number>
 ): void;
 
@@ -5677,7 +5636,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { WriteOptions } [options] - options.
  * @returns { number } Returns the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5699,11 +5658,7 @@ declare function write(
 declare function writeSync(
   fd: number,
   buffer: ArrayBuffer | string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: WriteOptions
 ): number;
 
 /**
@@ -5991,13 +5946,30 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Write randomAccessFile.
+   *
+   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { WriteOptions } [options] - options.
+   * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   write(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): Promise<number>;
 
   /**
@@ -6043,13 +6015,30 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Write randomAccessFile.
+   *
+   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { WriteOptions } [options] - options.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   write(
     buffer: ArrayBuffer | string,
-    options: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    },
+    options: WriteOptions,
     callback: AsyncCallback<number>
   ): void;
 
@@ -6074,14 +6063,32 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Write randomAccessFile with sync interface.
+   *
+   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { WriteOptions } [options] - options.
+   * @returns { number } Returns the number of bytes written to the file.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   writeSync(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): number;
+
   /**
    * Read randomAccessFile.
    *
@@ -6100,12 +6107,27 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Read randomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { ReadOptions } [options] - options.
+   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   read(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): Promise<number>;
 
   /**
@@ -6145,12 +6167,27 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+   /**
+   * Read randomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { ReadOptions } [options] - options.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   read(
     buffer: ArrayBuffer,
-    options: {
-      offset?: number;
-      length?: number;
-    },
+    options: ReadOptions,
     callback: AsyncCallback<number>
   ): void;
 
@@ -6172,12 +6209,27 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Read randomAccessFile with sync interface.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { ReadOptions } [options] - options.
+   * @returns { number } Returns the number of file bytes read to buffer.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   readSync(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): number;
 }
 
@@ -6619,6 +6671,7 @@ declare interface Stream {
    * @since 9
    */
   closeSync(): void;
+
   /**
    * Flush stream.
    *
@@ -6660,6 +6713,7 @@ declare interface Stream {
    * @since 9
    */
   flush(callback: AsyncCallback<void>): void;
+
   /**
    * Flush stream with sync interface.
    *
@@ -6679,6 +6733,7 @@ declare interface Stream {
    * @since 9
    */
   flushSync(): void;
+
   /**
    * Write stream.
    *
@@ -6700,13 +6755,30 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Write stream.
+   *
+   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { WriteOptions } [options] - options.
+   * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   write(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): Promise<number>;
 
   /**
@@ -6752,15 +6824,33 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Write stream.
+   *
+   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { WriteOptions } [options] - options.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   write(
     buffer: ArrayBuffer | string,
-    options: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    },
+    options: WriteOptions,
     callback: AsyncCallback<number>
   ): void;
+
   /**
    * Write stream with sync interface.
    *
@@ -6782,14 +6872,32 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Write stream with sync interface.
+   *
+   * @param { ArrayBuffer | string } buffer - buffer.
+   * @param { WriteOptions } [options] - options.
+   * @returns { number } Returns the number of file bytes written to file.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   writeSync(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): number;
+
   /**
    * Read stream.
    *
@@ -6808,12 +6916,27 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Read stream.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { ReadOptions } [options] - options.
+   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   read(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): Promise<number>;
 
   /**
@@ -6853,12 +6976,27 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Read stream.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { ReadOptions } [options] - options.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   read(
     buffer: ArrayBuffer,
-    options: {
-      offset?: number;
-      length?: number;
-    },
+    options: ReadOptions,
     callback: AsyncCallback<number>
   ): void;
 
@@ -6880,12 +7018,27 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Read stream with sync interface.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { ReadOptions } [options] - options.
+   * @returns { number } Returns the number of file bytes read to file.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   readSync(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): number;
 }
 
@@ -7000,10 +7153,11 @@ export interface Watcher {
 /**
  * Reader Iterator Result
  *
+ * @interface ReaderIteratorResult
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-export type ReaderIteratorResult = {
+export interface ReaderIteratorResult {
   /**
    * Whether reader iterator completes the traversal.
    * 
@@ -7021,7 +7175,7 @@ export type ReaderIteratorResult = {
    * @since 11
    */
   value: string;
-};
+}
 
 /**
  * ReaderIterator object
@@ -7054,16 +7208,24 @@ declare interface ReaderIterator {
 /**
  * File filter type
  *
+ * @interface Filter
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-export type Filter = {
+export interface Filter {
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   suffix?: Array<string>;
   /**
@@ -7071,11 +7233,25 @@ export type Filter = {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   displayName?: Array<string>;
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   mimeType?: Array<string>;
   /**
@@ -7083,11 +7259,25 @@ export type Filter = {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   fileSizeOver?: number;
   /**
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   lastModifiedAfter?: number;
   /**
@@ -7095,8 +7285,15 @@ export type Filter = {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   excludeMedia?: boolean;
-};
+}
 
 /**
  * Conflict Files type
@@ -7104,11 +7301,23 @@ export type Filter = {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-export type ConflictFiles = {
+/**
+ * Conflict Files type
+ *
+ * @interface ConflictFiles
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ConflictFiles {
   /**
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
    */
   srcFile: string;
 
@@ -7117,23 +7326,119 @@ export type ConflictFiles = {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
   destFile: string;
-};
+}
 
 /**
  * Options type
  *
+ * @interface Options
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-export type Options = {
+export interface Options {
   /**
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
   encoding?: string;
-};
+}
+
+/**
+ * ReadOptions type
+ *
+ * @interface ReadOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ReadOptions {
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  offset?: number;
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  length?: number;
+}
+
+/**
+ * ReadTextOptions type
+ *
+ * @interface ReadTextOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ReadTextOptions extends ReadOptions {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
+}
+
+/**
+ * WriteOptions type
+ *
+ * @interface WriteOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface WriteOptions extends Options {
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  offset?: number;
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  length?: number;
+}
+
+/**
+ * ListFileOptions type
+ *
+ * @interface ListFileOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ListFileOptions {
+  /**
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  recursion?: boolean;
+
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  listNum?: number;
+
+  /**
+   * @type { ?Filter }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  filter?: Filter;
+}
 
 /**
  * Enumeration of different types of whence.

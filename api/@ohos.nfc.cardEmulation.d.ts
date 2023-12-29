@@ -139,6 +139,7 @@ declare namespace cardEmulation {
    * @permission ohos.permission.NFC_CARD_EMULATION
    * @returns { AbilityInfo[] } Returns all payment services.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @systemapi Hide this for inner system use.

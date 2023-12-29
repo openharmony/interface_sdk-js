@@ -28,8 +28,11 @@ import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
  * @namespace media
  * @since 6
  */
-
-
+/**
+ * @namespace media
+ * @atomicservice
+ * @since 11
+ */
 declare namespace media {
   /**
    * Creates an AVPlayer instance.
@@ -770,6 +773,13 @@ declare namespace media {
      * @since 9
      */
     AVERR_UNSUPPORT_FORMAT = 5400106,
+
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 11
+     */
+    AVERR_AUDIO_INTERRUPTED = 5400107,
   }
 
   /**
@@ -945,6 +955,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
+    /**
+     * Reset AVPlayer, it will to idle state and can set src again.
+     * @param { AsyncCallback<void> } callback - instance used to return when reset completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
+     */
     reset(callback: AsyncCallback<void>): void;
 
     /**
@@ -953,6 +971,14 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
+     */
+    /**
+     * Reset AVPlayer, it will to idle state and can set src again.
+     * @returns { Promise<void> } A Promise instance used to return when reset completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
      */
     reset(): Promise<void>;
 
@@ -1945,6 +1971,28 @@ declare namespace media {
     prepare(config: AVRecorderConfig): Promise<void>;
 
     /**
+     * Get AVRecorderConfig.it must be called after prepare.
+     * @param { AsyncCallback<AVRecorderConfig> } callback - Callback used to return the input config in AVRecorderConfig.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
+
+    /**
+     * Get AVRecorderConfig.it must be called after prepare.
+     * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAVRecorderConfig(): Promise<AVRecorderConfig>; 
+
+    /**
      * Get input surface.it must be called between prepare completed and start.
      * @param { AsyncCallback<string> } callback - Callback used to return the input surface id in string.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -2093,11 +2141,84 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
+     * Get AudioCapturer info from current AVRecorder.
+     * @param { AsyncCallback<audio.AudioCapturerChangeInfo> } callback - A callback used to return AudioCapturerChangeInfo.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
+
+    /**
+     * Get AudioCapturer info from current AVRecorder.
+     * @returns { Promise<audio.AudioCapturerChangeInfo> } A Promise instance used to return AudioCapturerChangeInfo.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
+
+    /**
+     * Get max audio capturer amplitude from current AVRecorder.
+     * @param { AsyncCallback<number> } callback - A callback used to return max Amplitude.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void;
+
+    /**
+     * Get max audio capturer amplitude from current AVRecorder.
+     * @returns { Promise<number> } A Promise instance used to return max Amplitude.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAudioCapturerMaxAmplitude(): Promise<number>;
+
+    /**
+     * Get available encoder and encoder info for AVRecorder.
+     * @param { AsyncCallback<Array<EncoderInfo>> } callback - A callback used to return available encoder info.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
+
+    /**
+     * Get available encoder and encoder info for AVRecorder.
+     * @returns { Promise<Array<EncoderInfo>> } A Promise instance used to return available encoder info.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAvailableEncoder(): Promise<Array<EncoderInfo>>;
+
+    /**
      * Recorder state.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
     readonly state: AVRecorderState;
+
+    /**
+     * Listens for recording audioCapturerChange events.
+     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
      * Listens for recording stateChange events.
@@ -2126,6 +2247,23 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Listens for recording error events.
+     * @param { 'error' } type - Type of the recording error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400107 - Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -2143,6 +2281,14 @@ declare namespace media {
      * @since 9
      */
     off(type: 'error'): void;
+
+    /**
+     * Cancel Listens for recording audioCapturerChange events.
+     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    off(type: 'audioCapturerChange'): void;
   }
 
   /**
@@ -3538,6 +3684,104 @@ declare namespace media {
   }
 
   /**
+   * Provides encoder info.
+   *
+   * @typedef EncoderInfo
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @since 11
+   */
+  interface EncoderInfo {
+    /**
+     * encoder format MIME
+     * @type { CodecMimeType }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    mimeType: CodecMimeType;
+
+    /**
+     * encoder type, audio or video
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    type: string;
+
+    /**
+     * audio or video encoder bitRate range
+     * @type { ?Range }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    bitRate?: Range;
+
+    /**
+     * video encoder frame rate range
+     * @type { ?Range }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    frameRate?: Range;
+
+    /**
+     * video encoder width range
+     * @type { ?Range }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    width?: Range;
+
+    /**
+     * video encoder height range
+     * @type { ?Range }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    height?: Range;
+
+    /**
+     * audio encoder channel range
+     * @type { ?Range }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    channels?: Range;
+
+    /**
+     * audio encoder sample rate collection
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    sampleRate?: Array<number>;
+  }
+  
+  /**
+   * Provides Range with lower and upper limit.
+   *
+   * @typedef Range
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @since 11
+   */
+  interface Range {
+    /**
+     * lower limit of the range
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    min: number;
+  
+    /**
+     * upper limit of the range
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    max: number;
+  }
+
+  /**
    * Provides the media recorder profile definitions.
    *
    * @typedef AVRecorderProfile
@@ -3614,6 +3858,14 @@ declare namespace media {
      * @since 9
      */
     videoFrameRate?: number;
+
+    /**
+     * Whether to record HDR video.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    isHdr?: boolean;
   }
 
   /**
@@ -3701,17 +3953,37 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
    */
+  /**
+   * Enumerates seek mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   enum SeekMode {
     /**
      * seek to the next sync frame of the given timestamp
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
+    /**
+     * seek to the next sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     SEEK_NEXT_SYNC = 0,
     /**
      * seek to the previous sync frame of the given timestamp
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     */
+    /**
+     * seek to the previous sync frame of the given timestamp
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     SEEK_PREV_SYNC = 1,
   }
@@ -3776,6 +4048,13 @@ declare namespace media {
      * @since 8
      */
     AUDIO_FLAC = 'audio/flac',
+
+    /**
+     * H.265 codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 11
+     */
+    VIDEO_HEVC = 'video/hevc',
   }
 }
 export default media;

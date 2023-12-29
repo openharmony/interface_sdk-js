@@ -199,7 +199,7 @@ export default interface DataShareResultSet {
   /**
    * Go to the specified row of the result set.
    *
-   * @param { number } position - Indicates the index of the specified row, which starts from 1.
+   * @param { number } position - Indicates the index of the specified row, which starts from 0.
    * @returns { boolean } Returns true if the result set is moved successfully; returns false otherwise.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi

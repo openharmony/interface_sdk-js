@@ -616,6 +616,7 @@ declare namespace tag {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 11
    */
@@ -627,10 +628,11 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { 'readerMode' } type - The callback type to be unregistered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100203 - The off() can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 11
    */

@@ -850,7 +850,7 @@ declare namespace print {
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    PAGE_ISO_B5 = 3,
+    PAGE_JIS_B5 = 3,
 
     /**
     * C5 page.

@@ -22,7 +22,7 @@ import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
- * @name  effectKit
+ * @namespace effectKit
  * @since 9
  */
 
@@ -31,143 +31,162 @@ declare namespace effectKit {
 
   /**
    * The Filter of FilterChain.
-   * @since 9
+   * @typedef Filter
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 9
    */
   interface Filter {
 
     /**
     * A blur effect is added to the image.
-    * @since 9
+    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @param radius The degree of blur, the value is measured in pixels.
-    * @returns Filters for the current effect have been added.
+    * @since 9
     */
     blur(radius: number): Filter;
 
     /**
     * A Brightness effect is added to the image.
-    * @since 9
+    * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
+    * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @param bright The degree of light and darkness,the value range is 0 to 1.
-    * @returns Filters for the current effect have been added.
+    * @since 9
     */
     brightness(bright: number): Filter;
 
     /**
     * A Grayscale effect is added to the image.
-    * @since 9
+    * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @returns Filters for the current effect have been added.
+    * @since 9
     */
     grayscale(): Filter;
 
     /**
     * Gets the PixelMap where all filter effects have been added to the image.
-    * @since 9
+    * @returns { image.PixelMap } image.PixelMap.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @returns image.PixelMap.
+    * @since 9
+    * @deprecated since 11
+    * @useinstead effectKit.Filter#getEffectPixelMap
     */
     getPixelMap(): image.PixelMap;
+  
+    /**
+    * Gets the PixelMap where all filter effects have been added to the image.
+    * @returns { Promise<image.PixelMap> } - returns the PixelMap generated.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @since 11
+    */
+    getEffectPixelMap(): Promise<image.PixelMap>;
   }
 
   /**
    * The color picker of an image.
-   * @since 9
+   * @typedef ColorPicker
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 9
    */
   interface ColorPicker {
 
     /**
      * get main color of an image
-     * @since 9
+     * @returns { Promise<Color> } returns the MainColor generated.
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 9
      */
     getMainColor(): Promise<Color>;
 
     /**
      * get main color of an image
-     * @since 9
+     * @returns { Color } Main color picked in the image.
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 9
      */
     getMainColorSync(): Color;
 
     /**
      * Get largest proportion color of an image
-     * @since 10
+     * @returns { Color } Largest proportion color picked in the image.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @returns {Color} Largest proportion color picked in the image.
+     * @since 10
      */
     getLargestProportionColor(): Color;
 
     /**
      * Get highest saturation color of an image
-     * @since 10
+     * @returns { Color } Highest saturation color picked in the image.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @returns {Color} Highest saturation color picked in the image.
+     * @since 10
      */
     getHighestSaturationColor(): Color;
 
     /**
      * Get average color of an image
-     * @since 10
+     * @returns { Color } Average color calculated in the image.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @returns {Color} Average color calculated in the image.
+     * @since 10
      */
     getAverageColor(): Color;
 
     /**
      * Determine whether the color is black or white or gray
-     * @since 10
+     * @param { number } color - The 32 bit ARGB color to discriminate.
+     * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @param {color} number The 32 bit ARGB color to discriminate.
-     * @returns {boolean} Result of judging black, white and gray.
+     * @since 10
      */
     isBlackOrWhiteOrGrayColor(color: number): boolean;
   }
 
   /**
    * The color param.
-   * @since 9
+   * @typedef Color
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 9
    */
   interface Color {
 
     /**
      * Red
-     * @since 9
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 9
      */
     red: number;
 
     /**
      * Green
-     * @since 9
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 9
      */
     green: number;
 
     /**
      * Blue
-     * @since 9
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 9
      */
     blue: number;
 
     /**
      * Alpha
-     * @since 9
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 9
      */
     alpha: number;
   }
 
   /**
    * Create a FilterChain to add multiple effects to an image.
-   * @since 9
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @returns { Filter } Returns the head node of FilterChain.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @param image.PixelMap.
-   * @returns Returns the head node of FilterChain.
+   * @since 9
    */
   function createEffect(source: image.PixelMap): Filter;
 

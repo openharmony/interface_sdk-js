@@ -25,6 +25,12 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace wifiManager
  * @since 9
  */
+/**
+ * Provides methods to operate or manage Wi-Fi.
+ * @namespace wifiManager
+ * @atomicservice
+ * @since 11
+ */
 declare namespace wifiManager {
   /**
    * Enable Wi-Fi.

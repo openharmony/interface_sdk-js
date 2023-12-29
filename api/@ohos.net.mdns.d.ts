@@ -272,12 +272,12 @@ declare namespace mdns {
     /**
      * Enables listening for discoveryStart events of mDNS services.
      * @param { 'discoveryStart' } type - Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
      * @since 11
      */
-    on(type: 'discoveryStart', callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    on(type: 'discoveryStart', callback: Callback<DiscoveryEventInfo>): void;
 
     /**
      * Cancels listening for discoveryStart events of mDNS services.
@@ -289,12 +289,12 @@ declare namespace mdns {
     /**
      * Cancels listening for discoveryStart events of mDNS services.
      * @param { 'discoveryStart' } type - Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
      * @since 11
      */
-    off(type: 'discoveryStart', callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    off(type: 'discoveryStart', callback?: Callback<DiscoveryEventInfo>): void;
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
@@ -306,12 +306,12 @@ declare namespace mdns {
     /**
      * Enables listening for discoveryStop events of mDNS services.
      * @param { 'discoveryStop' } type - Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
      * @since 11
      */
-    on(type: 'discoveryStop', callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    on(type: 'discoveryStop', callback: Callback<DiscoveryEventInfo>): void;
 
     /**
      * Cancels listening for discoveryStop events of mDNS services.
@@ -323,12 +323,12 @@ declare namespace mdns {
     /**
      * Cancels listening for discoveryStop events of mDNS services.
      * @param { 'discoveryStop' } type - Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @param { Callback<DiscoveryEventInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
      * @since 11
      */
-    off(type: 'discoveryStop', callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    off(type: 'discoveryStop', callback?: Callback<DiscoveryEventInfo>): void;
 
     /**
      * Enables listening for serviceFound events of mDNS services.
@@ -554,6 +554,33 @@ declare namespace mdns {
      * @since 11
      */
     value: Array<number>;
+  }
+
+  /**
+   * Defines the discovery events information of mDNS services.
+   * @interface DiscoveryEventInfo
+   * @syscap SystemCapability.Communication.NetManager.MDNS
+   * @atomicservice
+   * @since 11
+   */
+  export interface DiscoveryEventInfo {
+    /**
+     * Information about the mDNS service.
+     * @type {LocalServiceInfo}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @atomicservice
+     * @since 11
+     */
+    serviceInfo: LocalServiceInfo;
+
+    /**
+     * The mDNS error information.
+     * @type {?MdnsError}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @atomicservice
+     * @since 11
+     */
+    errorCode?: MdnsError;
   }
 
   /**

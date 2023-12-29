@@ -21,6 +21,7 @@ import { MethodInfo, PropertyInfo, ParamInfo } from '../../../typedef/parser/Api
 import { PunctuationMark } from '../../../utils/Constant';
 import { SystemCapability } from '../config/syscapConfigFile.json';
 import { module } from '../config/permissionConfigFile.json';
+import ts from 'typescript';
 
 export class TagValueCheck {
   /**
@@ -193,7 +194,14 @@ export class TagValueCheck {
       errorInfo: '',
     };
     const returnsTagValue: string = tag.type;
-    const returnsApiValue: string[] = (singleApi as MethodInfo).getReturnValue();
+
+    let returnsApiValue: string[] = [];
+    const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
+    if (spacealCase.length > 0) {
+      returnsApiValue = spacealCase;
+    } else {
+      returnsApiValue = (singleApi as MethodInfo).getReturnValue();
+    }
     if (returnsApiValue.length === 0) {
       returnsValueCheckResult.state = false;
       returnsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, ['returns']);
@@ -247,7 +255,14 @@ export class TagValueCheck {
       return typeValueCheckResult;
     }
     let typeTagValue: string = tag.type.replace(/\s/g, '');
-    let typeApiValue: string[] = (singleApi as PropertyInfo).type;
+    let typeApiValue: string[] = [];
+    const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as PropertyInfo).typeKind);
+    if (spacealCase.length > 0) {
+      typeApiValue = spacealCase;
+    } else {
+      typeApiValue = (singleApi as PropertyInfo).type;
+    }
+
     let typeApiUnionValue: string = typeApiValue.join('|');
     const isOptional: boolean = !(singleApi as PropertyInfo).getIsRequired();
     if (isOptional && typeApiValue.length === 1) {
@@ -255,7 +270,7 @@ export class TagValueCheck {
     } else if (isOptional && typeApiValue.length > 1) {
       typeApiUnionValue = '?(' + typeApiUnionValue + ')';
     }
-    if (typeTagValue !== typeApiUnionValue) {
+    if (typeTagValue.replace(/\s/g, '') !== typeApiUnionValue.replace(/\s/g, '')) {
       typeValueCheckResult.state = false;
       typeValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPE;
     }
@@ -393,7 +408,14 @@ export class TagValueCheck {
     const paramTagName: string = tag.name;
     const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
     const paramApiName: string = paramApiInfos[paramIndex]?.getApiName();
-    const paramApiType: string[] = paramApiInfos[paramIndex]?.getType();
+    let paramApiType: string[] = [];
+    const spacealCase: string[] = paramApiInfos[paramIndex] ?
+      CommonFunctions.judgeSpecialCase(paramApiInfos[paramIndex].paramType) : [];
+    if (spacealCase.length > 0) {
+      paramApiType = spacealCase;
+    } else {
+      paramApiType = paramApiInfos[paramIndex]?.getType();
+    }
 
     if (paramTagName !== paramApiName) {
       paramValueCheckResult.state = false;
