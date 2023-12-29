@@ -19,11 +19,11 @@ import { GesturePath } from '@ohos.accessibility.GesturePath';
 import { GesturePoint } from '@ohos.accessibility.GesturePoint';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
-  ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType
+  ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent
 } from '@ohos.application.AccessibilityExtensionAbility';
 
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
-  GesturePoint, Rect, WindowType, accessibility, config
+  GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent
 };
