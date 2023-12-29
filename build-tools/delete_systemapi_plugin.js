@@ -202,11 +202,12 @@ function processFileNameWithoutExt(filePath) {
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
-    if (/\.json/.test(url) || /index\-full\.d\.ts/.test(url) || /common\.d\.ts/.test(url)) {
+    const apiBaseName = path.basename(url);
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || apiBaseName === 'common.d.ts') {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);
-    } else if (/\.d\.ts/.test(url) || /\.d\.ets/.test(url)) {
+    } else if (/\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName)) {
       // dts文件处理
       let content = fs.readFileSync(url, 'utf-8'); // 文件内容
       const fileName = processFileName(url);
