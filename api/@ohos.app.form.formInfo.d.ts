@@ -131,6 +131,16 @@ declare namespace formInfo {
     displayName: string;
 
     /**
+     * Obtains the displayName id of this form.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 11
+     */
+    displayNameId: number;
+
+    /**
      * Obtains the description of this form.
      *
      * @type { string }
