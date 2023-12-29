@@ -1303,6 +1303,7 @@ declare namespace socket {
     /**
      * Gets other attributes of the LocalSocket connection.
      * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
