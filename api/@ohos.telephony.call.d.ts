@@ -3225,6 +3225,7 @@ declare namespace call {
    *
    * @interface VoipCallAttribute
    * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
    * @since 11
    */
   export interface VoipCallAttribute {
@@ -3233,6 +3234,7 @@ declare namespace call {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     voipCallId: string;
@@ -3242,6 +3244,7 @@ declare namespace call {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     userName: string;
@@ -3251,6 +3254,7 @@ declare namespace call {
      *
      * @type { image.PixelMap }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     userProfile: image.PixelMap;
@@ -3260,6 +3264,7 @@ declare namespace call {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     extensionId: string;
@@ -3269,6 +3274,7 @@ declare namespace call {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     abilityName: string;
@@ -3278,6 +3284,7 @@ declare namespace call {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 11
      */
     voipBundleName: string;
