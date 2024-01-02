@@ -262,12 +262,27 @@ declare namespace taskpool {
      *
      * @param { ArrayBuffer[] } [transfer] - transfer Transfer list of this task, empty array is default.
      * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200029 - Can not set an arraybuffer to both transferList and cloneList.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
     setTransferList(transfer?: ArrayBuffer[]): void;
+
+    /**
+     * Set clone list for this task.
+     *
+     * @param { Object[] | ArrayBuffer[] } cloneList - Sendable objects or arrayBuffer objects in this list
+     * will be transmitted to worker thread in a copy way.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200029 - Can not set an arraybuffer to both transferList and cloneList.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    setCloneList(cloneList: Object[] | ArrayBuffer[]): void;
 
     /**
      * Register a callback for this task to receive and handle data from the taskpool worker thread.
