@@ -2097,7 +2097,7 @@ declare namespace avSession {
     TAG_AUDIO_VIVID = 1,
   }
 
-  /*
+  /**
    * The play list information definition.
    * @interface AVQueueInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2151,7 +2151,7 @@ declare namespace avSession {
     lastPlayedTime?: number;
   }
 
-  /*
+  /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2659,7 +2659,7 @@ declare namespace avSession {
     updateTime: number;
   }
 
-  /*
+  /**
    * The metadata of the current call.
    * @interface CallMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
