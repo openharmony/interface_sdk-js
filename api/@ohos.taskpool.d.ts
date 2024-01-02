@@ -185,7 +185,7 @@ declare namespace taskpool {
      * Create a Task instance.
      *
      * @param { Function } func - func func Concurrent function to execute in taskpool.
-     * @param { unknown[] } args - args args The concurrent function arguments.
+     * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
@@ -193,7 +193,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    constructor(func: Function, ...args: unknown[]);
+    constructor(func: Function, ...args: Object[]);
 
     /**
      * Create a Task instance.
@@ -347,13 +347,13 @@ declare namespace taskpool {
     /**
      * The concurrent function arguments.
      *
-     * @type { ?unknown[] }
+     * @type { ?Object[] }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    arguments?: unknown[];
+    arguments?: Object[];
 
     /**
      * Task name.
@@ -462,7 +462,7 @@ declare namespace taskpool {
      * Add a Concurrent function into task group.
      *
      * @param { Function } func - func func Concurrent function to add in task group.
-     * @param { unknown[] } args - args args The concurrent function arguments.
+     * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
@@ -470,7 +470,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    addTask(func: Function, ...args: unknown[]): void;
+    addTask(func: Function, ...args: Object[]): void;
 
     /**
      * Add a Task into TaskGroup.
@@ -854,8 +854,8 @@ declare namespace taskpool {
    * Execute a concurrent function.
    *
    * @param { Function } func - func func Concurrent function want to execute.
-   * @param { unknown[] } args - args args The concurrent function arguments.
-   * @returns { Promise<unknown> }
+   * @param { Object[] } args - args args The concurrent function arguments.
+   * @returns { Promise<Object> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -865,7 +865,7 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
-  function execute(func: Function, ...args: unknown[]): Promise<unknown>;
+  function execute(func: Function, ...args: Object[]): Promise<Object>;
 
   /**
    * Execute a concurrent task.
@@ -899,7 +899,7 @@ declare namespace taskpool {
    *
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
-   * @returns { Promise<unknown> }
+   * @returns { Promise<Object> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -909,7 +909,7 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
-  function execute(task: Task, priority?: Priority): Promise<unknown>;
+  function execute(task: Task, priority?: Priority): Promise<Object>;
 
   /**
    * Execute a concurrent task group.
@@ -928,7 +928,7 @@ declare namespace taskpool {
    *
    * @param { TaskGroup } group - group group The task group want to execute.
    * @param { Priority } [priority] - priority priority Task group priority, MEDIUM is default.
-   * @returns { Promise<unknown[]> }
+   * @returns { Promise<Object[]> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
@@ -936,7 +936,7 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
-  function execute(group: TaskGroup, priority?: Priority): Promise<unknown[]>;
+  function execute(group: TaskGroup, priority?: Priority): Promise<Object[]>;
 
   /**
    * Execute a concurrent task after the specified time.
