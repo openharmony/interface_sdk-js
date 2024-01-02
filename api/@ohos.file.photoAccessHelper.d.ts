@@ -61,6 +61,14 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
+  /**
+   * Enumeration of different types of photos
+   *
+   * @enum { number } PhotoType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
   enum PhotoType {
     /**
      * Image asset
@@ -68,12 +76,26 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Image asset
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     IMAGE = 1,
     /**
      * Video asset
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Video asset
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     VIDEO
   }
@@ -1058,6 +1080,14 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
+  /**
+   * Options to create a photo asset
+   *
+   * @interface CreateOptions
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
   interface CreateOptions {
     /**
      * Title of the asset
@@ -1065,6 +1095,14 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Title of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     title?: string;
   }
@@ -1674,6 +1712,14 @@ declare namespace photoAccessHelper {
    * @interface PhotoAccessHelper
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
+   */
+  /**
+   * Helper functions to access photos and albums.
+   *
+   * @interface PhotoAccessHelper
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
    */
   interface PhotoAccessHelper {
     /**
