@@ -521,6 +521,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Length } value - The line height of the span.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
