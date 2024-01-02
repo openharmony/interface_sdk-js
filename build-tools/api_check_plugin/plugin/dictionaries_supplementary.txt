@@ -648,6 +648,7 @@ rscp
 rsrp
 rtd
 rtt
+rtcp
 ruim
 rwt
 s5
