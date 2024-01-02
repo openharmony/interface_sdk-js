@@ -115,6 +115,22 @@ declare namespace access {
   function factoryReset(): Promise<void>;
 
   /**
+   * Obtaining the MAC address of the local device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_LOCAL_MAC
+   * @returns { string } The local MAC address. For example, "11:22:33:AA:BB:FF".
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 11
+   */
+  function getLocalAddress(): string;
+
+  /**
    * Subscribe the event reported when the Bluetooth state changes.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
