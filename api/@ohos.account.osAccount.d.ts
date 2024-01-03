@@ -18,8 +18,8 @@
  * @kit Basic Services Kit
  */
 
-import distributedAccount from './@ohos.account.distributedAccount';
-import { AsyncCallback, Callback } from './@ohos.base';
+import type distributedAccount from './@ohos.account.distributedAccount';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to manage os accounts.
@@ -2338,12 +2338,12 @@ declare namespace osAccount {
     /**
      * Indicates the business parameters.
      *
-     * @type { object }
+     * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    businessParams: { [key: string]: object };
+    businessParams: Record<string, Object>;
 
     /**
      * Indicates caller UID.
