@@ -31,7 +31,7 @@ import * as _ServiceExtensionContext from './application/ServiceExtensionContext
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
-import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
+import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
