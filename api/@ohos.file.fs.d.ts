@@ -7216,11 +7216,15 @@ declare interface ReaderIterator {
  */
 export interface Filter {
   /**
+   * The suffix of the file.
+   * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The suffix of the file.
+   * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
@@ -7229,11 +7233,15 @@ export interface Filter {
    */
   suffix?: Array<string>;
   /**
+   * The display name of the file.
+   * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The display name of the file.
+   * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
@@ -7242,11 +7250,15 @@ export interface Filter {
    */
   displayName?: Array<string>;
   /**
+   * The mimetype of the file.
+   * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The mimetype of the file.
+   * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
@@ -7255,11 +7267,15 @@ export interface Filter {
    */
   mimeType?: Array<string>;
   /**
+   * The exceeding size of the file.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The exceeding size of the file.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
@@ -7268,11 +7284,15 @@ export interface Filter {
    */
   fileSizeOver?: number;
   /**
+   * The last modification time of the file.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The last modification time of the file.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
@@ -7281,11 +7301,15 @@ export interface Filter {
    */
   lastModifiedAfter?: number;
   /**
+   * Whether to exclude media files.
+   * 
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * Whether to exclude media files.
+   * 
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
@@ -7310,11 +7334,15 @@ export interface Filter {
  */
 export interface ConflictFiles {
   /**
+   * The path of the source file.
+   * 
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The path of the source file.
+   * 
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7322,11 +7350,15 @@ export interface ConflictFiles {
   srcFile: string;
 
   /**
+   * The path of the source file.
+   * 
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   /**
+   * The path of the destination file.
+   * 
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7343,6 +7375,8 @@ export interface ConflictFiles {
  */
 export interface Options {
   /**
+   * The encoding style.
+   * 
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7359,12 +7393,16 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
+   * The offset when reading the file.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
   offset?: number;
   /**
+   * The length for reading.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7381,6 +7419,8 @@ export interface ReadOptions {
  */
 export interface ReadTextOptions extends ReadOptions {
   /**
+   * The encoding style when reading text.
+   * 
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7397,12 +7437,16 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
+   * The offset when writing the file.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
   offset?: number;
   /**
+   * The length for writing.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7419,6 +7463,8 @@ export interface WriteOptions extends Options {
  */
 export interface ListFileOptions {
   /**
+   * Whether to recursively list files.
+   * 
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7426,6 +7472,8 @@ export interface ListFileOptions {
   recursion?: boolean;
 
   /**
+   * The number of files listed.
+   * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
@@ -7433,6 +7481,8 @@ export interface ListFileOptions {
   listNum?: number;
 
   /**
+   * The filter of listing files.
+   * 
    * @type { ?Filter }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
