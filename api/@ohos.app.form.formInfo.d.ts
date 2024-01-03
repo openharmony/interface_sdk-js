@@ -131,7 +131,7 @@ declare namespace formInfo {
     displayName: string;
 
     /**
-     * Obtains the displayName id of this form.
+     * Obtains the displayName resource id of this form.
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
