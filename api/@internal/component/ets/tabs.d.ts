@@ -228,13 +228,22 @@ declare enum LayoutStyle {
 } 
 
 /**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -851,6 +860,15 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the width of the bar graph is set.
+   * Notice: barWidth only supports Number type.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Called when the width of the bar graph is set.
    * Notice: barWidth only supports Number type on 7, supports Length type since 8.
    *
    * @param { Length } value
@@ -881,6 +899,15 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   barWidth(value: Length): TabsAttribute;
 
+  /**
+   * Called when the height of the bar graph is set.
+   * Notice: barHeight only supports Number type.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
   /**
    * Called when the height of the bar graph is set.
    * Notice: barHeight only supports Number type on 7, supports Length type since 8.
