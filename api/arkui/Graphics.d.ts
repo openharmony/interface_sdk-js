@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import drawing from '../@ohos.graphics.drawing';
+
 /**
  * Size info.
  *
@@ -61,6 +63,16 @@ export class DrawContext {
    * @since 11
    */
   get size(): Size;
+
+  /**
+   * Get canvas of the DrawContext.
+   *
+   * @returns { drawing.Canvas } The canvas of the DrawContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  get canvas(): drawing.Canvas;
 }
 
 /**
