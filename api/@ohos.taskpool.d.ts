@@ -198,7 +198,7 @@ declare namespace taskpool {
     /**
      * Create a Task instance.
      *
-     * @param { String } name - name name The name of Task.
+     * @param { string } name - name name The name of Task.
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
@@ -208,7 +208,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    constructor(name: String, func: Function, ...args: Object[]);
+    constructor(name: string, func: Function, ...args: Object[]);
 
     /**
      * Check current running Task is canceled or not.
@@ -363,7 +363,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    name: String;
+    name: string;
 
     /**
      * Total duration of task execution.
@@ -438,14 +438,14 @@ declare namespace taskpool {
     /**
      * Create a TaskGroup instance.
      *
-     * @param { String } name - name name The name of taskGroup.
+     * @param { string } name - name name The name of taskGroup.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    constructor(name: String);
+    constructor(name: string);
 
     /**
      * Add a Concurrent function into task group.
@@ -503,7 +503,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    name: String;
+    name: string;
   }
 
   /**
