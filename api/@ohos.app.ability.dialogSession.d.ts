@@ -33,7 +33,7 @@ import type Want from './@ohos.app.ability.Want';
 declare namespace dialogSession {
 
   /**
-   * Dialog ability info
+   * Indicates the ability information displayed in the picker dialog, including bundleName, moduleName, and abilityName.
    *
    * @typedef DialogAbilityInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
