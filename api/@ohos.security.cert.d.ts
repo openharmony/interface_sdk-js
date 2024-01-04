@@ -19,7 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-import cryptoFramework from '@ohos.security.cryptoFramework';
+import cryptoFramework from './@ohos.security.cryptoFramework';
 
 /**
  * Provides a series of capabilities related to certificates,
