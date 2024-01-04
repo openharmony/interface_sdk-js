@@ -23,23 +23,33 @@ import type { Callback } from './@ohos.base';
 /**
  * Declares a namespace that provides APIs to report the device status.
  *
- * @since 9
+ * @namespace stationary
  * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+ * @since 9
  */
 declare namespace stationary {
   /**
    * Declares a response interface to receive the device status.
    *
+   * @interface ActivityResponse
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   interface ActivityResponse {
+    /**
+     * Declares a response interface to receive the device status.
+     *
+     * @type { ActivityState }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+     * @since 9
+     */
     state: ActivityState;
   }
 
   /**
    * Declares the device status type.
    *
+   * @constant {string}
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
@@ -48,40 +58,57 @@ declare namespace stationary {
   /**
    * Enumerates the device status events.
    *
+   * @enum {number}
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   enum ActivityEvent {
     /**
      * Event indicating entering device status.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+     * @since 9
      */
     ENTER = 1,
 
     /**
      * Event indicating exiting device status.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+     * @since 9
      */
     EXIT = 2,
 
     /**
      * Event indicating entering and exiting device status.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+     * @since 9
      */
     ENTER_EXIT = 3
   }
 
   /**
-   * Declares a response interface to receive the device status.
+   * Enumerates the device status state.
    *
+   * @enum {number}
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   enum ActivityState {
     /**
      * Entering device status.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+     * @since 9
      */
     ENTER = 1,
 
     /**
      * Exiting device status.
+     *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+     * @since 9
      */
     EXIT = 2
   }
