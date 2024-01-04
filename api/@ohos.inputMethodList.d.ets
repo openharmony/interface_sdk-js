@@ -53,9 +53,8 @@ export interface PatternOptions {
 }
 
 /**
- * Define pattern of keyboard.
+ * Define pattern of keyboard. The caller must be the current inputmethod.
  * 
- * @permission ohos.permission.CONNECT_IME_ABILITY
  * @interface Pattern
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11
@@ -80,9 +79,8 @@ export interface Pattern {
 }
 
 /**
- * Declare input method list dialog. If the caller is an input method, it must be the current inputmethod.
+ * Declare input method list dialog. The caller must be the current inputmethod.
  *
- * @permission ohos.permission.CONNECT_IME_ABILITY
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11
  */
