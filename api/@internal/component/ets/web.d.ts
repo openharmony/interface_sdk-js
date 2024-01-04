@@ -2090,7 +2090,7 @@ declare enum ContextMenuEditStateFlags {
  * @atomicservice
  * @since 11
  */
-declare enum NavigationType {
+declare enum WebNavigationType {
   /**
    * Unknown type.
    *
@@ -3702,12 +3702,12 @@ declare interface LoadCommittedDetails {
   /**
    * The type of the navigation.
    *
-   * @type { NavigationType }
+   * @type { WebNavigationType }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
-  navigationType: NavigationType;
+  navigationType: WebNavigationType;
 
   /**
    * The url to navigate.
