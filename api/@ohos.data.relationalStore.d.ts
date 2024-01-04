@@ -202,19 +202,22 @@ declare namespace relationalStore {
   /**
    * Values in buckets are stored in key-value pairs
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
-   * Values in buckets are stored in key-value pairs
+   * Values in buckets are stored in key-value pairs, move Uint8Array add to ValueType
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
    */
   /**
-   * Values in buckets are stored in key-value pairs
+   * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 11
@@ -811,14 +814,12 @@ declare namespace relationalStore {
     /**
      * Indicates the reference fields.
      *
-     * @type { object }
+     * @type { Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11
      */
-    refFields: {
-      [src: string]: string;
-    };
+    refFields: Record<string, string>
   }
 
 
