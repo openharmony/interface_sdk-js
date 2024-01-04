@@ -2771,7 +2771,7 @@ declare namespace socket {
      */
     /**
      * TLS protocol version
-     * @type {?Protocol | Array<Protocol>}
+     * @type {?(Protocol | Array<Protocol>)}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
