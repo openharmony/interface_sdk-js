@@ -239,11 +239,11 @@ declare namespace print {
 
     /**
     * Range size to be printed.
-    * @type { ?PrinterRange }
+    * @type { ?PrintPageRange }
     * @syscap SystemCapability.Print.PrintFramework
     * @since 11
     */
-    pageRange?: PrinterRange;
+    pageRange?: PrintPageRange;
 
     /**
     * Page size.
@@ -276,6 +276,38 @@ declare namespace print {
     * @since 11
     */
     duplexMode?: PrintDuplexMode;
+  }
+
+  /**
+   * defines print page range.
+   * @typedef PrintPageRange
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 11
+   */
+  interface PrintPageRange {
+    /**
+    * Start page of sequence.
+    * @type { ?number }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @since 11
+    */
+    startPage?: number;
+
+    /**
+    * End page of sequence.
+    * @type { ?number }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @since 11
+    */
+    endPage?: number;
+
+    /**
+    * Discrete page of sequence.
+    * @type { ?Array<number> }
+    * @syscap SystemCapability.Print.PrintFramework
+    * @since 11
+    */
+    pages?: Array<number>;
   }
 
   /**
@@ -327,14 +359,16 @@ declare namespace print {
    * defines print range.
    * @typedef PrinterRange
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 11
+   * @systemapi Hide this for inner system use.
+   * @since 10
    */
   interface PrinterRange {
     /**
     * Start page of sequence.
     * @type { ?number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
+    * @systemapi
+    * @since 10
     */
     startPage?: number;
 
@@ -342,7 +376,8 @@ declare namespace print {
     * End page of sequence.
     * @type { ?number }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
+    * @systemapi
+    * @since 10
     */
     endPage?: number;
 
@@ -350,7 +385,8 @@ declare namespace print {
     * Discrete page of sequence.
     * @type { ?Array<number> }
     * @syscap SystemCapability.Print.PrintFramework
-    * @since 11
+    * @systemapi
+    * @since 10
     */
     pages?: Array<number>;
   }
