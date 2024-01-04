@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 
-import type { AsyncCallback } from './@ohos.base';
 import type BaseContext from './application/BaseContext';
 
 /**
@@ -49,18 +48,6 @@ declare namespace PiPWindow {
    * @since 11
    */
   function create(config: PiPConfiguration): Promise<PiPController>;
-
-  /**
-   * Create picture-in-picture controller
-   *
-   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation
-   * @param { AsyncCallback<PiPController> } callback - Callback used to return the PiPController created
-   * @throws { BusinessError } 401 - Params error, invalid or illegal parameter in PiPConfiguration
-   * @throws { BusinessError } 801 - Capability not supported
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 11
-   */
-  function create(config: PiPConfiguration, callback: AsyncCallback<PiPController>): void;
 
   /**
    * PiPConfiguration
@@ -275,18 +262,6 @@ declare namespace PiPWindow {
     startPiP(): Promise<void>;
 
     /**
-     * Start picture-in-picture
-     * @param { AsyncCallback<void> } callback - Callback after PiP start finish
-     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
-     * @throws { BusinessError } 1300013 - Create PiP window failed.
-     * @throws { BusinessError } 1300014 - Error when load PiP window content or show PiP window
-     * @throws { BusinessError } 1300015 - If window has created
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    startPiP(callback: AsyncCallback<void>): void;
-
-    /**
      * Stop picture-in-picture.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300011 - Stop PiP window failed.
@@ -296,17 +271,6 @@ declare namespace PiPWindow {
      * @since 11
      */
     stopPiP(): Promise<void>;
-
-    /**
-     * Stop picture-in-picture.
-     * @param { AsyncCallback<void> } callback - Callback after PiP stop finish
-     * @throws { BusinessError } 1300011 - Stop PiP window failed.
-     * @throws { BusinessError } 1300012 - If PiP window state is abnormal.
-     * @throws { BusinessError } 1300015 - If window is stopping
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    stopPiP(callback: AsyncCallback<void>): void;
 
     /**
      * Set if auto start picture-in-picture when back home
