@@ -462,6 +462,13 @@ export interface DistributedOptions {
  * @systemapi
  * @since 11
  */
+/**
+ * Describes notification filter.
+ *
+ * @typedef NotificationFilter
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
 export interface NotificationFilter {
   /**
    * BundleOption of the notification.
@@ -500,6 +507,13 @@ export interface NotificationFilter {
  * @typedef NotificationCheckRequest
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
+ * @since 11
+ */
+/**
+ * Describes notification check information.
+ *
+ * @typedef NotificationCheckRequest
+ * @syscap SystemCapability.Notification.Notification
  * @since 11
  */
 export interface NotificationCheckRequest {
