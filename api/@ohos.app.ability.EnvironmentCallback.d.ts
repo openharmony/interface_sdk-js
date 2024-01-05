@@ -36,6 +36,15 @@ export default class EnvironmentCallback {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Called when the system configuration is updated.
+   *
+   * @param { Configuration } config - Indicates the updated configuration.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   onConfigurationUpdated(config: Configuration): void;
 
   /**
