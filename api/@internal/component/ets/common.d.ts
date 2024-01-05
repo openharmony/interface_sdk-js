@@ -15399,7 +15399,7 @@ declare const Common: CommonInterface;
  * Defines the CustomBuilder Type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 8
  */
 /**
  * Defines the CustomBuilder Type.
