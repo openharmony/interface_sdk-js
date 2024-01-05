@@ -15,5 +15,6 @@
 
 import effectKit from '@ohos.effectKit';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
+import displaySync from '@ohos.graphics.displaySync';
 
-export { colorSpaceManager, effectKit };
+export { displaySync, colorSpaceManager, effectKit };
