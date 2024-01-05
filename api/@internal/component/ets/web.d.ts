@@ -3786,11 +3786,11 @@ declare interface NativeEmbedInfo {
   /**
    * The embed id.
    *
-   * @type { ?number }
+   * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
    */
-  id?: number;
+  id?: string;
   /**
    * Only when enableEmbedMode is true and type is marked as native/xxx will be recognized as a same layer component.
    *
