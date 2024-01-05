@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 import type _Context from './application/Context';

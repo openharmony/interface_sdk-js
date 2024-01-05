@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type window from './@ohos.window';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 import type InsightIntentContext from './@ohos.app.ability.InsightIntentContext';

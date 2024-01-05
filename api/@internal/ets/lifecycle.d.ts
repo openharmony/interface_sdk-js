@@ -87,7 +87,23 @@ export declare interface LifecycleForm {
    * @FAModelOnly
    * @since 8
    */
-  onVisibilityChange?(newStatus: { [key: string]: number }): void;
+  /**
+   * Called when the form provider receives form events from the system.
+   *
+   * @param { Record<string, number> } newStatus - Indicates the form events occurred. The key in the {@code Map}
+   *                                               object indicates form ID,and the value indicates the event type,
+   *                                               which can be either
+   *                                               {@link formInfo#VisibilityType#FORM_VISIBLE} or
+   *                                               {@link formInfo#VisibilityType#FORM_INVISIBLE}.
+   *                                               {@link formInfo#VisibilityType#FORM_VISIBLE}
+   *                                               means that the form becomes visible, and
+   *                                               {@link formInfo#VisibilityType#FORM_INVISIBLE}
+   *                                               means that the form becomes invisible.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 11
+   */
+  onVisibilityChange?(newStatus: Record<string, number>): void;
 
   /**
    * Called when a specified message event defined by the form provider is triggered. This method is valid only for
@@ -133,13 +149,26 @@ export declare interface LifecycleForm {
    * Called when the system shares the form.
    *
    * @param { string } formId - Indicates the ID of the deleted form.
-   * @returns { { [key: string]: any } } Returns the wantParams object.
+   * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @systemapi
    * @FAModelOnly
    * @since 9
    */
   onShare?(formId: string): { [key: string]: any };
+
+  /**
+   * Called when the system shares the form.
+   * The ability of this function is same as onShare. If both are set, this function will be called.
+   *
+   * @param { string } formId - Indicates the ID of the deleted form.
+   * @returns { Record<string, Object> } Returns the wantParams object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @systemapi
+   * @FAModelOnly
+   * @since 11
+   */
+  onShareForm?(formId: string): Record<string, Object>;
 }
 
 /**

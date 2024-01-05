@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
@@ -1166,23 +1171,6 @@ declare namespace bundleManager {
      * @since 11
      */
     INTENT_PROFILE = 1
-  }
-
-  /**
-   * Used to query the specified value in applicationReservedFlag.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 11
-   */
-  export enum ApplicationReservedFlag {
-    /**
-     * Used to query whether the application is encrypted.
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 11
-     */
-    ENCRYPTED_APPLICATION = 0x00000001,
   }
 
   /**
@@ -2682,7 +2670,7 @@ declare namespace bundleManager {
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
   /**
-   * Verify abc.
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
    * @permission ohos.permission.RUN_DYN_CODE
    * @param { Array<string> } abcPaths - The abc path.
@@ -2697,7 +2685,7 @@ declare namespace bundleManager {
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Verify abc.
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
    * @permission ohos.permission.RUN_DYN_CODE
    * @param { Array<string> } abcPaths - The abc path.

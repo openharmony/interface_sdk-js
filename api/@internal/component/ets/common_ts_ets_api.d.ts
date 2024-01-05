@@ -161,26 +161,30 @@ declare class AppStorage {
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
+   * 
+   * Like @see prop(), will create and initialize a new source property in AppStorage if missing
+   * Same as see LocalStorage.setAndProp()
+   * 
    * @param { string } propName - name of source property in AppStorage
    * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in AppStorage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * Like @see prop(), will create and initialize a new source property in AppStorage if missing
-   * Same as see LocalStorage.setAndProp()
    * @crossplatform
    * @since 10
    */
   /**
+   * 
+   * Like @see prop(), will create and initialize a new source property in AppStorage if missing
+   * Same as see LocalStorage.setAndProp()
+   * 
    * @param { string } propName - name of source property in AppStorage
    * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in AppStorage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * Like @see prop(), will create and initialize a new source property in AppStorage if missing
-   * Same as see LocalStorage.setAndProp()
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -314,7 +318,7 @@ declare class AppStorage {
   /**
    * Set value of given property, if it exists, see set() .
    * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
-   * Do nothing and return false if newValue is undefined or null
+   * Do nothing if newValue is undefined or null
    * see LocalStorage.setOrCreate()
    *
    * @param { string } propName
@@ -326,7 +330,7 @@ declare class AppStorage {
   /**
    * Set value of given property, if it exists, see set() .
    * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
-   * Do nothing and return false if newValue is undefined or null
+   * Do nothing if newValue is undefined or null
    * see LocalStorage.setOrCreate()
    *
    * @param { string } propName

@@ -414,6 +414,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   placeholderFont(value: Font): TextAreaAttribute;
 
   /**
+   * Called when the type of soft keyboard input button is set.
+   *
+   * @param { EnterKeyType } value: the type of soft keyboard
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enterKeyType(value: EnterKeyType): TextAreaAttribute;
+
+  /**
    * Called when the alignment of the contents of a multiline text box is set.
    *
    * @param { TextAlign } value
@@ -647,6 +658,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
+
+  /**
+   * Called when submitted.
+   *
+   * @param { function } callback
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
 
   /**
    * Called when the input changes.

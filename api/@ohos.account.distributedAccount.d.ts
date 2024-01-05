@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * This module provides the capability to manage distributed accounts.

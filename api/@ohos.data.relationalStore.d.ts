@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
@@ -207,7 +212,14 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; };
+  /**
+   * Values in buckets are stored in key-value pairs
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 11
+   */
+  type ValuesBucket = Record<string, ValueType>;
 
   /**
    * The type of the priority key can be number or string
@@ -515,9 +527,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    details: {
-      [table: string]: TableDetails;
-    };
+    /**
+     * The statistic details of the tables.
+     *
+     * @type { Record<string, TableDetails> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    details: Record<string, TableDetails>;
   }
   /**
    * Describes the {@code RdbStore} type.

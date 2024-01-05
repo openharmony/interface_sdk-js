@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit IME Kit
+ */
+
+/**
  * Panel information.
  *
  * @typedef PanelInfo

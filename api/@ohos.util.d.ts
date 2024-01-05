@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
  *
@@ -29,6 +34,16 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
+ */
+/**
+ * TextDecoder support full encoding in ICU data utf-8 utf-16 iso8859 must support in all device, TextEncoder takes a
+ * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
+ *
+ * @namespace util
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare namespace util {
   /**
@@ -207,7 +222,7 @@ declare namespace util {
   /**
    * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
    *
-   * @param { boolean } entropyCache - Whether to generate the UUID with using the cache. Default: true.
+   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
    * @returns { string } Return a string representing this UUID.
    * @throws { BusinessError } 401 - The type of entropyCache must be boolean.
    * @syscap SystemCapability.Utils.Lang
@@ -216,7 +231,7 @@ declare namespace util {
   /**
    * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
    *
-   * @param { boolean } entropyCache - Whether to generate the UUID with using the cache. Default: true.
+   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
    * @returns { string } Return a string representing this UUID.
    * @throws { BusinessError } 401 - The type of entropyCache must be boolean.
    * @syscap SystemCapability.Utils.Lang
@@ -228,7 +243,7 @@ declare namespace util {
   /**
    * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
    *
-   * @param { boolean } entropyCache - Whether to generate the UUID with using the cache. Default: true.
+   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
    * @returns { Uint8Array } Return a Uint8Array representing this UUID.
    * @throws { BusinessError } 401 - The type of entropyCache must be boolean.
    * @syscap SystemCapability.Utils.Lang
@@ -237,7 +252,7 @@ declare namespace util {
   /**
    * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
    *
-   * @param { boolean } entropyCache - Whether to generate the UUID with using the cache. Default: true.
+   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
    * @returns { Uint8Array } Return a Uint8Array representing this UUID.
    * @throws { BusinessError } 401 - The type of entropyCache must be boolean.
    * @syscap SystemCapability.Utils.Lang
@@ -267,24 +282,76 @@ declare namespace util {
    */
   function parseUUID(uuid: string): Uint8Array;
 
+
   /**
-   * The TextEncoder represents a text encoder that accepts a string as input,
-   * encodes it in UTF-8 format, and outputs UTF-8 byte stream.
+   * Defines the TextDecoder related options parameters.
+   *
+   * @interface TextDecoderOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  interface TextDecoderOptions {
+    /**
+     * Is a fatal error displayed? The default value is false.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    fatal?: boolean;
+    /**
+    * Do you want to ignore BOM tags? The default value is false.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+    ignoreBOM?: boolean;
+  }
+
+  /**
+   * Defines the decode with stream related options parameters.
+   *
+   * @interface DecodeWithStreamOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  interface DecodeWithStreamOptions {
+    /**
+    * Does the call follow additional data blocks. The default value is false.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+    stream?: boolean;
+  }
+
+  /**
+   * The TextDecoder represents a text decoder that accepts a string as input,
+   * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    */
   /**
-   * The TextEncoder represents a text encoder that accepts a string as input,
-   * encodes it in UTF-8 format, and outputs UTF-8 byte stream.
+   * The TextDecoder represents a text decoder that accepts a string as input,
+   * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * The TextEncoder represents a text encoder that accepts a string as input,
-   * encodes it in UTF-8 format, and outputs UTF-8 byte stream.
+   * The TextDecoder represents a text decoder that accepts a string as input,
+   * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -338,7 +405,7 @@ declare namespace util {
     readonly ignoreBOM = false;
 
     /**
-     * The textEncoder constructor.
+     * The textDecoder constructor.
      *
      * @param { string } encoding - Decoding format
      * @param { object } options - Options
@@ -350,13 +417,13 @@ declare namespace util {
     constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean });
 
     /**
-     * The textEncoder constructor.
+     * The textDecoder constructor.
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
-     * The textEncoder constructor.
+     * The textDecoder constructor.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -388,8 +455,8 @@ declare namespace util {
     /**
      * Replaces the original constructor to process arguments and return a textDecoder object.
      *
-     * @param { string } encoding - Decoding format
-     * @param { object } options - Options
+     * @param { string } [encoding] - Decoding format
+     * @param { TextDecoderOptions } [options] - Options
      * @returns { TextDecoder }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -397,7 +464,7 @@ declare namespace util {
      * @atomicservice
      * @since 11
      */
-    static create(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean }): TextDecoder;
+    static create(encoding?: string, options?: TextDecoderOptions): TextDecoder;
 
     /**
      * Returns the result of running encoding's decoder.
@@ -443,7 +510,7 @@ declare namespace util {
      * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
      *
      * @param { Uint8Array } input - Decoded numbers in accordance with the format
-     * @param { object } options - Options
+     * @param { DecodeWithStreamOptions } [options] - Options
      * @returns { string } Return decoded text
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -451,27 +518,57 @@ declare namespace util {
      * @atomicservice
      * @since 11
      */
-    decodeWithStream(input: Uint8Array, options?: { stream?: boolean }): string;
+    decodeWithStream(input: Uint8Array, options?: DecodeWithStreamOptions): string;
   }
 
   /**
-   * The TextDecoder interface represents a text decoder.
-   * The decoder takes the byte stream as the input and outputs the String string.
+   * Return encoded text.
+   *
+   * @interface EncodeIntoUint8ArrayInfo
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  interface EncodeIntoUint8ArrayInfo {
+    /**
+    * The read represents the number of characters that have been encoded.
+    * @type { number }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+    read: number;
+    /**
+    * The written represents the number of bytes occupied by the encoded characters.
+    * @type { number }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+    written: number;
+  }
+
+  /**
+   * The TextEncoder interface represents a text encoder.
+   * The encoder takes the byte stream as the input and outputs the String string.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    */
   /**
-   * The TextDecoder interface represents a text decoder.
-   * The decoder takes the byte stream as the input and outputs the String string.
+   * The TextEncoder interface represents a text encoder.
+   * The encoder takes the byte stream as the input and outputs the String string.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * The TextDecoder interface represents a text decoder.
-   * The decoder takes the byte stream as the input and outputs the String string.
+   * The TextEncoder interface represents a text encoder.
+   * The encoder takes the byte stream as the input and outputs the String string.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -520,7 +617,7 @@ declare namespace util {
     /**
      * The textEncoder constructor.
      *
-     * @param { string } encoding - The string for encoding format.
+     * @param { string } [encoding] - The string for encoding format.
      * @throws { BusinessError } 401 - The type of encoding must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -528,7 +625,7 @@ declare namespace util {
     /**
      * The textEncoder constructor.
      *
-     * @param { string } encoding - The string for encoding format.
+     * @param { string } [encoding] - The string for encoding format.
      * @throws { BusinessError } 401 - The type of encoding must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -537,7 +634,7 @@ declare namespace util {
     /**
      * The textEncoder constructor.
      *
-     * @param { string } encoding - The string for encoding format.
+     * @param { string } [encoding] - The string for encoding format.
      * @throws { BusinessError } 401 - The type of encoding must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -549,7 +646,7 @@ declare namespace util {
     /**
      * Returns the result of encoder.
      *
-     * @param { string } input - The string to be encoded.
+     * @param { string } [input] - The string to be encoded.
      * @returns { Uint8Array } Returns the encoded text.
      * @syscap SystemCapability.Utils.Lang
      * @since 7
@@ -561,7 +658,7 @@ declare namespace util {
     /**
      * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
      *
-     * @param { string } input - The string to be encoded.
+     * @param { string } [input] - The string to be encoded.
      * @returns { Uint8Array } Returns the encoded text.
      * @throws { BusinessError } 401 - The type of input must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -570,7 +667,7 @@ declare namespace util {
     /**
      * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
      *
-     * @param { string } input - The string to be encoded.
+     * @param { string } [input] - The string to be encoded.
      * @returns { Uint8Array } Returns the encoded text.
      * @throws { BusinessError } 401 - The type of input must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -580,7 +677,7 @@ declare namespace util {
     /**
      * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
      *
-     * @param { string } input - The string to be encoded.
+     * @param { string } [input] - The string to be encoded.
      * @returns { Uint8Array } Returns the encoded text.
      * @throws { BusinessError } 401 - The type of input must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -594,7 +691,7 @@ declare namespace util {
      * Encode string, write the result to dest array.
      *
      * @param { string } input - The string to be encoded.
-     * @param { Uint8Array } dest - Decoded numbers in accordance with the format
+     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
      * @returns { object } Return the object, where read represents
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
@@ -609,7 +706,7 @@ declare namespace util {
      * Encode string, write the result to dest array.
      *
      * @param { string } input - The string to be encoded.
-     * @param { Uint8Array } dest - Decoded numbers in accordance with the format
+     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
      * @returns { object } Return the object, where read represents
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
@@ -621,7 +718,7 @@ declare namespace util {
      * Encode string, write the result to dest array.
      *
      * @param { string } input - The string to be encoded.
-     * @param { Uint8Array } dest - Decoded numbers in accordance with the format
+     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
      * @returns { object } Return the object, where read represents
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
@@ -630,7 +727,21 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
-    encodeIntoUint8Array(input: string, dest: Uint8Array): { read: number; written: number };
+    /**
+     * Encode string, write the result to dest array.
+     *
+     * @param { string } input - The string to be encoded.
+     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
+     * @returns { EncodeIntoUint8ArrayInfo } Return the object, where read represents
+     * the number of characters that have been encoded, and written
+     * represents the number of bytes occupied by the encoded characters.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
 
   /**
@@ -1203,14 +1314,14 @@ declare namespace util {
     /**
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
      *
-     * @param { number } capacity - Indicates the capacity to customize for the buffer.
+     * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
      *
-     * @param { number } capacity - Indicates the capacity to customize for the buffer.
+     * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2147,6 +2258,15 @@ declare namespace util {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Type represents two different encoding formats for base64
+   *
+   * @enum { number } Type
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum Type {
     /**
      * The value indicates that the encoding format of base64 is BASIC
@@ -2154,12 +2274,26 @@ declare namespace util {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The value indicates that the encoding format of base64 is BASIC
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BASIC,
     /**
      * The value indicates that the encoding format of base64 is MIME
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The value indicates that the encoding format of base64 is MIME
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     MIME
   }
@@ -2248,7 +2382,6 @@ declare namespace util {
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
      *
      * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { string } Return the encoded string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
@@ -2258,7 +2391,7 @@ declare namespace util {
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
      *
      * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { string } Return the encoded string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
@@ -2283,7 +2416,6 @@ declare namespace util {
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -2293,7 +2425,7 @@ declare namespace util {
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -2304,7 +2436,7 @@ declare namespace util {
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -2350,7 +2482,6 @@ declare namespace util {
      * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
      *
      * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<string> } Returns the encoded asynchronous string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
@@ -2360,7 +2491,7 @@ declare namespace util {
      * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
      *
      * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<string> } Returns the encoded asynchronous string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
@@ -2374,7 +2505,6 @@ declare namespace util {
      * input u8 array into a newly allocated u8 array.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -2385,7 +2515,7 @@ declare namespace util {
      * input u8 array into a newly allocated u8 array.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -3139,6 +3269,59 @@ declare namespace util {
      * @since 10
      */
     isWeakSet(value: Object): boolean;
+  }
+  /**
+   * Insert before/after logic into a class method or replace implementation for a class method.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 11
+   */
+  class Aspect {
+    /**
+     * Insert some logic before the method. In implementation the method will be replaced with a new function,
+     * which will execute 'before' with the args 'this' and the args of the original method, and then execute
+     * the original method. The return value of the new function is returned by the original method.
+     *
+     * @param { Object } targetClass - The operated class.
+     * @param { string } methodName - The name of the operated method.
+     * @param { boolean } isStatic - The flag whether the method is static.
+     * @param { Function } before - The logic inserted before the method.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    static addBefore(targetClass: Object, methodName: string, isStatic: boolean, before: Function): void;
+    /**
+     * Insert some logic after the method. In implementation the method will be replaced with a new function,
+     * which will execute the original method, and then execute 'after' with the args 'this' and the return value of
+     * the original method, and the args of the original method. The return value of the new function is returned by 'after'.
+     *
+     * @param { Object } targetClass - The operated class.
+     * @param { string } methodName - The name of the operated method.
+     * @param { boolean } isStatic - The flag whether the method is static.
+     * @param { Function } after - The logic inserted after the method.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    static addAfter(targetClass: Object, methodName: string, isStatic: boolean, after: Function): void;
+    /**
+     * Replace the original method with a new function, which will execute 'instead' with the args 'this' and the args
+     * of the original method. The return value of the new function is returned by 'instead'.
+     *
+     * @param { Object } targetClass - The operated class.
+     * @param { string } methodName - The name of the operated method.
+     * @param { boolean } isStatic - The flag whether the method is static.
+     * @param { Function } instead - The logic replaced with the method.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 11
+     */
+    static replace(targetClass: Object, methodName: string, isStatic: boolean, instead: Function) : void;
   }
 }
 export default util;

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Sensor Service Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**

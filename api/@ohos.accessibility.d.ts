@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Accessibility Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type { Callback } from './@ohos.base';
 
@@ -22,6 +27,14 @@ import type { Callback } from './@ohos.base';
  * @namespace accessibility
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 7
+ */
+/**
+ * Accessibility
+ *
+ * @namespace accessibility
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @atomicservice
+ * @since 11
  */
 declare namespace accessibility {
   /**
@@ -489,17 +502,25 @@ declare namespace accessibility {
      */
     readonly id: string;
 
-    /* The ability name.
+    /**
+     * The ability name.
+     * 
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
     readonly name: string;
 
-    /* The bundle name of the ability.
+    /**
+     * The bundle name of the ability.
+     * 
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
     readonly bundleName: string;
-
-    /* The target bundle name for the observation.
+    /**
+     * The target bundle name for the observation.
+     * 
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 9
      */
     readonly targetBundleNames: Array<string>;
@@ -545,6 +566,16 @@ declare namespace accessibility {
    */
   class EventInfo {
     constructor(jsonObject);
+    /**
+     * A constructor used to create a EventInfo object.
+     *
+     * @param { EventType } type - The type of the accessibility event.
+     * @param { string } bundleName - The name of the bundle.
+     * @param { Action } triggerAction - The action that the ability can execute.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 11
+     */
+    constructor(type: EventType, bundleName: string, triggerAction: Action);
     /**
      * The type of an accessibility event.
      *

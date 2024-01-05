@@ -24,6 +24,7 @@
         "ColorPickerDialog",
         "Column",
         "ColumnSplit",
+        "Component3D",
         "Counter",
         "DataPanel",
         "DatePicker",
@@ -189,6 +190,11 @@
             "name": "ColumnSplit",
             "type": "ColumnSplitAttribute",
             "instance": "ColumnSplitInstance"
+          },
+          {
+            "name": "Component3D",
+            "type": "Component3DAttribute",
+            "instance": "Component3DInstance"
           },
           {
             "name": "Counter",

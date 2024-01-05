@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IME Kit
+ */
 
 /**
  * Define pattern options of keyboard.

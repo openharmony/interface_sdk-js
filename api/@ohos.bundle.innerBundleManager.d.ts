@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type { BundleStatusCallback as _BundleStatusCallback } from './bundle/bundleStatusCallback';
 import { LauncherAbilityInfo } from './bundle/launcherAbilityInfo';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import commonType from '@ohos.data.commonType';
@@ -273,7 +278,7 @@ declare namespace distributedDataObject {
    * @since 9
    */
   interface DataObject {
-    /*
+    /**
      * Change object session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -287,7 +292,7 @@ declare namespace distributedDataObject {
      */
     setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
 
-    /*
+    /**
      * Leave all session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -300,7 +305,7 @@ declare namespace distributedDataObject {
      */
     setSessionId(callback: AsyncCallback<void>): void;
 
-    /*
+    /**
      * Change object session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC

@@ -10,6 +10,9 @@
     "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
+    "SystemCapability.Graphic.Graphic2D.EGL",
+    "SystemCapability.Graphic.Graphic2D.GLES2",
+    "SystemCapability.Graphic.Graphic2D.GLES3",
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.Graphic.Graphic2D.WebGL2",
     "SystemCapability.Window.SessionManager",
@@ -86,6 +89,7 @@
     "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
+    "SystemCapability.Multimedia.Drm.Core",
     "SystemCapability.Multimedia.Image.Core",
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
@@ -222,6 +226,8 @@
     "SystemCapability.AI.IntelligentVoice.Core",
     "SystemCapability.Multimedia.Media.SoundPool",
     "SystemCapability.Multimedia.Audio.Spatialization",
-    "SystemCapability.Multimedia.AudioHaptic.Core"
+    "SystemCapability.Multimedia.AudioHaptic.Core",
+    "SystemCapability.ArkUi.Graphics3D",
+    "SystemCapability.AI.MindSporeLite"
   ]
 }

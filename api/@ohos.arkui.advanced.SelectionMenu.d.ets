@@ -14,12 +14,19 @@
   */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Construct parameter types for EditorMenuOptions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
+
+
 export interface EditorMenuOptions {
   /**
    * The icon of icon and text item.

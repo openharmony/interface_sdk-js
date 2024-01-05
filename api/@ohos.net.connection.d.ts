@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Network Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';
@@ -45,8 +50,8 @@ declare namespace connection {
 
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -54,8 +59,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -64,8 +69,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -669,6 +674,7 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
+   * If an application level proxy is set, the application level proxy parameters are returned.
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
@@ -684,6 +690,7 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
+   * If an application level proxy is set, the application level proxy parameters are returned.
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
@@ -721,6 +728,16 @@ declare namespace connection {
    * @since 10
    */
   function getGlobalHttpProxy(): Promise<HttpProxy>;
+
+  /**
+   * Set application level http proxy {@link HttpProxy}.
+   * @param { HttpProxy } httpProxy - Indicates the application level proxy settings. For details, see {@link HttpProxy}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid http proxy.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function setAppHttpProxy(httpProxy: HttpProxy): void;
 
   /**
    * Set a network independent global {@link HttpProxy} proxy settings.
@@ -845,6 +862,23 @@ declare namespace connection {
    * @since 11
    */
   function clearCustomDnsRules(): Promise<void>;
+
+  /**
+   * factory reset network settings
+   *
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 11
+   */
+  function factoryReset(): Promise<void>;
 
   /**
    * Represents the network connection handle.

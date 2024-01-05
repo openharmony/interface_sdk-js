@@ -584,6 +584,60 @@ declare type EdgeWidths = {
 };
 
 /**
+ * Defines the outline width property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type EdgeOutlineWidths = {
+  /**
+   * top outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  top?: Dimension;
+
+  /**
+   * right outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  right?: Dimension;
+
+  /**
+   * bottom outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bottom?: Dimension;
+
+  /**
+   * left outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  left?: Dimension;
+};
+
+/**
  * Defines the border radius property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -723,6 +777,60 @@ declare type BorderRadiuses = {
    * @form
    */
   bottomRight?: Length;
+};
+
+/**
+ * Defines the outline radius property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type OutlineRadiuses = {
+  /**
+   * top-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  topLeft?: Dimension;
+
+  /**
+   * top-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  topRight?: Dimension;
+
+  /**
+   * bottom-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bottomLeft?: Dimension;
+
+  /**
+   * bottom-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bottomRight?: Dimension;
 };
 
 /**
@@ -1007,6 +1115,60 @@ declare type EdgeStyles = {
    * @form
    */
   left?: BorderStyle;
+};
+
+/**
+ * Defines the outline style property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type EdgeOutlineStyles = {
+  /**
+   * top property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  top?: OutlineStyle;
+
+  /**
+   * right property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  right?: OutlineStyle;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  bottom?: OutlineStyle;
+
+  /**
+   * left property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  left?: OutlineStyle;
 };
 
 /**
@@ -2110,6 +2272,61 @@ declare interface BorderOptions {
    * @form
    */
   style?: EdgeStyles | BorderStyle;
+}
+
+/**
+ * Defines the options of border.
+ *
+ * @interface OutlineOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare interface OutlineOptions {
+  /**
+   * Defines the outline width.
+   *
+   * @type { ?(EdgeOutlineWidths | Dimension) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  width?: EdgeOutlineWidths | Dimension;
+
+  /**
+   * Defines the outline color.
+   *
+   * @type { ?(EdgeColors | ResourceColor) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  color?: EdgeColors | ResourceColor;
+
+  /**
+   * Defines the outline radius.
+   *
+   * @type { ?(OutlineRadiuses | Dimension) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  radius?: OutlineRadiuses | Dimension;
+
+  /**
+   * Defines the outline style.
+   *
+   * @type { ?(EdgeOutlineStyles | OutlineStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  style?: EdgeOutlineStyles | OutlineStyle;
 }
 
 /**

@@ -1291,16 +1291,16 @@ export interface AbilityDelegator {
 
   /**
    * Used to set a list of mock data.
-   * @param { object } mockList - An object with string keys and string values. The keys represent the target path to
-   *                              be replaced and the values represent the path of the mock implementation to be used
-   *                              for the replacement.
+   * @param { Record<string, string> } mockList - An object with string keys and string values. The keys represent the
+   *                                              target path to be replaced and the values represent the path of the
+   *                                              mock implementation to be used for the replacement.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
    */
-  setMockList(mockList: { [key: string]: string }): void;
+  setMockList(mockList: Record<string, string>): void;
 }
 
 export default AbilityDelegator;

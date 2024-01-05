@@ -53,6 +53,9 @@ const tagsArrayOfOrder = [
 ];
 exports.tagsArrayOfOrder = tagsArrayOfOrder;
 
+const fileTagOrder = ['file', 'kit'];
+exports.fileTagOrder = fileTagOrder;
+
 function getAPINote(node) {
   const apiLength = node.getText().length;
   const apiFullLength = node.getFullText().length;
@@ -364,6 +367,7 @@ const ErrorValueInfo = {
   ERROR_CHANGES_JSDOC_CHANGE: 'Forbid changes: Previous JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: Throws tag cannot be created.',
   ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: Permission tag cannot be created or modified.',
+  ERROR_FILE_TAG_ORDER: 'File tags order is incorrect.',
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 

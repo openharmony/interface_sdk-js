@@ -435,6 +435,23 @@ declare enum NavigationTitleMode {
   Mini,
 }
 
+/**
+ * Navigation menu item, include menu icon and menu info
+ *
+ * @interface NavigationMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Navigation menu item, include menu icon and menu info
+ *
+ * @interface NavigationMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface NavigationMenuItem {
   /**
    * The value of navigation menu item.
@@ -591,6 +608,21 @@ declare class NavPathInfo {
   param?: unknown;
 }
 
+/**
+ * Indicates the information of route page.Providers methods for controlling destination page in the stack
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Indicates the information of route page.Providers methods for controlling destination page in the stack
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class NavPathStack {
   /**
    * Creates an instance of NavPathStack.
@@ -621,12 +653,13 @@ declare class NavPathStack {
    * Pushes the route page into the stack.
    *
    * @param { NavPathInfo } info - Indicates the route page to be pushed.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  pushPath(info: NavPathInfo): void;
+  pushPath(info: NavPathInfo, animated?: boolean): void;
 
   /**
    * Pushes the specified route page into the stack.
@@ -642,33 +675,36 @@ declare class NavPathStack {
    *
    * @param { string } name - Indicates the name of the route page to be pushed.
    * @param { unknown } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  pushPathByName(name: string, param: unknown): void;
+  pushPathByName(name: string, param: unknown, animated?: boolean): void;
 
   /**
    * replace the current page with the specific one.The current page will be destroyed.
    *
    * @param { NavPathInfo } info - Indicates the the new route page in top of the stack.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  replacePath(info: NavPathInfo): void;
+  replacePath(info: NavPathInfo, animated?: boolean): void;
 
   /**
    * replace the current page with the specific one.The current page will be destroyed.
    *
    * @param { string } name - Indicates name of the new route page in top of stack.
    * @param { Object } param - Indicates the detailed parameter of the new route page in top of the stack.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  replacePathByName(name: string, param: Object): void;
+  replacePathByName(name: string, param: Object, animated?: boolean): void;
 
   /**
    * Pops the top route page out of the stack.
@@ -681,13 +717,14 @@ declare class NavPathStack {
   /**
    * Pops the top route page out of the stack.
    *
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  pop(): NavPathInfo | undefined;
+  pop(animated?: boolean): NavPathInfo | undefined;
 
   /**
    * Pops the specified route page out of the stack.
@@ -702,13 +739,14 @@ declare class NavPathStack {
    * Pops the specified route page out of the stack.
    *
    * @param { string } name - Indicates the name of the route page to be popped.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  popToName(name: string): number;
+  popToName(name: string, animated?: boolean): number;
 
   /**
    * Pops the specified route page out of the stack.
@@ -722,12 +760,13 @@ declare class NavPathStack {
    * Pops the specified route page out of the stack.
    *
    * @param { number } index - Indicates the index of the route page to be popped.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  popToIndex(index: number): void;
+  popToIndex(index: number, animated?: boolean): void;
 
   /**
    * Moves the specified route page to stack top.
@@ -742,13 +781,14 @@ declare class NavPathStack {
    * Moves the specified route page to stack top.
    *
    * @param { string } name - Indicates the name of the route page to be moved to the top.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  moveToTop(name: string): number;
+  moveToTop(name: string, animated?: boolean): number;
 
   /**
    * Moves the specified route page to stack top.
@@ -762,12 +802,13 @@ declare class NavPathStack {
    * Moves the specified route page to stack top.
    *
    * @param { number } index - Indicates the index of the route page to be moved to the top.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  moveIndexToTop(index: number): void;
+  moveIndexToTop(index: number, animated?: boolean): void;
 
   /**
    * Clears the stack.
@@ -779,12 +820,13 @@ declare class NavPathStack {
   /**
    * Clears the stack.
    *
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  clear(): void;
+  clear(animated?: boolean): void;
 
   /**
    * Obtains all the page name in the stack.
@@ -886,6 +928,16 @@ declare class NavPathStack {
    * @since 11
    */
   size(): number;
+
+  /**
+   * disable or enable all transition animation in this navigation stack.
+   *
+   * @param { boolean } value - Indicates whether the transition is animated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  disableAnimation(value: boolean): void;
 }
 
 /**
@@ -1025,6 +1077,43 @@ declare enum ToolbarItemStatus {
    * @since 11
    */
   ACTIVE = 2,
+}
+
+/**
+ * Defines the operation of current navigation transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum NavigationOperation {
+  /**
+   * Push operation of navigation transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PUSH = 1,
+
+  /**
+   * Pop operation of navigation transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  POP = 2,
+
+  /**
+   * Replace operation of navigation transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  REPLACE = 3,
 }
 
 /**
@@ -1670,6 +1759,136 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 11
    */
   navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
+
+  /**
+   * Set custom navigation content transition animation.
+   *
+   * @param { function } delegate - Custom transition delegate.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
+}
+
+/**
+* Navigation transition animation protocol.
+*
+* @interface NavigationAnimatedTransition
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 11
+*/
+declare interface NavigationAnimatedTransition {
+  /**
+   * This method is called after the transition ends to notify whether the transition was successful.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onTransitionEnd?: (success: boolean) => void
+
+  /**
+   * Define the limit duration of the transition animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  timeout?: number;
+
+  /**
+   * Configure the animations associated with custom transition.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  transition: (transitionProxy: NavigationTransitionProxy) => void
+}
+
+/**
+ * Navigation transition proxy.
+ *
+ * @interface NavigationTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface NavigationTransitionProxy {
+  /**
+   * From navigation content info.
+   *
+   * @type { NavContentInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  from: NavContentInfo;
+
+  /**
+   * To navigation content info.
+   *
+   * @type { NavContentInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  to: NavContentInfo;
+
+  /**
+   * Notification system transition animation completed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  finishTransition(): void;
+}
+
+/**
+ * Navigation content info.
+ *
+ * @interface NavContentInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface NavContentInfo {
+  /**
+   * Navigation content name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  name?: string;
+
+  /**
+   * Navigation content index.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  index: number;
+
+  /**
+   * Navigation content mode.
+   *
+   * @type { ?NavDestinationMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  mode?: NavDestinationMode;
 }
 
 /**

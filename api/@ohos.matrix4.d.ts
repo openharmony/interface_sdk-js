@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Used to do matrix operations
  *
  * @namespace matrix4

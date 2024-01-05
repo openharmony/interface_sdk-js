@@ -11,6 +11,7 @@ acmmax
 acn
 activates
 actived
+adcp
 adjusts
 adpu
 adts
@@ -32,6 +33,7 @@ amr
 animatable
 annually
 antialias
+antialiasing
 apdu
 apecified
 appselect
@@ -65,6 +67,7 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra
@@ -137,6 +140,7 @@ cpx
 cpy
 creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -208,6 +212,7 @@ dpad
 drains
 dragbar
 drawbuffer
+drm
 dsda
 dsds
 dsf
@@ -296,6 +301,7 @@ haps
 haptic
 haptics
 hce
+hdcp
 headed
 headersreceive
 headphones
@@ -303,6 +309,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hevc
 hexadecagonal
 hfp
 hibernates
@@ -468,6 +475,7 @@ multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -586,6 +594,7 @@ psc
 psk
 psrc
 pss
+pssh
 puk
 pvr
 querier
@@ -643,6 +652,7 @@ rscp
 rsrp
 rtd
 rtt
+rtcp
 ruim
 rwt
 s5
@@ -666,6 +676,7 @@ sece
 secinfo
 seeked
 semicircles
+sendable
 sensing
 sequenceable
 settingsdata
@@ -719,6 +730,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers
@@ -734,6 +747,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing
@@ -809,6 +823,7 @@ unducked
 unequal
 unfiltered
 unfocused
+unhealthy
 unhold
 unicom
 unicon

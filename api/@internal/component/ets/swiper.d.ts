@@ -522,6 +522,14 @@ declare type SwiperAutoFill = {
    * @since 10
    * @form
    */
+  /**
+   * Set minSize size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   minSize: VP;
 };
 

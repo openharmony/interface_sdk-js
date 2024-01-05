@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Input Kit
+ */
+
+/**
  * Pinch event on touchPad
  *
  * @interface Pinch

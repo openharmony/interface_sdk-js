@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Core File Kit
+ */
+
 import type ExtensionContext from './application/ExtensionContext';
 
 /**
