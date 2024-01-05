@@ -199,6 +199,7 @@ declare enum SideBarPosition {
 declare interface ButtonStyle {
   /**
    * Set the left of control button
+   * default value is 16vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -206,6 +207,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the left of control button
+   * default value is 16vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -214,6 +216,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the left of control button
+   * default value is 16vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -225,6 +228,7 @@ declare interface ButtonStyle {
 
   /**
    * Set the top of control button
+   * default value is 48vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -232,6 +236,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the top of control button
+   * default value is 48vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -240,6 +245,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the top of control button
+   * default value is 48vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -251,6 +257,7 @@ declare interface ButtonStyle {
 
   /**
    * Set the width of control button
+   * default value is 32vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -258,6 +265,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the width of control button
+   * default value is 24vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -266,6 +274,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the width of control button
+   * default value is 24vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -277,6 +286,7 @@ declare interface ButtonStyle {
 
   /**
    * Set the height of control button
+   * default value is 32vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -284,6 +294,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the height of control button
+   * default value is 24vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -292,6 +303,7 @@ declare interface ButtonStyle {
    */
   /**
    * Set the height of control button
+   * default value is 24vp.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -626,6 +638,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Sets the length of sidebar.
+   * default value is 200vp.
    *
    * @param { number } value
    * @returns { SideBarContainerAttribute }
@@ -634,6 +647,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   /**
    * Sets the length of sidebar.
+   * default value is 240vp.
    *
    * @param { number } value
    * @returns { SideBarContainerAttribute }
@@ -643,6 +657,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   /**
    * Sets the length of sidebar.
+   * default value is 240vp.
    *
    * @param { number } value
    * @returns { SideBarContainerAttribute }
@@ -664,7 +679,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   /**
    * Sets the min length of sidebar.
-   * default value is 200vp.
+   * default value is 240vp.
    *
    * @param { number } value
    * @returns { SideBarContainerAttribute }
@@ -674,7 +689,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   /**
    * Sets the min length of sidebar.
-   * default value is 200vp.
+   * default value is 240vp.
    *
    * @param { number } value
    * @returns { SideBarContainerAttribute }
@@ -897,6 +912,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   
   /**
    * Sets the min length of content.
+   * default value is 360vp.
+   * 
    * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -905,6 +922,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   /**
    * Sets the min length of content.
+   * default value is 360vp.
+   * 
    * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
