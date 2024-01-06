@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Controls the style types of GridObjectSortComponent.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
