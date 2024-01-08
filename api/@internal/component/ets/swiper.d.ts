@@ -729,7 +729,7 @@ declare interface ArrowStyle {
    * The size of the arrow is three-quarters of the background size, when the background is displayed.
    *
    * @type { ?Length }
-   * @default 24vp
+   * @default When isSidebarMiddle is false, the default value is 24vp, Otherwise,the default value is 32vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -738,7 +738,7 @@ declare interface ArrowStyle {
    * The size of the arrow is three-quarters of the background size, when the background is displayed.
    *
    * @type { ?Length }
-   * @default 24vp
+   * @default When isSidebarMiddle is false, the default value is 24vp, Otherwise,the default value is 32vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -750,7 +750,7 @@ declare interface ArrowStyle {
    * The arrow background background color.
    *
    * @type { ?ResourceColor }
-   * @default #19182431
+   * @default When isSidebarMiddle is false, the default value is #00000000, Otherwise,the default value is #19182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -758,7 +758,7 @@ declare interface ArrowStyle {
    * The arrow background background color.
    *
    * @type { ?ResourceColor }
-   * @default #19182431
+   * @default When isSidebarMiddle is false, the default value is #00000000, Otherwise, the default value is #19182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -772,7 +772,7 @@ declare interface ArrowStyle {
    * The size of the arrow is three-quarters of the background size, when the background is displayed.
    *
    * @type { ?Length }
-   * @default 18vp
+   * @default When isSidebarMiddle is false, the default value is 18vp, Otherwise, the default value is 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -782,7 +782,7 @@ declare interface ArrowStyle {
    * The size of the arrow is three-quarters of the background size, when the background is displayed.
    *
    * @type { ?Length }
-   * @default 18vp
+   * @default When isSidebarMiddle is false, the default value is 18vp, Otherwise, the default value is 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1278,7 +1278,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when you set whether the navigation point indicator is enabled.
    *
-   * @param { DotIndicator | DigitIndicator | boolean } value - show indicator of the swiper indicator.
+   * @param { boolean } value - show indicator of the swiper indicator.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1515,7 +1515,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * This command is invoked when the number of subcomponents is set.
    *
-   * @param { number | string | SwiperAutoFill } value
+   * @param { number | string } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1608,7 +1608,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when sliding is curve
    *
-   * @param { Curve | string | ICurve } value
+   * @param { Curve | string } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
