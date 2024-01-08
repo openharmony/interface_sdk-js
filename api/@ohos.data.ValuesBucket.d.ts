@@ -22,7 +22,7 @@
  * Indicates possible value types
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10
  */
 export type ValueType = number | string | boolean;
@@ -31,9 +31,7 @@ export type ValueType = number | string | boolean;
  * Values in buckets are stored in key-value pairs
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10
  */
-export type ValuesBucket = {
-  [key: string]: ValueType | Uint8Array | null;
-};
+export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;
