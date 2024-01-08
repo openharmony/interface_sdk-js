@@ -954,7 +954,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ENFORCED_TONE = 15,
     /**
-     * Ultrasonic playing usage.
+     * Ultrasonic playing usage. This type is only used for msdp condition.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 10
