@@ -1198,7 +1198,7 @@ declare namespace media {
     readonly height: number;
 
     /**
-     * Video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT_CROP} will be used, for more
+     * Video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT} will be used, for more
      * information, refer to {@link #VideoScaleType} .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -3234,7 +3234,7 @@ declare namespace media {
     audioInterruptMode?: audio.InterruptMode;
 
     /**
-     * video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT_CROP} will be used, for more
+     * video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT} will be used, for more
      * information, refer to {@link #VideoScaleType}
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 9
