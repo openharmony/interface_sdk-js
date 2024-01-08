@@ -2941,8 +2941,10 @@ declare namespace audio {
 
     /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -2953,8 +2955,10 @@ declare namespace audio {
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -3002,8 +3006,10 @@ declare namespace audio {
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -3014,8 +3020,10 @@ declare namespace audio {
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -3063,7 +3071,9 @@ declare namespace audio {
 
     /**
      * Updates the spatial device state.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
