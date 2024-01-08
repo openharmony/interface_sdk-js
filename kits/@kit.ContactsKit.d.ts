@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ContactsKit
+ */
+
 import contact from '@ohos.contact';
 
 export { contact };

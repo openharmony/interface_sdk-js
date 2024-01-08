@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import connection from '@ohos.net.connection';
 import ethernet from '@ohos.net.ethernet';
 import http from '@ohos.net.http';

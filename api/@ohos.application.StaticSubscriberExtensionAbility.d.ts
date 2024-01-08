@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Basic Services Kit
+ * @kit BasicServicesKit
  */
 
 import { CommonEventData } from './commonEvent/commonEventData';

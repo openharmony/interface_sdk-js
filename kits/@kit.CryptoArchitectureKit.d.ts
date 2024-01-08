@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CryptoArchitectureKit
+ */
+
 import cryptoFramework from '@ohos.security.cryptoFramework';
 import Cipher, { CipherAesOptions, CipherResponse, CipherRsaOptions } from '@system.cipher';
 

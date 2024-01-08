@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Lancet Kit
+ * @kit LancetKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

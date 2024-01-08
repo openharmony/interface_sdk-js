@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Data Loss Prevention Kit
+ * @kit DataLossPreventionKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';

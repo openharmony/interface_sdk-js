@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit SafetyDetectKit
+ */
+
 import privacyManager, { Permissions } from '@ohos.privacyManager';
 
 export { Permissions, privacyManager };

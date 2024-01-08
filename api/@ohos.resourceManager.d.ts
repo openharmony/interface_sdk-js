@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Localization Kit
+ * @kit UserizationKit
  */
 
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';

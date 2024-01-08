@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Connectivity Kit
+ * @kit ConnectivityKit
  */
 
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';

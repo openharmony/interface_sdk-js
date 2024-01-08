@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AVSessionKit
+ */
+
 import AVCastPicker, { AVCastPickerState } from '@ohos.multimedia.avCastPicker';
 import avSession from '@ohos.multimedia.avsession';
 

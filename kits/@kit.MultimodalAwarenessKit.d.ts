@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MultimodalAwarenessKit
+ */
+
 import stationary from '@ohos.stationary';
 
 export { stationary };

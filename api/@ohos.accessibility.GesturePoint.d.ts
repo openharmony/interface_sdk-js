@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Accessibility Kit
+ * @kit AccessibilityKit
  */
 
 /**

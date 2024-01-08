@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Media Kit
+ * @kit MediaKit
  */
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';

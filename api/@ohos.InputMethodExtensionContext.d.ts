@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit IME Kit
+ * @kit InputMethodKit
  */
 
 import { AsyncCallback } from './@ohos.base';

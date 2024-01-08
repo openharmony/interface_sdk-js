@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Local Authentication Kit
+ * @kit LocalAuthenticationKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NotificationKit
+ */
+
 import notificationManager from '@ohos.notificationManager';
 import notificationSubscribe from '@ohos.notificationSubscribe';
 import Notification, { ActionResult, ShowNotificationOptions } from '@system.notification';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit LocationKit
+ */
+
 import geolocation from '@ohos.geolocation';
 import geoLocationManager from '@ohos.geoLocationManager';
 import Geolocation, {

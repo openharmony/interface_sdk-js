@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Driver Development Kit
+ * @kit DriverDevelopmentKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

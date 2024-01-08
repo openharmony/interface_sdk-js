@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Sensor Service Kit
+ * @kit SensorServiceKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';

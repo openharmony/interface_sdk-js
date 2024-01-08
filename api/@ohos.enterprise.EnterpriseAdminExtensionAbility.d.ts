@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit MDM Kit
+ * @kit MDMKit
  */
 
 import type systemManager from './@ohos.enterprise.systemManager';

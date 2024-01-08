@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CalendarKit
+ */
+
 import calendarManager from '@ohos.calendarManager';
 
 export { calendarManager };

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AccessibilityKit
+ */
+
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import { GesturePath } from '@ohos.accessibility.GesturePath';

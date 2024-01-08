@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit MindSpore Lite Kit
+ * @kit MindSporeLiteKit
  */
 
 import { Callback } from './@ohos.base';

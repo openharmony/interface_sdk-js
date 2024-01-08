@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Universal Keystore Kit
+ * @kit UniversalKeystoreKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

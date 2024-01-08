@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CameraKit
+ */
+
 import camera from '@ohos.multimedia.camera';
 
 export { camera };

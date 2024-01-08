@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BackgroundTasksKit
+ */
+
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import bundleState from '@ohos.bundleState';
 import reminderAgent from '@ohos.reminderAgent';

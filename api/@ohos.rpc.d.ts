@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit IPC Kit
+ * @kit IPCKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
