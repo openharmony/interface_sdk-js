@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import type { AutoStartupCallback } from './application/AutoStartupCallback';

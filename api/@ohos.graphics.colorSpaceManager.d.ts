@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics 2D
+ * @kit ArkGraphics2D
  */
 
 import { AsyncCallback } from './@ohos.base';

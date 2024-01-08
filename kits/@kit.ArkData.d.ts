@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import DataShareExtensionAbility from '@ohos.application.DataShareExtensionAbility';
 import cloudData from '@ohos.data.cloudData';
 import cloudExtension from '@ohos.data.cloudExtension';

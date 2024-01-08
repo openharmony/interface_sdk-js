@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit LancetKit
+ */
+
 import bytrace from '@ohos.bytrace';
 import FaultLogger from '@ohos.faultLogger';
 import hiAppEvent from '@ohos.hiviewdfx.hiAppEvent';

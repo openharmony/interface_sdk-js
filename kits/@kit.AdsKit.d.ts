@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AdsKit
+ */
+
 import { AdComponent } from '@ohos.advertising.AdComponent';
 import AdsServiceExtensionAbility, { RespCallback } from '@ohos.advertising.AdsServiceExtensionAbility';
 import { AutoAdComponent } from '@ohos.advertising.AutoAdComponent';

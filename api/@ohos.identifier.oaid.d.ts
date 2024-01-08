@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ads Kit
+ * @kit AdsKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

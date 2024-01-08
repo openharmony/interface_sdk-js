@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Telephony Kit
+ * @kit TelephonyKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

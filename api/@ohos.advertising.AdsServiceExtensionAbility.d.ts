@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ads Kit
+ * @kit AdsKit
  */
 
 import type advertising from './@ohos.advertising';

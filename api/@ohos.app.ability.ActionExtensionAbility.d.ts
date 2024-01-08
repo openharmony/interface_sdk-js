@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';

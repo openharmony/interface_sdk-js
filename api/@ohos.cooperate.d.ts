@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Distributed Service Kit
+ * @kit DistributedServiceKit
  */
 
 import { AsyncCallback } from './@ohos.base';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkGraphics2D
+ */
+
 import effectKit from '@ohos.effectKit';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
 import displaySync from '@ohos.graphics.displaySync';

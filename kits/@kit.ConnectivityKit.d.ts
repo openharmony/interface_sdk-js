@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import a2dp from '@ohos.bluetooth.a2dp';
 import access from '@ohos.bluetooth.access';
 import baseProfile from '@ohos.bluetooth.baseProfile';

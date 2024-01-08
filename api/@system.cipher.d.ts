@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Crypto Architecture Kit
+ * @kit CryptoArchitectureKit
  */
 
 /**

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DataLossPreventionKit
+ */
+
 import dlpPermission from '@ohos.dlpPermission';
 
 export { dlpPermission };

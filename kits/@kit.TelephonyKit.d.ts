@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit TelephonyKit
+ */
+
 import data from '@ohos.telephony.data';
 import observer from '@ohos.telephony.observer';
 import radio from '@ohos.telephony.radio';

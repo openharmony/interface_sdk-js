@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit LocalizationKit
+ */
+
 import i18n from '@ohos.i18n';
 import intl from '@ohos.intl';
 import resourceManager from '@ohos.resourceManager';

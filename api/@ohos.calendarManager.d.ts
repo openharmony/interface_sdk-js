@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Calendar Kit
+ * @kit CalendarKit
  */
 
 import { AsyncCallback } from './@ohos.base';

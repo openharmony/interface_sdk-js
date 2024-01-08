@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkWeb
+ */
+
 import webview from '@ohos.web.webview';
 
 export { webview };

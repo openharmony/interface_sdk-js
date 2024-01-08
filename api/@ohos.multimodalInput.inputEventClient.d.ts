@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Input Kit
+ * @kit InputKit
  */
 
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';

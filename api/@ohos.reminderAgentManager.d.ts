@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Background Tasks Kit
+ * @kit BackgroundTasksKit
  */
 
 import { AsyncCallback } from './@ohos.base';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DriverDevelopmentKit
+ */
+
 import DriverExtensionAbility, { DriverExtensionContext } from '@ohos.app.ability.DriverExtensionAbility';
 import deviceManager from '@ohos.driver.deviceManager';
 

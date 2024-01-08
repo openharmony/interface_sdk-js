@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DeviceCertificateKit
+ */
+
 import cert from '@ohos.security.cert';
 import certificateManager from '@ohos.security.certManager';
 
