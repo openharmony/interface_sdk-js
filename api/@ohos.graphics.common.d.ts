@@ -22,7 +22,7 @@
  * The date structure that provides the basis for graphics.
  *
  * @namespace graphicsCommon
- * @syscap SystemCapability.Graphics.Common
+ * @syscap SystemCapability.Graphics.Drawing
  * @since 11
  */
  declare namespace graphicsCommon {
@@ -30,7 +30,7 @@
    * Provide a description in the form of color ARGB.
    * 
    * @typedef Color
-   * @syscap SystemCapability.Graphics.Common
+   * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   interface Color {
@@ -38,7 +38,7 @@
      * Alpha component of color, from 0 to 255.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     alpha: number;
@@ -47,7 +47,7 @@
      * Red component of color, from 0 to 255.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     red: number;
@@ -56,7 +56,7 @@
      * Green component of color, from 0 to 255.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     green: number;
@@ -65,7 +65,7 @@
      * Blue component of color, from 0 to 255.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     blue: number;
@@ -75,7 +75,7 @@
    * Provides the definition of the rectangle.
    * 
    * @typedef Rect
-   * @syscap SystemCapability.Graphics.Common
+   * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   interface Rect {
@@ -83,7 +83,7 @@
      * Left Position of Rectangle.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     left: number;
@@ -92,7 +92,7 @@
      * Top side position of the rectangle
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     top: number;
@@ -101,7 +101,7 @@
      * Right Position of Rectangle.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     right: number;
@@ -110,7 +110,7 @@
      * Position of the bottom side of the rectangle.
      * 
      * @type { number }
-     * @syscap SystemCapability.Graphics.Common
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     bottom: number;
