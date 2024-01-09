@@ -15999,25 +15999,7 @@ declare interface LinearGradientBlurOptions {
  * @interface LayoutBorderInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @form
- */
-/**
- * Sub component border info.
- *
- * @interface LayoutBorderInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- * @form
- */
-/**
- * Sub component border info.
- *
- * @interface LayoutBorderInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
+ * @deprecated since 10
  * @form
  */
 declare interface LayoutBorderInfo {
@@ -16027,25 +16009,7 @@ declare interface LayoutBorderInfo {
    * @type { EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component borderWidth info.
-   *
-   * @type { EdgeWidths }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component borderWidth info.
-   *
-   * @type { EdgeWidths }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   borderWidth: EdgeWidths;
@@ -16056,25 +16020,7 @@ declare interface LayoutBorderInfo {
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component margin info.
-   *
-   * @type { Margin }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component margin info.
-   *
-   * @type { Margin }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   margin: Margin,
@@ -16085,25 +16031,7 @@ declare interface LayoutBorderInfo {
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component padding info.
-   *
-   * @type { Padding }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component padding info.
-   *
-   * @type { Padding }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   padding: Padding,
@@ -16115,25 +16043,7 @@ declare interface LayoutBorderInfo {
  * @interface LayoutInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @form
- */
-/**
- * Sub component layout info.
- *
- * @interface LayoutInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- * @form
- */
-/**
- * Sub component layout info.
- *
- * @interface LayoutInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
+ * @deprecated since 10
  * @form
  */
 declare interface LayoutInfo {
@@ -16143,25 +16053,7 @@ declare interface LayoutInfo {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component position info.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component position info.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   position: Position,
@@ -16172,25 +16064,7 @@ declare interface LayoutInfo {
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component constraint info.
-   *
-   * @type { ConstraintSizeOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component constraint info.
-   *
-   * @type { ConstraintSizeOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   constraint: ConstraintSizeOptions,
@@ -16202,25 +16076,7 @@ declare interface LayoutInfo {
  * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @form
- */
-/**
- * Sub component info passed from framework when layout and measure happens.
- *
- * @interface LayoutChild
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- * @form
- */
-/**
- * Sub component info passed from framework when layout and measure happens.
- *
- * @interface LayoutChild
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
+ * @deprecated since 10
  * @form
  */
 declare interface LayoutChild {
@@ -16230,25 +16086,7 @@ declare interface LayoutChild {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   name: string,
@@ -16259,25 +16097,7 @@ declare interface LayoutChild {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component id.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component id.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   id: string,
@@ -16288,25 +16108,7 @@ declare interface LayoutChild {
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component constraint.
-   *
-   * @type { ConstraintSizeOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component constraint.
-   *
-   * @type { ConstraintSizeOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   constraint: ConstraintSizeOptions,
@@ -16317,25 +16119,7 @@ declare interface LayoutChild {
    * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component border info.
-   *
-   * @type { LayoutBorderInfo }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component border info.
-   *
-   * @type { LayoutBorderInfo }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   borderInfo: LayoutBorderInfo,
@@ -16346,25 +16130,7 @@ declare interface LayoutChild {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Sub component position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Sub component position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   position: Position,
@@ -16375,25 +16141,7 @@ declare interface LayoutChild {
    * @param { ConstraintSizeOptions } childConstraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Call this measure method in onMeasure callback to supply sub component size.
-   *
-   * @param { ConstraintSizeOptions } childConstraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Call this measure method in onMeasure callback to supply sub component size.
-   *
-   * @param { ConstraintSizeOptions } childConstraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   measure(childConstraint: ConstraintSizeOptions),
@@ -16404,25 +16152,7 @@ declare interface LayoutChild {
    * @param { LayoutInfo } childLayoutInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Call this layout method in onLayout callback to assign layout info to sub component.
-   *
-   * @param { LayoutInfo } childLayoutInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * Call this layout method in onLayout callback to assign layout info to sub component.
-   *
-   * @param { LayoutInfo } childLayoutInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 10
    * @form
    */
   layout(childLayoutInfo: LayoutInfo),
