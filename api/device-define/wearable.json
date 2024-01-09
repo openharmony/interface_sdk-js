@@ -170,6 +170,7 @@
     "SystemCapability.BundleManager.BundleFramework.QuickFix",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
-    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply"
+    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
+    "SystemCapability.Graphics.Drawing"
   ]
 }

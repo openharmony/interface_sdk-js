@@ -17,7 +17,6 @@
  * @file
  * @kit ArkGraphics 2D
  */
-
 /**
  * The date structure that provides the basis for graphics.
  *
@@ -40,7 +39,6 @@ declare namespace graphicsCommon {
      * @since 11
      */
     alpha: number;
-
     /**
      * Red component of color, from 0 to 255.
      * @type { number }
@@ -48,7 +46,6 @@ declare namespace graphicsCommon {
      * @since 11
      */
     red: number;
-
     /**
      * Green component of color, from 0 to 255.
      * @type { number }
@@ -56,7 +53,6 @@ declare namespace graphicsCommon {
      * @since 11
      */
     green: number;
-
     /**
      * Blue component of color, from 0 to 255.
      * @type { number }
@@ -80,7 +76,6 @@ declare namespace graphicsCommon {
      * @since 11
      */
     left: number;
-
     /**
      * Top side position of the rectangle
      * @type { number }
@@ -88,7 +83,6 @@ declare namespace graphicsCommon {
      * @since 11
      */
     top: number;
-
     /**
      * Right Position of Rectangle.
      * @type { number }
@@ -96,7 +90,6 @@ declare namespace graphicsCommon {
      * @since 11
      */
     right: number;
-
     /**
      * Position of the bottom side of the rectangle.
      * @type { number }
