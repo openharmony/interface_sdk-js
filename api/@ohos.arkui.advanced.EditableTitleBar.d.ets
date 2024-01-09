@@ -37,11 +37,13 @@ export declare class EditableTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -49,12 +51,14 @@ export declare class EditableTitleBarMenuItem {
 
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -62,12 +66,14 @@ export declare class EditableTitleBarMenuItem {
 
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -90,10 +96,12 @@ export declare class EditableTitleBarMenuItem {
 export declare enum EditableLeftIconType {
   /**
    * The back type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The back type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -101,10 +109,12 @@ export declare enum EditableLeftIconType {
 
   /**
    * The cancel type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The cancel type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -127,11 +137,13 @@ export declare struct EditableTitleBar {
   /**
    * Style of the left icon.
    * @type { EditableLeftIconType }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Style of the left icon.
    * @type { EditableLeftIconType }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -140,11 +152,13 @@ export declare struct EditableTitleBar {
   /**
    * Title of this title bar.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Title of this title bar.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -152,12 +166,14 @@ export declare struct EditableTitleBar {
 
   /**
    * Menu items on the right side.
-   * @type { Array<EditableTitleBarMenuItem> }.
+   * @type { ?Array<EditableTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Menu items on the right side.
-   * @type { Array<EditableTitleBarMenuItem> }.
+   * @type { ?Array<EditableTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -165,12 +181,14 @@ export declare struct EditableTitleBar {
 
   /**
    * Callback function when click on the save icon at the right side.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when click on the save icon at the right side.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -178,12 +196,14 @@ export declare struct EditableTitleBar {
 
   /**
    * Callback function when click on the cancel icon at the left side.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when click on the cancel icon at the left side.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */

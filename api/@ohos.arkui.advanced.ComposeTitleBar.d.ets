@@ -49,12 +49,12 @@ export declare class ComposeTitleBarMenuItem {
 
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @since 10
    */
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @atomicservice
    * @since 11
    */
@@ -62,12 +62,12 @@ export declare class ComposeTitleBarMenuItem {
 
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
    * @atomicservice
    * @since 11
    */
@@ -89,12 +89,14 @@ export declare class ComposeTitleBarMenuItem {
 export declare struct ComposeTitleBar {
   /**
    * Avatar resource and event callback of this title bar.
-   * @type { ComposeTitleBarMenuItem }.
+   * @type { ?ComposeTitleBarMenuItem }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Avatar resource and event callback of this title bar.
-   * @type { ComposeTitleBarMenuItem }.
+   * @type { ?ComposeTitleBarMenuItem }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -103,11 +105,13 @@ export declare struct ComposeTitleBar {
   /**
    * Title of this title bar.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Title of this title bar.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -115,12 +119,14 @@ export declare struct ComposeTitleBar {
 
   /**
    * Sub-title of this title bar.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sub-title of this title bar.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -128,12 +134,14 @@ export declare struct ComposeTitleBar {
 
   /**
    * Menu items on the right side.
-   * @type { Array<ComposeTitleBarMenuItem> }.
+   * @type { ?Array<ComposeTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Menu items on the right side.
-   * @type { Array<ComposeTitleBarMenuItem> }.
+   * @type { ?Array<ComposeTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
