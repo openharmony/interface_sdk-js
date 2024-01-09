@@ -226,6 +226,7 @@
       * Sets the start point of a path
       * @param { number } x - Indicates the x coordinate of the start point.
       * @param { number } y - Indicates the y coordinate of the start point.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -235,6 +236,7 @@
       * Draws a line segment from the last point of a path to the target point.
       * @param { number } x - Indicates the x coordinate of the target point.
       * @param { number } y - Indicates the y coordinate of the target point.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -251,6 +253,7 @@
       * @param { number } y2 - Indicates the y coordinate of the lower right corner of the rectangle.
       * @param { number } startDeg - Indicates the start angle, in degrees.
       * @param { number } sweepDeg - Indicates the angle to sweep, in degrees.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -262,6 +265,7 @@
       * @param { number } ctrlY - Indicates the y coordinate of the control point.
       * @param { number } endX - Indicates the x coordinate of the target point.
       * @param { number } endY - Indicates the y coordinate of the target point.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -275,6 +279,7 @@
       * @param { number } ctrlY2 - Indicates the y coordinate of the second control point.
       * @param { number } endX - Indicates the x coordinate of the target point.
       * @param { number } endY - Indicates the y coordinate of the target point.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -304,6 +309,7 @@
      /**
       * Constructor for the Canvas.
       * @param { image.PixelMap } pixelmap - PixelMap.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -313,6 +319,7 @@
       * If rectangle is stroked, use pen to stroke width describes the line thickness,
       * else use brush to fill the rectangle.
       * @param { graphicsCommon.Rect } rect - Rectangle to draw.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -324,6 +331,7 @@
       * @param { number } x - X coordinate of the circle center.
       * @param { number } y - Y coordinate of the circle center.
       * @param { number } radius - Half the diameter of circle.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -334,6 +342,7 @@
       * @param { image.PixelMap } pixelmap - PixelMap.
       * @param { number } left - Left side of image.
       * @param { number } top - Top side of image.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -343,6 +352,7 @@
       * Fills clip with color color. Mode determines how ARGB is combined with destination.
       * @param { graphicsCommon.Color } color - Color in 32-bit argb format.
       * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -352,6 +362,7 @@
       * Draw a point.
       * @param { number } x - X coordinate position of the point.
       * @param { number } y - Y coordinate position of the point.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -360,6 +371,7 @@
      /**
       * Path contains an array of path contour, each of which may be open or closed.
       * @param { Path } path - Path to draw.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -371,6 +383,7 @@
       * @param { number } y0 - Y coordinate of the start point of the line segment.
       * @param { number } x1 - X coordinate of the end point of the line segment.
       * @param { number } y1 - Y coordinate of the end point of the line segment.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -381,6 +394,7 @@
       * @param { TextBlob } blob - X coordinate of the start point of the line segment.
       * @param { number } x - X coordinate of the text start point.
       * @param { number } y - Y coordinate of the text start point.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -389,6 +403,7 @@
      /**
       * Set pen to a canvas.
       * @param { Pen } pen - object.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -397,6 +412,7 @@
      /**
       * Set brush to a canvas.
       * @param { Brush } brush - Object.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -495,6 +511,7 @@
       * @param { Font } font - Specify text size, font, text scale, etc.
       * @param { TextEncoding } encoding - The default value is TEXT_ENCODING_UTF8.
       * @returns { TextBlob } TextBlob object.
+      * @throws { BusinessError } 401 - Parameter error.
       * @static
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
@@ -507,6 +524,7 @@
       * @param { Font } font - Font used for this run.
       * @param { graphicsCommon.Rect } bounds - Optional run bounding box.
       * @returns { TextBlob } TextBlob object.
+      * @throws { BusinessError } 401 - Parameter error.
       * @static
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
@@ -548,6 +566,7 @@
      /**
       * Requests, but does not require, that glyphs respect sub-pixel positioning.
       * @param { boolean } isSubpixel - Setting for sub-pixel positioning.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -556,6 +575,7 @@
      /**
       * Increases stroke width when creating glyph bitmaps to approximate a bold typeface.
       * @param { boolean } isEmbolden - Setting for bold approximation.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -564,6 +584,7 @@
      /**
       * Requests linearly scalable font and glyph metrics.
       * @param { boolean } isLinearMetrics - Setting for linearly scalable font and glyph metrics.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -572,6 +593,7 @@
      /**
       * Sets text size in points. Has no effect if textSize is not greater than or equal to zero.
       * @param { number } textSize - Typographic height of text.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -588,6 +610,7 @@
      /**
       * Sets Typeface to font.
       * @param { Typeface } typeface - Font and style used to draw text.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -614,6 +637,7 @@
       * @param { string } text - Text Symbol Content.
       * @param { TextEncoding } encoding - Encoding format.
       * @returns { number } The width of text.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -675,6 +699,7 @@
       * @param { graphicsCommon.Color } color - Color.
       * @param { BlendMode } mode - BlendMode.
       * @returns { ColorFilter } Colorfilter object.
+      * @throws { BusinessError } 401 - Parameter error.
       * @static
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
@@ -686,6 +711,7 @@
       * @param { ColorFilter } outer - The filter is used next.
       * @param { ColorFilter } inner - The filter is used first.
       * @returns { ColorFilter } Colorfilter object.
+      * @throws { BusinessError } 401 - Parameter error.
       * @static
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
@@ -730,6 +756,7 @@
      /**
      * Set the color of the pen.
      * @param { graphicsCommon.Color } color - Set colors.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -739,6 +766,7 @@
      * Sets the thickness of the pen used by the paint to outline the shape.
      * 
      * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -749,6 +777,7 @@
      * partial transparency.
      * 
      * @param { boolean } aa - Setting for antialiasing.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -758,6 +787,7 @@
      * Replaces alpha, leaving RGB
      * 
      * @param { number } alpha - Alpha component of color.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -767,6 +797,7 @@
      * Sets ColorFilter to pen
      * 
      * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -776,6 +807,7 @@
      * Sets a blender that implements the specified blendmode enum.
      * 
      * @param { BlendMode } mode - Blendmode.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -785,6 +817,7 @@
      * Request color distribution error.
      * 
      * @param { boolean } dither - Whether the color is distributed incorrectly.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -800,6 +833,7 @@
      /**
       * Set the color of the brush.
       * @param { graphicsCommon.Color } color - Set colors.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -809,6 +843,7 @@
       * Requests, but does not require, that edge pixels draw opaque or with
       * partial transparency.
       * @param { boolean } aa - Setting for antialiasing.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -817,6 +852,7 @@
      /**
       * Replaces alpha, leaving RGB
       * @param { number } alpha - Alpha component of color, value range: 0–255.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -825,6 +861,7 @@
      /**
       * Sets ColorFilter to brush
       * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
@@ -833,6 +870,7 @@
      /**
       * Sets a blender that implements the specified blendmode enum.
       * @param { BlendMode } mode - Blendmode.
+      * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Graphics.Drawing
       * @since 11
       */
