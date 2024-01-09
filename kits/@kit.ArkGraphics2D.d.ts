@@ -20,6 +20,7 @@
 
 import effectKit from '@ohos.effectKit';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
+import hdrCapability from '@ohos.graphics.hdrCapability';
 import displaySync from '@ohos.graphics.displaySync';
 
-export { displaySync, colorSpaceManager, effectKit };
+export { displaySync, colorSpaceManager, hdrCapability, effectKit };
