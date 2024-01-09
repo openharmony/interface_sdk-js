@@ -401,7 +401,7 @@ declare namespace sharing {
    * Register a callback for the interface network sharing state change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'interfaceSharingStateChange' } type - Indicates Event name.
-   * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback - the callback function that returns the message. 
+   * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback - the callback function that returns the message.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -409,7 +409,19 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: 'interfaceSharingStateChange', callback: Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }>): void;
+  /**
+   * Register a callback for the interface network sharing state change.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { 'interfaceSharingStateChange' } type - Indicates Event name.
+   * @param { Callback<InterfaceSharingStateInfo> } callback - the callback function that returns the message.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.NetSharing
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'interfaceSharingStateChange', callback: Callback<InterfaceSharingStateInfo>): void;
 
   /**
    * Unregister a callback for the interface network sharing state change.
@@ -423,7 +435,19 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function off(type: 'interfaceSharingStateChange', callback?: Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }>): void;
+  /**
+   * Unregister a callback for the interface network sharing state change.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { 'interfaceSharingStateChange' } type - Indicates Event name.
+   * @param { Callback<InterfaceSharingStateInfo> } callback - the callback function that returns the message.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.NetSharing
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'interfaceSharingStateChange', callback?: Callback<InterfaceSharingStateInfo>): void;
 
   /**
    * Register a callback for the sharing upstream network change.
@@ -484,6 +508,40 @@ declare namespace sharing {
      * @since 9
      */
     SHARING_NIC_ERROR = 3
+  }
+
+  /**
+   * The interface is used to notify listeners of changes in shared interface status.
+   * @interface InterfaceSharingStateInfo
+   * @syscap SystemCapability.Communication.NetManager.NetSharing
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface InterfaceSharingStateInfo {
+    /**
+     * Enumerates the network sharing types of an NIC.
+     * @type { SharingIfaceType }
+     * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    type: SharingIfaceType;
+    /**
+     * The specified network interface name.
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    iface: string;
+    /**
+     * Network card sharing status.
+     * @type { SharingIfaceState }
+     * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    state: SharingIfaceState;
   }
 
   /**

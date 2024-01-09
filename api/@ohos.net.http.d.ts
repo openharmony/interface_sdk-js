@@ -1207,7 +1207,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'dataReceiveProgress', callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+    /**
+     * Registers an observer for progress of receiving HTTP Response data events.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
+     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'dataReceiveProgress', callback: Callback<DataReceiveProgressInfo>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
@@ -1216,25 +1223,32 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'dataReceiveProgress', callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+    /**
+     * Unregisters an observer for progress of receiving HTTP Response data events.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
+     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'dataReceiveProgress', callback?: Callback<DataReceiveProgressInfo>): void;
 
     /**
      * Registers an observer for progress of sendSize HTTP Response data events.
      * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<{ sendSize: number, totalSize: number }> } callback - the callback of on.
+     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'dataSendProgress', callback: Callback<{ sendSize: number, totalSize: number }>): void
+    on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void
 
     /**
      * Unregisters an observer for progress of sendSize HTTP Response data events.
      * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<{ sendSize: number, totalSize: number }> } [callback] - the callback of off.
+     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'dataSendProgress', callback?: Callback<{ sendSize: number, totalSize: number }>): void
+    off(type: 'dataSendProgress', callback?: Callback<DataSendProgressInfo>): void
   }
 
   /**
@@ -2545,6 +2559,52 @@ declare namespace http {
      * @since 11
      */
     totalTiming: number;
+  }
+
+  /**
+   * This interface is used to obtain the progress information of file upload or download.
+   * @interface DataReceiveProgressInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface DataReceiveProgressInfo {
+    /**
+     * Number of data bytes received.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    receiveSize: number;
+    /**
+     * Total number of bytes to receive.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    totalSize: number;
+  }
+
+  /**
+   * This interface is used to monitor the progress of sending data.
+   * @interface DataSendProgressInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface DataSendProgressInfo {
+    /**
+     * Used to specify the data size to be sent.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    sendSize: number;
+    /**
+     * Total number of bytes to receive.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    totalSize: number;
   }
 
   /**
