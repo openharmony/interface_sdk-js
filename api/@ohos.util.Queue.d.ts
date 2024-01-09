@@ -23,7 +23,6 @@
  * It supports insertion of elements at the end and removal from the front of the queue. 
  * Queue is implemented based on the queue data structure. 
  *
- * @namespace Queue
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -32,7 +31,6 @@
  * It supports insertion of elements at the end and removal from the front of the queue. 
  * Queue is implemented based on the queue data structure. 
  *
- * @namespace Queue
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -129,11 +127,12 @@ declare class Queue<T> {
   /**
    * Executes a provided function once for each value in the queue object.
    *
-   * @param { (value: T, index?: number, Queue?: Queue<T>) => void } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to
-   * be called for each element in the queue
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -142,11 +141,12 @@ declare class Queue<T> {
   /**
    * Executes a provided function once for each value in the queue object.
    *
-   * @param { (value: T, index?: number, Queue?: Queue<T>) => void } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to
-   * be called for each element in the queue
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

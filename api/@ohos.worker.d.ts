@@ -612,6 +612,15 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @useinstead ohos.worker.GlobalScope.onerror
    */
   onerror?: (ev: ErrorEvent) => void;
+
+  /**
+   * Specify the type attribute for self.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.worker.GlobalScope.self
+   */
   readonly self: WorkerGlobalScope & typeof globalThis;
 }
 
@@ -733,6 +742,17 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.postMessage
    */
   postMessage(messageObject: Object, transfer: Transferable[]): void;
+
+  /**
+   * Send a message to be host thread from the worker
+   *
+   * @param { Object } messageObject - messageObject Data to be sent to the worker
+   * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.worker.ThreadWorkerGlobalScope.postMessage
+   */
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
 
   /**
