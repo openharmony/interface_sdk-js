@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Test Kit
+ * @kit TestKit
  */
 
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';

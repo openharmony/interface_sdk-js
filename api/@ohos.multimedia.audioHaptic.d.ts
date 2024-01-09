@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Audio Kit
+ * @kit AudioKit
  */
 
 import type { Callback } from './@ohos.base';

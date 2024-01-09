@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MediaKit
+ */
+
 import media from '@ohos.multimedia.media';
 
 export { media };

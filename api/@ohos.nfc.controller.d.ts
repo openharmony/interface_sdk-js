@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Connectivity Kit
+ * @kit ConnectivityKit
  */
 
 import { Callback } from './@ohos.base';

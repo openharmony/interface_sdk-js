@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import rpc from './@ohos.rpc';

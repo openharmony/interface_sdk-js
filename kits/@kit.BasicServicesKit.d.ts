@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
 import appAccount from '@ohos.account.appAccount';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { Callback } from './@ohos.base';

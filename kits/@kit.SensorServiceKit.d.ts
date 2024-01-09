@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit SensorServiceKit
+ */
+
 import sensor from '@ohos.sensor';
 import vibrator from '@ohos.vibrator';
 import Sensor, {

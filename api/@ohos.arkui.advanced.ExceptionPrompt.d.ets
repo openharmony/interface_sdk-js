@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Control margin status of  ExceptionPrompt.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

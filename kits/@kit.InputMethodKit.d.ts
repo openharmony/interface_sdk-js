@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputMethodKit
+ */
+
 import inputMethod from '@ohos.inputMethod';
 import inputMethodEngine from '@ohos.inputMethodEngine';
 import InputMethodExtensionAbility from '@ohos.InputMethodExtensionAbility';

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Camera Kit
+ * @kit CameraKit
  */
 
 import { ErrorCallback, AsyncCallback } from './@ohos.base';

@@ -890,10 +890,18 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * Called when tabbar is entered.
    *
-   * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } } value
+   * @param { string | Resource | { icon?: string | Resource; text?: string | Resource } } value
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when tabbar is entered.
+   *
+   * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } } value
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
    */
   /**
    * Called when tabbar is entered.

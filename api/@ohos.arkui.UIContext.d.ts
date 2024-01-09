@@ -876,13 +876,17 @@ export class PromptAction {
    * Displays the menu.
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
+   * @useinstead showActionMenu
    */
+  showActionMenu(options: promptAction.ActionMenuOptions, callback: promptAction.ActionMenuSuccessResponse): void;
+
   /**
    * Displays the menu.
    *

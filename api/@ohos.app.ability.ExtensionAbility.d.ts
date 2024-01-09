@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import Ability from './@ohos.app.ability.Ability';

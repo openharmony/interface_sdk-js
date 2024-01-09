@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
@@ -35,6 +35,15 @@ export default class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called when the system configuration is updated.
+   *
+   * @param { Configuration } config - Indicates the updated configuration.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onConfigurationUpdated(config: Configuration): void;
 

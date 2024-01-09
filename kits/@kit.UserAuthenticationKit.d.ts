@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import effectKit from '@ohos.effectKit';
-import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
+/**
+ * @file
+ * @kit UserAuthenticationKit
+ */
 
-export { colorSpaceManager, effectKit };
+import faceAuth from '@ohos.userIAM.faceAuth';
+import userAuth from '@ohos.userIAM.userAuth';
+
+export { faceAuth, userAuth };

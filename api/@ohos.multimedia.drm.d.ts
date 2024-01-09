@@ -15,7 +15,7 @@
 
 /**
  * @file Defines the DRM capability.
- * @kit Drm Kit
+ * @kit DrmKit
  */
 
 /**

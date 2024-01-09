@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MediaLibraryKit
+ */
+
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import mediaLibrary from '@ohos.multimedia.mediaLibrary';
 

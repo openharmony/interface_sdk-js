@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit UniversalKeystoreKit
+ */
+
 import huks from '@ohos.security.huks';
 
 export { huks };

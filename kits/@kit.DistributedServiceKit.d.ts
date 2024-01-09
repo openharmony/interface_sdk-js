@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DistributedServiceKit
+ */
+
 import cooperate from '@ohos.cooperate';
 import distributedDeviceManager from '@ohos.distributedDeviceManager';
 import deviceManager from '@ohos.distributedHardware.deviceManager';

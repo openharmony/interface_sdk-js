@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import ability from '@ohos.ability.ability';
 import { ErrorCode } from '@ohos.ability.errorCode';
 import featureAbility from '@ohos.ability.featureAbility';

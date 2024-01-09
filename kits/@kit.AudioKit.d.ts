@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AudioKit
+ */
+
 import audio from '@ohos.multimedia.audio';
 import audioHaptic from '@ohos.multimedia.audioHaptic';
 import systemSoundManager from '@ohos.multimedia.systemSoundManager';

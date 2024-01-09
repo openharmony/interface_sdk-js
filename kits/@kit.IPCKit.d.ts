@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IPCKit
+ */
+
 import rpc from '@ohos.rpc';
 
 export { rpc };

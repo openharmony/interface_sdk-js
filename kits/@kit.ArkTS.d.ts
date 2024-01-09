@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkTS
+ */
+
 import buffer from '@ohos.buffer';
 import convertxml from '@ohos.convertxml';
 import process from '@ohos.process';

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Test Kit
+ * @kit TestKit
  */
 
 /**

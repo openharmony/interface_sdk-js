@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MindSporeLiteKit
+ */
+
 import intelligentVoice from '@ohos.ai.intelligentVoice';
 import mindSporeLite from '@ohos.ai.mindSporeLite';
 

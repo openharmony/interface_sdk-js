@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Core File Kit
+ * @kit CoreFileKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

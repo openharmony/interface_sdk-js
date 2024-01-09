@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Contacts Kit
+ * @kit ContactsKit
  */
 
 import { AsyncCallback } from './@ohos.base';

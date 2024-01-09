@@ -946,7 +946,7 @@ declare namespace taskpool {
    * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<Object> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
-   * @throws { BusinessError } 102000028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

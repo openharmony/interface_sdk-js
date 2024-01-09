@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Export NodeRenderType, RenderOptions, BuilderNode, which is used to create a node trees by builder function and manage the update of the tree.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

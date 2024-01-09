@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit TestKit
+ */
+
 import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 import TestRunner from '@ohos.application.testRunner';
 import {

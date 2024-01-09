@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit AVSession Kit
+ * @kit AVSessionKit
  */
 
 import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';

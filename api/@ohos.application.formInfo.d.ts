@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Form Kit
+ * @kit FormKit
  */
 
 import Want from './@ohos.app.ability.Want';

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Form Kit
+ * @kit FormKit
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
