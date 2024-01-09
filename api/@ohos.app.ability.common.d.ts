@@ -60,6 +60,7 @@ import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStar
  * @namespace common
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare namespace common {
@@ -317,6 +318,15 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * The context of UI extension. It allows access to
+   * UIExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   export type UIExtensionContext = _UIExtensionContext.default;
 
