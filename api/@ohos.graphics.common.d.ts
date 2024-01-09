@@ -28,7 +28,6 @@
 declare namespace graphicsCommon {
   /**
    * Provide a description in the form of color ARGB.
-   * 
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -36,7 +35,6 @@ declare namespace graphicsCommon {
   interface Color {
     /**
      * Alpha component of color, from 0 to 255.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -45,7 +43,6 @@ declare namespace graphicsCommon {
 
     /**
      * Red component of color, from 0 to 255.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -54,7 +51,6 @@ declare namespace graphicsCommon {
 
     /**
      * Green component of color, from 0 to 255.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -63,7 +59,6 @@ declare namespace graphicsCommon {
 
     /**
      * Blue component of color, from 0 to 255.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -73,7 +68,6 @@ declare namespace graphicsCommon {
 
   /**
    * Provides the definition of the rectangle.
-   * 
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -81,7 +75,6 @@ declare namespace graphicsCommon {
   interface Rect {
     /**
      * Left Position of Rectangle.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -90,7 +83,6 @@ declare namespace graphicsCommon {
 
     /**
      * Top side position of the rectangle
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -99,7 +91,6 @@ declare namespace graphicsCommon {
 
     /**
      * Right Position of Rectangle.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -108,7 +99,6 @@ declare namespace graphicsCommon {
 
     /**
      * Position of the bottom side of the rectangle.
-     * 
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
