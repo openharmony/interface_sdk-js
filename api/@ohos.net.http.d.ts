@@ -1244,7 +1244,7 @@ declare namespace http {
     /**
      * Unregisters an observer for progress of sendSize HTTP Response data events.
      * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } callback - the callback of off.
+     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
