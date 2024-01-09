@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Graphics.Drawing
  * @since 11
  */
- declare namespace graphicsCommon {
+declare namespace graphicsCommon {
   /**
    * Provide a description in the form of color ARGB.
    * 
@@ -117,4 +117,4 @@
   }
 }
 
-export default GraphicsBase;
+export default graphicsCommon;
