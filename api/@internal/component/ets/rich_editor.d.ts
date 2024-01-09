@@ -1965,6 +1965,7 @@ declare interface SelectionMenuOptions {
  * Provides Controller for RichEditor.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
