@@ -73,12 +73,15 @@ bevels
 bgra
 bidirectionally
 bitrates
+blending
+blendmode
 blocklist
 bms
 bolder
 bonded
 bonding
 booted
+brightens
 brighter
 brightest
 browsable
@@ -123,6 +126,7 @@ collapses
 collations
 collectable
 colno
+colorfilter
 complies
 compresses
 cone
@@ -150,6 +154,7 @@ csh
 cug
 cyclewindows
 daltonization
+darkens
 darkest
 dataability
 datareceive
@@ -232,6 +237,7 @@ ejectclosecd
 emption
 emphasized
 encapsulates
+encloses
 encompassed
 encrypts
 endc
@@ -411,6 +417,7 @@ lfloat
 libraryname
 lifted
 lifts
+linearly
 lintptr
 listened
 llbackfn
@@ -421,6 +428,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightens
 lightupEffect
 lpx
 lru
@@ -470,6 +478,7 @@ mtp
 muhenkan
 multifrequency
 multimodal
+multiplies
 multisample
 multisim
 multitask
@@ -695,6 +704,7 @@ sliderstyle
 statvfs
 stk
 str
+strokes
 sm3
 smil
 smpte
@@ -773,6 +783,7 @@ telecom
 tethering
 texel
 textarget
+textblob
 textclock
 texttimer
 thirdparty

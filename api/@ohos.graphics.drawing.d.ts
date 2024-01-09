@@ -761,7 +761,6 @@ declare namespace drawing {
     * @since 11
     */
     setColor(color: graphicsCommon.Color): void;
-
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
     * 
@@ -771,7 +770,6 @@ declare namespace drawing {
     * @since 11
     */
     setStrokeWidth(width: number): void;
-
     /**
     * Requests, but does not require, that edge pixels draw opaque or with
     * partial transparency.
@@ -782,7 +780,6 @@ declare namespace drawing {
     * @since 11
     */
     setAntiAlias(aa: boolean): void;
-
     /**
     * Replaces alpha, leaving RGB
     * 
@@ -792,7 +789,6 @@ declare namespace drawing {
     * @since 11
     */
     setAlpha(alpha: number): void;
-
     /**
     * Sets ColorFilter to pen
     * 
@@ -802,7 +798,6 @@ declare namespace drawing {
     * @since 11
     */
     setColorFilter(filter: ColorFilter): void;
-
     /**
     * Sets a blender that implements the specified blendmode enum.
     * 
@@ -812,7 +807,6 @@ declare namespace drawing {
     * @since 11
     */
     setBlendMode(mode: BlendMode): void;
-
     /**
     * Request color distribution error.
     * 
@@ -838,7 +832,6 @@ declare namespace drawing {
      * @since 11
      */
     setColor(color: graphicsCommon.Color): void;
-
     /**
      * Requests, but does not require, that edge pixels draw opaque or with
      * partial transparency.
@@ -848,7 +841,6 @@ declare namespace drawing {
      * @since 11
      */
     setAntiAlias(aa: boolean): void;
-
     /**
      * Replaces alpha, leaving RGB
      * @param { number } alpha - Alpha component of color, value range: 0–255.
@@ -857,7 +849,6 @@ declare namespace drawing {
      * @since 11
      */
     setAlpha(alpha: number): void;
-
     /**
      * Sets ColorFilter to brush
      * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
@@ -866,7 +857,6 @@ declare namespace drawing {
      * @since 11
      */
     setColorFilter(filter: ColorFilter): void;
-
     /**
      * Sets a blender that implements the specified blendmode enum.
      * @param { BlendMode } mode - Blendmode.
