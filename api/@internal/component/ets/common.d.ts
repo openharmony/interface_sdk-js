@@ -7974,7 +7974,7 @@ declare enum BlendMode {
 
 /**
  * Enum for BlendApplyType.
- * Indicate how to apply specified blendmode to
+ * Indicate how to apply specified blend mode to
  * the view's content.
  *
  * @enum { number }
