@@ -15,12 +15,12 @@
 
 /**
  * @file
- * @kit Basic Services Kit
+ * @kit BasicServicesKit
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
-import Want from './@ohos.app.ability.Want';
-import rpc from './@ohos.rpc';
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
+import type rpc from './@ohos.rpc';
 
 /**
  * This module provides the capability to manage application accounts.
@@ -1160,7 +1160,7 @@ declare namespace appAccount {
      * @param { string } name - Indicates the account name of your application or third-party applications.
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
      * @param { string } authType - Indicates the authentication type.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
+     * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -1176,7 +1176,7 @@ declare namespace appAccount {
       name: string,
       owner: string,
       authType: string,
-      options: { [key: string]: Object },
+      options: Record<string, Object>,
       callback: AuthCallback
     ): void;
 
@@ -2141,11 +2141,11 @@ declare namespace appAccount {
      * The custom data for creating an account,
      * which can be further modified by function setCustomData.
      *
-     * @type { ?object }
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    customData?: { [key: string]: string };
+    customData?: Record<string, string>;
   }
 
   /**
@@ -2180,11 +2180,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -2255,11 +2255,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -2273,11 +2273,11 @@ declare namespace appAccount {
     /**
      * The properties to be set.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    properties?: { [key: string]: Object };
+    properties?: Record<string, Object>;
 
     /**
      * The authenticator-specific parameters.
@@ -2285,11 +2285,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -2747,12 +2747,12 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name.
      * @param { string } authType - Indicates the authentication type.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
+     * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    auth(name: string, authType: string, options: { [key: string]: Object }, callback: AuthCallback): void;
+    auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void;
 
     /**
      * Verifies the credential to ensure the user is the owner of the specified application account.

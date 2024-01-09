@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit IME Kit
+ * @kit InputMethodKit
  */
 
 import type { Callback, AsyncCallback } from './@ohos.base';
@@ -424,14 +424,14 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
     /**
-     * List input methods sync
+     * List enabled or disabled input methods sync
      *
      * @param { boolean } enable -
      *     If true, collect enabled input methods.
      *     If false, collect disabled input methods.
      * @returns { Array<InputMethodProperty> } the list of inputmethod.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -442,7 +442,7 @@ declare namespace inputMethod {
      * List all input methods
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -453,7 +453,7 @@ declare namespace inputMethod {
      * List all input methods
      *
      * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -464,7 +464,7 @@ declare namespace inputMethod {
      * List all input methods sync
      *
      * @returns { Array<InputMethodProperty> } the list of all inputmethod.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11

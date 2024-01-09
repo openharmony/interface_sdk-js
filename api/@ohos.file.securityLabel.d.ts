@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Core File Kit
+ * @kit CoreFileKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -28,7 +28,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @since 9
  */
 declare namespace securityLabel {
+  /**
+   * The security level.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 9
+   */
   type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
+
   /**
    * Set the SecurityLabel.
    *

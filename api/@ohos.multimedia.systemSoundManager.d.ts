@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Audio Kit
+ * @kit AudioKit
  */
 
 import type { AsyncCallback } from './@ohos.base';

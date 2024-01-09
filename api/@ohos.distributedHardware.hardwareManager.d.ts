@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Distributed Service Kit
+ * @kit DistributedServiceKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
@@ -37,7 +37,7 @@ declare namespace hardwareManager {
    */
   enum DistributedHardwareType {
     /**
-     * 
+     * Indicates all hardware
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11

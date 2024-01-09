@@ -529,16 +529,6 @@ export interface ApplicationInfo {
    * @since 11
    */
   readonly dataUnclearable: boolean;
-
-  /**
-   * Indicates the reserved flag of the application
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 11
-   */
-  readonly applicationReservedFlag: number;
 }
 
 /**

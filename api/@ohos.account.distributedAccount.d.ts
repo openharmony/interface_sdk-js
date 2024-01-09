@@ -15,10 +15,10 @@
 
 /**
  * @file
- * @kit Basic Services Kit
+ * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * This module provides the capability to manage distributed accounts.

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Connectivity Kit
+ * @kit ConnectivityKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
@@ -115,6 +115,22 @@ declare namespace access {
   function factoryReset(): Promise<void>;
 
   /**
+   * Obtaining the MAC address of the local device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_LOCAL_MAC
+   * @returns { string } The local MAC address. For example, "11:22:33:AA:BB:FF".
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 11
+   */
+  function getLocalAddress(): string;
+
+  /**
    * Subscribe the event reported when the Bluetooth state changes.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -151,12 +167,27 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
+  /**
+   * The enum of bluetooth state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum BluetoothState {
     /**
      * Indicates the local Bluetooth is off
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is off
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_OFF = 0,
     /**
@@ -165,12 +196,26 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Indicates the local Bluetooth is turning on
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_TURNING_ON = 1,
     /**
      * Indicates the local Bluetooth is on, and ready for use
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is on, and ready for use
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_ON = 2,
     /**
@@ -179,12 +224,26 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Indicates the local Bluetooth is turning off
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_TURNING_OFF = 3,
     /**
      * Indicates the local Bluetooth is turning LE mode on
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is turning LE mode on
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_BLE_TURNING_ON = 4,
     /**
@@ -193,12 +252,26 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Indicates the local Bluetooth is in LE only mode
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
+     */
     STATE_BLE_ON = 5,
     /**
      * Indicates the local Bluetooth is turning off LE only mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Indicates the local Bluetooth is turning off LE only mode
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 11
      */
     STATE_BLE_TURNING_OFF = 6
   }

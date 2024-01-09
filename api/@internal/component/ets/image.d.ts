@@ -916,6 +916,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   pointLight(value: PointLightStyle): ImageAttribute;
 
   /**
+   * SVG anti-aliasing.
+   * The range of the parameter values is (0.333, 1.333].
+   * Default value is 0.0.
+   *
+   * @param { number } value - The degree of anti-aliasing.
+   * @returns { ImageAttribute } The attribute of the image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  edgeAntialiasing(value: number): ImageAttribute;
+
+  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *
@@ -1070,6 +1083,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
+
+  /**
+   * Set image resizable options.
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  resizable(value: ResizableOptions): ImageAttribute;
 }
 
 /**
@@ -1258,4 +1282,24 @@ declare interface ImageError {
    * @form
    */
   message: string
+}
+
+/**
+ * Image resizable options
+ * 
+ * @interface ResizableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface ResizableOptions {
+  /**
+   * Image slice widths.
+   *
+   * @type { ?EdgeWidths }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  slice?: EdgeWidths;
 }

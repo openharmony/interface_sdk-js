@@ -42,6 +42,15 @@ import { UIContext } from './@ohos.arkui.UIContext';
  * @crossplatform
  * @since 10
  */
+/**
+ * Window manager.
+ *
+ * @namespace window
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace window {
   /**
    * The type of a window.
@@ -227,7 +236,16 @@ declare namespace window {
      * @StageModelOnly
      * @since 11
      */
-    TYPE_DIVIDER
+    TYPE_DIVIDER,
+    /**
+     * Global Search.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @StageModelOnly
+     * @since 11
+     */
+    TYPE_GLOBAL_SEARCH
   }
 
   /**
@@ -237,12 +255,27 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
+  /**
+   * Describes the type of avoid area
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 11
+   */
   enum AvoidAreaType {
     /**
      * Default area of the system
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Default area of the system
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     TYPE_SYSTEM,
 
@@ -252,6 +285,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Notch
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     TYPE_CUTOUT,
 
     /**
@@ -260,6 +300,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Area for system gesture
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     TYPE_SYSTEM_GESTURE,
 
     /**
@@ -267,6 +314,13 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Area for keyboard
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     TYPE_KEYBOARD,
 
@@ -527,6 +581,15 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Rectangle
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Rect {
 
     /**
@@ -595,6 +658,14 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The height of the Rect.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     height: number;
   }
 
@@ -605,6 +676,14 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
+  /**
+   * Avoid area
+   *
+   * @interface AvoidArea
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 11
+   */
   interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
@@ -612,6 +691,14 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Whether avoidArea is visible on screen
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     visible: boolean;
 
@@ -622,6 +709,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Rectangle on the left of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     leftRect: Rect;
 
     /**
@@ -630,6 +725,14 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Rectangle on the top of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     topRect: Rect;
 
@@ -640,6 +743,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Rectangle on the right of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     rightRect: Rect;
 
     /**
@@ -648,6 +759,14 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Rectangle on the bottom of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     bottomRect: Rect;
   }
@@ -848,6 +967,15 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Brightness value of window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     brightness: number;
 
     /**
@@ -873,6 +1001,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether keep screen on.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     isKeepScreenOn: boolean;
 
@@ -1265,7 +1402,53 @@ declare namespace window {
      */
     minHeight?: number;
   }
-  
+
+  /**
+   * Rectangular area of the title buttons relative to the upper right corner of the window.
+   *
+   * @interface TitleButtonRect
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  interface TitleButtonRect {
+
+    /**
+     * The right of the Rect.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    right: number;
+
+    /**
+     * The top of the Rect.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    top: number;
+
+    /**
+     * The width of the Rect.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    width: number;
+
+    /**
+     * The height of the Rect.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    height: number;
+  }
+
   /**
    * Create a window with a specific configuration
    *
@@ -1964,6 +2147,7 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   enum WindowEventType {
@@ -1978,6 +2162,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_SHOWN = 1,
@@ -1992,6 +2177,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_ACTIVE = 2,
@@ -2006,6 +2192,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_INACTIVE = 3,
@@ -2020,6 +2207,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     WINDOW_HIDDEN = 4,
@@ -2027,6 +2215,7 @@ declare namespace window {
      * The value of window event is window destroy
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 11
      */
     WINDOW_DESTROYED = 7
@@ -2036,10 +2225,27 @@ declare namespace window {
    * Specific system bar type.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 11
    */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
+  /**
+   * Window
+   * 
+   * @interface Window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 6
+   */
+  /**
+   * Window
+   * 
+   * @interface Window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Window {
     /**
      * Hide window.
@@ -2634,6 +2840,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Get the avoid area
+     *
+     * @param { AvoidAreaType } type - Type of the area
+     * @returns { AvoidArea } Area where the window cannot be displayed.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 
     /**
@@ -3019,17 +3236,6 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
-    /**
-     * Loads content
-     *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 11
-     * @deprecated since 9
-     * @useinstead ohos.window.Window#setUIContent
-     */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -3039,17 +3245,6 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.window.Window#setUIContent
-     */
-    /**
-     * Loads content
-     *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @returns { Promise<void> } Promise that returns no value.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 11
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
@@ -3332,6 +3527,16 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     on(type: 'avoidAreaChange', callback: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
 
     /**
@@ -3342,6 +3547,16 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Unregister the callback of avoidAreaChange
+     *
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
 
@@ -4730,11 +4945,10 @@ declare namespace window {
      */
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
 
-    /*
+    /**
      * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
      *
      * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
-     * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -4755,6 +4969,79 @@ declare namespace window {
      * @since 11
      */
     recover(): Promise<void>;
+
+    /**
+     * Set the visibility of the window decor.
+     *
+     * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setWindowDecorVisible(isVisible: boolean): void;
+	
+    /**
+     * Set the height of the window decor.
+     *
+     * @param { number } - The height of window decor.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setWindowDecorHeight(height: number): void;
+	
+    /**
+     * Get the height of the window decor.
+     *
+     * @returns { number } - The height of window decor.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    getWindowDecorHeight(): number;
+	
+    /**
+     * Get the area of window title buttons.
+     *
+     * @returns { TitleButtonRect } - The area of window title buttons.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    getTitleButtonRect(): TitleButtonRect;
+	
+    /**
+     * Register the callback of title buttons area change.
+     *
+     * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
+
+    /**
+     * Unregister the callback of title buttons area change.
+     *
+     * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
   }
   /**
    * Window stage callback event type
@@ -4772,6 +5059,16 @@ declare namespace window {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Window stage callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   enum WindowStageEventType {
     /**
@@ -4896,6 +5193,15 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * WindowStage
+   *
+   * @interface WindowStage
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   interface WindowStage {
     /**

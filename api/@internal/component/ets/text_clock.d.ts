@@ -170,6 +170,31 @@ interface TextClockInterface {
   (options?: { timeZoneOffset?: number; controller?: TextClockController }): TextClockAttribute;
 }
 
+/**
+ * Provides attribute for TextClock.
+ *
+ * @extends CommonMethod<TextClockAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 8
+ */
+/**
+ * Provides attribute for TextClock.
+ *
+ * @extends CommonMethod<TextClockAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Provides attribute for TextClock.
+ *
+ * @extends CommonMethod<TextClockAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".

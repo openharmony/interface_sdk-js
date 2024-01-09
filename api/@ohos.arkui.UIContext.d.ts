@@ -36,7 +36,7 @@ import type componentUtils from './@ohos.arkui.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
-import { AnimateParam } from 'AnimateToParam';
+import type { AnimateParam, KeyframeAnimateParam, KeyframeState } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
@@ -876,13 +876,17 @@ export class PromptAction {
    * Displays the menu.
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
+   * @useinstead showActionMenu
    */
+  showActionMenu(options: promptAction.ActionMenuOptions, callback: promptAction.ActionMenuSuccessResponse): void;
+
   /**
    * Displays the menu.
    *
@@ -1455,6 +1459,17 @@ export class UIContext {
    * @since 11
    */
   getDragController(): DragController;
+
+  /**
+   * Defining keyframe animation function.
+   *
+   * @param { KeyframeAnimateParam } param - overall animation parameters
+   * @param { Array<KeyframeState> } keyframes - all keyframe states
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 }
 
 /**

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Distributed Service Kit
+ * @kit DistributedServiceKit
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -343,7 +343,6 @@ declare namespace cooperate {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
-   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -584,7 +583,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMessage' } type - Change type.
-   * @param { Callback<CooperateMessage> } callback - Callback for which listening
+   * @param { Callback<CooperateMessage> } [callback] - Callback for which listening
    * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.

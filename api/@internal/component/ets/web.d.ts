@@ -185,6 +185,15 @@ declare enum MixedMode {
 }
 
 /**
+ * The callback of safe browsing check.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
+
+/**
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  *
  * @enum { number }
@@ -515,6 +524,53 @@ declare enum WebCaptureMode {
    * @since 11
    */
   HOME_SCREEN = 0,
+}
+
+/**
+ * Enum type supplied to {@link threatType} for the website's threat type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+declare enum ThreatType {
+  /**
+   * Illegal websites.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_ILLEGAL = 0,
+
+  /**
+   * Fraud websites.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_FRAUD = 1,
+
+  /**
+   * Websites with security risks.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_RISK = 2,
+
+  /**
+   * Websites suspected of containing unhealthy content.
+   * ArkWeb will not intercept this type of website and apps could handle it themselves.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_WARNING = 3,
 }
 
 /**
@@ -2034,7 +2090,7 @@ declare enum ContextMenuEditStateFlags {
  * @atomicservice
  * @since 11
  */
-declare enum NavigationType {
+declare enum WebNavigationType {
   /**
    * Unknown type.
    *
@@ -3646,12 +3702,12 @@ declare interface LoadCommittedDetails {
   /**
    * The type of the navigation.
    *
-   * @type { NavigationType }
+   * @type { WebNavigationType }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
-  navigationType: NavigationType;
+  navigationType: WebNavigationType;
 
   /**
    * The url to navigate.
@@ -3730,11 +3786,11 @@ declare interface NativeEmbedInfo {
   /**
    * The embed id.
    *
-   * @type { ?number }
+   * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
    */
-  id?: number;
+  id?: string;
   /**
    * Only when enableEmbedMode is true and type is marked as native/xxx will be recognized as a same layer component.
    *
@@ -5938,6 +5994,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
+
+
+  /**
+   * Called when received website security risk check result.
+   *
+   * @param { OnSafeBrowsingCheckResultCallback } callback - Function triggered when received website security risk check result.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  onSafeBrowsingCheckResult(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
    * Called when the load committed.

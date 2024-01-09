@@ -37,6 +37,15 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  * @crossplatform
  * @since 10
  */
+/**
+ * Interface of display manager.
+ *
+ * @namespace display
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace display {
   /**
    * Obtain the default display.
@@ -903,6 +912,49 @@ declare namespace display {
      * @since 11
      */
     hasImmersiveWindow(): Promise<boolean>;
+
+    /**
+     * Obtain the available area of the display.
+     *
+     * @returns { Promise<Rect> }
+     * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    getAvailableArea(): Promise<Rect>;
+
+    /**
+    * Register the callback for available area changes.
+    *
+    * @param { 'availableAreaChange' } type - the event of available area changes
+    * @param { Callback<Rect> } callback - Callback used to return the available area
+    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @throws { BusinessError } 801 - Capability not supported on this device.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use.
+    * @since 11
+    */
+    on(type: 'availableAreaChange', callback: Callback<Rect>): void;
+
+   /**
+    * Unregister the callback for available area changes.
+    *
+    * @param { 'availableAreaChange' } type - the event of available area changes
+    * @param { Callback<Rect> } [callback] - Callback used to return the available area
+    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @throws { BusinessError } 801 - Capability not supported on this device.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use.
+    * @since 11
+    */
+    off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
   }
 }
 

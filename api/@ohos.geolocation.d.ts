@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Location Kit
+ * @kit LocationKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';

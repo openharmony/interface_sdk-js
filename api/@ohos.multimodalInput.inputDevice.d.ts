@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Input Kit
+ * @kit InputKit
  */
 
 import type { Callback, AsyncCallback } from './@ohos.base';

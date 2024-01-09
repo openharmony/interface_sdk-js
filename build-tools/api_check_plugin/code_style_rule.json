@@ -281,11 +281,14 @@
       "SystemCapability.FileManagement.File.FileIO.Lite",
       "SystemCapability.FileManagement.File.Environment",
       "SystemCapability.FileManagement.File.DistributedFile",
+      "SystemCapability.FileManagement.File.Environment.FolderObtain",
       "SystemCapability.FileManagement.AppFileService",
+      "SystemCapability.FileManagement.AppFileService.FolderAuthorization",
       "SystemCapability.FileManagement.UserFileService",
       "SystemCapability.FileManagement.UserFileManager",
       "SystemCapability.FileManagement.UserFileManager.DistributedCore",
       "SystemCapability.FileManagement.UserFileManager.Core",
+      "SystemCapability.FileManagement.UserFileService.FolderSelection",
       "SystemCapability.USB.USBManager",
       "SystemCapability.Sensors.Sensor",
       "SystemCapability.Sensors.MiscDevice",
@@ -345,7 +348,9 @@
       "SystemCapability.Msdp.DeviceStatus.Drag",
       "SystemCapability.DistributedDataManager.CommonType",
       "SystemCapability.Multimedia.Audio.Spatialization",
-      "SystemCapability.Multimedia.AudioHaptic.Core"
+      "SystemCapability.Multimedia.AudioHaptic.Core",
+      "SystemCapability.ArkUi.Graphics3D",
+      "SystemCapability.Multimedia.Drm.Core"
     ]
   },
   "administrators": [

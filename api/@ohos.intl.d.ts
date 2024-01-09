@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Localization Kit
+ * @kit UserizationKit
  */
 
 /**

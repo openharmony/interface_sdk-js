@@ -68,18 +68,291 @@ declare namespace curves {
    * @since 11
    */
   enum Curve {
+    /**
+     * Linear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Linear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Linear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Linear,
+    /**
+     * Ease.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Ease.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Ease.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Ease,
+    /**
+     * EaseIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * EaseIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * EaseIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     EaseIn,
+    /**
+     * EaseOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * EaseOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * EaseOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     EaseOut,
+    /**
+     * EaseInOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * EaseInOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * EaseInOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     EaseInOut,
+    /**
+     * FastOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * FastOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * FastOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     FastOutSlowIn,
+    /**
+     * LinearOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * LinearOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * LinearOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     LinearOutSlowIn,
+    /**
+     * FastOutLinearIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * FastOutLinearIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * FastOutLinearIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     FastOutLinearIn,
+    /**
+     * ExtremeDeceleration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * ExtremeDeceleration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * ExtremeDeceleration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ExtremeDeceleration,
+    /**
+     * Sharp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Sharp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Sharp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Sharp,
+    /**
+     * Rhythm.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Rhythm.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Rhythm.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Rhythm,
+    /**
+     * Smooth.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Smooth.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Smooth.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Smooth,
+    /**
+     * Friction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Friction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Friction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Friction,
   }
 

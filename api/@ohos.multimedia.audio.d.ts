@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Audio Kit
+ * @kit AudioKit
  */
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
@@ -954,7 +954,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ENFORCED_TONE = 15,
     /**
-     * Ultrasonic playing usage.
+     * Ultrasonic playing usage. This type is only used for msdp condition.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 10
@@ -2941,8 +2941,10 @@ declare namespace audio {
 
     /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -2953,8 +2955,10 @@ declare namespace audio {
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -3002,8 +3006,10 @@ declare namespace audio {
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -3014,8 +3020,10 @@ declare namespace audio {
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -3063,7 +3071,9 @@ declare namespace audio {
 
     /**
      * Updates the spatial device state.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -3564,6 +3574,62 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio stream device change reason.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 11
+   */
+  enum AudioStreamDeviceChangeReason {
+    /**
+     * Unknown.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_UNKNOWN = 0,
+    /**
+     * New device available.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_NEW_DEVICE_AVAILABLE = 1,
+    /**
+     * Old device unavailable. Applications should consider to pause the audio playback when this reason is
+     * reported.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_OLD_DEVICE_UNAVAILABLE = 2,
+    /**
+     * Overrode by user or system.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    REASON_OVERRODE = 3,
+  }
+  /**
+   * Audio stream device change info.
+   * @typedef AudioStreamDeviceChangeInfo
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 11
+   */
+  interface AudioStreamDeviceChangeInfo {
+    /**
+     * Audio device descriptors after change.
+     * @type {AudioDeviceDescriptors}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    devices: AudioDeviceDescriptors;
+    /**
+     * Audio stream device change reason.
+     * @type {AudioStreamDeviceChangeReason}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    changeReason: AudioStreamDeviceChangeReason;
+  }
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3828,38 +3894,69 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
+    
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param { AudioRendererRate } rate - Audio render rate.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate): Promise<void>;
+
+    /**
+     * Sets the playback speed.
+     * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setSpeed(speed: number): void;
 
     /**
      * Obtains the current render rate. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<AudioRendererRate> } callback - Callback used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
+    
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
      * @returns { Promise<AudioRendererRate> } Promise used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(): Promise<AudioRendererRate>;
+
     /**
      * Obtains the current render rate.
      * @returns { AudioRendererRate } The audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRateSync(): AudioRendererRate;
+
+    /**
+     * Obtains the current playback speed.
+     * @returns { number } The playback speed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    getSpeed(): number;
 
     /**
      * Set interrupt mode.
@@ -4084,6 +4181,19 @@ declare namespace audio {
      * @since 10
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
+     * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    on(type: 'outputDeviceChangeWithInfo', callback: Callback<AudioStreamDeviceChangeInfo>): void;
+
     /**
      * Unsubscribes output device change event callback.
      * @param { 'outputDeviceChange' } type - Type of the event to listen for.
@@ -4094,6 +4204,17 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
   }
 
   /**
@@ -5197,7 +5318,7 @@ declare namespace audio {
     CH_LAYOUT_OCTAGONAL = 0x737,
     /**
      * Channel Layout For 5.1.2, 8 channels in total
-     * Speaker layout: 5.1-Back plus two top side speakers.
+     * Speaker layout: 5.1 plus two top side speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */

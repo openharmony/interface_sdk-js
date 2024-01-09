@@ -102,8 +102,8 @@ declare namespace buffer {
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
    * @param { number } size - size size The desired length of the new Buffer
-   * @param { string | Buffer | number } fill - fill [fill=0] A value to pre-fill the new Buffer with
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
+   * @param { string | Buffer | number } [fill] - fill [fill=0] A value to pre-fill the new Buffer with
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -113,8 +113,8 @@ declare namespace buffer {
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
    * @param { number } size - size size The desired length of the new Buffer
-   * @param { string | Buffer | number } fill - fill [fill=0] A value to pre-fill the new Buffer with
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
+   * @param { string | Buffer | number } [fill] - fill [fill=0] A value to pre-fill the new Buffer with
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -125,8 +125,8 @@ declare namespace buffer {
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
    * @param { number } size - size size The desired length of the new Buffer
-   * @param { string | Buffer | number } fill - fill [fill=0] A value to pre-fill the new Buffer with
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
+   * @param { string | Buffer | number } [fill] - fill [fill=0] A value to pre-fill the new Buffer with
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -206,7 +206,7 @@ declare namespace buffer {
    * for the encoding that is used to convert the string into bytes.
    *
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If `string` is a string, this is its encoding
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -218,7 +218,7 @@ declare namespace buffer {
    * for the encoding that is used to convert the string into bytes.
    *
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If `string` is a string, this is its encoding
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -231,7 +231,7 @@ declare namespace buffer {
    * for the encoding that is used to convert the string into bytes.
    *
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If `string` is a string, this is its encoding
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -248,7 +248,7 @@ declare namespace buffer {
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
    *
    * @param { Buffer[] | Uint8Array[] } list - list list List of `Buffer` or Uint8Array instances to concatenate
-   * @param { number } totalLength - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
+   * @param { number } [totalLength] - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max. Received value is: [length]
@@ -259,7 +259,7 @@ declare namespace buffer {
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
    *
    * @param { Buffer[] | Uint8Array[] } list - list list List of `Buffer` or Uint8Array instances to concatenate
-   * @param { number } totalLength - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
+   * @param { number } [totalLength] - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max. Received value is: [length]
@@ -271,7 +271,7 @@ declare namespace buffer {
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
    *
    * @param { Buffer[] | Uint8Array[] } list - list list List of `Buffer` or Uint8Array instances to concatenate
-   * @param { number } totalLength - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
+   * @param { number } [totalLength] - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max. Received value is: [length]
@@ -319,8 +319,8 @@ declare namespace buffer {
    *
    * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
    * SharedArrayBuffer, for example the .buffer property of a TypedArray.
-   * @param { number } byteOffset - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { number } length - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
    * @returns { Buffer } Return a view of the ArrayBuffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
@@ -333,8 +333,8 @@ declare namespace buffer {
    *
    * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
    * SharedArrayBuffer, for example the .buffer property of a TypedArray.
-   * @param { number } byteOffset - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { number } length - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
    * @returns { Buffer } Return a view of the ArrayBuffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
@@ -348,8 +348,8 @@ declare namespace buffer {
    *
    * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
    * SharedArrayBuffer, for example the .buffer property of a TypedArray.
-   * @param { number } byteOffset - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { number } length - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
    * @returns { Buffer } Return a view of the ArrayBuffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
@@ -439,7 +439,7 @@ declare namespace buffer {
    * to be used when converting string into bytes.
    *
    * @param { String } string - string string  A string to encode
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding of string
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -450,7 +450,7 @@ declare namespace buffer {
    * to be used when converting string into bytes.
    *
    * @param { String } string - string string  A string to encode
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding of string
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -462,7 +462,7 @@ declare namespace buffer {
    * to be used when converting string into bytes.
    *
    * @param { String } string - string string  A string to encode
-   * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding of string
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -714,9 +714,9 @@ declare namespace buffer {
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
      *
      * @param { string | Buffer | Uint8Array | number } value - value value The value with which to fill buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to fill buf
-     * @param { number } end - end [end = buf.length] Where to stop filling buf (not inclusive)
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding for value if value is a string
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to fill buf
+     * @param { number } [end] - end [end = buf.length] Where to stop filling buf (not inclusive)
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding for value if value is a string
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <= [right range]. Received value is: [offset/end]
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -727,9 +727,9 @@ declare namespace buffer {
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
      *
      * @param { string | Buffer | Uint8Array | number } value - value value The value with which to fill buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to fill buf
-     * @param { number } end - end [end = buf.length] Where to stop filling buf (not inclusive)
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding for value if value is a string
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to fill buf
+     * @param { number } [end] - end [end = buf.length] Where to stop filling buf (not inclusive)
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding for value if value is a string
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <= [right range]. Received value is: [offset/end]
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -741,9 +741,9 @@ declare namespace buffer {
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
      *
      * @param { string | Buffer | Uint8Array | number } value - value value The value with which to fill buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to fill buf
-     * @param { number } end - end [end = buf.length] Where to stop filling buf (not inclusive)
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding for value if value is a string
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to fill buf
+     * @param { number } [end] - end [end = buf.length] Where to stop filling buf (not inclusive)
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding for value if value is a string
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <= [right range]. Received value is: [offset/end]
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -764,10 +764,10 @@ declare namespace buffer {
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
-     * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin comparison
-     * @param { number } targetEnd - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
-     * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
-     * @param { number } sourceEnd - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
+     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin comparison
+     * @param { number } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
+     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
+     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
      * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
@@ -782,10 +782,10 @@ declare namespace buffer {
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
-     * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin comparison
-     * @param { number } targetEnd - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
-     * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
-     * @param { number } sourceEnd - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
+     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin comparison
+     * @param { number } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
+     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
+     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
      * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
@@ -801,10 +801,10 @@ declare namespace buffer {
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
-     * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin comparison
-     * @param { number } targetEnd - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
-     * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
-     * @param { number } sourceEnd - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
+     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin comparison
+     * @param { number } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
+     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
+     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
      * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
@@ -829,9 +829,9 @@ declare namespace buffer {
      * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array to copy into
-     * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin writing
-     * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
-     * @param { number } sourceEnd - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
+     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin writing
+     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
+     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
      * @returns { number } The number of bytes copied
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must be >= 0.
@@ -844,9 +844,9 @@ declare namespace buffer {
      * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array to copy into
-     * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin writing
-     * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
-     * @param { number } sourceEnd - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
+     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin writing
+     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
+     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
      * @returns { number } The number of bytes copied
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must be >= 0.
@@ -860,9 +860,9 @@ declare namespace buffer {
      * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array to copy into
-     * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin writing
-     * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
-     * @param { number } sourceEnd - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
+     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin writing
+     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
+     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
      * @returns { number } The number of bytes copied
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must be >= 0.
@@ -910,8 +910,8 @@ declare namespace buffer {
      * Returns true if value was found in buf, false otherwise
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, this is its encoding
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string, this is its encoding
      * @returns { boolean } true or false
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -921,8 +921,8 @@ declare namespace buffer {
      * Returns true if value was found in buf, false otherwise
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, this is its encoding
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string, this is its encoding
      * @returns { boolean } true or false
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -933,8 +933,8 @@ declare namespace buffer {
      * Returns true if value was found in buf, false otherwise
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, this is its encoding
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string, this is its encoding
      * @returns { boolean } true or false
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -948,8 +948,8 @@ declare namespace buffer {
      * The index of the first occurrence of value in buf
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string,
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
      * this is the encoding used to determine the binary representation of the string that will be searched for in buf
      * @returns { number } The index of the first occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -960,8 +960,8 @@ declare namespace buffer {
      * The index of the first occurrence of value in buf
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string,
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
      * this is the encoding used to determine the binary representation of the string that will be searched for in buf
      * @returns { number } The index of the first occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -973,8 +973,8 @@ declare namespace buffer {
      * The index of the first occurrence of value in buf
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string,
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
      * this is the encoding used to determine the binary representation of the string that will be searched for in buf
      * @returns { number } The index of the first occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1067,8 +1067,8 @@ declare namespace buffer {
      * The index of the last occurrence of value in buf
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, 
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
      * this is the encoding used to determine the binary representation of the string that will be searched for in buf
      * @returns { number } The index of the last occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1079,8 +1079,8 @@ declare namespace buffer {
      * The index of the last occurrence of value in buf
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, 
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
      * this is the encoding used to determine the binary representation of the string that will be searched for in buf
      * @returns { number } The index of the last occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1092,8 +1092,8 @@ declare namespace buffer {
      * The index of the last occurrence of value in buf
      *
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
-     * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
-     * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, 
+     * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Where to begin searching in buf
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If value is a string,
      * this is the encoding used to determine the binary representation of the string that will be searched for in buf
      * @returns { number } The index of the last occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1107,7 +1107,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1117,7 +1117,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1128,7 +1128,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1142,7 +1142,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1152,7 +1152,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1163,7 +1163,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1177,7 +1177,7 @@ declare namespace buffer {
     /**
      * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1187,7 +1187,7 @@ declare namespace buffer {
     /**
      * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1198,7 +1198,7 @@ declare namespace buffer {
     /**
      * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1212,7 +1212,7 @@ declare namespace buffer {
     /**
      * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1222,7 +1222,7 @@ declare namespace buffer {
     /**
      * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1233,7 +1233,7 @@ declare namespace buffer {
     /**
      * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1247,7 +1247,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian double from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, big-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1257,7 +1257,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian double from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, big-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1268,7 +1268,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian double from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, big-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1282,7 +1282,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian double from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, little-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1292,7 +1292,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian double from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, little-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1303,7 +1303,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian double from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, little-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1317,7 +1317,7 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian float from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, big-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1327,7 +1327,7 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian float from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, big-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1338,7 +1338,7 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian float from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, big-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1352,7 +1352,7 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian float from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, little-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1362,7 +1362,7 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian float from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, little-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1373,7 +1373,7 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian float from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, little-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1387,7 +1387,7 @@ declare namespace buffer {
     /**
      * Reads a signed 8-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } Return a signed 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
@@ -1397,7 +1397,7 @@ declare namespace buffer {
     /**
      * Reads a signed 8-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } Return a signed 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
@@ -1408,7 +1408,7 @@ declare namespace buffer {
     /**
      * Reads a signed 8-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } Return a signed 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
@@ -1422,7 +1422,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1432,7 +1432,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1443,7 +1443,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1457,7 +1457,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1467,7 +1467,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1478,7 +1478,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1492,7 +1492,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1502,7 +1502,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1513,7 +1513,7 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1527,7 +1527,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1537,7 +1537,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1548,7 +1548,7 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1644,7 +1644,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned 8-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } Reads an unsigned 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
@@ -1654,7 +1654,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned 8-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } Reads an unsigned 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
@@ -1665,7 +1665,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned 8-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } Reads an unsigned 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
@@ -1679,7 +1679,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1689,7 +1689,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1700,7 +1700,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1714,7 +1714,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1724,7 +1724,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1735,7 +1735,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
@@ -1749,7 +1749,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1759,7 +1759,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1770,7 +1770,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1784,7 +1784,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1794,7 +1794,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1805,7 +1805,7 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
      *
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -1901,8 +1901,8 @@ declare namespace buffer {
     /**
      * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
      *
-     * @param { number } start - start [start = 0] Where the new Buffer will start
-     * @param { number } end - end [end = buf.length] Where the new Buffer will end (not inclusive)
+     * @param { number } [start] - start [start = 0] Where the new Buffer will start
+     * @param { number } [end] - end [end = buf.length] Where the new Buffer will end (not inclusive)
      * @returns { Buffer } Returns a new Buffer that references the same memory as the original
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -1910,8 +1910,8 @@ declare namespace buffer {
     /**
      * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
      *
-     * @param { number } start - start [start = 0] Where the new Buffer will start
-     * @param { number } end - end [end = buf.length] Where the new Buffer will end (not inclusive)
+     * @param { number } [start] - start [start = 0] Where the new Buffer will start
+     * @param { number } [end] - end [end = buf.length] Where the new Buffer will end (not inclusive)
      * @returns { Buffer } Returns a new Buffer that references the same memory as the original
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1920,8 +1920,8 @@ declare namespace buffer {
     /**
      * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
      *
-     * @param { number } start - start [start = 0] Where the new Buffer will start
-     * @param { number } end - end [end = buf.length] Where the new Buffer will end (not inclusive)
+     * @param { number } [start] - start [start = 0] Where the new Buffer will start
+     * @param { number } [end] - end [end = buf.length] Where the new Buffer will end (not inclusive)
      * @returns { Buffer } Returns a new Buffer that references the same memory as the original
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -2046,9 +2046,9 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
-     * @param { string } encoding - encoding [encoding='utf8'] The character encoding to use
-     * @param { number } start - start [start = 0] The byte offset to start decoding at
-     * @param { number } end - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
+     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
+     * @param { number } [start] - start [start = 0] The byte offset to start decoding at
+     * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
      * @returns { string }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -2057,9 +2057,9 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
-     * @param { string } encoding - encoding [encoding='utf8'] The character encoding to use
-     * @param { number } start - start [start = 0] The byte offset to start decoding at
-     * @param { number } end - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
+     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
+     * @param { number } [start] - start [start = 0] The byte offset to start decoding at
+     * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
      * @returns { string }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -2069,9 +2069,9 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
-     * @param { string } encoding - encoding [encoding='utf8'] The character encoding to use
-     * @param { number } start - start [start = 0] The byte offset to start decoding at
-     * @param { number } end - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
+     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
+     * @param { number } [start] - start [start = 0] The byte offset to start decoding at
+     * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
      * @returns { string }
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -2085,9 +2085,9 @@ declare namespace buffer {
      * Writes string to buf at offset according to the character encoding in encoding
      *
      * @param { string } str - str str Writes string to buf at offset according to the character encoding in encoding
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write string
-     * @param { number } length - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
-     * @param { string } encoding - encoding [encoding='utf8'] The character encoding of string.
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write string
+     * @param { number } [length] - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
+     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding of string.
      * @returns { number } Number of bytes written.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <= buf.length. Received value is: [offset/length]
@@ -2098,9 +2098,9 @@ declare namespace buffer {
      * Writes string to buf at offset according to the character encoding in encoding
      *
      * @param { string } str - str str Writes string to buf at offset according to the character encoding in encoding
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write string
-     * @param { number } length - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
-     * @param { string } encoding - encoding [encoding='utf8'] The character encoding of string.
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write string
+     * @param { number } [length] - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
+     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding of string.
      * @returns { number } Number of bytes written.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <= buf.length. Received value is: [offset/length]
@@ -2112,9 +2112,9 @@ declare namespace buffer {
      * Writes string to buf at offset according to the character encoding in encoding
      *
      * @param { string } str - str str Writes string to buf at offset according to the character encoding in encoding
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write string
-     * @param { number } length - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
-     * @param { string } encoding - encoding [encoding='utf8'] The character encoding of string.
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write string
+     * @param { number } [length] - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
+     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding of string.
      * @returns { number } Number of bytes written.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <= buf.length. Received value is: [offset/length]
@@ -2129,7 +2129,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2140,7 +2140,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2152,7 +2152,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2167,7 +2167,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2178,7 +2178,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2190,7 +2190,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2205,7 +2205,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2216,7 +2216,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2228,7 +2228,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2243,7 +2243,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2254,7 +2254,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2266,7 +2266,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { bigint } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2281,7 +2281,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -2292,7 +2292,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -2304,7 +2304,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -2319,7 +2319,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -2330,7 +2330,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -2342,7 +2342,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -2357,7 +2357,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -2368,7 +2368,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -2380,7 +2380,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -2395,7 +2395,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -2406,7 +2406,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -2418,7 +2418,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -2433,7 +2433,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2444,7 +2444,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2456,7 +2456,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2471,7 +2471,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2482,7 +2482,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2494,7 +2494,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2509,7 +2509,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2520,7 +2520,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2532,7 +2532,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2547,7 +2547,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2558,7 +2558,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2570,7 +2570,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2585,7 +2585,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2596,7 +2596,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2608,7 +2608,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2705,7 +2705,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2716,7 +2716,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2728,7 +2728,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2743,7 +2743,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2754,7 +2754,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2766,7 +2766,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2781,7 +2781,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2792,7 +2792,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2804,7 +2804,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2819,7 +2819,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2830,7 +2830,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2842,7 +2842,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2857,7 +2857,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2868,7 +2868,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -2880,7 +2880,7 @@ declare namespace buffer {
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
      *
      * @param { number } value - value value Number to be written to buf
-     * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
+     * @param { number } [offset] - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -3001,7 +3001,7 @@ declare namespace buffer {
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
-     * @param { Object } options - options options {endings: string, type: string}
+     * @param { Object } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
      *                 type: The Blob content-type
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -3013,7 +3013,7 @@ declare namespace buffer {
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
-     * @param { Object } options - options options {endings: string, type: string}
+     * @param { Object } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
      *                 type: The Blob content-type
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -3026,7 +3026,7 @@ declare namespace buffer {
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
-     * @param { Object } options - options options {endings: string, type: string}
+     * @param { Object } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
      *                 type: The Blob content-type
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -3112,9 +3112,9 @@ declare namespace buffer {
     /**
      * Creates and returns a new Blob containing a subset of this Blob objects data. The original Blob is not altered
      *
-     * @param { number } start - start start The starting index
-     * @param { number } end - end end The ending index
-     * @param { string } type - type type The content-type for the new Blob
+     * @param { number } [start] - start start The starting index
+     * @param { number } [end] - end end The ending index
+     * @param { string } [type] - type type The content-type for the new Blob
      * @returns { Blob }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -3122,9 +3122,9 @@ declare namespace buffer {
     /**
      * Creates and returns a new Blob containing a subset of this Blob objects data. The original Blob is not altered
      *
-     * @param { number } start - start start The starting index
-     * @param { number } end - end end The ending index
-     * @param { string } type - type type The content-type for the new Blob
+     * @param { number } [start] - start start The starting index
+     * @param { number } [end] - end end The ending index
+     * @param { string } [type] - type type The content-type for the new Blob
      * @returns { Blob }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -3133,9 +3133,9 @@ declare namespace buffer {
     /**
      * Creates and returns a new Blob containing a subset of this Blob objects data. The original Blob is not altered
      *
-     * @param { number } start - start start The starting index
-     * @param { number } end - end end The ending index
-     * @param { string } type - type type The content-type for the new Blob
+     * @param { number } [start] - start start The starting index
+     * @param { number } [end] - end end The ending index
+     * @param { string } [type] - type type The content-type for the new Blob
      * @returns { Blob }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

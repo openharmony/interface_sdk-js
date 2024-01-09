@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -26,6 +26,7 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @atomicservice
  * @since 11
  */
 export default class InsightIntentContext {
@@ -53,6 +54,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -81,6 +83,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   startAbility(want: Want): Promise<void>;

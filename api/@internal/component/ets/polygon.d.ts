@@ -113,6 +113,40 @@ interface PolygonInterface {
   (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 }
 
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.

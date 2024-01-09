@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Safety Detect Kit
+ * @kit SafetyDetectKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';

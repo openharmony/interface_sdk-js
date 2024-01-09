@@ -203,7 +203,7 @@ declare namespace dataSharePredicates {
 
     /**
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
-     * similar to a specified string.
+     * not similar to a specified string.
      * This method is similar to unlike of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.

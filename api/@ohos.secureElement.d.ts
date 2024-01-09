@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Connectivity Kit
+ * @kit ConnectivityKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';

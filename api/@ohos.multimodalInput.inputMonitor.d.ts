@@ -15,12 +15,12 @@
 
 /**
  * @file
- * @kit Input Kit
+ * @kit InputKit
  */
 
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
-import type { display } from './@ohos.display';
+import type display from './@ohos.display';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
 import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';

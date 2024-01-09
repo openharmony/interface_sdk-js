@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Basic Services Kit
+ * @kit BasicServicesKit
  */
 
 import {AsyncCallback} from './@ohos.base';
@@ -475,7 +475,6 @@ declare namespace wallpaper {
   /**
    * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
    * Only the static wallpaper set by using setImage can be obtained.
-   *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<image.PixelMap> } callback - the callback of getImage.
@@ -491,7 +490,6 @@ declare namespace wallpaper {
   /**
    * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
    * Only the static wallpaper set by using setImage can be obtained.
-   * 
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<image.PixelMap> } the promise returned by the function.

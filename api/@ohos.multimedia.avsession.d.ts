@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit AVSession Kit
+ * @kit AVSessionKit
  */
 
 import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
@@ -449,8 +449,7 @@ declare namespace avSession {
      * The default cast type "local", media can be routed on the same device, 
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     TYPE_LOCAL = 0,
 
@@ -2098,7 +2097,7 @@ declare namespace avSession {
     TAG_AUDIO_VIVID = 1,
   }
 
-  /*
+  /**
    * The play list information definition.
    * @interface AVQueueInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2152,7 +2151,7 @@ declare namespace avSession {
     lastPlayedTime?: number;
   }
 
-  /*
+  /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2660,7 +2659,7 @@ declare namespace avSession {
     updateTime: number;
   }
 
-  /*
+  /**
    * The metadata of the current call.
    * @interface CallMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core

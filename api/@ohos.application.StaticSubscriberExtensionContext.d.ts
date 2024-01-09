@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Notification Kit
+ * @kit BasicServicesKit
  */
 
 import { AsyncCallback } from './@ohos.base';

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ads Kit
+ * @kit AdsKit
  */
 
 import type common from './@ohos.app.ability.common';

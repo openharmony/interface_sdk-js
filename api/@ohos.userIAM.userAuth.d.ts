@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Local Authentication Kit
+ * @kit LocalAuthenticationKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -476,6 +476,7 @@ declare namespace userAuth {
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 8
+   * @deprecated since 11
    */
   enum FaceTips {
     /**
@@ -483,6 +484,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
 
@@ -491,6 +493,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_DARK = 2,
 
@@ -499,6 +502,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_CLOSE = 3,
 
@@ -507,6 +511,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_FAR = 4,
 
@@ -515,6 +520,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_HIGH = 5,
 
@@ -523,6 +529,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_LOW = 6,
 
@@ -531,6 +538,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_RIGHT = 7,
 
@@ -539,6 +547,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_LEFT = 8,
 
@@ -547,6 +556,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
 
@@ -555,6 +565,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_POOR_GAZE = 10,
 
@@ -563,6 +574,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FACE_AUTH_TIP_NOT_DETECTED = 11
   }
@@ -573,6 +585,7 @@ declare namespace userAuth {
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 8
+   * @deprecated since 11
    */
   enum FingerprintTips {
     /**
@@ -580,6 +593,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_GOOD = 0,
 
@@ -588,6 +602,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_DIRTY = 1,
 
@@ -596,6 +611,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_INSUFFICIENT = 2,
 
@@ -604,6 +620,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_PARTIAL = 3,
 
@@ -612,6 +629,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_TOO_FAST = 4,
 
@@ -620,6 +638,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_TOO_SLOW = 5
   }
@@ -703,6 +722,7 @@ declare namespace userAuth {
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
+   * @deprecated since 11
    */
   type AuthEventKey = 'result' | 'tip';
 
@@ -711,6 +731,8 @@ declare namespace userAuth {
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
+   * @deprecated since 11
+   * @useinstead ohos.userIAM.userAuth.UserAuthResult
    */
   type EventInfo = AuthResultInfo | TipInfo;
 
@@ -720,6 +742,8 @@ declare namespace userAuth {
    * @interface AuthEvent
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
+   * @deprecated since 11
+   * @useinstead ohos.userIAM.userAuth.IAuthCallback
    */
   interface AuthEvent {
     /**
@@ -728,6 +752,8 @@ declare namespace userAuth {
      * @param { EventInfo } result - Event info.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.IAuthCallback.onResult
      */
     callback(result: EventInfo): void;
   }
@@ -738,6 +764,7 @@ declare namespace userAuth {
    * @typedef AuthResultInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
+   * @deprecated since 11
    */
   interface AuthResultInfo {
     /**
@@ -746,6 +773,7 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
      */
     result: number;
 
@@ -755,6 +783,7 @@ declare namespace userAuth {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
      */
     token?: Uint8Array;
 
@@ -764,6 +793,7 @@ declare namespace userAuth {
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
      */
     remainAttempts?: number;
 
@@ -773,6 +803,7 @@ declare namespace userAuth {
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
      */
     lockoutDuration?: number;
   }
@@ -783,6 +814,7 @@ declare namespace userAuth {
    * @typedef TipInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
+   * @deprecated since 11
    */
   interface TipInfo {
     /**
@@ -791,6 +823,7 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
      */
     module: number;
 
@@ -800,6 +833,7 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
+     * @deprecated since 11
      */
     tip: number;
   }

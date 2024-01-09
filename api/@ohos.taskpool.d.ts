@@ -185,7 +185,7 @@ declare namespace taskpool {
      * Create a Task instance.
      *
      * @param { Function } func - func func Concurrent function to execute in taskpool.
-     * @param { unknown[] } args - args args The concurrent function arguments.
+     * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
@@ -193,12 +193,12 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    constructor(func: Function, ...args: unknown[]);
+    constructor(func: Function, ...args: Object[]);
 
     /**
      * Create a Task instance.
      *
-     * @param { String } name - name name The name of Task.
+     * @param { string } name - name name The name of Task.
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
@@ -208,7 +208,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    constructor(name: String, func: Function, ...args: Object[]);
+    constructor(name: string, func: Function, ...args: Object[]);
 
     /**
      * Check current running Task is canceled or not.
@@ -251,7 +251,7 @@ declare namespace taskpool {
     /**
      * Set transfer list for this task.
      *
-     * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
+     * @param { ArrayBuffer[] } [transfer] - transfer Transfer list of this task, empty array is default.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -260,7 +260,7 @@ declare namespace taskpool {
     /**
      * Set transfer list for this task.
      *
-     * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
+     * @param { ArrayBuffer[] } [transfer] - transfer Transfer list of this task, empty array is default.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -272,7 +272,7 @@ declare namespace taskpool {
     /**
      * Register a callback for this task to receive and handle data from the taskpool worker thread.
      *
-     * @param { Function } callback - Callback to be registered and executed later on the host side.
+     * @param { Function } [callback] - Callback to be registered and executed later on the host side.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -347,13 +347,13 @@ declare namespace taskpool {
     /**
      * The concurrent function arguments.
      *
-     * @type { ?unknown[] }
+     * @type { ?Object[] }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    arguments?: unknown[];
+    arguments?: Object[];
 
     /**
      * Task name.
@@ -363,7 +363,43 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    name: String;
+    name: string;
+
+    /**
+     * Total duration of task execution.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    totalDuration: number;
+
+    /**
+     * IO duration of task execution.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    ioDuration: number;
+
+    /**
+     * CPU duration of task execution.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    cpuDuration: number;
   }
 
   /**
@@ -402,14 +438,14 @@ declare namespace taskpool {
     /**
      * Create a TaskGroup instance.
      *
-     * @param { String } name - name name The name of taskGroup.
+     * @param { string } name - name name The name of taskGroup.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    constructor(name: String);
+    constructor(name: string);
 
     /**
      * Add a Concurrent function into task group.
@@ -426,7 +462,7 @@ declare namespace taskpool {
      * Add a Concurrent function into task group.
      *
      * @param { Function } func - func func Concurrent function to add in task group.
-     * @param { unknown[] } args - args args The concurrent function arguments.
+     * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
@@ -434,7 +470,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    addTask(func: Function, ...args: unknown[]): void;
+    addTask(func: Function, ...args: Object[]): void;
 
     /**
      * Add a Task into TaskGroup.
@@ -467,7 +503,45 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    name: String;
+    name: string;
+  }
+
+  /**
+   * The SequenceRunner class provides an interface to create a task sequence runner.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  class SequenceRunner {
+    /**
+     * Create a SequenceRunner instance.
+     *
+     * @param { Priority } priority - Task execution priority, MEDIUM is default.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    constructor(priority?: Priority);
+
+    /**
+     * Execute a concurrent function.
+     *
+     * @param { Task } task - The task want to execute.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200003 - Worker initialization failure.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - Add dependent task to SequenceRunner.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    execute(task: Task): Promise<Object>;
   }
 
   /**
@@ -780,8 +854,8 @@ declare namespace taskpool {
    * Execute a concurrent function.
    *
    * @param { Function } func - func func Concurrent function want to execute.
-   * @param { unknown[] } args - args args The concurrent function arguments.
-   * @returns { Promise<unknown> }
+   * @param { Object[] } args - args args The concurrent function arguments.
+   * @returns { Promise<Object> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -791,13 +865,13 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
-  function execute(func: Function, ...args: unknown[]): Promise<unknown>;
+  function execute(func: Function, ...args: Object[]): Promise<Object>;
 
   /**
    * Execute a concurrent task.
    *
    * @param { Task } task - task task The task want to execute.
-   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
+   * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<unknown> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
@@ -810,7 +884,7 @@ declare namespace taskpool {
    * Execute a concurrent task.
    *
    * @param { Task } task - task task The task want to execute.
-   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
+   * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<unknown> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
@@ -824,8 +898,8 @@ declare namespace taskpool {
    * Execute a concurrent task.
    *
    * @param { Task } task - task task The task want to execute.
-   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
-   * @returns { Promise<unknown> }
+   * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -835,13 +909,13 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
-  function execute(task: Task, priority?: Priority): Promise<unknown>;
+  function execute(task: Task, priority?: Priority): Promise<Object>;
 
   /**
    * Execute a concurrent task group.
    *
    * @param { TaskGroup } group - group group The task group want to execute.
-   * @param { Priority } priority - priority priority Task group priority, MEDIUM is default.
+   * @param { Priority } [priority] - priority priority Task group priority, MEDIUM is default.
    * @returns { Promise<unknown[]> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -853,8 +927,8 @@ declare namespace taskpool {
    * Execute a concurrent task group.
    *
    * @param { TaskGroup } group - group group The task group want to execute.
-   * @param { Priority } priority - priority priority Task group priority, MEDIUM is default.
-   * @returns { Promise<unknown[]> }
+   * @param { Priority } [priority] - priority priority Task group priority, MEDIUM is default.
+   * @returns { Promise<Object[]> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
@@ -862,7 +936,23 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
-  function execute(group: TaskGroup, priority?: Priority): Promise<unknown[]>;
+  function execute(group: TaskGroup, priority?: Priority): Promise<Object[]>;
+
+  /**
+   * Execute a concurrent task after the specified time.
+   *
+   * @param { number } delayTime - delayTime delayTime The time want to delay.
+   * @param { Task } task - task task The task want to execute.
+   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
 
   /**
    * Cancel a concurrent task.

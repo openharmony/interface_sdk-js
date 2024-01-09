@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Localization Kit
+ * @kit UserizationKit
  */
 
 import { BusinessError } from './@ohos.base';
@@ -33,6 +33,7 @@ import { BusinessError } from './@ohos.base';
  * @namespace i18n
  * @syscap SystemCapability.Global.I18n
  * @form
+ * @atomicservice
  * @since 11
  */
 declare namespace i18n {
@@ -952,7 +953,7 @@ declare namespace i18n {
      *
      * @param { string } field - field values such as year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
      *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
-     * @param { number } [amount] - the amount of date or time to be added to the field.
+     * @param { number } amount - the amount of date or time to be added to the field.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n

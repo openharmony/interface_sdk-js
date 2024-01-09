@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Form Kit
+ * @kit FormKit
  */
 
 import Want from './@ohos.app.ability.Want';
@@ -129,6 +129,16 @@ declare namespace formInfo {
      * @since 11
      */
     displayName: string;
+
+    /**
+     * Obtains the displayName resource id of this form.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 11
+     */
+    displayNameId: number;
 
     /**
      * Obtains the description of this form.

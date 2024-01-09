@@ -73,6 +73,8 @@ declare namespace networkSecurity {
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
    * @returns { Promise<number> } The promise returned by the function.
+   * Number equals 0 if verify of certification from server succeed, else verify failed.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
@@ -98,6 +100,7 @@ declare namespace networkSecurity {
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
    * @returns { number } Returns 0 if verify of certification from server succeed, else verify failed.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
