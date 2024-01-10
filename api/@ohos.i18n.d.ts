@@ -434,6 +434,21 @@ declare namespace i18n {
     static setAppPreferredLanguage(language: string): void;
 
     /**
+     * Set the preferred language of the speicified App.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - the language to be set.
+     * @param { string } app - the pacakage name of the app.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static setAppPreferredLanguageSystem(language: string, app: string): void;
+
+    /**
      * Get the preferred language of App.
      *
      * @returns { string } a string represent the preferred language of App.
@@ -554,6 +569,20 @@ declare namespace i18n {
      * @since 11
      */
     static getTimePeriodName(hour:number, locale?: string): string;
+
+    /**
+     * Get the best matched locale in the specified list.
+     *
+     * @param { string } locale - the origin locale.
+     * @param { string[] } localeList - a list of locales to be matched.
+     * @returns { string } the string of the best matched locale name. 
+     * The return value may be empty string due to none is matched.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    static getBestMatchLocale(locale: string, localeList: string[]): string;
   }
 
   /**
