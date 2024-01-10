@@ -35,7 +35,7 @@ declare namespace identifier {
 
   /**
    * Obtain the OAID with promise.
-   * Obtaining OAID requires the permission:ohos.permission.APP_TRACKING_CONSENT, or the obtained OAID is 00000000-0000-0000-0000-000000000000.
+   * Obtaining OAID requires the permission:ohos.permission.APP_TRACKING_CONSENT, otherwise the obtained OAID is 00000000-0000-0000-0000-000000000000.
    * @permission ohos.permission.APP_TRACKING_CONSENT
    * @returns { Promise<string> } promise - Returns the OAID.
    * @throws { BusinessError } 17300001 - System internal error.
