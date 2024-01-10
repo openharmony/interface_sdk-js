@@ -2319,23 +2319,6 @@ declare class CanvasRenderer extends CanvasPath {
    * lighter: The color of two overlapping shapes is determined by adding the color values.
    * copy: Only new graphics are displayed.
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   * multiply: Multiply the top pixel by the bottom pixel, and the result is a darker picture.
-   * screen: The pixels are inverted, multiplied, and inverted again, and the result is a brighter picture.
-   * overlay: The combination of multiply and screen enables dark places to be darker and bright places to be brighter.
-   * darken: Keeps the darkest pixel in both layers.
-   * lighten: Keeps the brightest pixel in both layers.
-   * color-dodge: The inverse of dividing the bottom layer by the top layer.
-   * color-burn: Divide the inverted bottom layer by the top layer, and reverse the result.
-   * hard-light: A combination of multiplication and screen is similar to overlay, but the layers are interchanged.
-   * difference: Subtract the bottom from the top or vice versa to get a positive value.
-   * soft-light: A softer version of hard-light. Pure black or pure white does not result in pure black or pure white.
-   * exclusion: Similar to difference, but with lower contrast.
-   * hue: The luminance and chroma of the bottom layer are retained while the hue of the top layer is employed.
-   * saturation: The luminance (luma) and hue (hue) of the bottom layer are retained while the chroma (chroma) of
-   *    the top layer is used.
-   * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
-   *    the top layer are used.
-   * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2357,23 +2340,6 @@ declare class CanvasRenderer extends CanvasPath {
    * lighter: The color of two overlapping shapes is determined by adding the color values.
    * copy: Only new graphics are displayed.
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   * multiply: Multiply the top pixel by the bottom pixel, and the result is a darker picture.
-   * screen: The pixels are inverted, multiplied, and inverted again, and the result is a brighter picture.
-   * overlay: The combination of multiply and screen enables dark places to be darker and bright places to be brighter.
-   * darken: Keeps the darkest pixel in both layers.
-   * lighten: Keeps the brightest pixel in both layers.
-   * color-dodge: The inverse of dividing the bottom layer by the top layer.
-   * color-burn: Divide the inverted bottom layer by the top layer, and reverse the result.
-   * hard-light: A combination of multiplication and screen is similar to overlay, but the layers are interchanged.
-   * difference: Subtract the bottom from the top or vice versa to get a positive value.
-   * soft-light: A softer version of hard-light. Pure black or pure white does not result in pure black or pure white.
-   * exclusion: Similar to difference, but with lower contrast.
-   * hue: The luminance and chroma of the bottom layer are retained while the hue of the top layer is employed.
-   * saturation: The luminance (luma) and hue (hue) of the bottom layer are retained while the chroma (chroma) of
-   *    the top layer is used.
-   * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
-   *    the top layer are used.
-   * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2396,23 +2362,6 @@ declare class CanvasRenderer extends CanvasPath {
    * lighter: The color of two overlapping shapes is determined by adding the color values.
    * copy: Only new graphics are displayed.
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   * multiply: Multiply the top pixel by the bottom pixel, and the result is a darker picture.
-   * screen: The pixels are inverted, multiplied, and inverted again, and the result is a brighter picture.
-   * overlay: The combination of multiply and screen enables dark places to be darker and bright places to be brighter.
-   * darken: Keeps the darkest pixel in both layers.
-   * lighten: Keeps the brightest pixel in both layers.
-   * color-dodge: The inverse of dividing the bottom layer by the top layer.
-   * color-burn: Divide the inverted bottom layer by the top layer, and reverse the result.
-   * hard-light: A combination of multiplication and screen is similar to overlay, but the layers are interchanged.
-   * difference: Subtract the bottom from the top or vice versa to get a positive value.
-   * soft-light: A softer version of hard-light. Pure black or pure white does not result in pure black or pure white.
-   * exclusion: Similar to difference, but with lower contrast.
-   * hue: The luminance and chroma of the bottom layer are retained while the hue of the top layer is employed.
-   * saturation: The luminance (luma) and hue (hue) of the bottom layer are retained while the chroma (chroma) of
-   *    the top layer is used.
-   * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
-   *    the top layer are used.
-   * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2436,23 +2385,6 @@ declare class CanvasRenderer extends CanvasPath {
    * lighter: The color of two overlapping shapes is determined by adding the color values.
    * copy: Only new graphics are displayed.
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
-   * multiply: Multiply the top pixel by the bottom pixel, and the result is a darker picture.
-   * screen: The pixels are inverted, multiplied, and inverted again, and the result is a brighter picture.
-   * overlay: The combination of multiply and screen enables dark places to be darker and bright places to be brighter.
-   * darken: Keeps the darkest pixel in both layers.
-   * lighten: Keeps the brightest pixel in both layers.
-   * color-dodge: The inverse of dividing the bottom layer by the top layer.
-   * color-burn: Divide the inverted bottom layer by the top layer, and reverse the result.
-   * hard-light: A combination of multiplication and screen is similar to overlay, but the layers are interchanged.
-   * difference: Subtract the bottom from the top or vice versa to get a positive value.
-   * soft-light: A softer version of hard-light. Pure black or pure white does not result in pure black or pure white.
-   * exclusion: Similar to difference, but with lower contrast.
-   * hue: The luminance and chroma of the bottom layer are retained while the hue of the top layer is employed.
-   * saturation: The luminance (luma) and hue (hue) of the bottom layer are retained while the chroma (chroma) of
-   *    the top layer is used.
-   * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
-   *    the top layer are used.
-   * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2895,7 +2827,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
-   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @type { string | CanvasGradient | CanvasPattern }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2905,7 +2837,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
-   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @type { string | CanvasGradient | CanvasPattern }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -2945,7 +2877,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
-   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @type { string | CanvasGradient | CanvasPattern }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2955,7 +2887,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
-   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @type { string | CanvasGradient | CanvasPattern }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3202,12 +3134,6 @@ declare class CanvasRenderer extends CanvasPath {
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
    * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
    *    When the value is 100%, there is no change in the image.
-   * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading the image
-   *           --- <offset-x>: Describes the horizontal distance of the shadow.
-   *           --- <offset-y>: Describes the vertical distance of the shadow.
-   *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
-   *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
-   *           --- <color>: Shadow Color
    * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
    *    When the value is 0%, there is no change in the image.
    * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
@@ -3231,12 +3157,6 @@ declare class CanvasRenderer extends CanvasPath {
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
    * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
    *    When the value is 100%, there is no change in the image.
-   * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading the image
-   *           --- <offset-x>: Describes the horizontal distance of the shadow.
-   *           --- <offset-y>: Describes the vertical distance of the shadow.
-   *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
-   *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
-   *           --- <color>: Shadow Color
    * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
    *    When the value is 0%, there is no change in the image.
    * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
@@ -3261,12 +3181,6 @@ declare class CanvasRenderer extends CanvasPath {
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
    * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
    *    When the value is 100%, there is no change in the image.
-   * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading the image
-   *           --- <offset-x>: Describes the horizontal distance of the shadow.
-   *           --- <offset-y>: Describes the vertical distance of the shadow.
-   *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
-   *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
-   *           --- <color>: Shadow Color
    * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
    *    When the value is 0%, there is no change in the image.
    * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
@@ -3292,12 +3206,6 @@ declare class CanvasRenderer extends CanvasPath {
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
    * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
    *    When the value is 100%, there is no change in the image.
-   * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading the image
-   *           --- <offset-x>: Describes the horizontal distance of the shadow.
-   *           --- <offset-y>: Describes the vertical distance of the shadow.
-   *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
-   *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
-   *           --- <color>: Shadow Color
    * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely gray.
    *    When the value is 0%, there is no change in the image.
    * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
@@ -3502,8 +3410,8 @@ declare class CanvasRenderer extends CanvasPath {
    * Draws the specified ImageData object onto the canvas
    *
    * @param { ImageData } imagedata - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3511,8 +3419,8 @@ declare class CanvasRenderer extends CanvasPath {
    * Draws the specified ImageData object onto the canvas
    *
    * @param { ImageData } imagedata - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3546,15 +3454,15 @@ declare class CanvasRenderer extends CanvasPath {
    * Draws the specified ImageData object onto the canvas
    *
    * @param { ImageData } imagedata - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
+   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
    *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
+   * @param { number } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
    *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
+   * @param { number } dirtyWidth - Width of the rectangular area in the source image data.
    *    The default is the width of the image data.
-   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
+   * @param { number } dirtyHeight - Height of the rectangular area in the source image data.
    *    The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -3563,15 +3471,15 @@ declare class CanvasRenderer extends CanvasPath {
    * Draws the specified ImageData object onto the canvas
    *
    * @param { ImageData } imagedata - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
+   * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
    *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
+   * @param { number } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
    *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
+   * @param { number } dirtyWidth - Width of the rectangular area in the source image data.
    *    The default is the width of the image data.
-   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
+   * @param { number } dirtyHeight - Height of the rectangular area in the source image data.
    *    The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -4479,14 +4387,14 @@ declare class CanvasRenderer extends CanvasPath {
   direction: CanvasDirection;
 
   /**
-   * Font style. The default value is 10px sans-serif.
+   * Font style. The default value is 14px sans-serif.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Font style. The default value is 10px sans-serif.
+   * Font style. The default value is 14px sans-serif.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4494,7 +4402,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    */
   /**
-   * Font style. The default value is 10px sans-serif.
+   * Font style. The default value is 14px sans-serif.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4503,7 +4411,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    */
   /**
-   * Font style. The default value is 10px sans-serif.
+   * Font style. The default value is 14px sans-serif.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
