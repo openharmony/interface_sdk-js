@@ -1581,76 +1581,76 @@ declare namespace media {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 8
+   * @deprecated since 9
    */
   enum MediaErrorCode {
     /**
      * operation success.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_OK = 0,
 
     /**
      * malloc or new memory failed. maybe system have no memory.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_NO_MEMORY = 1,
 
     /**
      * no permission for the operation.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_OPERATION_NOT_PERMIT = 2,
 
     /**
      * invalid argument.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_INVALID_VAL = 3,
 
     /**
      * an I/O error occurred.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_IO = 4,
 
     /**
      * operation time out.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_TIMEOUT = 5,
 
     /**
      * unknown error.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_UNKNOWN = 6,
 
     /**
      * media service died.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_SERVICE_DIED = 7,
 
     /**
      * operation is not permit in current state.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_INVALID_STATE = 8,
 
     /**
      * operation is not supported in current version.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 8
+     * @deprecated since 9
      */
     MSERR_UNSUPPORTED = 9,
   }
