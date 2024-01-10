@@ -42,6 +42,20 @@ declare namespace screenshot {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { ScreenshotOptions } options - Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
