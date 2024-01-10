@@ -19,7 +19,7 @@
  */
 
 import type image from './@ohos.multimedia.image';
-import { common as graphicsCommon } from './@ohos.graphics.common';
+import type common2D from './@ohos.graphics.common2D';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
@@ -318,12 +318,12 @@ declare namespace drawing {
     /**
      * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
-     * @param { graphicsCommon.Rect } rect - Rectangle to draw.
+     * @param { common2D.Rect } rect - Rectangle to draw.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    drawRect(rect: graphicsCommon.Rect): void;
+    drawRect(rect: common2D.Rect): void;
 
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
@@ -350,13 +350,13 @@ declare namespace drawing {
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
-     * @param { graphicsCommon.Color } color - Color in 32-bit argb format.
+     * @param { common2D.Color } color - Color in 32-bit argb format.
      * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    drawColor(color: graphicsCommon.Color, blendMode?: BlendMode): void;
+    drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
     /**
      * Draw a point.
@@ -522,22 +522,22 @@ declare namespace drawing {
      * Creating a textblob object based on RunBuffer information
      * @param { Array<TextBlobRunBuffer> } pos - The array of TextBlobRunBuffer.
      * @param { Font } font - Font used for this run.
-     * @param { graphicsCommon.Rect } bounds - Optional run bounding box.
+     * @param { common2D.Rect } bounds - Optional run bounding box.
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: graphicsCommon.Rect): TextBlob;
+    static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob;
 
     /**
      * Returns the bounding rectangle shape
-     * @returns { graphicsCommon.Rect } Rect object.
+     * @returns { common2D.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    bounds(): graphicsCommon.Rect;
+    bounds(): common2D.Rect;
   }
   
   /**
@@ -696,7 +696,7 @@ declare namespace drawing {
   class ColorFilter {
     /**
      * Makes a color filter with the given color and blend mode.
-     * @param { graphicsCommon.Color } color - Color.
+     * @param { common2D.Color } color - Color.
      * @param { BlendMode } mode - BlendMode.
      * @returns { ColorFilter } Colorfilter object.
      * @throws { BusinessError } 401 - Parameter error.
@@ -704,7 +704,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    static createBlendModeColorFilter(color: graphicsCommon.Color, mode: BlendMode): ColorFilter;
+    static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
 
     /**
      * Create a color filter consisting of two filters.
@@ -755,12 +755,12 @@ declare namespace drawing {
   class Pen {
     /**
     * Set the color of the pen.
-    * @param { graphicsCommon.Color } color - Set colors.
+    * @param { common2D.Color } color - Set colors.
     * @throws { BusinessError } 401 - Parameter error.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
-    setColor(color: graphicsCommon.Color): void;
+    setColor(color: common2D.Color): void;
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
     * 
@@ -826,12 +826,12 @@ declare namespace drawing {
   class Brush {
     /**
      * Set the color of the brush.
-     * @param { graphicsCommon.Color } color - Set colors.
+     * @param { common2D.Color } color - Set colors.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
-    setColor(color: graphicsCommon.Color): void;
+    setColor(color: common2D.Color): void;
     /**
      * Requests, but does not require, that edge pixels draw opaque or with
      * partial transparency.
