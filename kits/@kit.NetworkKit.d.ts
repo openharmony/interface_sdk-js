@@ -28,10 +28,10 @@ import socket from '@ohos.net.socket';
 import statistics from '@ohos.net.statistics';
 import vpn from '@ohos.net.vpn';
 import webSocket from '@ohos.net.webSocket';
-import Fetch, { FetchResponse } from '@system.fetch';
-import Network, { NetworkResponse } from '@system.network';
+import vpnExtension from '@ohos.net.vpnExtension';
+import networkSecurity from '@ohos.net.networkSecurity';
 
 export {
-  Fetch, FetchResponse, Network, NetworkResponse, connection, ethernet, http, mdns, policy, sharing,
-  socket, statistics, vpn, webSocket
+  connection, ethernet, http, mdns, policy, sharing, webSocket,
+  socket, statistics, vpn, vpnExtension, networkSecurity
 };
