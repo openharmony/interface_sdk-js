@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit LocalAuthenticationKit
+ * @kit UserAuthenticationKit
  */
 
 /**
