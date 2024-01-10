@@ -4143,7 +4143,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    confirmCapture();
+    confirmCapture(): void;
 
     /**
      * Confirm if the deferred image delivery supported in the specific device.
