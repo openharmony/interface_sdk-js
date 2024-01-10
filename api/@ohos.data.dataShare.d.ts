@@ -30,7 +30,7 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
  * @namespace dataShare
  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 declare namespace dataShare {
@@ -40,7 +40,7 @@ declare namespace dataShare {
    * @interface DataShareHelperOptions
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface DataShareHelperOptions {
@@ -51,7 +51,7 @@ declare namespace dataShare {
      * @default false
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     isProxy?: boolean;
@@ -67,7 +67,7 @@ declare namespace dataShare {
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
@@ -82,7 +82,7 @@ declare namespace dataShare {
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function createDataShareHelper(
@@ -102,7 +102,7 @@ declare namespace dataShare {
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -116,7 +116,7 @@ declare namespace dataShare {
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function createDataShareHelper(
@@ -135,7 +135,7 @@ declare namespace dataShare {
    * @throws { BusinessError } 15700011 - The uri is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function enableSilentProxy(context: Context, uri?: string): Promise<void>;
@@ -150,7 +150,7 @@ declare namespace dataShare {
    * @throws { BusinessError } 15700011 - The uri is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   function disableSilentProxy(context: Context, uri?: string): Promise<void>;
@@ -163,7 +163,7 @@ declare namespace dataShare {
    * @interface TemplateId
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface TemplateId {
@@ -173,7 +173,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     subscriberId: string;
@@ -183,7 +183,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     bundleNameOfOwner: string;
@@ -195,7 +195,7 @@ declare namespace dataShare {
    * @interface PublishedItem
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface PublishedItem {
@@ -204,7 +204,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     key: string;
@@ -214,7 +214,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     data: string | ArrayBuffer;
@@ -223,7 +223,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     subscriberId: string;
@@ -235,7 +235,7 @@ declare namespace dataShare {
    * @interface RdbDataChangeNode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface RdbDataChangeNode {
@@ -244,7 +244,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     uri: string;
@@ -253,7 +253,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     templateId: TemplateId;
@@ -264,7 +264,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     data: Array<string>;
@@ -276,7 +276,7 @@ declare namespace dataShare {
    * @interface PublishedDataChangeNode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface PublishedDataChangeNode {
@@ -285,7 +285,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     bundleName: string;
@@ -294,7 +294,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     data: Array<PublishedItem>;
@@ -306,7 +306,7 @@ declare namespace dataShare {
    * @interface Template
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface Template {
@@ -315,12 +315,24 @@ declare namespace dataShare {
      * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
      * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
      *
+     * @type { [key: string]: string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
-    predicates: { [key: string]: string };
+    /**
+     * Specifies the predicates of the template.
+     * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
+     * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
+     *
+     * @type { Record<string, string> }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    predicates: Record<string, string>;
 
     /**
      * Specifies the scheduler sql of the template.
@@ -328,7 +340,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     scheduler: string;
@@ -339,7 +351,7 @@ declare namespace dataShare {
    * @interface OperationResult
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   interface OperationResult {
@@ -348,7 +360,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     key: string;
@@ -358,7 +370,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     result: number;
@@ -370,7 +382,7 @@ declare namespace dataShare {
    * @interface DataShareHelper
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   interface DataShareHelper {
@@ -382,7 +394,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<void> } callback - The callback of on.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
@@ -395,7 +407,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<void> } callback - The callback of off.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
@@ -410,7 +422,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700011 - The uri is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     addTemplate(uri: string, subscriberId: string, template: Template): void;
@@ -424,7 +436,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700011 - The uri is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     delTemplate(uri: string, subscriberId: string): void;
@@ -440,7 +452,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     on(
@@ -461,7 +473,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     off(
@@ -482,7 +494,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     on(
@@ -503,7 +515,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     off(
@@ -524,7 +536,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     publish(
@@ -544,7 +556,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     publish(
@@ -564,7 +576,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
@@ -578,7 +590,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
@@ -592,7 +604,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
@@ -607,7 +619,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
@@ -622,7 +634,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     insert(uri: string, value: ValuesBucket): Promise<number>;
@@ -637,7 +649,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -652,7 +664,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -669,7 +681,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     query(
@@ -691,7 +703,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     query(
@@ -711,7 +723,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     update(
@@ -732,7 +744,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
@@ -746,7 +758,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
@@ -760,7 +772,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
@@ -777,7 +789,7 @@ declare namespace dataShare {
      * if the DataShare supports uri normalization.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
@@ -793,7 +805,7 @@ declare namespace dataShare {
      * @returns { Promise<string> } {string}: the normalized Uri if the DataShare supports uri normalization;
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     normalizeUri(uri: string): Promise<string>;
@@ -808,7 +820,7 @@ declare namespace dataShare {
      * cannot be found in the current environment.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
@@ -823,7 +835,7 @@ declare namespace dataShare {
      * current environment.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     denormalizeUri(uri: string): Promise<string>;
@@ -835,7 +847,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<void> } callback - The callback of notifyChange.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
@@ -847,7 +859,7 @@ declare namespace dataShare {
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     notifyChange(uri: string): Promise<void>;
