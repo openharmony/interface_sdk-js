@@ -101,34 +101,36 @@ export declare class ToolBarOption {
   content: ResourceStr;
   /**
    * Define the action event.
+   * @type { ?() => void }.
    * @since 10
    */
   /**
    * Define the action event.
+   * @type { ?() => void }.
    * @atomicservice
    * @since 11
    */
   action?: () => void;
   /**
    * Define icon resource.
-   * @type { Resource }.
+   * @type { ?Resource }.
    * @since 10
    */
   /**
    * Define icon resource.
-   * @type { Resource }.
+   * @type { ?Resource }.
    * @atomicservice
    * @since 11
    */
   icon?: Resource;
   /**
    * Define item type.
-   * @type { Resource }.
+   * @type { ?Resource }.
    * @since 10
    */
   /**
    * Define item type.
-   * @type { Resource }.
+   * @type { ?Resource }.
    * @atomicservice
    * @since 11
    */
@@ -179,13 +181,13 @@ export declare struct ToolBar {
   @ObjectLink toolBarList: ToolBarOptions;
   /**
    * Define toolbar activate item index, default is -1.
-   * @type { number }.
+   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Define toolbar activate item index, default is -1.
-   * @type { number }.
+   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11

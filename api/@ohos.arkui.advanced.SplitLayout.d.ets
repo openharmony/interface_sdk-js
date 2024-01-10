@@ -80,13 +80,13 @@ export declare struct SplitLayout {
 
   /**
    * Description text in the layout.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Description text in the layout.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -95,13 +95,13 @@ export declare struct SplitLayout {
 
   /**
    * Auxiliary text in the layout.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Auxiliary text in the layout.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
