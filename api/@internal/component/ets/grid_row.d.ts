@@ -42,7 +42,7 @@
  */
 declare interface GridRowSizeOption {
   /**
-   * Grid Row Size Option xs
+   * Grid Row Size Option xs, select xs gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -50,7 +50,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option xs
+   * Grid Row Size Option xs, select xs gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -59,7 +59,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option xs
+   * Grid Row Size Option xs, select xs gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -71,7 +71,7 @@ declare interface GridRowSizeOption {
   xs?: Length,
 
   /**
-   * Grid Row Size Option sm
+   * Grid Row Size Option sm, select sm gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -79,7 +79,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option sm
+   * Grid Row Size Option sm, select sm gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -88,7 +88,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option sm
+   * Grid Row Size Option sm, select sm gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -100,7 +100,7 @@ declare interface GridRowSizeOption {
   sm?: Length,
 
   /**
-   * Grid Row Size Option md
+   * Grid Row Size Option md, select md gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -108,7 +108,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option md
+   * Grid Row Size Option md, select md gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -117,7 +117,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option md
+   * Grid Row Size Option md, select md gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -129,7 +129,7 @@ declare interface GridRowSizeOption {
   md?: Length,
 
   /**
-   * Grid Row Size Option lg
+   * Grid Row Size Option lg, select lg gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -137,7 +137,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option lg
+   * Grid Row Size Option lg, select lg gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -146,7 +146,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option lg
+   * Grid Row Size Option lg, select lg gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -158,7 +158,7 @@ declare interface GridRowSizeOption {
   lg?: Length,
 
   /**
-   * Grid Row Size Option xl
+   * Grid Row Size Option xl, select xl gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -166,7 +166,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option xl
+   * Grid Row Size Option xl, select xl gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -175,7 +175,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option xl
+   * Grid Row Size Option xl, select xl gutter size based on gridRow current breakpoint
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -187,14 +187,14 @@ declare interface GridRowSizeOption {
   xl?: Length,
 
   /**
-   * Grid Row Size Option xxl
+   * Grid Row Size Option xxl, select xxl gutter size based on gridRow current breakpoint
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
    */
   /**
-   * Grid Row Size Option xxl
+   * Grid Row Size Option xxl, select xxl gutter size based on gridRow current breakpoint
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -202,7 +202,7 @@ declare interface GridRowSizeOption {
    * @form
    */
   /**
-   * Grid Row Size Option xxl
+   * Grid Row Size Option xxl, select xxl gutter size based on gridRow current breakpoint
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -242,7 +242,7 @@ declare interface GridRowSizeOption {
  */
 declare interface GridRowColumnOption {
   /**
-   * Grid Row Column Option xs
+   * Grid Row Column Option xs, select xs column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -250,7 +250,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option xs
+   * Grid Row Column Option xs, select xs column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -259,7 +259,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option xs
+   * Grid Row Column Option xs, select xs column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -271,7 +271,7 @@ declare interface GridRowColumnOption {
   xs?: number,
 
   /**
-   * Grid Row Column Option sm
+   * Grid Row Column Option sm, select sm column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -279,7 +279,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option sm
+   * Grid Row Column Option sm, select sm column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -288,7 +288,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option sm
+   * Grid Row Column Option sm, select sm column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -300,7 +300,7 @@ declare interface GridRowColumnOption {
   sm?: number,
 
   /**
-   * Grid Row Column Option md
+   * Grid Row Column Option md, select md column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -308,7 +308,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option md
+   * Grid Row Column Option md, select md column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -317,7 +317,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option md
+   * Grid Row Column Option md, select md column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -329,7 +329,7 @@ declare interface GridRowColumnOption {
   md?: number,
 
   /**
-   * Grid Row Column Option lg
+   * Grid Row Column Option lg, select lg column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -337,7 +337,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option lg
+   * Grid Row Column Option lg, select lg column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -346,7 +346,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option lg
+   * Grid Row Column Option lg, select lg column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -358,7 +358,7 @@ declare interface GridRowColumnOption {
   lg?: number,
 
   /**
-   * Grid Row Column Option xl
+   * Grid Row Column Option xl, select xl column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -366,7 +366,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option xl
+   * Grid Row Column Option xl, select xl column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -375,7 +375,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option xl
+   * Grid Row Column Option xl, select xl column num based on gridRow current breakpoint
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -387,14 +387,14 @@ declare interface GridRowColumnOption {
   xl?: number,
 
   /**
-   * Grid Row Column Option xxl
+   * Grid Row Column Option xxl, select xxl column num based on gridRow current breakpoint
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
    */
   /**
-   * Grid Row Column Option xxl
+   * Grid Row Column Option xxl, select xxl column num based on gridRow current breakpoint
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -402,7 +402,7 @@ declare interface GridRowColumnOption {
    * @form
    */
   /**
-   * Grid Row Column Option xxl
+   * Grid Row Column Option xxl, select xxl column num based on gridRow current breakpoint
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
