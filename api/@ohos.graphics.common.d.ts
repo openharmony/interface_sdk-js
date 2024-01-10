@@ -20,11 +20,11 @@
 /**
  * The date structure that provides the basis for graphics.
  *
- * @namespace graphicsCommon
+ * @namespace common
  * @syscap SystemCapability.Graphics.Drawing
  * @since 11
  */
-declare namespace graphicsCommon {
+declare namespace common {
   /**
    * Provide a description in the form of color ARGB.
    * @typedef Color
@@ -100,4 +100,4 @@ declare namespace graphicsCommon {
   }
 }
 
-export default graphicsCommon;
+export default common;

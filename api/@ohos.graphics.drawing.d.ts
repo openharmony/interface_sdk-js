@@ -19,7 +19,7 @@
  */
 
 import type image from './@ohos.multimedia.image';
-import type graphicsCommon from './@ohos.graphics.common';
+import { common as graphicsCommon } from './@ohos.graphics.common';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
