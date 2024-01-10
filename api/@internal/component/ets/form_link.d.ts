@@ -21,6 +21,15 @@
  * @since 10
  * @form
 */
+/**
+ * Defines the FormLink options.
+ *
+ * @interface FormLinkOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 11
+*/
 declare interface FormLinkOptions {
   /**
    * Action types: "router" and "message".
@@ -29,6 +38,15 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    * @form
+   */
+  /**
+   * Action types: "router" and "message".
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 11
    */
   action: string;
 
@@ -40,6 +58,15 @@ declare interface FormLinkOptions {
    * @since 10
    * @form
    */
+  /**
+   * Module name of destination UIAbility.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 11
+   */
   moduleName?: string;
 
   /**
@@ -49,6 +76,15 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    * @form
+   */
+  /**
+   * Bundle name of destination UIAbility.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 11
    */
   bundleName?: string;
 
@@ -65,8 +101,9 @@ declare interface FormLinkOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
    * @form
+   * @atomicservice
+   * @since 11
    */
   abilityName?: string;
 
@@ -75,8 +112,9 @@ declare interface FormLinkOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
    * @form
+   * @atomicservice
+   * @since 11
    */
   uri?: string;
 
@@ -87,6 +125,15 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    * @form
+   */
+  /**
+   * The additional parameters, use JSON format key value pairs for content.
+   *
+   * @type { ?Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 11
    */
   params?: Object;
 }
@@ -99,6 +146,15 @@ declare interface FormLinkOptions {
  * @since 10
  * @form
  */
+/**
+ * Defines the FormLink interface.
+ *
+ * @interface FormLinkInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 11
+ */
 interface FormLinkInterface {
   /**
    * Init FormLink component with options.
@@ -108,6 +164,16 @@ interface FormLinkInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    * @form
+   */
+  /**
+   * Init FormLink component with options.
+   *
+   * @param { FormLinkOptions } options
+   * @returns { FormLinkAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 11
    */
   (options: FormLinkOptions): FormLinkAttribute;
 }
@@ -120,6 +186,15 @@ interface FormLinkInterface {
  * @since 10
  * @form
  */
+/**
+ * Defines the FormLink attribute.
+ *
+ * @extends CommonMethod<FormLinkAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 11
+ */
 declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {
 }
 
@@ -130,6 +205,14 @@ declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines FormLink component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 11
+ */
 declare const FormLink: FormLinkInterface;
 
 /**
@@ -138,5 +221,13 @@ declare const FormLink: FormLinkInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  * @form
+ */
+/**
+ * Defines FormLink component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 11
  */
 declare const FormLinkInstance: FormLinkAttribute;
