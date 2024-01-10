@@ -7689,7 +7689,9 @@ declare enum DragResult {
 
 /**
  * Enum for BlendMode.
- * Use background as src, child nodes as dst
+ * Blend modes for compositing current component 
+ * with overlapping content. Use overlapping content
+ * as dst, current component as src.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7706,16 +7708,52 @@ declare enum BlendMode {
    * @form
    * @since 11
    */
-  NORMAL = 0,
+  NONE = 0,
   /**
-   * r = d * sa, blend background color with child nodes' alpha
+   * Clear destination color covered by the source to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  CLEAR = 1,
+  /**
+   * r = s
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 11
   */
-  DESTINATION_IN = 1,
+  SRC = 2,
+  /**
+   * r = d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DST = 3,
+  /**
+   * r = s + (1 - sa) * d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  SRC_OVER = 4,
+  /**
+   * r = d + (1 - da) * s
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DST_OVER = 5,
   /**
    * r = s * da
    *
@@ -7724,7 +7762,248 @@ declare enum BlendMode {
    * @form
    * @since 11
    */
-  SOURCE_IN = 2
+  SRC_IN = 6,
+  /**
+   * r = d * sa
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DST_IN = 7,
+  /**
+   * r = s * (1 - da)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  SRC_OUT = 8,
+  /**
+   * r = d * (1 - sa)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DST_OUT = 9,
+  /**
+   * r = s * da + d * (1 - sa)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  SRC_ATOP = 10,
+  /**
+   * r = d * sa + s * (1 - da)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DST_ATOP = 11,
+  /**
+   * r = s * (1 - da) + d * (1 - sa)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  XOR = 12,
+  /**
+   * r = min(s + d, 1)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  PLUS = 13,
+  /**
+   * r = s * d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  MODULATE = 14,
+  /**
+   * r = s + d - s * d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  SCREEN = 15,
+  /**
+   * multiply or screen, depending on destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  OVERLAY = 16,
+  /**
+   * rc = s + d - max(s * da, d * sa), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DARKEN = 17,
+  /**
+   * rc = s + d - min(s * da, d * sa), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  LIGHTEN = 18,
+  /**
+   * brighten destination to reflect source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  COLOR_DODGE = 19,
+  /**
+   * darken destination to reflect source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  COLOR_BURN = 20,
+  /**
+   * multiply or screen, depending on source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  HARD_LIGHT = 21,
+  /**
+   * lighten or darken, depending on source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  SOFT_LIGHT = 22,
+  /**
+   * rc = s + d - 2 * (min(s * da, d * sa)), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DIFFERENCE = 23,
+  /**
+   * rc = s + d - two(s * d), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  EXCLUSION = 24,
+  /**
+   * r = s * (1 - da) + d * (1 - sa) + s * d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  MULTIPLY = 25,
+  /**
+   * hue of source with saturation and luminosity of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  HUE = 26,
+  /**
+   * saturation of source with hue and luminosity of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  SATURATION = 27,
+  /**
+   * hue and saturation of source with luminosity of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  COLOR = 28,
+  /**
+   * luminosity of source with hue and saturation of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  LUMINOSITY = 29
+}
+
+/**
+ * Enum for BlendApplyType.
+ * Indicate how to apply specified blend mode to
+ * the view's content.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum BlendApplyType {
+  /**
+   * Blend view's content in sequence over dst
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  FAST = 0,
+
+  /**
+   * Composite this views's contents into an
+   * offscreen image and then blend over dst
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  OFFSCREEN = 1,
 }
 
 /**
@@ -14532,16 +14811,16 @@ declare class CommonMethod<T> {
 
   /**
    * Add a blendMode effect to the current component
-   * Nesting using blendMode is not recommended
    * 
    * @param { BlendMode } value - Different hybrid modes
+   * @param { BlendApplyType } [type] - Different blend apply type
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 11
    */
-  blendMode(value: BlendMode): T;
+  blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
