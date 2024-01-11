@@ -109,6 +109,18 @@ declare namespace uiExtensionHost {
      * @since 11
      */
     properties: UIExtensionHostWindowProxyProperties;
+
+    /**
+     * Hide the non-secure windows
+     *
+     * @param { boolean } shouldHide - Hide the non-secure windows if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 11
+     */
+    hideNonSecureWindows(shouldHide: boolean): Promise<void>;
   }
 
   /**
