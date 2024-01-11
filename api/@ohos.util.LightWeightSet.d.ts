@@ -21,14 +21,12 @@
 /**
  * LightWeightSet stores a set of values, each of which must be unique.
  *
- * @namespace LightWeightSet
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
 /**
  * LightWeightSet stores a set of values, each of which must be unique.
  *
- * @namespace LightWeightSet
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -274,10 +272,14 @@ declare class LightWeightSet<T> {
   clear(): void;
   /**
    * Executes the given callback function once for each real key in the map.
-   * It does not perform functions on deleted keys
+   * It does not perform functions on deleted keys.
    *
-   * @param { (value?: T, key?: T, set?: LightWeightSet<T>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -285,10 +287,14 @@ declare class LightWeightSet<T> {
    */
   /**
    * Executes the given callback function once for each real key in the map.
-   * It does not perform functions on deleted keys
+   * It does not perform functions on deleted keys.
    *
-   * @param { (value?: T, key?: T, set?: LightWeightSet<T>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

@@ -43,6 +43,30 @@
  * @since 11
  */
 declare namespace xml {
+  /**
+   * The options for conversion.
+   *
+   * @interface ConvertOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * The options for conversion.
+   *
+   * @interface ConvertOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The options for conversion.
+   *
+   * @interface ConvertOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ConvertOptions {
     /**
      * Whether to trim whitespace characters that may exist before and after the text, default false.

@@ -23,7 +23,6 @@
  * follows the principles of First In First Out (FIFO) and Last In First Out (LIFO). 
  * It allows insertion and removal of elements at both the ends. 
  *
- * @namespace Deque
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -32,7 +31,6 @@
  * follows the principles of First In First Out (FIFO) and Last In First Out (LIFO). 
  * It allows insertion and removal of elements at both the ends. 
  *
- * @namespace Deque
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -199,10 +197,12 @@ declare class Deque<T> {
   /**
    * Executes a provided function once for each value in the deque object.
    *
-   * @param { (value: T, index?: number, deque?: Deque<T>) => void } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to be called for each element in the deque
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -211,10 +211,12 @@ declare class Deque<T> {
   /**
    * Executes a provided function once for each value in the deque object.
    *
-   * @param { (value: T, index?: number, deque?: Deque<T>) => void } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to be called for each element in the deque
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
