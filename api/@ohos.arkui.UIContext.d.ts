@@ -1031,6 +1031,7 @@ export interface AtomicServiceBar {
    *
    * @param { boolean } visible - whether this bar is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 11
    */
   setVisible(visible: boolean): void;
@@ -1448,6 +1449,7 @@ export class UIContext {
    * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   getAtomicServiceBar(): Nullable<AtomicServiceBar>;
