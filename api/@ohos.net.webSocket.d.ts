@@ -106,7 +106,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 10
+     * @since 11
      */
     header?: Object;
 
