@@ -3337,6 +3337,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 10
      */
     /**
@@ -3357,6 +3358,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 10
      */
     /**
@@ -4143,7 +4145,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    confirmCapture(): void;
+    confirmCapture();
 
     /**
      * Confirm if the deferred image delivery supported in the specific device.
