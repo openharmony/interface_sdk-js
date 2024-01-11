@@ -734,6 +734,28 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 11
    */
   onDateChange?: (value: Date) => void;
+
+  /**
+   * Defines the datePickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Defines the datePickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**

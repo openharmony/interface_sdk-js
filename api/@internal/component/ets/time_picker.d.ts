@@ -643,6 +643,28 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 11
    */
   onChange?: (value: TimePickerResult) => void;
+
+  /**
+   * Defines the timePickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Defines the timePickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**

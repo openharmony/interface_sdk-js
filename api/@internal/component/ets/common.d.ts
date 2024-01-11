@@ -9758,6 +9758,17 @@ declare interface PopupOptions {
    * @since 11
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines popup background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**
@@ -10147,6 +10158,28 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines popup background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set popup focusable
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  focusable?: boolean;
 }
 
 /**
@@ -10384,6 +10417,28 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   previewAnimationOptions?: ContextMenuAnimationOptions;
+
+  /**
+   * Defines the menu's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Defines menu background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**
@@ -10422,6 +10477,16 @@ declare interface MenuOptions extends ContextMenuOptions {
    * @since 11
    */
   title?: ResourceStr;
+
+  /**
+   * Whether to display in the sub window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showInSubWindow?: boolean;
 }
 
 /**
