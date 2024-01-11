@@ -601,6 +601,18 @@ declare namespace i18n {
      * @since 12
      */
     static setUserPreference(preferce: PreferenceOptions, value: string): void;
+
+    /**
+     * Get user preference for i18n apis.
+     *
+     * @param { PreferenceOptions } preferce - a variable represents whice preferce would be get
+     * @returns { string } a string represent the preferce value
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    static getUserPreference(preferce: PreferenceOptions): string;
   }
 
   /**
