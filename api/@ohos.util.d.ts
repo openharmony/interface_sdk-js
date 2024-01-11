@@ -1720,6 +1720,21 @@ declare namespace util {
     [Symbol.iterator](): IterableIterator<[K, V]>;
   }
 
+  /**
+   * The ScopeComparable contains comparison methods.
+   *
+   * @interface ScopeComparable
+   * @syscap SystemCapability.Utils.Lang
+   * @since 7
+   */
+  /**
+   * The ScopeComparable contains comparison methods.
+   *
+   * @interface ScopeComparable
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
   interface ScopeComparable {
     /**
      * The comparison function is used by the scope.
