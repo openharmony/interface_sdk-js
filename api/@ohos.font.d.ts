@@ -23,11 +23,23 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
+/**
+ * @namespace font
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 declare namespace font {
   /**
    * @typedef FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * @typedef FontOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   interface FontOptions {
 
@@ -45,6 +57,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * The font name to register.
+     *
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     familyName: string | Resource;
 
     /**
@@ -61,6 +81,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * The path of the font file.
+     *
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     familySrc: string | Resource;
   }
 
@@ -68,6 +96,12 @@ declare namespace font {
    * @typedef FontInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * @typedef FontInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   interface FontInfo {
 
@@ -78,6 +112,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * The path of the font file.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     path: string;
 
     /**
@@ -86,6 +128,14 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
+     */
+    /**
+     * The name of postscript.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     postScriptName: string;
 
@@ -96,6 +146,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * The font name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     fullName: string;
 
     /**
@@ -104,6 +162,14 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
+     */
+    /**
+     * A set of fonts with a common design.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     family: string;
 
@@ -114,6 +180,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * A subset of the font family.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     subfamily: string;
 
     /**
@@ -122,6 +196,14 @@ declare namespace font {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
+     */
+    /**
+     * The weight of the font.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     weight: number;
 
@@ -132,6 +214,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * The width of the font style.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     width: number;
 
     /**
@@ -140,6 +230,14 @@ declare namespace font {
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
+     */
+    /**
+     * Whether it is italic.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     italic: boolean;
 
@@ -150,6 +248,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
+    /**
+     * Whether it is compact.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     monoSpace: boolean;
 
     /**
@@ -158,6 +264,14 @@ declare namespace font {
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
+     */
+    /**
+     * Whether symbol fonts are supported.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     symbolic: boolean;
   }
@@ -324,6 +438,14 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Register a customized font in the FontManager.
+   *
+   * @param { FontOptions } options - FontOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   function registerFont(options: FontOptions): void;
 
   /**
@@ -332,6 +454,14 @@ declare namespace font {
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Gets a list of fonts supported by system.
+   *
+   * @returns { Array<string> } A list of font names
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   function getSystemFontList(): Array<string>;
 
@@ -342,6 +472,15 @@ declare namespace font {
    * @returns { FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get font details according to the font name.
+   *
+   * @param { string } fontName - font name
+   * @returns { FontInfo } Returns the font info
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   function getFontByName(fontName: string): FontInfo;
 
