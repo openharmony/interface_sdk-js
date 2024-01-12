@@ -20,5 +20,6 @@
 
 import AVCastPicker, { AVCastPickerState } from '@ohos.multimedia.avCastPicker';
 import avSession from '@ohos.multimedia.avsession';
+import MediaControlExtensionAbility from '@ohos.app.ability.MediaControlExtensionAbility';
 
-export { AVCastPicker, AVCastPickerState, avSession };
+export { AVCastPicker, AVCastPickerState, avSession, MediaControlExtensionAbility };
