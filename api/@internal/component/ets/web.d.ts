@@ -1095,10 +1095,40 @@ declare enum ContextMenuInputFieldType {
  * @since 9
  */
 declare enum ContextMenuEditStateFlags {
+  /**
+   * Not editable.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   NONE = 0,
+  /**
+   * Clipping is supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   CAN_CUT = 1 << 0,
+  /**
+   * Copies are supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   CAN_COPY = 1 << 1,
+  /**
+   * Support for pasting.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   CAN_PASTE = 1 << 2,
+  /**
+   * Select all is supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   CAN_SELECT_ALL = 1 << 3,
 }
 
@@ -2040,6 +2070,7 @@ declare class WebController {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    * @deprecated since 9
+   * @useinstead ohos.web.webview.WebCookieManager
    */
   getCookieManager(): WebCookie
 }
