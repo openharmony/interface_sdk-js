@@ -4422,11 +4422,21 @@ declare class PointerMatrix {
  * @test
  */
 declare const BY: By;
+
 /**
  * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
  *
  * @syscap SystemCapability.Test.UiTest
  * @since 9
+ * @test
+ */
+/**
+ * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @test
  */
 declare const ON: On;
