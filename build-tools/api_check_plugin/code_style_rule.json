@@ -350,7 +350,8 @@
       "SystemCapability.Multimedia.Audio.Spatialization",
       "SystemCapability.Multimedia.AudioHaptic.Core",
       "SystemCapability.ArkUi.Graphics3D",
-      "SystemCapability.Multimedia.Drm.Core"
+      "SystemCapability.Multimedia.Drm.Core",
+      "SystemCapability.Graphics.Drawing"
     ]
   },
   "administrators": [
