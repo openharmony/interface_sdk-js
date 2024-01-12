@@ -7389,6 +7389,7 @@ export interface Options {
  *
  * @interface ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
  * @since 11
  */
 export interface ReadOptions {
@@ -7397,6 +7398,7 @@ export interface ReadOptions {
    * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   offset?: number;
@@ -7405,6 +7407,7 @@ export interface ReadOptions {
    * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   length?: number;
@@ -7415,6 +7418,7 @@ export interface ReadOptions {
  *
  * @interface ReadTextOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
  * @since 11
  */
 export interface ReadTextOptions extends ReadOptions {
@@ -7423,6 +7427,7 @@ export interface ReadTextOptions extends ReadOptions {
    * 
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   encoding?: string;
@@ -7433,6 +7438,7 @@ export interface ReadTextOptions extends ReadOptions {
  *
  * @interface WriteOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
  * @since 11
  */
 export interface WriteOptions extends Options {
@@ -7441,6 +7447,7 @@ export interface WriteOptions extends Options {
    * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   offset?: number;
@@ -7449,6 +7456,7 @@ export interface WriteOptions extends Options {
    * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   length?: number;
@@ -7459,6 +7467,7 @@ export interface WriteOptions extends Options {
  *
  * @interface ListFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
  * @since 11
  */
 export interface ListFileOptions {
@@ -7467,6 +7476,7 @@ export interface ListFileOptions {
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   recursion?: boolean;
@@ -7476,6 +7486,7 @@ export interface ListFileOptions {
    * 
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   listNum?: number;
@@ -7485,6 +7496,7 @@ export interface ListFileOptions {
    * 
    * @type { ?Filter }
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
    * @since 11
    */
   filter?: Filter;
