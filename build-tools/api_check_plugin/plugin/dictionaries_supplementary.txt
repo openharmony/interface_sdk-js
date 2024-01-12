@@ -885,6 +885,7 @@ volte
 volumemanager
 vorbis
 vpr
+vss
 vsync
 wakes
 waking
