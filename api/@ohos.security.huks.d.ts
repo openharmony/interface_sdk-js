@@ -611,25 +611,6 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
-  /**
-   * Check whether the key exists.
-   *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
-   * @throws { BusinessError } 401 - argument is invalid
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Core
-   * @atomicservice
-   * @since 11
-   */
   function isKeyItemExist(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -649,25 +630,6 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
-   */
-  /**
-   * Check whether the key exists.
-   *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 401 - argument is invalid
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @atomicservice
-   * @since 11
    */
   function isKeyItemExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
@@ -1244,6 +1206,7 @@ declare namespace huks {
   /**
    * Key Attestation.
    *
+   * @permission ohos.permission.ATTEST_KEY
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
@@ -1267,6 +1230,7 @@ declare namespace huks {
   /**
    * Key Attestation.
    *
+   * @permission ohos.permission.ATTEST_KEY
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
@@ -1561,11 +1525,6 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
-     */
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @atomicservice
-     * @since 11
      */
     certChains?: Array<string>;
   }
