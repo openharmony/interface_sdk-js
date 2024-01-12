@@ -2723,6 +2723,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2732,8 +2734,25 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
+
+    /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 11
+     */
+    setMicMute(mute: boolean): Promise<void>;
 
     /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
@@ -4334,6 +4353,11 @@ declare namespace audio {
      * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
+     */
+    /**
+     * Filter by stream usages. But not allow to capture voice streams.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 11
      */
     usages: Array<StreamUsage>;
   }
