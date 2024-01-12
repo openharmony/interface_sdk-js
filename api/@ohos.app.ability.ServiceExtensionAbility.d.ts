@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import rpc from './@ohos.rpc';
 import ServiceExtensionContext from './application/ServiceExtensionContext';
 import Want from './@ohos.app.ability.Want';

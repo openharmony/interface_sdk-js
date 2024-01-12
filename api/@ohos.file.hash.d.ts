@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CoreFileKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -21,6 +26,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace hash
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Hash
+ *
+ * @namespace hash
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @since 11
  */
 declare namespace hash {
   /**
@@ -34,6 +47,18 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
+  /**
+   * Hash file.
+   *
+   * @param { string } path - path.
+   * @param { string } algorithm - algorithm md5 sha1 sha256.
+   * @returns { Promise<string> } return Promise
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @since 11
+   */
   function hash(path: string, algorithm: string): Promise<string>;
 
   /**
@@ -46,6 +71,18 @@ declare namespace hash {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
+   */
+  /**
+   * Hash file.
+   *
+   * @param { string } path - path.
+   * @param { string } algorithm - algorithm md5 sha1 sha256.
+   * @param { AsyncCallback<string> } [callback] - callback.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @since 11
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 }

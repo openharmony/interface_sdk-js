@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit PerformanceAnalysisKit
+ */
+
+/**
 * Provides interfaces to generate system logs.
 *
 * @namespace hilog

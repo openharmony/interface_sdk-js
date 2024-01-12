@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit PerformanceAnalysisKit
+ */
+
+/**
  * Provides interfaces to trace a task for performance measure, the logs can be capture by the
  * bytrace cmdline available on the device.
  *

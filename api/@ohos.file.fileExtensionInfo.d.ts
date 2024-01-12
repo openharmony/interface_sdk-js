@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit CoreFileKit
+ */
+
+/**
  * This module provides the capability to parse file or device information.
  *
  * @namespace fileExtensionInfo

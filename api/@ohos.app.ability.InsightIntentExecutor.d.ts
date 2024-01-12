@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import type window from './@ohos.window';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 import type InsightIntentContext from './@ohos.app.ability.InsightIntentContext';
@@ -23,6 +28,7 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @atomicservice
  * @since 11
  */
 export default class InsightIntentExecutor {
@@ -32,6 +38,7 @@ export default class InsightIntentExecutor {
    * @type { InsightIntentContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   context: InsightIntentContext;
@@ -45,6 +52,7 @@ export default class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage):
@@ -58,6 +66,7 @@ export default class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>):
@@ -72,6 +81,7 @@ export default class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
@@ -85,6 +95,7 @@ export default class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):

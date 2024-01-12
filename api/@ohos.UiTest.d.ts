@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import type { Callback } from './@ohos.base';
+/**
+ * @file
+ * @kit TestKit
+ */
+
+import { Callback } from './@ohos.base';
 
 /**
  * Enumerates the string value match pattern.
@@ -1153,6 +1158,7 @@ declare interface WindowFilter {
    * @since 11
    */
   bundleName?: string;
+
   /**
    * The title of the window.
    *
@@ -1169,6 +1175,7 @@ declare interface WindowFilter {
    * @since 11
    */
   title?: string;
+
   /**
    * The focal state of the window.
    *
@@ -1185,6 +1192,7 @@ declare interface WindowFilter {
    * @since 11
    */
   focused?: boolean;
+
   /**
    * The active state of the window.
    *
@@ -1197,10 +1205,21 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @since 11
+   * @deprecated since 11
+   * @useinstead ohos.UiTest.WindowFilter#active
+   */
+  actived?: boolean;
+
+  /**
+   * The active state of the window.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
    */
-  actived?: boolean;
+  active?: boolean;
 }
 
 /**
@@ -1302,8 +1321,8 @@ declare interface UIEventObserver {
   /**
    * Listen for toast show once
    * 
-   * @param { 'toastShow' } type 'toastShow'.
-   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
+   * @param { 'toastShow' } type -'toastShow'.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1325,8 +1344,8 @@ declare interface UIEventObserver {
   /**
    * Listen for dialog show once
    * 
-   * @param { 'dialogShow' } type 'dialogShow'.
-   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
+   * @param { 'dialogShow' } type - 'dialogShow'.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1524,8 +1543,8 @@ declare class On {
   /**
    * Specifies the text for the target Component.
    *
-   * @param { string } txt The text value.
-   * @param { MatchPattern } pattern The {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
+   * @param { string } txt - the text value.
+   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1560,7 +1579,7 @@ declare class On {
   /**
    * Specifies the id of the target Component.
    *
-   * @param { string } id The id value.
+   * @param { string } id - the id value.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1595,7 +1614,7 @@ declare class On {
   /**
    * Specifies the type of the target Component.
    *
-   * @param { string } tp The type value.
+   * @param { string } tp - The type value.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1630,7 +1649,7 @@ declare class On {
   /**
    * Specifies the clickable status of the target Component.
    *
-   * @param { boolean } b The clickable status,default to true.
+   * @param { boolean } [b] - the clickable status,default to true.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1665,7 +1684,7 @@ declare class On {
   /**
    * Specifies the longClickable status of the target Component.
    *
-   * @param { boolean } b The clickable status,default to true.
+   * @param { boolean } [b] - the longClickable status,default to true.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1700,7 +1719,7 @@ declare class On {
   /**
    * Specifies the scrollable status of the target Component.
    *
-   * @param { boolean } b The scrollable status,default to true.
+   * @param { boolean } [b] - the scrollable status,default to true.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1735,7 +1754,7 @@ declare class On {
   /**
    * Specifies the enabled status of the target Component.
    *
-   * @param { boolean } b The enabled status,default to true.
+   * @param { boolean } [b] - the enabled status,default to true.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1770,7 +1789,7 @@ declare class On {
   /**
    * Specifies the focused status of the target Component.
    *
-   * @param { boolean } b The focused status,default to true.
+   * @param { boolean } [b] - the focused status,default to true.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1805,7 +1824,7 @@ declare class On {
   /**
    * Specifies the selected status of the target Component.
    *
-   * @param { boolean } b The selected status,default to true.
+   * @param { boolean } [b] the - selected status,default to true.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1840,7 +1859,7 @@ declare class On {
   /**
    * Specifies the checked status of the target Component.
    *
-   * @param { boolean } b The checked status,default to false.
+   * @param { boolean } [b] - the checked status,default to false.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1875,7 +1894,7 @@ declare class On {
   /**
    * Specifies the checkable status of the target Component.
    *
-   * @param { boolean } b The checkable status,default to false.
+   * @param { boolean } [b] - the checkable status,default to false.Set it default if null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1901,10 +1920,11 @@ declare class On {
    * Requires that the target Component which is before another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    *
-   * @param { On } on Describes the attribute requirements of Component which the target one is in front of.
+   * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1926,10 +1946,11 @@ declare class On {
    * Requires that the target Component which is after another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    *
-   * @param { On } on Describes the attribute requirements of Component which the target one is in back of.
+   * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1951,10 +1972,11 @@ declare class On {
    * Requires that the target Component which is inside of another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    *
-   * @param { On } on Describes the attribute requirements of Component which the target one is inside of.
+   * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1974,7 +1996,7 @@ declare class On {
   /**
    * Specifies the bundleName of the application which the window that the target Component is located belongs.
    *
-   * @param { string } bundleName The bundleName of the specified window.
+   * @param { string } bundleName - the bundleName of the specified window.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1983,6 +2005,20 @@ declare class On {
    * @test
    */
   inWindow(bundleName: string): On;
+
+  /**
+   * Specifies the description for the target Component.
+   *
+   * @param { string } val - the description value.
+   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value,set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 11
+   * @test
+   */
+  description(val: string, pattern?: MatchPattern): On;
 }
 
 /**
@@ -2519,7 +2555,7 @@ declare class Component {
   /**
    * Inject text to this {@link Component},applicable to TextInput.
    *
-   * @param { string } text The text to inject.
+   * @param { string } text - the text to inject.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2595,7 +2631,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2636,7 +2672,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2677,7 +2713,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    *
-   * @param { On } on The attribute requirements of the target {@link Component}.
+   * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the found result,or undefined if not found.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2763,7 +2799,7 @@ declare class Component {
   /**
    * Drag this {@link Component} to the bounds rect of target Component.
    *
-   * @param { Component } target The target {@link Component}.
+   * @param { Component } target - the target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2790,12 +2826,13 @@ declare class Component {
   /**
    * Pinch enlarge this {@link Component} to the target scale.
    *
-   * @param { number } scale The scale of the pinch enlarge this {@link Component}'s size.
+   * @param { number } scale - the scale of the pinch enlarge this {@link Component}'s size.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -2817,9 +2854,23 @@ declare class Component {
   /**
    * Pinch shrink this {@link Component} to the target scale.
    *
-   * @param { number } scale The scale of the pinch shrink this {@link Component}'s size.
+   * @param { number } scale - the scale of the pinch shrink this {@link Component}'s size.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @test
+   */
+  pinchIn(scale: number): Promise<void>;
+
+  /**
+   * Get the description attribute value.
+   *
+   * @returns { Promise<string> } the description value.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2827,7 +2878,7 @@ declare class Component {
    * @since 11
    * @test
    */
-  pinchIn(scale: number): Promise<void>;
+  getDescription(): Promise<string>;
 }
 
 /**
@@ -2906,7 +2957,7 @@ declare class Driver {
   /**
    * Delay with specified duration.
    *
-   * @param { number } duration The delay duration in milliseconds.
+   * @param { number } duration - the delay duration in milliseconds.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2944,7 +2995,7 @@ declare class Driver {
   /**
    * Find the first matched {@link Component} on current UI.
    *
-   * @param { On } on The attribute requirements of the target {@link Component}.
+   * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2970,7 +3021,7 @@ declare class Driver {
   /**
    * Find the first matched {@link UiWindow} window.
    *
-   * @param { WindowFilter } filter The filer condition of the target {@link UiWindow}.
+   * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
    * @returns { Promise<UiWindow> } the first matched {@link UiWindow} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2996,8 +3047,8 @@ declare class Driver {
   /**
    * Find the first matched {@link Component} on current UI during the time given.
    *
-   * @param { On } on The attribute requirements of the target {@link Component}.
-   * @param { number } time Duration of finding in milliseconds
+   * @param { On } on - the attribute requirements of the target {@link Component}.
+   * @param { number } time - duration of finding in milliseconds
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3034,7 +3085,7 @@ declare class Driver {
   /**
    * Find all the matched {@link Component}s on current UI.
    *
-   * @param { On } on The attribute requirements of the target {@link Component}.
+   * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<Array<Component>> } the matched {@link Component}s list.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3074,7 +3125,7 @@ declare class Driver {
   /**
    * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    *
-   * @param { On } on The attribute requirements of the target {@link Component}.
+   * @param { On } on - the attribute requirements of the target {@link Component}.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3133,11 +3184,12 @@ declare class Driver {
   /**
    * Press the specified key.
    *
-   * @param { number } keyCode the target keyCode.
+   * @param { number } keyCode - the target keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -3160,13 +3212,14 @@ declare class Driver {
   /**
    * Press two or three key combinations
    *
-   * @param { number } key0 the first keyCode.
-   * @param { number } key1 the second keyCode.
-   * @param { number } key2 the third keyCode.
+   * @param { number } [key0] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key1] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -3201,8 +3254,8 @@ declare class Driver {
   /**
    * Click on the specified location on the screen.
    *
-   * @param { number } x The x-coordinate.
-   * @param { number } y The y-coordinate.
+   * @param { number } x - the x-coordinate.
+   * @param { number } y - the y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3242,8 +3295,8 @@ declare class Driver {
   /**
    * DoubleClick on the specified location on the screen.
    *
-   * @param { number } x The x-coordinate.
-   * @param { number } y The y-coordinate.
+   * @param { number } x - the x-coordinate.
+   * @param { number } y - the y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3283,8 +3336,8 @@ declare class Driver {
   /**
    * LongClick on the specified location on the screen.
    *
-   * @param { number } x The x-coordinate.
-   * @param { number } y The y-coordinate.
+   * @param { number } x - the x-coordinate.
+   * @param { number } y - the y-coordinate.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3330,11 +3383,11 @@ declare class Driver {
   /**
    * Swipe on the screen between the specified points.
    *
-   * @param { number } startx The x-coordinate of the starting point.
-   * @param { number } starty The y-coordinate of the starting point.
-   * @param { number } endx The x-coordinate of the ending point.
-   * @param { number } endy The y-coordinate of the ending point.
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } startx - the x-coordinate of the starting point.
+   * @param { number } starty - the y-coordinate of the starting point.
+   * @param { number } endx - the x-coordinate of the ending point.
+   * @param { number } endy - the y-coordinate of the ending point.
+   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3364,11 +3417,11 @@ declare class Driver {
   /**
    * Drag on the screen between the specified points.
    *
-   * @param { number } startx The x-coordinate of the starting point.
-   * @param { number } starty The y-coordinate of the starting point.
-   * @param { number } endx The x-coordinate of the ending point.
-   * @param { number } endy The y-coordinate of the ending point.
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } startx - the x-coordinate of the starting point.
+   * @param { number } starty - the y-coordinate of the starting point.
+   * @param { number } endx - the x-coordinate of the ending point.
+   * @param { number } endy - the y-coordinate of the ending point.
+   * @param { number } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3393,7 +3446,7 @@ declare class Driver {
   /**
    * Capture current screen and save as picture which PNG format.
    *
-   * @param { string } savePath the path where to store the picture.
+   * @param { string } savePath - the path where to store the picture.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3418,7 +3471,7 @@ declare class Driver {
   /**
    * Set the rotation of the device display.
    *
-   * @param { DisplayRotation } rotation The target rotation to set.
+   * @param { DisplayRotation } rotation - the target rotation to set.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3464,7 +3517,7 @@ declare class Driver {
   /**
    * Enable/disable the rotation of device display.
    *
-   * @param { boolean } enabled Enable the rotation or not.
+   * @param { boolean } enabled - enable the rotation or not.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3574,8 +3627,8 @@ declare class Driver {
   /**
    * Wait for the UI become idle.
    *
-   * @param { number } idleTime the threshold of UI idle time, in millisecond.
-   * @param { number } timeout The maximum time to wait for idle, in millisecond.
+   * @param { number } idleTime - the threshold of UI idle time, in millisecond.
+   * @param { number } timeout - the maximum time to wait for idle, in millisecond.
    * @returns { Promise<boolean> } true if wait for idle succeed in the timeout, false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3618,10 +3671,10 @@ declare class Driver {
   /**
    * Inject fling on the device display.
    *
-   * @param { Point } from The coordinate point where the finger touches the screen.
-   * @param { Point } to The coordinate point where the finger leaves the screen.
-   * @param { number } stepLen the length of each step, in pixels.
-   * @param { number } speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { Point } from - the coordinate point where the finger touches the screen.
+   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { number } stepLen - the length of each step, in pixels.
+   * @param { number } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3648,12 +3701,13 @@ declare class Driver {
   /**
    * Inject multi-pointer action on the device display.
    *
-   * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
+   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -3675,8 +3729,8 @@ declare class Driver {
   /**
    * Inject fling on the device display.
    *
-   * @param { UiDirection } direction The direction of this action.
-   * @param { number } speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { UiDirection } direction - the direction of this action.
+   * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3704,10 +3758,10 @@ declare class Driver {
   /**
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
    *
-   * @param { Point } p The coordinate of the specified location.
-   * @param { MouseButton } btnId The button of Mouse.
-   * @param { number } key1 the first keyCode.
-   * @param { number } key2 the second keyCode.
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { MouseButton } btnId - the button of Mouse.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3732,7 +3786,7 @@ declare class Driver {
   /**
    * Move the mouse cursor to the specified location.
    *
-   * @param { Point } p The coordinate of the specified location.
+   * @param { Point } p - the coordinate of the specified location.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3761,11 +3815,11 @@ declare class Driver {
   /**
    * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
    *
-   * @param { Point } p The coordinate of the specified location.
-   * @param { boolean } down Whether the mouse wheel rolls down.
-   * @param { number } d The number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } key1 the first keyCode.
-   * @param { number } key2 the second keyCode.
+   * @param { Point } p - the coordinate of the specified location.
+   * @param { boolean } down - whether the mouse wheel rolls down.
+   * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3781,9 +3835,9 @@ declare class Driver {
    * @param { Point } p - the coordinate of the specified location.
    * @param { boolean } down - whether the mouse wheel rolls down.
    * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
-   * @param { number } speed - the speed at which mouse wheel rolls(cells per second),default is 20,the value ranges from 1 to 500,set it 20 if out of range.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3798,7 +3852,7 @@ declare class Driver {
    * Capture the specified area of current screen and save as picture which PNG format.
    *
    * @param { string } savePath the path where to store the picture.
-   * @param { Rect } rect The specified area of current screen, default full screen.
+   * @param { Rect } rect The specified area of current screen, default to full screen.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3809,8 +3863,8 @@ declare class Driver {
   /**
    * Capture the specified area of current screen and save as picture which PNG format.
    *
-   * @param { string } savePath the path where to store the picture.
-   * @param { Rect } rect The specified area of current screen, default full screen.
+   * @param { string } savePath - the path where to store the picture.
+   * @param { Rect } [rect] - the specified area of current screen, default to full screen.Set it default if null or undefined.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3847,8 +3901,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3864,8 +3918,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } key1 - the first keyCode.
-   * @param { number } key2 - the second keyCode.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3881,7 +3935,7 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } speed - the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3897,7 +3951,7 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } speed - the speed of drag (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3970,6 +4024,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -4062,8 +4117,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @since 11
+   * @deprecated since 11
+   * @useinstead ohos.UiTest.UiWindow#isActive
    * @test
    */
   isActived(): Promise<boolean>;
@@ -4108,8 +4164,8 @@ declare class UiWindow {
   /**
    * Move this {@link UiWindow} to the specified points.
    *
-   * @param { number } x The x coordinate of destination.
-   * @param { number } y The y coordinate of destination.
+   * @param { number } x - the x coordinate of destination.
+   * @param { number } y - the y coordinate of destination.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -4140,9 +4196,9 @@ declare class UiWindow {
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
    *
-   * @param { number } wide The expected wide of the window after resizing.
-   * @param { number } height The expected height of the window after resizing.
-   * @param { ResizeDirection } direction The expected direction of the window after resizing.
+   * @param { number } wide - the expected wide of the window after resizing.
+   * @param { number } height - the expected height of the window after resizing.
+   * @param { ResizeDirection } direction - the expected direction of the window after resizing.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -4279,6 +4335,19 @@ declare class UiWindow {
    * @test
    */
   close(): Promise<void>;
+
+  /**
+   * Get the active status of this {@link UiWindow}.
+   *
+   * @returns { Promise<boolean> } the active status.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 11
+   * @test
+   */
+  isActive(): Promise<boolean>;
 }
 
 /**
@@ -4304,11 +4373,12 @@ declare class PointerMatrix {
   /**
    * Create an {@link PointerMatrix} object.
    *
-   * @param { number } fingers The number of fingers.
-   * @param { number } steps The number of steps of each finger trace.
+   * @param { number } fingers - the number of fingers.
+   * @param { number } steps - the number of steps of each finger trace.
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -4329,11 +4399,12 @@ declare class PointerMatrix {
   /**
    * Set the point value of an element in the PointerMatrix.
    *
-   * @param { number } finger The index of target finger to set.
-   * @param { number } step The index of target step to set.
-   * @param { Point } point The coordinate of target step to set.
+   * @param { number } finger - the index of target finger to set.
+   * @param { number } step - the index of target step to set.
+   * @param { Point } point - the coordinate of target step to set.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -4374,6 +4445,9 @@ export {
   DisplayRotation,
   ResizeDirection,
   WindowMode,
+  Point,
+  WindowFilter,
+  Rect,
   PointerMatrix,
   UiDirection,
   MouseButton,

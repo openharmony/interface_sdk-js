@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import type { AsyncCallback, Callback, ErrorCallback } from './@ohos.base';
 import connection from "./@ohos.net.connection";
 import type cert from './@ohos.security.cert';
@@ -113,6 +118,22 @@ declare namespace socket {
    * @since 10
    */
   function constructTLSSocketServerInstance(): TLSSocketServer;
+
+  /**
+   * Creates a LocalSocket object.
+   * @returns { LocalSocket } the LocalSocket of the constructLocalSocketInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  function constructLocalSocketInstance(): LocalSocket;
+
+  /**
+   * Creates a LocalSocketServer object.
+   * @returns { LocalSocketServer } the LocalSocketServer of the constructLocalSocketServerInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  function constructLocalSocketServerInstance(): LocalSocketServer;
 
   /**
    * Defines the parameters for sending data over the UDPSocket connection.
@@ -398,6 +419,102 @@ declare namespace socket {
   }
 
   /**
+   * Defines the local socket connection information.
+   * @interface LocalSocketMessageInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalSocketMessageInfo {
+    /**
+     * Message data.
+     * @type {ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    message: ArrayBuffer;
+
+    /**
+     * Bound local socket address.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    address: string;
+
+    /**
+     * Length of the message, in bytes.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    size: number;
+  }
+
+  /**
+   * Defines a local address.
+   * @interface LocalAddress
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalAddress {
+    /**
+     * LocalAddress address.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    address: string;
+  }
+
+  /**
+   * Defines LocalSocket connection parameters.
+   * @interface LocalConnectOptions
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalConnectOptions {
+    /**
+     * Bound Local address.
+     * @type {LocalAddress}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    address: LocalAddress;
+
+    /**
+     * Timeout duration of the LocalSocket connection, in milliseconds.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    timeout?: number;
+  }
+
+  /**
+   * Defines the parameters for sending data over the LocalSocket connection.
+   * @interface LocalSendOptions
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalSendOptions {
+    /**
+     * Data to send.
+     * @type {string | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    data: string | ArrayBuffer;
+
+    /**
+     * Character encoding format.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    encoding?: string;
+  }
+
+  /**
    * Defines a UDPSocket connection.
    * @interface UDPSocket
    * @syscap SystemCapability.Communication.NetStack
@@ -640,7 +757,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the UDPSocket connection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the UDPSocket connection.
@@ -657,7 +782,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the UDPSocket connection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for data packet message events or close events of the UDPSocket connection.
@@ -877,6 +1010,365 @@ declare namespace socket {
      * @since 11
      */
     getLoopbackMode(): Promise<boolean>;
+  }
+
+  /**
+   * Defines a LocalSocket connection.
+   * @interface LocalSocket
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalSocket {
+    /**
+     * Binds the Local address.
+     * @param { LocalAddress } address - Destination address. {@link LocalAddress}
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301013 - Insufficient permissions.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301098 - Address already in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    bind(address: LocalAddress): Promise<void>;
+
+    /**
+     * Sets up a connection to the specified Local address .
+     * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301013 - Insufficient permissions.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301111 - Connection refused.
+     * @throws { BusinessError } 2301099 - Cannot assign requested address.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    connect(options: LocalConnectOptions): Promise<void>;
+
+    /**
+     * Sends data over a LocalSocket connection.
+     * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301011 - Operation would block.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    send(options: LocalSendOptions): Promise<void>;
+
+    /**
+     * Closes a LocalSocket connection.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    close(): Promise<void>;
+
+    /**
+     * Obtains the status of the LocalSocket connection.
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getState(): Promise<SocketStateBase>;
+
+    /**
+     * Obtains the file descriptor of the LocalSocket connection.
+     * @returns { Promise<number> } The promise returns the file descriptor of the LocalSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getSocketFd(): Promise<number>;
+
+    /**
+     * Sets other attributes of the LocalSocket connection.
+     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setExtraOptions(options: ExtraOptionsBase): Promise<void>;
+
+    /**
+     * Gets other attributes of the LocalSocket connection.
+     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getExtraOptions(): Promise<ExtraOptionsBase>;
+
+    /**
+     * Listens for message receiving events of the LocalSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
+
+    /**
+     * Cancels listening for message receiving events of the LocalSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
+
+    /**
+     * Listens for connection events of the LocalSocket connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'connect', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for connection events of the LocalSocket connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'connect', callback?: Callback<void>): void;
+
+    /**
+     * Listens for close events of the LocalSocket connection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'close', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for close events of the LocalSocket connection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'close', callback?: Callback<void>): void;
+
+    /**
+     * Listens for error events of the LocalSocket connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the LocalSocket connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines the connection of the LocalSocket client and server.
+   * @interface LocalSocketConnection
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalSocketConnection {
+    /**
+     * The id of a client connects to the LocalSocketServer.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    clientId: number;
+
+    /**
+     * Sends data over a LocalSocketServer connection to client.
+     * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301011 - Operation would block.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    send(options: LocalSendOptions): Promise<void>;
+
+    /**
+     * Closes a LocalSocket client connection.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    close(): Promise<void>;
+
+    /**
+     * Listens for message receiving events of the LocalSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
+
+    /**
+     * Cancels listening for message receiving events of the LocalSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
+
+    /**
+     * Listens for close events of the LocalSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'close', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for close events of the LocalSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'close', callback?: Callback<void>): void;
+
+    /**
+     * Listens for error events of the LocalSocketConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the LocalSocketConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines a LocalSocket server connection.
+   * @interface LocalSocketServer
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface LocalSocketServer {
+    /**
+     * Binds the Local address.
+     * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @param { LocalAddress } address - Network address information {@link LocalAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2301013 - Insufficient permissions.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301098 - Address already in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    listen(address: LocalAddress): Promise<void>;
+
+    /**
+     * Obtains the status of the LocalSocketServer connection.
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getState(): Promise<SocketStateBase>;
+
+    /**
+     * Sets other attributes of the LocalSocketServer connection.
+     * @param { ExtraOptionsBase } options - Parameters of the attributes {@link ExtraOptionsBase}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setExtraOptions(options: ExtraOptionsBase): Promise<void>;
+
+    /**
+     * Gets other attributes of the LocalSocket connection.
+     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getExtraOptions(): Promise<ExtraOptionsBase>;
+
+    /**
+     * Listens for connect events of the LocalSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<LocalSocketConnection> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'connect', callback: Callback<LocalSocketConnection>): void;
+
+    /**
+     * Cancels listening for connect events of the LocalSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<LocalSocketConnection> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'connect', callback?: Callback<LocalSocketConnection>): void;
+
+    /**
+     * Listens for error events of the LocalSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the LocalSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 
   /**
@@ -1388,7 +1880,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TCPSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
@@ -1405,7 +1905,15 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TCPSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
 
     /**
@@ -1684,7 +2192,16 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TLSSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
@@ -1703,7 +2220,16 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TLSSocket connection.
+     * @param { 'message' } type Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for connection or close events of the TLSSocket connection.
@@ -2300,7 +2826,7 @@ declare namespace socket {
      */
     /**
      * TLS protocol version
-     * @type {?Protocol | Array<Protocol>}
+     * @type {?(Protocol | Array<Protocol>)}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -2553,7 +3079,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TCPSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocketConnection.
@@ -2563,7 +3097,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TCPSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for close events of the TCPSocketConnection.
@@ -2919,7 +3461,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Listens for message receiving events of the TLSSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
      * Cancels listening for message receiving events of the TLSSocketConnection.
@@ -2929,7 +3479,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+    /**
+     * Cancels listening for message receiving events of the TLSSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
      * Listens for close events of the TLSSocketConnection.
@@ -2970,6 +3528,32 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines the socket connection information.
+   * @interface SocketMessageInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 11
+   */
+  export interface SocketMessageInfo {
+    /**
+     * Receive the message event.
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    message: ArrayBuffer;
+    /**
+     * Socket connection information.
+     * @type { SocketRemoteInfo }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    remoteInfo: SocketRemoteInfo;
   }
 
   /**

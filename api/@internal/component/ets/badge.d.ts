@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Defines the badge position property.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare enum BadgePosition {
   /**
    * The dot is displayed vertically centered on the right.
@@ -57,6 +67,15 @@ declare enum BadgePosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The dot is displayed vertically centered on the right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   RightTop,
@@ -82,6 +101,15 @@ declare enum BadgePosition {
    * @since 10
    * @form
    */
+  /**
+   * Dots are displayed in the upper right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Right,
 
   /**
@@ -103,6 +131,15 @@ declare enum BadgePosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The dot is displayed in the left vertical center.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Left,
@@ -132,6 +169,16 @@ declare enum BadgePosition {
  * @since 10
  * @form
  */
+/**
+ * BadgeStyle object
+ *
+ * @interface BadgeStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface BadgeStyle {
   /**
    * Text Color
@@ -155,6 +202,16 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Text Color
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   color?: ResourceColor;
@@ -183,6 +240,16 @@ declare interface BadgeStyle {
    * @since 10
    * @form
    */
+  /**
+   * Text size.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   fontSize?: number | string;
 
   /**
@@ -207,6 +274,16 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Size of a badge.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   badgeSize?: number | string;
@@ -235,6 +312,16 @@ declare interface BadgeStyle {
    * @since 10
    * @form
    */
+  /**
+   * Color of the badge.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   badgeColor?: ResourceColor;
 
   /**
@@ -244,6 +331,15 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the border color of the badge.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   borderColor?: ResourceColor;
 
@@ -255,6 +351,15 @@ declare interface BadgeStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define the border width of the badge.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   borderWidth?: Length;
 
   /**
@@ -264,6 +369,15 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Define the font weight of the badge.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   fontWeight?: number | FontWeight | string;
 }
@@ -292,18 +406,28 @@ declare interface BadgeStyle {
  * @since 10
  * @form
  */
+/**
+ * Defines the base param of badge.
+ *
+ * @interface BadgeParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?(BadgePosition | Position) }
+   * @type { ?(BadgePosition) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?(BadgePosition | Position) }
+   * @type { ?(BadgePosition) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -315,6 +439,16 @@ declare interface BadgeParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set the display position of the prompt point.
+   *
+   * @type { ?(BadgePosition | Position) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   position?: BadgePosition | Position;
@@ -341,6 +475,16 @@ declare interface BadgeParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Defines the style of the Badge component, including the text color, size, dot color, and size.
+   *
+   * @type { BadgeStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   style: BadgeStyle;
@@ -370,6 +514,16 @@ declare interface BadgeParam {
  * @since 10
  * @form
  */
+/**
+ * Defines the badge param with count and maxCount.
+ *
+ * @interface BadgeParamWithNumber
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface BadgeParamWithNumber extends BadgeParam {
   /**
    * Set the number of reminder messages.
@@ -393,6 +547,16 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Set the number of reminder messages.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   count: number;
@@ -419,6 +583,16 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   maxCount?: number;
@@ -448,6 +622,16 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @since 10
  * @form
  */
+/**
+ * Defines the badge param with string value.
+ *
+ * @interface BadgeParamWithString
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface BadgeParamWithString extends BadgeParam {
   /**
    * Text string of the prompt content.
@@ -471,6 +655,16 @@ declare interface BadgeParamWithString extends BadgeParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Text string of the prompt content.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   value: string;
@@ -498,6 +692,16 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Badge Component.
+ *
+ * @interface BadgeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 interface BadgeInterface {
@@ -535,6 +739,20 @@ interface BadgeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * position: Set the display position of the prompt point.
+   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * count: Set the number of reminder messages.
+   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   *
+   * @param { BadgeParamWithNumber } value
+   * @returns { BadgeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
@@ -575,6 +793,20 @@ interface BadgeInterface {
    * @since 10
    * @form
    */
+  /**
+   * value: Text string of the prompt content.
+   * position: Set the display position of the prompt point.
+   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   *
+   * @param { BadgeParamWithString } value
+   * @returns { BadgeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value: BadgeParamWithString): BadgeAttribute;
 }
 
@@ -602,6 +834,16 @@ interface BadgeInterface {
  * @since 10
  * @form
  */
+/**
+ * Defines Badge Component attribute.
+ *
+ * @extends CommonMethod<BadgeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
 /**
@@ -625,6 +867,15 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
  * @since 10
  * @form
  */
+/**
+ * Defines Badge Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Badge: BadgeInterface;
 
 /**
@@ -646,6 +897,15 @@ declare const Badge: BadgeInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Badge Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const BadgeInstance: BadgeAttribute;

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ImageKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type rpc from './@ohos.rpc';
@@ -21,6 +26,14 @@ import type resourceManager from './@ohos.resourceManager';
 /**
  * @namespace image
  * @since 6
+ */
+/**
+ * This module provides the capability of image codec and access
+ * @namespace image
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare namespace image {
   /**
@@ -1132,6 +1145,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes image information.
+   *
+   * @typedef ImageInfo
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ImageInfo {
     /**
      * Indicates image dimensions specified by a {@link Size} interface.
@@ -1147,6 +1169,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates image dimensions specified by a {@link Size} interface.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1165,7 +1196,26 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates image default density.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     density: number;
+
+    /**
+     * The number of byte per row.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 11
+     */
+    stride: number;
   }
 
   /**
@@ -1183,6 +1233,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes the option for image packing.
+   *
+   * @typedef PackingOption
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface PackingOption {
     /**
      * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
@@ -1198,6 +1257,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     format: string;
 
@@ -1215,6 +1283,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     quality: number;
 
@@ -1235,6 +1312,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * BufferSize of the target image.
+     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     bufferSize?: number;
   }
 
@@ -1244,6 +1331,8 @@ declare namespace image {
    * @typedef GetImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @since 7
+   * @deprecated since 11
+   * @useinstead image.ImagePropertyOptions
    */
   /**
    * Describes image properties.
@@ -1252,6 +1341,8 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
+   * @deprecated since 11
+   * @useinstead image.ImagePropertyOptions
    */
   interface GetImagePropertyOptions {
     /**
@@ -1260,6 +1351,8 @@ declare namespace image {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#index
      */
     /**
      * Index of an image.
@@ -1268,6 +1361,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#index
      */
     index?: number;
 
@@ -1277,6 +1372,8 @@ declare namespace image {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#defaultValue
      */
     /**
      * Default property value.
@@ -1285,6 +1382,38 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#defaultValue
+     */
+    defaultValue?: string;
+  }
+
+  /**
+   * Describes image properties.
+   *
+   * @typedef ImagePropertyOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @since 11
+   */
+  interface ImagePropertyOptions {
+    /**
+     * Index of an image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    index?: number;
+
+    /**
+     * Default property value.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
      */
     defaultValue?: string;
   }
@@ -1304,6 +1433,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes image decoding parameters.
+   *
+   * @typedef DecodingOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface DecodingOptions {
     /**
      * Number of image frames.
@@ -1319,6 +1457,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Number of image frames.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     index?: number;
 
@@ -1337,6 +1484,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sampling ratio of the image pixel map.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     sampleSize?: number;
 
     /**
@@ -1354,6 +1510,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Rotation angle of the image pixel map. The value ranges from 0 to 360.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     rotate?: number;
 
     /**
@@ -1370,6 +1535,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether the image pixel map is editable.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     editable?: boolean;
 
@@ -1390,6 +1564,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
+     * based on the original image size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     desiredSize?: Size;
 
     /**
@@ -1406,6 +1590,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Cropping region of the image pixel map.
+     *
+     * @type { ?Region }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     desiredRegion?: Region;
 
@@ -1424,6 +1617,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Data format of the image pixel map.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     desiredPixelFormat?: PixelMapFormat;
 
     /**
@@ -1441,6 +1643,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The density for image pixel map.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     fitDensity?: number;
 
     /**
@@ -1449,6 +1660,7 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
@@ -1616,6 +1828,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Initialization options for ImageSource.
+   *
+   * @typedef SourceOptions
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface SourceOptions {
     /**
      * The density for ImageSource.
@@ -1631,6 +1852,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The density for ImageSource.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     sourceDensity: number;
 
@@ -1649,6 +1879,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * PixelMap expected format.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     sourcePixelFormat?: PixelMapFormat;
 
     /**
@@ -1665,6 +1904,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * PixelMap size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     sourceSize?: Size;
   }
@@ -1729,6 +1977,20 @@ declare namespace image {
    * @since 11
    */
   function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
+
+  /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @param { Region } region - The region to surface.
+   * @returns { Promise<PixelMap> } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 62980115 - If the image parameter invalid.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 11
+   */
+  function createPixelMapFromSurface(surfaceId: string, region: Region): Promise<PixelMap>;
 
   /**
    * Creates an ImageSource instance based on the URI.
@@ -2003,8 +2265,24 @@ declare namespace image {
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9
+   * @deprecated since 11
+   * @useinstead image#createImageReceiver
    */
   function createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver;
+
+  /**
+   * Creates an ImageReceiver instance.
+   *
+   * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
+   * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 11
+   */
+  function createImageReceiver(size: Size, format: ImageFormat, capacity: number): ImageReceiver;
 
   /**
    * Creates an ImageCreator instance.
@@ -2017,9 +2295,24 @@ declare namespace image {
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 9
+   * @deprecated since 11
+   * @useinstead image#createImageCreator
    */
   function createImageCreator(width: number, height: number, format: number, capacity: number): ImageCreator;
 
+  /**
+   * Creates an ImageCreator instance.
+   *
+   * @param { Size } size - The default {@link Size} in pixels of the Images that this creator will produce.
+   * @param { ImageFormat } format - The format of the Image that this creator will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Multimedia.Image.ImageCreator
+   * @since 11
+   */
+  function createImageCreator(size: Size, format: ImageFormat, capacity: number): ImageCreator;
   /**
    * PixelMap instance.
    *
@@ -2034,6 +2327,15 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * PixelMap instance.
+   *
+   * @typedef PixelMap
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   interface PixelMap {
     /**
@@ -2582,11 +2884,22 @@ declare namespace image {
      * Get color space of pixel map.
      *
      * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    /**
+     * Get color space of pixel map.
+     *
+     * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980103 - If the image data unsupport.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @crossplatform  
+     * @since 11
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
@@ -2594,8 +2907,8 @@ declare namespace image {
      * Marshalling pixelmap and write into MessageSequence.
      *
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
-     * @throws { BusinessError } 62980115 - If the input parameter invalid.
-     * @throws { BusinessError } 62980097 - If the ipc error.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980097 - IPC error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -2606,9 +2919,9 @@ declare namespace image {
      *
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @throws { BusinessError } 62980115 - If the input parameter invalid.
-     * @throws { BusinessError } 62980097 - If the ipc error.
-     * @throws { BusinessError } 62980096 - If fail to create async work.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 62980096 - The operation failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -2622,12 +2935,36 @@ declare namespace image {
      * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
-     * @throws { BusinessError } 62980111 - If the operation invalid.
-     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
+    /**
+     * Set color space of pixel map.
+     * 
+     * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
+     * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
+     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @throws { BusinessError } 62980111 - If the operation invalid.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform 
+     * @since 11
+     */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
+
+    /**
+     * Is it stride Alignment
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    readonly isStrideAlignment: boolean;
 
      /**
      * Apply color space of pixel map, the pixels will be changed by input color space. This method uses a callback to return the operation result.
@@ -2638,9 +2975,9 @@ declare namespace image {
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
-     * @throws { BusinessError } 62980108 - If the color space converted failed.
-     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
+     * @throws { BusinessError } 62980108 - Failed to convert the color space.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 11
@@ -2656,9 +2993,9 @@ declare namespace image {
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
-     * @throws { BusinessError } 62980108 - If the color space converted failed.
-     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
+     * @throws { BusinessError } 62980108 - Failed to convert the color space.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 11
@@ -2714,6 +3051,15 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
+   */
+  /**
+   * ImageSource instance.
+   *
+   * @typedef ImageSource
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   interface ImageSource {
     /**
@@ -2822,6 +3168,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
     /**
@@ -2838,6 +3195,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Creates a PixelMap object. This method uses a callback to return the object.
+     *
+     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     createPixelMap(callback: AsyncCallback<PixelMap>): void;
 
@@ -2860,6 +3226,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
+     * return the object.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
 
     /**
@@ -2868,11 +3245,24 @@ declare namespace image {
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980103 - If the image data unsupport.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980109 - Failed to crop the image.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2883,11 +3273,24 @@ declare namespace image {
      * Creates a PixelMap array. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980103 - If the image data unsupport.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980109 - Failed to crop the image.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2900,11 +3303,24 @@ declare namespace image {
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980103 - If the image data unsupport.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980109 - Failed to crop the image.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2915,13 +3331,18 @@ declare namespace image {
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980113 - If the image format unknown.
-     * @throws { BusinessError } 62980116 - If the image decode failed.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
-     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid media parameter.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2929,16 +3350,21 @@ declare namespace image {
     getDelayTimeList(): Promise<Array<number>>;
 
     /**
-     * Obtains the array of delay time in an image. This method uses a callback to to return the array.
+     * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980113 - If the image format unknown.
-     * @throws { BusinessError } 62980116 - If the image decode failed.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
-     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid media parameter.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2949,13 +3375,17 @@ declare namespace image {
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980113 - If the image format unknown.
-     * @throws { BusinessError } 62980116 - If the image decode failed.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
-     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2963,16 +3393,20 @@ declare namespace image {
     getFrameCount(): Promise<number>;
 
     /**
-     * Obtains the count of frame in an image. This method uses a callback to to return the number.
+     * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @throws { BusinessError } 62980096 - If the operation failed.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980113 - If the image format unknown.
-     * @throws { BusinessError } 62980116 - If the image decode failed.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
-     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2983,11 +3417,39 @@ declare namespace image {
      * Obtains the value of a property in an image with the specified index. This method uses a
      * promise to return the property value in a string.
      *
+     * @param { PropertyKey } key - Name of the property whose value is to be obtained.
+     * @param { ImagePropertyOptions } options - Index of the image.
+     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
+
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses a
+     * promise to return the property value in a string.
+     *
      * @param { string } key Name of the property whose value is to be obtained.
      * @param { GetImagePropertyOptions } options Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
      */
     /**
      * Obtains the value of a property in an image with the specified index. This method uses a
@@ -2999,6 +3461,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
      */
     getImageProperty(key: string, options?: GetImagePropertyOptions): Promise<string>;
 
@@ -3010,6 +3474,8 @@ declare namespace image {
      * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
      */
     /**
      * Obtains the value of a property in this image. This method uses a callback to return the
@@ -3020,6 +3486,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
      */
     getImageProperty(key: string, callback: AsyncCallback<string>): void;
 
@@ -3032,6 +3500,8 @@ declare namespace image {
      * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
      */
     /**
      * Obtains the value of a property in an image with the specified index. This method uses
@@ -3043,8 +3513,28 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
      */
     getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
+
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { PropertyKey } key - Name of the property whose value is to be modified.
+     * @param { string } value - The value to be set to property.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
 
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
@@ -3055,6 +3545,8 @@ declare namespace image {
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
      */
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
@@ -3066,6 +3558,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
      */
     modifyImageProperty(key: string, value: string): Promise<void>;
 
@@ -3078,6 +3572,8 @@ declare namespace image {
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
      */
     /**
      * Modify the value of a property in an image with the specified key. This method uses a callback to return the
@@ -3089,6 +3585,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
      */
     modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -3115,7 +3613,19 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    updateData(buf: ArrayBuffer, isFinished: boolean, value: number, length: number): Promise<void>;
+    /**
+     * Update the data in the incremental ImageSource.
+     *
+     * @param { ArrayBuffer } buf The data to be updated.
+     * @param { boolean } isFinished If is it finished.
+     * @param { number } offset The offset of data.
+     * @param { number } length The length fo buf.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
@@ -3140,10 +3650,22 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Update the data in the incremental ImageSource.
+     *
+     * @param { ArrayBuffer } buf The data to be updated.
+     * @param { boolean } isFinished If is it finished.
+     * @param { number } offset The offset of data.
+     * @param { number } length The length fo buf.
+     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
     updateData(
       buf: ArrayBuffer,
       isFinished: boolean,
-      value: number,
+      offset: number,
       length: number,
       callback: AsyncCallback<void>
     ): void;
@@ -3214,6 +3736,15 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @since 10
+   */
+  /**
+   * ImagePacker instance.
+   *
+   * @typedef ImagePacker
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   interface ImagePacker {
     /**

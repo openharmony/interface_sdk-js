@@ -14,9 +14,20 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Declare Component ProgressButton
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 @Component
 export declare struct ProgressButton {
@@ -26,6 +37,13 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the ProgressButton progress.
+   * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop progress: number;
 
   /**
@@ -34,19 +52,42 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the ProgressButton content.
+   * @type { string }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop content: string;
 
   /**
    * Sets the ProgressButton progressButtonWidth.
-   * @type { Length }.
+   * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the ProgressButton progressButtonWidth.
+   * @type { ?Length }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   progressButtonWidth?: Length;
 
   /**
    * Sets the ProgressButton clickCallback.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the ProgressButton clickCallback.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   clickCallback: () => void;
 
@@ -55,6 +96,13 @@ export declare struct ProgressButton {
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the ProgressButton enable state.
+   * @type { boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop enable: boolean;
 }

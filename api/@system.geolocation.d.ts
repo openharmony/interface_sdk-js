@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit LocationKit
+ */
+
+/**
  * @syscap SystemCapability.Location.Location.Lite
  * @deprecated since 9
  * @useinstead ohos.geoLocationManager/geoLocationManager.Location

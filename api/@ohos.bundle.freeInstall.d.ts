@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { DispatchInfo as _DispatchInfo } from './bundleManager/DispatchInfo';
 import * as _PackInfo from './bundleManager/BundlePackInfo';

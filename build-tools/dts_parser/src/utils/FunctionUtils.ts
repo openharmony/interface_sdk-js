@@ -40,6 +40,7 @@ export class FunctionUtils {
     switch (syscapArr[1]) {
       case 'MiscServices':
         syscapField = syscapArr[NumberConstant.SYSCAP_KEY_FIELD_INDEX];
+        break;
       case 'Communication':
         if (splitSubsystem.has(syscapArr[NumberConstant.SYSCAP_KEY_FIELD_INDEX])) {
           syscapField = syscapArr[NumberConstant.SYSCAP_KEY_FIELD_INDEX];

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkData
+ */
+
+/**
  * Provides methods for uniform data type definition and query.
  *
  * @namespace uniformTypeDescriptor

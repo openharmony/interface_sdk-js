@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';

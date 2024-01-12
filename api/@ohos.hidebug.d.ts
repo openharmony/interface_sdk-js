@@ -14,6 +14,11 @@
 */
 
 /**
+ * @file
+ * @kit PerformanceAnalysisKit
+ */
+
+/**
  * Provide interfaces related to debugger access and obtaining CPU,
  * memory and other virtual machine information during runtime for JS programs
  *
@@ -21,6 +26,8 @@
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  * @since 8
  */
+
+
 declare namespace hidebug {
   /**
    * Get total native heap memory size

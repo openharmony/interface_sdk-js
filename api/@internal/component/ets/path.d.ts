@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Provides the path drawing interface.
+ *
+ * @interface PathInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface PathInterface {
   /**
    * Use new to create Path.
@@ -63,6 +73,17 @@ interface PathInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Use new to create Path.
+   *
+   * @param { object } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
@@ -94,6 +115,17 @@ interface PathInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when drawing path.
+   *
+   * @param { object } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 }
 
@@ -119,6 +151,16 @@ interface PathInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Provides methods for attribute path component.
+ *
+ * @extends CommonShapeMethod<PathAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
@@ -149,6 +191,17 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the command string drawn by the path is set.
+   *
+   * @param { string } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   commands(value: string): PathAttribute;
 }
 
@@ -173,6 +226,15 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Path Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Path: PathInterface;
 
 /**
@@ -194,6 +256,15 @@ declare const Path: PathInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Path Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const PathInstance: PathAttribute;

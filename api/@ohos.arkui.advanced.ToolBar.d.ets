@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -23,11 +28,24 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare enum ItemState
+ * @enum { ItemState }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare enum ItemState {
   /**
    * Enable type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Enable type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   ENABLE = 1,
   /**
@@ -35,11 +53,23 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Disable type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   DISABLE = 2,
   /**
    * Activate type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Activate type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   ACTIVATE = 3
 }
@@ -49,6 +79,12 @@ export declare enum ItemState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare type ToolBarOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 @Observed
 export declare class ToolBarOption {
   /**
@@ -56,22 +92,47 @@ export declare class ToolBarOption {
   * @type { ResourceStr }.
   * @since 10
   */
+  /**
+  * Define text content.
+  * @type { ResourceStr }.
+  * @atomicservice
+  * @since 11
+  */
   content: ResourceStr;
   /**
    * Define the action event.
+   * @type { ?() => void }.
    * @since 10
+   */
+  /**
+   * Define the action event.
+   * @type { ?() => void }.
+   * @atomicservice
+   * @since 11
    */
   action?: () => void;
   /**
    * Define icon resource.
-   * @type { Resource }.
+   * @type { ?Resource }.
    * @since 10
+   */
+  /**
+   * Define icon resource.
+   * @type { ?Resource }.
+   * @atomicservice
+   * @since 11
    */
   icon?: Resource;
   /**
    * Define item type.
-   * @type { Resource }.
+   * @type { ?Resource }.
    * @since 10
+   */
+  /**
+   * Define item type.
+   * @type { ?Resource }.
+   * @atomicservice
+   * @since 11
    */
   state?: ItemState;
 }
@@ -80,6 +141,12 @@ export declare class ToolBarOption {
  * Declare ToolBarOptions use in ToolBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Declare ToolBarOptions use in ToolBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
@@ -90,6 +157,12 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare Component ToolBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 @Component
 export declare struct ToolBar {
   /**
@@ -98,12 +171,26 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Define toolbar list array.
+   * @type { ToolBarOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @ObjectLink toolBarList: ToolBarOptions;
   /**
    * Define toolbar activate item index, default is -1.
-   * @type { number }.
+   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define toolbar activate item index, default is -1.
+   * @type { ?number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop activateIndex?: number;
   /**
@@ -111,6 +198,13 @@ export declare struct ToolBar {
    * @type { TabsController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Define toolbar controller.
+   * @type { TabsController }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   controller: TabsController;
 }

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputKit
+ */
+
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 

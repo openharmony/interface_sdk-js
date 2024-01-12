@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MediaLibraryKit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
 import image from './@ohos.multimedia.image';

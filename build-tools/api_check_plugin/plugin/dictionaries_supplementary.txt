@@ -8,8 +8,10 @@ accelerates
 accents
 accommodates
 acmmax
+acn
 activates
 actived
+adcp
 adjusts
 adpu
 adts
@@ -24,12 +26,17 @@ alpnprotocols
 alterase
 alternating
 altitudes
+amb
+ambisonic
+ambisonics
 amr
 animatable
 annually
 antialias
+antialiasing
 apdu
 apecified
+apertures
 appselect
 arcs
 arfcn
@@ -61,17 +68,21 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra
 bidirectionally
 bitrates
+blending
+blendmode
 blocklist
 bms
 bolder
 bonded
 bonding
 booted
+brightens
 brighter
 brightest
 browsable
@@ -116,6 +127,7 @@ collapses
 collations
 collectable
 colno
+colorfilter
 complies
 compresses
 cone
@@ -131,7 +143,9 @@ cpid
 cpuprofiler
 cpx
 cpy
+creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -141,6 +155,7 @@ csh
 cug
 cyclewindows
 daltonization
+darkens
 darkest
 dataability
 datareceive
@@ -198,10 +213,12 @@ dnd
 dnses
 donot
 downlink
+downmix
 dpad
 drains
 dragbar
 drawbuffer
+drm
 dsda
 dsds
 dsf
@@ -211,6 +228,7 @@ ducking
 earfcn
 earphones
 earpiece
+ebu
 ece
 edr
 efuse
@@ -218,7 +236,9 @@ egid
 ehrpd
 ejectclosecd
 emption
+emphasized
 encapsulates
+encloses
 encompassed
 encrypts
 endc
@@ -263,6 +283,8 @@ fstat
 fsync
 ftruncate
 fulfills
+fuma
+furse
 gamepad
 gba
 geofence
@@ -284,7 +306,9 @@ hankaku
 hapmodule
 haps
 haptic
+haptics
 hce
+hdcp
 headed
 headersreceive
 headphones
@@ -292,6 +316,8 @@ heapsnapshot
 heating
 heavier
 henkan
+hevc
+hexadecagonal
 hfp
 hibernates
 hibernating
@@ -305,6 +331,7 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hlg
 hogp
 hsp
 hspa
@@ -391,6 +418,7 @@ lfloat
 libraryname
 lifted
 lifts
+linearly
 lintptr
 listened
 llbackfn
@@ -401,6 +429,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightens
 lightupEffect
 lpx
 lru
@@ -415,6 +444,8 @@ luma
 lushort
 lux
 mah
+malham
+map
 mcc
 md5
 mdns
@@ -448,11 +479,13 @@ mtp
 muhenkan
 multifrequency
 multimodal
+multiplies
 multisample
 multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -516,6 +549,7 @@ participating
 passpoint
 pastedata
 patchlevel
+pbap
 pbo
 pda
 pdu
@@ -558,6 +592,7 @@ premultiply
 prepares
 preresolve
 presently
+presistent
 prevgroup
 prikey
 primaries
@@ -570,6 +605,7 @@ psc
 psk
 psrc
 pss
+pssh
 puk
 pvr
 querier
@@ -627,6 +663,7 @@ rscp
 rsrp
 rtd
 rtt
+rtcp
 ruim
 rwt
 s5
@@ -650,6 +687,7 @@ sece
 secinfo
 seeked
 semicircles
+sendable
 sensing
 sequenceable
 settingsdata
@@ -668,8 +706,10 @@ sliderstyle
 statvfs
 stk
 str
+strokes
 sm3
 smil
+smpte
 smsc
 snoozing
 snorm
@@ -678,6 +718,7 @@ socid
 softer
 sonification
 sortings
+spatialization
 spawns
 spay
 spdy
@@ -686,9 +727,11 @@ specificed
 speedratings
 spellcheck
 spn
+spooler
 spp
 spry
 spy
+srgb
 ssp
 stablization
 statfs
@@ -699,6 +742,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers
@@ -714,6 +759,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing
@@ -726,6 +772,7 @@ systemapp
 systembar
 systemsize
 systemui
+showcounter
 tailoring
 talkback
 taskmanager
@@ -738,6 +785,7 @@ telecom
 tethering
 texel
 textarget
+textblob
 textclock
 texttimer
 thirdparty
@@ -751,6 +799,7 @@ trackinfo
 tranlisterated
 transcode
 transferable
+transfunc
 transliterated
 transliterator
 transpilation
@@ -781,12 +830,14 @@ uncategorized
 uncatergorized
 unclearable
 unconditional
+undefer
 undisturbed
 unduck
 unducked
 unequal
 unfiltered
 unfocused
+unhealthy
 unhold
 unicom
 unicon
@@ -814,10 +865,12 @@ unregistered
 unregistering
 unregisters
 unremovable
+unrendered
 unrestricted
 unsecure
 unsent
 unspec
+unshare
 unsubscribes
 unsuccessfully
 unsupport
@@ -843,6 +896,7 @@ volte
 volumemanager
 vorbis
 vpr
+vss
 vsync
 wakes
 waking
@@ -884,6 +938,7 @@ xoffset
 xxldpi
 xxxldpi
 ycbcr
+ycrcb
 yoffset
 zenkaku
 zfail

@@ -13,9 +13,14 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
-import Want from './@ohos.app.ability.Want';
-import rpc from './@ohos.rpc';
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
+import type rpc from './@ohos.rpc';
 
 /**
  * This module provides the capability to manage application accounts.
@@ -1155,7 +1160,7 @@ declare namespace appAccount {
      * @param { string } name - Indicates the account name of your application or third-party applications.
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
      * @param { string } authType - Indicates the authentication type.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
+     * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -1171,7 +1176,7 @@ declare namespace appAccount {
       name: string,
       owner: string,
       authType: string,
-      options: { [key: string]: Object },
+      options: Record<string, Object>,
       callback: AuthCallback
     ): void;
 
@@ -2136,11 +2141,11 @@ declare namespace appAccount {
      * The custom data for creating an account,
      * which can be further modified by function setCustomData.
      *
-     * @type { ?object }
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    customData?: { [key: string]: string };
+    customData?: Record<string, string>;
   }
 
   /**
@@ -2175,11 +2180,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -2250,11 +2255,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -2268,11 +2273,11 @@ declare namespace appAccount {
     /**
      * The properties to be set.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    properties?: { [key: string]: Object };
+    properties?: Record<string, Object>;
 
     /**
      * The authenticator-specific parameters.
@@ -2280,11 +2285,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -2445,24 +2450,175 @@ declare namespace appAccount {
    * @deprecated since 9
    */
   enum ResultCode {
+    /**
+    * Indicates the success result.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     SUCCESS = 0,
+
+    /**
+    * Indicates the result of account not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_ACCOUNT_NOT_EXIST = 10001,
+
+    /**
+    * Indicates the result of account service exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
+
+    /**
+    * Indicates the result of password is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_PASSWORD = 10003,
+
+    /**
+    * Indicates the result of request is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_REQUEST = 10004,
+
+    /**
+    * Indicates the result of response is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_RESPONSE = 10005,
+
+    /**
+    * Indicates the result of network exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_NETWORK_EXCEPTION = 10006,
+
+    /**
+    * Indicates the result of network exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
+
+    /**
+    * Indicates the result of auth has been canceled.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_CANCELED = 10008,
+
+    /**
+    * Indicates the result of auth list is too large.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_LIST_TOO_LARGE = 10009,
+
+    /**
+    * Indicates the result of auth service is busy.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SERVICE_BUSY = 10010,
+
+    /**
+    * Indicates the result of auth service exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
+
+    /**
+    * Indicates the result of auth session is not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
+
+    /**
+    * Indicates the result of auth timeout.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TIMEOUT = 10013,
+
+    /**
+    * Indicates the result of token is not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
+
+    /**
+    * Indicates the result of token is too many.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
+
+    /**
+    * Indicates the result of not supported action.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
+
+    /**
+    * Indicates the result of not supported auth type.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
+
+    /**
+    * Indicates the result of permission denied.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_PERMISSION_DENIED = 10018
   }
 
@@ -2591,12 +2747,12 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name.
      * @param { string } authType - Indicates the authentication type.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
+     * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
-    auth(name: string, authType: string, options: { [key: string]: Object }, callback: AuthCallback): void;
+    auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void;
 
     /**
      * Verifies the credential to ensure the user is the owner of the specified application account.

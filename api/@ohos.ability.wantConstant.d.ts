@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * the constant for action and entity in the want
  *
  * @namespace wantConstant

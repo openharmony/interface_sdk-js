@@ -22,7 +22,7 @@ import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
 import { NotificationFlags } from './notificationFlags';
-import { BundleOption as _BundleOption } from './NotificationCommonDef';
+import type { BundleOption } from './NotificationCommonDef';
 
 /**
  * Defines a NotificationRequest instance.
@@ -329,6 +329,16 @@ export interface NotificationRequest {
    * @systemapi
    * @since 8
    */
+  /**
+   * Whether the notification can be remove.
+   *
+   * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
   isRemoveAllowed?: boolean;
 
   /**
@@ -449,7 +459,6 @@ export interface DistributedOptions {
  *
  * @typedef NotificationFilter
  * @syscap SystemCapability.Notification.Notification
- * @systemapi
  * @since 11
  */
 export interface NotificationFilter {
@@ -489,7 +498,6 @@ export interface NotificationFilter {
  *
  * @typedef NotificationCheckRequest
  * @syscap SystemCapability.Notification.Notification
- * @systemapi
  * @since 11
  */
 export interface NotificationCheckRequest {
@@ -521,5 +529,5 @@ export interface NotificationCheckRequest {
    * @systemapi
    * @since 11
    */
-  extraKeys: Array<string>;
+  extraInfoKeys: Array<string>;
 }

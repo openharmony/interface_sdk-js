@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit PerformanceAnalysisKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**

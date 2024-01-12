@@ -304,6 +304,18 @@ export default class Context extends BaseContext {
   distributedFilesDir: string;
 
   /**
+   * Indicates app bundle resource dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  resourceDir: string;
+
+  /**
    * Indicates event hub.
    *
    * @type { EventHub }

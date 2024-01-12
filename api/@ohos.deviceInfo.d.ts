@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * A static class pertaining to the product information.
  *
  * @namespace deviceInfo

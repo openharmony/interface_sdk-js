@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DistributedServiceKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -32,7 +37,7 @@ declare namespace hardwareManager {
    */
   enum DistributedHardwareType {
     /**
-     * 
+     * Indicates all hardware
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11
@@ -140,22 +145,6 @@ declare namespace hardwareManager {
    * Pause the distributed hardware service from the controlled device.
    * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
    * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
-   * @param { AsyncCallback<void> } callback - The callback of execution result.
-   * @throws {BusinessError} 201 - Permission verification failed.
-   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
-   * @throws {BusinessError} 401 - Input parameter error.
-   * @throws {BusinessError} 24200101 - The specified distributed hardware is not started.
-   * @throws {BusinessError} 24200102 - The specified source device is not connected.
-   * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
-   * @systemapi
-   * @since 11
-   */
-  function pauseDistributedHardware(description: HardwareDescriptor, callback: AsyncCallback<void>): void;
-
-  /**
-   * Pause the distributed hardware service from the controlled device.
-   * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-   * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
    * @returns {Promise<void>} pause result.
    * @throws {BusinessError} 201 - Permission verification failed.
    * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
@@ -172,22 +161,6 @@ declare namespace hardwareManager {
    * Resume the distributed hardware service from the controlled device.
    * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
    * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
-   * @param { AsyncCallback<void> } callback - the callback of execution result.
-   * @throws {BusinessError} 201 - Permission verification failed.
-   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
-   * @throws {BusinessError} 401 - Input parameter error.
-   * @throws {BusinessError} 24200101 - The specified distributed hardware is not started.
-   * @throws {BusinessError} 24200102 - The specified source device is not connected.
-   * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
-   * @systemapi
-   * @since 11
-   */
-  function resumeDistributedHardware(description: HardwareDescriptor, callback: AsyncCallback<void>): void;
-
-  /**
-   * Resume the distributed hardware service from the controlled device.
-   * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-   * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
    * @returns {Promise<void>} resume result.
    * @throws {BusinessError} 201 - Permission verification failed.
    * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
@@ -199,22 +172,6 @@ declare namespace hardwareManager {
    * @since 11
    */
   function resumeDistributedHardware(description: HardwareDescriptor): Promise<void>;
-
-  /**
-   * Stop the distributed hardware service from the controlled device.
-   * @permission ohos.permission.ACCESS_DISTRIBUTED_HARDWARE
-   * @param { HardwareDescriptor } description - Indicates distributed hardware {@link HardwareDescriptor}.
-   * @param { AsyncCallback<void> } callback - the callback of execution result.
-   * @throws {BusinessError} 201 - Permission verification failed.
-   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
-   * @throws {BusinessError} 401 - Input parameter error.
-   * @throws {BusinessError} 24200101 - The specified distributed hardware is not started.
-   * @throws {BusinessError} 24200102 - The specified source device is not connected.
-   * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
-   * @systemapi
-   * @since 11
-   */
-  function stopDistributedHardware(description: HardwareDescriptor, callback: AsyncCallback<void>): void;
 
   /**
    * Stop the distributed hardware service from the controlled device.

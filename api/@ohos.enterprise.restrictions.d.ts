@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MDMKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
@@ -180,6 +185,78 @@ declare namespace restrictions {
    * @since 10
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
+  
+  /**
+   * Disables the microphone of device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disable - true if disable the microphone of device, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function disableMicrophone(admin: Want, disable: boolean): void;
+
+  /**
+   * Queries whether the microphone of device is disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the microphone of device is disabled, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function isMicrophoneDisabled(admin: Want): boolean;
+
+  /**
+   * Sets the device fingerprint authorization capability disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disabled - true if set the fingerprint authorization capability disabled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setFingerprintAuthDisabled(admin: Want, disabled: boolean): void;
+
+  /**
+   * Queries device fingerprint authorization capability is disabled or enabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the fingerprint authorization capability is disabled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function isFingerprintAuthDisabled(admin: Want): boolean;
 }
 
 export default restrictions;

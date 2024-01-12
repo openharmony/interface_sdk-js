@@ -13,14 +13,21 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NotificationKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
 import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
+import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
+import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
 import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
 import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
 import { NotificationButton as _NotificationButton } from './notification/notificationContent';
@@ -2054,7 +2061,6 @@ declare namespace notificationManager {
    *
    * @param { SystemLiveViewSubscriber } subscriber - The system live vie notification subscriber.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2066,6 +2072,45 @@ declare namespace notificationManager {
    * @since 11
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
+
+  /**
+   * Set basic configurations of application-level notification channels.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } slotFlags - Indicates the slotFlags.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
+
+  /**
+   * Obtains basic configurations of application-level notification channels.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
   /**
    * Describes a button option for a triggering.
@@ -2187,12 +2232,12 @@ declare namespace notificationManager {
      * Additional information of the live view notification.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11
      */
-    extraInfos?: { [key: string]: object };
+    extraInfos?: Record<string, Object>;
   }
 
   /**
@@ -2621,6 +2666,15 @@ declare namespace notificationManager {
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
   /**
+   * Describes a live view notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type NotificationLiveViewContent = _NotificationLiveViewContent;
+
+  /**
    * Describes a multi-line text notification.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -2701,6 +2755,15 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationSlot = _NotificationSlot;
+
+  /**
+   * Describes live view notification option type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type LiveViewStatus = _LiveViewStatus;
 
   /**
    * Provides sorting information about an active notification.

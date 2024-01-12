@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
  *
  * @namespace curves
@@ -27,6 +32,15 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
+ *
+ * @namespace curves
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare namespace curves {
   /**
@@ -44,19 +58,301 @@ declare namespace curves {
    * @crossplatform
    * @since 10
    */
+  /**
+   * enum Curve.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum Curve {
+    /**
+     * Linear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Linear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Linear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Linear,
+    /**
+     * Ease.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Ease.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Ease.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Ease,
+    /**
+     * EaseIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * EaseIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * EaseIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     EaseIn,
+    /**
+     * EaseOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * EaseOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * EaseOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     EaseOut,
+    /**
+     * EaseInOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * EaseInOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * EaseInOut.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     EaseInOut,
+    /**
+     * FastOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * FastOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * FastOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     FastOutSlowIn,
+    /**
+     * LinearOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * LinearOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * LinearOutSlowIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     LinearOutSlowIn,
+    /**
+     * FastOutLinearIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * FastOutLinearIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * FastOutLinearIn.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     FastOutLinearIn,
+    /**
+     * ExtremeDeceleration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * ExtremeDeceleration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * ExtremeDeceleration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ExtremeDeceleration,
+    /**
+     * Sharp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Sharp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Sharp.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Sharp,
+    /**
+     * Rhythm.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Rhythm.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Rhythm.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Rhythm,
+    /**
+     * Smooth.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Smooth.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Smooth.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Smooth,
+    /**
+     * Friction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Friction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Friction.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     Friction,
   }
 
@@ -75,6 +371,15 @@ declare namespace curves {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Interface for curve object.
+   *
+   * @typedef ICurve
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ICurve {
     /**
      * Get curve value by fraction.
@@ -92,6 +397,16 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get curve value by fraction.
+     *
+     * @param { number } fraction
+     * @returns { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     interpolate(fraction: number): number;
   }
@@ -112,6 +427,16 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Initializes the interpolator curve when called.
+   *
+   * @param { Curve } [curve]
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function initCurve(curve?: Curve): ICurve;
 
@@ -146,6 +471,17 @@ declare namespace curves {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Constructs a step curve when called.
+   *
+   * @param { number } count
+   * @param { boolean } end
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function stepsCurve(count: number, end: boolean): ICurve;
 
   /**
@@ -156,6 +492,16 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Constructs a custom curve when called.
+   *
+   * @param { function } interpolate - fraction range is [0,1], the return number must between [0,1].
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function customCurve(interpolate: (fraction: number) => number): ICurve;
   
@@ -194,6 +540,19 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Constructs a third-order Bezier curve when called.
+   *
+   * @param { number } x1
+   * @param { number } y1
+   * @param { number } x2
+   * @param { number } y2
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
 
@@ -235,6 +594,19 @@ declare namespace curves {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Constructs a spring curve when called.
+   *
+   * @param { number } velocity
+   * @param { number } mass
+   * @param { number } stiffness
+   * @param { number } damping
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 
   /**
@@ -273,6 +645,18 @@ declare namespace curves {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Constructs a spring motion when called.
+   *
+   * @param { number } [response]
+   * @param { number } [dampingFraction]
+   * @param { number } [overlapDuration]
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
   /**
@@ -296,6 +680,18 @@ declare namespace curves {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Constructs a responsive spring motion when called.
+   *
+   * @param { number } [response]
+   * @param { number } [dampingFraction]
+   * @param { number } [overlapDuration]
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
   /**
@@ -311,6 +707,21 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Constructs an interpolating spring curve when called, the animation duration can not be specified manually,
+   * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
+   * to calculate the actual animation values.
+   *
+   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
+   * @param { number } mass - the mass of object in the mass-damper-spring system
+   * @param { number } stiffness - the stiffness of spring
+   * @param { number } damping - the damping value of spring
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 }

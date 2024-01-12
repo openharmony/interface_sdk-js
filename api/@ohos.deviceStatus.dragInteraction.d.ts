@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { Callback } from './@ohos.base';
 
 /**
@@ -62,6 +67,36 @@ declare namespace dragInteraction {
   }
 
   /**
+   * Abstract of the dragged data.
+   *
+   * @interface Summary
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface Summary {
+    /**
+     * Type of the dragged object.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    dataType: string;
+
+    /**
+     * Data length of the dragged object.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    dataSize: number;
+  }
+
+  /**
    * Listens for dragging state change events.
    *
    * @param { 'drag' } type Indicates the event type.
@@ -85,6 +120,17 @@ declare namespace dragInteraction {
    * @since 10
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
+
+  /**
+   * Obtains the abstract of a dragged object.
+   *
+   * @returns { Array<Summary> } Data abstract of the dragged object.
+   * @throws {BusinessError} 202 - Not system application.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getDataSummary(): Array<Summary>;
 }
 
 export default dragInteraction;

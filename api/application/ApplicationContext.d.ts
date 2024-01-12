@@ -20,8 +20,8 @@ import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
-import type { AutoStartupCallback as _AutoStartupCallback } from './AutoStartupCallback';
-import type { AutoStartupInfo as _AutoStartupInfo } from './AutoStartupInfo';
+import type AutoStartupCallback from './AutoStartupCallback';
+import type AutoStartupInfo from './AutoStartupInfo';
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -542,21 +542,3 @@ export default class ApplicationContext extends Context {
    */
   isAutoStartup(info: AutoStartupInfo): Promise<boolean>;
 }
-
-/**
- * The class of auto startup info.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 11
- */
-export type AutoStartupInfo = _AutoStartupInfo;
-
-/**
- * The class of auto startup callback.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 11
- */
-export type AutoStartupCallback = _AutoStartupCallback;

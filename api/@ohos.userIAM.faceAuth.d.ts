@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit UserAuthenticationKit
+ */
+
+/**
  * This module provides the capability to manage face auth.
  *
  * @namespace faceAuth

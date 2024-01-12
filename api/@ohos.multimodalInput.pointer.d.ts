@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
+import type image from './@ohos.multimedia.image';
 
 /**
  * Declares interfaces related to mouse pointer attributes.
@@ -1286,6 +1292,33 @@ declare namespace pointer {
    * @since 10
    */
   function getTouchpadRightClickType(): Promise<RightClickType>;
+
+  /**
+   * Sets the custom cursor.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
+   * @param { number } focusX - focus x.
+   * @param { number } focusY - focus y.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 11
+   */
+  function setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
+
+  /**
+   * Sets the custom cursor through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
+   * @param { number } focusX - focus x.
+   * @param { number } focusY - focus y.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 11
+   */
+  function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 }
 
 export default pointer;

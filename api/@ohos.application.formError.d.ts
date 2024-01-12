@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit FormKit
+ */
+
+/**
  * interface of formError.
  *
  * @namespace formError

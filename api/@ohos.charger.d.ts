@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * Provides charger information includes type and protocol.
  *
  * @namespace charger

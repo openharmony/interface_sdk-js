@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ConnectivityKit
+ */
+
+/**
  * The definition of constant.
  *
  * @namespace constant
@@ -897,6 +902,41 @@ declare namespace constant {
      * @since 10
      */
     HEALTH_PERSONAL_MOBILITY_DEVICE = 0x093C
+  }
+
+  /**
+   * Enum for the PBAP or MAP access authorization.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 11
+   */
+  export enum AccessAuthorization {
+    /**
+     * Authorization unknown.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    UNKNOWN = 0,
+    /**
+     * Allow access.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    ALLOWED = 1,
+    /**
+     * Access rejected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    REJECTED = 2
   }
 }
 

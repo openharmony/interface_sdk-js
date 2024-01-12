@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DistributedServiceKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
@@ -32,6 +37,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#CooperateState
    */
   enum CooperateMsg {
     /**
@@ -40,6 +47,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_PREPARE
      */
     COOPERATE_PREPARE = 0,
 
@@ -49,6 +58,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_UNPREPARE
      */
     COOPERATE_UNPREPARE = 1,
 
@@ -58,6 +69,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE
      */
     COOPERATE_ACTIVATE = 2,
 
@@ -67,6 +80,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE_SUCCESS
      */
     COOPERATE_ACTIVATE_SUCCESS = 3,
 
@@ -76,6 +91,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_ACTIVATE_FAILURE
      */
     COOPERATE_ACTIVATE_FAIL = 4,
 
@@ -85,6 +102,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_DEACTIVATE_SUCCESS
      */
     COOPERATE_DEACTIVATE_SUCCESS = 5,
 
@@ -94,6 +113,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_DEACTIVATE_FAILURE
      */
     COOPERATE_DEACTIVATE_FAIL = 6,
 
@@ -103,6 +124,8 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
      * @since 10
+     * @deprecated since 11
+     * @useinstead cooperate.CooperateState#COOPERATE_SESSION_DISCONNECTED
      */
     COOPERATE_SESSION_DISCONNECTED = 7,
   }
@@ -227,6 +250,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#prepareCooperate
    */
   function prepare(callback: AsyncCallback<void>): void;
 
@@ -238,6 +263,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#prepareCooperate
    */
   function prepare(): Promise<void>;
 
@@ -277,6 +304,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#unprepareCooperate
    */
   function unprepare(callback: AsyncCallback<void>): void;
 
@@ -288,6 +317,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#unprepareCooperate
    */
   function unprepare(): Promise<void>;
 
@@ -312,7 +343,6 @@ declare namespace cooperate {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.
-   * @throws {BusinessError} 401 - Parameter error.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -330,6 +360,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#activateCooperate
    */
   function activate(targetNetworkId: string, inputDeviceId: number, callback: AsyncCallback<void>): void;
 
@@ -344,6 +376,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#activateCooperate
    */
   function activate(targetNetworkId: string, inputDeviceId: number): Promise<void>;
 
@@ -390,6 +424,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#deactivateCooperate
    */
   function deactivate(isUnchained: boolean, callback: AsyncCallback<void>): void;
 
@@ -401,6 +437,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#deactivateCooperate
    */
   function deactivate(isUnchained: boolean): Promise<void>;
 
@@ -442,6 +480,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#getCooperateSwitchState
    */
   function getCrossingSwitchState(networkId: string, callback: AsyncCallback<boolean>): void;
 
@@ -455,6 +495,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#getCooperateSwitchState
    */
   function getCrossingSwitchState(networkId: string): Promise<boolean>;
 
@@ -500,6 +542,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#on
    */
   function on(type: 'cooperate', callback: Callback<{ networkId: string, msg: CooperateMsg }>): void;
 
@@ -513,6 +557,8 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 11
+   * @useinstead cooperate#on
    */
   function off(type: 'cooperate', callback?: Callback<void>): void;
 
@@ -537,7 +583,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMessage' } type - Change type.
-   * @param { Callback<CooperateMessage> } callback - Callback for which listening
+   * @param { Callback<CooperateMessage> } [callback] - Callback for which listening
    * is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Not system application.

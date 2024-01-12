@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * @typedef CheckPackageHasInstalledResponse
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3

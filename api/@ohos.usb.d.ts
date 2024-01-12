@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * @namespace usb
  * @since 8
  * @deprecated since 9

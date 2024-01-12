@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * Vector is a linear data structure that is implemented based on arrays. When the memory of a vector is used up,
  * a larger contiguous memory area is automatically allocated, all the elements are copied to the new memory area,
  * and the current memory area is reclaimed.

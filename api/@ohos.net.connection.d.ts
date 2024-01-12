@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';
@@ -45,8 +50,8 @@ declare namespace connection {
 
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -54,8 +59,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -64,8 +69,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -669,6 +674,7 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
+   * If an application level proxy is set, the application level proxy parameters are returned.
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
@@ -684,6 +690,7 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
+   * If an application level proxy is set, the application level proxy parameters are returned.
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
@@ -723,6 +730,16 @@ declare namespace connection {
   function getGlobalHttpProxy(): Promise<HttpProxy>;
 
   /**
+   * Set application level http proxy {@link HttpProxy}.
+   * @param { HttpProxy } httpProxy - Indicates the application level proxy settings. For details, see {@link HttpProxy}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid http proxy.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function setAppHttpProxy(httpProxy: HttpProxy): void;
+
+  /**
    * Set a network independent global {@link HttpProxy} proxy settings.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { HttpProxy } httpProxy - Indicates the global proxy settings. For details, see {@link HttpProxy}.
@@ -757,7 +774,7 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
-   * Add a custom {@link host} and corresponding {@link ip} mapping.
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @param { Array<string> } ip - List of IP addresses mapped to the host name.
@@ -773,7 +790,7 @@ declare namespace connection {
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Add a custom {@link host} and corresponding {@link ip} mapping.
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @param { Array<string> } ip - List of IP addresses mapped to the host name.
@@ -789,7 +806,7 @@ declare namespace connection {
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
 
   /**
-   * Remove the custom DNS rule of the {@link host}.
+   * Remove the custom DNS rule of the {@link host} for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @param { AsyncCallback<void> } callback - Returns the callback of removeCustomDnsRule.
@@ -804,7 +821,7 @@ declare namespace connection {
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove the custom DNS rule of the {@link host}.
+   * Remove the custom DNS rule of the {@link host} for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
    * @returns { Promise<void> } the promise returned by the function.
@@ -819,7 +836,7 @@ declare namespace connection {
   function removeCustomDnsRule(host: string): Promise<void>;
 
   /**
-   * Clear all custom DNS rules.
+   * Clear all custom DNS rules for current application.
    * @permission ohos.permission.INTERNET
    * @param { AsyncCallback<void> } callback - Returns the callback of clearCustomDnsRules.
    * @throws { BusinessError } 201 - Permission denied.
@@ -833,7 +850,7 @@ declare namespace connection {
   function clearCustomDnsRules(callback: AsyncCallback<void>): void;
 
   /**
-   * Clear all custom DNS rules.
+   * Clear all custom DNS rules for current application.
    * @permission ohos.permission.INTERNET
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -845,6 +862,23 @@ declare namespace connection {
    * @since 11
    */
   function clearCustomDnsRules(): Promise<void>;
+
+  /**
+   * factory reset network settings
+   *
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 11
+   */
+  function factoryReset(): Promise<void>;
 
   /**
    * Represents the network connection handle.
@@ -901,7 +935,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
-    on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
+    /**
+     * Registers a listener for netBlockStatusChange events.
+     * @param { 'netBlockStatusChange' } type - Indicates Event name.
+     * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
 
     /**
      * Registers a listener for **netCapabilitiesChange** events.
@@ -936,7 +977,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
-    on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
+    /**
+     * Registers a listener for netConnectionPropertiesChange events.
+     * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
+     * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
     /**
      * Registers a listener for **netLost** events.
@@ -1380,6 +1428,52 @@ declare namespace connection {
      * @since 11
      */
     bearerTypes: Array<NetBearType>;
+  }
+
+  /**
+   * Get information about network connections.
+   * @interface NetConnectionPropertyInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  export interface NetConnectionPropertyInfo {
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    netHandle: NetHandle;
+    /**
+     * Defines the network connection properties.
+     * @type { ConnectionProperties }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    connectionProperties: ConnectionProperties;
+  }
+
+  /**
+   * Get network status information.
+   * @interface NetBlockStatusInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  export interface NetBlockStatusInfo {
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    netHandle: NetHandle;
+    /**
+     * Check whether the current state is blocked.
+     * @type { boolean }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    blocked: boolean;
   }
 
   /**

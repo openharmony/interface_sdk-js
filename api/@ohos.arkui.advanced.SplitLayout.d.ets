@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -22,12 +27,24 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 @Component
 export declare struct SplitLayout {
   /**
    * Container in the user-defined splitlayout display area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Container in the user-defined splitlayout display area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
     @BuilderParam container: () => void;
 
@@ -37,6 +54,13 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Image in the layout.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @State mainImage: ResourceStr;
 
   /**
@@ -45,21 +69,42 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Title text in the layout.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop primaryText: ResourceStr;
 
   /**
    * Description text in the layout.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Description text in the layout.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop secondaryText?: ResourceStr;
 
   /**
    * Auxiliary text in the layout.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Auxiliary text in the layout.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop tertiaryText?: ResourceStr;
 }

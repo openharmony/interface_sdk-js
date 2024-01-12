@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MDMKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
@@ -207,6 +212,63 @@ declare namespace applicationManager {
    * @since 10
    */
   function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
+
+  /**
+   * Adds auto start applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function addAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
+
+  /**
+   * Removes auto start applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function removeAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
+
+  /**
+   * Gets information of auto start applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<Want> } the information of auto start applications.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function getAutoStartApps(admin: Want): Array<Want>;
 }
 
 export default applicationManager;

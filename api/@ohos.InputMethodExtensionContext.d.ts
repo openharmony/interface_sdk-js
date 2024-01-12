@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputMethodKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import ExtensionContext from './application/ExtensionContext';
 

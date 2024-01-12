@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CoreFileKit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**

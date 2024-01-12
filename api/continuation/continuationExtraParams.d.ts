@@ -131,5 +131,13 @@ export interface ContinuationExtraParams {
    * @atomicservice
    * @since 11
    */
-  authInfo?: { [key: string]: any };
+  /**
+   * Authentication extra infos.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
+   */
+  authInfo?: Record<string, Object>;
 }

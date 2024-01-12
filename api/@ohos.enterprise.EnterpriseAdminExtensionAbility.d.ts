@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MDMKit
+ */
+
 import type systemManager from './@ohos.enterprise.systemManager';
 
 /**

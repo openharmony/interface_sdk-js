@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit TelephonyKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit PerformanceAnalysisKit
+ */
+
+/**
  * Provides APIs to implement call chain tracing throughout a service process.
  * With HiTrace, you can quickly obtain the run log for the call chain of a
  * specified service process and locate faults in cross-device, cross-process,

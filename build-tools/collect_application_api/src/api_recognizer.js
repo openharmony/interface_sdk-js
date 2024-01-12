@@ -26,6 +26,7 @@ class SystemApiRecognizer {
     this.componentAttributeMap = new Map();
     this.componentAttributeTypeSymbolMap = new Map();
     this.forEachComponents = new Set(['LazyForEach', 'ForEach']);
+    this.apiInfoSet = new Set([]);
   }
 
   /**
@@ -35,11 +36,42 @@ class SystemApiRecognizer {
    * @param {string} fileName
    */
   visitNode(node, fileName) {
+    this.recognizeDecorators(node, fileName, undefined);
     if (this.isArkUIRenderMethod(node)) {
       this.visitUIRenderNode(node.body, fileName);
     } else {
       this.visitNormalNode(node, fileName);
     }
+  }
+
+  recognizeDecorators(node, fileName, position) {
+    let decoratorArray = [];
+    if (node.decorators) {
+      decoratorArray = node.decorators;
+    } else if (node.modifiers) {
+      decoratorArray = node.modifiers;
+    }
+
+    decoratorArray.forEach(decorator => {
+      const symbol = this.typeChecker.getSymbolAtLocation(decorator.expression);
+      if (!symbol) {
+        return;
+      }
+      const apiDecInfo = this.getSdkApiFromValueDeclaration(symbol.valueDeclaration.parent.parent);
+      if (apiDecInfo) {
+        apiDecInfo.setPosition(position ?
+          position :
+          ts.getLineAndCharacterOfPosition(decorator.getSourceFile(), decorator.getStart()));
+        apiDecInfo.setSourceFileName(fileName);
+        apiDecInfo.setQualifiedTypeName('global');
+        apiDecInfo.setPropertyName(this.getDecortorName(symbol.valueDeclaration));
+        this.addApiInformation(apiDecInfo);
+      }
+    });
+  }
+
+  getDecortorName(node) {
+    return node.name ? node.name.getText() : undefined;
   }
 
   /**
@@ -68,6 +100,9 @@ class SystemApiRecognizer {
    * @param {string} fileName 
    */
   visitUIRenderNode(node, fileName) {
+    if (!node.statements) {
+      return;
+    }
     node.statements.forEach((statement) => {
       this.recognizeUIComponents(statement, fileName);
     });
@@ -86,7 +121,15 @@ class SystemApiRecognizer {
     if (!this.apiInfos) {
       this.apiInfos = [];
     }
+    if (this.apiInfoSet.has(this.formatApiInfo(apiInfo))) {
+      return;
+    }
     this.apiInfos.push(apiInfo);
+    this.apiInfoSet.add(this.formatApiInfo(apiInfo));
+  }
+
+  formatApiInfo(apiInfo) {
+    return `${apiInfo.dtsName}#${apiInfo.typeName}#${apiInfo.apiRawText}#${apiInfo.sourceFileName}#${apiInfo.pos}`;
   }
 
   getApiInformations() {
@@ -170,7 +213,10 @@ class SystemApiRecognizer {
     }
 
     try {
-      const symbol = this.typeChecker.getSymbolAtLocation(node);
+      let symbol = this.typeChecker.getSymbolAtLocation(node);
+      if (symbol && symbol.flags === ts.SymbolFlags.Alias) {
+        symbol = this.typeChecker.getAliasedSymbol(symbol);
+      }
       return this.recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations);
     } catch (error) {
       Logger.error('UNKNOW NODE', error);
@@ -181,8 +227,12 @@ class SystemApiRecognizer {
   recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations) {
     if (symbol) {
       const apiDecInfo = this.getSdkApiDeclarationWithSymbol(symbol, node, useDeclarations);
+      const position = ts.getLineAndCharacterOfPosition(node.getSourceFile(), positionCallback(node));
+      if (symbol.valueDeclaration && this.isSdkApi(symbol.valueDeclaration.getSourceFile().fileName)) {
+        this.recognizeDecorators(symbol.valueDeclaration, fileName, position);
+      }
       if (apiDecInfo) {
-        apiDecInfo.setPosition(ts.getLineAndCharacterOfPosition(node.getSourceFile(), positionCallback(node)));
+        apiDecInfo.setPosition(position);
         apiDecInfo.setSourceFileName(fileName);
         this.addApiInformation(apiDecInfo);
         return apiDecInfo;
@@ -206,6 +256,22 @@ class SystemApiRecognizer {
       this.recognizeApiWithNode(node.expression, fileName, (node) => node.getStart());
     } else if (ts.isStructDeclaration(node)) {
       this.recognizeHeritageClauses(node, fileName);
+    } else if (ts.isTypeReferenceNode(node)) {
+      this.recognizeTypeReferenceNode(node, fileName);
+    } else if (ts.isObjectLiteralExpression(node)) {
+      this.recognizeObjectLiteralExpression(node, fileName);
+    } else if (ts.isCallExpression(node)) {
+      this.recognizeEtsComponentAndAttributeApi(node.expression, fileName);
+    }
+  }
+
+  recognizeTypeReferenceNode(node, fileName) {
+    if (ts.isTypeReferenceNode(node)) {
+      this.recognizeTypeReferenceNode(node.typeName, fileName);
+    } else if (ts.isQualifiedName(node)) {
+      this.recognizeApiWithNode(node.typeName?.right, fileName, (node) => node.getStart(), true);
+    } else if (ts.isIdentifier(node)) {
+      this.recognizeApiWithNode(node, fileName, (node) => node.getStart(), true);
     }
   }
 
@@ -220,6 +286,8 @@ class SystemApiRecognizer {
     } else if (ts.isPropertyAccessExpression(node)) {
       this.recognizeNormalCallExpression(node.expression, fileName);
       return this.recognizePropertyAccessExpression(node, fileName);
+    } else if (ts.isIdentifier(node)) {
+      return this.recognizeApiWithNode(node, fileName, (node) => node.getStart());
     } else {
       return undefined;
     }
@@ -319,7 +387,7 @@ class SystemApiRecognizer {
    * @param {ts.Node} node 
    * @param {string} fileName
    */
-  recognizeUIComponents(node, fileName) {
+  recognizeUIComponents(node, fileName, parentName) {
     if (ts.isEtsComponentExpression(node)) {
       // ETS组件的声明, EtsComponentExpression 表示有子组件的组件.
       this.recognizeEtsComponentExpression(node, fileName);
@@ -333,6 +401,74 @@ class SystemApiRecognizer {
         this.recognizeUIComponents(child, fileName);
       });
     }
+  }
+
+  /**
+   * 识别在对象内，作为入参的API
+   * 
+   * @param {ts.Node} node 
+   * @param {string} fileName 
+   * @returns 
+   */
+  recognizeObjectLiteralExpression(node, fileName) {
+    let parentName = '';
+    if (node.parent && node.parent.expression && ts.isIdentifier(node.parent.expression)) {
+      parentName = node.parent.expression.escapedName ?
+        node.parent.expression.escapedName : node.parent.expression.escapedText;
+    }
+    const parentType = this.typeChecker.getContextualType(node);
+    if (!parentType || !parentType.properties) {
+      return;
+    }
+    if (parentType.properties.length === 0) {
+      return;
+    }
+    if (!parentType.properties[0].valueDeclaration) {
+      return;
+    }
+    const sourceFile = parentType.properties[0].valueDeclaration.getSourceFile();
+
+    //判断是否为系统API
+    if (!this.isSdkApi(sourceFile.fileName)) {
+      return;
+    }
+    let parentSymbol = sourceFile.locals.get(parentName);
+    const apiMapInParent = this.getApiMapInParent(parentSymbol, parentType);
+
+    node.properties.forEach(property => {
+      const apiNode = apiMapInParent.get(property.name.escapedText);
+      if (!apiNode) {
+        return;
+      }
+      if (ts.isTypeLiteralNode(apiNode.parent)) {
+        return;
+      }
+      const apiDecInfo = this.getSdkApiFromValueDeclaration(apiNode, property, fileName);
+      if (apiDecInfo) {
+        const position = ts.getLineAndCharacterOfPosition(property.getSourceFile(), property.name.getStart());
+        this.recognizeDecorators(apiNode, fileName, position);
+        apiDecInfo.setPosition(position);
+        apiDecInfo.setSourceFileName(fileName);
+        this.addApiInformation(apiDecInfo);
+      }
+    });
+  }
+
+  getApiMapInParent(parentSymbol, parentType) {
+    const apiMapInParent = new Map();
+    if (!parentSymbol) {
+      parentType.members.forEach((memberValue, member) => {
+        apiMapInParent.set(member, memberValue.valueDeclaration);
+      });
+    } else {
+      parentSymbol.declarations[0]?.members?.forEach(member => {
+        if (!member.name) {
+          return;
+        }
+        apiMapInParent.set(member.name.escapedText, member);
+      });
+    }
+    return apiMapInParent;
   }
 
   /**
@@ -600,6 +736,8 @@ class SystemApiRecognizer {
         return `enum ${node.name ? node.name.getText() : ''}`;
       case ts.SyntaxKind.ModuleDeclaration:
         return `namespace ${node.name ? node.name.getText() : ''}`;
+      case ts.SyntaxKind.StructDeclaration:
+        return `struct ${node.name ? node.name.getText() : ''}`;
       case node.getText() === 'AsyncCallback' || node.getText() === 'Callback':
         return '';
       default:
@@ -668,6 +806,9 @@ class SystemApiRecognizer {
    */
   findBestMatchedDeclaration(callExpressionNode, symbol) {
     const callExpArgLen = callExpressionNode.arguments.length;
+    if (callExpArgLen === 0) {
+      return undefined;
+    }
     let matchedDecs = [];
     for (let dec of symbol.declarations) {
       if (dec.parameters && dec.parameters.length === callExpArgLen) {
@@ -678,7 +819,7 @@ class SystemApiRecognizer {
       return matchedDecs[0];
     }
     if ('on' === callExpressionNode.expression.name.getText()) {
-      return matchedDecs[0];
+      return this.findBestMatchedApi(callExpressionNode, matchedDecs);
     }
     const lastArgument = callExpressionNode.arguments[callExpArgLen - 1];
     if (this.isAsyncCallbackCallExp(lastArgument)) {
@@ -691,6 +832,44 @@ class SystemApiRecognizer {
       });
     }
     return matchedDecs.length > 0 ? matchedDecs[0] : undefined;
+  }
+
+  /**
+   * 通过匹配type字符串找到正确的API
+   * 
+   * @param { ts.Node } callExpressionNode 
+   * @param { Array } matchedDecs 
+   * @returns 
+   */
+  findBestMatchedApi(callExpressionNode, matchedDecs) {
+    let apiNode = undefined;
+    if (ts.isStringLiteral(callExpressionNode.arguments[0])) {
+      const useType = callExpressionNode.arguments[0].text;
+      for (let i = 0; i < matchedDecs.length; i++) {
+        const matchDec = matchedDecs[i];
+        const apiSubscribeTypes = this.getSubscribeApiType(matchDec.parameters[0].type);
+        if (apiSubscribeTypes.has(useType)) {
+          apiNode = matchDec;
+        }
+      }
+    }
+
+    if (!apiNode) {
+      apiNode = matchedDecs[0];
+    }
+    return apiNode;
+  }
+
+  getSubscribeApiType(typeNode) {
+    const literalTypeSet = new Set();
+    if (ts.isLiteralTypeNode(typeNode)) {
+      literalTypeSet.add(typeNode.literal.text);
+    } else if (ts.isUnionTypeNode(typeNode)) {
+      typeNode.types.forEach(type => {
+        literalTypeSet.add(type.literal.text);
+      });
+    }
+    return literalTypeSet;
   }
 
   isAsyncCallbackCallExp(node) {
@@ -734,6 +913,10 @@ class SystemApiRecognizer {
     apiInfo.setDtsPath(this.formatDtsPath(dtsPath));
     apiInfo.setCompletedText(this.getApiText(valudeDec));
 
+    if (ts.isSourceFile(valudeDec.parent) && ts.isFunctionDeclaration(valudeDec)) {
+      apiInfo.setQualifiedTypeName('global');
+    }
+
     let curDeclaration = valudeDec.parent;
     while (!ts.isSourceFile(curDeclaration)) {
       const nodeName = this.getMethodOrTypeName(curDeclaration);
@@ -743,6 +926,7 @@ class SystemApiRecognizer {
       }
       curDeclaration = curDeclaration.parent;
     }
+
     const qualifiedName = apiInfo.qualifiedTypeName ?
       `${apiInfo.qualifiedTypeName}.${apiInfo.propertyName}` : `${apiInfo.propertyName}`;
     apiInfo.setQualifiedName(qualifiedName);
@@ -766,6 +950,8 @@ class SystemApiRecognizer {
       case ts.SyntaxKind.EnumDeclaration:
         return node.getText().split('{')[0];
       case ts.SyntaxKind.ModuleDeclaration:
+        return node.getText().split('{')[0];
+      case ts.SyntaxKind.StructDeclaration:
         return node.getText().split('{')[0];
       default:
         return node.getText();

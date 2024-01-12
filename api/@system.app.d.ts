@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the AppResponse info.
  *
  * @interface AppResponse
@@ -65,6 +70,14 @@ export interface AppResponse {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * Defines the option of screenOnVisible interface.
+ *
+ * @interface ScreenOnVisibleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export interface ScreenOnVisibleOptions {
   /**
    * Whether to keep the application visible. The default value is false.
@@ -72,6 +85,14 @@ export interface ScreenOnVisibleOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
+   */
+  /**
+   * Whether to keep the application visible. The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   visible?: boolean;
 
@@ -82,6 +103,14 @@ export interface ScreenOnVisibleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
+  /**
+   * Called when the application always keeps visible.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   success?: () => void;
 
   /**
@@ -91,6 +120,14 @@ export interface ScreenOnVisibleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
+  /**
+   * Called when the application fails to keep visible.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   fail?: (data: string, code: number) => void;
 
   /**
@@ -99,6 +136,14 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
+   */
+  /**
+   * Called when the execution is completed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   complete?: () => void;
 }
@@ -110,6 +155,14 @@ export interface ScreenOnVisibleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * Defines the option of RequestFullWindow interface.
+ *
+ * @interface RequestFullWindowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export interface RequestFullWindowOptions {
   /**
    * Defines the number of animation options.
@@ -117,6 +170,14 @@ export interface RequestFullWindowOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
+   */
+  /**
+   * Defines the number of animation options.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   duration: number;
 }

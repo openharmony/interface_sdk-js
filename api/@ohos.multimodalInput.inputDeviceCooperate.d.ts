@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit InputKit
+ */
+
 import { AsyncCallback } from "./@ohos.base";
 
 /**
@@ -21,6 +26,8 @@ import { AsyncCallback } from "./@ohos.base";
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
  */
+
+
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.

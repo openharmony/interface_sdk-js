@@ -9,7 +9,11 @@
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
+    "SystemCapability.Graphic.Graphic2D.EGL",
+    "SystemCapability.Graphic.Graphic2D.GLES2",
+    "SystemCapability.Graphic.Graphic2D.GLES3",
     "SystemCapability.Graphic.Graphic2D.WebGL",
+    "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Notification.Notification",
@@ -133,6 +137,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
+    "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.KVStore.Core",
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
@@ -165,6 +170,7 @@
     "SystemCapability.BundleManager.BundleFramework.QuickFix",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
-    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply"
+    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
+    "SystemCapability.Graphics.Drawing"
   ]
 }

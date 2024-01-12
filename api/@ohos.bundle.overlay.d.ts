@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
 

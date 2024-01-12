@@ -65,4 +65,14 @@ export interface TriggerInfo {
    * @since 7
    */
   extraInfo?: { [key: string]: any };
+
+  /**
+   * Custom extra data you want to add for triggering a WantAgent.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
+  extraInfos?: Record<string, Object>;
 }

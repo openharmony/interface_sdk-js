@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
@@ -1169,23 +1174,6 @@ declare namespace bundleManager {
   }
 
   /**
-   * Used to query the specified value in applicationReservedFlag.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 11
-   */
-  export enum ApplicationReservedFlag {
-    /**
-     * Used to query whether the application is encrypted.
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 11
-     */
-    ENCRYPTED_APPLICATION = 0x00000001,
-  }
-
-  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -1669,6 +1657,27 @@ declare namespace bundleManager {
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: string,
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
+
+  /**
+   * Query the ExtensionAbilityInfo by extension ability type. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } extensionAbilityType - Indicates ExtensionAbilityType.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function queryExtensionAbilityInfoSync(extensionAbilityType: string, extensionAbilityFlags: number,
+    userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -2661,7 +2670,7 @@ declare namespace bundleManager {
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
   /**
-   * Verify abc.
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
    * @permission ohos.permission.RUN_DYN_CODE
    * @param { Array<string> } abcPaths - The abc path.
@@ -2676,7 +2685,7 @@ declare namespace bundleManager {
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Verify abc.
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
    * @permission ohos.permission.RUN_DYN_CODE
    * @param { Array<string> } abcPaths - The abc path.

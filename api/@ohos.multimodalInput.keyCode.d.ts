@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit InputKit
+ */
+
+/**
  * KeyCode
  *
  * @enum { number }

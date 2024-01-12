@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type { ElementName } from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The application state change callback.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

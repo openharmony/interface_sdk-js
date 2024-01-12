@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputMethodKit
+ */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { ElementName } from './bundleManager/ElementName';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
@@ -110,6 +114,17 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
+  /**
+   * Switch input method. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } target - indicates the target input method.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchInputMethod.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -124,6 +139,17 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
+   */
+  /**
+   * Switch input method. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } target - indicates the target input method.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
    */
   function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
@@ -162,6 +188,17 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
+  /**
+   * Switch current input method subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodSubtype } target - indicates the target input method subtype.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -190,6 +227,17 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
+  /**
+   * Switch current input method subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodSubtype } target - indicates the target input method subtype.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
   /**
@@ -215,6 +263,18 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
+  /**
+   * Switch input method and subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } inputMethodProperty - indicates the target input method.
+   * @param { InputMethodSubtype } inputMethodSubtype - indicates the target input method subtype.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodAndSubtype.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchCurrentInputMethodAndSubtype(
     inputMethodProperty: InputMethodProperty,
     inputMethodSubtype: InputMethodSubtype,
@@ -235,10 +295,41 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
+  /**
+   * Switch input method and subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } inputMethodProperty - indicates the target input method.
+   * @param { InputMethodSubtype } inputMethodSubtype - indicates the target input method subtype.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchCurrentInputMethodAndSubtype(
     inputMethodProperty: InputMethodProperty,
     inputMethodSubtype: InputMethodSubtype
   ): Promise<boolean>;
+
+  /**
+   * Switch input method and subtype
+   *
+   * @permission ohos.permission.CONNECT_IME_ABILITY
+   * @param { string } bundleName - indicates the bundleName of target input method.
+   * @param { string } [subtypeId] - indicates the id of the input method subtype. 
+   *     If the param is not set, switch to the target input method with a default subtype.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 11
+   */
+  function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
   /**
    * @interface InputMethodSetting
@@ -419,14 +510,14 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
     /**
-     * List input methods sync
+     * List enabled or disabled input methods sync
      *
      * @param { boolean } enable -
      *     If true, collect enabled input methods.
      *     If false, collect disabled input methods.
      * @returns { Array<InputMethodProperty> } the list of inputmethod.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -437,7 +528,7 @@ declare namespace inputMethod {
      * List all input methods
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -448,7 +539,7 @@ declare namespace inputMethod {
      * List all input methods
      *
      * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
@@ -459,7 +550,7 @@ declare namespace inputMethod {
      * List all input methods sync
      *
      * @returns { Array<InputMethodProperty> } the list of all inputmethod.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Want is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityBase
@@ -186,13 +191,13 @@ export default class Want {
   /**
    * The description of the WantParams object in an Want
    *
-   * @type { ?object }
+   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  parameters?: { [key: string]: Object };
+  parameters?: Record<string, Object>;
 
   /**
    * The description of a entities in a Want.

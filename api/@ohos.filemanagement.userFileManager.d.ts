@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CoreFileKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 import image from './@ohos.multimedia.image';

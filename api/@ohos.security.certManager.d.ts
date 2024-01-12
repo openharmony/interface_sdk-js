@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit DeviceCertificateKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**

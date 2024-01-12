@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 
@@ -23,6 +28,7 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
+ * @atomicservice
  * @since 11
  */
 declare namespace insightIntentDriver {
@@ -33,6 +39,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   interface ExecuteParam {
@@ -43,6 +50,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     bundleName: string;
@@ -54,6 +62,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     moduleName: string;
@@ -65,6 +74,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     abilityName: string;
@@ -76,6 +86,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     insightIntentName: string;
@@ -87,6 +98,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     insightIntentParam: Record<string, Object>;
@@ -98,6 +110,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     executeMode: insightIntent.ExecuteMode;
@@ -131,6 +144,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   function execute(param: ExecuteParam, callback: AsyncCallback<insightIntent.ExecuteResult>): void;
@@ -163,6 +177,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;

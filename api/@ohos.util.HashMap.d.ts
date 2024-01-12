@@ -14,10 +14,14 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * HashMap is a map implemented based on the array, linked list, and red-black tree. It provides efficient data query, insertion, 
  * and removal. The elements in a HashMap instance are mappings of key-value pairs. Each key must be unique and have only one value. 
  *
- * @namespace HashMap
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -25,7 +29,6 @@
  * HashMap is a map implemented based on the array, linked list, and red-black tree. It provides efficient data query, insertion, 
  * and removal. The elements in a HashMap instance are mappings of key-value pairs. Each key must be unique and have only one value. 
  *
- * @namespace HashMap
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -120,19 +123,19 @@ declare class HashMap<K, V> {
    */
   hasValue(value: V): boolean;
   /**
-   * Returns a specified element in a Map object, or null if there is no corresponding element
+   * Returns a specified element in a Map object, or undefined if there is no corresponding element
    *
    * @param { K } key - key key the index in HashMap
-   * @returns { V } value or null
+   * @returns { V } value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
-   * Returns a specified element in a Map object, or null if there is no corresponding element
+   * Returns a specified element in a Map object, or undefined if there is no corresponding element
    *
    * @param { K } key - key key the index in HashMap
-   * @returns { V } value or null
+   * @returns { V } value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -281,8 +284,12 @@ declare class HashMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    *
-   * @param { (value?: V, key?: K, map?: HashMap<K, V>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -292,8 +299,12 @@ declare class HashMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    *
-   * @param { (value?: V, key?: K, map?: HashMap<K, V>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

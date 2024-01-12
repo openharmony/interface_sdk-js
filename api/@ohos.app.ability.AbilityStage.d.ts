@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import AbilityStageContext from './application/AbilityStageContext';
 import Want from './@ohos.app.ability.Want';

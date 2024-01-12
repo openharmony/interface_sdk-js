@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CalendarKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/Context';
 

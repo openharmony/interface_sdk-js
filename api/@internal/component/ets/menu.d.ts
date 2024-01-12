@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the Menu Component.
+ *
+ * @interface MenuInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface MenuInterface {
   /**
    * Creates the menu component.
@@ -43,6 +52,15 @@ interface MenuInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates the menu component.
+   *
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (): MenuAttribute;
 }
@@ -61,6 +79,15 @@ interface MenuInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the Menu component attribute functions.
+ *
+ * @extends CommonMethod<MenuAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
@@ -85,6 +112,17 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the font style.
+   * Family and style are not supported currently and will be fixed in future.
+   *
+   * @param { Font } value - Indicates the font style of menu item.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   font(value: Font): MenuAttribute;
 
   /**
@@ -95,6 +133,16 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the Menu font color.
+   *
+   * @param { ResourceColor } value - Indicates the font color of menu item.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   fontColor(value: ResourceColor): MenuAttribute;
 
@@ -107,6 +155,17 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the radius of the corner around the menu.
+   * When the radius is less than the menu width, the default border radius is used.
+   * 
+   * @param { Dimension | BorderRadiuses } value - the border radius.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   radius(value: Dimension | BorderRadiuses): MenuAttribute;
 }
@@ -124,6 +183,14 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines Menu Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const Menu: MenuInterface;
 
 /**
@@ -138,5 +205,13 @@ declare const Menu: MenuInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines Menu Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const MenuInstance: MenuAttribute;

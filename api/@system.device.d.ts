@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * @interface DeviceResponse
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3

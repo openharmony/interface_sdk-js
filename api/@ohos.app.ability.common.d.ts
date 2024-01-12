@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import * as _UIAbilityContext from './application/UIAbilityContext';
 import type * as _UIExtensionContext from './application/UIExtensionContext';
 import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
@@ -26,8 +31,11 @@ import * as _ServiceExtensionContext from './application/ServiceExtensionContext
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
-import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
+import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import type * as _VpnExtensionContext from './application/VpnExtensionContext';
+import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
+import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 
 /**
  * This module provides application context classes and common data structures.
@@ -52,6 +60,7 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @namespace common
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare namespace common {
@@ -263,6 +272,7 @@ declare namespace common {
    * Defines a PacMap object for storing a series of values.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
    * @since 11
    */
   export type PacMap = _PacMap;
@@ -309,6 +319,15 @@ declare namespace common {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * The context of UI extension. It allows access to
+   * UIExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   export type UIExtensionContext = _UIExtensionContext.default;
 
   /**
@@ -331,6 +350,35 @@ declare namespace common {
    * @since 11
    */
   export type AbilityStartCallback = _AbilityStartCallback;
+
+  /**
+   * The class of auto startup info.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AutoStartupInfo = _AutoStartupInfo;
+
+  /**
+   * The class of auto startup callback.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  export type AutoStartupCallback = _AutoStartupCallback;
+
+  /**
+   * The context of vpn extension. It allows access to
+   * vpnExtension-specific resources.
+   * The class of auto startup info.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 11
+   */
+  export type VpnExtensionContext = _VpnExtensionContext.default;
 }
 
 export default common;

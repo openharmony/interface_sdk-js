@@ -559,6 +559,17 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @form
    */
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
+
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
 }
 
 /**

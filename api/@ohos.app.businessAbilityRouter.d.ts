@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type * as _BusinessAbilityInfo from './application/BusinessAbilityInfo';
 

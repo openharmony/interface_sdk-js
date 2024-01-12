@@ -21,6 +21,13 @@
  * @systemapi
  * @since 8
  */
+/**
+ * The status of the notification flag.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Notification.Notification
+ * @since 11
+ */
 export enum NotificationFlagStatus {
   /**
    * notification flag default value
@@ -28,6 +35,12 @@ export enum NotificationFlagStatus {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
+   */
+  /**
+   * notification flag default value
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
    */
   TYPE_NONE = 0,
 
@@ -38,6 +51,12 @@ export enum NotificationFlagStatus {
    * @systemapi
    * @since 8
    */
+  /**
+   * notification flag open
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
   TYPE_OPEN = 1,
 
   /**
@@ -46,6 +65,12 @@ export enum NotificationFlagStatus {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
+   */
+  /**
+   * notification flag close
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
    */
   TYPE_CLOSE = 2
 }
@@ -77,4 +102,15 @@ export interface NotificationFlags {
    * @since 8
    */
   readonly vibrationEnabled?: NotificationFlagStatus;
+
+  /**
+   * Read-only the prompt entry information allowed by the current channel.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  readonly reminderFlags?: number;
 }

@@ -19,6 +19,7 @@ const { SystemApiRecognizer } = require('./api_recognizer');
 const { ReporterFormat } = require('./configs');
 const ts = require('typescript');
 const fs = require('fs');
+const path = require('path');
 
 class ProgramFactory {
   setLibPath(libPath) {
@@ -62,8 +63,9 @@ class ProgramFactory {
   resolveModuleName(moduleName, libs) {
     if (moduleName.startsWith('@')) {
       const moduleFileName = `${moduleName}.d.ts`;
+      const etsModuleFileName = `${moduleName}.d.ets`;
       for (const lib of libs) {
-        if (lib.endsWith(moduleFileName)) {
+        if (lib.endsWith(moduleFileName) || lib.endsWith(etsModuleFileName)) {
           return lib;
         }
       }
@@ -114,6 +116,7 @@ class ApiCollector {
     this.outputPath = !argv.output ? appProject : argv.output;
     this.logTag = 'ApiCollector';
     this.debugFlag = argv.debug;
+    this.noRepeat = argv.noRepeat ? true : false;
   }
 
   setLibPath(libPath) {
@@ -136,6 +139,10 @@ class ApiCollector {
     if (!sdkPath || !fs.existsSync(sdkPath)) {
       return;
     }
+    const handleFilePath = path.join(sdkPath, '/api/@internal/full/global.d.ts');
+    const originalContent = fs.readFileSync(handleFilePath, 'utf-8');
+    let newContent = originalContent.replace(/\import|export/g, '');
+    fs.writeFileSync(handleFilePath, newContent);
     Logger.info(this.logTag, `scan app ${this.project.getPath()}`);
     Logger.info(this.logTag, `sdk is in ${sdkPath}`);
     const apiLibs = this.sdk.getApiLibs();
@@ -174,11 +181,12 @@ class ApiCollector {
     systemApiRecognizer = undefined;
     program = undefined;
     await apiWriter.flush();
+    fs.writeFileSync(handleFilePath, originalContent);
   }
 
   getApiWriter() {
     if (!this.apiWriter) {
-      this.apiWriter = new ApiWriter(this.outputPath, this.formatFlag);
+      this.apiWriter = new ApiWriter(this.outputPath, this.formatFlag, this.noRepeat);
     }
     return this.apiWriter;
   }

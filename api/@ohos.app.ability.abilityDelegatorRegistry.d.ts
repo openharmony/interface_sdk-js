@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit TestKit
+ */
+
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
@@ -86,6 +91,15 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Get unit test arguments stored in the AbilityDelegatorArgs object.
+   *
+   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function getArguments(): AbilityDelegatorArgs;
 

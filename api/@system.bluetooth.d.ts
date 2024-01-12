@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ConnectivityKit
+ */
+
+/**
  * @typedef StartBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6

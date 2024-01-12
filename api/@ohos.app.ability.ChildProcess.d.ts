@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The class of child process.
  * Child process to be started can inherit this class.
  *

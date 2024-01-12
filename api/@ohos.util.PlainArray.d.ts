@@ -14,10 +14,14 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
  * PlainArray is based on generics and uses a lightweight structure. 
  *
- * @namespace PlainArray
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -25,7 +29,6 @@
  * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
  * PlainArray is based on generics and uses a lightweight structure. 
  *
- * @namespace PlainArray
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -382,8 +385,12 @@ declare class PlainArray<T> {
   /**
    * Executes a provided function once for each value in the PlainArray object.
    *
-   * @param { (value: T, index?: number, PlainArray?: PlainArray<T>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -392,8 +399,12 @@ declare class PlainArray<T> {
   /**
    * Executes a provided function once for each value in the PlainArray object.
    *
-   * @param { (value: T, index?: number, PlainArray?: PlainArray<T>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -23,11 +28,24 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Control style of operation element
+ * @enum { OperationStyle }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare enum OperationType {
   /**
    * The TextArrow style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The TextArrow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   TEXT_ARROW = 0,
 
@@ -36,6 +54,12 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The Button style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   BUTTON = 1,
 
   /**
@@ -43,12 +67,24 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The IconGroup style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   ICON_GROUP = 2,
 
   /**
    * The LoadingProgress style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The LoadingProgress style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   LOADING = 3
 }
@@ -58,11 +94,23 @@ export declare enum OperationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare type OperationOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class OperationOption {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
    * @since 10
+   */
+  /**
+   * The content of text or the address of icon.
+   * @type { ResourceStr }.
+   * @atomicservice
+   * @since 11
    */
   value: ResourceStr;
 
@@ -70,6 +118,12 @@ export declare class OperationOption {
    * callback function when operate the text or icon.
    * @type { () => void }.
    * @since 10
+   */
+  /**
+   * callback function when operate the text or icon.
+   * @type { () => void }.
+   * @atomicservice
+   * @since 11
    */
   action?: () => void;
 }
@@ -79,11 +133,23 @@ export declare class OperationOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare type SelectOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class SelectOptions {
   /**
    * SubOption array of the select.
    * @type { Array<SelectSubOption> }.
    * @since 10
+   */
+  /**
+   * SubOption array of the select.
+   * @type { Array<SelectSubOption> }.
+   * @atomicservice
+   * @since 11
    */
   options: Array<SelectOption>;
 
@@ -92,12 +158,24 @@ export declare class SelectOptions {
    * @type { number }.
    * @since 10
    */
+  /**
+   * The default selected index.
+   * @type { number }.
+   * @atomicservice
+   * @since 11
+   */
   selected?: number;
   
   /**
    * The default text value.
    * @type { string }.
    * @since 10
+   */
+  /**
+   * The default text value.
+   * @type { string }.
+   * @atomicservice
+   * @since 11
    */
   value?: string;
 
@@ -106,6 +184,12 @@ export declare class SelectOptions {
   * @type { (index: number, value?: string) => void }.
   * @since 10
   */
+ /**
+  * Callback when the select is selected.
+  * @type { (index: number, value?: string) => void }.
+  * @atomicservice
+  * @since 11
+  */
   onSelect?: (index: number, value?: string) => void;
 }
 
@@ -113,6 +197,12 @@ export declare class SelectOptions {
  * Declare struct SubHeader
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Declare struct SubHeader
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 @Component
 export declare struct SubHeader {
@@ -123,6 +213,13 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Icon resource of content area.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop icon?: ResourceStr;
 
   /**
@@ -130,6 +227,13 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The first line text of content area.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop primaryTitle?: ResourceStr;
 
@@ -139,6 +243,13 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The secondary line text of content area.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop secondaryTitle?: ResourceStr;
 
   /**
@@ -146,6 +257,13 @@ export declare struct SubHeader {
    * @type { SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Select option of content area.
+   * @type { SelectOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   select?: SelectOptions;
 
@@ -155,6 +273,13 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Operation style of SubHeader.
+   * @type { OperationStyle }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop operationType?: OperationType;
 
   /**
@@ -162,6 +287,13 @@ export declare struct SubHeader {
    * @type { Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * operation item.
+   * @type { Array<OperationOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   operationItem?: Array<OperationOption>;
 }

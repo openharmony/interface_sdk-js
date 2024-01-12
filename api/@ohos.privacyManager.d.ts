@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit SafetyDetectKit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 

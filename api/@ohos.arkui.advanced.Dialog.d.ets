@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -22,6 +27,8 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+
+
 /**
  * Declare ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -45,11 +52,13 @@ export declare class ButtonOptions {
   value: ResourceStr;
   /**
    * Sets the Button Callback.
+   * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the Button Callback.
+   * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -57,13 +66,13 @@ export declare class ButtonOptions {
   action?: () => void;
   /**
    * Sets the background color of a button.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the background color of a button.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -71,13 +80,13 @@ export declare class ButtonOptions {
   background?: ResourceColor;
   /**
    * Sets the Button Text Color.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the Button Text Color.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -155,13 +164,13 @@ export declare struct TipsDialog {
   title: ResourceStr;
   /**
    * Sets the TipsDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the TipsDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -169,13 +178,13 @@ export declare struct TipsDialog {
   content?: ResourceStr;
   /**
    * Sets the TipsDialog checkbox tips.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the TipsDialog checkbox tips.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -183,13 +192,13 @@ export declare struct TipsDialog {
   checkTips?: ResourceStr;
   /**
    * Sets the TipsDialog checkbox check state.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the TipsDialog checkbox check state.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -197,13 +206,13 @@ export declare struct TipsDialog {
   @Prop isChecked?: boolean;
   /**
    * Sets the TipsDialog primary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the TipsDialog primary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -211,13 +220,13 @@ export declare struct TipsDialog {
   primaryButton?: ButtonOptions;
   /**
    * Sets the TipsDialog secondary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the TipsDialog secondary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -268,13 +277,13 @@ export declare struct SelectDialog {
   title: ResourceStr;
   /**
    * Sets the SelectDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the SelectDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -282,13 +291,13 @@ export declare struct SelectDialog {
   content?: ResourceStr;
   /**
    * Sets the SelectDialog selected index.
-   * @type { number }.
+   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the SelectDialog selected index.
-   * @type { number }.
+   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -296,13 +305,13 @@ export declare struct SelectDialog {
   selectedIndex?: number;
   /**
    * Sets the SelectDialog confirm button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the SelectDialog confirm button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -367,13 +376,13 @@ export declare struct ConfirmDialog {
   title: ResourceStr;
   /**
    * Sets the ConfirmDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ConfirmDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -381,13 +390,13 @@ export declare struct ConfirmDialog {
   content?: ResourceStr;
   /**
    * Sets the ConfirmDialog checkbox tips.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ConfirmDialog checkbox tips.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -395,13 +404,13 @@ export declare struct ConfirmDialog {
   checkTips?: ResourceStr;
   /**
    * Sets the ConfirmDialog checkbox state.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ConfirmDialog checkbox state.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -409,13 +418,13 @@ export declare struct ConfirmDialog {
   @Prop isChecked?: boolean;
   /**
    * Sets the ConfirmDialog primary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ConfirmDialog primary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -423,13 +432,13 @@ export declare struct ConfirmDialog {
   primaryButton?: ButtonOptions;
   /**
    * Sets the ConfirmDialog secondary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ConfirmDialog secondary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -480,13 +489,13 @@ export declare struct AlertDialog {
   content: ResourceStr;
   /**
    * Sets the AlertDialog primary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the AlertDialog primary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -494,13 +503,13 @@ export declare struct AlertDialog {
   primaryButton?: ButtonOptions;
   /**
    * Sets the AlertDialog secondary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the AlertDialog secondary button.
-   * @type { ButtonOptions }.
+   * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -537,13 +546,13 @@ export declare struct LoadingDialog {
   Controller: CustomDialogController;
   /**
    * Sets the LoadingDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the LoadingDialog content.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11

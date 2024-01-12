@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
  *
  * @enum { number }

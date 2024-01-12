@@ -185,7 +185,17 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  NEW_PASSWORD = 11
+  NEW_PASSWORD = 11,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
@@ -327,6 +337,53 @@ declare enum EnterKeyType {
    * @since 11
    */
   Done,
+
+  /**
+   * Showed as 'previous' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PREVIOUS = 7,
+
+  /**
+   * Showed as 'new line' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NEW_LINE = 8,
+}
+
+/**
+ * Provides the method of keeping TextInput editable state when submitted.
+ *
+ * @interface TextInputOptions -> SubmitEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface SubmitEvent {
+  /**
+   * Keeps TextInput editable state when submitted
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  keepEditableState(): void;
+
+  /**
+   * Sets the current value of TextInput.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  text: string;
 }
 
 /**
@@ -723,6 +780,7 @@ interface CaretStyle {
  * @interface PasswordIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 interface PasswordIcon {
@@ -739,6 +797,7 @@ interface PasswordIcon {
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   onIconSrc?: string | Resource;
@@ -756,6 +815,7 @@ interface PasswordIcon {
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   offIconSrc?: string | Resource;
@@ -992,14 +1052,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { function } callback
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
+  onSubmit(callback: (enterKey: EnterKeyType, event: SubmitEvent) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
@@ -1357,13 +1417,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when using the Clipboard menu
    *
    * @param { function } callback
-   * @returns { TextInputAttribute }
+   *          Executed when a paste operation is performed.
+   *          { string } value - The text content to be pasted.
+   *          { PasteEvent } event - The user-defined paste event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onPaste(callback: (value: string) => void): TextInputAttribute;
+  onPaste(callback: (value: string, event: PasteEvent) => void): TextInputAttribute;
 
   /**
    * Called when the copy option is set.
@@ -1580,6 +1643,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   passwordIcon(value: PasswordIcon): TextInputAttribute;
@@ -1599,6 +1663,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   showError(value?: string | undefined): TextInputAttribute;
@@ -1618,6 +1683,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   showUnit(value: CustomBuilder): TextInputAttribute;
@@ -1637,6 +1703,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   showUnderline(value: boolean): TextInputAttribute;
@@ -1696,6 +1763,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   maxLines(value: number): TextInputAttribute;
@@ -1715,20 +1783,23 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   customKeyboard(value: CustomBuilder): TextInputAttribute;
 
   /**
-   * Define show counter of the text input.
+   * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
    *
-   * @param { boolean } value - Set the counter of the text input.
+   * @param { boolean } value - Set showcounter of the text input.
+   * @param { InputCounterOptions } options - Set the percentage of counter.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
-  showCounter(value: boolean): TextInputAttribute;
+  showCounter(value: boolean, options?: InputCounterOptions): TextInputAttribute;
 
   /**
    * Set the cancel button style

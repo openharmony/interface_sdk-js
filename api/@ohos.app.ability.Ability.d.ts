@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import { Configuration } from './@ohos.app.ability.Configuration';
 

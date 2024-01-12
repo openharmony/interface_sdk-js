@@ -116,9 +116,9 @@ export const Plugin: PluginType = {
     ],
   },
 
-  start: async function (argv: optionObjType) {
+  start: async function (argv: OptionObjType) {
     const toolName: toolNameType = argv.toolName;
-    const method: toolNameMethodType | undefined = toolNameMethod.get(toolName);
+    const method: ToolNameMethodType | undefined = toolNameMethod.get(toolName);
     if (!method) {
       LogUtil.i(
         'CommandArgs',
@@ -126,7 +126,7 @@ export const Plugin: PluginType = {
       );
       return;
     }
-    const options: optionObjType = {
+    const options: OptionObjType = {
       toolName: toolName,
       collectPath: argv.collectPath,
       old: argv.old,
@@ -137,7 +137,7 @@ export const Plugin: PluginType = {
       format: argv.format,
       changelogUrl: argv.changelogUrl,
     };
-    const methodInfos: toolNameValueType = method(options);
+    const methodInfos: ToolNameValueType = method(options);
 
     outputInfos(methodInfos.data, options, methodInfos.callback);
   },
@@ -150,11 +150,11 @@ let startTime = Date.now();
 /**
  * 工具获取完数据之后，根据format和其他数据处理输出
  *
- * @param {Array<any>} infos 工具返回的数据
- * @param {optionObjType} options 传入的命令参数
+ * @param {ToolReturnData} infos 工具返回的数据
+ * @param {OptionObjType} options 传入的命令参数
  * @param {(ToolNameExcelCallback  | undefined)} callback 导出excel的回调
  */
-function outputInfos(infos: Array<any>, options: optionObjType, callback: ToolNameExcelCallback | undefined): void {
+function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: ToolNameExcelCallback | undefined): void {
   const format = options.format;
   if (!format) {
     return;
@@ -162,7 +162,7 @@ function outputInfos(infos: Array<any>, options: optionObjType, callback: ToolNa
   switch (format) {
     case formatType.JSON:
       WriterHelper.JSONReporter(
-        infos[0],
+        String(infos[0]),
         options.output,
         `${options.toolName}_${options.oldVersion}_${options.newVersion}.json`
       );
@@ -171,7 +171,7 @@ function outputInfos(infos: Array<any>, options: optionObjType, callback: ToolNa
       WriterHelper.ExcelReporter(infos, options.output, `${options.toolName}.xlsx`, callback);
       break;
     case formatType.CHANGELOG:
-      WriterHelper.JSONReporter(infos[0], options.output, `${options.toolName}.json`);
+      WriterHelper.JSONReporter(String(infos[0]), options.output, `${options.toolName}.json`);
       break;
     default:
       break;
@@ -181,10 +181,10 @@ function outputInfos(infos: Array<any>, options: optionObjType, callback: ToolNa
 /**
  * 收集api工具调用方法
  *
- * @param { optionObjType } options
- * @return { toolNameValueType }
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
  */
-function collectApi(options: optionObjType): toolNameValueType {
+function collectApi(options: OptionObjType): ToolNameValueType {
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let allApis: FilesMap;
   try {
@@ -202,7 +202,7 @@ function collectApi(options: optionObjType): toolNameValueType {
           allApiStatisticsInfos,
           options.output,
           `all_${options.toolName}.xlsx`,
-          collectApiCallback
+          collectApiCallback as ToolNameExcelCallback
         );
       }
     }
@@ -212,14 +212,14 @@ function collectApi(options: optionObjType): toolNameValueType {
         options.format === 'excel' ?
           ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos :
           [fileContent],
-      callback: collectApiCallback,
+      callback: collectApiCallback as ToolNameExcelCallback,
     };
   } catch (exception) {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
     return {
       data: [],
-      callback: collectApiCallback,
+      callback: collectApiCallback as ToolNameExcelCallback,
     };
   }
 }
@@ -283,10 +283,10 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
 /**
  * 收集api工具调用方法
  *
- * @param { optionObjType } options
- * @return { toolNameValueType }
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
  */
-function checkApi(options: optionObjType): toolNameValueType {
+function checkApi(options: OptionObjType): ToolNameValueType {
   let allApis: FilesMap;
   try {
     let fileContent: ApiResultSimpleInfo[] = [];
@@ -315,10 +315,10 @@ function checkApi(options: optionObjType): toolNameValueType {
 /**
  * diffApi工具调用方法
  *
- * @param { optionObjType } options
- * @return { toolNameValueType }
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
  */
-function diffApi(options: optionObjType): toolNameValueType {
+function diffApi(options: OptionObjType): ToolNameValueType {
   const oldFileDir: string = path.resolve(FileUtils.getBaseDirName(), options.old);
   const newFileDir: string = path.resolve(FileUtils.getBaseDirName(), options.new);
   const status: fs.Stats = fs.statSync(oldFileDir);
@@ -341,14 +341,14 @@ function diffApi(options: optionObjType): toolNameValueType {
     }
     return {
       data: finalData,
-      callback: diffApiCallback,
+      callback: diffApiCallback as ToolNameExcelCallback,
     };
   } catch (exception) {
     const error = exception as Error;
     LogUtil.e('error diff', error.stack ? error.stack : error.message);
     return {
       data: [],
-      callback: diffApiCallback,
+      callback: diffApiCallback as ToolNameExcelCallback,
     };
   }
 }
@@ -364,11 +364,12 @@ function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?:
   sheet.views = [{ xSplit: 1 }];
   sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
+    const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
     sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
       diffTypeMap.get(diffInfo.getDiffType()),
       joinOldMessage(diffInfo),
       joinNewMessage(diffInfo),
-      diffInfo.getNewDtsName(),
+      dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
     ];
   });
@@ -382,10 +383,8 @@ export function joinOldMessage(diffInfo: BasicDiffInfo): string {
   }
   const relation: string[] = diffInfo.getOldHierarchicalRelations();
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
-  return (
-    `文件名：${diffInfo.getOldDtsName()}；\n类名：${parentModuleName}；\n` +
-    `API声明：${diffInfo.getOldApiDefinedText()}\n差异内容：${diffInfo.getOldDescription()}`
-  );
+  const oldDescription = diffInfo.getOldDescription() === '-1' ? 'NA' : diffInfo.getOldDescription();
+  return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getOldApiDefinedText()}\n差异内容：${oldDescription}`;
 }
 
 export function joinNewMessage(diffInfo: BasicDiffInfo): string {
@@ -394,16 +393,14 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
   }
   const relation: string[] = diffInfo.getNewHierarchicalRelations();
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
-  return (
-    `文件名：${diffInfo.getNewDtsName()}；\n类名：${parentModuleName}；\n` +
-    `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${diffInfo.getNewDescription()}`
-  );
+  const newDescription = diffInfo.getOldDescription() === '-1' ? 'NA' : diffInfo.getNewDescription();
+  return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${newDescription}`;
 }
 
 /**
  * 工具名称对应执行的方法
  */
-export const toolNameMethod: Map<string, toolNameMethodType> = new Map([
+export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
   [toolNameType.COOLECT, collectApi],
   [toolNameType.CHECK, checkApi],
   [toolNameType.DIFF, diffApi],
@@ -412,7 +409,7 @@ export const toolNameMethod: Map<string, toolNameMethodType> = new Map([
 /**
  * 命令传入参数
  */
-export type optionObjType = {
+export type OptionObjType = {
   toolName: toolNameType;
   collectPath: string;
   old: string;
@@ -427,21 +424,21 @@ export type optionObjType = {
 /**
  * 各个工具当输出为excel时的回调方法
  *
- * @param { data } data 工具获取到的数据
+ * @param { ToolReturnData } data 工具获取到的数据
  * @param { ExcelJS.Worksheet } sheet ExcelJS构建的Worksheet对象
  */
-export type ToolNameExcelCallback = (data: Array<any>, sheet: ExcelJS.Worksheet, dest?: string) => void;
+export type ToolNameExcelCallback = (data: ToolReturnData, sheet: ExcelJS.Worksheet, dest?: string) => void;
 
 /**
  * 各个工具调用方法返回的格式
  */
-export type toolNameValueType = {
+export type ToolNameValueType = {
   /**
    * 工具返回的数据格式，默认为数组，方便excel输出，如果是字符串，则将字符串传入数组第一个元素
    *
-   * @type {any[]}
+   * @type { Array}
    */
-  data: any[];
+  data: ToolReturnData;
 
   /**
    * 用于excel方法回调，返回数据以及ExcelJS构建的Worksheet对象
@@ -450,16 +447,17 @@ export type toolNameValueType = {
    */
   callback?: ToolNameExcelCallback;
 };
+export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultSimpleInfo | BasicDiffInfo)[];
 
 /**
  * 各个工具调用方法
  *
  */
-export type toolNameMethodType = (options: optionObjType) => toolNameValueType;
+export type ToolNameMethodType = (options: OptionObjType) => ToolNameValueType;
 
 export type PluginType = {
   pluginOptions: PluginOptionsType;
-  start: (argv: any) => Promise<void>;
+  start: (argv: OptionObjType) => Promise<void>;
   stop: () => void;
 };
 

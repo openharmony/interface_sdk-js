@@ -59,6 +59,10 @@ class AppApiCollectorPlugin {
         {
           isRequiredOption: false,
           options: ['--debug', 'output debug logs'],
+        },
+        {
+          isRequiredOption: false,
+          options: ['--noRepeat', 'apiInfos is not repeat']
         }
       ],
     };

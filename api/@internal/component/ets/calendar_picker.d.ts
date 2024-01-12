@@ -20,12 +20,27 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * The type of alignment between entry and calendar.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum CalendarAlign {
   /**
    * The value of calendar align type start.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The value of calendar align type start.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   START = 0,
   /**
@@ -34,12 +49,26 @@ declare enum CalendarAlign {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The value of calendar align type center.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   CENTER = 1,
   /**
    * The value of calendar align type end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The value of calendar align type end.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   END = 2
 }
@@ -51,6 +80,14 @@ declare enum CalendarAlign {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the options of CalendarPicker.
+ * @interface CalendarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface CalendarOptions {
   /**
    * Specifies the radius of the background of the day in calendar.
@@ -58,6 +95,14 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Specifies the radius of the background of the day in calendar.
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   hintRadius?: number | Resource;
 
@@ -67,6 +112,14 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Specifies the date selector check date.
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   selected?: Date;
 }
@@ -78,6 +131,14 @@ declare interface CalendarOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the CalendarPicker Component.
+ * @interface CalendarPickerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface CalendarPickerInterface {
   /**
    * Defines the CalendarPicker constructor.
@@ -86,6 +147,15 @@ interface CalendarPickerInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Defines the CalendarPicker constructor.
+   * @param { CalendarOptions } options - the option of th calendarPicker.
+   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (options?: CalendarOptions): CalendarPickerAttribute;
 }
@@ -97,6 +167,14 @@ interface CalendarPickerInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the CalendarPicker attribute functions.
+ * @extends CommonMethod<CalendarPickerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribute> {
   /**
    * Set the alignment between entry and calendar dialog.
@@ -106,6 +184,16 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the alignment between entry and calendar dialog.
+   * @param { CalendarAlign } alignType - The type of alignment between entry and calendar dialog.
+   * @param { Offset } offset - The offset between entry and calendar dialog.
+   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
 
@@ -117,6 +205,15 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the text style of entry
+   * @param { PickerTextStyle } value - indicates the text style of entry.
+   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   textStyle(value: PickerTextStyle): CalendarPickerAttribute;
 
   /**
@@ -126,6 +223,15 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Callback for selected date changed.
+   * @param { function } callback - Callback for selected date changed.
+   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onChange(callback: (value: Date) => void): CalendarPickerAttribute;
 }
@@ -137,6 +243,14 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
+ * @interface CalendarDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface CalendarDialogOptions extends CalendarOptions {
   /**
    * Called when the OK button in the dialog is clicked.
@@ -144,6 +258,14 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the OK button in the dialog is clicked.
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onAccept?: (value: Date) => void;
 
@@ -154,6 +276,14 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onCancel?: () => void;
 
   /**
@@ -163,7 +293,37 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * This event is triggered when a date is selected in dialog.
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onChange?: (value: Date) => void;
+
+  /**
+   * Defines the calendarPickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Defines the calendarPickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**
@@ -172,6 +332,13 @@ declare interface CalendarDialogOptions extends CalendarOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines CalendarPickerDialog which uses show method to show CalendarPicker dialog.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class CalendarPickerDialog {
   /**
    * Invoking method display.
@@ -179,6 +346,14 @@ declare class CalendarPickerDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoking method display.
+   * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   static show(options?: CalendarDialogOptions): void;
 }
@@ -189,6 +364,13 @@ declare class CalendarPickerDialog {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines CalendarPicker Component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const CalendarPicker: CalendarPickerInterface;
 
 /**
@@ -196,5 +378,12 @@ declare const CalendarPicker: CalendarPickerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines CalendarPicker Component instance.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const CalendarPickerInstance: CalendarPickerAttribute;

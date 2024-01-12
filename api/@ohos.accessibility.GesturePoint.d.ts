@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AccessibilityKit
+ */
+
+/**
  * Indicates the point of the gesture.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core

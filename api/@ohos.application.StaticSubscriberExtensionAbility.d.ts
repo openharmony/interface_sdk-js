@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
 import { CommonEventData } from './commonEvent/commonEventData';
 import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 

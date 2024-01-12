@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * @interface LocaleResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3

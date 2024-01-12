@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
  * When querying an element, the system traverses the list from the beginning.
  *
@@ -333,10 +338,11 @@ declare class List<T> {
    * Replaces each element of this list with the result of applying the operator to that element.
    *
    * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the list,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -346,10 +352,11 @@ declare class List<T> {
    * Replaces each element of this list with the result of applying the operator to that element.
    *
    * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the list,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -433,10 +440,11 @@ declare class List<T> {
    * Replaces each element of this list with the result of applying the operator to that element.
    *
    * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the list,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -446,10 +454,11 @@ declare class List<T> {
    * Replaces each element of this list with the result of applying the operator to that element.
    *
    * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the list,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

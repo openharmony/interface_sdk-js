@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { MissionInfo } from './application/MissionInfo';
 import { MissionListener } from './application/MissionListener';

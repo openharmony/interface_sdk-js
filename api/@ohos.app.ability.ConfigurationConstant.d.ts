@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The definition of ConfigurationConstant.
  *
  * @namespace ConfigurationConstant

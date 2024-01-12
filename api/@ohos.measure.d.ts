@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { Resource } from 'GlobalResource';
@@ -23,6 +28,14 @@ import { Resource } from 'GlobalResource';
  * @interface MeasureOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ */
+/**
+ * Defines the options of MeasureText.
+ *
+ * @interface MeasureOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
  */
 export interface MeasureOptions {
   /**
@@ -148,6 +161,26 @@ export interface MeasureOptions {
    * @since 10
    */
   textCase?: number | TextCase;
+ 
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  textIndent?: number | string;
+
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  wordBreak?: WordBreak;
 }
 
 /**
@@ -165,6 +198,15 @@ export default class MeasureText {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Displays the textWidth.
+   *
+   * @param { MeasureOptions } options - Options.
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   static measureText(options: MeasureOptions): number;
 
   /**
@@ -174,6 +216,15 @@ export default class MeasureText {
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Displays the text width and height.
+   *
+   * @param { MeasureOptions } options - Options of measure area occupied by text.
+   * @returns { SizeOptions } width and height for text to display \
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
 }

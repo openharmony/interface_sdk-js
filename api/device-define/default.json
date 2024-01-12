@@ -10,8 +10,12 @@
     "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
+    "SystemCapability.Graphic.Graphic2D.EGL",
+    "SystemCapability.Graphic.Graphic2D.GLES2",
+    "SystemCapability.Graphic.Graphic2D.GLES3",
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.Graphic.Graphic2D.WebGL2",
+    "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.WindowManager.WindowManager.MutiScreen",
     "SystemCapability.Notification.CommonEvent",
@@ -85,6 +89,7 @@
     "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
+    "SystemCapability.Multimedia.Drm.Core",
     "SystemCapability.Multimedia.Image.Core",
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
@@ -166,6 +171,7 @@
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
+    "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.KVStore.Core",
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
@@ -218,6 +224,11 @@
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
     "SystemCapability.AI.IntelligentVoice.Core",
-    "SystemCapability.Multimedia.Media.SoundPool"
+    "SystemCapability.Multimedia.Media.SoundPool",
+    "SystemCapability.Multimedia.Audio.Spatialization",
+    "SystemCapability.Multimedia.AudioHaptic.Core",
+    "SystemCapability.ArkUi.Graphics3D",
+    "SystemCapability.AI.MindSporeLite",
+    "SystemCapability.Graphics.Drawing"
   ]
 }

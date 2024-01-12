@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MDMKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 

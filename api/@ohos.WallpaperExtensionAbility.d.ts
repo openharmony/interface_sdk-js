@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * class of wallpaper extension ability.
  *
  * @syscap SystemCapability.MiscServices.Wallpaper

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputKit
+ */
+
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 /**
@@ -109,6 +114,38 @@ declare namespace inputEventClient {
      */
     touchEvent: TouchEvent;
   }
+
+  /**
+   * Defines event of key that user want to inject.
+   *
+   * @interface KeyEventData
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  interface KeyEventData {
+    /**
+     * Inject key event.
+     *
+     * @type { KeyEvent }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 11
+     */
+    keyEvent: KeyEvent;
+  }
+
+  /**
+   * Inject system keys.
+   *
+   * @param { KeyEventData } keyEvent - the key event to be injected.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function injectKeyEvent(keyEvent: KeyEventData): void;
 
   /**
    * Inject system keys.

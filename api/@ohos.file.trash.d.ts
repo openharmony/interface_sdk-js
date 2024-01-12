@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit CoreFileKit
+ */
+
+/**
  * Provides the recycling ability to the file manager.
  *
  * @namespace trash

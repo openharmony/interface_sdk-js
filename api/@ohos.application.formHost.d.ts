@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit FormKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';

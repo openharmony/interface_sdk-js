@@ -152,36 +152,36 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   status: LiveViewStatus;
 
   /**
-   * Version of the live view with the same id. (If the version number stored in the database is less
-   * than 0, the version number is not verified at the current operation of update or end. Otherwise, the
+   * Version of the live view with the same id. (If the version number stored in the database is 0xffffffff,
+   * the version number is not verified at the current operation of update or end. Otherwise, the
    * version number must be greater than the version number stored in the database.)
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
    */
-  version: number;
+  version?: number;
 
   /**
    * Additional information of the live view notification.
    *
-   * @type { ?object}
+   * @type { ?Record<string, Object>}
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
    */
-  extraInfo?: { [key: string]: object };
+  extraInfo?: Record<string, Object>;
 
   /**
    * The picture information list of the live view notification.
    *
-   * @type { ?object }
+   * @type { ?Record<string, Array<image.PixelMap>> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
    */
-  pictureInfo?: { [key: string]: Array<image.PixelMap> };
+  pictureInfo?: Record<string, Array<image.PixelMap>>;
 }
 
 /**
@@ -527,4 +527,14 @@ export interface NotificationContent {
    * @since 11
    */
   systemLiveView?: NotificationSystemLiveViewContent;
+
+  /**
+   * live-view notification.
+   *
+   * @type { ?NotificationLiveViewContent }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  liveView?: NotificationLiveViewContent;
 }

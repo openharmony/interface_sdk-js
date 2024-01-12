@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * @interface UploadResponse
  * @syscap SystemCapability.MiscServices.Upload
  * @since 3

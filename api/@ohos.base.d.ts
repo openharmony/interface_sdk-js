@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * Defines the basic callback.
  * @typedef Callback
  * @syscap SystemCapability.Base

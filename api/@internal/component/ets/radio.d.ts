@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Input parameter for creating a radio box.
+ *
+ * @interface RadioOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare interface RadioOptions {
   /**
    * Radio group name.
@@ -60,6 +70,16 @@ declare interface RadioOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Radio group name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   group: string;
@@ -88,6 +108,16 @@ declare interface RadioOptions {
    * @since 10
    * @form
    */
+  /**
+   * Radio name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   value: string;
 }
 
@@ -99,6 +129,15 @@ declare interface RadioOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Set radio Style.
+ *
+ * @interface RadioStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface RadioStyle {
   /**
    * Set the background color when the radio box is checked.
@@ -108,6 +147,16 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the background color when the radio box is checked.
+   *
+   * @type { ?ResourceColor } checkedBackgroundColor - the background color when the radio box is checked.
+   * @default #007DFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   checkedBackgroundColor?: ResourceColor;
 
@@ -120,6 +169,16 @@ declare interface RadioStyle {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Set the bolder color when the radio box is unchecked.
+   *
+   * @type { ?ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
+   * @default #182431
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   uncheckedBorderColor?: ResourceColor;
 
   /**
@@ -130,6 +189,16 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the indicator color when the radio box is checked.
+   *
+   * @type { ?ResourceColor } indicatorColor - the indicator color when the radio box is checked.
+   * @default #FFFFFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   indicatorColor?: ResourceColor;
 }
@@ -156,6 +225,16 @@ declare interface RadioStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Provides an interface for creating a radio box.
+ *
+ * @interface RadioInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 interface RadioInterface {
@@ -186,6 +265,17 @@ interface RadioInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when a radio box is created.
+   *
+   * @param { RadioOptions } options
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (options: RadioOptions): RadioAttribute;
 }
 
@@ -211,6 +301,16 @@ interface RadioInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Provides methods for radio method component.
+ *
+ * @extends CommonMethod<RadioAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
@@ -239,6 +339,17 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the radio box is selected.
+   *
+   * @param { boolean } value
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   checked(value: boolean): RadioAttribute;
@@ -270,6 +381,17 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the radio box selection status changes.
+   *
+   * @param { function } callback
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
   /**
@@ -280,6 +402,16 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the radio style.
+   *
+   * @param { RadioStyle } value - the radio style.
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   radioStyle(value?: RadioStyle): RadioAttribute;
 }
@@ -305,6 +437,15 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Radio Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Radio: RadioInterface;
 
 /**
@@ -326,6 +467,15 @@ declare const Radio: RadioInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Radio Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const RadioInstance: RadioAttribute;

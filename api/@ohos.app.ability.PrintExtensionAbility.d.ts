@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
 import type Want from './@ohos.application.Want';
 import type print from './@ohos.print';
 

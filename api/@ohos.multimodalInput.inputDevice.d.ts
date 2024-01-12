@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit InputKit
+ */
+
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit InputMethodKit
+ */
+
+/**
  * Input method subtype
  *
  * @interface InputMethodSubtype

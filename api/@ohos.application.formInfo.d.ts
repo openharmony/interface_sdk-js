@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit FormKit
+ */
+
 import Want from './@ohos.app.ability.Want';
 
 /**

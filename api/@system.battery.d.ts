@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * @interface BatteryResponse
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3

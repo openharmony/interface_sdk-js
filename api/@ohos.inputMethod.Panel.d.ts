@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit InputMethodKit
+ */
+
+/**
  * Panel information.
  *
  * @typedef PanelInfo

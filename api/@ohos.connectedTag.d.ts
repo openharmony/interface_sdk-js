@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**

@@ -45,7 +45,7 @@ import {
   containerApiTypes,
 } from '../../typedef/parser/ApiInfoDefination';
 import { StringUtils } from '../../utils/StringUtils';
-import { StringConstant } from '../../utils/Constant';
+import { StringConstant, EventConstant } from '../../utils/Constant';
 import { BasicApiInfoMap, ApiInfosMap, FileInfoMap } from './parser';
 
 export class NodeProcessorHelper {
@@ -169,10 +169,7 @@ export class NodeProcessorHelper {
     if (type.kind === ts.SyntaxKind.LiteralType && ts.isStringLiteral(literal)) {
       const text: string = literal.getText();
       apiInfo.setApiName(`${apiInfo.getApiName()}_${text.substring(1, text.length - 1)}`);
-      apiInfos.push(apiInfo);
-      return apiInfos;
-    }
-    if (type.kind === ts.SyntaxKind.UnionType) {
+    } else if (type.kind === ts.SyntaxKind.UnionType) {
       const types: ts.NodeArray<ts.TypeNode> = (type as ts.UnionTypeNode).types;
       types.forEach((item: ts.TypeNode) => {
         if (ts.isLiteralTypeNode(item) && ts.isStringLiteral(item.literal)) {
@@ -183,6 +180,10 @@ export class NodeProcessorHelper {
           apiInfos.push(cloneApiInfo);
         }
       });
+    } else if (type.kind === ts.SyntaxKind.StringKeyword) {
+      apiInfo.setApiName(`${apiInfo.getApiName()}_string`);
+    } else if (type.kind === ts.SyntaxKind.BooleanKeyword) {
+      apiInfo.setApiName(`${apiInfo.getApiName()}_boolean`);
     }
     if (apiInfos.length === 0) {
       apiInfos.push(apiInfo);
@@ -198,7 +199,7 @@ export class NodeProcessorHelper {
    * @return {(ts.TypeNode | undefined)} 满足条件的on/off第一个参数的类型
    */
   static getOnOrOffMethodFirstParamType(apiInfo: BasicApiInfo, methodNode: MethodType): ts.TypeNode | undefined {
-    const subscriotionSet: Set<string> = new Set(['on', 'off']);
+    const subscriotionSet: Set<string> = new Set(EventConstant.eventNameList);
     if (!subscriotionSet.has(apiInfo.getApiName())) {
       return undefined;
     }
@@ -523,6 +524,7 @@ export class NodeProcessorHelper {
     ModifierHelper.processModifiers(propertyNode.modifiers, propertyInfo);
     propertyInfo.setIsRequired(!propertyNode.questionToken ? true : false);
     propertyInfo.addType(NodeProcessorHelper.processDataType(propertyNode.type));
+    propertyInfo.setTypeKind(propertyNode.type ? propertyNode.type.kind : -1);
     return propertyInfo;
   }
 
@@ -568,6 +570,7 @@ export class NodeProcessorHelper {
     if (methodNode.type && ts.SyntaxKind.VoidKeyword !== methodNode.type.kind) {
       const returnValues: string[] = NodeProcessorHelper.processDataType(methodNode.type);
       methodInfo.setReturnValue(returnValues);
+      methodInfo.setReturnValueType(methodNode.type.kind);
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
       const param: ts.ParameterDeclaration = methodNode.parameters[i];

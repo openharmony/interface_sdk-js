@@ -436,6 +436,7 @@ declare class Scroller {
    * @returns { OffsetResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   currentOffset() : OffsetResult;
@@ -534,10 +535,20 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll snap options
+ * 
+ * @interface ScrollSnapOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Define scroll snap options
+ * 
+ * @interface ScrollSnapOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare interface ScrollSnapOptions {
   /**
@@ -692,13 +703,13 @@ interface ScrollInterface {
 /**
  * Defines the scroll attribute functions.
  *
- * @extends CommonMethod<ScrollAttribute>
+ * @extends ScrollableCommonMethod<ScrollAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
+declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Called when the scroll method is slid.
    *
@@ -1082,6 +1093,17 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 11
    */
   scrollSnap(value: ScrollSnapOptions): ScrollAttribute;
+
+  /**
+   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   *
+   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enablePaging(value: boolean): ScrollAttribute;
 }
 
 /**
