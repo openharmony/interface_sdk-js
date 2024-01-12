@@ -820,7 +820,7 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getExif(callback: AsyncCallback<string>): void;
-	/**
+    /**
      * Get analysis data of the asset.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -1687,7 +1687,7 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     IMAGE,
-	/**
+    /**
      * Source album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
