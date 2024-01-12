@@ -24,4 +24,4 @@ import displaySync from '@ohos.graphics.displaySync';
 import common2D from '@ohos.graphics.common2D';
 import drawing from '@ohos.graphics.drawing';
 
-export { displaySync, colorSpaceManager, effectKit };
+export { displaySync, colorSpaceManager, effectKit, common2D, drawing };
