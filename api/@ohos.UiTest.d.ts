@@ -4358,6 +4358,16 @@ declare class UiWindow {
  * @since 9
  * @test
  */
+/**
+ * Represents a two-dimensional array of pointers on the device display, it's used to build a
+ * multi-finger trace which can be injected with UiDriver.
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @test
+ */
 declare class PointerMatrix {
   /**
    * Create an {@link PointerMatrix} object.
