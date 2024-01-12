@@ -53,7 +53,6 @@ import insightIntent from '@ohos.app.ability.insightIntent';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
-import MediaControlExtensionAbility from '@ohos.app.ability.MediaControlExtensionAbility';
 import missionManager from '@ohos.app.ability.missionManager';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
 import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
@@ -64,7 +63,6 @@ import UIAbility, {
 } from '@ohos.app.ability.UIAbility';
 import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
 import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
-import UserAuthExtensionAbility from '@ohos.app.ability.UserAuthExtensionAbility';
 import Want from '@ohos.app.ability.Want';
 import wantConstant from '@ohos.app.ability.wantConstant';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
@@ -94,10 +92,9 @@ export {
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
   CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
   ChildProcess, Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
-  ExtensionAbility, InsightIntentContext, InsightIntentExecutor, MediaControlExtensionAbility,
-  OnReleaseCallback, OnRemoteStateChangeCallback, Package, PermissionRequestResult, Permissions,
-  ServiceExtensionAbility, ShareExtensionAbility, StartOptions, UIAbility, UIExtensionAbility,
-  UIExtensionContentSession, UserAuthExtensionAbility, Want, WantAgent, ability, abilityAccessCtrl,
+  ExtensionAbility, InsightIntentContext, InsightIntentExecutor, OnReleaseCallback, OnRemoteStateChangeCallback,
+  Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility, StartOptions,
+  UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
