@@ -31,6 +31,14 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef WorkerOptions
+ * Provides options that can be set for the worker to create.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface WorkerOptions {
   /**
    * Mode in which the worker executes the script.
@@ -44,6 +52,14 @@ export interface WorkerOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Mode in which the worker executes the script.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   type?: 'classic' | 'module';
 
@@ -59,6 +75,14 @@ export interface WorkerOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Name of the worker.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   name?: string;
 
@@ -90,6 +114,14 @@ export interface WorkerOptions {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
+ */
+/**
+ * @typedef Event
+ * Defines the event.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export interface Event {
   /**
@@ -136,6 +168,14 @@ export interface Event {
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef ErrorEvent
+ * Provides detailed information about the exception occurred during worker execution.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface ErrorEvent extends Event {
   /**
    * Information about the exception.
@@ -149,6 +189,14 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Information about the exception.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly message: string;
 
@@ -165,6 +213,14 @@ export interface ErrorEvent extends Event {
    * @crossplatform
    * @since 10
    */
+  /**
+   * File where the exception is located.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly filename: string;
 
   /**
@@ -179,6 +235,14 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Number of the line where the exception is located.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly lineno: number;
 
@@ -195,6 +259,14 @@ export interface ErrorEvent extends Event {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Number of the column where the exception is located.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly colno: number;
 
   /**
@@ -209,6 +281,14 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Type of the exception.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly error: Object;
 }
@@ -484,6 +564,14 @@ export interface EventTarget {
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef WorkerEventTarget
+ * Specific worker event features.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface WorkerEventTarget {
   /**
    * Adds an event listener to the worker.
@@ -637,6 +725,14 @@ declare interface WorkerGlobalScope extends EventTarget {
  * @crossplatform
  * @since 10
  */
+/**
+ * @typedef GlobalScope
+ * The environment Specified in which worker threads run, which is isolated from the host thread environment.
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface GlobalScope extends WorkerEventTarget {
   /**
    * Name of Worker specified when there is a new worker.
@@ -650,6 +746,14 @@ declare interface GlobalScope extends WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Name of Worker specified when there is a new worker.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly name: string;
 
@@ -670,6 +774,16 @@ declare interface GlobalScope extends WorkerEventTarget {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The onerror attribute of parentPort specified.
+   * the event handler to be called when an exception occurs during worker execution.
+   * The event handler is executed in the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onerror?: (ev: ErrorEvent) => void;
   /**
    * Specify the type attribute for self.
@@ -683,6 +797,14 @@ declare interface GlobalScope extends WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Specify the type attribute for self.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly self: GlobalScope & typeof globalThis;
 }
@@ -853,6 +975,19 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The onmessage attribute of parentPort specifies the event handler
+   * to be called then the worker receives a message that cannot be deserialized.
+   * The event handler is executed in the worker thread.
+   *
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
   /**
@@ -869,6 +1004,15 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Close the worker thread to stop the worker from receiving messages
+   *
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   close(): void;
 
@@ -1110,6 +1254,19 @@ declare namespace worker {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The onerror attribute of the worker specifies the event handler to be called
+     * when an exception occurs during worker execution.
+     * The event handler is executed in the host thread.
+     *
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     onerror?: (err: ErrorEvent) => void;
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -1173,6 +1330,19 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The onmessage attribute of the worker specifies the event handler
+     * when the worker receives a message that cannot be serialized.
+     * The event handler is executed in the host thread.
+     *
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     onmessageerror?: (event: MessageEvents) => void;
     /**
