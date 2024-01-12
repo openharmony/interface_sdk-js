@@ -571,7 +571,6 @@ declare namespace drawing {
      * @since 11
      */
     enableSubpixel(isSubpixel: boolean): void;
-
     /**
      * Increases stroke width when creating glyph bitmaps to approximate a bold typeface.
      * @param { boolean } isEmbolden - Setting for bold approximation.
@@ -580,7 +579,6 @@ declare namespace drawing {
      * @since 11
      */
     enableEmbolden(isEmbolden: boolean): void;
-
     /**
      * Requests linearly scalable font and glyph metrics.
      * @param { boolean } isLinearMetrics - Setting for linearly scalable font and glyph metrics.
@@ -589,7 +587,6 @@ declare namespace drawing {
      * @since 11
      */
     enableLinearMetrics(isLinearMetrics: boolean): void;
-
     /**
      * Sets text size in points. Has no effect if textSize is not greater than or equal to zero.
      * @param { number } textSize - Typographic height of text.
@@ -598,7 +595,6 @@ declare namespace drawing {
      * @since 11
      */
     setSize(textSize: number): void;
-
     /**
      * Obtains the text size.
      * @returns { number } Text size.
@@ -606,7 +602,6 @@ declare namespace drawing {
      * @since 11
      */
     getSize(): number;
-
     /**
      * Sets Typeface to font.
      * @param { Typeface } typeface - Font and style used to draw text.
@@ -615,7 +610,6 @@ declare namespace drawing {
      * @since 11
      */
     setTypeface(typeface: Typeface): void;
-
     /**
      * Get Typeface to font.
      * @returns { Typeface } Typeface.
@@ -623,7 +617,6 @@ declare namespace drawing {
      * @since 11
      */
     getTypeface(): Typeface;
-
     /**
      * Get fontMetrics associated with typeface.
      * @returns { FontMetrics } The fontMetrics value returned to the caller.
@@ -631,7 +624,6 @@ declare namespace drawing {
      * @since 11
      */
     getMetrics(): FontMetrics;
-
     /**
      * Measure the width of text.
      * @param { string } text - Text Symbol Content.
@@ -705,7 +697,6 @@ declare namespace drawing {
      * @since 11
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
-
     /**
      * Create a color filter consisting of two filters.
      * @param { ColorFilter } outer - The filter is used next.
@@ -717,7 +708,6 @@ declare namespace drawing {
      * @since 11
      */
     static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter;
-
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -726,7 +716,6 @@ declare namespace drawing {
      * @since 11
      */
     static createLinearToSRGBGamma(): ColorFilter;
-
     /**
      * Makes a color filter that converts between sRGB colors and linear colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -735,7 +724,6 @@ declare namespace drawing {
      * @since 11
      */
     static createSRGBGammaToLinear(): ColorFilter;
-
     /**
      * Makes a color filter that multiplies the luma of its input into the alpha channel,
      * and sets the red, green, and blue channels to zero.
