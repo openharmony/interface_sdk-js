@@ -431,14 +431,15 @@ declare class LinkedList<T> {
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - callbackFn callbackFn
-   * (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the linkedlist,Returns the result of an operation
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
    * Value (required) current element
    * Index (Optional) The index value of the current element.
    * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -447,14 +448,15 @@ declare class LinkedList<T> {
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - callbackFn callbackFn
-   * (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the linkedlist,Returns the result of an operation
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
    * Value (required) current element
    * Index (Optional) The index value of the current element.
    * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

@@ -592,7 +592,22 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'netUidPolicyChange', callback: Callback<{ uid: number, policy: NetUidPolicy }>): void;
+  /**
+   * Register uid policy change listener.
+   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @param { 'netUidPolicyChange' } type - Indicates Event name.
+   * @param { Callback<NetUidPolicyInfo> } callback - the callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'netUidPolicyChange', callback: Callback<NetUidPolicyInfo>): void;
 
   /**
    * Unregister uid policy change listener.
@@ -609,7 +624,22 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'netUidPolicyChange', callback?: Callback<{ uid: number, policy: NetUidPolicy }>): void;
+  /**
+   * Unregister uid policy change listener.
+   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @param { 'netUidPolicyChange' } type - Indicates Event name.
+   * @param { Callback<NetUidPolicyInfo> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'netUidPolicyChange', callback?: Callback<NetUidPolicyInfo>): void;
 
   /**
    * Register uid rule change listener.
@@ -626,7 +656,22 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'netUidRuleChange', callback: Callback<{ uid: number, rule: NetUidRule }>): void;
+  /**
+   * Register uid rule change listener.
+   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @param { 'netUidRuleChange' } type - Indicates Event name.
+   * @param { Callback<NetUidRuleInfo> } callback - the callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'netUidRuleChange', callback: Callback<NetUidRuleInfo>): void;
 
   /**
    * Unregister uid rule change listener.
@@ -643,7 +688,22 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'netUidRuleChange', callback?: Callback<{ uid: number, rule: NetUidRule }>): void;
+  /**
+   * Unregister uid rule change listener.
+   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @param { 'netUidRuleChange' } type - Indicates Event name.
+   * @param { Callback<NetUidRuleInfo> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'netUidRuleChange', callback?: Callback<NetUidRuleInfo>): void;
 
   /**
    * Register metered ifaces change listener.
@@ -921,6 +981,58 @@ declare namespace policy {
      * @since 10
      */
     simId: string;
+  }
+
+  /**
+   * The interface is used to generate network unique identifiers.
+   * @interface NetUidRuleInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface NetUidRuleInfo {
+    /**
+     * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    uid: number;
+    /**
+     * Rules whether an uid can access to a metered or non-metered network.
+     * @type { NetUidRule }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    rule: NetUidRule;
+  }
+
+  /**
+   * Callback function for registering network UID policy changes.
+   * @interface NetUidPolicyInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface NetUidPolicyInfo {
+    /**
+     * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    uid: number;
+    /**
+     * Uid Specifies the Internet access policy in background mode.
+     * @type { NetUidPolicy }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    policy: NetUidPolicy;
   }
 
   /**

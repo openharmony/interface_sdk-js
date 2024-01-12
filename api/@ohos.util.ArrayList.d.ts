@@ -22,7 +22,6 @@
  * ArrayList is a linear data structure that is implemented based on arrays. 
  * ArrayList can dynamically adjust the capacity based on project requirements. It increases the capacity by 50% each time.
  *
- * @namespace ArrayList
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -30,7 +29,6 @@
  * ArrayList is a linear data structure that is implemented based on arrays. 
  * ArrayList can dynamically adjust the capacity based on project requirements. It increases the capacity by 50% each time.
  *
- * @namespace ArrayList
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -255,11 +253,12 @@ declare class ArrayList<T> {
   /**
    * Replaces each element of this arraylist with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, arrlist?: ArrayList<T>) => T } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to be called for
-   * each element in the arraylist,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -268,11 +267,12 @@ declare class ArrayList<T> {
   /**
    * Replaces each element of this arraylist with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, arrlist?: ArrayList<T>) => T } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to be called for
-   * each element in the arraylist,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -283,11 +283,12 @@ declare class ArrayList<T> {
   /**
    * Executes a provided function once for each value in the arraylist object.
    *
-   * @param { (value: T, index?: number, arrlist?: ArrayList<T>) => void } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to
-   * be called for each element in the arraylist
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -296,11 +297,12 @@ declare class ArrayList<T> {
   /**
    * Executes a provided function once for each value in the arraylist object.
    *
-   * @param { (value: T, index?: number, arrlist?: ArrayList<T>) => void } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to
-   * be called for each element in the arraylist
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -312,7 +314,7 @@ declare class ArrayList<T> {
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
    * it will default to ASCII sorting
    *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparator
+   * @param { function } [comparator] - comparator
    * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
    * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
    * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
@@ -326,7 +328,7 @@ declare class ArrayList<T> {
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
    * it will default to ASCII sorting
    *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparator
+   * @param { function } [comparator] - comparator
    * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
    * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
    * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;

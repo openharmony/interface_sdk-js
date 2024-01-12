@@ -49,12 +49,12 @@ export declare class TabTitleBarMenuItem {
 
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @since 10
    */
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
    * @atomicservice
    * @since 11
    */
@@ -62,12 +62,12 @@ export declare class TabTitleBarMenuItem {
 
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
    * @atomicservice
    * @since 11
    */
@@ -101,12 +101,12 @@ export declare class TabTitleBarTabItem {
 
   /**
    * Icon resource for this tab item.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @since 10
    */
   /**
    * Icon resource for this tab item.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @atomicservice
    * @since 11
    */
@@ -128,12 +128,12 @@ export declare class TabTitleBarTabItem {
 export declare struct TabTitleBar {
   /**
    * Tab items on the left side.
-   * @type { Array<TabTitleBarItem> }.
+   * @type { ?Array<TabTitleBarItem> }.
    * @since 10
    */
   /**
    * Tab items on the left side.
-   * @type { Array<TabTitleBarItem> }.
+   * @type { ?Array<TabTitleBarItem> }.
    * @atomicservice
    * @since 11
    */
@@ -141,12 +141,12 @@ export declare struct TabTitleBar {
 
   /**
    * Menu items on the right side.
-   * @type { Array<OperationOptions> }.
+   * @type { Array<TabTitleBarMenuItem> }.
    * @since 10
    */
   /**
    * Menu items on the right side.
-   * @type { Array<OperationOptions> }.
+   * @type { Array<TabTitleBarMenuItem> }.
    * @atomicservice
    * @since 11
    */

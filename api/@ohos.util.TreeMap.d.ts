@@ -39,10 +39,10 @@ declare class TreeMap<K, V> {
   /**
    * A constructor used to create a TreeMap object.
    *
-   * @param { (firstValue: K, secondValue: K) => boolean } comparator - comparator comparator
-   *(Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
+   * @param { function } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * firstValue (required) previous element.
+   * secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -51,10 +51,10 @@ declare class TreeMap<K, V> {
   /**
    * A constructor used to create a TreeMap object.
    *
-   * @param { function } comparator - comparator comparator
-   *(Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
+   * @param { function } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * firstValue (required) previous element.
+   * secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -380,8 +380,12 @@ declare class TreeMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    *
-   * @param { function } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - callbackFn callbackFn
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -391,8 +395,12 @@ declare class TreeMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    *
-   * @param { function } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - callbackFn callbackFn
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

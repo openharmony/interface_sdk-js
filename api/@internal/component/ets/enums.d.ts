@@ -6252,6 +6252,7 @@ declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   /**
    * Justify the text.
@@ -6260,6 +6261,7 @@ declare enum TextAlign {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
    */
   JUSTIFY,
 }

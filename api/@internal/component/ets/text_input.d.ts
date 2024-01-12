@@ -192,6 +192,7 @@ declare enum InputType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   NUMBER_DECIMAL = 12,

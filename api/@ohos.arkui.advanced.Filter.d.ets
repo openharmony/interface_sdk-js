@@ -38,7 +38,30 @@ import { ResourceStr } from 'GlobalResource';
  * @since 11
  */
 export declare enum FilterType {
+    /**
+     * The multi_line_filter type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    /**
+     * The multi_line_filter type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     MULTI_LINE_FILTER = 0,
+
+    /**
+     * The list_filter type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    /**
+     * The list_filter type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     LIST_FILTER = 1
 }
 
@@ -56,13 +79,13 @@ export declare enum FilterType {
 export declare class FilterParams {
     /**
      * filter item name.
-     * type { ResourceStr }
+     * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
      * filter item name.
-     * type { ResourceStr }
+     * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
@@ -70,13 +93,13 @@ export declare class FilterParams {
     name: ResourceStr;
     /**
      * filter options.
-     * type { Array<ResourceStr> }
+     * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
      * filter options.
-     * type { Array<ResourceStr> }
+     * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
@@ -162,6 +185,7 @@ export declare struct Filter {
      */
     /**
      * Container in the user-defined filtering result display area.
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
@@ -185,13 +209,13 @@ export declare struct Filter {
 
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
-     * @type { FilterParams }
+     * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
-     * @type { FilterParams }
+     * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
@@ -215,13 +239,13 @@ export declare struct Filter {
 
     /**
      * FilterType, Filter display style type.
-     * @type { FilterType }
+     * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
      * FilterType, Filter display style type.
-     * @type { FilterType }
+     * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11

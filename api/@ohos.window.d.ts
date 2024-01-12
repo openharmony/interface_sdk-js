@@ -328,6 +328,7 @@ declare namespace window {
      * Area for navigation indicator
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 11
      */
     TYPE_NAVIGATION_INDICATOR

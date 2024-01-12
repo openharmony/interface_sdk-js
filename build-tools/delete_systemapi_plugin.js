@@ -582,7 +582,7 @@ function deleteSystemApi(url) {
       const fullText = String(node.getFullText());
       const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0];
       let kitName = '';
-      if (fullText.match(/\@kit (.*)\r\n/g)) {
+      if (fullText.match(/\@kit (.*)\r?\n/g)) {
         kitName = RegExp.$1.replace(/\s/g, '');
       }
       sourceFile = node;

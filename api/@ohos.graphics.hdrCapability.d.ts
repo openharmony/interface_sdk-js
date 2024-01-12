@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit ArkGraphics2D
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**

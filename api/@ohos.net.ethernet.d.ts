@@ -183,7 +183,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { 'interfaceStateChange' } type - Indicates Event name.
    * @param { Callback<{ iface: string, active: boolean }> } callback - Including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active. 
+   * and active Indicates whether the interface is active.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -191,7 +191,20 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'interfaceStateChange', callback: Callback<{ iface: string, active: boolean }>): void;
+  /**
+   * Register a callback for the ethernet interface active state change.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { 'interfaceStateChange' } type - Indicates Event name.
+   * @param { Callback<InterfaceStateInfo> } callback - Including iface Indicates the ethernet interface,
+   * and active Indicates whether the interface is active.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'interfaceStateChange', callback: Callback<InterfaceStateInfo>): void;
 
   /**
    * Unregister a callback from the ethernet interface active state change.
@@ -206,7 +219,20 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'interfaceStateChange', callback?: Callback<{ iface: string, active: boolean }>): void;
+  /**
+   * Unregister a callback from the ethernet interface active state change.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { 'interfaceStateChange' } type - Indicates Event name.
+   * @param { Callback<InterfaceStateInfo> } callback - Including iface Indicates the ethernet interface,
+   * and active Indicates whether the interface is active.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'interfaceStateChange', callback?: Callback<InterfaceStateInfo>): void;
 
   /**
    * Defines the network configuration for the Ethernet connection.
@@ -287,6 +313,32 @@ declare namespace ethernet {
      * @since 10
      */
     httpProxy?: HttpProxy;
+  }
+
+  /**
+   * The interface is used to monitor network interface status changes.
+   * @interface InterfaceStateInfo
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface InterfaceStateInfo {
+    /**
+     * Define network card name.
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    iface: string;
+    /**
+     * Check if it is active.
+     * @type { boolean }
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    active: boolean;
   }
 
   /**

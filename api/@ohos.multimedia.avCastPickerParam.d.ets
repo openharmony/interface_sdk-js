@@ -13,42 +13,24 @@
 * limitations under the License.
 */
 
-import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
-
 /**
- * A picker view to show availale streaming device list.
+ * Definition of av cast picker state
+ * @enum { number }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @since 10
+ * @since 11
  */
-@Component
-declare struct AVCastPicker {
+export declare enum AVCastPickerState {
   /**
-   * Assigns the color of picker component at normal state .
-   * @type { ? Color | number | string }
+   * The picker starts showing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @crossplatform
    * @since 11
    */
-  @Prop
-  normalColor?: Color | number | string;
+  STATE_APPEARING,
 
   /**
-   * Assigns the color of picker component at active state.
-   * @type { ? Color | number | string }
+   * The picker finishes presenting.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @crossplatform
    * @since 11
    */
-  @Prop
-  activeColor?: Color | number | string;
-
-  /**
-   * Picker state change callback.
-   * @type { ?function }
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @crossplatform
-   * @since 11
-   */
-  onStateChange?: (state: AVCastPickerState) => void;
+  STATE_DISAPPEARING,
 }
-export default AVCastPicker;
