@@ -2075,10 +2075,75 @@ declare enum NativeEmbedStatus {
  * @since 11
  */
 declare enum ContextMenuEditStateFlags {
+  /**
+   * Not editable.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Not editable.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   NONE = 0,
+  /**
+   * Clipping is supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Clipping is supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   CAN_CUT = 1 << 0,
+  /**
+   * Copies are supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Copies are supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   CAN_COPY = 1 << 1,
+  /**
+   * Support for pasting.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Support for pasting.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   CAN_PASTE = 1 << 2,
+  /**
+   * Select all is supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Select all is supported.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   CAN_SELECT_ALL = 1 << 3,
 }
 
@@ -3526,6 +3591,7 @@ declare class WebController {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    * @deprecated since 9
+   * @useinstead ohos.web.webview.WebCookieManager
    */
   getCookieManager(): WebCookie
 }
@@ -3617,7 +3683,7 @@ declare interface WebOptions {
    * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
    * will not save in persistent files.
    *
-   * @type (?boolean)
+   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
