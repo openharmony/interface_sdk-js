@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit AbilityKit
+ * @kit AVSessionKit
  */
 
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
