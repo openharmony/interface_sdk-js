@@ -153,6 +153,97 @@ declare namespace photoAccessHelper {
      */
     CLOUD = 1 << 1
   }
+ 
+  /**
+   * Analysis type
+   *
+   * @enum { number } AnalysisType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 11
+   */
+  enum AnalysisType {
+    /**
+     * Analysis of aesthetics score
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_AESTHETICS_SCORE = 0,
+    /**
+     * Analysis of label
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_LABEL,
+    /**
+     * Analysis of ocr
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_OCR,
+    /**
+     * Analysis of face
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_FACE,
+    /**
+     * Analysis of object
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_OBJECT,
+    /**
+     * Analysis of recommendation
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_RECOMMENDATION,
+    /**
+     * Analysis of segmentation
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_SEGMENTATION,
+    /**
+     * Analysis of composition
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_COMPOSITION,
+    /**
+     * Analysis of saliency
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_SALIENCY,
+    /**
+     * Analysis of photo detail address info
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_DETAIL_ADDRESS
+  }
 
   /**
    * Enumeration of different recommendation type
@@ -729,6 +820,21 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getExif(callback: AsyncCallback<string>): void;
+    /**
+     * Get analysis data of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AnalysisType } analysisType - Analysis type
+     * @returns { Promise<string> } Returns analysis info into a json string
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getAnalysisData(analysisType: AnalysisType): Promise<string>;
     /**
      * Get exif info of the asset.
      *
@@ -1501,7 +1607,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
-    SYSTEM = 1024
+    SYSTEM = 1024,
+    /**
+     * Album created by smart abilities.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    SMART = 4096
   }
 
   /**
@@ -1573,6 +1687,54 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     IMAGE,
+    /**
+     * Source album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    SOURCE_GENERIC = 2049,
+    /**
+     * Classify album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    CLASSIFY = 4097,
+    /**
+     * Location album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    GEOGRAPHY_LOCATION = 4099,
+    /**
+     * City album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    GEOGRAPHY_CITY,
+    /**
+     * ShootingMode album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    SHOOTING_MODE,
+    /**
+     * Portrait album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    PORTRAIT,
     /**
      * Any album
      *
@@ -1711,6 +1873,24 @@ declare namespace photoAccessHelper {
    * @since 10
    */
   interface Album extends AbsAlbum {
+    /**
+     * Number of image assets in the album
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly imageCount?: number;
+    /**
+     * Number of video assets in the album
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly videoCount?: number;
     /**
      * Modify metadata for the album
      *
