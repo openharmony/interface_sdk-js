@@ -707,6 +707,28 @@ declare class NavPathStack {
   replacePathByName(name: string, param: Object, animated?: boolean): void;
 
   /**
+   * Remove the specified pages by indexes.
+   *
+   * @param { Array<number> } indexes - Indicates the indexes of the pages to be removed.
+   * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  removeByIndexes(indexes: Array<number>): number;
+
+  /**
+   * Remove the specified page by name.
+   *
+   * @param { string } name - Indicates the name of the page to be removed.
+   * @returns { number } Returns the number of removed pages.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  removeByName(name: string): number;
+
+  /**
    * Pops the top route page out of the stack.
    *
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
