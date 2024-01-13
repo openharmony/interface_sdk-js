@@ -80,106 +80,6 @@ declare namespace backup {
   }
 
   /**
-   * Save the time information of the incremental backup. IncrementalBackupTime is useful when doing IPC with the backup service.
-   *
-   * @interface IncrementalBackupTime
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  interface IncrementalBackupTime {
-    /**
-     * Indicates the name of a bundle.
-     *
-     * @type { string }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    bundleName: string;
-
-    /**
-     * Time of the last incremental backup
-     *
-     * @type { number }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    lastIncrementalTime: number;
-  }
-
-  /**
-   * Manifest file information in incremental data. FileManifestData is useful when doing IPC with the backup service.
-   *
-   * @interface FileManifestData
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  interface FileManifestData {
-    /**
-     * A file descriptor for the manifest file that holds the data
-     *
-     * @type { number }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    manifestFd: number;
-  }
-
-  /**
-   * Provides configuration parameters for backup and restore.
-   *
-   * @interface BackupParams
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  interface BackupParams {
-    /**
-     * The optional parameters a json strings in the form of key value in backup or restore.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    parameters?: string;
-  }
-
-  /**
-   * Control backup and restore priority sequence
-   *
-   * @interface BackupPriority
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  interface BackupPriority {
-    /**
-     * Indicates the priority of a bundle.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    priority?: number;
-  }
-
-  /**
-   * Corresponds to an incremental application, including its last incremental time and incremental list.
-   *
-   * @interface IncrementalBackupData
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  interface IncrementalBackupData extends IncrementalBackupTime, FileManifestData, BackupParams, BackupPriority {}
-
-  /**
    * Corresponding to a file, including its metadata and data.
    * File is useful when doing IPC with the backup service.
    *
@@ -188,16 +88,7 @@ declare namespace backup {
    * @systemapi
    * @since 10
    */
-  /**
-   * Corresponds to a file, including its metadata and data and the file's manifest data.
-   * Files are useful as IPC and backup services.
-   *
-   * @interface File
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  interface File extends FileMeta, FileData, FileManifestData {}
+  interface File extends FileMeta, FileData {}
 
   /**
    * Obtain a Json file that describes local capabilities.
@@ -232,27 +123,6 @@ declare namespace backup {
    * @since 10
    */
   function getLocalCapabilities(callback: AsyncCallback<FileData>): void;
-
-  /**
-   * Obtain a json file that describes local capabilities.
-   *
-   * @permission ohos.permission.BACKUP
-   * @param { Array<IncrementalBackupTime> } dataList
-   * @returns { Promise<FileData> } A FileData holding all the local capabilities. The returned file is a temporal file that will be
-   * deleted automatically when closed.
-   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
-   * @throws { BusinessError } 13600001 - IPC error
-   * @throws { BusinessError } 13900005 - I/O error
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900025 - No space left on device
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  function getLocalCapabilities(dataList: Array<IncrementalBackupTime>): Promise<FileData>;
 
   /**
    * General callbacks for both backup and restore procedure.
@@ -295,25 +165,7 @@ declare namespace backup {
      * @systemapi
      * @since 10
      */
-    /**
-     * Callback called when a backup/restore procedure for an bundle is started.
-     * The first return string parameter indicates the name of the bundle.
-     * The second return string parameter indicates that when BusinessError errors occur,
-     * the callback data is the name of the bundle.
-     *
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @throws { BusinessError } 13500001 - The application is not added to the backup or restore
-     * @throws { BusinessError } 13500002 - Failed to start application extension Procedure
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900011 - Out of memory
-     * @throws { BusinessError } 13900025 - No space left on device
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    onBundleBegin: AsyncCallback<string, void | string>;
+    onBundleBegin: AsyncCallback<string>;
 
     /**
      * Callback called when a backup/restore procedure for an bundle ends successfully or gets aborted unexpectedly.
@@ -329,25 +181,7 @@ declare namespace backup {
      * @systemapi
      * @since 10
      */
-    /**
-     * Callback called when a backup/restore procedure for an bundle ends successfully or gets aborted unexpectedly.
-     * The first return string parameter indicates the name of the bundle.
-     * The second return string parameter indicates that when BusinessError errors occur,
-     * the callback data is the name of the bundle.
-     *
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @throws { BusinessError } 13500003 - Backup or restore timed out
-     * @throws { BusinessError } 13500004 - Application extension death
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900011 - Out of memory
-     * @throws { BusinessError } 13900025 - No space left on device
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    onBundleEnd: AsyncCallback<string, void | string>;
+    onBundleEnd: AsyncCallback<string>;
 
     /**
      * Callback called when the all the bundles to backup/restore are done or aborted unexpectedly.
@@ -430,24 +264,6 @@ declare namespace backup {
      * @since 10
      */
     appendBundles(bundlesToBackup: string[], callback: AsyncCallback<void>): void;
-
-    /**
-     * End Backup process
-     *
-     * @permission ohos.permission.BACKUP
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900001 - Operation not permitted
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    release(): Promise<void>;
   }
 
   /**
@@ -584,86 +400,6 @@ declare namespace backup {
      * @since 10
      */
     getFileHandle(fileMeta: FileMeta, callback: AsyncCallback<void>): void;
-
-    /**
-     * End restore process
-     *
-     * @permission ohos.permission.BACKUP
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900001 - Operation not permitted
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    release(): Promise<void>;
-  }
-
-  /**
-   * Control class for incremental backup procedure.
-   *
-   * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @systemapi
-   * @since 11
-   */
-  class IncrementalBackupSession {
-    /**
-     * Constructor for obtaining the instance of the IncrementalBackupSession class.
-     *
-     * @permission ohos.permission.BACKUP
-     * @param { GeneralCallbacks } callbacks Callbacks to be registered for the backup.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    constructor(callbacks: GeneralCallbacks);
-
-    /**
-     * Append new bundles to incremental backup.
-     *
-     * @permission ohos.permission.BACKUP
-     * @param { Array<IncrementalBackupData> } bundlesToBackup Bundles to incremental backup.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900001 - Operation not permitted
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900011 - Out of memory
-     * @throws { BusinessError } 13900025 - No space left on device
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    appendBundles(bundlesToBackup: Array<IncrementalBackupData>): Promise<void>;
-
-    /**
-     * End backup process
-     *
-     * @permission ohos.permission.BACKUP
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900001 - Operation not permitted
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 11
-     */
-    release(): Promise<void>;
   }
 }
 export default backup;
