@@ -3983,6 +3983,14 @@ declare class Driver {
  * @since 9
  * @test
  */
+/**
+ * Represents a window of the ohos application,user can perform operations or query attributes on it.
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 11
+ * @test
+ */
 declare class UiWindow {
   /**
    * Get the bundle name of this {@link UiWindow}.
