@@ -33,15 +33,6 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @since 9
  */
-/**
- * The prototype of the listener function interface registered by the Caller.
- *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
- */
 export interface OnReleaseCallback {
   (msg: string): void;
 }
@@ -53,15 +44,6 @@ export interface OnReleaseCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @since 10
- */
-/**
- * The prototype of the listener function interface registered by the Caller.
- *
- * @typedef OnRemoteStateChangeCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
  */
 export interface OnRemoteStateChangeCallback {
   (msg: string): void;
@@ -86,15 +68,6 @@ export interface CalleeCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @since 9
- */
-/**
- * The interface of a Caller.
- *
- * @interface Caller
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
  */
 export interface Caller {
   /**
@@ -138,16 +111,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register the generic component server Stub (stub) disconnect listening notification.
-   *
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   release(): void;
 
   /**
@@ -160,17 +123,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register death listener notification callback.
-   *
-   * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   onRelease(callback: OnReleaseCallback): void;
 
   /**
@@ -182,17 +134,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
-   */
-  /**
-   * Register state changed listener notification callback of remote ability.
-   *
-   * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
@@ -207,18 +148,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register death listener notification callback.
-   *
-   * @param { 'release' } type - release.
-   * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   on(type: 'release', callback: OnReleaseCallback): void;
 
   /**
@@ -231,17 +160,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Unregister death listener notification callback.
-   *
-   * @param { 'release' } type - release.
-   * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   off(type: 'release', callback: OnReleaseCallback): void;
 
   /**
@@ -253,16 +171,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Unregister all death listener notification callback.
-   *
-   * @param { 'release' } type - release.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   off(type: 'release'): void;
 }
 
@@ -273,15 +181,6 @@ export interface Caller {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @since 9
- */
-/**
- * The interface of a Callee.
- *
- * @interface Callee
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
  */
 export interface Callee {
   /**
@@ -296,19 +195,6 @@ export interface Callee {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register data listener callback.
-   *
-   * @param { string } method - A string registered to listen for notification events.
-   * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200004 - Method registered. The method has registered.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   on(method: string, callback: CalleeCallback): void;
 
   /**
@@ -321,18 +207,6 @@ export interface Callee {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
-   */
-  /**
-   * Unregister data listener callback.
-   *
-   * @param { string } method - A string registered to listen for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200005 - Method not registered. The method has not registered.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   off(method: string): void;
 }
