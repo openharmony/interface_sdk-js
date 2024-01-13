@@ -13251,6 +13251,16 @@ declare class CommonMethod<T> {
   invert(value: number | InvertOptions): T;
 
   /**
+   * Sets system bar effect to the component.
+   *
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  systemBarEffect(): T;
+
+  /**
    * Adds the hue rotation effect to the current component.
    * The input parameter is the rotation angle. When the input parameter is 0deg, the image does not change (the default value is 0deg), and the input parameter does not have a maximum value.
    * If the value exceeds 360deg, the image is circled again.
