@@ -18,7 +18,8 @@
  * @kit AVSessionKit
  */
 
-import AVCastPicker, { AVCastPickerState } from '@ohos.multimedia.avCastPicker';
+import AVCastPicker from '@ohos.multimedia.avCastPicker';
+import { AVCastPickerState } from '@ohos.multimedia.avCastPickerParam';
 import avSession from '@ohos.multimedia.avsession';
 import MediaControlExtensionAbility from '@ohos.app.ability.MediaControlExtensionAbility';
 
