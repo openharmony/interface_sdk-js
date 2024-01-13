@@ -74,7 +74,6 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @atomicservice
      * @since 11
      */
     SERVICE_EXTENSION_ABILITY = 3,

@@ -75,15 +75,6 @@ export interface OnRemoteStateChangeCallback {
  * @StageModelOnly
  * @since 9
  */
-/**
- * The prototype of the message listener function interface registered by the Callee.
- *
- * @typedef CalleeCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
- */
 export interface CalleeCallback {
   (indata: rpc.MessageSequence): rpc.Parcelable;
 }
@@ -120,21 +111,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Notify the server of Parcelable type data.
-   *
-   * @param { string } method - The notification event string listened to by the callee.
-   * @param { rpc.Parcelable } data - Notification data to the callee.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
   /**
@@ -150,21 +126,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
-   */
-  /**
-   * Notify the server of Parcelable type data and return the notification result.
-   *
-   * @param { string } method - The notification event string listened to by the callee.
-   * @param { rpc.Parcelable } data - Notification data to the callee.
-   * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
