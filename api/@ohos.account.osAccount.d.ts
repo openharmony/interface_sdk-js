@@ -3160,7 +3160,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
+    onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
   }
 
   /**
@@ -3188,7 +3188,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
+    onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
   }
 
   /**
