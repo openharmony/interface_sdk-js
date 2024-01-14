@@ -120,6 +120,8 @@ declare namespace avSession {
    * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVQueueInfo>>> } callback - async callback for an array of AVQueueInfo.
    * If provided '0' or not provided, the maximum value is determined by the system.
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -579,9 +581,11 @@ declare namespace avSession {
 
   /**
    * Unregister device offline callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'deviceOffline' } type - Registration Type
    * @param { function } callback - Used to returns the device info
    * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
