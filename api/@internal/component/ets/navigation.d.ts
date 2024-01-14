@@ -1434,7 +1434,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
 
   /**
-   * Hide the navigation bar.
+   * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
    *
    * @param { boolean } value
    * @returns { NavigationAttribute }
@@ -1442,7 +1442,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 9
    */
   /**
-   * Hide the navigation bar.
+   * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
    *
    * @param { boolean } value
    * @returns { NavigationAttribute }
@@ -1451,7 +1451,8 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 10
    */
   /**
-   * Hide the navigation bar.
+   * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in all mode. 
+   * It will show top page in the NavPathStack directly or empty if there is no page in the NavPathStack.
    *
    * @param { boolean } value
    * @returns { NavigationAttribute }
