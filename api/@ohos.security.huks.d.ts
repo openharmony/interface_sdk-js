@@ -1206,6 +1206,7 @@ declare namespace huks {
   /**
    * Key Attestation.
    *
+   * @permission ohos.permission.ATTEST_KEY
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
@@ -1229,6 +1230,7 @@ declare namespace huks {
   /**
    * Key Attestation.
    *
+   * @permission ohos.permission.ATTEST_KEY
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
