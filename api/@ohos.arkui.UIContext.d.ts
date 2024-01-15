@@ -42,7 +42,7 @@ import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignme
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
-import type { CustomBuilder, DragItemInfo, DragEvent, DragAction } from 'DragControllerParam';
+import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type dragController from './@ohos.arkui.dragController';
 
 /**
