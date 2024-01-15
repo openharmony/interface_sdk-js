@@ -1174,6 +1174,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @form
    */
   customContentTransition(delegate: (from: number, to: number) => TabContentAnimatedTransition | undefined): TabsAttribute;
+
+  /**
+   * Set the BlurStyle of the tab bar.
+   *
+   * @param { BlurStyle } value - indicates the  BlurStyle of the tab bar.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
 }
 
 /**
