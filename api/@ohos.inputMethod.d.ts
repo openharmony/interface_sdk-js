@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit InputMethodKit
+ * @kit IMEKit
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { ElementName } from './bundleManager/ElementName';
