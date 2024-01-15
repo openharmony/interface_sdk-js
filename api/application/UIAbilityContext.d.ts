@@ -29,7 +29,7 @@ import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
-import type { AbilityStartCallback } from './AbilityStartCallback';
+import type AbilityStartCallback from './AbilityStartCallback';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
