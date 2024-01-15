@@ -2269,6 +2269,13 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
+  /**
+   * Provides methods for name information
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 11
+   */
   class Name {
     /**
      * Indicates the family name of the contact.
@@ -2425,6 +2432,13 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   */
+  /**
+   * Provides methods for phone number information
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 11
    */
   class PhoneNumber {
     /**
