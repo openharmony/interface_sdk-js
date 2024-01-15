@@ -64,7 +64,7 @@ function checkApiNamingWords(node, sourcefile, fileName, lowIdentifier) {
       );
       break;
     } else {
-      const isIgnoreWord = checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier);
+      const isIgnoreWord = checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier, value.badWord);
       if (isIgnoreWord === false) {
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, errorInfo, FileType.LOG_API,
           ErrorLevel.MIDDLE
@@ -74,13 +74,17 @@ function checkApiNamingWords(node, sourcefile, fileName, lowIdentifier) {
   }
 }
 
-function checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier) {
+function checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier, badWord) {
   let isIgnoreWord = false;
+  const isNamingFoot = lowIdentifier.substring(lowIdentifier.length - badWord.length, lowIdentifier.length) === badWord;
   for (let i = 0; i < lowercaseIgnoreWordArr.length; i++) {
     if (lowercaseIgnoreWordArr[i] && lowIdentifier.indexOf(lowercaseIgnoreWordArr[i]) !== -1) {
       isIgnoreWord = true;
       break;
     }
+  }
+  if (!isNamingFoot) {
+    isIgnoreWord = true;
   }
   return isIgnoreWord;
 }
