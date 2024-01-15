@@ -86,6 +86,7 @@ import distributedMissionManager from '@ohos.distributedMissionManager';
 import Package, {
   CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
 } from '@system.package';
+import privacyManager, { Permissions } from '@ohos.privacyManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -100,5 +101,5 @@ export {
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
-  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant
+  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager
 };
