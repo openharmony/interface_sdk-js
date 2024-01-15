@@ -667,7 +667,7 @@ declare namespace webview {
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -676,7 +676,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -688,7 +688,7 @@ declare namespace webview {
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -697,7 +697,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Invalid input parameter.

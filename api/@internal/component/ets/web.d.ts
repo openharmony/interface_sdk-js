@@ -3679,7 +3679,8 @@ declare interface WebOptions {
   */
   controller: WebController | WebviewController;
 
-  /* Sets the incognito mode of the Web, the parameter is optional and default value is false.
+  /**
+   * Sets the incognito mode of the Web, the parameter is optional and default value is false.
    * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
    * will not save in persistent files.
    *
