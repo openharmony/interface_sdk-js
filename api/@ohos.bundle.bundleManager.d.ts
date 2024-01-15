@@ -222,6 +222,7 @@ declare namespace bundleManager {
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
      * @since 11
      */
     GET_BUNDLE_INFO_WITH_MENU = 0x00000100
