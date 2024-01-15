@@ -72,6 +72,9 @@ function tsTransformKitFile(url) {
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
     const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
+    if (isEmptyFile(sourceInfo.sourceFile)) {
+      return;
+    }
     const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
     let result = printer.printNode(ts.EmitHint.Unspecified, sourceInfo.sourceFile, sourceFile);
     if (sourceInfo.copyrightMessage !== '') {
@@ -708,19 +711,36 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
       ts.isInterfaceDeclaration(statement) ||
       ts.isClassDeclaration(statement) ||
       ts.isEnumDeclaration(statement) ||
-      ts.isStructDeclaration(statement)
+      ts.isStructDeclaration(statement) ||
+      ts.isTypeAliasDeclaration(statement)
     ) {
-      setDeleteExport(statement, node, needDeleteExport);
       if (statement && statement.name && statement.name.escapedText) {
         deleteSystemApiSet.add(statement.name.escapedText.toString());
       }
+      setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
+    } else if (ts.isExportAssignment(statement) || ts.isExportDeclaration(statement)) {
+      setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
     }
   });
 
   return isCopyrightDeleted;
 }
 
-function setDeleteExport(statement, node, needDeleteExport) {
+function setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet) {
+  if (ts.isExportAssignment(statement) && deleteSystemApiSet.has(statement.expression.escapedText.toString())) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = statement.expression.escapedText.toString();
+  } else if (ts.isExportDeclaration(statement)) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    statement.exportClause.elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      if (deleteSystemApiSet.has(exportName)) {
+        needDeleteExport.exportName.add(element.name.escapedText.toString());
+      }
+    });
+  }
   //export namespace test {}
   const modifiers = statement.modifiers;
   if (modifiers === undefined) {
