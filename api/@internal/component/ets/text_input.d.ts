@@ -171,7 +171,7 @@ declare enum InputType {
    */
   SCREEN_LOCK_PASSWORD = 9,
 
-  /*
+  /**
    * UserName entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1823,7 +1823,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   selectAll(value: boolean): TextInputAttribute;
 
-  /*
+  /**
    * Sets whether enable auto fill or not.
    *
    * @param { boolean } value - Indicates the flag whether autofill is enabled.
