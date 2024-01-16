@@ -29,6 +29,15 @@ import type Context from './application/BaseContext';
  * @syscap SystemCapability.Applications.ContactsData
  * @since 7
  */
+/**
+ * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
+ * and provides methods for querying the information of contact.
+ *
+ * @namespace contact
+ * @syscap SystemCapability.Applications.ContactsData
+ * @atomicservice
+ * @since 11
+ */
 declare namespace contact {
   /**
    * Creates a contact.
