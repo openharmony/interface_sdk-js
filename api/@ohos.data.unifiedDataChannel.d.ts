@@ -131,7 +131,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
-    summary: { [key: string]: number };
+    summary: Record<string, number>;
     /**
      * Total data size of data in Bytes
      *
@@ -209,7 +209,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
-    details?: { [key: string]: string };
+    details?: Record<string, string>;
   }
 
   /**
@@ -379,7 +379,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
-    details?: { [key: string]: string };
+    details?: Record<string, string>;
     /**
      * Indicates the uri of file
      *
@@ -555,7 +555,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
-    details?: { [key: string]: number | string | Uint8Array };
+    details?: Record<string, number | string | Uint8Array>;
   }
 
   /**
