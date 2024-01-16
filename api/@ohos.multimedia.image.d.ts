@@ -51,6 +51,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enumerates pixel map formats.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum PixelMapFormat {
     /**
      * Indicates an unknown format.
@@ -64,6 +73,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates an unknown format.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNKNOWN = 0,
 
@@ -84,6 +101,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
+     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
+     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     RGB_565 = 2,
 
     /**
@@ -100,6 +127,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGBA_8888 = 3,
 
@@ -118,6 +154,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BGRA_8888 = 4,
 
     /**
@@ -134,6 +179,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGB_888 = 5,
 
@@ -152,6 +206,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
+     * and is stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ALPHA_8 = 6,
 
     /**
@@ -168,6 +231,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits in F16.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGBA_F16 = 7,
 
@@ -186,6 +258,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NV21 = 8,
 
     /**
@@ -202,6 +283,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     NV12 = 9
   }
@@ -221,6 +311,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes the size of an image.
+   *
+   * @typedef Size
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Size {
     /**
      * Height
@@ -236,6 +335,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Height
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     height: number;
 
@@ -253,6 +361,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Width
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     width: number;
   }
@@ -827,6 +944,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enumerates alpha types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum AlphaType {
     /**
      * Indicates an unknown alpha type.
@@ -840,6 +966,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates an unknown alpha type.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNKNOWN = 0,
 
@@ -856,6 +990,14 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     OPAQUE = 1,
 
     /**
@@ -871,6 +1013,14 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PREMUL = 2,
 
     /**
@@ -885,6 +1035,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNPREMUL = 3
   }
@@ -904,6 +1062,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enum for image scale mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum ScaleMode {
     /**
      * Indicates the effect that fits the image into the target size.
@@ -917,6 +1084,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the effect that fits the image into the target size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     FIT_TARGET_SIZE = 0,
 
@@ -932,6 +1107,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     CENTER_CROP = 1
   }
@@ -992,6 +1175,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes region information.
+   *
+   * @typedef Region
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Region {
     /**
      * Image size.
@@ -1007,6 +1199,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Image size.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1025,6 +1226,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * x-coordinate at the upper left corner of the image.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     x: number;
 
     /**
@@ -1041,6 +1251,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * y-coordinate at the upper left corner of the image.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     y: number;
   }
@@ -1060,6 +1279,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes area information in an image.
+   *
+   * @typedef PositionArea
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface PositionArea {
     /**
      * Image data that will be read or written.
@@ -1075,6 +1303,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Image data that will be read or written.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     pixels: ArrayBuffer;
 
@@ -1093,6 +1330,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Offset for data reading.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     offset: number;
 
     /**
@@ -1110,6 +1356,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Number of bytes to read.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     stride: number;
 
     /**
@@ -1126,6 +1381,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Region to read.
+     *
+     * @type { Region }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     region: Region;
   }
@@ -1726,6 +1990,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Initialization options for pixelmap.
+   *
+   * @typedef InitializationOptions
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface InitializationOptions {
     /**
      * PixelMap size.
@@ -1741,6 +2014,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * PixelMap size.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1759,6 +2041,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * PixelMap expected format.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     pixelFormat?: PixelMapFormat;
 
     /**
@@ -1775,6 +2066,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Editable or not.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     editable?: boolean;
 
@@ -1793,6 +2093,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * PixelMap expected alpha type.
+     *
+     * @type { ?AlphaType }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     alphaType?: AlphaType;
 
     /**
@@ -1809,6 +2118,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * PixelMap expected scaling effect.
+     *
+     * @type { ?ScaleMode }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     scaleMode?: ScaleMode;
   }
@@ -2353,6 +2671,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Whether the image pixel map can be edited.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readonly isEditable: boolean;
 
     /**
@@ -2373,6 +2700,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+     * a promise to return the result.
+     *
+     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
@@ -2395,6 +2733,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+     * a callback to return the result.
+     *
+     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
@@ -2414,6 +2763,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Reads image pixel map data in an area. This method uses a promise to return the data read.
+     *
+     * @param { PositionArea } area Area from which the image pixel map data will be read.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readPixels(area: PositionArea): Promise<void>;
 
     /**
@@ -2432,6 +2791,16 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Reads image pixel map data in an area. This method uses a callback to return the data read.
+     *
+     * @param { PositionArea } area Area from which the image pixel map data will be read.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -2454,6 +2823,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Writes image pixel map data to the specified area. This method uses a promise to return
+     * the operation result.
+     *
+     * @param { PositionArea } area Area to which the image pixel map data will be written.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     writePixels(area: PositionArea): Promise<void>;
 
     /**
@@ -2474,6 +2854,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Writes image pixel map data to the specified area. This method uses a callback to return
+     * the operation result.
+     *
+     * @param { PositionArea } area Area to which the image pixel map data will be written.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -2496,6 +2887,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
+     * uses a promise to return the result.
+     *
+     * @param { ArrayBuffer } src A buffer from which the image data will be read.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     writeBufferToPixels(src: ArrayBuffer): Promise<void>;
 
     /**
@@ -2517,6 +2919,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
+     * uses a callback to return the result.
+     *
+     * @param { ArrayBuffer } src A buffer from which the image data will be read.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
@@ -2533,6 +2946,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains pixel map information about this image. This method uses a promise to return the information.
+     *
+     * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getImageInfo(): Promise<ImageInfo>;
 
@@ -2553,6 +2975,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains pixel map information about this image. This method uses a callback to return the information.
+     *
+     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image pixel map information.
+     * If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
     /**
@@ -2569,6 +3001,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the number of bytes in each line of the image pixel map.
+     *
+     * @returns { number } Number of bytes in each line.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getBytesNumberPerRow(): number;
 
@@ -2587,6 +3028,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the total number of bytes of the image pixel map.
+     *
+     * @returns { number } Total number of bytes.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getPixelBytesNumber(): number;
 
     /**
@@ -2603,6 +3053,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the density of the image pixel map.
+     *
+     * @returns { number } The number of density.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getDensity(): number;
 
@@ -2623,6 +3082,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
+     *
+     * @param { number } rate The value of transparent rate.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     opacity(rate: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2642,6 +3111,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     *
+     * @param { number } rate The value of transparent rate.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     opacity(rate: number): Promise<void>;
 
     /**
@@ -2659,6 +3138,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
+     *
+     * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     createAlphaPixelmap(): Promise<PixelMap>;
 
     /**
@@ -2675,6 +3163,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains new pixel map with alpha information. This method uses a callback to return the information.
+     *
+     * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
@@ -2697,6 +3194,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Image zoom in width and height. This method uses a callback to return the operation result.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     scale(x: number, y: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2717,6 +3225,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Image zoom in width and height. This method uses a promise to return the result.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     scale(x: number, y: number): Promise<void>;
 
@@ -2739,6 +3258,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Image position transformation. This method uses a callback to return the operation result.
+     *
+     * @param { number } x The position value of width.
+     * @param { number } y The position value of height.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     translate(x: number, y: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2760,6 +3290,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Image position transformation. This method uses a promise to return the result.
+     *
+     * @param { number } x The position value of width.
+     * @param { number } y The position value of height.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     translate(x: number, y: number): Promise<void>;
 
     /**
@@ -2779,6 +3320,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Image rotation. This method uses a callback to return the operation result.
+     *
+     * @param { number } angle The rotation angle.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     rotate(angle: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2797,6 +3348,16 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Image rotation. This method uses a promise to return the result.
+     *
+     * @param { number } angle The rotation angle.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     rotate(angle: number): Promise<void>;
 
@@ -2819,6 +3380,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Image flipping. This method uses a callback to return the operation result.
+     *
+     * @param { boolean } horizontal Is flip in horizontal.
+     * @param { boolean } vertical Is flip in vertical.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback<void>): void;
 
     /**
@@ -2840,6 +3412,17 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Image flipping. This method uses a promise to return the result.
+     *
+     * @param { boolean } horizontal Is flip in horizontal.
+     * @param { boolean } vertical Is flip in vertical.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
     /**
@@ -2859,6 +3442,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Crop the image. This method uses a callback to return the operation result.
+     *
+     * @param { Region } region The region to crop.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     crop(region: Region, callback: AsyncCallback<void>): void;
 
     /**
@@ -2877,6 +3470,16 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Crop the image. This method uses a promise to return the result.
+     *
+     * @param { Region } region The region to crop.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     crop(region: Region): Promise<void>;
 
@@ -3017,6 +3620,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Releases this PixelMap object. This method uses a callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     release(callback: AsyncCallback<void>): void;
 
     /**
@@ -3033,6 +3645,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Releases this PixelMap object. This method uses a promise to return the result.
+     *
+     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     release(): Promise<void>;
   }
