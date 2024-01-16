@@ -958,7 +958,7 @@ declare namespace taskpool {
    *
    * @param { number } delayTime - delayTime delayTime The time want to delay.
    * @param { Task } task - task task The task want to execute.
-   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
+   * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<Object> }
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
