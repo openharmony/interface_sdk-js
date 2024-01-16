@@ -954,7 +954,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ENFORCED_TONE = 15,
     /**
-     * Ultrasonic playing usage. This type is only used for msdp condition.
+     * Ultrasonic playing usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 10
@@ -1982,8 +1982,8 @@ declare namespace audio {
      * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { DeviceFlag } deviceFlag - Audio device flag.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
@@ -1993,8 +1993,8 @@ declare namespace audio {
      * UnSubscribes to device change events.
      * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
@@ -2208,7 +2208,7 @@ declare namespace audio {
      * Get input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -2219,7 +2219,7 @@ declare namespace audio {
      * Get input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -2233,8 +2233,8 @@ declare namespace audio {
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2243,8 +2243,8 @@ declare namespace audio {
      * Unsubscribes to preferred input device change events.
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2321,7 +2321,7 @@ declare namespace audio {
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
      * @param { AsyncCallback<AudioEffectInfoArray> } callback - Callback used to return the information of audio effects.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
@@ -2331,7 +2331,7 @@ declare namespace audio {
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
      * @returns { Promise<AudioEffectInfoArray> } Promise used to return the information of audio effects.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
@@ -2353,8 +2353,8 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
      * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
@@ -2363,8 +2363,8 @@ declare namespace audio {
     /**
      * UnSubscribes to audio renderer change events.
      * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
@@ -2375,8 +2375,8 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
@@ -2385,8 +2385,8 @@ declare namespace audio {
     /**
      * UnSubscribes to audio capturer change events.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
@@ -2490,8 +2490,8 @@ declare namespace audio {
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
@@ -2709,8 +2709,8 @@ declare namespace audio {
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
      * @param { 'ringerModeChange' } type - Type of the event to listen for. Only the ringerModeChange event is supported.
      * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
@@ -2764,8 +2764,8 @@ declare namespace audio {
      * Listens for system microphone state change events. This method uses a callback to get microphone change events.
      * @param { 'micStateChange' } type - Type of the event to listen for. Only the micStateChange event is supported.
      * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
@@ -2785,7 +2785,7 @@ declare namespace audio {
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
@@ -2800,7 +2800,7 @@ declare namespace audio {
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
@@ -2817,7 +2817,7 @@ declare namespace audio {
      * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
@@ -2833,7 +2833,7 @@ declare namespace audio {
      * @param { AudioVolumeType } volumeType - Audio volume type.
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
@@ -2941,10 +2941,8 @@ declare namespace audio {
 
     /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -2955,10 +2953,8 @@ declare namespace audio {
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -3006,10 +3002,8 @@ declare namespace audio {
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -3020,10 +3014,8 @@ declare namespace audio {
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -3071,9 +3063,7 @@ declare namespace audio {
 
     /**
      * Updates the spatial device state.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
@@ -3085,7 +3075,7 @@ declare namespace audio {
   }
 
   /**
-   * Connect type for device.
+   * Describes an audio volume group.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
@@ -3894,69 +3884,38 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
-    
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param { AudioRendererRate } rate - Audio render rate.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate): Promise<void>;
-
-    /**
-     * Sets the playback speed.
-     * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 11
-     */
-    setSpeed(speed: number): void;
 
     /**
      * Obtains the current render rate. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<AudioRendererRate> } callback - Callback used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
-    
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
      * @returns { Promise<AudioRendererRate> } Promise used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(): Promise<AudioRendererRate>;
-
     /**
      * Obtains the current render rate.
      * @returns { AudioRendererRate } The audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRateSync(): AudioRendererRate;
-
-    /**
-     * Obtains the current playback speed.
-     * @returns { number } The playback speed.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 11
-     */
-    getSpeed(): number;
 
     /**
      * Set interrupt mode.
@@ -4118,8 +4077,8 @@ declare namespace audio {
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 9
      */
@@ -4175,8 +4134,8 @@ declare namespace audio {
      * The event is triggered when output device change for this stream.
      * @param { 'outputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -4198,8 +4157,8 @@ declare namespace audio {
      * Unsubscribes output device change event callback.
      * @param { 'outputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -4613,8 +4572,8 @@ declare namespace audio {
      * triggered when audio recording is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
      */
@@ -4623,8 +4582,8 @@ declare namespace audio {
     /**
      * UnSubscribes to audio interrupt events.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 10
      */
@@ -5318,7 +5277,7 @@ declare namespace audio {
     CH_LAYOUT_OCTAGONAL = 0x737,
     /**
      * Channel Layout For 5.1.2, 8 channels in total
-     * Speaker layout: 5.1 plus two top side speakers.
+     * Speaker layout: 5.1-Back plus two top side speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
