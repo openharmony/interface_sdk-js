@@ -84,13 +84,24 @@ export namespace DiffProcessorHelper {
       }
     }
 
+    static getFirstSinceVersion(jsDocInfos: Comment.JsDocInfo[]): string {
+      let sinceVersion: string = '';
+      for (let i = 0; i < jsDocInfos.length; i++) {
+        const jsDocInfo: Comment.JsDocInfo = jsDocInfos[i];
+        if (jsDocInfo.getSince() !== '-1') {
+          sinceVersion = jsDocInfo.getSince();
+          return sinceVersion;
+        }      
+      }
+      return sinceVersion;
+    }
+
     static diffSinceVersion(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      const oldFirstJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getJsDocInfos()[0];
-      const newFirstJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getJsDocInfos()[0];
-      const sinceVersionOfOld: string = oldFirstJsDocInfo ? oldFirstJsDocInfo.getSince() : '-1';
-      const sinceVersionOfNew: string = newFirstJsDocInfo ? newFirstJsDocInfo.getSince() : '-1';
-
+      const oldJsDocInfos: Comment.JsDocInfo[] = oldApiInfo.getJsDocInfos();
+      const newJsDocInfos: Comment.JsDocInfo[] = newApiInfo.getJsDocInfos();
+      const sinceVersionOfOld: string = JsDocDiffHelper.getFirstSinceVersion(oldJsDocInfos);
+      const sinceVersionOfNew: string = JsDocDiffHelper.getFirstSinceVersion(newJsDocInfos);
       diffTypeInfo
         .setStatusCode(ApiStatusCode.VERSION_CHNAGES)
         .setOldMessage(sinceVersionOfOld)
@@ -586,8 +597,8 @@ export namespace DiffProcessorHelper {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
       const olaMethodType: string[] = oldApiInfo.getReturnValue();
       const newMethodType: string[] = newApiInfo.getReturnValue();
-      const olaMethodTypeStr = olaMethodType.toString();
-      const newMethodTypeStr = newMethodType.toString();
+      const olaMethodTypeStr = olaMethodType.toString().replace(/\r|\n|\s+/g, '');
+      const newMethodTypeStr = newMethodType.toString().replace(/\r|\n|\s+/g, '');
       if (olaMethodTypeStr === newMethodTypeStr) {
         return undefined;
       }
