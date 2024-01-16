@@ -459,7 +459,7 @@ declare interface PageTransitionOptions {
   duration?: number;
   /**
    * PageTransition animation curve.
-   * @type { ?(Curve | string | ICurve) }
+   * @type { ?(Curve | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
