@@ -2743,20 +2743,6 @@ declare namespace bundleManager {
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
 
   /**
-   * Delete the verified .abc file.
-   *
-   * @permission ohos.permission.RUN_DYN_CODE
-   * @param { string } abcPath - The abc path.
-   * @returns { Promise<void> } Returns deleteAbc result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700202 - deleteAbc failed.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 11
-   */
-  function deleteAbc(abcPath: string): Promise<void>;
-
-  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
