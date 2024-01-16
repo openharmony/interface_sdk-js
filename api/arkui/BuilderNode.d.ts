@@ -142,4 +142,13 @@ export class BuilderNode<Args extends Object[]> {
    * @since 11
    */
   postTouchEvent(event: TouchEvent): boolean;
+
+  /**
+   * Dispose the BuilderNode immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    dispose(): void;
 }
