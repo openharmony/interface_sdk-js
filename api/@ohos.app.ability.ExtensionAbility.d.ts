@@ -28,4 +28,8 @@ import Ability from './@ohos.app.ability.Ability';
  * @StageModelOnly
  * @since 9
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 export default class ExtensionAbility extends Ability {}

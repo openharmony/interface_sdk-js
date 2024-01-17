@@ -2151,7 +2151,6 @@ declare namespace camera {
    *
    * @interface Beauty
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface Beauty {
@@ -2292,7 +2291,6 @@ declare namespace camera {
    *
    * @interface ColorEffect
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface ColorEffect {
@@ -2338,7 +2336,6 @@ declare namespace camera {
    *
    * @interface ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface ColorManagement {
@@ -2385,7 +2382,6 @@ declare namespace camera {
    *
    * @interface Macro
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface Macro {

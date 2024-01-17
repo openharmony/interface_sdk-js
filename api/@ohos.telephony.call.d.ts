@@ -28,6 +28,10 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Telephony.CallManager
  * @since 6
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 declare namespace call {
   /**
    * Makes a call.

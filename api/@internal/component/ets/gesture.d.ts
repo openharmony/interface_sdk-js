@@ -1420,6 +1420,7 @@ interface GestureEvent extends BaseEvent {
  * @interface GestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 interface GestureInterface<T> {
@@ -1430,6 +1431,7 @@ interface GestureInterface<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   tag(tag: string): T;

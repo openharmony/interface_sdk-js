@@ -423,6 +423,7 @@ declare interface RichEditorParagraphStyle {
  * @interface PasteEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare interface PasteEvent {
@@ -432,6 +433,7 @@ declare interface PasteEvent {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   preventDefault?: () => void;

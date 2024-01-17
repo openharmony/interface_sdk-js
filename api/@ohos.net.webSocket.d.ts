@@ -78,6 +78,11 @@ declare namespace webSocket {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface WebSocketRequestOptions {
     /**
      * HTTP request header.
@@ -91,6 +96,11 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     header?: Object;
 
@@ -309,6 +319,11 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
     /**
@@ -334,6 +349,11 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
     /**
@@ -358,6 +378,11 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 
@@ -574,6 +599,11 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     off(type: 'open', callback?: AsyncCallback<Object>): void;
 
     /**
@@ -621,6 +651,11 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     off(type: 'message', callback?: AsyncCallback<string | ArrayBuffer>): void;
 
@@ -670,6 +705,11 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     off(type: 'close', callback?: AsyncCallback<CloseResult>): void;
 
     /**
@@ -712,6 +752,11 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 

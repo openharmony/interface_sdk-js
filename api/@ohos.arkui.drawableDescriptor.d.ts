@@ -26,6 +26,10 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 export class DrawableDescriptor {
   /**
    * Creates a new DrawableDescriptor.
@@ -43,6 +47,10 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * @atomicservice
+   * @since 11
+   */
   getPixelMap(): image.PixelMap;
 }
 
@@ -53,6 +61,10 @@ export class DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 export class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
    * Get DrawableDescriptor for the foreground.
@@ -60,6 +72,9 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+  /**
+   * @atomicservice
+   * @since 11
    */
   getForeground(): DrawableDescriptor;
 
@@ -70,6 +85,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * @atomicservice
+   * @since 11
+   */
   getBackground(): DrawableDescriptor;
 
   /**
@@ -78,6 +97,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   getMask(): DrawableDescriptor;
 
@@ -88,6 +111,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { string } Return the clip path info of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   static getMaskClipPath(): string;
 }

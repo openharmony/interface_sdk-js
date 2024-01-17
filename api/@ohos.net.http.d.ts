@@ -1714,7 +1714,8 @@ declare namespace http {
      * Using proxies.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 10
+     * @atomicservice
+     * @since 11
      */
     USE_PROXY,
 

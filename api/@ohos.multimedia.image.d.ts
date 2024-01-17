@@ -51,6 +51,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum PixelMapFormat {
     /**
      * Indicates an unknown format.
@@ -64,6 +69,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNKNOWN = 0,
 
@@ -84,6 +94,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     RGB_565 = 2,
 
     /**
@@ -100,6 +115,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGBA_8888 = 3,
 
@@ -118,6 +138,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BGRA_8888 = 4,
 
     /**
@@ -134,6 +159,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGB_888 = 5,
 
@@ -152,6 +182,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ALPHA_8 = 6,
 
     /**
@@ -168,6 +203,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGBA_F16 = 7,
 
@@ -186,6 +226,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NV21 = 8,
 
     /**
@@ -202,6 +247,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     NV12 = 9
   }
@@ -221,6 +271,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Size {
     /**
      * Height
@@ -236,6 +291,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     height: number;
 
@@ -253,6 +313,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     width: number;
   }
@@ -827,6 +892,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum AlphaType {
     /**
      * Indicates an unknown alpha type.
@@ -840,6 +910,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNKNOWN = 0,
 
@@ -856,6 +931,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     OPAQUE = 1,
 
     /**
@@ -871,6 +951,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PREMUL = 2,
 
     /**
@@ -885,6 +970,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNPREMUL = 3
   }
@@ -904,6 +994,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum ScaleMode {
     /**
      * Indicates the effect that fits the image into the target size.
@@ -917,6 +1012,10 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     FIT_TARGET_SIZE = 0,
 
@@ -932,6 +1031,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     CENTER_CROP = 1
   }
@@ -992,6 +1096,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Region {
     /**
      * Image size.
@@ -1007,6 +1116,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1025,6 +1139,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     x: number;
 
     /**
@@ -1041,6 +1160,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     y: number;
   }
@@ -1060,6 +1184,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface PositionArea {
     /**
      * Image data that will be read or written.
@@ -1075,6 +1204,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     pixels: ArrayBuffer;
 
@@ -1093,6 +1227,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     offset: number;
 
     /**
@@ -1110,6 +1249,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     stride: number;
 
     /**
@@ -1126,6 +1270,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     region: Region;
   }
@@ -1726,6 +1875,11 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface InitializationOptions {
     /**
      * PixelMap size.
@@ -1741,6 +1895,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1759,6 +1918,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     pixelFormat?: PixelMapFormat;
 
     /**
@@ -1775,6 +1939,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     editable?: boolean;
 
@@ -1793,6 +1962,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     alphaType?: AlphaType;
 
     /**
@@ -1809,6 +1983,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     scaleMode?: ScaleMode;
   }
@@ -2353,6 +2532,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readonly isEditable: boolean;
 
     /**
@@ -2373,6 +2557,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
@@ -2395,6 +2584,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
@@ -2414,6 +2608,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readPixels(area: PositionArea): Promise<void>;
 
     /**
@@ -2432,6 +2631,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -2454,6 +2658,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     writePixels(area: PositionArea): Promise<void>;
 
     /**
@@ -2474,6 +2683,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -2496,6 +2710,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     writeBufferToPixels(src: ArrayBuffer): Promise<void>;
 
     /**
@@ -2517,6 +2736,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
@@ -2533,6 +2757,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getImageInfo(): Promise<ImageInfo>;
 
@@ -2553,6 +2782,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
     /**
@@ -2569,6 +2803,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getBytesNumberPerRow(): number;
 
@@ -2587,6 +2826,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getPixelBytesNumber(): number;
 
     /**
@@ -2603,6 +2847,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getDensity(): number;
 
@@ -2623,6 +2872,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     opacity(rate: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2642,6 +2896,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     opacity(rate: number): Promise<void>;
 
     /**
@@ -2659,6 +2918,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     createAlphaPixelmap(): Promise<PixelMap>;
 
     /**
@@ -2675,6 +2939,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
@@ -2697,6 +2966,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     scale(x: number, y: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2717,6 +2991,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     scale(x: number, y: number): Promise<void>;
 
@@ -2739,6 +3018,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     translate(x: number, y: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2760,6 +3044,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     translate(x: number, y: number): Promise<void>;
 
     /**
@@ -2779,6 +3068,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     rotate(angle: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -2797,6 +3091,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     rotate(angle: number): Promise<void>;
 
@@ -2819,6 +3118,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback<void>): void;
 
     /**
@@ -2840,6 +3144,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
     /**
@@ -2859,6 +3168,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     crop(region: Region, callback: AsyncCallback<void>): void;
 
     /**
@@ -2877,6 +3191,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     crop(region: Region): Promise<void>;
 
@@ -3017,6 +3336,11 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     release(callback: AsyncCallback<void>): void;
 
     /**
@@ -3033,6 +3357,11 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     release(): Promise<void>;
   }

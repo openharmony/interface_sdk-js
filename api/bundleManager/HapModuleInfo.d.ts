@@ -431,7 +431,7 @@ export interface HapModuleInfo {
    * @atomicservice
    * @since 11
    */
-  readonly fileContextMenuConfig: string;
+  readonly fileContextMenu: string;
 }
 
 /**
