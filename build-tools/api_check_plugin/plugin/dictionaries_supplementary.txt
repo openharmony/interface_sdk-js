@@ -11,6 +11,7 @@ acmmax
 acn
 activates
 actived
+adcp
 adjusts
 adpu
 adts
@@ -32,8 +33,10 @@ amr
 animatable
 annually
 antialias
+antialiasing
 apdu
 apecified
+apertures
 appselect
 arcs
 arfcn
@@ -65,17 +68,21 @@ backgrounding
 backs
 base64
 bassboost
+batching
 beta1
 bevels
 bgra
 bidirectionally
 bitrates
+blending
+blendmode
 blocklist
 bms
 bolder
 bonded
 bonding
 booted
+brightens
 brighter
 brightest
 browsable
@@ -120,6 +127,7 @@ collapses
 collations
 collectable
 colno
+colorfilter
 complies
 compresses
 cone
@@ -137,6 +145,7 @@ cpx
 cpy
 creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -146,6 +155,7 @@ csh
 cug
 cyclewindows
 daltonization
+darkens
 darkest
 dataability
 datareceive
@@ -208,6 +218,7 @@ dpad
 drains
 dragbar
 drawbuffer
+drm
 dsda
 dsds
 dsf
@@ -227,6 +238,7 @@ ejectclosecd
 emption
 emphasized
 encapsulates
+encloses
 encompassed
 encrypts
 endc
@@ -296,6 +308,7 @@ haps
 haptic
 haptics
 hce
+hdcp
 headed
 headersreceive
 headphones
@@ -303,6 +316,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hevc
 hexadecagonal
 hfp
 hibernates
@@ -404,6 +418,7 @@ lfloat
 libraryname
 lifted
 lifts
+linearly
 lintptr
 listened
 llbackfn
@@ -414,6 +429,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightens
 lightupEffect
 lpx
 lru
@@ -463,11 +479,13 @@ mtp
 muhenkan
 multifrequency
 multimodal
+multiplies
 multisample
 multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -574,6 +592,7 @@ premultiply
 prepares
 preresolve
 presently
+presistent
 prevgroup
 prikey
 primaries
@@ -586,6 +605,7 @@ psc
 psk
 psrc
 pss
+pssh
 puk
 pvr
 querier
@@ -643,6 +663,7 @@ rscp
 rsrp
 rtd
 rtt
+rtcp
 ruim
 rwt
 s5
@@ -666,6 +687,7 @@ sece
 secinfo
 seeked
 semicircles
+sendable
 sensing
 sequenceable
 settingsdata
@@ -684,6 +706,7 @@ sliderstyle
 statvfs
 stk
 str
+strokes
 sm3
 smil
 smpte
@@ -719,6 +742,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers
@@ -734,6 +759,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolglyph
 synched
 synchronizes
 synchronizing
@@ -759,6 +785,7 @@ telecom
 tethering
 texel
 textarget
+textblob
 textclock
 texttimer
 thirdparty
@@ -803,12 +830,14 @@ uncategorized
 uncatergorized
 unclearable
 unconditional
+undefer
 undisturbed
 unduck
 unducked
 unequal
 unfiltered
 unfocused
+unhealthy
 unhold
 unicom
 unicon
@@ -867,6 +896,7 @@ volte
 volumemanager
 vorbis
 vpr
+vss
 vsync
 wakes
 waking
@@ -908,6 +938,7 @@ xoffset
 xxldpi
 xxxldpi
 ycbcr
+ycrcb
 yoffset
 zenkaku
 zfail

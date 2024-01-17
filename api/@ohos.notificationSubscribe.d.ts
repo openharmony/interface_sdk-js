@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Notification Kit
+ * @kit NotificationKit
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -24,6 +24,7 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
+import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 
 /**
  * @namespace notificationSubscribe
@@ -108,6 +109,23 @@ declare namespace notificationSubscribe {
    * @since 9
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
+
+  /**
+   * Subscribe self notifications.
+   *
+   * @param { NotificationSubscriber } subscriber - The notification subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+  * @since 11
+   */
+  function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
    * Subscribe to notifications.
@@ -456,6 +474,15 @@ declare namespace notificationSubscribe {
    * @since 9
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
+
+  /**
+   * Describes the badge number of the application has changed.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
 }
 
 export default notificationSubscribe;

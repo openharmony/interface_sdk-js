@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit IME Kit
+ * @kit IMEKit
  */
 
 import Want from './@ohos.app.ability.Want';

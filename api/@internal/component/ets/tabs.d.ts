@@ -228,13 +228,22 @@ declare enum LayoutStyle {
 } 
 
 /**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
+ * Provides methods for switching tabs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -851,6 +860,15 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the width of the bar graph is set.
+   * Notice: barWidth only supports Number type.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Called when the width of the bar graph is set.
    * Notice: barWidth only supports Number type on 7, supports Length type since 8.
    *
    * @param { Length } value
@@ -881,6 +899,15 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   barWidth(value: Length): TabsAttribute;
 
+  /**
+   * Called when the height of the bar graph is set.
+   * Notice: barHeight only supports Number type.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
   /**
    * Called when the height of the bar graph is set.
    * Notice: barHeight only supports Number type on 7, supports Length type since 8.
@@ -1134,6 +1161,109 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   barGridAlign(value: BarGridColumnOptions): TabsAttribute;
+
+  /**
+   * Custom tab content transition animation.
+   * When undefined is set, this interface does not take effect.
+   *
+   * @param { function } delegate - custom content transition animation.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  customContentTransition(delegate: (from: number, to: number) => TabContentAnimatedTransition | undefined): TabsAttribute;
+
+  /**
+   * Set the BlurStyle of the tab bar.
+   *
+   * @param { BlurStyle } value - indicates the  BlurStyle of the tab bar.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
+}
+
+/**
+ * Defines the Tab Content animated transition options.
+ *
+ * @interface TabContentAnimatedTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare interface TabContentAnimatedTransition {
+  /**
+   * Defines the timeout of custom content transition animation. The unit is ms.
+   * If TabContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+   *
+   * @type { ?number }
+   * @default 1000 ms
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  timeout?: number;
+
+  /**
+   * Called when custom content transition animation start.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  transition: (proxy: TabContentTransitionProxy) => void;
+}
+
+/**
+ *  The proxy of TabContentAnimatedTransition.
+ *
+ * @interface TabContentTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare interface TabContentTransitionProxy {
+  /**
+   * The index of current tab content.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  from: number;
+
+  /**
+   * The index of target tab content.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  to: number;
+
+  /**
+   * Notifies Tabs component the custom content transition animation is complete.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  finishTransition(): void;
 }
 
 /**

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Core File Kit
+ * @kit CoreFileKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
@@ -308,42 +308,89 @@ declare namespace cloudSync {
    *
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
-   * @since 10
+   * @since 11
    */
   enum State {
     /**
      * Indicates that the download task in process now.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     RUNNING,
     /**
      * Indicates that the download task finished.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     COMPLETED,
     /**
      * Indicates that the download task failed.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     FAILED,
     /**
      * Indicates that the download task stopped.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     STOPPED
+  }
+
+  /**
+   * Describes the download Error type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 11
+   */
+  enum DownloadErrorType {
+    /**
+     * No error occurred.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    NO_ERROR,
+    /**
+     * download aborted due to unknown error.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    UNKNOWN_ERROR,
+    /**
+     * download aborted due to network unavailable.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    NETWORK_UNAVAILABLE,
+    /**
+     * download aborted due to local storage is full.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    LOCAL_STORAGE_FULL,
+    /**
+     * download aborted due to content is not found in the cloud.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    CONTENT_NOT_FOUND,
+    /**
+     * download aborted due to frequent user requests.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    FREQUENT_USER_REQUESTS,
   }
 
   /**
@@ -351,8 +398,7 @@ declare namespace cloudSync {
    *
    * @interface DownloadProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @systemapi
-   * @since 10
+   * @since 11
    */
   interface DownloadProgress {
     /**
@@ -360,8 +406,7 @@ declare namespace cloudSync {
      *
      * @type { State }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     state: State;
     /**
@@ -369,8 +414,7 @@ declare namespace cloudSync {
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     processed: number;
     /**
@@ -378,8 +422,7 @@ declare namespace cloudSync {
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     size: number;
     /**
@@ -387,10 +430,17 @@ declare namespace cloudSync {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @systemapi
-     * @since 10
+     * @since 11
      */
     uri: string;
+    /**
+     * The error type of download.
+     *
+     * @type { DownloadErrorType }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    error: DownloadErrorType;
   }
 
   /**

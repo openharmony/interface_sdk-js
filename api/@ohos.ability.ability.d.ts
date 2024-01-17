@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import { DataAbilityHelper as _DataAbilityHelper } from './ability/dataAbilityHelper';

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -222,6 +222,7 @@ declare namespace bundleManager {
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
      * @since 11
      */
     GET_BUNDLE_INFO_WITH_MENU = 0x00000100
@@ -1171,23 +1172,6 @@ declare namespace bundleManager {
      * @since 11
      */
     INTENT_PROFILE = 1
-  }
-
-  /**
-   * Used to query the specified value in applicationReservedFlag.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 11
-   */
-  export enum ApplicationReservedFlag {
-    /**
-     * Used to query whether the application is encrypted.
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 11
-     */
-    ENCRYPTED_APPLICATION = 0x00000001,
   }
 
   /**
@@ -2687,7 +2671,7 @@ declare namespace bundleManager {
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
   /**
-   * Verify abc.
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
    * @permission ohos.permission.RUN_DYN_CODE
    * @param { Array<string> } abcPaths - The abc path.
@@ -2702,7 +2686,7 @@ declare namespace bundleManager {
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Verify abc.
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
    * @permission ohos.permission.RUN_DYN_CODE
    * @param { Array<string> } abcPaths - The abc path.
@@ -2758,6 +2742,20 @@ declare namespace bundleManager {
    * @since 11
    */
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
+
+  /**
+   * Delete the verified .abc file.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { string } abcPath - The abc path.
+   * @returns { Promise<void> } Returns deleteAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700202 - deleteAbc failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  function deleteAbc(abcPath: string): Promise<void>;
 
   /**
    * Obtains configuration information about an application.

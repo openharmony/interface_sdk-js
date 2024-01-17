@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Contacts Kit
+ * @kit ContactsKit
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -1404,6 +1404,14 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
+  /**
+   * ContactSelectionOptions Object
+   *
+   * @interface ContactSelectionOptions
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 11
+   */
   interface ContactSelectionOptions {
     /**
      * Indicates the Single-select or multiple-select.
@@ -1411,6 +1419,14 @@ declare namespace contact {
      * @type { ?boolean }
      * @syscap SystemCapability.Applications.Contacts
      * @since 10
+     */
+    /**
+     * Indicates the Single-select or multiple-select.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 11
      */
     isMultiSelect?: boolean;
   }
@@ -1421,6 +1437,13 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
+  /**
+   * Provides methods for contact information
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 11
+   */
   class Contact {
     /**
      * Indicates the contact invalid ID.
@@ -1429,6 +1452,15 @@ declare namespace contact {
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates the contact invalid ID.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     static readonly INVALID_CONTACT_ID: -1
 
@@ -1440,6 +1472,15 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the contact ID.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     readonly id?: number
 
     /**
@@ -1450,6 +1491,15 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the query key that identifies the contact.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     readonly key?: string
 
     /**
@@ -1458,6 +1508,14 @@ declare namespace contact {
      * @type { ?ContactAttributes }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates the contact attributes.
+     *
+     * @type { ?ContactAttributes }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     contactAttributes?: ContactAttributes
 
@@ -1468,6 +1526,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates list of contact email addresses.
+     *
+     * @type { ?Email[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     emails?: Email[]
 
     /**
@@ -1476,6 +1542,14 @@ declare namespace contact {
      * @type { ?Event[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates an event (special date) of the contact.
+     *
+     * @type { ?Event[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     events?: Event[]
 
@@ -1486,6 +1560,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates a group of the contact.
+     *
+     * @type { ?Group[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     groups?: Group[]
 
     /**
@@ -1494,6 +1576,14 @@ declare namespace contact {
      * @type { ?ImAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates an IM address of the contact.
+     *
+     * @type { ?ImAddress[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     imAddresses?: ImAddress[]
 
@@ -1521,6 +1611,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the contact portrait.
+     *
+     * @type { ?Portrait }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     portrait?: Portrait
 
     /**
@@ -1529,6 +1627,14 @@ declare namespace contact {
      * @type { ?PostalAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates a postal address of the contact.
+     *
+     * @type { ?PostalAddress[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     postalAddresses?: PostalAddress[]
 
@@ -1539,6 +1645,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates a relation of the contact.
+     *
+     * @type { ?Relation[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     relations?: Relation[]
 
     /**
@@ -1548,6 +1662,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates a Session Initiation Protocol (SIP) address of the contact.
+     *
+     * @type { ?SipAddress[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     sipAddresses?: SipAddress[]
 
     /**
@@ -1556,6 +1678,14 @@ declare namespace contact {
      * @type { ?Website[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates a website of the contact.
+     *
+     * @type { ?Website[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     websites?: Website[]
 
@@ -1583,6 +1713,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the contact nickname.
+     *
+     * @type { ?NickName }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     nickName?: NickName
 
     /**
@@ -1592,6 +1730,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the contact note.
+     *
+     * @type { ?Note }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     note?: Note
 
     /**
@@ -1600,6 +1746,14 @@ declare namespace contact {
      * @type { ?Organization }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates organization information about the contact.
+     *
+     * @type { ?Organization }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     organization?: Organization
   }
@@ -2115,6 +2269,13 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
+  /**
+   * Provides methods for name information
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 11
+   */
   class Name {
     /**
      * Indicates the family name of the contact.
@@ -2271,6 +2432,13 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   */
+  /**
+   * Provides methods for phone number information
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 11
    */
   class PhoneNumber {
     /**

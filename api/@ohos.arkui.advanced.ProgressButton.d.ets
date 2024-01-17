@@ -63,13 +63,13 @@ export declare struct ProgressButton {
 
   /**
    * Sets the ProgressButton progressButtonWidth.
-   * @type { Length }.
+   * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ProgressButton progressButtonWidth.
-   * @type { Length }.
+   * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -78,10 +78,14 @@ export declare struct ProgressButton {
 
   /**
    * Sets the ProgressButton clickCallback.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the ProgressButton clickCallback.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */

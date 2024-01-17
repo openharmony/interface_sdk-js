@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Form Kit
+ * @kit FormKit
  */
 
 import { AsyncCallback } from './@ohos.base';

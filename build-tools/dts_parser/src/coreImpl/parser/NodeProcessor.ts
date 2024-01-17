@@ -293,7 +293,7 @@ export class NodeProcessorHelper {
       //export * from 'test';
       exportDeclareInfo.setApiName(
         StringConstant.EXPORT +
-        (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
+          (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
       );
     } else if (ts.isNamespaceExport(exportClause)) {
       //export * as myTest from 'test';
@@ -524,6 +524,7 @@ export class NodeProcessorHelper {
     ModifierHelper.processModifiers(propertyNode.modifiers, propertyInfo);
     propertyInfo.setIsRequired(!propertyNode.questionToken ? true : false);
     propertyInfo.addType(NodeProcessorHelper.processDataType(propertyNode.type));
+    propertyInfo.setTypeKind(propertyNode.type ? propertyNode.type.kind : -1);
     return propertyInfo;
   }
 
@@ -569,6 +570,7 @@ export class NodeProcessorHelper {
     if (methodNode.type && ts.SyntaxKind.VoidKeyword !== methodNode.type.kind) {
       const returnValues: string[] = NodeProcessorHelper.processDataType(methodNode.type);
       methodInfo.setReturnValue(returnValues);
+      methodInfo.setReturnValueType(methodNode.type.kind);
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
       const param: ts.ParameterDeclaration = methodNode.parameters[i];

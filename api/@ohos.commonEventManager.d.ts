@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Notification Kit
+ * @kit BasicServicesKit
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -1835,6 +1835,26 @@ declare namespace commonEventManager {
     COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED',
 
     /**
+     * Indicates the action of a common event that the status of setting primary slot has been changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 11
+     */
+    COMMON_EVENT_SET_PRIMARY_SLOT_STATUS = 'usual.event.SET_PRIMARY_SLOT_STATUS',
+
+    /**
+     * Indicates the action of a common event that the roaming status of main card has been changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 11
+     */
+    COMMON_EVENT_PRIMARY_SLOT_ROAMING = 'usual.event.PRIMARY_SLOT_ROAMING',
+
+    /**
      * Indicates the action of a common event that the default voice subscription has been changed.
      * This is a protected common event that can only be sent by system.
      *
@@ -1980,7 +2000,17 @@ declare namespace commonEventManager {
       * @systemapi
       * @since 10
       */
-    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
+
+    /**
+      * Indicates that the privacy status is changed.
+      * This is a protected common event that can only be sent by system.
+      *
+      * @syscap SystemCapability.Notification.CommonEvent
+      * @systemapi
+      * @since 11
+      */
+    COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
   }
 
   /**

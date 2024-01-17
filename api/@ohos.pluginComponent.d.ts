@@ -205,3 +205,4 @@ declare namespace pluginComponentManager {
 }
 
 export default pluginComponentManager;
+export type { PluginComponentTemplate };

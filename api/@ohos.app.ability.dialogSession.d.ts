@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -33,7 +33,7 @@ import type Want from './@ohos.app.ability.Want';
 declare namespace dialogSession {
 
   /**
-   * Dialog ability info
+   * Indicates the ability information displayed in the picker dialog, including bundleName, moduleName, and abilityName.
    *
    * @typedef DialogAbilityInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -171,7 +171,6 @@ declare namespace dialogSession {
    *
    * @param { string } dialogSessionId - Query information by dialog session id.
    * @returns { DialogSessionInfo } Returns the session info.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -191,7 +190,6 @@ declare namespace dialogSession {
    * @param { Want } targetWant - The selection target ability to start.
    * @param { boolean } isAllowed - allowed or disallowed to start target ability.
    * @returns { Promise<void> } The promise returned by the sendDialogResult.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
@@ -211,7 +209,6 @@ declare namespace dialogSession {
    * @param { Want } targetWant - The selection target ability to start.
    * @param { boolean } isAllowed - allowed or disallowed to start target ability.
    * @param { AsyncCallback<void> } callback - The callback of sendDialogResult.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.

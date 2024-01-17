@@ -16,17 +16,17 @@
 import { ErrorMessage, ErrorTagFormat } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions, inheritTagArr } from '../../../utils/checkUtils';
-import { ApiType, ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, BasicApiInfo, ContainerApiInfo, containerApiTypes } from '../../../typedef/parser/ApiInfoDefination';
 
 export class TagInheritCheck {
   /**
    * Tag's inheritance check.
-   * @param { ClassInfo } singleApi
+   * @param { ApiInfo } singleApi
    * @returns { ErrorTagFormat }
    */
-  static tagInheritCheck(singleApi: ClassInfo): ErrorTagFormat {
+  static tagInheritCheck(singleApi: ApiInfo): ErrorTagFormat {
     const tagNameCheckResult: ErrorTagFormat = {
-      state: false,
+      state: true,
       errorInfo: '',
     };
     const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
@@ -41,23 +41,34 @@ export class TagInheritCheck {
     tagsInfo.forEach((tag) => {
       apiTagsName.push(tag.tag);
     });
-    const parentApi: ClassInfo = singleApi.getParentApi() as ClassInfo;
-    if (parentApi.getApiType() !== ApiType.SOURCE_FILE) {
-      const parentApisJsdoc: Comment.CommentTag[] | undefined = parentApi.getLastJsDocInfo()?.tags;
-      if (parentApisJsdoc === undefined) {
-        return tagNameCheckResult;
-      }
-      parentApisJsdoc.find((parentApiJsdoc: Comment.CommentTag) => {
-        const flag: boolean = inheritTagArr.includes(parentApiJsdoc.tag) && !apiTagsName.includes(parentApiJsdoc.tag);
-        if (flag) {
-          tagNameCheckResult.state = true;
-          tagNameCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_INHERIT, [
-            parentApiJsdoc.tag,
-          ]);
-        }
-        return flag;
-      });
+    let parentApi: ContainerApiInfo = singleApi.getParentApi() as ContainerApiInfo;
+    if (containerApiTypes.has(parentApi.getApiType())) {
+      TagInheritCheck.checkParentJsdoc(parentApi, apiTagsName, tagNameCheckResult);
     }
     return tagNameCheckResult;
+  }
+
+  static checkParentJsdoc(basicApiInfo: BasicApiInfo | undefined, apiTagsName: string[],
+    tagNameCheckResult: ErrorTagFormat): boolean {
+    if (basicApiInfo === undefined || !containerApiTypes.has(basicApiInfo.getApiType())) {
+      return true;
+    }
+    const parentApi = basicApiInfo as ContainerApiInfo;
+    const parentApisJsdoc: Comment.CommentTag[] | undefined = parentApi.getLastJsDocInfo()?.tags;
+    if (parentApisJsdoc === undefined) {
+      return true;
+    }
+    let currTag: string = '';
+    const hasInheritTag = parentApisJsdoc.some((parentApiJsdoc: Comment.CommentTag) => {
+      currTag = parentApiJsdoc.tag;
+      return inheritTagArr.includes(parentApiJsdoc.tag) && !apiTagsName.includes(parentApiJsdoc.tag);
+    });
+    if (hasInheritTag) {
+      tagNameCheckResult.state = false;
+      tagNameCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_INHERIT, [currTag]);
+      return false;
+    }
+    const parentApis: BasicApiInfo | undefined = parentApi.getParentApi();
+    return TagInheritCheck.checkParentJsdoc(parentApis, apiTagsName, tagNameCheckResult);
   }
 }

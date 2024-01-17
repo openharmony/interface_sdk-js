@@ -224,16 +224,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */
-  /**
-   * Distance to the top of the parent component from the component that
-   * comes to rest after a successful pull-down gesture. Default value: 16, in vp
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 11
    */
   offset?: number | string;
 
@@ -259,19 +250,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */
-  /**
-   * Coefficient of friction, which indicates the component's sensitivity to the pull-down gesture.
-   * The value ranges from 0 to 100. Default value: 62
-   *   - 0 indicates that the component is not sensitive to the pull-down gesture.
-   *   - 100 indicates that the component is highly sensitive to the pull-down gesture.
-   *   - A larger value indicates a more sensitive response of the component to the pull-down gesture.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 11
    */
   friction?: number | string;
 

@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Core File Kit
+ * @kit CoreFileKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -43,9 +43,58 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 11
+   */
   export enum PhotoViewMIMETypes {
+    /**
+     * Image type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 9
+     */
+    /**
+     * Image type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     IMAGE_TYPE = 'image/*',
+
+    /**
+     * Video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 9
+     */
+    /**
+     * Video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     VIDEO_TYPE = 'video/*',
+
+    /**
+     * Image and video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 9
+     */
+    /**
+     * Image and video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     IMAGE_VIDEO_TYPE = '*/*'
   }
 
@@ -267,14 +316,14 @@ declare namespace picker {
    * Enumerates the picker's select mode types.
    *
    * @enum { number } DocumentSelectMode
-   * @syscap SystemCapability.FileManagement.UserFileService
+   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
    * @since 11
    */
   export enum DocumentSelectMode {
     /**
      * Indicates that only files are allowed to be selected.
      *
-     * @syscap SystemCapability.FileManagement.UserFileService
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
      */
     FILE = 0,
@@ -282,7 +331,7 @@ declare namespace picker {
     /**
      * Indicates that only folders are allowed to be selected.
      *
-     * @syscap SystemCapability.FileManagement.UserFileService
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
      */
     FOLDER = 1,
@@ -290,7 +339,7 @@ declare namespace picker {
     /**
      * Indicates that files and folders are allowed to be selected.
      *
-     * @syscap SystemCapability.FileManagement.UserFileService
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
      */
     MIXED = 2,
@@ -334,7 +383,7 @@ declare namespace picker {
      * Selection mode.
      *
      * @type { ?DocumentSelectMode }
-     * @syscap SystemCapability.FileManagement.UserFileService
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
      */
     selectMode?: DocumentSelectMode;

@@ -15,30 +15,10 @@
 
 /**
  * @file
- * @kit AVSession Kit
+ * @kit AVSessionKit
  */
 
-/**
- * Definition of av cast picker state
- * @enum { number }
- * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @since 11
- */
-export declare enum AVCastPickerState {
-  /**
-   * The picker starts showing.
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 11
-   */
-  STATE_APPEARING,
-
-  /**
-   * The picker finishes presenting.
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 11
-   */
-  STATE_DISAPPEARING,
-}
+import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
 
 /**
  * A picker view to show availale streaming device list.

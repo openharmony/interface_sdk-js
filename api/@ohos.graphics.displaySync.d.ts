@@ -12,6 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @file
+ * @kit ArkGraphics2D
+ */
+
 /// <reference path="../component/common.d.ts" />
 
 import type { ExpectedFrameRateRange } from 'ExpectedFrameRateRange';
@@ -65,8 +71,8 @@ declare namespace displaySync {
     /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when DisplaySync dispatching.
-     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-     * @param { Callback<IntervalInfo> } [callback] - The callback function to be called when DisplaySync dispatching.
+     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
+     * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
@@ -75,7 +81,7 @@ declare namespace displaySync {
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is triggered when DisplaySync dispatching.
-     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+     * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
      * @param { Callback<IntervalInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
      *                                                will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full

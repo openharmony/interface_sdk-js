@@ -202,17 +202,27 @@ declare namespace relationalStore {
   /**
    * Values in buckets are stored in key-value pairs
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
-   * Values in buckets are stored in key-value pairs
+   * Values in buckets are stored in key-value pairs, move Uint8Array add to ValueType
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; };
+  /**
+   * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
+   *
+   * @typedef ValuesBucket
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 11
+   */
+  type ValuesBucket = Record<string, ValueType>;
 
   /**
    * The type of the priority key can be number or string
@@ -520,9 +530,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    details: {
-      [table: string]: TableDetails;
-    };
+    /**
+     * The statistic details of the tables.
+     *
+     * @type { Record<string, TableDetails> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    details: Record<string, TableDetails>;
   }
   /**
    * Describes the {@code RdbStore} type.
@@ -799,14 +814,12 @@ declare namespace relationalStore {
     /**
      * Indicates the reference fields.
      *
-     * @type { object }
+     * @type { Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11
      */
-    refFields: {
-      [src: string]: string;
-    };
+    refFields: Record<string, string>
   }
 
 

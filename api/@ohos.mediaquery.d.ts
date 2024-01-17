@@ -35,8 +35,41 @@ import { Callback } from './@ohos.base';
  * @crossplatform
  * @since 10
  */
+/**
+ * Used to do mediaquery operations.
+ *
+ * @namespace mediaquery
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace mediaquery {
-
+  
+  /**
+   * Defines the Result of mediaquery.
+   *
+   * @interface MediaQueryResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines the Result of mediaquery.
+   *
+   * @interface MediaQueryResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Defines the Result of mediaquery.
+   *
+   * @interface MediaQueryResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface MediaQueryResult {
     /**
      * Whether the match condition is met.
@@ -54,6 +87,16 @@ declare namespace mediaquery {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether the match condition is met.
+     * This parameter is read-only.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     readonly matches: boolean;
 
@@ -74,9 +117,46 @@ declare namespace mediaquery {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Matching condition of a media event.
+     * This parameter is read-only.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     readonly media: string;
   }
 
+  /**
+   * Defines the Listener of mediaquery.
+   *
+   * @interface MediaQueryListener
+   * @extends MediaQueryResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Defines the Listener of mediaquery.
+   *
+   * @interface MediaQueryListener
+   * @extends MediaQueryResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Defines the Listener of mediaquery.
+   *
+   * @interface MediaQueryListener
+   * @extends MediaQueryResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface MediaQueryListener extends MediaQueryResult {
     /**
      * Registers a callback with the corresponding query condition by using the handle.
@@ -96,6 +176,17 @@ declare namespace mediaquery {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Registers a callback with the corresponding query condition by using the handle.
+     * This callback is triggered when the media attributes change.
+     *
+     * @param { 'change' } type
+     * @param { Callback<MediaQueryResult> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
@@ -118,6 +209,17 @@ declare namespace mediaquery {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Deregisters a callback with the corresponding query condition by using the handle.
+     * This callback is not triggered when the media attributes chang.
+     *
+     * @param { 'change' } type
+     * @param { Callback<MediaQueryResult> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }
 
@@ -137,6 +239,16 @@ declare namespace mediaquery {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the media query criteria and returns the corresponding listening handle
+   *
+   * @param { string } condition
+   * @returns { MediaQueryListener }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function matchMediaSync(condition: string): MediaQueryListener;
 }

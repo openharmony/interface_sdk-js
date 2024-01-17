@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Form Kit
+ * @kit FormKit
  */
 
 import Want from './@ohos.app.ability.Want';
@@ -119,6 +119,26 @@ declare namespace formInfo {
      * @since 11
      */
     name: string;
+
+    /**
+     * Obtains the display name of this form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 11
+     */
+    displayName: string;
+
+    /**
+     * Obtains the displayName resource id of this form.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 11
+     */
+    displayNameId: number;
 
     /**
      * Obtains the description of this form.
@@ -351,12 +371,12 @@ declare namespace formInfo {
     /**
      * Obtains the custom data defined in this form.
      *
-     * @type { object }
+     * @type { Record<string, string> }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
      */
-    customizeData: { [key: string]: [value: string] };
+    customizeData: Record<string, string>;
 
     /**
      * Obtains whether this form is a dynamic form.

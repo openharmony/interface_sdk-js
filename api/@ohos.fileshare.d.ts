@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Core File Kit
+ * @kit CoreFileKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
@@ -33,14 +33,14 @@ declare namespace fileShare {
    * Enumerates the uri operate mode types.
    *
    * @enum { number } OperationMode
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   export enum OperationMode {
     /**
      * Indicates read permissions.
      *
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     READ_MODE = 0b1,
@@ -48,49 +48,24 @@ declare namespace fileShare {
     /**
      * Indicates write permissions.
      *
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     WRITE_MODE = 0b10,
   }
 
   /**
-   * Enumerates the identity of the URI policy.
-   *
-   * @enum { number } PolicyFlag
-   * @syscap SystemCapability.FileManagement.AppFileService
-   * @since 11
-   */
-  export enum PolicyFlag {
-    /**
-     * Indicates that the URI is allowed to be persisted.
-     *
-     * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 11
-     */
-    ALLOW_PERSISTENCE = 0b1,
-
-    /**
-     * Indicates that the URI is forbidden to be persisted.
-     *
-     * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 11
-     */
-    FORBID_PERSISTENCE = 0b10,
-  }
-
-  /**
    * Enumerates the error code of the permission policy for the URI operation.
    *
    * @enum { number } PolicyErrorCode
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   export enum PolicyErrorCode {
     /**
      * Indicates that the policy is not allowed to be persisted.
      *
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     PERSISTENCE_FORBIDDEN = 1,
@@ -98,7 +73,7 @@ declare namespace fileShare {
     /**
      * Indicates that the mode of this policy is invalid.
      *
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     INVALID_MODE = 2,
@@ -106,7 +81,7 @@ declare namespace fileShare {
     /**
      * Indicates that the path of this policy is invalid.
      *
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     INVALID_PATH = 3,
@@ -115,7 +90,7 @@ declare namespace fileShare {
   /**
    * Failed policy result on URI.
    *
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   export type PolicyErrorResult = {
@@ -123,7 +98,7 @@ declare namespace fileShare {
      * Indicates the failed uri of the policy information.
      *
      * @type { string }
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     uri: string;
@@ -132,7 +107,7 @@ declare namespace fileShare {
      * Indicates the error code of the failure in the policy information.
      *
      * @type { PolicyErrorCode }
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     code: PolicyErrorCode;
@@ -141,7 +116,7 @@ declare namespace fileShare {
      * Indicates the reason of the failure in the policy information.
      *
      * @type { string }
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     message: string;
@@ -151,7 +126,7 @@ declare namespace fileShare {
    * Policy information to manager permissions on a URI.
    *
    * @interface PolicyInfo
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   export interface PolicyInfo {
@@ -159,7 +134,7 @@ declare namespace fileShare {
      * Indicates the uri of the policy information.
      *
      * @type { string }
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     uri: string;
@@ -168,7 +143,7 @@ declare namespace fileShare {
      * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
      * @type { number }
-     * @syscap SystemCapability.FileManagement.AppFileService
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
     operationMode: number;
@@ -216,26 +191,6 @@ declare namespace fileShare {
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 
   /**
-   * Grant the selected URI temporary permissions.
-   *
-   * @permission ohos.permission.SET_SANDBOX_POLICY
-   * @param { number } tokenId the token id of app
-   * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
-   * @param { number } policyFlag - The identity of the URIs policy, example { PolicyFlag.ALLOWED_PERSIST }.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 13900001 - Operation not permitted.
-   * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.AppFileService
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  function grantPermission(tokenId: number, policies: Array<PolicyInfo>, policyFlag: number): Promise<void>;
-
-  /**
    * Set persistence permissions for the URI
    *
    * @permission ohos.permission.FILE_ACCESS_PERSIST
@@ -246,7 +201,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   function persistPermission(policies: Array<PolicyInfo>): Promise<void>;
@@ -262,7 +217,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   function revokePermission(policies: Array<PolicyInfo>): Promise<void>;
@@ -278,7 +233,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
@@ -294,7 +249,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Unknown error
-   * @syscap SystemCapability.FileManagement.AppFileService
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;

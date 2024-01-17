@@ -294,6 +294,53 @@ declare namespace webview {
   }
 
   /**
+   * Defines the security level for the page.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  enum SecurityLevel {
+    /**
+     * Unable to determine whether it is safe or not, the non-http/https protocol used.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    NONE = 0,
+
+    /**
+     * Indicates the HTTPS protocol used by the page and the authentication is successful.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    SECURE = 1,
+
+    /**
+     * The page is insecure. For example, the HTTP protocol is used or the HTTPS protocol
+     * is used but use an legacy TLS version.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    WARNING = 2,
+
+    /**
+     * Attempted HTTPS and failed, the authentication is failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    DANGEROUS = 3,
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    * 
    * @interface HitTestValue
@@ -420,8 +467,47 @@ declare namespace webview {
    * @since 11
    */
   interface WebStorageOrigin {
+  /**
+   * Url source.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Url source.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
     origin: string;
+  /**
+   * Specify the amount of storage for the source.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * Specify the amount of storage for the source.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
     usage: number;
+  /**
+   * the callback of getOriginUsage.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  /**
+   * the callback of getOriginUsage.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
     quota: number;
   }
 
@@ -581,7 +667,7 @@ declare namespace webview {
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -590,7 +676,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -602,7 +688,7 @@ declare namespace webview {
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -611,7 +697,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1650,6 +1736,12 @@ declare namespace webview {
     setError(message: Error): void;
   }
 
+  /**
+   * WebMessage type supplied to {@link onMessageEventExt} for indicating the type of web message.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   type WebMessage = ArrayBuffer | string;
   /**
    * Define html web message port.
@@ -2137,6 +2229,16 @@ declare namespace webview {
    */
   class WebviewController {
     /**
+     * A constructor used to create a WebviewController object.
+     *
+     * @param { string } [webTag] - specified the name of the web component, Empty by default.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    constructor(webTag?: string);
+
+    /**
      * Initialize the web engine before loading the Web components.
      * This is a global static API that must be called on the UI thread, and it will have no effect if any
      * Web components are loaded.
@@ -2192,6 +2294,26 @@ declare namespace webview {
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
     /**
+     * Enable the ability to check website security risks.
+     * Illegal and fraudulent websites are mandatory enabled and can't be disabled by this function.
+     * @param { boolean } enable - {@code true} enable check the website security risks; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    enableSafeBrowsing(enable: boolean): void;
+
+    /**
+     * Get whether checking website security risks is enabled.
+     * @returns { boolean } True if enable the ability to check website security risks else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isSafeBrowsingEnabled(): boolean;
+ 
+    /**
      * Checks whether the web page can go forward.
      * @returns { boolean } True if the web page can go forward else false.
      * @throws { BusinessError } 17100001 - Init error.
@@ -2214,16 +2336,16 @@ declare namespace webview {
     /**
      * Checks whether the web page can go back.
      * @returns { boolean } True if the web page can go back else false.
-     *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Checks whether the web page can go back.
      * @returns { boolean } True if the web page can go back else false.
-     *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -2407,7 +2529,6 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -3695,6 +3816,18 @@ declare namespace webview {
      * @since 11
      */
     createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
+
+    /**
+     * Get the security level of the current page.
+     *
+     * @returns { SecurityLevel } the security level of current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    getSecurityLevel(): SecurityLevel;
 
     /**
      * Whether the incognito mode is set.

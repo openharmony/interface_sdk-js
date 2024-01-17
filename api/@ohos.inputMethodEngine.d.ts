@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit IME Kit
+ * @kit IMEKit
  */
 
 /// <reference path="../component/common_ts_ets_api.d.ts"/>

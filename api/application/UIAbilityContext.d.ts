@@ -29,7 +29,7 @@ import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
-import type { AbilityStartCallback } from './AbilityStartCallback';
+import type AbilityStartCallback from './AbilityStartCallback';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -571,6 +571,7 @@ export default class UIAbilityContext extends Context {
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.

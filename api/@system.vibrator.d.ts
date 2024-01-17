@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Sensor Service Kit
+ * @kit SensorServiceKit
  */
 
 /**

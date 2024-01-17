@@ -38,7 +38,7 @@ export interface FillRequest {
   type: AutoFillType;
 
   /**
-   * The view data.
+   * The view data. Indicates the basic page information for the fill request.
    *
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -60,7 +60,7 @@ export interface FillRequest {
  */
 export interface SaveRequest {
   /**
-   * The view data.
+   * The view data. Indicates the basic page information for the save request.
    *
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -82,7 +82,7 @@ export interface SaveRequest {
  */
 export interface FillResponse {
   /**
-   * The view data.
+   * The view data. Contains basic page information and backfill information.
    *
    * @type { ViewData }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

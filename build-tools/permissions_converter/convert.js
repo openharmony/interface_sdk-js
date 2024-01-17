@@ -16,7 +16,7 @@
 const fs = require('fs');
 
 const copyRight = `/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,6 +29,22 @@ const copyRight = `/*
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */\n\n`;
+ 
+ const label = `/**
+ * Indicates permissions.
+ *
+ * @typedef Permissions
+ * @syscap SystemCapability.Security.AccessToken
+ * @since 9
+ */
+ /**
+ * Indicates permissions.
+ *
+ * @typedef Permissions
+ * @syscap SystemCapability.Security.AccessToken
+ * @atomicservice
+ * @since 11
+ */\n`;
 const typeHead = 'export type Permissions =\n';
 const typeTail = ';';
 const tab = ' ';
@@ -59,6 +75,7 @@ const convertJsonToDTS = (permissions, outputFilePath) => {
     fs.unlinkSync(outputFilePath);
   }
   fs.appendFileSync(outputFilePath, copyRight, 'utf8');
+  fs.appendFileSync(outputFilePath, label, 'utf8');
   fs.appendFileSync(outputFilePath, typeHead, 'utf8');
   permissions.forEach((permission, index) => {
     if (permission.since || permission.deprecated) {

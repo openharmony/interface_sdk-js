@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 /**
@@ -53,6 +53,7 @@ declare namespace insightIntent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     UI_ABILITY_BACKGROUND = 1,
@@ -62,6 +63,7 @@ declare namespace insightIntent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     UI_EXTENSION_ABILITY = 2,
@@ -72,6 +74,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     SERVICE_EXTENSION_ABILITY = 3,

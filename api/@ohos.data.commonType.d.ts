@@ -195,7 +195,7 @@ declare namespace commonType {
    * @crossplatform
    * @since 11
    */
-  type ValuesBucket = { [key: string]: ValueType; };
+  type ValuesBucket = Record<string, ValueType>;
 }
 
 export default commonType;

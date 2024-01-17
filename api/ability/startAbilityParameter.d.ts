@@ -42,4 +42,15 @@ export interface StartAbilityParameter {
    * @since 6
    */
   abilityStartSetting?: { [key: string]: any };
+
+  /**
+   * Indicates the special start setting used in starting ability.
+   * The ability of this property is same as abilityStartSetting. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, Object>}
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 11
+   */
+  abilityStartSettings?: Record<string, Object>;
 }

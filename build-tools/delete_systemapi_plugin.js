@@ -59,27 +59,34 @@ function tsTransformKitFile(url) {
   if (kitFileNeedDeleteMap.length === 0) {
     return;
   }
-  const kitPath = path.resolve(url, './kit');
+  const kitPath = path.resolve(url, '../kits');
   const kitFiles = [];
   readFile(kitPath, kitFiles); // 读取文件
   kitFiles.forEach((kitFile) => {
-    const kitName = processFileNameWithoutExt(kitFile);
+    const kitName = processFileNameWithoutExt(kitFile).replace('@kit.', '');
+    const content = fs.readFileSync(kitFile, 'utf-8');
     if (!kitFileNeedDeleteMap.has(kitName)) {
+      writeFile(kitFile, content);
       return;
     }
-    const content = fs.readFileSync(kitFile, 'utf-8');
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
-    sourceFile = getKitNewSourceFile(sourceFile, kitName);
+    const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
+    if (isEmptyFile(sourceInfo.sourceFile)) {
+      return;
+    }
     const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-    let result = printer.printNode(ts.EmitHint.Unspecified, sourceFile, sourceFile);
+    let result = printer.printNode(ts.EmitHint.Unspecified, sourceInfo.sourceFile, sourceFile);
+    if (sourceInfo.copyrightMessage !== '') {
+      result = sourceInfo.copyrightMessage + result;
+    }
     writeFile(kitFile, result);
   });
 }
 
 /**
  * 处理kit中需要删除的节点，在其他文件被systemapi修饰的api
- * @param { ts.sourceFile } sourceFile
+ * @param { ts.SourceFile } sourceFile
  * @param { string } kitName
  * @returns 删除完的节点，全部删除为空字符串
  */
@@ -87,13 +94,16 @@ function getKitNewSourceFile(sourceFile, kitName) {
   const newStatements = [];
   const needDeleteExportName = new Set();
   const needDeleteMap = kitFileNeedDeleteMap.get(kitName);
+  let copyrightMessage = '';
   // 初始化ts工厂
   const factory = ts.factory;
-  sourceFile.statements.forEach((statement) => {
+  sourceFile.statements.forEach((statement, index) => {
     if (ts.isImportDeclaration(statement)) {
       const newStatement = processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName);
       if (newStatement) {
         newStatements.push(newStatement);
+      } else if (index === 0) {
+        copyrightMessage = sourceFile.getFullText().replace(sourceFile.getText(), '');
       }
     } else if (ts.isExportDeclaration(statement)) {
       const exportSpecifiers = statement.exportClause.elements.filter((item) => {
@@ -106,7 +116,7 @@ function getKitNewSourceFile(sourceFile, kitName) {
     }
   });
   sourceFile = factory.updateSourceFile(sourceFile, newStatements);
-  return sourceFile;
+  return { sourceFile, copyrightMessage };
 }
 
 /**
@@ -195,11 +205,12 @@ function processFileNameWithoutExt(filePath) {
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
-    if (/\.json/.test(url) || /index\-full\.d\.ts/.test(url) || /common\.d\.ts/.test(url)) {
+    const apiBaseName = path.basename(url);
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || apiBaseName === 'common.d.ts') {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);
-    } else if (/\.d\.ts/.test(url) || /\.d\.ets/.test(url)) {
+    } else if (/\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName)) {
       // dts文件处理
       let content = fs.readFileSync(url, 'utf-8'); // 文件内容
       const fileName = processFileName(url);
@@ -574,7 +585,7 @@ function deleteSystemApi(url) {
       const fullText = String(node.getFullText());
       const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0];
       let kitName = '';
-      if (fullText.match(/\@kit (.*)\r\n/g)) {
+      if (fullText.match(/\@kit (.*)\r?\n/g)) {
         kitName = RegExp.$1.replace(/\s/g, '');
       }
       sourceFile = node;
@@ -700,19 +711,36 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
       ts.isInterfaceDeclaration(statement) ||
       ts.isClassDeclaration(statement) ||
       ts.isEnumDeclaration(statement) ||
-      ts.isStructDeclaration(statement)
+      ts.isStructDeclaration(statement) ||
+      ts.isTypeAliasDeclaration(statement)
     ) {
-      setDeleteExport(statement, node, needDeleteExport);
       if (statement && statement.name && statement.name.escapedText) {
         deleteSystemApiSet.add(statement.name.escapedText.toString());
       }
+      setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
+    } else if (ts.isExportAssignment(statement) || ts.isExportDeclaration(statement)) {
+      setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
     }
   });
 
   return isCopyrightDeleted;
 }
 
-function setDeleteExport(statement, node, needDeleteExport) {
+function setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet) {
+  if (ts.isExportAssignment(statement) && deleteSystemApiSet.has(statement.expression.escapedText.toString())) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = statement.expression.escapedText.toString();
+  } else if (ts.isExportDeclaration(statement)) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    statement.exportClause.elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      if (deleteSystemApiSet.has(exportName)) {
+        needDeleteExport.exportName.add(element.name.escapedText.toString());
+      }
+    });
+  }
   //export namespace test {}
   const modifiers = statement.modifiers;
   if (modifiers === undefined) {

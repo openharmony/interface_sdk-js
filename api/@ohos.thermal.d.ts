@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Basic Services Kit
+ * @kit BasicServicesKit
  */
 
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
