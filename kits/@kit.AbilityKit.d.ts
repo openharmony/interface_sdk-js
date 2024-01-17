@@ -86,7 +86,7 @@ import distributedMissionManager from '@ohos.distributedMissionManager';
 import Package, {
   CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
 } from '@system.package';
-import privacyManager, { Permissions } from '@ohos.privacyManager';
+import privacyManager from '@ohos.privacyManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
