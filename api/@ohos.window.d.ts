@@ -606,6 +606,11 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     left: number;
 
     /**
@@ -620,6 +625,11 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     top: number;
 
@@ -3590,6 +3600,7 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 11
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
@@ -5087,6 +5098,11 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     SHOWN = 1,
     /**
      * The window stage gains focus.
@@ -5102,6 +5118,11 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     ACTIVE,
     /**
@@ -5119,6 +5140,11 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     INACTIVE,
     /**
      * The window stage is running in the background.
@@ -5135,6 +5161,11 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     HIDDEN,
     /**
      * The window stage is interactive in the foreground.
@@ -5142,6 +5173,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     RESUMED,
@@ -5151,6 +5183,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     PAUSED

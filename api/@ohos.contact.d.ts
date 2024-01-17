@@ -29,6 +29,10 @@ import type Context from './application/BaseContext';
  * @syscap SystemCapability.Applications.ContactsData
  * @since 7
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 declare namespace contact {
   /**
    * Creates a contact.
@@ -2269,6 +2273,10 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
+  /**
+   * @atomicservice
+   * @since 11
+   */
   class Name {
     /**
      * Indicates the family name of the contact.
@@ -2425,6 +2433,10 @@ declare namespace contact {
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   class PhoneNumber {
     /**

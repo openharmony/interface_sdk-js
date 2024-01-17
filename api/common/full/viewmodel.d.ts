@@ -1663,6 +1663,10 @@ export interface ListScrollToOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
+  /**
+   * @atomicservice
+   * @since 11
+   */
   index: number;
 }
 
@@ -1688,6 +1692,10 @@ export interface ListElement extends Element {
    * @param { ListScrollToOptions } position
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   scrollTo(position: ListScrollToOptions): void;
 
@@ -1818,6 +1826,10 @@ export interface ListElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     groupid: string;
   }): void;
 
@@ -1844,6 +1856,10 @@ export interface ListElement extends Element {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     groupid: string;
   }): void;
@@ -1904,6 +1920,10 @@ export interface SwiperElement extends Element {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     index: number;
   }): void;
@@ -2372,6 +2392,10 @@ export interface ChartElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     serial: number;
     /**
      * Set the new data.
@@ -2379,6 +2403,10 @@ export interface ChartElement extends Element {
      * @type { Array<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     data: Array<number>;
   }): void;

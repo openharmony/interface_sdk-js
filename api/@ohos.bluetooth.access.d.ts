@@ -27,6 +27,10 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 10
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 declare namespace access {
   /**
    * Enables Bluetooth on a device.

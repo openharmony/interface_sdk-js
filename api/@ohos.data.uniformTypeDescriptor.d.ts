@@ -25,6 +25,10 @@
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 10
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 declare namespace uniformTypeDescriptor {
   /**
    * Uniform data type IDs.
@@ -32,6 +36,10 @@ declare namespace uniformTypeDescriptor {
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   enum UniformDataType {
     /**
@@ -64,6 +72,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     TEXT = 'general.text',
 
     /**
@@ -71,6 +83,10 @@ declare namespace uniformTypeDescriptor {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     PLAIN_TEXT = 'general.plain-text',
 
@@ -80,6 +96,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     HTML = 'general.html',
 
     /**
@@ -87,6 +107,10 @@ declare namespace uniformTypeDescriptor {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     HYPERLINK = 'general.hyperlink',
 
@@ -280,6 +304,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     IMAGE = 'general.image',
 
     /**
@@ -400,6 +428,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     VIDEO = 'general.video',
 
     /**
@@ -471,6 +503,10 @@ declare namespace uniformTypeDescriptor {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     AUDIO = 'general.audio',
 
@@ -576,6 +612,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     FILE = 'general.file',
 
     /**
@@ -591,6 +631,10 @@ declare namespace uniformTypeDescriptor {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     FOLDER = 'general.folder',
 
@@ -736,6 +780,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     OPENHARMONY_FORM = 'openharmony.form',
 
     /**
@@ -744,6 +792,10 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
+    /**
+     * @atomicservice
+     * @since 11
+     */
     OPENHARMONY_APP_ITEM = 'openharmony.app-item',
 
     /**
@@ -751,6 +803,10 @@ declare namespace uniformTypeDescriptor {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
 

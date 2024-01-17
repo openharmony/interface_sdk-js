@@ -27,6 +27,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
+/**
+ * @atomicservice
+ * @since 11
+ */
 export default class EnvironmentCallback {
   /**
    * Called when the system configuration is updated.
