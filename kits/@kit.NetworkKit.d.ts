@@ -18,20 +18,23 @@
  * @kit NetworkKit
  */
 
+import VpnExtensionAbility from "@ohos.app.ability.VpnExtensionAbility";
 import connection from '@ohos.net.connection';
 import ethernet from '@ohos.net.ethernet';
 import http from '@ohos.net.http';
 import mdns from '@ohos.net.mdns';
+import networkSecurity from '@ohos.net.networkSecurity';
 import policy from '@ohos.net.policy';
 import sharing from '@ohos.net.sharing';
 import socket from '@ohos.net.socket';
 import statistics from '@ohos.net.statistics';
 import vpn from '@ohos.net.vpn';
+import vpnExtension from "@ohos.net.vpnExtension";
 import webSocket from '@ohos.net.webSocket';
-import vpnExtension from '@ohos.net.vpnExtension';
-import networkSecurity from '@ohos.net.networkSecurity';
+import Fetch, { FetchResponse } from '@system.fetch';
+import Network, { NetworkResponse } from '@system.network';
 
 export {
-  connection, ethernet, http, mdns, policy, sharing, webSocket,
-  socket, statistics, vpn, vpnExtension, networkSecurity
+  Fetch, FetchResponse, Network, NetworkResponse, VpnExtensionAbility, connection, ethernet, http, mdns, networkSecurity, policy, sharing,
+  socket, statistics, vpn, vpnExtension, webSocket
 };

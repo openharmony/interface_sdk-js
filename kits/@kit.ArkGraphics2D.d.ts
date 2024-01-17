@@ -20,9 +20,8 @@
 
 import effectKit from '@ohos.effectKit';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
-import hdrCapability from '@ohos.graphics.hdrCapability';
 import displaySync from '@ohos.graphics.displaySync';
 import common2D from '@ohos.graphics.common2D';
 import drawing from '@ohos.graphics.drawing';
 
-export { displaySync, colorSpaceManager, hdrCapability, effectKit, common2D, drawing };
+export { displaySync, colorSpaceManager, effectKit, common2D, drawing };
