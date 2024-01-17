@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit InputMethodKit
+ * @kit IMEKit
  */
 
 import Want from './@ohos.app.ability.Want';
