@@ -30,6 +30,14 @@ import type dataSharePredicates from './@ohos.data.dataSharePredicates';
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @since 10
  */
+/**
+ * Helper functions to access image and video assets
+ *
+ * @namespace photoAccessHelper
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 11
+ */
 declare namespace photoAccessHelper {
   /**
    * Returns an instance of PhotoAccessHelper
