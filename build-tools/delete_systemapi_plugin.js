@@ -186,16 +186,16 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
 function processFileName(filePath) {
   return path
     .basename(filePath)
-    .replace(/.d.ts/g, '.ts')
-    .replace(/.d.ets/g, '.ets');
+    .replace(/\.d\.ts$/g, '.ts')
+    .replace(/\.d\.ets$/g, '.ets');
 }
 
 function processFileNameWithoutExt(filePath) {
   return path
     .basename(filePath)
-    .replace(/.d.ts/g, '')
-    .replace(/.d.ets/g, '')
-    .replace(/.ts/g, '');
+    .replace(/\.d\.ts$/g, '')
+    .replace(/\.d\.ets$/g, '')
+    .replace(/\.ts$/g, '');
 }
 
 /**
@@ -511,8 +511,9 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
     }
   }
   const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
-  const importSpecifierRealPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
-  let hasImportSpecifierFile = fs.existsSync(importSpecifierRealPath);
+  const dtsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
+  const detsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ets`); // import 文件路径判断
+  let hasImportSpecifierFile = fs.existsSync(dtsImportSpecifierPath) || fs.existsSync(detsImportSpecifierPath);
   let hasImportSpecifierInModules = globalModules.has(importSpecifier);
   if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
     let currModule = [];
