@@ -201,11 +201,25 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 9
    */
+  /**
+   * Enumerates state change reason.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   enum StateChangeReason {
     /**
      * State changed by user operation.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * State changed by user operation.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     USER = 1,
 
@@ -213,6 +227,12 @@ declare namespace media {
      * State changed by background action.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * State changed by background action.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     BACKGROUND = 2,
   }
@@ -704,11 +724,25 @@ declare namespace media {
     * @syscap SystemCapability.Multimedia.Media.Core
     * @since 9
     */
+  /**
+   * Enumerates ErrorCode types, return in BusinessError::code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   enum AVErrorCode {
     /**
      * Operation success.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * Operation success.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     AVERR_OK = 0,
 
@@ -717,12 +751,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
      */
+    /**
+     * Permission denied.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     AVERR_NO_PERMISSION = 201,
 
     /**
      * Invalid parameter.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * Invalid parameter.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     AVERR_INVALID_PARAMETER = 401,
 
@@ -731,12 +777,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
      */
+    /**
+     * The api is not supported in the current version.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     AVERR_UNSUPPORT_CAPABILITY = 801,
 
     /**
      * The system memory is insufficient or the number of services reaches the upper limit.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * The system memory is insufficient or the number of services reaches the upper limit.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     AVERR_NO_MEMORY = 5400101,
 
@@ -745,12 +803,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
      */
+    /**
+     * Current status does not allow or do not have permission to perform this operation.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     AVERR_OPERATE_NOT_PERMIT = 5400102,
 
     /**
      * Data flow exception information.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * Data flow exception information.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     AVERR_IO = 5400103,
 
@@ -759,12 +829,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
      */
+    /**
+     * System or network response timeout.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     AVERR_TIMEOUT = 5400104,
 
     /**
      * Service process died.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * Service process died.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     AVERR_SERVICE_DIED = 5400105,
 
@@ -773,11 +855,23 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
      */
+    /**
+     * Unsupported media format.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     AVERR_UNSUPPORT_FORMAT = 5400106,
 
     /**
      * Audio interrupted.
      * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 11
+     */
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
      * @since 11
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
@@ -787,6 +881,13 @@ declare namespace media {
    * Describes AVPlayer states.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 9
+
+   */
+  /**
+   * Describes AVPlayer states.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 11
 
    */
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
@@ -1700,12 +1801,28 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 9
    */
+  /**
+   * Media file descriptor. The caller needs to ensure that the fd is valid and
+   * the offset and length are correct.
+   *
+   * @typedef AVFileDescriptor
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   interface AVFileDescriptor {
     /**
      * The file descriptor of audio or video source from file system. The caller
      * is responsible to close the file descriptor.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * The file descriptor of audio or video source from file system. The caller
+     * is responsible to close the file descriptor.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     fd: number
 
@@ -1715,6 +1832,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
      */
+    /**
+     * The offset into the file where the data to be read, in bytes. By default,
+     * the offset is zero.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     offset?: number
 
     /**
@@ -1722,6 +1846,13 @@ declare namespace media {
      * rest of bytes in the file from the offset.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
+     */
+    /**
+     * The length in bytes of the data to be read. By default, the length is the
+     * rest of bytes in the file from the offset.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     length?: number
   }
@@ -1734,12 +1865,28 @@ declare namespace media {
     * @syscap SystemCapability.Multimedia.Media.AVPlayer
     * @since 10
     */
+  /**
+   * DataSource descriptor. The caller needs to ensure that the fileSize and
+   * callback is valid.
+   *
+   * @typedef AVDataSrcDescriptor
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 11
+   */
   interface AVDataSrcDescriptor {
     /**
      * Size of the file, -1 means the file size is unknown, in this case,
      * seek and setSpeed can't be executed, loop can't be set, and can't replay.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
+     */
+    /**
+     * Size of the file, -1 means the file size is unknown, in this case,
+     * seek and setSpeed can't be executed, loop can't be set, and can't replay.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
      */
     fileSize: number;
     /**
@@ -1751,6 +1898,17 @@ declare namespace media {
      * Returns length of the data to be filled.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
+     */
+    /**
+     * Callback function implemented by users, which is used to fill data.
+     * buffer - The buffer need to fill.
+     * length - The stream length player want to get.
+     * pos - The stream position player want get start, and is an optional parameter.
+     * When fileSize set to -1, this parameter is not used.
+     * Returns length of the data to be filled.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
      */
     callback: (buffer: ArrayBuffer, length: number, pos?: number) => number;
   }
@@ -3389,17 +3547,37 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
    */
+  /**
+   * Enumerates media data type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 11
+   */
   enum MediaType {
     /**
      * track is audio.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
+    /**
+     * track is audio.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
+     */
     MEDIA_TYPE_AUD = 0,
     /**
      * track is video.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     */
+    /**
+     * track is video.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 11
      */
     MEDIA_TYPE_VID = 1,
   }
