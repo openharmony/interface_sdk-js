@@ -11748,6 +11748,19 @@ declare class CommonMethod<T> {
   backgroundColor(value: ResourceColor): T;
 
   /**
+   * PixelRound
+   *
+   * @param { PixelRoundPolicy } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  pixelRound(value: PixelRoundPolicy): T;
+
+  /**
    * Background image
    * src: Image address url
    *
@@ -16316,6 +16329,70 @@ declare interface LinearGradient {
   direction?: GradientDirection;
   colors: Array<any>;
   repeating?: boolean;
+}
+
+/**
+ * Defines the pixel round property.
+ *
+ * @interface PixelRoundPolicy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface PixelRoundPolicy {
+  /**
+   * start property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  start?: PixelRoundCalcPolicy;
+
+  /**
+   * top property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  top?: PixelRoundCalcPolicy;
+
+  /**
+   * end property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  end?: PixelRoundCalcPolicy;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  bottom?: PixelRoundCalcPolicy;
 }
 
 /**
