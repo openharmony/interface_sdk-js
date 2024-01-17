@@ -136,13 +136,10 @@ declare namespace audioHaptic {
     setStreamUsage(id: number, usage: audio.StreamUsage): void;
 
     /**
-     * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
-     * should have the permission of ohos.permission.VIBRATE.
-     * @permission ohos.permission.VIBRATE
+     * Create an audio haptic player. This method uses a promise to return the result.
      * @param { number } id - Source id.
      * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
