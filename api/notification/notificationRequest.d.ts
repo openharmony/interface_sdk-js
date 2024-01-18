@@ -459,6 +459,7 @@ export interface DistributedOptions {
  *
  * @typedef NotificationFilter
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
  * @since 11
  */
 export interface NotificationFilter {
@@ -498,6 +499,7 @@ export interface NotificationFilter {
  *
  * @typedef NotificationCheckRequest
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
  * @since 11
  */
 export interface NotificationCheckRequest {

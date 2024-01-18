@@ -2728,6 +2728,7 @@ declare namespace notificationManager {
    * Defines a NotificationFilter instance.
    *
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 11
    */
   export type NotificationFilter = _NotificationFilter;
@@ -2736,6 +2737,7 @@ declare namespace notificationManager {
    * Defines a NotificationCheckRequest instance.
    *
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 11
    */
   export type NotificationCheckRequest = _NotificationCheckRequest;
