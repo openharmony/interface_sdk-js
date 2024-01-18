@@ -2269,6 +2269,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onSelect(callback: (value: RichEditorSelection) => void): RichEditorAttribute;
 
   /**
+   * Called when selection range or caret position is changed.
+   *
+   * @param { function } callback - The triggered function when change selection range or caret position.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onSelectionChange(callback: (value: RichEditorRange) => void): RichEditorAttribute;
+
+  /**
    * Get text value information when about to input.
    *
    * @param { function } callback - The triggered function when text content is about to insert.
