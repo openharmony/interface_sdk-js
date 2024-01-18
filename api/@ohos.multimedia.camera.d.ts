@@ -2853,46 +2853,6 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Gets the supported filter effects.
-     * 
-     * @returns { Array<number> } List of filter effects, the list must be a subset of {@link FilterType}
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.image
-     */
-    getSupportedFilters(): Array<number>;
-
-    /**
-     * Gets the filter effect in use.
-     *
-     * @returns { number } the filter effect in use, included in {@link FilterType}
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.image
-     */
-    getFilter(): number;
-
-    /**
-     * Sets a filter effect for a camera device.
-     *
-     * @param { number } filter - Filter effect to set. The filter must be included in {@link FilterType}
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.image
-     */
-    setFilter(filter: number): void;
-
-    /**
      * Gets supported beauty effect types.
      *
      * @returns { Array<BeautyType> } List of beauty effect types.
