@@ -17,6 +17,7 @@ const ts = require('typescript');
 const { ApiDigestInfo } = require('./api_data');
 const { DiffReporter } = require('./reporter');
 const { StatusCode } = require('./reporter');
+const { getCheckApiVersion } = require('../../api_check_plugin/src/utils')
 
 class TagItem {
   constructor() { }
@@ -253,6 +254,7 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
   const newTagItem = getTagItemFromJSDoc(newApi);
   const useinstead = getApiUseInstead(newApi);
   const hint = useinstead.length > 0 ? `useinstead: ${useinstead[0]}` : '';
+  diffHistoricalJsDoc(oldApi, newApi, diffReporter, hint);
   diffErrorCode(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffPermission(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffForm(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
@@ -261,6 +263,64 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
   diffApiLevel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffAppModel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffType(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
+}
+
+function getLatestVersion(jsdocs) {
+  if (!jsdocs) {
+    return;
+  }
+  const jsdoc = jsdocs[jsdocs.length - 1];
+  let apiLatestVersion = '';
+  jsdoc.tags.forEach(tagObject => {
+    if (tagObject.tag === 'since') {
+      apiLatestVersion = tagObject.name;
+    }
+  })
+  return apiLatestVersion;
+}
+
+function diffHistoricalJsDoc(oldApi, newApi, diffReporter, hint) {
+  const currentVersion = getCheckApiVersion();
+  const oldJsDocTextArr = oldApi.getAstNode().getFullText().replace(oldApi.getAstNode().getText(), '').split('*/');
+  const newJsDocTextArr = newApi.getAstNode().getFullText().replace(oldApi.getAstNode().getText(), '').split('*/');
+  if (!oldApi.jsdoc) {
+    return;
+  }
+  const oldLatestVersion = getLatestVersion(oldApi.jsdoc);
+  const newLatestVersion = getLatestVersion(newApi.jsdoc);
+  if (oldLatestVersion === currentVersion) {
+    oldJsDocTextArr.splice(-2);
+  } else {
+    oldJsDocTextArr.splice(-1);
+  }
+
+  if (newLatestVersion === currentVersion) {
+    newJsDocTextArr.splice(-2);
+  } else {
+    newJsDocTextArr.splice(-1);
+  }
+
+  if (oldJsDocTextArr.length !== newJsDocTextArr.length) {
+    diffReporter.addDiffInfo(wrapApiChanges(newApi, StatusCode.HOSTORICAL_JSDOC_CHANGE,
+      '',
+      '',
+      hint,
+      oldApi.node,
+      newApi.node
+    ));
+    return;
+  }
+  for (let i = 0; i < oldJsDocTextArr.length; i++) {
+    if (oldJsDocTextArr[i].replace(/\r|\n|\s+/g, '') !== newJsDocTextArr[i].replace(/\r|\n|\s+/g, '')) {
+      diffReporter.addDiffInfo(wrapApiChanges(newApi, StatusCode.HOSTORICAL_JSDOC_CHANGE,
+        '',
+        '',
+        hint,
+        oldApi.node,
+        newApi.node
+      ));
+    }
+  }
 }
 
 /**
@@ -708,7 +768,7 @@ function createTagItemFromJSDoc(jsdocs) {
       }
     });
   }
-  
+
   if (firstJsDoc.tags) {
     firstJsDoc.tags.forEach((tagObject) => {
       if (tagObject.tag.toLowerCase() === 'since') {
