@@ -81,7 +81,6 @@ export default class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @atomicservice
    * @since 11
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
@@ -95,7 +94,6 @@ export default class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @atomicservice
    * @since 11
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
