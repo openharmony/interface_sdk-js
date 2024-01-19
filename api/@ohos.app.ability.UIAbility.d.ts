@@ -479,15 +479,6 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Call Service Stub Object.
-   *
-   * @type { Callee }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   callee: Callee;
 
   /**
