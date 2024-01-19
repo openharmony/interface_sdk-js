@@ -1076,6 +1076,17 @@ declare class NavPathStack {
   getIndexByName(name: string): Array<number>;
 
   /**
+   * Obtains the parent of the current stack.
+   *
+   * @returns { NavPathStack | null } Returns the parent of the current stack. If no parent, it returns null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  getParent(): NavPathStack | null;
+
+  /**
    * Obtains the size of the stack.
    *
    * @returns { number } Returns the size of the stack.

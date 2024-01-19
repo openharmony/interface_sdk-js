@@ -250,6 +250,39 @@ declare interface NavDestinationInterface {
 }
 
 /**
+ * Indicates the context of NavDestination.
+ *
+ * @interface NavDestinationContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface NavDestinationContext {
+  /**
+   * Get path info.
+   *
+   * @type { NavPathInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  pathInfo: NavPathInfo;
+
+  /**
+   * Get stack of the Navigation where the NavDestination is located.
+   *
+   * @type { NavPathStack }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  pathStack: NavPathStack;
+}
+
+/**
  * The attribute function of NavDestination
  *
  * @extends CommonMethod<NavDestinationAttribute>
@@ -416,6 +449,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
+
+  /**
+   * Invoked before sub-components of NavDestination are created.
+   *
+   * @param { import('../api/@ohos.base').Callback<NavDestinationContext> } callback
+   * - Indicates callback that invoked before sub-components of NavDestination are created.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReady(callback: import('../api/@ohos.base').Callback<NavDestinationContext>): NavDestinationAttribute;
 }
 
 /**
