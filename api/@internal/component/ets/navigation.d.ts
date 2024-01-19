@@ -1405,6 +1405,72 @@ declare interface ToolbarItem {
 }
 
 /**
+ * Indicates the options of Navigation's Titlebar.
+ *
+ * @interface NavigationTitleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface NavigationTitleOptions {
+  /**
+   * Background color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Background blur style.
+   *
+   * @type { ?BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
+}
+
+/**
+ * Indicates the options of Navigation's Toolbar.
+ *
+ * @interface NavigationToolbarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface NavigationToolbarOptions {
+  /**
+   * Background color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Background blur style.
+   *
+   * @type { ?BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  backgroundBlurStyle?: BlurStyle;
+}
+
+/**
  * Declare Navigation view properties.
  *
  * @extends CommonMethod<NavigationAttribute>
@@ -1646,13 +1712,14 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * Navigation title
    *
    * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value
+   * @param { NavigationTitleOptions } [options] - Indicates the options of titlebar.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
+  title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle, options?: NavigationTitleOptions): NavigationAttribute;
 
   /**
    * Navigation subtitle
@@ -1808,6 +1875,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * Configure toolbar with default style parameter or custom parameter.
     *
     * @param { Array<ToolbarItem> | CustomBuilder } value - Toolbar configuration parameters.
+    * @param { NavigationToolbarOptions } [options] - Indicates the options of toolbar.
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
@@ -1815,7 +1883,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @since 11
     * @form
     */
-  toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder): NavigationAttribute;
+  toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavigationAttribute;
 
   /**
    * Hide tool bar
