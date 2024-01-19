@@ -2160,7 +2160,6 @@ declare namespace camera {
   interface Session {
     /**
      * Begin capture session config.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @throws { BusinessError } 7400105 - Session config locked.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2170,7 +2169,6 @@ declare namespace camera {
 
     /**
      * Commit capture session config.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400102 - Operation not allowed.
@@ -2182,7 +2180,6 @@ declare namespace camera {
 
     /**
      * Commit capture session config.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400102 - Operation not allowed.
@@ -2206,7 +2203,6 @@ declare namespace camera {
     /**
      * Adds a camera input.
      * This method is valid between Session.beginConfig() and Session.commitConfig().
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { CameraInput } cameraInput - Target camera input to add.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -2220,7 +2216,6 @@ declare namespace camera {
     /**
      * Removes a camera input.
      * This method is valid between Session.beginConfig() and Session.commitConfig().
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { CameraInput } cameraInput - Target camera input to remove.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -2245,7 +2240,6 @@ declare namespace camera {
     /**
      * Adds a camera output.
      * This method is valid after Session.addInput(cameraInput) and before Session.commitConfig().
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { CameraOutput } cameraOutput - Target camera output to add.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -2259,7 +2253,6 @@ declare namespace camera {
     /**
      * Removes a camera output.
      * This method is valid between Session.beginConfig() and Session.commitConfig().
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { CameraOutput } cameraOutput - Target camera output to remove.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -2272,7 +2265,6 @@ declare namespace camera {
 
     /**
      * Starts capture session.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -2284,7 +2276,6 @@ declare namespace camera {
 
     /**
      * Starts capture session.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -2296,7 +2287,6 @@ declare namespace camera {
 
     /**
      * Stops capture session.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -2307,7 +2297,6 @@ declare namespace camera {
 
     /**
      * Stops capture session.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -2318,7 +2307,6 @@ declare namespace camera {
 
     /**
      * Release capture session instance.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -2329,7 +2317,6 @@ declare namespace camera {
 
     /**
      * Release capture session instance.
-     * Move to Session interface from CaptureSession interface since 11.
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -2919,7 +2906,6 @@ declare namespace camera {
   interface PhotoSessionForSys extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Macro {
     /**
      * Subscribes to error events.
-     * Move to PhotoSession interface from CaptureSession interface since 11.
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
@@ -2931,7 +2917,6 @@ declare namespace camera {
 
     /**
      * Unsubscribes from error events.
-     * Move to PhotoSession interface from CaptureSession interface since 11.
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
@@ -2943,7 +2928,6 @@ declare namespace camera {
 
     /**
      * Subscribes focus state change event callback.
-     * Move to PhotoSession interface from CaptureSession interface since 11.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2955,7 +2939,6 @@ declare namespace camera {
 
     /**
      * Unsubscribes from focus state change event callback.
-     * Move to PhotoSession interface from CaptureSession interface since 11.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -3210,7 +3193,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Macro, Stabilization {
+  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization {
     /**
      * Subscribes to error events.
      *
@@ -3368,7 +3351,7 @@ declare namespace camera {
      */
     /**
      * Gets supported portrait effect.
-     * Move to Portrait interface from CaptureSession interface since 11.
+     * Move to Portrait interface from PortraitPhotoSession interface since 11.
      *
      * @returns { Array<PortraitEffect> } List of portrait effect.
      * @throws { BusinessError } 202 - Not System Application.
@@ -3390,7 +3373,7 @@ declare namespace camera {
      */
     /**
      * Gets the portrait effect in use.
-     * Move to Portrait interface from CaptureSession interface since 11.
+     * Move to Portrait interface from PortraitPhotoSession interface since 11.
      *
      * @returns { PortraitEffect } The portrait effect in use.
      * @throws { BusinessError } 202 - Not System Application.
@@ -3412,7 +3395,7 @@ declare namespace camera {
      */
     /**
      * Sets a portrait effect for a camera device.
-     * Move to Portrait interface from CaptureSession interface since 11.
+     * Move to Portrait interface from PortraitPhotoSession interface since 11.
      *
      * @param { PortraitEffect } effect - Effect Portrait effect to set.
      * @throws { BusinessError } 202 - Not System Application.
