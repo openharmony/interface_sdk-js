@@ -3007,7 +3007,7 @@ declare namespace camera {
    * @systemapi
    * @since 11
    */
-  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Stabilization {
+  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro {
   }
 
   /**
