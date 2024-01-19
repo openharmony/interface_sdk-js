@@ -125,12 +125,12 @@ export declare class ToolBarOption {
   icon?: Resource;
   /**
    * Define item type.
-   * @type { ?Resource }.
+   * @type { ?ItemState }.
    * @since 10
    */
   /**
    * Define item type.
-   * @type { ?Resource }.
+   * @type { ?ItemState }.
    * @atomicservice
    * @since 11
    */
