@@ -129,6 +129,7 @@ collectable
 colno
 colorfilter
 complies
+compositing
 compresses
 cone
 conferencing

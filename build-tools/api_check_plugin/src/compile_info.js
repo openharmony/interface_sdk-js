@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 const path = require('path');
+const fs = require('fs');
 const result = require('../check_result.json');
-const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr } = require('../src/utils');
+const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr, requireTypescriptModule } = require('../src/utils');
+const ts = requireTypescriptModule();
 
 /**
  *
@@ -27,9 +29,6 @@ const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr } =
  * @param {Enum} level enum object:ErrorLevel
  */
 function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, type, level) {
-  if (level === ErrorLevel.HIGH || level === ErrorLevel.MIDDLE) {
-    ApiCheckResult.formatCheckResult = false;
-  }
   const checkFailFileNameSet = new Set(result.apiFiles);
   if (!checkFailFileNameSet.has(fileName)) {
     result.apiFiles.push(fileName);
@@ -37,6 +36,13 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.getStart());
   const baseFileName = fileName.substring(fileName.indexOf('api'), fileName.length);
   const errorMessage = `API check error of [${errorType.description}]: ${errorInfo}`;
+  const needMask = checkMarkError(node, errorMessage, baseFileName);
+  if (needMask) {
+    return;
+  }
+  if (level === ErrorLevel.HIGH || level === ErrorLevel.MIDDLE) {
+    ApiCheckResult.formatCheckResult = false;
+  }
 
   apiCheckArr.push({
     errorType: errorType.description,
@@ -59,3 +65,91 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   });
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;
+
+function checkMarkError(node, errorMessage, baseFileName) {
+  let needMasking = false;
+  let apiName = '';
+  if (node.name?.text) {
+    apiName = node.name.text;
+  } else if (node.escapedText) {
+    apiName = node.escapedText;
+  }
+  const apiText = node.getText().replace(/\r|\n|(\r\n)|\s/g, '');
+  const apiKindName = Object.keys(ts.SyntaxKind).find(k => ts.SyntaxKind[k] === node?.kind);
+  const apiParentKind = [apiKindName];
+  getParentkind(node, apiParentKind);
+
+  // unicode->json
+  const maskInfos = parseUnicodeConfig();
+  maskInfos.maskInformations.forEach(maskInfo => {
+    if (maskInfo.kind === apiKindName &&
+      maskInfo.name === apiName &&
+      maskInfo.hierarchicalRelationship === JSON.stringify(apiParentKind) &&
+      maskInfo.text.replace(/\s/g, '') === apiText &&
+      maskInfo.errorMassage === errorMessage &&
+      JSON.stringify(maskInfo.fileName) === JSON.stringify(baseFileName)) {
+      needMasking = true;
+    }
+  });
+  return needMasking;
+}
+
+function getParentkind(node, parentkindArr) {
+  if (ts.isSourceFile(node)) {
+    return parentkindArr;
+  }
+  if (ts.isSourceFile(node.parent)) {
+    parentkindArr.push(Object.keys(ts.SyntaxKind).find(k => ts.SyntaxKind[k] === node.parent.kind));
+    return parentkindArr;
+  }
+  if (!ts.isModuleBlock(node.parent)) {
+    parentkindArr.push(Object.keys(ts.SyntaxKind).find(k => ts.SyntaxKind[k] === node.parent.kind));
+    getParentkind(node.parent, parentkindArr);
+  } else if (ts.isModuleBlock(node.parent)) {
+    getParentkind(node.parent, parentkindArr);
+  }
+}
+exports.getParentkind = getParentkind;
+
+function parseUnicodeConfig() {
+  if (fs.existsSync('../config/errorMaskWhitelist.txt')) {
+    const maskInformations = fs.readFileSync('../config/errorMaskWhitelist.txt', 'utf-8');
+    let maskInfoString = '';
+    if (maskInformations && maskInformations.indexOf("\\u") !== -1) {
+      let valArr = maskInformations.split("\\u");
+      for (var j = 0; j < valArr.length; j++) {
+        if (valArr[j] === '') {
+          continue;
+        }
+        maskInfoString += String.fromCharCode(parseInt(valArr[j], 16));
+      }
+    }
+    const maskInfos = JSON.parse(maskInfoString);
+    return maskInfos;
+    // fs.writeFileSync('./errorlist.json', maskInfoString);
+    // string2unicode();
+  }
+}
+
+function string2unicode() {
+  const str = fs.readFileSync('../test/errorlist.json', 'utf-8');
+  var ret = "";
+  var ustr = "";
+
+  for (var i = 0; i < str.length; i++) {
+    var code = str.charCodeAt(i);
+    var code16 = code.toString(16);
+    if (code < 0xf) {
+      ustr = "\\u" + "000" + code16;
+    } else if (code < 0xff) {
+      ustr = "\\u" + "00" + code16;
+    } else if (code < 0xfff) {
+      ustr = "\\u" + "0" + code16;
+    } else {
+      ustr = "\\u" + code16;
+    }
+    ret += ustr;
+  }
+  fs.writeFileSync('errorlist.txt', ret);
+  return ret;
+}
