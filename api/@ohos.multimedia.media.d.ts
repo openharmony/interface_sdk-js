@@ -1262,6 +1262,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
+    /**
+     * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
+     */
     readonly duration: number;
 
     /**
