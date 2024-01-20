@@ -362,6 +362,7 @@ export enum ApiStatusCode {
   NEW_CLASS = 22,
   NEW_DECORATOR = 23,
   DELETE_DECORATOR = 24,
+  KIT_CHANGE = 26,
 }
 
 export enum ApiDiffType {
@@ -445,6 +446,7 @@ export enum ApiDiffType {
   SINCE_VERSION_A_TO_B,
   HISTORICAL_JSDOC_CHANGE,
   HISTORICAL_API_CHANGE,
+  KIT_CHANGE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -513,6 +515,7 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_A_TO_B, '起始版本有变化'],
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, '起始版本有变化'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本有变化'],
+  [ApiDiffType.KIT_CHANGE, 'kit变更'],
 ]);
 
 export const diffMap: Map<ApiDiffType, string> = new Map([
@@ -583,6 +586,7 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本号新增'],
   [ApiDiffType.HISTORICAL_JSDOC_CHANGE, '历史版本jsdoc变更'],
   [ApiDiffType.HISTORICAL_API_CHANGE, '历史版本API变更'],
+  [ApiDiffType.KIT_CHANGE, 'kit变更'],
 ]);
 
 export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
