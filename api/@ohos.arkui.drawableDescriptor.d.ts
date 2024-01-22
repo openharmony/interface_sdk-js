@@ -26,6 +26,13 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Use the DrawableDescriptor class to get drawable image.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export class DrawableDescriptor {
   /**
    * Creates a new DrawableDescriptor.
@@ -43,6 +50,14 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Get pixelMap of drawable image.
+   *
+   * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   getPixelMap(): image.PixelMap;
 }
 
@@ -53,6 +68,14 @@ export class DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Use the LayeredDrawableDescriptor class to get the foreground, the background and the mask DrawableDescriptor.
+ *
+ * @extends DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
    * Get DrawableDescriptor for the foreground.
@@ -60,6 +83,14 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get DrawableDescriptor for the foreground.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   getForeground(): DrawableDescriptor;
 
@@ -70,6 +101,14 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Get DrawableDescriptor for the background.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   getBackground(): DrawableDescriptor;
 
   /**
@@ -78,6 +117,14 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get DrawableDescriptor for the mask.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   getMask(): DrawableDescriptor;
 
@@ -88,6 +135,14 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { string } Return the clip path info of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get the clip path info of the adaptive icon mask.
+   *
+   * @returns { string } Return the clip path info of mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   static getMaskClipPath(): string;
 }
