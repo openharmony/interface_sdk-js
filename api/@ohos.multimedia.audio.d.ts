@@ -3828,7 +3828,7 @@ declare namespace audio {
     drain(): Promise<void>;
 
     /**
-     * Flushs the playback buffer. This method uses a promise to return the result.
+     * Flushes the playback buffer. This method uses a promise to return the result.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
