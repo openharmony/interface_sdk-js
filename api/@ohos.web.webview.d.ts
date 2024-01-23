@@ -3840,6 +3840,54 @@ declare namespace webview {
      * @since 11
      */
     isIncognitoMode(): boolean;
+
+    /**
+     * Set whether scroll is allowed
+     *
+     * @param { boolean } enable - Set whether scrolling is allowed
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setScrollable(enable: boolean): void;
+
+    /**
+     * Get whether scrolling is allowed.
+     * @returns { boolean } Get scrolling is allowed information.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getScrollable(): boolean;
+
+    /**
+     * Set whether print web page background.
+     *
+     * @param { boolean } enable - Set whether print web page background
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setPrintBackground(enable: boolean): void;
+
+    /**
+     * Get whether print web page background.
+     * @returns { boolean } Get whether print web page background.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getPrintBackground(): boolean;
   }
 
   /**
