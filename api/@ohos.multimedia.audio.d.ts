@@ -3813,8 +3813,6 @@ declare namespace audio {
      *        Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated
-     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
     /**
@@ -3824,8 +3822,6 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated
-     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer): Promise<number>;
 
@@ -4514,8 +4510,6 @@ declare namespace audio {
      * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the buffer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
-     * @deprecated
-     * @useinstead ohos.multimedia.audio.AudioRenderer#event:readData
      */
     read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void;
     /**
@@ -4526,8 +4520,6 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
-     * @deprecated
-     * @useinstead ohos.multimedia.audio.AudioRenderer#event:readData
      */
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
 
@@ -4734,6 +4726,28 @@ declare namespace audio {
      * @since 11
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
+
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for reading more data.
+     * @param { 'readData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback with the buffer to read.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    on(type: 'readData', callback: Callback<ArrayBuffer>): void;
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'readData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
   }
 
   /**
