@@ -27,6 +27,14 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 10
  */
+/**
+ * Provides methods for enabling/disabling bluetooth or monitoring bluetooth state.
+ *
+ * @namespace access
+ * @syscap SystemCapability.Communication.Bluetooth.Core
+ * @atomicservice
+ * @since 11
+ */
 declare namespace access {
   /**
    * Enables Bluetooth on a device.
