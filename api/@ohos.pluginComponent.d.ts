@@ -284,7 +284,7 @@ declare namespace pluginComponentManager {
     /**
      * Defines jsonPath.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9
