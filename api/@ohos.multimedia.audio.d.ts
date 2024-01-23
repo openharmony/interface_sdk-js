@@ -1722,7 +1722,7 @@ declare namespace audio {
      * Sets extra audio parameters. This method uses a promise to return the result.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @param { string } mainKey - Main key of the audio parameters to set.
-     * @param { string } kvpairs - Key-value pairs with subkeys and values to set.
+     * @param { Record<string, string> } kvpairs - Key-value pairs with subkeys and values to set.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -3816,7 +3816,7 @@ declare namespace audio {
      *        Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated
+     * @deprecated since 11
      * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
@@ -3827,7 +3827,7 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
-     * @deprecated
+     * @deprecated since 11
      * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer): Promise<number>;
@@ -4517,7 +4517,7 @@ declare namespace audio {
      * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the buffer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
-     * @deprecated
+     * @deprecated since 11
      * @useinstead ohos.multimedia.audio.AudioCapturer#event:readData
      */
     read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void;
@@ -4529,7 +4529,7 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
-     * @deprecated
+     * @deprecated since 11
      * @useinstead ohos.multimedia.audio.AudioCapturer#event:readData
      */
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
