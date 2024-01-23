@@ -1680,6 +1680,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#setExtraParameters
      */
     setAudioParameter(key: string, value: string, callback: AsyncCallback<void>): void;
     /**
@@ -1690,14 +1692,19 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#setExtraParameters
      */
     setAudioParameter(key: string, value: string): Promise<void>;
+
     /**
      * Obtains the value of an audio parameter. This method uses an asynchronous callback to return the query result.
      * @param { string } key - Key of the audio parameter whose value is to be obtained.
      * @param { AsyncCallback<string> } callback - Callback used to return the value of the audio parameter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#getExtraParameters
      */
     getAudioParameter(key: string, callback: AsyncCallback<string>): void;
     /**
@@ -1706,8 +1713,33 @@ declare namespace audio {
      * @returns { Promise<string> } Promise used to return the value of the audio parameter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#getExtraParameters
      */
     getAudioParameter(key: string): Promise<string>;
+
+    /**
+     * Sets extra audio parameters. This method uses a promise to return the result.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @param { string } mainKey - Main key of the audio parameter to set.
+     * @param { string } kvpairs - Key-value pairs to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    setExtraParameters(mainKey: string, kvpairs: Record<string, string>): Promise<void>;
+
+    /**
+     * Obtains the values of a certain key. This method uses a promise to return the query result.
+     * @param { string } mainKey - Main key of the audio parameter to get.
+     * @returns { Promise<Record<string, string>> } Promise used to return the key-value pairs.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    getExtraParameters(mainKey: string): Promise<Record<string, string>>;
+
     /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
      * @param { ActiveDeviceType } deviceType - Audio device type.
@@ -2730,6 +2762,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2739,8 +2773,21 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
+
+    /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 11
+     */
+    setMicMute(mute: boolean): Promise<void>;
 
     /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
@@ -3776,6 +3823,8 @@ declare namespace audio {
      *        Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
     /**
@@ -3785,6 +3834,8 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer): Promise<number>;
 
@@ -4473,6 +4524,8 @@ declare namespace audio {
      * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the buffer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:readData
      */
     read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void;
     /**
@@ -4483,6 +4536,8 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     * @deprecated
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:readData
      */
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
 
