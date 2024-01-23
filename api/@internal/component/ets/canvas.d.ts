@@ -5288,14 +5288,13 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  *
- * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  * @form
  */
-declare class OffscreenCanvas extends CanvasRenderer {
+declare class OffscreenCanvas {
   /**
    * Height of the off-screen canvas.
    *
