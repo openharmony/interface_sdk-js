@@ -98,7 +98,7 @@ declare namespace defaultAppManager {
      * Default email identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 11
+     * @since 12
      */
     EMAIL = 'Email'
   }
