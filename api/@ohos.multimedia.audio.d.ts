@@ -4275,6 +4275,29 @@ declare namespace audio {
      * @since 11
      */
     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for writing more data.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback with buffer to write.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    on(type: 'writeData', callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    off(type: 'writeData', callback?: Callback<ArrayBuffer>): void;
   }
 
   /**
@@ -4749,6 +4772,7 @@ declare namespace audio {
      * @since 11
      */
     on(type: 'readData', callback: Callback<ArrayBuffer>): void;
+
     /**
      * Unsubscribes audio data callback.
      * @param { 'readData' } type - Type of the event to listen for.
