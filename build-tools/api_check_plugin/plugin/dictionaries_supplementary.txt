@@ -274,6 +274,7 @@ fileshare
 fillets
 flac
 flg
+flushes
 foldable
 foregrounding
 formatable
