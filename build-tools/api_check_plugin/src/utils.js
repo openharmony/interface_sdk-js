@@ -274,7 +274,7 @@ exports.getApiInfo = getApiInfo;
 function getApiVersion(node) {
   if (getApiInfo(node).humpVersion) {
     return getApiInfo(node).humpVersion;
-  } else if (node.parent) {
+  } else if (node.parent && !ts.isSourceFile(node.parent)) {
     return getApiVersion(node.parent);
   } else {
     return 'NA';
