@@ -1724,6 +1724,8 @@ declare namespace audio {
      * @param { string } mainKey - Main key of the audio parameter to set.
      * @param { string } kvpairs - Key-value pairs to set.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 11
@@ -1734,6 +1736,8 @@ declare namespace audio {
      * Obtains the values of a certain key. This method uses a promise to return the query result.
      * @param { string } mainKey - Main key of the audio parameter to get.
      * @returns { Promise<Record<string, string>> } Promise used to return the key-value pairs.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 11
