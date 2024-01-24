@@ -1344,11 +1344,11 @@ declare namespace media {
 
     /**
      * Get media key system info from media source.
-     * @returns { Array<MediaKeySystemInfo> } MediaKeySystemInfo with PSSH.
+     * @returns { Array<drm.MediaKeySystemInfo> } MediaKeySystemInfo with PSSH.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    getMediaKeySystemInfos(): Array<MediaKeySystemInfo>;
+    getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
 
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
@@ -1357,7 +1357,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    on(type: 'mediaKeySystemInfoUpdate', callback: (mediaKeySystemInfo: Array<MediaKeySystemInfo>) => void): void;
+    on(type: 'mediaKeySystemInfoUpdate', callback: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
 
     /**
      * Unregister listens for mediaKeySystemInfoUpdate events.
@@ -1366,7 +1366,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<MediaKeySystemInfo>) => void): void;
+    off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
 
     /**
      * Register listens for media playback events.
