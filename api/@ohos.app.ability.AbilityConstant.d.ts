@@ -131,6 +131,17 @@ declare namespace AbilityConstant {
      * @since 11
      */
     lastExitReason: LastExitReason;
+
+    /**
+     * Indicates last exit detailed reason.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    lastExitMsg: string;
   }
 
   /**
