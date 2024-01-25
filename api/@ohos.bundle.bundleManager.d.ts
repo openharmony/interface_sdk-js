@@ -1817,6 +1817,17 @@ declare namespace bundleManager {
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
 
   /**
+   * Clears cache data of own application.
+   *
+   * @returns { Promise<void> } Clean bundle cache files result
+   * @throws { BusinessError } 17700030 - Own application does not support clearing of cache files.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  function cleanBundleCacheFiles(): Promise<void>;
+
+  /**
    * Sets whether to enable a specified application.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
