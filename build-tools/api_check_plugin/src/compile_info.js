@@ -81,13 +81,16 @@ function checkMarkError(node, errorMessage, baseFileName) {
 
   // unicode->json
   const maskInfos = parseUnicodeConfig();
+  if (maskInfos === '') {
+    return needMasking;
+  }
   maskInfos.maskInformations.forEach(maskInfo => {
     if (maskInfo.kind === apiKindName &&
       maskInfo.name === apiName &&
       maskInfo.hierarchicalRelationship === JSON.stringify(apiParentKind) &&
       maskInfo.text.replace(/\s/g, '') === apiText &&
       maskInfo.errorMassage === errorMessage &&
-      JSON.stringify(maskInfo.fileName) === JSON.stringify(baseFileName)) {
+      JSON.stringify(maskInfo.fileName) === JSON.stringify(baseFileName.split(path.sep).join('\\'))) {
       needMasking = true;
     }
   });
@@ -112,8 +115,9 @@ function getParentkind(node, parentkindArr) {
 exports.getParentkind = getParentkind;
 
 function parseUnicodeConfig() {
-  if (fs.existsSync('../config/errorMaskWhitelist.txt')) {
-    const maskInformations = fs.readFileSync('../config/errorMaskWhitelist.txt', 'utf-8');
+  let maskInfos = '';
+  if (fs.existsSync(path.resolve(__dirname, '../config/errorMaskWhiteList.txt'))) {
+    const maskInformations = fs.readFileSync(path.resolve(__dirname, '../config/errorMaskWhiteList.txt'), 'utf-8');
     let maskInfoString = '';
     if (maskInformations && maskInformations.indexOf("\\u") !== -1) {
       let valArr = maskInformations.split("\\u");
@@ -124,11 +128,9 @@ function parseUnicodeConfig() {
         maskInfoString += String.fromCharCode(parseInt(valArr[j], 16));
       }
     }
-    const maskInfos = JSON.parse(maskInfoString);
-    return maskInfos;
-    // fs.writeFileSync('./errorlist.json', maskInfoString);
-    // string2unicode();
+    maskInfos = JSON.parse(maskInfoString);
   }
+  return maskInfos;
 }
 
 function string2unicode() {
