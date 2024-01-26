@@ -5836,7 +5836,7 @@ declare interface MultiShadowOptions {
    * Current shadow radius.
    * 
    * @type { ?(number | Resource) }
-   * @default 5
+   * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
