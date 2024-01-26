@@ -820,8 +820,6 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Participants to share.
      * @param { Array<string> } [columns] - Columns to be shared.
      * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -846,8 +844,6 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Participants to share.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
      * callback invoked to return the {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -873,8 +869,6 @@ declare namespace cloudData {
      * @param { Array<string> } columns - Columns to be shared.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
      * callback invoked to return the {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -899,8 +893,6 @@ declare namespace cloudData {
      * involved in the data sharing.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
      * callback invoked to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -922,8 +914,6 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -945,8 +935,6 @@ declare namespace cloudData {
      * involved.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the callback invoked
      * to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -968,8 +956,6 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -988,8 +974,6 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { AsyncCallback<Result<void>> } callback - The callback of exit.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1005,8 +989,6 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<void>> } - The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1025,8 +1007,6 @@ declare namespace cloudData {
      * whose permissions are to be changed.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
      * callback invoked to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1048,8 +1028,6 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1069,8 +1047,6 @@ declare namespace cloudData {
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
