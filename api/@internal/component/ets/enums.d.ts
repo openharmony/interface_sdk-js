@@ -8762,6 +8762,7 @@ declare enum DialogButtonStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum WordBreak {
@@ -8770,6 +8771,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   NORMAL = 0,
@@ -8779,6 +8781,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   BREAK_ALL = 1,
@@ -8789,6 +8792,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   BREAK_WORD = 2,
