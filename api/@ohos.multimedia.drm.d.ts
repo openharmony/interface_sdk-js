@@ -522,17 +522,6 @@ declare namespace drm {
   }
 
   /**
-   * Get a MediaKeySystem name.
-   * @param { string } uuid - The MediaKeySystem's uuid, normally gotten from media source.
-   * @returns { string } The MediaKeySystem name, if not found.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  function getMediaKeySystemName(uuid: string): string;
-
-  /**
    * Creates a MediaKeySystem instance.
    * @param { string } name - Used to point a Digital Right Management solution.
    * @returns { MediaKeySystem } The MediaKeySystem instance.
