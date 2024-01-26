@@ -15400,7 +15400,7 @@ declare class CommonMethod<T> {
    *
    * @param { string | FunctionKey } value - Character of the combination key.
    * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15411,7 +15411,7 @@ declare class CommonMethod<T> {
    *
    * @param { string | FunctionKey } value - Character of the combination key.
    * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
