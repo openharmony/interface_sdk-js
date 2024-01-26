@@ -37,6 +37,7 @@
 declare class AppStorage {
   /**
    * Called when a link is set.
+   * Create and return a two-way sync ("link") to named property
    *
    * @param { string } propName
    * @returns { any }
@@ -48,7 +49,7 @@ declare class AppStorage {
   static Link(propName: string): any;
 
   /**
-   * Create and return a two-way sync "(link") to named property
+   * Create and return a two-way sync ("link") to named property
    * Same as @see LocalStorage.link()
    *
    * @param { string } propName - name of source property in AppStorage
@@ -59,7 +60,7 @@ declare class AppStorage {
    * @since 10
    */
   /**
-   * Create and return a two-way sync "(link") to named property
+   * Create and return a two-way sync ("link") to named property
    * Same as @see LocalStorage.link()
    *
    * @param { string } propName - name of source property in AppStorage
@@ -73,6 +74,9 @@ declare class AppStorage {
   static link<T>(propName: string): SubscribedAbstractProperty<T>;
 
   /**
+   * Like see @Link(), but will create and initialize a new source property in AppStorage if missing
+   * Same as see LocalStorage.setAndLink()
+   *
    * @param { string } propName
    * @param { T } defaultValue
    * @returns { SubscribedAbstractProperty<T> }
@@ -113,6 +117,7 @@ declare class AppStorage {
 
   /**
    * Called when a property is set.
+   * Create and return a one-way sync ('prop') to named property
    *
    * @param { string } propName
    * @returns { any }
@@ -149,6 +154,9 @@ declare class AppStorage {
   static prop<T>(propName: string): SubscribedAbstractProperty<T>;
 
   /**
+   * Like see Prop(), will create and initialize a new source property in AppStorage if missing
+   * Same as see LocalStorage.setAndProp()
+   *
    * @param { string } propName
    * @param { S } defaultValue
    * @returns { SubscribedAbstractProperty<S> }
@@ -161,10 +169,10 @@ declare class AppStorage {
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
-   * 
+   *
    * Like @see prop(), will create and initialize a new source property in AppStorage if missing
    * Same as see LocalStorage.setAndProp()
-   * 
+   *
    * @param { string } propName - name of source property in AppStorage
    * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
@@ -175,10 +183,10 @@ declare class AppStorage {
    * @since 10
    */
   /**
-   * 
+   *
    * Like @see prop(), will create and initialize a new source property in AppStorage if missing
    * Same as see LocalStorage.setAndProp()
-   * 
+   *
    * @param { string } propName - name of source property in AppStorage
    * @param { T } defaultValue - value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
@@ -192,6 +200,11 @@ declare class AppStorage {
   static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
+   * Checks if AppStorage has a property with given name
+   * returns true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   * Same as see LocalStorage.has()
+   *
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -230,6 +243,8 @@ declare class AppStorage {
   static has(propName: string): boolean;
 
   /**
+   * Same as see LocalStorage.get()
+   * Obtain the value of property with given name, returns undefined if the property does not exist in AppStorage.
    * @param { string } propName
    * @returns { T | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -264,6 +279,11 @@ declare class AppStorage {
   static get<T>(propName: string): T | undefined;
 
   /**
+   * Set value of given property in AppStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null`.
+   * Same as see LocalStorage.set()
+   *
    * @param { string } propName
    * @param { T } newValue
    * @returns { boolean }
@@ -279,7 +299,7 @@ declare class AppStorage {
    * Set value of given property in AppStorage
    * Method sets nothing and returns false if property with this name does not exist
    * or if newValue is `undefined` or `null`.
-   * Same as see LocalStorage.set
+   * Same as see LocalStorage.set()
    *
    * @param { string } propName
    * @param { T } newValue - must be of type T and must not be undefined or null
@@ -292,7 +312,7 @@ declare class AppStorage {
    * Set value of given property in AppStorage
    * Method sets nothing and returns false if property with this name does not exist
    * or if newValue is `undefined` or `null`.
-   * Same as see LocalStorage.set
+   * Same as see LocalStorage.set()
    *
    * @param { string } propName
    * @param { T } newValue - must be of type T and must not be undefined or null
@@ -305,6 +325,11 @@ declare class AppStorage {
   static set<T>(propName: string, newValue: T): boolean;
 
   /**
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
+   * Do nothing if newValue is undefined or null
+   * see LocalStorage.setOrCreate()
+   *
    * @param { string } propName
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -343,6 +368,20 @@ declare class AppStorage {
   static setOrCreate<T>(propName: string, newValue: T): void;
 
   /**
+   * Delete property with given name from AppStorage
+   * Use with caution:
+   * Before deleting a prop from AppStorage all its subscribers need to
+   * unsubscribe from the property.
+   * This method fails and returns false if given property still has subscribers
+   * Another reason for failing is unknown property name.
+   * Developer advise:
+   * Subscribers to a property in AppStorage are created with see link(), see prop()
+   * and also via @StorageLink and @StorageProp state variable decorators.
+   * That means as long as their is a @Component instance that uses such decorated variable
+   * or a sync relationship with a SubscribedAbstractProperty variable the property can not
+   * (and also should not!) be deleted from AppStorage.
+   * Same as see LocalStorage.delete()
+   *
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -399,6 +438,10 @@ declare class AppStorage {
   static delete(propName: string): boolean;
 
   /**
+   * Provide names of all properties in AppStorage
+   * same as ES6 Map.prototype.keys()
+   * Same as see LocalStorage.keys()
+   *
    * @returns { IterableIterator<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -443,6 +486,9 @@ declare class AppStorage {
   static staticClear(): boolean;
 
   /**
+   * Delete all properties from the AppStorage.
+   * Precondition is that there are no subscribers, see Delete().
+   *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -487,6 +533,8 @@ declare class AppStorage {
   static IsMutable(propName: string): boolean;
 
   /**
+   * Method returns the number of properties currently in AppStorage
+   *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -617,7 +665,7 @@ declare abstract class SubscribedAbstractProperty<T> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 7
-     * 
+     *
      */
     subscribeMe?: IPropertySubscriber,
     /**
@@ -626,7 +674,7 @@ declare abstract class SubscribedAbstractProperty<T> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 7
-     * 
+     *
      */
     info?: string,
   );
@@ -1116,7 +1164,7 @@ declare abstract class SubscribaleAbstract {
  */
 declare interface EnvPropsOptions {
   /**
-   * Property name
+   * Property name of Environment variable
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1124,7 +1172,7 @@ declare interface EnvPropsOptions {
    * @since 10
    */
   /**
-   * Property name
+   * Property name of Environment variable
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1186,7 +1234,7 @@ declare class Environment {
   constructor();
 
   /**
-   * Called when a property value is checked.
+   * Called when a property value is added to Environment.
    *
    * @param { string } key
    * @param { S } value
@@ -1228,7 +1276,7 @@ declare class Environment {
   static envProp<S>(key: string, value: S): boolean;
 
   /**
-   * Called when multiple property values are checked.
+   * Called when multiple property values are added to Environment.
    *
    * @param { {key: string;defaultValue: any;}[] } props
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1244,7 +1292,7 @@ declare class Environment {
   ): void;
 
   /**
-   * Called when multiple property values are checked.
+   * Called when multiple property values are added to Environment.
    *
    * @param { EnvPropsOptions[] } props
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1252,7 +1300,7 @@ declare class Environment {
    * @since 10
    */
   /**
-   * Called when multiple property values are checked.
+   * Called when multiple property values are added to Environment.
    *
    * @param { EnvPropsOptions[] } props
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1263,7 +1311,7 @@ declare class Environment {
   static envProps(props: EnvPropsOptions[]): void;
 
   /**
-   * Set the key value.
+   * returns an Array<string> of all environment property keys
    *
    * @returns { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1492,7 +1540,8 @@ declare class PersistentStorage {
   static persistProps(props: PersistPropsOptions[]): void;
 
   /**
-   * Set the key value.
+   * Inform persisted AppStorage property names
+   * returns an Array<string> of persisted AppStorage property names
    *
    * @returns { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1504,6 +1553,7 @@ declare class PersistentStorage {
 
   /**
    * Inform persisted AppStorage property names
+   * returns an Array<string> of persisted AppStorage property names
    *
    * @returns { Array<string> } array of AppStorage keys
    * @syscap SystemCapability.ArkUI.ArkUI.Full
