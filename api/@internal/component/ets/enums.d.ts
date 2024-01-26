@@ -4848,7 +4848,7 @@ declare enum PixelRoundCalcPolicy {
    * @since 11
    * @form
    */
-   NO_FORCE_ROUND = 0,
+  NO_FORCE_ROUND = 0,
   /**
    * Force ceil the component boundary coordinates to integer pixel.
    *
