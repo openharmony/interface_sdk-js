@@ -1686,7 +1686,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Navigation title
    *
-   * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value
+   * @param { string | CustomBuilder } value
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1694,7 +1694,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Navigation title
    *
-   * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value
+   * @param { string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
