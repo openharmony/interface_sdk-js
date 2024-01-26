@@ -135,6 +135,7 @@ declare namespace AbilityConstant {
     /**
      * Indicates last exit detailed reason.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @crossplatform
