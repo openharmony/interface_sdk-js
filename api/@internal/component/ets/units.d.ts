@@ -2132,7 +2132,7 @@ declare interface BorderOptions {
   /**
    * Defines the border width.
    *
-   * @type { ?(EdgeWidths | Length) }
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2168,7 +2168,7 @@ declare interface BorderOptions {
   /**
    * Defines the border color.
    *
-   * @type { ?(EdgeColors | ResourceColor) }
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2204,7 +2204,7 @@ declare interface BorderOptions {
   /**
    * Defines the border radius.
    *
-   * @type { ?(BorderRadiuses | Length) }
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2240,7 +2240,7 @@ declare interface BorderOptions {
   /**
    * Defines the border style.
    *
-   * @type { ?(EdgeStyles | BorderStyle) }
+   * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
