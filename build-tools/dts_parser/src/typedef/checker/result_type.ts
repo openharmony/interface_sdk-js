@@ -85,6 +85,7 @@ export enum ErrorLevel {
  */
 export enum ErrorMessage {
   ERROR_INFO_VALUE_EXTENDS = 'the [extends] tag value is incorrect. Please check if the tag value matches the inherited class name.',
+  ERROR_INFO_VALUE_IMPLEMENTS = 'the [implements] tag value is incorrect. Please check if the tag value matches the inherited class name.',
   ERROR_INFO_VALUE_ENUM = 'the [enum] tag type is incorrect. Please check if the tag type is { string } or { number }',
   ERROR_INFO_VALUE_SINCE = 'the [since] tag value is incorrect. Please check if the tag value is a numerical value',
   ERROR_INFO_RETURNS = 'the [returns] tag was used incorrectly. The returns tag should not be used when the return type is void',
