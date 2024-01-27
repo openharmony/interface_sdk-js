@@ -1186,6 +1186,22 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
+
+  /**
+   * Called when content will change.
+   *
+   * @param { function } handler
+   * "currentIndex": the index value of the current tab.
+   * "comingIndex": the index value of the tab that will change.
+   * Tabs can change from currentIndex to comingIndex if function return true.
+   * Tabs can not change from currentIndex to comingIndex if function return false.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onContentWillChange(handler: (currentIndex: number, comingIndex: number) => boolean): TabsAttribute;
 }
 
 /**
