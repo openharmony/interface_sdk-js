@@ -1198,6 +1198,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onContentWillChange(handler: (currentIndex: number, comingIndex: number) => boolean): TabsAttribute;
