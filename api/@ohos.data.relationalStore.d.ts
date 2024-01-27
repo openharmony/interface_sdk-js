@@ -3467,14 +3467,12 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - The callback of cloudSync.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
-     * or application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -3490,14 +3488,13 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
-     * or application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
+     * application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
