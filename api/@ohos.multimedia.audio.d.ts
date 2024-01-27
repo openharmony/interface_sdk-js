@@ -1680,6 +1680,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#setExtraParameters
      */
     setAudioParameter(key: string, value: string, callback: AsyncCallback<void>): void;
     /**
@@ -1690,14 +1692,19 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#setExtraParameters
      */
     setAudioParameter(key: string, value: string): Promise<void>;
+
     /**
      * Obtains the value of an audio parameter. This method uses an asynchronous callback to return the query result.
      * @param { string } key - Key of the audio parameter whose value is to be obtained.
      * @param { AsyncCallback<string> } callback - Callback used to return the value of the audio parameter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#getExtraParameters
      */
     getAudioParameter(key: string, callback: AsyncCallback<string>): void;
     /**
@@ -1706,8 +1713,41 @@ declare namespace audio {
      * @returns { Promise<string> } Promise used to return the value of the audio parameter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioManager#getExtraParameters
      */
     getAudioParameter(key: string): Promise<string>;
+
+    /**
+     * Sets extra audio parameters. This method uses a promise to return the result.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @param { string } mainKey - Main key of the audio parameters to set.
+     * @param { Record<string, string> } kvpairs - Key-value pairs with subkeys and values to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    setExtraParameters(mainKey: string, kvpairs: Record<string, string>): Promise<void>;
+
+    /**
+     * Obtains the values of a certain key. This method uses a promise to return the query result.
+     * @param { string } mainKey - Main key of the audio parameters to get.
+     * @param { Array<string> } subKeys - Sub keys of the audio parameters to get.
+     * @returns { Promise<Record<string, string>> } Promise used to return the key-value pairs.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    getExtraParameters(mainKey: string, subKeys?: Array<string>): Promise<Record<string, string>>;
+
     /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
      * @param { ActiveDeviceType } deviceType - Audio device type.
@@ -2730,6 +2770,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2739,8 +2781,25 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicMute
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
+
+    /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 11
+     */
+    setMicMute(mute: boolean): Promise<void>;
 
     /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
@@ -3776,6 +3835,8 @@ declare namespace audio {
      *        Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
     /**
@@ -3785,6 +3846,8 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioRenderer#event:writeData
      */
     write(buffer: ArrayBuffer): Promise<number>;
 
@@ -4231,6 +4294,29 @@ declare namespace audio {
      * @since 11
      */
     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for writing more data.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback with buffer to write.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    on(type: 'writeData', callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'writeData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    off(type: 'writeData', callback?: Callback<ArrayBuffer>): void;
   }
 
   /**
@@ -4350,6 +4436,11 @@ declare namespace audio {
      * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
+     */
+    /**
+     * Filter by stream usages. But not allow to capture voice streams.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 11
      */
     usages: Array<StreamUsage>;
   }
@@ -4473,6 +4564,8 @@ declare namespace audio {
      * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the buffer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioCapturer#event:readData
      */
     read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void;
     /**
@@ -4483,6 +4576,8 @@ declare namespace audio {
      *          Returns an error code otherwise.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.audio.AudioCapturer#event:readData
      */
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
 
@@ -4689,6 +4784,29 @@ declare namespace audio {
      * @since 11
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
+
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for reading more data.
+     * @param { 'readData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback with the buffer to read.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    on(type: 'readData', callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unsubscribes audio data callback.
+     * @param { 'readData' } type - Type of the event to listen for.
+     * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
   }
 
   /**
