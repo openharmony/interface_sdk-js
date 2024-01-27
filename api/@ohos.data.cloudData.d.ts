@@ -1062,8 +1062,6 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1080,8 +1078,6 @@ declare namespace cloudData {
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1100,8 +1096,6 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Indicates the invitation code.
      * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1119,8 +1113,6 @@ declare namespace cloudData {
      * @param { State } state - Indicates the state of invitation.
      * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
      * invoked to return the sharing resource.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1137,8 +1129,6 @@ declare namespace cloudData {
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { State } state - Indicates the state of invitation.
      * @returns { Promise<Result<string>> } - Promise used to return the sharing resource.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1155,8 +1145,6 @@ declare namespace cloudData {
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { State } state - Indicates the state of invitation.
      * @param { AsyncCallback<Result<void>> } callback - Indicates the callback.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1173,8 +1161,6 @@ declare namespace cloudData {
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { State } state - Indicates the state of invitation.
      * @returns { Promise<Result<void>> } - The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
