@@ -2908,6 +2908,24 @@ declare namespace bundleManager {
   export type Dependency = _HapModuleInfo.Dependency;
 
   /**
+   * Obtains the router item about a module.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type RouterItem = _HapModuleInfo.RouterItem;
+
+  /**
+   * Obtains the data item within router item.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type DataItem = _HapModuleInfo.DataItem;
+
+  /**
    * Obtains configuration information about an ability.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
