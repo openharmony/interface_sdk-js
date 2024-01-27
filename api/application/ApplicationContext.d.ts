@@ -20,8 +20,6 @@ import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
-import type AutoStartupCallback from './AutoStartupCallback';
-import type AutoStartupInfo from './AutoStartupInfo';
 
 /**
  * The context of an application. It allows access to application-specific resources.
