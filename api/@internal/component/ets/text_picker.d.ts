@@ -152,7 +152,7 @@ declare interface TextPickerOptions {
   /**
    * Specifies the range of the text selector.
    *
-   * @type {string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[]}
+   * @type {string[] | Resource}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */

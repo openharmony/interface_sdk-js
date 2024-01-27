@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-/// <reference path="../@internal/component/ets/enums.d.ts" />
+/// <reference path="../../component/enums.d.ts" />
 
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { NodeRenderType, RenderOptions } from './BuilderNode';

@@ -397,7 +397,7 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
   const relation: string[] = diffInfo.getNewHierarchicalRelations();
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
   newDescription =
-    diffInfo.getOldDescription() === '-1' || !diffInfo.getNewDescription() ? 'NA' : diffInfo.getNewDescription();
+    diffInfo.getNewDescription() === '-1' || !diffInfo.getNewDescription() ? 'NA' : diffInfo.getNewDescription();
   return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${newDescription}`;
 }
 

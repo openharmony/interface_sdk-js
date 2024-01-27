@@ -180,6 +180,7 @@ export declare class FilterResult {
 export declare struct Filter {
     /**
      * Container in the user-defined filtering result display area.
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
@@ -224,13 +225,13 @@ export declare struct Filter {
 
     /**
      * FilterParams, Callback method after a user clicks a filter item.
-     * @param {filterType} FilterType, Filter display style type.
+     * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
      * FilterParams, Callback method after a user clicks a filter item.
-     * @param {filterType} FilterType, Filter display style type.
+     * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11

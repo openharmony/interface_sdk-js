@@ -116,12 +116,12 @@ export interface PopupButtonOptions {
 export interface PopupIconOptions {
   /**
    * Set the icon image.
-   * @type { PixelMap | ResourceStr | DrawableDescriptor }.
+   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  image: PixelMap | ResourceStr | DrawableDescriptor;
+  image: ResourceStr;
 
   /**
    * Set the icon width.
