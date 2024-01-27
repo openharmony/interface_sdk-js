@@ -12095,7 +12095,7 @@ declare class CommonMethod<T> {
   /**
    * Border style
    *
-   * @param { BorderStyle | EdgeStyles } value
+   * @param { BorderStyle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12135,7 +12135,7 @@ declare class CommonMethod<T> {
   /**
    * Border width
    *
-   * @param { Length | EdgeWidths } value
+   * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12175,7 +12175,7 @@ declare class CommonMethod<T> {
   /**
    * Border color
    *
-   * @param { ResourceColor | EdgeColors } value
+   * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12215,7 +12215,7 @@ declare class CommonMethod<T> {
   /**
    * Border radius
    *
-   * @param { Length | BorderRadiuses } value
+   * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
