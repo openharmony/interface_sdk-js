@@ -338,6 +338,7 @@ declare namespace common {
    * The class of auto startup info.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -347,6 +348,7 @@ declare namespace common {
    * The class of auto startup callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
