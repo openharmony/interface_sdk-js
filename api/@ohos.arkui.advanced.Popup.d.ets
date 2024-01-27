@@ -82,6 +82,7 @@ export interface PopupButtonOptions {
 
   /**
    * Set the button callback.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
