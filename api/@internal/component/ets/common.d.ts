@@ -16751,7 +16751,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16759,7 +16759,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16848,7 +16848,7 @@ declare interface Measurable {
  */
 declare interface SizeResult {
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16856,7 +16856,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16867,7 +16867,7 @@ declare interface SizeResult {
   width: number,
 
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16875,7 +16875,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
