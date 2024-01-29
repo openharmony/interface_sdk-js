@@ -32,6 +32,7 @@ declare namespace deviceAttest {
    *
    * @param callback Indicates the callback containing the AttestResultInfo object.
    * @since 9
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
@@ -44,6 +45,7 @@ declare namespace deviceAttest {
    *
    * @returns Returns that the AttestResultInfo object is returned in Promise mode.
    * @since 9
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
@@ -56,6 +58,7 @@ declare namespace deviceAttest {
    *
    * @returns Obtains the AttestResultInfo object synchronously.
    * @since 9
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
@@ -68,6 +71,7 @@ declare namespace deviceAttest {
    * @typedef AttestResultInfo
    * @syscap SystemCapability.XTS.DeviceAttest
    * @since 9
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi
    */
   export interface AttestResultInfo {
@@ -77,6 +81,7 @@ declare namespace deviceAttest {
      *
      * @type { number }
      * @since 9
+     * @syscap SystemCapability.XTS.DeviceAttest
      */
     authResult: number;
 
@@ -85,6 +90,7 @@ declare namespace deviceAttest {
      *
      * @type { number }
      * @since 9
+     * @syscap SystemCapability.XTS.DeviceAttest
      */
     softwareResult: number;
 
@@ -94,6 +100,7 @@ declare namespace deviceAttest {
      *
      * @type { Array<number> }
      * @since 9
+     * @syscap SystemCapability.XTS.DeviceAttest
      */
     softwareResultDetail: Array<number>;
 
@@ -102,6 +109,7 @@ declare namespace deviceAttest {
      *
      * @type { string }
      * @since 9
+     * @syscap SystemCapability.XTS.DeviceAttest
      */
     ticket: string;
   }
