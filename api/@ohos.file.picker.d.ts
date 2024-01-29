@@ -43,9 +43,58 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 11
+   */
   export enum PhotoViewMIMETypes {
+    /**
+     * Image type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 9
+     */
+    /**
+     * Image type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     IMAGE_TYPE = 'image/*',
+
+    /**
+     * Video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 9
+     */
+    /**
+     * Video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     VIDEO_TYPE = 'video/*',
+
+    /**
+     * Image and video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 9
+     */
+    /**
+     * Image and video type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 11
+     */
     IMAGE_VIDEO_TYPE = '*/*'
   }
 
