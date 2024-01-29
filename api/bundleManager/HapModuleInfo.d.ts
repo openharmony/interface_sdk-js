@@ -442,7 +442,7 @@ export interface HapModuleInfo {
    * @atomicservice
    * @since 12
    */
-  readonly routerArray: Array<RouterItem>;
+  readonly routerMap: Array<RouterItem>;
 }
 
 /**
@@ -565,7 +565,7 @@ export interface RouterItem {
    * @atomicservice
    * @since 12
    */
-  readonly url: string;
+  readonly name: string;
   /**
    * Indicates the name of the module to which the current page belongs
    *
@@ -575,9 +575,9 @@ export interface RouterItem {
    * @atomicservice
    * @since 12
    */
-  readonly module: string;
+  readonly pageModule: string;
   /**
-   * Indicates the path of the current page within the module
+   * Indicates the file path of the current page within the module
    *
    * @type { string }
    * @readonly
@@ -585,7 +585,7 @@ export interface RouterItem {
    * @atomicservice
    * @since 12
    */
-  readonly path: string;
+  readonly pageSourceFile: string;
   /**
    * Indicates the name of the function @Builder decorated
    *

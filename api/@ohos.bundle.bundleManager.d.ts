@@ -225,7 +225,17 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
-    GET_BUNDLE_INFO_WITH_MENU = 0x00000100
+    GET_BUNDLE_INFO_WITH_MENU = 0x00000100,
+    /**
+     * Used to obtain the bundleInfo containing router map configuration in hapModuleInfo.
+     * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    GET_BUNDLE_INFO_WITH_ROUTER_MAP = 0x00000200
   }
 
   /**
