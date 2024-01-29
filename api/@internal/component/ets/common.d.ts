@@ -15245,6 +15245,19 @@ declare class CommonMethod<T> {
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
+   * ContextMenu control
+   *
+   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
+
+  /**
    * Bind content cover
    *
    * @param { boolean } isShow - true means display content, false means hide content.
