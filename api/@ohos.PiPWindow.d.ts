@@ -214,6 +214,12 @@ declare namespace PiPWindow {
    */
   type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
 
+  /**
+   * Describe picture-in-picture video template action event type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
   type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
 
   /**
