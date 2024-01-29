@@ -164,6 +164,7 @@ export interface GridObjectSortComponentOptions {
 /**
  * Declare struct GridObjectSortComponent.
  * @struct { GridObjectSortComponent }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
@@ -180,7 +181,7 @@ export declare struct GridObjectSortComponent {
   options: GridObjectSortComponentOptions;
 
   /**
-   * data list of GridObjectSortComponent.
+   * Data list of GridObjectSortComponent.
    * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
