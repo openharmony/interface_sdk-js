@@ -1581,76 +1581,98 @@ declare namespace media {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @deprecated since 9
+   * @since 8
+   * @deprecated since 11
+   * @useinstead ohos.multimedia.media/media.AVErrorCode
    */
   enum MediaErrorCode {
     /**
      * operation success.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_OK
      */
     MSERR_OK = 0,
 
     /**
      * malloc or new memory failed. maybe system have no memory.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_NO_MEMORY
      */
     MSERR_NO_MEMORY = 1,
 
     /**
      * no permission for the operation.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_OPERATE_NOT_PERMIT
      */
     MSERR_OPERATION_NOT_PERMIT = 2,
 
     /**
      * invalid argument.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_INVALID_PARAMETER
      */
     MSERR_INVALID_VAL = 3,
 
     /**
      * an I/O error occurred.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_IO
      */
     MSERR_IO = 4,
 
     /**
      * operation time out.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_TIMEOUT
      */
     MSERR_TIMEOUT = 5,
 
     /**
      * unknown error.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_INVALID_PARAMETER
      */
     MSERR_UNKNOWN = 6,
 
     /**
      * media service died.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_SERVICE_DIED
      */
     MSERR_SERVICE_DIED = 7,
 
     /**
      * operation is not permit in current state.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_INVALID_PARAMETER
      */
     MSERR_INVALID_STATE = 8,
 
     /**
      * operation is not supported in current version.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @deprecated since 9
+     * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_UNSUPPORT_CAPABILITY
      */
     MSERR_UNSUPPORTED = 9,
   }
