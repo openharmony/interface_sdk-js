@@ -8980,3 +8980,10 @@ declare enum FoldStatus {
    */
   FOLD_STATUS_HALF_FOLDED = 3,
 }
+
+declare module 'borderStyle' {
+  module 'borderStyle' {
+    // @ts-ignore
+    export type { BorderStyle };
+  }
+}

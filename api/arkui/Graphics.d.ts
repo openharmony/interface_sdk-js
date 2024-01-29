@@ -14,6 +14,8 @@
  */
 
 import drawing from '../@ohos.graphics.drawing';
+import type common2D from '../@ohos.graphics.common2D';
+import { BorderStyle } from 'borderStyle'
 
 /**
  * Size info.
@@ -274,3 +276,362 @@ export declare interface Frame {
    */
   height: number;
 }
+
+/**
+ * Defines the Edge property.
+ *
+ * @interface Edges
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface Edges<T> {
+  /**
+   * Left property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  left: T,
+
+  /**
+   * Right property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  right: T,
+
+  /**
+   * Top property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  top: T,
+
+  /**
+   * Bottom property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bottom: T
+}
+
+/**
+ * Defines the Corner property.
+ *
+ * @interface Corners
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface Corners<T> {
+  /**
+   * TopLeft property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  topLeft: T,
+
+  /**
+   * TopRight property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  topRight: T,
+
+  /**
+   * BottomLeft property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bottomLeft: T,
+
+  /**
+   * BottomRight property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bottomRight: T
+}
+
+/**
+ * Defines the Corner radius.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type CornerRadius = Corners<Vector2>;
+
+/**
+ * BorderRadiuses info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type BorderRadiuses = Corners<number>;
+
+/**
+ * Rect info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type Rect = common2D.Rect;
+
+/**
+ * Defines the RoundRect.
+ *
+ * @interface RoundRect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface RoundRect {
+  /**
+   * Rect property.
+   *
+   * @type { Rect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  rect: Rect,
+
+  /**
+   * Corners property.
+   *
+   * @type { CornerRadius }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  corners: CornerRadius
+}
+
+/**
+ * Defines the Circle.
+ *
+ * @interface Circle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface Circle {
+  /**
+   * The x-coordinate of the center of the Circle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  centerX: number,
+
+  /**
+   * The y-coordinate of the center of the Circle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  centerY: number,
+
+  /**
+   * The radius of the Circle.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  radius: number
+}
+
+/**
+ * Defines the CommandPath.
+ *
+ * @interface CommandPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface CommandPath {
+  /**
+   * The commands of CommandPath.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  commands: string
+}
+
+/**
+ * Defines ShapeMask. 
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export declare class ShapeMask {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set the rect shape of the ShapeMask.
+   *
+   * @param { Rect } rect - The rect shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setRectShape(rect: Rect): void;
+
+  /**
+   * Set the round rect shape of the ShapeMask.
+   *
+   * @param { RoundRect } roundRect - The round rect shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setRoundRectShape(roundRect: RoundRect): void;
+
+  /**
+   * Set the circle shape of the ShapeMask.
+   *
+   * @param { Circle } circle - The circle shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCircleShape(circle: Circle): void;
+
+  /**
+   * Set the oval shape of the ShapeMask.
+   *
+   * @param { Rect } oval - The oval shape will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOvalShape(oval: Rect): void;
+
+  /**
+   * Set the command path of the ShapeMask.
+   *
+   * @param { CommandPath } path - The command path will be set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCommandPath(path: CommandPath): void;
+
+  /**
+   * The fill color of the ShapeMask.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fillColor: number;
+
+  /**
+   * The stroke color of the ShapeMask.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeColor: number;
+
+  /**
+   * The stroke width of the ShapeMask.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth: number;
+}
+
+/**
+ * Obtain a object with all edges are set to the same color.
+ *
+ * @param { number } all - The edge color will be set.
+ * @returns { Edges<number> } - The object with all edges are set to the same color.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export function edgeColors(all: number): Edges<number>;
+
+/**
+ * Obtain a object with all edges are set to the same width.
+ *
+ * @param { number } all - The edge width will be set.
+ * @returns { Edges<number> } - The object with all edges are set to the same width.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export function edgeWidths(all: number): Edges<number>;
+
+/**
+ * Obtain a object with all edges are set to the same style.
+ *
+ * @param { BorderStyle } all - The edge style will be set.
+ * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
+
+/**
+ * Obtain a BorderRadiuses object with all edges are set to the same radius.
+ *
+ * @param { number } all - The edge radius will be set.
+ * @returns { BorderRadiuses } - The BorderRadiuses object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export function borderRadiuses(all: number): BorderRadiuses;
