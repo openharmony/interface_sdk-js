@@ -402,6 +402,7 @@ keyguard
 keyusage
 khronos
 kneading
+kvpairs
 kvstore
 lable
 lanes
@@ -746,6 +747,7 @@ subassemblies
 subcomponents
 subframe
 subframes
+subkeys
 subnode
 subpixel
 subscrbers
