@@ -21,6 +21,14 @@
 import { AsyncCallback } from './@ohos.base';
 import type relationalStore from './@ohos.data.relationalStore';
 
+/**
+ * Provides methods for cloud capabilities.
+ *
+ * @namespace cloudData
+ * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+ * @systemapi
+ * @since 10
+ */
 declare namespace cloudData {
   /**
    * Describes the clear action type.
