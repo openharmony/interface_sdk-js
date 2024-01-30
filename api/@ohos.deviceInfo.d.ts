@@ -30,6 +30,7 @@
  *
  * @namespace deviceInfo
  * @syscap SystemCapability.Startup.SystemInfo
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
