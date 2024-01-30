@@ -27,6 +27,13 @@ import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
  * @since 9
  */
 export declare class GesturePath {
+  /**
+   * A constructor used to create a GesturePath object.
+   *
+   * @param { number } durationTime - Indicates the duration of the gesture.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   constructor(durationTime: number);
   /**
    * Indicates the position of the points that make up the gesture.

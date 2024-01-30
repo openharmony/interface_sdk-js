@@ -565,6 +565,13 @@ declare namespace accessibility {
    * @since 7
    */
   class EventInfo {
+    /**
+     * A constructor used to create a EventInfo object.
+     *
+     * @param jsonObject - Character string in JSON format required for creating an object.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 7
+     */
     constructor(jsonObject);
     /**
      * A constructor used to create a EventInfo object.
