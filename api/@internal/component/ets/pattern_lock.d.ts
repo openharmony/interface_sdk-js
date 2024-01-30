@@ -110,7 +110,7 @@ interface PatternLockInterface {
   /**
    * Constructor.
    *
-   * @param { PatternLockController } [controller] - controlller
+   * @param { PatternLockController } [controller] - controller
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -118,7 +118,7 @@ interface PatternLockInterface {
   /**
    * Constructor.
    *
-   * @param { PatternLockController } [controller]  controlller
+   * @param { PatternLockController } [controller]  controller
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

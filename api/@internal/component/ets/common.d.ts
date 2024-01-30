@@ -15765,12 +15765,14 @@ interface CommonInterface {
   /**
    * Constructor.
    *
+   * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Constructor
-   *
+   * 
+   * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -15778,6 +15780,7 @@ interface CommonInterface {
   /**
    * Constructor
    *
+   * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -15786,6 +15789,7 @@ interface CommonInterface {
   /**
    * Constructor
    * 
+   * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
