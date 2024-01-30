@@ -735,7 +735,7 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
-     * @since 7
+     * @since 8
      */
   export class Calendar {
     /**
