@@ -26,8 +26,6 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
  * WorkSchedulerExtensionContext-specific resources.
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @StageModelOnly
- * @since 10
  */
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
