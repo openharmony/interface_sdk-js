@@ -138,11 +138,10 @@ declare namespace AbilityConstant {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
-    lastExitMsg: string;
+    lastExitMessage: string;
   }
 
   /**
