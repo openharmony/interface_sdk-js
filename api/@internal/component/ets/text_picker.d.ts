@@ -868,17 +868,20 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
 /**
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
