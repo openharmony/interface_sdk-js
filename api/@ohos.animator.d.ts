@@ -475,10 +475,19 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
    */
   onframe: (progress: number) => void;
 
   /**
+   * Trigger when vSync callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onFrame: (progress: number) => void;
+
+  /**
    * The animation is finished.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -495,10 +504,19 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
    */
   onfinish: () => void;
 
   /**
+   * The animation is finished.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onFinish: () => void;
+
+  /**
    * The animation is canceled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -515,8 +533,17 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
    */
   oncancel: () => void;
+
+  /**
+   * The animation is canceled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onCancel: () => void;
 
   /**
    * The animation is repeated.
@@ -535,8 +562,17 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
    */
   onrepeat: () => void;
+
+  /**
+   * The animation is repeated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onRepeat: () => void;
 }
 
 /**
