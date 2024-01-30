@@ -4829,6 +4829,49 @@ declare enum FlexDirection {
 }
 
 /**
+ * Pixel Round Direction
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare enum PixelRoundCalcPolicy {
+  /**
+   * No Force round the component boundary coordinates to integer pixel.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  NO_FORCE_ROUND = 0,
+  /**
+   * Force ceil the component boundary coordinates to integer pixel.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  FORCE_CEIL = 1,
+  /**
+   * Force floor the component boundary coordinates to integer pixel.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  FORCE_FLOOR = 2,
+}
+
+/**
  * FlexWrap enumeration description
  *
  * @enum { number }
@@ -8719,6 +8762,7 @@ declare enum DialogButtonStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum WordBreak {
@@ -8727,6 +8771,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   NORMAL = 0,
@@ -8736,6 +8781,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   BREAK_ALL = 1,
@@ -8746,6 +8792,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   BREAK_WORD = 2,
@@ -8932,4 +8979,11 @@ declare enum FoldStatus {
    * @since 11
    */
   FOLD_STATUS_HALF_FOLDED = 3,
+}
+
+declare module 'borderStyle' {
+  module 'borderStyle' {
+    // @ts-ignore
+    export type { BorderStyle };
+  }
 }

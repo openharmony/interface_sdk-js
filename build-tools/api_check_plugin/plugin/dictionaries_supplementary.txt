@@ -129,6 +129,7 @@ collectable
 colno
 colorfilter
 complies
+compositing
 compresses
 cone
 conferencing
@@ -274,6 +275,7 @@ fileshare
 fillets
 flac
 flg
+flushes
 foldable
 foregrounding
 formatable
@@ -400,6 +402,7 @@ keyguard
 keyusage
 khronos
 kneading
+kvpairs
 kvstore
 lable
 lanes
@@ -744,6 +747,7 @@ subassemblies
 subcomponents
 subframe
 subframes
+subkeys
 subnode
 subpixel
 subscrbers

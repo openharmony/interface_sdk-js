@@ -19,8 +19,10 @@ const {
   FileType,
   getApiVersion,
   getCheckApiVersion,
+  requireTypescriptModule
 } = require('./utils');
-const { addAPICheckErrorLogs } = require('./compile_info');
+const { addAPICheckErrorLogs, getParentkind } = require('./compile_info');
+const ts = requireTypescriptModule();
 const nameDictionary = require('./name_dictionary.json');
 const nameScenarioScope = require('./name_scenario_scope.json');
 
@@ -44,6 +46,11 @@ exports.checkNaming = checkNaming;
 
 function checkApiNaming(node, sourcefile, fileName) {
   const lowIdentifier = node.getText().toLowerCase();
+  const apiParentKind = [];
+  getParentkind(node, apiParentKind);
+  if (node.parent.kind === ts.SyntaxKind.TypeReference|| apiParentKind.includes('JSDoc')) {
+    return;
+  }
   checkApiNamingWords(node, sourcefile, fileName, lowIdentifier);
   checkApiNamingScenario(node, sourcefile, fileName, lowIdentifier);
 }

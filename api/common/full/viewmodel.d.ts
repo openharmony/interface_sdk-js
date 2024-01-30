@@ -1663,6 +1663,14 @@ export interface ListScrollToOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
+  /**
+   * specified position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 11
+   */
   index: number;
 }
 
@@ -1688,6 +1696,14 @@ export interface ListElement extends Element {
    * @param { ListScrollToOptions } position
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
+   */
+  /**
+   * Scrolls the list to the position of the item at the specified index.
+   *
+   * @param { ListScrollToOptions } position
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 11
    */
   scrollTo(position: ListScrollToOptions): void;
 
@@ -1818,6 +1834,15 @@ export interface ListElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
+    /**
+     * groupid: ID of the group to collapse.
+     * All groups are collapsed when groupid is not specified.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     groupid: string;
   }): void;
 
@@ -1844,6 +1869,15 @@ export interface ListElement extends Element {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
+     */
+    /**
+     * groupid: ID of the group to expand.
+     * All groups are expanded when groupid is not specified.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     groupid: string;
   }): void;
@@ -1904,6 +1938,14 @@ export interface SwiperElement extends Element {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
+     */
+    /**
+     * specified position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     index: number;
   }): void;
@@ -2372,6 +2414,14 @@ export interface ChartElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
+    /**
+     * Set the data subscript of the line chart to be updated.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     serial: number;
     /**
      * Set the new data.
@@ -2379,6 +2429,14 @@ export interface ChartElement extends Element {
      * @type { Array<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
+     */
+    /**
+     * Set the new data.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
      */
     data: Array<number>;
   }): void;
@@ -6543,6 +6601,17 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @type { ?Data }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
+   */
+  /**
+   * Data model of the page that can be converted into a JSON object.
+   * The attribute name cannot start with $ or an underscore (_) or contain the reserved words such as for, if, show, and tid.
+   * For a function, the return value must be an object.
+   * Set the value of data to the return value of the function during page initialization.
+   *
+   * @type { ?Data }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @atomicservice
+   * @since 11
    */
   data?: Data;
 

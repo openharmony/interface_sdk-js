@@ -37,11 +37,13 @@ import { ResourceStr } from 'GlobalResource';
 export declare struct SplitLayout {
   /**
    * Container in the user-defined splitlayout display area.
+   * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Container in the user-defined splitlayout display area.
+   * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11

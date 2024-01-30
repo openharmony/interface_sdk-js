@@ -423,6 +423,7 @@ declare interface RichEditorParagraphStyle {
  * @interface PasteEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare interface PasteEvent {
@@ -432,6 +433,7 @@ declare interface PasteEvent {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   preventDefault?: () => void;
@@ -2267,6 +2269,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   onSelect(callback: (value: RichEditorSelection) => void): RichEditorAttribute;
+
+  /**
+   * Called when selection range or caret position is changed.
+   *
+   * @param { function } callback - The triggered function when change selection range or caret position.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onSelectionChange(callback: (value: RichEditorRange) => void): RichEditorAttribute;
 
   /**
    * Get text value information when about to input.

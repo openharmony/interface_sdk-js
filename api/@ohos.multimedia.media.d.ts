@@ -866,11 +866,6 @@ declare namespace media {
     /**
      * Audio interrupted.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 11
-     */
-    /**
-     * Audio interrupted.
-     * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
      */
@@ -1262,6 +1257,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
+    /**
+     * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 11
+     */
     readonly duration: number;
 
     /**
@@ -1338,11 +1339,11 @@ declare namespace media {
 
     /**
      * Get media key system info from media source.
-     * @returns { Array<MediaKeySystemInfo> } MediaKeySystemInfo with PSSH.
+     * @returns { Array<drm.MediaKeySystemInfo> } MediaKeySystemInfo with PSSH.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    getMediaKeySystemInfos(): Array<MediaKeySystemInfo>;
+    getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
 
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
@@ -1351,7 +1352,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    on(type: 'mediaKeySystemInfoUpdate', callback: (mediaKeySystemInfo: Array<MediaKeySystemInfo>) => void): void;
+    on(type: 'mediaKeySystemInfoUpdate', callback: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
 
     /**
      * Unregister listens for mediaKeySystemInfoUpdate events.
@@ -1360,7 +1361,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<MediaKeySystemInfo>) => void): void;
+    off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
 
     /**
      * Register listens for media playback events.

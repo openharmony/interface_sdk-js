@@ -982,6 +982,29 @@ export class UIObserver {
    * @since 11
    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
+  
+  /**
+   * Registers a callback function to be called when the router page in a ui context is updated.
+   *
+   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
+   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
+   * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
 }
 
 /**
@@ -1480,6 +1503,7 @@ export class UIContext {
  * @enum { number } KeyBoardAvoidMethodType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 
@@ -1497,6 +1521,7 @@ export const enum KeyboardAvoidMode {
    * Resize Type, resize the page when keyBoard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   RESIZE = 1

@@ -52,7 +52,7 @@ export { FrameNode } from './arkui/FrameNode';
  * @crossplatform
  * @since 11
  */
-export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame } from './arkui/Graphics';
+export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses } from './arkui/Graphics';
 
 /**
  * Export RenderNode. RenderNode contains node tree operations and render property operations on node.

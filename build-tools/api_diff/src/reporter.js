@@ -39,6 +39,7 @@ const ApiStatusCode = {
   CROSSPLATFORM_CHANGED: 20,
   NEW_DTS: 21,
   NEW_CLASS: 22,
+  HOSTORICAL_JSDOC_CHANGE: 23
 };
 
 const StatusMessages = [];
@@ -65,6 +66,7 @@ StatusMessages[ApiStatusCode.CHANGELOG] = 'changelog';
 StatusMessages[ApiStatusCode.DTS_CHANGED] = 'd.ts有变化';
 StatusMessages[ApiStatusCode.FORM_CHANGED] = '卡片应用支持性有变化';
 StatusMessages[ApiStatusCode.CROSSPLATFORM_CHANGED] = '跨平台能力有变化';
+StatusMessages[ApiStatusCode.HOSTORICAL_JSDOC_CHANGE] = '历史jsdoc有变化';
 
 function reportDeletedApi(api, syscap) {
   return wrapApiDiffInfo(api, ApiStatusCode.DELETE, '', '', '', syscap);

@@ -941,7 +941,7 @@ declare namespace display {
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
-   /**
+    /**
     * Unregister the callback for available area changes.
     *
     * @param { 'availableAreaChange' } type - the event of available area changes

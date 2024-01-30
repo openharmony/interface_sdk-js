@@ -2760,6 +2760,47 @@ declare interface AlignRuleOption {
 }
 
 /**
+ * Defines the style of the chain in relative container.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum ChainStyle {
+  /**
+   * Elements of the chain will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD,
+
+  /**
+   * Elements except chain's head and tail will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD_INSIDE,
+
+  /**
+   * Elements of the chain will be packed together.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  PACKED,
+}
+
+/**
  * The param of rotate.
  *
  * @interface RotateOptions
@@ -5836,7 +5877,7 @@ declare interface MultiShadowOptions {
    * Current shadow radius.
    * 
    * @type { ?(number | Resource) }
-   * @default 5
+   * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -11748,6 +11789,19 @@ declare class CommonMethod<T> {
   backgroundColor(value: ResourceColor): T;
 
   /**
+   * PixelRound
+   *
+   * @param { PixelRoundPolicy } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  pixelRound(value: PixelRoundPolicy): T;
+
+  /**
    * Background image
    * src: Image address url
    *
@@ -12041,7 +12095,7 @@ declare class CommonMethod<T> {
   /**
    * Border style
    *
-   * @param { BorderStyle | EdgeStyles } value
+   * @param { BorderStyle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12081,7 +12135,7 @@ declare class CommonMethod<T> {
   /**
    * Border width
    *
-   * @param { Length | EdgeWidths } value
+   * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12121,7 +12175,7 @@ declare class CommonMethod<T> {
   /**
    * Border color
    *
-   * @param { ResourceColor | EdgeColors } value
+   * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12161,7 +12215,7 @@ declare class CommonMethod<T> {
   /**
    * Border radius
    *
-   * @param { Length | BorderRadiuses } value
+   * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -14340,6 +14394,19 @@ declare class CommonMethod<T> {
   alignRules(value: AlignRuleOption): T;
 
   /**
+   * Specifies the direction and style of chain in relative container
+   *
+   * @param { Axis } value - indicates direction of the chain
+   * @param { ChainStyle } value - indicates style of the chain
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  chainMode(direction: Axis, style: ChainStyle): T;
+
+  /**
    * Specifies the aspect ratio of the current component.
    *
    * @param { number } value
@@ -15178,6 +15245,19 @@ declare class CommonMethod<T> {
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
+   * ContextMenu control
+   *
+   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
+
+  /**
    * Bind content cover
    *
    * @param { boolean } isShow - true means display content, false means hide content.
@@ -15387,7 +15467,7 @@ declare class CommonMethod<T> {
    *
    * @param { string | FunctionKey } value - Character of the combination key.
    * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15398,7 +15478,7 @@ declare class CommonMethod<T> {
    *
    * @param { string | FunctionKey } value - Character of the combination key.
    * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -16319,6 +16399,70 @@ declare interface LinearGradient {
 }
 
 /**
+ * Defines the pixel round property.
+ *
+ * @interface PixelRoundPolicy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface PixelRoundPolicy {
+  /**
+   * start property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  start?: PixelRoundCalcPolicy;
+
+  /**
+   * top property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  top?: PixelRoundCalcPolicy;
+
+  /**
+   * end property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  end?: PixelRoundCalcPolicy;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?PixelRoundCalcPolicy }
+   * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  bottom?: PixelRoundCalcPolicy;
+}
+
+/**
  * Linear Gradient Blur Interface
  *
  * @interface LinearGradientBlurOptions
@@ -16607,7 +16751,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16615,7 +16759,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16704,7 +16848,7 @@ declare interface Measurable {
  */
 declare interface SizeResult {
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16712,7 +16856,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16723,7 +16867,7 @@ declare interface SizeResult {
   width: number,
 
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16731,7 +16875,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

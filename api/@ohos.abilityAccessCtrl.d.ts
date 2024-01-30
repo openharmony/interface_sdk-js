@@ -81,6 +81,17 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      *
      * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
+     * @returns { Promise<GrantStatus> } Returns permission verify result.
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 9
+     */
+    verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     *
+     * @param { number } tokenID - Token ID of the application.
      * @param { string } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
@@ -89,17 +100,6 @@ declare namespace abilityAccessCtrl {
      * @useinstead ohos.abilityAccessCtrl.AtManager#checkAccessToken
      */
     verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
-
-    /**
-     * Checks whether a specified application has been granted the given permission.
-     *
-     * @param { number } tokenID - Token ID of the application.
-     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
-     * @returns { Promise<GrantStatus> } Returns permission verify result.
-     * @syscap SystemCapability.Security.AccessToken
-     * @since 9
-     */
-    verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
      * Checks whether a specified application has been granted the given permission synchronously.
