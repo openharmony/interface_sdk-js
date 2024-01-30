@@ -28,6 +28,11 @@ import type connection from './@ohos.net.connection';
  * @since 10
  */
 declare namespace policy {
+  /**
+   * Get network bear type.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
   type NetBearType = connection.NetBearType;
 
   /**
