@@ -242,7 +242,6 @@ declare namespace audio {
      */
     MEDIA = 3,
     /**
-     * Audio stream for voice assistant.
      * Audio volume for alarm purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
