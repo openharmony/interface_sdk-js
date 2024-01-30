@@ -25,7 +25,6 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
  * The context of work scheduler extension. It allows access to
  * WorkSchedulerExtensionContext-specific resources.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 10
