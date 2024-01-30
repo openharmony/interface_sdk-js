@@ -174,6 +174,7 @@ declare namespace photoAccessHelper {
      * QR_OR_BAR_CODE indicates that QR code or barcode photos can be recommended
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     QR_OR_BAR_CODE = 1,
@@ -182,6 +183,7 @@ declare namespace photoAccessHelper {
      * QR_CODE indicates that QR code photos can be recommended
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     QR_CODE = 2,
@@ -190,6 +192,7 @@ declare namespace photoAccessHelper {
      * BAR_CODE indicates that barcode photos can be recommended
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     BAR_CODE = 3,
@@ -198,6 +201,7 @@ declare namespace photoAccessHelper {
      * ID_CARD indicates that QR code or barcode photos can be recommended
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     ID_CARD = 4,
@@ -206,6 +210,7 @@ declare namespace photoAccessHelper {
      * PROFILE_PICTURE indicates that profile picture photos can be recommended
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     PROFILE_PICTURE = 5
@@ -2652,12 +2657,27 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum PhotoViewMIMETypes {
     /**
      * IMAGE_TYPE indicates that the selected media resources are images.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * IMAGE_TYPE indicates that the selected media resources are images.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     IMAGE_TYPE = 'image/*',
     /**
@@ -2666,12 +2686,26 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * VIDEO_TYPE indicates that the selected media resources are videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     VIDEO_TYPE = 'video/*',
     /**
      * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     IMAGE_VIDEO_TYPE = '*/*'
   }
@@ -2682,6 +2716,13 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
   class PhotoSelectOptions {
     /**
      * The Type of the file in the picker window.
@@ -2689,6 +2730,14 @@ declare namespace photoAccessHelper {
      * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * The Type of the file in the picker window.
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     MIMEType?: PhotoViewMIMETypes;
 
@@ -2699,6 +2748,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Maximum number of images for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     maxSelectNumber?: number;
 
     /**
@@ -2706,6 +2763,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     isSearchSupported?: boolean;
@@ -2715,6 +2773,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     isPhotoTakingSupported?: boolean;
@@ -2724,6 +2783,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     isEditSupported?: boolean;
@@ -2733,6 +2793,7 @@ declare namespace photoAccessHelper {
     *
     * @type { ?RecommendationOptions }
     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @atomicservice
     * @since 11
     */
     recommendationOptions?: RecommendationOptions;
@@ -2742,6 +2803,7 @@ declare namespace photoAccessHelper {
    * Options for recommend photos
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
    * @since 11
    */
   class RecommendationOptions {
@@ -2750,6 +2812,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?RecommendationType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
      * @since 11
      */
     recommendationType?: RecommendationType;
@@ -2761,6 +2824,13 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
+  /**
+   * PhotoSelectResult Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
   class PhotoSelectResult {
     /**
      * The uris for the selected files.
@@ -2768,6 +2838,14 @@ declare namespace photoAccessHelper {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * The uris for the selected files.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     photoUris: Array<string>;
 
@@ -2778,6 +2856,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Original option.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     isOriginalPhoto: boolean;
   }
 
@@ -2786,6 +2872,13 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
+   */
+  /**
+   * PhotoViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
    */
   class PhotoViewPicker {
     /**
@@ -2797,6 +2890,17 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } [option] - represents the options provided in select mode.
+     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -2810,6 +2914,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<PhotoSelectResult> } callback - Returns the PhotoSelectResult by photo picker
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
@@ -2820,6 +2935,16 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { AsyncCallback<PhotoSelectResult> } callback - Returns the PhotoSelectResult by photo picker
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
