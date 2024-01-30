@@ -23,6 +23,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * xts_device_attest authResult information
  *
+ * @namespace deviceAttest
  * @since 9
  * @syscap SystemCapability.XTS.DeviceAttest
  */
@@ -30,39 +31,39 @@ declare namespace deviceAttest {
   /**
    * Obtains the AttestResultInfo object.
    *
-   * @param callback Indicates the callback containing the AttestResultInfo object.
+   * @param { AsyncCallback<AttestResultInfo> } callback Indicates the callback containing the AttestResultInfo object.
    * @since 9
    * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    */
   function getAttestStatus(callback: AsyncCallback<AttestResultInfo>): void;
 
   /**
    * Obtains the AttestResultInfo object.
    *
-   * @returns Returns that the AttestResultInfo object is returned in Promise mode.
+   * @returns { Promise<AttestResultInfo> } Returns that the AttestResultInfo object is returned in Promise mode.
    * @since 9
    * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    */
   function getAttestStatus(): Promise<AttestResultInfo>;
 
   /**
    * Obtains the AttestResultInfo object.
    *
-   * @returns Obtains the AttestResultInfo object synchronously.
+   * @returns { AttestResultInfo } Obtains the AttestResultInfo object synchronously.
    * @since 9
    * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    */
   function getAttestStatusSync(): AttestResultInfo;
 
@@ -71,8 +72,7 @@ declare namespace deviceAttest {
    * @typedef AttestResultInfo
    * @syscap SystemCapability.XTS.DeviceAttest
    * @since 9
-   * @syscap SystemCapability.XTS.DeviceAttest
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    */
   export interface AttestResultInfo {
 
