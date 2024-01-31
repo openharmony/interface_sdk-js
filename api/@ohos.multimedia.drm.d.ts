@@ -108,56 +108,6 @@ declare namespace drm {
      */
     CONFIG_SESSION_CURRENT = 'currentSessionNum',
   }
-  /**
-   * Enumerates event types of listener.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  enum ListenerType {
-    /**
-     * DRM event base.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_DRM_EVENT = 200,
-    /**
-     * Provision required event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_PROVISION_REQUIRED = 201,
-    /**
-     * Media key required event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_KEY_REQUIRED = 202,
-    /**
-     * Media key expired event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_KEY_EXPIRED = 203,
-    /**
-     * Vendor defined event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_VENDOR_DEFINED = 204,
-    /**
-     * Expiration update event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_EXPIRATION_UPDATE = 206,
-    /**
-     * Media key change event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_KEY_CHANGE = 207,
-  }
 
   /**
    * Enumerates media key type.
