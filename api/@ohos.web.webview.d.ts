@@ -3895,6 +3895,39 @@ declare namespace webview {
      * @since 12
      */
     getPrintBackground(): boolean;
+
+    /**
+     * Start current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    startCamera(): void;
+
+    /**
+     * Stop current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    stopCamera(): void;
+
+    /**
+     * Close current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    closeCamera(): void;
   }
 
   /**
