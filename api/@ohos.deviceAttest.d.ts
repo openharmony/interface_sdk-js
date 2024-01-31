@@ -70,8 +70,9 @@ declare namespace deviceAttest {
   /**
    * Device attest result information.
    *
-   * @typedef AttestResultInfo
+   * @interface AttestResultInfo
    * @syscap SystemCapability.XTS.DeviceAttest
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   export interface AttestResultInfo {
@@ -81,6 +82,7 @@ declare namespace deviceAttest {
      *
      * @type { number }
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     authResult: number;
@@ -90,6 +92,7 @@ declare namespace deviceAttest {
      *
      * @type { number }
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     softwareResult: number;
@@ -100,6 +103,7 @@ declare namespace deviceAttest {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     softwareResultDetail: Array<number>;
@@ -109,6 +113,7 @@ declare namespace deviceAttest {
      *
      * @type { string }
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     ticket: string;
