@@ -24,20 +24,20 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * xts_device_attest authResult information
  *
  * @namespace deviceAttest
- * @since 9
  * @syscap SystemCapability.XTS.DeviceAttest
+ * @since 9
  */
 declare namespace deviceAttest {
   /**
    * Obtains the AttestResultInfo object.
    *
    * @param { AsyncCallback<AttestResultInfo> } callback Indicates the callback containing the AttestResultInfo object.
-   * @since 9
-   * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   function getAttestStatus(callback: AsyncCallback<AttestResultInfo>): void;
 
@@ -45,12 +45,12 @@ declare namespace deviceAttest {
    * Obtains the AttestResultInfo object.
    *
    * @returns { Promise<AttestResultInfo> } Returns that the AttestResultInfo object is returned in Promise mode.
-   * @since 9
-   * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   function getAttestStatus(): Promise<AttestResultInfo>;
 
@@ -58,21 +58,21 @@ declare namespace deviceAttest {
    * Obtains the AttestResultInfo object.
    *
    * @returns { AttestResultInfo } Obtains the AttestResultInfo object synchronously.
-   * @since 9
-   * @syscap SystemCapability.XTS.DeviceAttest
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 20000001 -  system service exception.
+   * @syscap SystemCapability.XTS.DeviceAttest
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   function getAttestStatusSync(): AttestResultInfo;
 
   /**
    * Device attest result information.
+   *
    * @typedef AttestResultInfo
    * @syscap SystemCapability.XTS.DeviceAttest
    * @since 9
-   * @systemapi Hide this for inner system use.
    */
   export interface AttestResultInfo {
 
@@ -80,8 +80,8 @@ declare namespace deviceAttest {
      * Result of the device hardware information authentication.
      *
      * @type { number }
-     * @since 9
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @since 9
      */
     authResult: number;
 
@@ -89,8 +89,8 @@ declare namespace deviceAttest {
      * Result of the device software information authentication.
      *
      * @type { number }
-     * @since 9
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @since 9
      */
     softwareResult: number;
 
@@ -99,8 +99,8 @@ declare namespace deviceAttest {
      * rootHash and a reserved space.
      *
      * @type { Array<number> }
-     * @since 9
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @since 9
      */
     softwareResultDetail: Array<number>;
 
@@ -108,8 +108,8 @@ declare namespace deviceAttest {
      * Credential sent from the cloud.
      *
      * @type { string }
-     * @since 9
      * @syscap SystemCapability.XTS.DeviceAttest
+     * @since 9
      */
     ticket: string;
   }
