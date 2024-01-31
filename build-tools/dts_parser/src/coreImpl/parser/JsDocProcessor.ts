@@ -18,12 +18,14 @@ import ts from 'typescript';
 import { Comment } from '../../typedef/parser/Comment';
 import { LogUtil } from '../../utils/logUtil';
 import { StringUtils } from '../../utils/StringUtils';
+import { ApiType } from '../../typedef/parser/ApiInfoDefination';
 
 export class CommentHelper {
   static licenseKeyword: string = 'Copyright';
   static referenceRegexp: RegExp = /\/\/\/\s*<reference\s*path/g;
   static referenceCommentRegexp: RegExp = /\/\s*<reference\s*path/g;
   static mutiCommentDelimiter: string = '/**';
+  static fileJsDoc: RegExp = /\@kit/g;
 
   /**
    * 获取指定AST节点上的注释，若无注释返回空数组。
@@ -78,6 +80,7 @@ export class CommentHelper {
       ignore: false,
       isApiComment: false,
       isInstruct: false,
+      isFileJsDoc: false,
     };
     let commentString: string = comment;
     let parsedComments = parse(commentString);
@@ -110,6 +113,9 @@ export class CommentHelper {
         tokenSource: tag.source,
         defaultValue: tag.default ? tag.default : undefined,
       });
+    }
+    if (StringUtils.hasSubstring(commentString, this.fileJsDoc)) {
+      commentInfo.isFileJsDoc = true;
     }
     commentInfo.isApiComment = true;
     return commentInfo;
@@ -175,18 +181,27 @@ export class JsDocProcessorHelper {
     jsDocInfo.setModelLimitation(commentTag.tag);
   }
 
+  static setKitContent(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
+    jsDocInfo.setKit(commentTag.source.replace(/\* @kit\s+|\r|\n/g, '').trim());
+  }
+
+  static setIsFile(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
+    jsDocInfo.setIsFile(true);
+  }
+
   /**
    * 基于comment-parser解析的注释对象得到JsDocInfo对象
    *
    * @param { Comment.CommentInfo } jsDoc 一段JsDoc的信息解析的注释对象
    * @returns 返回JsDoc得到的JsDocInfo对象
    */
-  static processJsDoc(jsDoc: Comment.CommentInfo): Comment.JsDocInfo {
+  static processJsDoc(jsDoc: Comment.CommentInfo, parentKitInfo: string): Comment.JsDocInfo {
     const jsDocInfo: Comment.JsDocInfo = new Comment.JsDocInfo();
     jsDocInfo.setDescription(jsDoc.description);
     for (let i = 0; i < jsDoc.commentTags.length; i++) {
       const commentTag: Comment.CommentTag = jsDoc.commentTags[i];
       jsDocInfo.addTag(commentTag);
+      jsDocInfo.setKit(parentKitInfo);
       const jsDocProcessor = jsDocProcessorMap.get(commentTag.tag.toLowerCase());
       if (!jsDocProcessor) {
         continue;
@@ -203,16 +218,25 @@ export class JsDocProcessorHelper {
    * @param { ts.SourceFile } sourceFile node节点的sourceFile
    * @returns 返回解析后的多段JsDoc的信息数组
    */
-  static processJsDocInfos(node: ts.Node): Comment.JsDocInfo[] {
+  static processJsDocInfos(node: ts.Node, apiType: string, parentKitInfo: string): Comment.JsDocInfo[] {
     const sourceFile = node.getSourceFile();
     const allCommentInfos: Comment.CommentInfo[] = CommentHelper.getNodeLeadingComments(node, sourceFile);
     const commentInfos: Comment.CommentInfo[] = allCommentInfos.filter((commentInfo: Comment.CommentInfo) => {
-      return commentInfo.isApiComment;
+      return (
+        (commentInfo.isApiComment && !commentInfo.isFileJsDoc && apiType !== ApiType.SOURCE_FILE) ||
+        (commentInfo.isApiComment && commentInfo.isFileJsDoc && apiType === ApiType.SOURCE_FILE)
+      );
     });
+
     const jsDocInfos: Comment.JsDocInfo[] = [];
+    if (commentInfos.length === 0 && parentKitInfo !== '') {
+      const jsDocInfo: Comment.JsDocInfo = new Comment.JsDocInfo();
+      jsDocInfo.setKit(parentKitInfo);
+      jsDocInfos.push(jsDocInfo);
+    }
     for (let i = 0; i < commentInfos.length; i++) {
       const commentInfo: Comment.CommentInfo = commentInfos[i];
-      const jsDocInfo: Comment.JsDocInfo = JsDocProcessorHelper.processJsDoc(commentInfo);
+      const jsDocInfo: Comment.JsDocInfo = JsDocProcessorHelper.processJsDoc(commentInfo, parentKitInfo);
       jsDocInfos.push(jsDocInfo);
     }
     return jsDocInfos;
@@ -234,4 +258,6 @@ const jsDocProcessorMap: Map<string, Comment.JsDocProcessorInterface> = new Map(
   [Comment.JsDocTag.THROWS, JsDocProcessorHelper.addErrorCode],
   [Comment.JsDocTag.CONSTANT, JsDocProcessorHelper.setIsConstant],
   [Comment.JsDocTag.ATOMIC_SERVICE, JsDocProcessorHelper.setIsAtomicService],
+  [Comment.JsDocTag.KIT, JsDocProcessorHelper.setKitContent],
+  [Comment.JsDocTag.FILE, JsDocProcessorHelper.setIsFile],
 ]);
