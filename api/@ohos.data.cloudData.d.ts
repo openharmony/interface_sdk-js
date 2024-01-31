@@ -63,6 +63,7 @@ declare namespace cloudData {
    *
    * @constant
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
    * @since 11
    */
   const DATA_CHANGE_EVENT_ID = 'cloud_data_change';
@@ -436,6 +437,7 @@ declare namespace cloudData {
    *
    * @namespace sharing
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @systemapi
    * @since 11
    */
   export namespace sharing {
