@@ -54,14 +54,14 @@ import type print from './@ohos.print';
 declare namespace webview {
   /**
    * Defines the Web's request/response header.
-   * 
+   *
    * @interface WebHeader
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Defines the Web's request/response header.
-   * 
+   *
    * @interface WebHeader
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -69,7 +69,7 @@ declare namespace webview {
    */
   /**
    * Defines the Web's request/response header.
-   * 
+   *
    * @interface WebHeader
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -342,14 +342,14 @@ declare namespace webview {
 
   /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
-   * 
+   *
    * @interface HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
-   * 
+   *
    * @interface HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -359,13 +359,13 @@ declare namespace webview {
 
     /**
      * Get the hit test type.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Get the hit test type.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -374,13 +374,13 @@ declare namespace webview {
 
     /**
      * Get the hit test extra data.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
     /**
      * Get the hit test extra data.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -390,14 +390,14 @@ declare namespace webview {
 
   /**
    * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
-   * 
+   *
    * @interface WebCustomScheme
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
-   * 
+   *
    * @interface WebCustomScheme
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -453,61 +453,61 @@ declare namespace webview {
 
   /**
    * Provides basic information of web storage.
-   * 
+   *
    * @interface WebStorageOrigin
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Provides basic information of web storage.
-   * 
+   *
    * @interface WebStorageOrigin
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
   interface WebStorageOrigin {
-  /**
-   * Url source.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Url source.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
+    /**
+     * Url source.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    /**
+     * Url source.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
     origin: string;
-  /**
-   * Specify the amount of storage for the source.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Specify the amount of storage for the source.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
+    /**
+     * Specify the amount of storage for the source.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    /**
+     * Specify the amount of storage for the source.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
     usage: number;
-  /**
-   * the callback of getOriginUsage.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * the callback of getOriginUsage.
-   * 
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
+    /**
+     * the callback of getOriginUsage.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    /**
+     * the callback of getOriginUsage.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
     quota: number;
   }
 
@@ -536,13 +536,13 @@ declare namespace webview {
 
   /**
    * Provides methods for managing web storage.3
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Provides methods for managing web storage.3
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -667,7 +667,7 @@ declare namespace webview {
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -676,7 +676,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @returns { Promise<number> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -688,7 +688,7 @@ declare namespace webview {
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -697,7 +697,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Get the web storage quota with the origin.
+     * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
      * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -907,7 +907,7 @@ declare namespace webview {
      * Gets the geolocation permission status of the specified source.
      * @param { string } origin - Url source.
      * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
-     *                                              the specified source. Successful acquisition, 
+     *                                              the specified source. Successful acquisition,
      *                                              true means authorized, false means access is
      *                                              denied. Failed to get, indicating that the
      *                                              permission status of the specified source does
@@ -939,7 +939,7 @@ declare namespace webview {
     /**
      * Get all stored geolocation permission url source.
      *
-     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about 
+     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
      *                                     the stored geolocation permission state.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
@@ -960,7 +960,7 @@ declare namespace webview {
 
     /**
      * Get all stored geolocation permission url source.
-     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for 
+     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
      *                                                    stored geolocation permission states.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1026,7 +1026,7 @@ declare namespace webview {
 
     /**
      * Gets all cookies for the given URL Asynchronously.
-     * 
+     *
      * @param { string } url - The URL for which the cookies are requested.
      * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1040,7 +1040,7 @@ declare namespace webview {
 
     /**
      * Gets all cookies for the given URL Asynchronously.
-     * 
+     *
      * @param { string } url - The URL for which the cookies are requested.
      * @param { AsyncCallback<string> } callback - Called after the cookies of given URL have been gotten.
      * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1249,7 +1249,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
-     * @useinstead ohos.web.webview.WebCookieManager#clearEntireCookieSync
+     * @useinstead ohos.web.webview.WebCookieManager#clearAllCookiesSync
      */
     static deleteEntireCookie(): void;
 
@@ -1327,14 +1327,14 @@ declare namespace webview {
 
   /**
    * Enum type supplied to {@link onMessageEventExt} for indicating the type of web message.
-   * 
+   *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   /**
    * Enum type supplied to {@link onMessageEventExt} for indicating the type of web message.
-   * 
+   *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1418,13 +1418,13 @@ declare namespace webview {
 
     /**
      * The array data type.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * The array data type.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -1449,13 +1449,13 @@ declare namespace webview {
 
   /**
    * The message received or sent from web message port.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   /**
    * The message received or sent from web message port.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -1742,6 +1742,13 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * WebMessage type supplied to {@link onMessageEventExt} for indicating the type of web message.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   type WebMessage = ArrayBuffer | string;
   /**
    * Define html web message port.
@@ -1831,7 +1838,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessageExt } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port. 
+     * @throws { BusinessError } 17100010 - Can not post message using this port.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -1839,7 +1846,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessageExt } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port. 
+     * @throws { BusinessError } 17100010 - Can not post message using this port.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -2312,7 +2319,7 @@ declare namespace webview {
      * @since 11
      */
     isSafeBrowsingEnabled(): boolean;
- 
+
     /**
      * Checks whether the web page can go forward.
      * @returns { boolean } True if the web page can go forward else false.
@@ -2603,9 +2610,9 @@ declare namespace webview {
      * Stores the current page as a web archive.
      *
      * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is 
-     *                               stored by the file name of baseName. If true, the file name is 
-     *                               automatically generated based on the current URL and stored in the file 
+     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is
+     *                               stored by the file name of baseName. If true, the file name is
+     *                               automatically generated based on the current URL and stored in the file
      *                               directory of baseName.
      * @returns { Promise<string> } a promise resolved after the web archive has been stored. The parameter
      *                              will either be the filename under which the file was stored, or empty
@@ -2621,9 +2628,9 @@ declare namespace webview {
      * Stores the current page as a web archive.
      *
      * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is 
-     *                               stored by the file name of baseName. If true, the file name is 
-     *                               automatically generated based on the current URL and stored in the file 
+     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is
+     *                               stored by the file name of baseName. If true, the file name is
+     *                               automatically generated based on the current URL and stored in the file
      *                               directory of baseName.
      * @returns { Promise<string> } a promise resolved after the web archive has been stored. The parameter
      *                              will either be the filename under which the file was stored, or empty
@@ -2642,9 +2649,9 @@ declare namespace webview {
      * Stores the current page as a web archive.
      *
      * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is 
-     *                               stored by the file name of baseName. If true, the file name is 
-     *                               automatically generated based on the current URL and stored in the file 
+     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is
+     *                               stored by the file name of baseName. If true, the file name is
+     *                               automatically generated based on the current URL and stored in the file
      *                               directory of baseName.
      * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
      *                                             will either be the filename under which the file was stored,
@@ -2660,9 +2667,9 @@ declare namespace webview {
      * Stores the current page as a web archive.
      *
      * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is 
-     *                               stored by the file name of baseName. If true, the file name is 
-     *                               automatically generated based on the current URL and stored in the file 
+     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is
+     *                               stored by the file name of baseName. If true, the file name is
+     *                               automatically generated based on the current URL and stored in the file
      *                               directory of baseName.
      * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
      *                                             will either be the filename under which the file was stored,
@@ -3267,7 +3274,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe, 
+     *                          the page content will scroll up half the size of the viewframe,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -3279,7 +3286,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe, 
+     *                          the page content will scroll up half the size of the viewframe,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -3294,7 +3301,7 @@ declare namespace webview {
      * Scroll the contents of this Webview down by half the view size.
      *
      * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe, 
+     *                             the page content will scroll up half the size of the viewframe,
      *                             and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -3306,7 +3313,7 @@ declare namespace webview {
      * Scroll the contents of this Webview down by half the view size.
      *
      * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe, 
+     *                             the page content will scroll up half the size of the viewframe,
      *                             and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -3620,7 +3627,6 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 11
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
@@ -3641,7 +3647,6 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 11
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
@@ -3984,7 +3989,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     */ 
+     */
     FILE_TOO_SHORT = 13,
 
     /**
@@ -3992,7 +3997,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     */ 
+     */
     FILE_HASH_MISMATCH = 14,
 
     /**
@@ -4000,7 +4005,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     */ 
+     */
     FILE_SAME_AS_SOURCE = 15,
 
     /**
