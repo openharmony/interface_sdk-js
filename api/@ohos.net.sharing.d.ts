@@ -28,7 +28,13 @@ import type connection from './@ohos.net.connection';
  * @since 9
  */
 declare namespace sharing {
+  /**
+   * Get the handle of the data network.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 9
+   */
   type NetHandle = connection.NetHandle;
+
   /**
    * Checks whether this device allows for network sharing.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL

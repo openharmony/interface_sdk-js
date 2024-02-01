@@ -44,8 +44,50 @@ import type socket from './@ohos.net.socket';
  * @since 11
  */
 declare namespace connection {
+  /**
+   * Get an HTTP request task.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Get an HTTP request task.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Get an HTTP request task.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   type HttpRequest = http.HttpRequest;
+
+  /**
+   * Get a TCPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Get a TCPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
   type TCPSocket = socket.TCPSocket;
+
+  /**
+   * Get a UDPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Get a UDPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
   type UDPSocket = socket.UDPSocket;
 
   /**
