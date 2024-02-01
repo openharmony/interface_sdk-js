@@ -2758,6 +2758,20 @@ declare namespace bundleManager {
   function deleteAbc(abcPath: string): Promise<void>;
 
   /**
+   * Check whether the link can be opened.
+   *
+   * @param { string } link - Indicates the link to be opened.
+   * @returns { boolean } Returns true if the link can be opened; returns false otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700055 - The specified link is invalid.
+   * @throws { BusinessError } 17700056 - The scheme of the specified link is not in the querySchemes.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  function canOpenLink(link: string): boolean;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
