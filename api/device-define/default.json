@@ -163,8 +163,6 @@
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
-    "SystemCapability.Sensors.Sensor.Lite",
-    "SystemCapability.Sensors.MiscDevice.Lite",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
