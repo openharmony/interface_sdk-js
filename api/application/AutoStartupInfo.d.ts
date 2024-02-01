@@ -18,6 +18,7 @@
  *
  * @typedef AutoStartupInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
  * @StageModelOnly
  * @since 11
  */
@@ -27,6 +28,7 @@ export interface AutoStartupInfo {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -37,6 +39,7 @@ export interface AutoStartupInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -47,6 +50,7 @@ export interface AutoStartupInfo {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -57,6 +61,7 @@ export interface AutoStartupInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
