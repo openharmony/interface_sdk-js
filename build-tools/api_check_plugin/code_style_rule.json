@@ -120,7 +120,6 @@
       "SystemCapability.Window.SessionManager",
       "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
-      "SystemCapability.WindowManager.WindowManager.MutiScreen",
       "SystemCapability.Notification.CommonEvent",
       "SystemCapability.Notification.Notification",
       "SystemCapability.Notification.ReminderAgent",
