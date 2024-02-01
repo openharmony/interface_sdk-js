@@ -1740,6 +1740,19 @@ declare namespace worker {
      * @useinstead ohos.worker.ThreadWorker.postMessage
      */
     postMessage(message: Object, transfer: ArrayBuffer[]): void;
+
+    /**
+     * Sends a message to the worker thread.
+     * The data is transferred using the structured clone algorithm.
+     *
+     * @param { Object } message - message - message Data to be sent to the worker
+     * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
+     * The transferList array cannot contain null.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.worker.ThreadWorker.postMessage
+     */
     postMessage(message: Object, options?: PostMessageOptions): void;
 
     /**
