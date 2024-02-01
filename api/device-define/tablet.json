@@ -35,7 +35,6 @@
     "SystemCapability.Location.Location.Geocoder",
     "SystemCapability.Location.Location.Geofence",
     "SystemCapability.Location.Location.Gnss",
-    "SystemCapability.Location.Location.Lite",
     "SystemCapability.MultimodalInput.Input.Core",
     "SystemCapability.MultimodalInput.Input.InputDevice",
     "SystemCapability.MultimodalInput.Input.RemoteInputDevice",
