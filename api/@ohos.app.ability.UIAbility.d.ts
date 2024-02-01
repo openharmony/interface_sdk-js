@@ -34,7 +34,7 @@ import window from './@ohos.window';
  * @since 9
  */
 export interface OnReleaseCallback {
-  /**
+/**
  * Defines the callback of OnRelease.
  *
  * @param { string } msg - The notification event string listened to by the OnRelease.
@@ -54,7 +54,7 @@ export interface OnReleaseCallback {
  * @since 10
  */
 export interface OnRemoteStateChangeCallback {
-  /**
+/**
  * Defines the callback of OnRemoteStateChange.
  *
  * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
@@ -74,7 +74,7 @@ export interface OnRemoteStateChangeCallback {
  * @since 9
  */
 export interface CalleeCallback {
-  /**
+/**
  * Defines the callback of Callee.
  *
  * @param { rpc.MessageSequence } indata - Notification indata to the callee.
