@@ -17831,6 +17831,31 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
   /**
+   * Called when the scrollable will scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame will scroll, which may or may not be reached.
+   * scrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillScroll(handler: OnScrollCallback): T;
+
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidScroll(handler: OnScrollCallback): T;
+
+  /**
    * Called when the scrollable reaches the start position.
    *
    * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
@@ -17891,6 +17916,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    */
   flingSpeedLimit(speedLimit: number): T;
 }
+
+/**
+  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 declare module "SpecialEvent" {
   module "SpecialEvent" {
