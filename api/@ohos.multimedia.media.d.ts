@@ -866,11 +866,6 @@ declare namespace media {
     /**
      * Audio interrupted.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 11
-     */
-    /**
-     * Audio interrupted.
-     * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 11
      */
