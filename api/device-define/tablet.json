@@ -104,7 +104,6 @@
     "SystemCapability.BarrierFree.Accessibility.Core",
     "SystemCapability.BarrierFree.Accessibility.Vision",
     "SystemCapability.BarrierFree.Accessibility.Hearing",
-    "SystemCapability.BarrierFree.Accessibility.Interaction",
     "SystemCapability.ResourceSchedule.WorkScheduler",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
