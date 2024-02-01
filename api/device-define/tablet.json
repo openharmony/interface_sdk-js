@@ -81,7 +81,6 @@
     "SystemCapability.Multimedia.Audio.Tone",
     "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
-    "SystemCapability.Multimedia.Camera.DistributedCore",
     "SystemCapability.Multimedia.Drm.Core",
     "SystemCapability.Multimedia.Image.Core",
     "SystemCapability.Multimedia.Image.ImageSource",
