@@ -45,7 +45,7 @@ export interface BundleOption {
  *
  * @typedef BundleNotificationStatus
  * @syscap SystemCapability.Notification.Notification
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 12
  */
 export interface BundleNotificationStatus {
@@ -54,7 +54,7 @@ export interface BundleNotificationStatus {
    *
    * @type { BundleOption }
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 12
    */
   bundleOption: BundleOption;
@@ -64,7 +64,7 @@ export interface BundleNotificationStatus {
    *
    * @type { boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 12
    */
   status: boolean;

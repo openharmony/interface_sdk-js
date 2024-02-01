@@ -2672,6 +2672,7 @@ declare namespace notificationManager {
    * Describes a bundleStatus in a notification.
    *
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 12
    */
   export type BundleNotificationStatus = _BundleNotificationStatus;
