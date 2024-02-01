@@ -40,11 +40,13 @@ declare enum PatternLockChallengeResult {
 /**
  * Provides methods for control pattern lock component.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Provides methods for control pattern lock component.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -105,6 +107,23 @@ declare class PatternLockController {
  * @since 10
  */
 interface PatternLockInterface {
+  /**
+   * Constructor.
+   *
+   * @param { PatternLockController } [controller] - controller
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Constructor.
+   *
+   * @param { PatternLockController } [controller]  controller
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   (controller?: PatternLockController): PatternLockAttribute;
 }
 

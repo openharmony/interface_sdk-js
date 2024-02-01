@@ -671,17 +671,20 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 /**
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11

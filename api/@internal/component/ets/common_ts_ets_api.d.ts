@@ -17,12 +17,14 @@
  * AppStorage singleton is sub-class of see LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * AppStorage singleton is sub-class of see LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -30,6 +32,7 @@
  * AppStorage singleton is sub-class of see LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -1589,6 +1592,7 @@ declare const appStorage: AppStorage;
  * AppStorage singleton is sub-class of LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -1600,6 +1604,7 @@ declare const appStorage: AppStorage;
  * AppStorage singleton is sub-class of LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -1612,6 +1617,7 @@ declare const appStorage: AppStorage;
  * AppStorage singleton is sub-class of LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
