@@ -34,6 +34,14 @@ import window from './@ohos.window';
  * @since 9
  */
 export interface OnReleaseCallback {
+  /**
+ * Defines the callback of OnRelease.
+ *
+ * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @since 9
+ */
   (msg: string): void;
 }
 
@@ -46,6 +54,14 @@ export interface OnReleaseCallback {
  * @since 10
  */
 export interface OnRemoteStateChangeCallback {
+  /**
+ * Defines the callback of OnRemoteStateChange.
+ *
+ * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @since 10
+ */
   (msg: string): void;
 }
 
@@ -58,6 +74,15 @@ export interface OnRemoteStateChangeCallback {
  * @since 9
  */
 export interface CalleeCallback {
+  /**
+ * Defines the callback of Callee.
+ *
+ * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+ * @returns { rpc.Parcelable } Returns the callee's notification result indata.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @since 9
+ */
   (indata: rpc.MessageSequence): rpc.Parcelable;
 }
 
