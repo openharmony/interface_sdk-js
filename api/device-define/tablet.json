@@ -198,8 +198,6 @@
     "SystemCapability.BundleManager.BundleFramework.Resource",
     "SystemCapability.BundleManager.BundleFramework.DefaultApp",
     "SystemCapability.BundleManager.BundleFramework.Launcher",
-    "SystemCapability.BundleManager.BundleFramework.SandboxApp",
-    "SystemCapability.BundleManager.BundleFramework.QuickFix",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
