@@ -29,6 +29,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * then returns it to you.
  *
  * @namespace bundleState
+ * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.resourceschedule.usageStatistics
