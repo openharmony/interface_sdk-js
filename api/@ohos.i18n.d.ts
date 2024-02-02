@@ -734,8 +734,14 @@ declare namespace i18n {
      * Provides the API for accessing Calendar name, time and date related information.
      *
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Provides the API for accessing Calendar name, time and date related information.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
   export class Calendar {
     /**
