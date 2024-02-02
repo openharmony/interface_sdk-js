@@ -275,7 +275,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 12
    */
-  function checkPersistPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
+  function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
 }
 
 export default fileShare;
