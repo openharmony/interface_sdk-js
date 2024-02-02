@@ -564,6 +564,7 @@ declare namespace i18n {
      * The return value may be empty string due to none is matched.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
