@@ -41,6 +41,33 @@
  * @form
  */
 interface RelativeContainerInterface {
+  /**
+   * Constructor.
+   *
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Constructor.
+   *
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Constructor.
+   *
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (): RelativeContainerAttribute;
 }
 
