@@ -13,4 +13,16 @@
  * limitations under the License.
  */
 
+/**
+ * Indicates permissions.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @since 9
+ */
+ /**
+ * Indicates permissions.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @since 11
+ */
 export type Permissions = string;
