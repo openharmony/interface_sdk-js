@@ -37,11 +37,13 @@ export declare class ComposeTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -50,11 +52,13 @@ export declare class ComposeTitleBarMenuItem {
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -63,11 +67,13 @@ export declare class ComposeTitleBarMenuItem {
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */

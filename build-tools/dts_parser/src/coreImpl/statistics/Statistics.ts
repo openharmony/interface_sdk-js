@@ -227,7 +227,8 @@ export class ApiStatisticsHelper {
         .setApiLevel(jsDocInfo.getIsSystemApi())
         .setModelLimitation(jsDocInfo.getModelLimitation())
         .setIsAutomicService(jsDocInfo.getIsAtomicService())
-        .setErrorCodes(jsDocInfo.getErrorCode());
+        .setErrorCodes(jsDocInfo.getErrorCode())
+        .setKitInfo(jsDocInfo.getKit());
     } else {
       apiStatisticsInfo.setSyscap(ApiStatisticsHelper.extendSyscap(apiInfo));
     }

@@ -49,6 +49,7 @@ export class ApiStatisticsInfo {
   modelLimitation: string = '';
   decorators: Array<string> | undefined = [];
   errorCodes: number[] = [];
+  kitInfo: string = '';
   setFilePath(fileFilePath: string): ApiStatisticsInfo {
     this.filePath = fileFilePath;
     this.packageName = FunctionUtils.getPackageName(fileFilePath);
@@ -227,6 +228,15 @@ export class ApiStatisticsInfo {
 
   getErrorCodes(): number[] {
     return this.errorCodes;
+  }
+
+  setKitInfo(kitInfo: string): ApiStatisticsInfo {
+    this.kitInfo = kitInfo;
+    return this;
+  }
+
+  getKitInfo(): string {
+    return this.kitInfo;
   }
 }
 

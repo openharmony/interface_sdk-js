@@ -24,6 +24,7 @@ import { AsyncCallback } from './@ohos.base';
  * Work scheduler interface.
  *
  * @namespace workScheduler
+ * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 9
  */

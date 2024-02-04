@@ -2030,6 +2030,7 @@ declare enum ContextMenuInputFieldType {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare enum NativeEmbedStatus {
@@ -2038,6 +2039,7 @@ declare enum NativeEmbedStatus {
    * The embed tag create.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   CREATE = 0,
@@ -2046,6 +2048,7 @@ declare enum NativeEmbedStatus {
    * The embed tag update.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   UPDATE = 1,
@@ -2054,6 +2057,7 @@ declare enum NativeEmbedStatus {
    * The embed tag destroy.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   DESTROY = 2,
@@ -3757,7 +3761,7 @@ declare interface LoadCommittedDetails {
   /**
    * True if the committed entry has replaced the existing one. Note that in
    * case of subframes, the NavigationEntry and FrameNavigationEntry objects
-   * don't actually get replaced - they're reused, but with updated attributes. 
+   * don't actually get replaced - they're reused, but with updated attributes.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -3847,6 +3851,7 @@ interface WebInterface {
  *
  * @interface NativeEmbedInfo
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare interface NativeEmbedInfo {
@@ -3855,6 +3860,7 @@ declare interface NativeEmbedInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   id?: string;
@@ -3863,6 +3869,7 @@ declare interface NativeEmbedInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   type?: string;
@@ -3871,6 +3878,7 @@ declare interface NativeEmbedInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   src?: string;
@@ -3879,6 +3887,7 @@ declare interface NativeEmbedInfo {
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   width?: number;
@@ -3887,6 +3896,7 @@ declare interface NativeEmbedInfo {
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   height?: number;
@@ -3895,6 +3905,7 @@ declare interface NativeEmbedInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   url?: string;
@@ -3905,6 +3916,7 @@ declare interface NativeEmbedInfo {
  *
  * @interface NativeEmbedDataInfo
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare interface NativeEmbedDataInfo {
@@ -3913,6 +3925,7 @@ declare interface NativeEmbedDataInfo {
    *
    * @type { ?NativeEmbedStatus }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   status?: NativeEmbedStatus;
@@ -3921,6 +3934,7 @@ declare interface NativeEmbedDataInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   surfaceId?: string;
@@ -3929,6 +3943,7 @@ declare interface NativeEmbedDataInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   embedId?: string;
@@ -3937,6 +3952,7 @@ declare interface NativeEmbedDataInfo {
    *
    * @type { ?NativeEmbedInfo }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   info?: NativeEmbedInfo;
@@ -3947,6 +3963,7 @@ declare interface NativeEmbedDataInfo {
  *
  * @interface NativeEmbedTouchInfo
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare interface NativeEmbedTouchInfo {
@@ -3955,6 +3972,7 @@ declare interface NativeEmbedTouchInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   embedId?: string;
@@ -3963,6 +3981,7 @@ declare interface NativeEmbedTouchInfo {
    *
    * @type { ?TouchEvent }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   touchEvent?: TouchEvent;
@@ -4689,7 +4708,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @atomicservice
      * @since 11
      */
-    result: JsResult 
+    result: JsResult
   }) => boolean): WebAttribute;
 
   /**
@@ -4709,7 +4728,32 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onBeforeUnload(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+  onBeforeUnload(callback: (event?: {
+    /**
+     * The url of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * The message of confirm dialog.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    message: string,
+    /**
+     *  Handle the user's JavaScript result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    result: JsResult
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
@@ -4756,7 +4800,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @atomicservice
      * @since 11
      */
-    result: JsResult 
+    result: JsResult
   }) => boolean): WebAttribute;
 
   /**
@@ -4984,6 +5028,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @since 11
      */
     userAgent: string,
+    /**
+     * The contentDisposition of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
     contentDisposition: string,
     /**
      * The mimetype of page.
@@ -5022,7 +5073,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onRefreshAccessedHistory(callback: (event?: { url: string, isRefreshed: boolean }) => void): WebAttribute;
+  onRefreshAccessedHistory(callback: (event?: {
+    /**
+     * URL of the visit.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isRefreshed: boolean
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the URL loading is intercepted.
@@ -5065,7 +5133,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onRenderExited(callback: (event?: { renderExitReason: RenderExitReason }) => void): WebAttribute;
+  onRenderExited(callback: (event?: {
+    /**
+     * The specific reason why the rendering process exits abnormally.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    renderExitReason: RenderExitReason
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the file selector shows.
@@ -5147,7 +5224,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onResourceLoad(callback: (event: { url: string }) => void): WebAttribute;
+  onResourceLoad(callback: (event: {
+    /**
+     * The URL of the loaded resource file.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    url: string
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the web component exit the full screen mode.
@@ -5185,7 +5271,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler }) => void): WebAttribute;
+  onFullScreenEnter(callback: (event: {
+    /**
+     * A function handle to exit full-screen mode.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    handler: FullScreenExitHandler
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the scale of WebView changed.
@@ -5291,7 +5386,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onInterceptRequest(callback: (event?: { request: WebResourceRequest }) => WebResourceResponse): WebAttribute;
+  onInterceptRequest(callback: (event?: {
+    /**
+     * The url of the event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    request: WebResourceRequest
+  }) => WebResourceResponse): WebAttribute;
 
   /**
    * Triggered when the host application that web content from the specified origin is attempting to access the resources.
@@ -5342,7 +5446,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScreenCaptureRequest(callback: (event?: { handler: ScreenCaptureHandler }) => void): WebAttribute;
+  onScreenCaptureRequest(callback: (event?: {
+    /**
+     * Notifies the user of the operation behavior of the web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    handler: ScreenCaptureHandler
+  }) => void): WebAttribute;
 
   /**
    * Triggered when called to allow custom display of the context menu.
@@ -5361,7 +5474,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
+  onContextMenuShow(callback: (event?: {
+    /**
+     * The menu-related parameters.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    param: WebContextMenuParam,
+    /**
+     * The menu corresponding event is passed to the kernel.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    result: WebContextMenuResult
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when called to allow custom hide of the context menu.
@@ -5413,7 +5543,32 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSearchResultReceive(callback: (event?: { activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean }) => void): WebAttribute
+  onSearchResultReceive(callback: (event?: {
+    /**
+     * The ordinal number of the currently matched lookup item (starting from 0).
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    activeMatchOrdinal: number,
+    /**
+     * The number of all matched keywords.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    numberOfMatches: number,
+    /**
+     * Find out whether the operation is completed on the next page. The method may be called back multiple times until isDoneCounting is true.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isDoneCounting: boolean
+  }) => void): WebAttribute
 
   /**
    * Triggered when the scroll bar slides to the specified position.
@@ -5471,7 +5626,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
+  onSslErrorEventReceive(callback: (event: {
+    /**
+     * Notifies the user of the operation behavior of the web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    handler: SslErrorHandler,
+    /**
+     * Error codes.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    error: SslError
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page needs ssl client certificate from the user.
@@ -5490,8 +5662,48 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
-    keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
+  onClientAuthenticationRequest(callback: (event: {
+    /**
+     * Notifies the user of the operation behavior of the web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    handler : ClientAuthenticationHandler,
+    /**
+     * The hostname of the requesting certificate server.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    host : string,
+    /**
+     * The port number of the request certificate server.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    port : number,
+    /**
+     * Acceptable asymmetric key types.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    keyTypes : Array<string>,
+    /**
+     * Certificates that match the private key are acceptable to the issuer.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    issuers : Array<string>
+  }) => void): WebAttribute;
 
   /**
    * Triggered when web page requires the user to create a window.
@@ -5510,8 +5722,40 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onWindowNew(callback: (event: {isAlert: boolean, isUserTrigger: boolean, targetUrl: string,
-    handler: ControllerHandler}) => void): WebAttribute;
+  onWindowNew(callback: (event: {
+    /**
+     * true indicates the request to create a dialog and false indicates a new tab.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isAlert: boolean,
+    /**
+     * true indicates that it is triggered by the user, and false indicates that it is triggered by a non-user.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    isUserTrigger: boolean,
+    /**
+     * Destination URL.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    targetUrl: string,
+    /**
+     * Lets you set the WebviewController instance for creating a new window.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    handler: ControllerHandler
+  }) => void): WebAttribute;
 
   /**
    * Triggered when web page requires the user to close a window.
@@ -5839,8 +6083,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onTouchIconUrlReceived(callback: (event: {url: string,
-    precomposed: boolean}) => void): WebAttribute;
+  onTouchIconUrlReceived(callback: (event: {
+    /**
+     * The apple-touch-icon URL address received.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * Corresponding to whether apple-touch-icon is precomposited.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    precomposed: boolean
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the application receive a new favicon for the current web page.
@@ -5861,7 +6121,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFaviconReceived(callback: (event: { favicon: PixelMap }) => void): WebAttribute;
+  onFaviconReceived(callback: (event: {
+    /**
+     * Received the Favicon icon for the PixelMap object.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    favicon: PixelMap
+  }) => void): WebAttribute;
 
   /**
    * Triggered when previous page will no longer be drawn and next page begin to draw.
@@ -5912,7 +6181,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onDataResubmitted(callback: (event: { handler: DataResubmissionHandler }) => void): WebAttribute;
+  onDataResubmitted(callback: (event: {
+    /**
+     * Form data resubmission handle.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    handler: DataResubmissionHandler
+  }) => void): WebAttribute;
 
   /**
    * Set whether enable pinch smooth mode.
@@ -5973,7 +6251,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
+  onAudioStateChanged(callback: (event: {
+    /**
+     * The audio playback status of the current page, true if playing true otherwise false
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    playing: boolean
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the first content rendering of web page.
@@ -5992,8 +6279,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFirstContentfulPaint(callback: (event?: { navigationStartTick: number,
-    firstContentfulPaintMs: number }) => void): WebAttribute;
+  onFirstContentfulPaint(callback: (event?: {
+    /**
+     * The time at which navigation begins, expressed in microseconds.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    navigationStartTick: number,
+    /**
+     * The time it takes to draw content for the first time from navigation, expressed in milliseconds.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    firstContentfulPaintMs: number
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the resources loading is intercepted.
@@ -6060,8 +6363,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
-
+  onOverScroll(callback: (event: {
+    /**
+     * Based on the leftmost part of the page, the horizontal scroll offset is over.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    xOffset: number,
+    /**
+     * Based on the top of the page, the vertical scroll offset is over.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    yOffset: number
+  }) => void): WebAttribute;
 
   /**
    * Called when received website security risk check result.
@@ -6161,7 +6480,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Called to set copy option
-   * 
+   *
    * @param { CopyOptions } value - copy option.
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core

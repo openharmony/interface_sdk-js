@@ -267,11 +267,25 @@ export class ImportInfo extends BasicApiInfo {
 export class ApiInfo extends BasicApiInfo {
   jsDocInfos: Comment.JsDocInfo[] = []; // 所有的JsDoc信息
 
-  constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo) {
+  constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
-    const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node);
+    let parentKitInfo = '';
+    if (parentApi) {
+      parentKitInfo = this.getKitInfoFromParent(parentApi);
+    }    
+    const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node, apiType, parentKitInfo);
     this.setJsDocText(node.getFullText().replace(node.getText(), ''));
     this.addJsDocInfos(jsDocInfos);
+  }
+
+  getKitInfoFromParent(parentApi: BasicApiInfo): string {
+    const parentApiInfo = parentApi as ApiInfo;
+    const jsDocInfos: Comment.JsDocInfo[] = parentApiInfo.getJsDocInfos();
+    let kitInfo: string = '';
+    jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
+      kitInfo = jsDocInfo.getKit();
+    });
+    return kitInfo;
   }
 
   getJsDocInfos(): Comment.JsDocInfo[] {
