@@ -238,13 +238,22 @@ declare interface OffsetResult {
 }
 
 /**
+ * Scroller
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
+ * Scroller
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
+ * Scroller
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11

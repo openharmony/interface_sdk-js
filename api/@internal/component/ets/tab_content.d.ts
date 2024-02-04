@@ -869,12 +869,14 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  *
  * @extends CommonMethod<TabContentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the attribute functions of TabContent.
  *
  * @extends CommonMethod<TabContentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -882,6 +884,7 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  *
  * @extends CommonMethod<TabContentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
