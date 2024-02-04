@@ -39,6 +39,16 @@ declare namespace systemCapability {
    * @param callback indicates the system capability string result.
    */
   function querySystemCapabilities(callback: AsyncCallback<string>): void;
+
+  /**
+   * Get System Capability.
+   *
+   * @since 9
+   * @systemapi
+   * @syscap SystemCapability.Developtools.Syscap
+   * @returns system capability string.
+   * @param callback indicates the system capability string result.
+   */
   function querySystemCapabilities(): Promise<string>;
 }
 
