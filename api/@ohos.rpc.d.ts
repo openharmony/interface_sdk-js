@@ -20,6 +20,13 @@
 
 import type { AsyncCallback } from './@ohos.base';
 
+/**
+ * This module provides inter process communication capability.
+ *
+ * @namespace rpc
+ * @syscap SystemCapability.Communication.IPC.Core
+ * @since 7
+ */
 declare namespace rpc {
   /**
    * The error code of rpc.
