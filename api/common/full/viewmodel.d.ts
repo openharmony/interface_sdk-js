@@ -6121,6 +6121,21 @@ export interface Application {
  * @since 11
  */
 export interface ViewModel {
+  /**
+   * Object that is exposed in the app.js file and obtained by this.$app
+   *
+   * @type  { Application }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 4
+   */
+  /**
+   * Object that is exposed in the app.js file and obtained by this.$app
+   *
+   * @type  { Application }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */  
   $app: Application;
 
   /**
