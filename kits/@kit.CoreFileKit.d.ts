@@ -28,7 +28,7 @@ import fileExtensionInfo from '@ohos.file.fileExtensionInfo';
 import fileUri from '@ohos.file.fileuri';
 import fileIo, {
   ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
-  Watcher
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
 import picker from '@ohos.file.picker';
@@ -43,7 +43,8 @@ import fileShare from '@ohos.fileshare';
 
 export {
   BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
-  WatchEvent, WatchEventListener, Watcher, backup, cloudSync, cloudSyncManager, fileAccess, fileExtensionInfo,
+  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
+  backup, cloudSync, cloudSyncManager, fileAccess, fileExtensionInfo,
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager
 };

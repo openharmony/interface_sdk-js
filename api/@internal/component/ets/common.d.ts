@@ -225,6 +225,16 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
+ * Defining observed ClassDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const observed: ClassDecorator;
+
+/**
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -340,6 +350,16 @@ declare const State: PropertyDecorator;
  * @form
  */
 declare const Track: PropertyDecorator;
+
+/**
+ * Defining track PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const track: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
@@ -10998,13 +11018,6 @@ declare interface MenuElement {
    */
   value: ResourceStr;
 
-  /**
-   * Sets the icon of the menu element.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
   /**
    * Sets the icon of the menu element.
    *
