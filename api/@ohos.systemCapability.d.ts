@@ -22,7 +22,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
 * Provides interfaces to get system capability.
-* @namespace SystemCapability
+* @namespace systemCapability
 * @syscap SystemCapability.Developtools.Syscap
 * @systemapi
 * @since 9
@@ -30,7 +30,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 declare namespace systemCapability {
   /**
    * Get System Capability.
-   * @param { callback } indicates the system capability string result.
+   * @param { AsyncCallback<string> }callback indicates the system capability string result.
    * @syscap SystemCapability.Developtools.Syscap
    * @systemapi
    * @since 9
