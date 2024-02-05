@@ -220,7 +220,7 @@
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
-    "SystemCapability.Applications.settings.Core",
+    "SystemCapability.Applications.Settings.Core",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Cloud.AAID",
