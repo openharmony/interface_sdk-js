@@ -3896,7 +3896,7 @@ declare namespace call {
      * @since 6
      */
     CALL_STATE_OFFHOOK = 2,
-    
+
     /**
      * Indicates that call is answered
      *
