@@ -22,32 +22,28 @@ import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
 * Provides interfaces to get system capability.
-*
-* @since 9
 * @syscap SystemCapability.Developtools.Syscap
 * @systemapi
+* @since 9
 */
 
 declare namespace systemCapability {
   /**
    * Get System Capability.
-   *
-   * @since 9
-   * @systemapi
-   * @syscap SystemCapability.Developtools.Syscap
-   * @returns system capability string.
    * @param callback indicates the system capability string result.
+   * @syscap SystemCapability.Developtools.Syscap
+   * @systemapi
+   * @since 9
    */
   function querySystemCapabilities(callback: AsyncCallback<string>): void;
 
   /**
    * Get System Capability.
-   *
-   * @since 9
-   * @systemapi
-   * @syscap SystemCapability.Developtools.Syscap
-   * @returns system capability string.
    * @param callback indicates the system capability string result.
+   * @returns { Promise<string> } system capability string.
+   * @syscap SystemCapability.Developtools.Syscap
+   * @systemapi
+   * @since 9
    */
   function querySystemCapabilities(): Promise<string>;
 }
