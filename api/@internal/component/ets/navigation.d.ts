@@ -440,6 +440,13 @@ declare enum NavigationTitleMode {
  *
  * @interface NavigationMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 8
+ */
+/**
+ * Navigation menu item, include menu icon and menu info
+ *
+ * @interface NavigationMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
