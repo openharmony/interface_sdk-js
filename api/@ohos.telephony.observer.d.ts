@@ -36,6 +36,7 @@ declare namespace observer {
   /**
    * Describes the network registration state.
    *
+   * @typedef NetworkState
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -44,6 +45,7 @@ declare namespace observer {
   /**
    * Describes the signal strength information.
    *
+   * @typedef SignalInformation
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -52,6 +54,7 @@ declare namespace observer {
   /**
    * Describes current cell information.
    *
+   * @typedef CellInformation
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 6
@@ -61,6 +64,7 @@ declare namespace observer {
   /**
    * Describes the cellular data link connection state.
    *
+   * @typedef DataConnectState
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -69,6 +73,7 @@ declare namespace observer {
   /**
    * Describes the radio access technology.
    *
+   * @typedef RatType
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -77,6 +82,7 @@ declare namespace observer {
   /**
    * Describes the cellular data flow type.
    *
+   * @typedef DataFlowType
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -85,6 +91,7 @@ declare namespace observer {
   /**
    * Indicates the states of call.
    *
+   * @typedef CallState
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -93,6 +100,7 @@ declare namespace observer {
   /**
    * Indicates the SIM card types.
    *
+   * @typedef CardType
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
@@ -101,6 +109,7 @@ declare namespace observer {
   /**
    * Indicates the SIM card states.
    *
+   * @typedef SimState
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
