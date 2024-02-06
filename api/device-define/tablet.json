@@ -85,7 +85,6 @@
     "SystemCapability.Multimedia.Image.ImagePacker",
     "SystemCapability.Multimedia.Image.ImageReceiver",
     "SystemCapability.Multimedia.MediaLibrary.Core",
-    "SystemCapability.Multimedia.MediaLibrary.SmartAlbum",
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
