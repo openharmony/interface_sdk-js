@@ -601,7 +601,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function getAllNotificationEnableStatus(): Promise<Array<BundleNotificationStatus>>;
+  function getAllNotificationEnabledBundles(): Promise<Array<BundleNotificationStatus>>;
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
