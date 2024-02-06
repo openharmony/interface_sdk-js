@@ -734,7 +734,7 @@ declare namespace i18n {
      * Provides the API for accessing Calendar name, time and date related information.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
+     * @since 7
      */
     /**
      * Provides the API for accessing Calendar name, time and date related information.
