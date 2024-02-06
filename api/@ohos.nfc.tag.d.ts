@@ -892,6 +892,7 @@ declare namespace tag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
    * @since 12
    */
   function getNdef(tagInfo: TagInfo): NdefTag;
