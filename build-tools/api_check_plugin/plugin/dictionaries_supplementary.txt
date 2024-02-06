@@ -962,3 +962,4 @@ sar
 adapts
 followx
 precomposited
+gbk
