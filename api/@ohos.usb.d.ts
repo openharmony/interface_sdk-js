@@ -20,6 +20,7 @@
 
 /**
  * @namespace usb
+ * @syscap SystemCapability.USB.USBManager
  * @since 8
  * @deprecated since 9
  * @useinstead ohos.usbManager
