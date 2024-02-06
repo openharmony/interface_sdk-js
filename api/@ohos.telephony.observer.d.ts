@@ -33,19 +33,77 @@ import type sim from './@ohos.telephony.sim';
  * @since 6
  */
 declare namespace observer {
-  type NetworkState = radio.NetworkState;
-  type SignalInformation = radio.SignalInformation;
   /**
+   * Describes the network registration state.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
+  type NetworkState = radio.NetworkState;
+
+  /**
+   * Describes the signal strength information.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
+  type SignalInformation = radio.SignalInformation;
+
+  /**
+   * Describes current cell information.
+   *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 6
    */
   type CellInformation = radio.CellInformation;
+
+  /**
+   * Describes the cellular data link connection state.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type DataConnectState = data.DataConnectState;
+
+  /**
+   * Describes the radio access technology.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type RatType = radio.RadioTechnology;
+
+  /**
+   * Describes the cellular data flow type.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type DataFlowType = data.DataFlowType;
+
+  /**
+   * Indicates the states of call.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type CallState = call.CallState;
+
+  /**
+   * Indicates the SIM card types.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type CardType = sim.CardType;
+
+  /**
+   * Indicates the SIM card states.
+   *
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type SimState = sim.SimState;
 
   /**
