@@ -188,6 +188,13 @@ export interface IsoDepTag extends TagSession {
   isExtendedApduSupported(callback: AsyncCallback<boolean>): void;
 }
 
+/**
+ * Provides methods for Message of NDEF.
+ *
+ * @typedef NdefMessage
+ * @syscap SystemCapability.Communication.NFC.Tag
+ * @since 9
+ */
 export interface NdefMessage {
   /**
    * Obtains all records of an NDEF message.
