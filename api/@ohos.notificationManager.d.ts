@@ -402,12 +402,10 @@ declare namespace notificationManager {
   /**
    * Cancel a representative notification with agent relationship.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } representativeBundle - The bundle option.
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } [label] - Label of the notification to cancel.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
