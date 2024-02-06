@@ -13,6 +13,27 @@
  * limitations under the License.
  */
 
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 9
+ */
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
 
 /**
@@ -5568,7 +5589,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @since 11
      */
     isDoneCounting: boolean
-  }) => void): WebAttribute
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the scroll bar slides to the specified position.
