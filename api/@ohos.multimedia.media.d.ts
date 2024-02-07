@@ -1331,7 +1331,7 @@ declare namespace media {
      * Set decryption session to codec module.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
      * @param { boolean } secureVideoPath - Secure video path required or not.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1661,7 +1661,7 @@ declare namespace media {
      * The event is triggered when output device change for this stream.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1671,7 +1671,7 @@ declare namespace media {
      * Unsubscribes output device change event callback.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -2187,7 +2187,7 @@ declare namespace media {
      * @param { AVRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -2201,7 +2201,7 @@ declare namespace media {
      * @param { AVRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -2452,8 +2452,7 @@ declare namespace media {
      * Listens for recording audioCapturerChange events.
      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -2871,7 +2870,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -2885,7 +2884,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
