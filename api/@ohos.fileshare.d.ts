@@ -92,7 +92,7 @@ declare namespace fileShare {
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 12
      */
-    PERSISTENCE_WITHOUT = 4,
+    PERMISSION_NOT_PERSISTED = 4,
   }
 
   /**
@@ -263,11 +263,11 @@ declare namespace fileShare {
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
-   * check persistence permissions for the URI
+   * Check persistence permissions for the URI.
    * 
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
-   * @returns { Promise<Array<boolean>> } the promise returned by the function.
+   * @returns { Promise<Array<boolean>> } Returns the persistent state of uri permissions.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
