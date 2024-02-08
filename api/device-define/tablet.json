@@ -199,6 +199,7 @@
     "SystemCapability.Driver.ExternalDevice",
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AudioHaptic.Core",
-    "SystemCapability.Graphics.Drawing"
+    "SystemCapability.Graphics.Drawing",
+    "SystemCapability.XTS.DeviceAttest"
   ]
 }
