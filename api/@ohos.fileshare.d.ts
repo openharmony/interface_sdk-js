@@ -87,7 +87,7 @@ declare namespace fileShare {
     INVALID_PATH = 3,
 
     /**
-     * Indicates that the policy has no persistent(Discovered not to be persisted when activated).
+     * Indicates that the permission has not been persisted.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 12
