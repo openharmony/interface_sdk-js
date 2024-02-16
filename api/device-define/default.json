@@ -208,6 +208,7 @@
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.ArkUi.Graphics3D",
-    "SystemCapability.Graphics.Drawing"
+    "SystemCapability.Graphics.Drawing",
+    "SystemCapability.Resourceschedule.Ffrt.Core"
   ]
 }
