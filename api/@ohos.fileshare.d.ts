@@ -87,7 +87,7 @@ declare namespace fileShare {
     INVALID_PATH = 3,
 
     /**
-     * Indicates that the permission has not been persisted.
+     * Indicates that the permission is not persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 12
@@ -263,7 +263,7 @@ declare namespace fileShare {
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
   /**
-   * Check persistence permissions for the URI.
+   * Check persistent permissions for the URI.
    * 
    * @permission ohos.permission.FILE_ACCESS_PERSIST
    * @param { Array<PolicyInfo> } policies - Policy information to grant permission on URIs.
