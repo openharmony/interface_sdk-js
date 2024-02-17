@@ -472,28 +472,6 @@ declare namespace drm {
   }
 
   /**
-   * Get all media key systems supported.
-   * @returns { string[] } The MediaKeySystem name list.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 12
-   */
-  function getMediaKeySystems(): string[];
-
-  /**
-   * Get a MediaKeySystem's UUID.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @returns { MediaKeySystem } The MediaKeySystem instance.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 12
-   */
-  function getMediaKeySystemUuid(name: string): string;
-
-  /**
    * Creates a MediaKeySystem instance.
    * @param { string } name - Used to point a Digital Right Management solution.
    * @returns { MediaKeySystem } The MediaKeySystem instance.
