@@ -201,6 +201,7 @@
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.XTS.DeviceAttest",
-    "SystemCapability.Resourceschedule.Ffrt.Core"
+    "SystemCapability.Resourceschedule.Ffrt.Core",
+    "SystemCapability.Developtools.Syscap"
   ]
 }
