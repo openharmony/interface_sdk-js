@@ -529,6 +529,17 @@ export interface AbilityInfo {
    * @since 11
    */
   readonly windowSize: WindowSize;
+
+  /**
+   * Indicates whether to hide the application icon from the dock area
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+    readonly excludeFromDock: boolean;
 }
 
 /**
