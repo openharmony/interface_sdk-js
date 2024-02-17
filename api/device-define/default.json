@@ -209,6 +209,7 @@
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.Graphics.Drawing",
-    "SystemCapability.Resourceschedule.Ffrt.Core"
+    "SystemCapability.Resourceschedule.Ffrt.Core",
+    "SystemCapability.Developtools.Syscap"
   ]
 }
