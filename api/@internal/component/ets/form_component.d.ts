@@ -76,6 +76,15 @@ declare enum FormDimension {
    * @since 11
    */
   DIMENSION_1_1 = 6,
+
+  /**
+   * 4 x 6 cards
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  DIMENSION_4_6,
 }
 
 /**
