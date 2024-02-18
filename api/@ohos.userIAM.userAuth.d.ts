@@ -954,7 +954,7 @@ declare namespace userAuth {
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Credential type for authentication.
-   * @returns { EnrolledStatus } Returns the enrolled state.
+   * @returns { EnrolledState } Returns the enrolled state.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 401 - Incorrect parameters.
    * @throws { BusinessError } 12500002 - General operation error.
