@@ -409,7 +409,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  alt(value: string | Resource): ImageAttribute;
+  /**
+   * Placeholder displayed on load
+   *
+   * @param { string | Resource | PixelMap } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  alt(value: string | Resource | PixelMap): ImageAttribute;
 
   /**
    * match Text Direction
