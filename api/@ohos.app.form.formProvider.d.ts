@@ -114,6 +114,24 @@ declare namespace formProvider {
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
   /**
+   * Enable/disable configuration update by flags.
+   *
+   * @param { string } formId - Indicates the form ID.
+   * @param { formInfo.ConfigurationUpdateFlags } enableFlags - Enable onConfigurationUpdate callback by flags.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 12
+   */
+  function setConfigurationUpdateEnabled(formId: string, enableFlags: formInfo.ConfigurationUpdateFlags): void;
+
+  /**
    * Update a specified form.
    * Client to communication with FormManagerService.
    *
