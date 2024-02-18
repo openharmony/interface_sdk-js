@@ -875,6 +875,20 @@ declare namespace formInfo {
     ABILITY_NAME_KEY = 'ohos.extra.param.key.ability_name',
 
     /**
+     * Indicates the key specifying whether a form type is theme, which is represented as
+     * want: {
+     *   "parameters": {
+     *       THEME_KEY: true
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    THEME_KEY = 'ohos.extra.param.key.form_is_theme',
+
+    /**
      * Indicates the key specifying the the device ID, which is represented as
      * want: {
      *   "parameters": {
@@ -1528,6 +1542,18 @@ declare namespace formInfo {
      * @since 11
      */
     readonly formDescription: string;
+
+    /**
+     * Obtains the extra data of the this form.
+     *
+     * @type { ?Record<string, Object> }
+     * @default -
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    readonly extraData?: Record<string, Object>;
   }
 
   /**
