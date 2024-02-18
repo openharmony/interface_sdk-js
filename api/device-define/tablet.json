@@ -200,6 +200,7 @@
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Graphic.Graphic2D.NativeDrawing",
     "SystemCapability.XTS.DeviceAttest",
+    "SystemCapability.Developtools.Syscap",
     "SystemCapability.Resourceschedule.Ffrt.Core"
   ]
 }
