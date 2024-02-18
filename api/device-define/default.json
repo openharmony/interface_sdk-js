@@ -208,6 +208,7 @@
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Graphic.Graphic2D.NativeDrawing",
+    "SystemCapability.Developtools.Syscap",
     "SystemCapability.Resourceschedule.Ffrt.Core"
   ]
 }
