@@ -17,6 +17,7 @@
  * Defines the advertisement data model.
  * @typedef Advertisement
  * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice
  * @since 11
  */
 export interface Advertisement {
@@ -24,6 +25,7 @@ export interface Advertisement {
    * The advertisement type.
    * @type { number }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   adType: number;
@@ -32,6 +34,7 @@ export interface Advertisement {
    * The server verifies the configuration parameters.
    * @type { Map<string, string> }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   rewardVerifyConfig: Map<string, string>;
@@ -40,6 +43,7 @@ export interface Advertisement {
    * The unique identifier of the advertisement.
    * @type { string }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   uniqueId: string;
@@ -48,6 +52,7 @@ export interface Advertisement {
    * The subscriber has been rewarded.
    * @type { boolean }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   rewarded: boolean;
@@ -56,6 +61,7 @@ export interface Advertisement {
    * The advertisement has been shown.
    * @type { boolean }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   shown: boolean;
@@ -64,6 +70,7 @@ export interface Advertisement {
    * The advertisement has been clicked.
    * @type { boolean }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   clicked: boolean;
@@ -72,6 +79,7 @@ export interface Advertisement {
    * The extended attributes of advertisement.
    * @type { Object }
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
    * @since 11
    */
   [key:string]: Object;

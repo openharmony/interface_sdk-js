@@ -23,6 +23,7 @@ import advertising from './@ohos.advertising';
 /**
  * Defines the auto ad component.
  * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice
  * @since 11
  */
 @Component
@@ -31,6 +32,7 @@ declare struct AutoAdComponent {
      * The parameters in the request for loading ads.
      * @type { AdRequestParams }
      * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
      * @since 11
      */
     adParam: advertising.AdRequestParams;
@@ -39,6 +41,7 @@ declare struct AutoAdComponent {
      * The ad options of loading ads.
      * @type { AdOptions }
      * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
      * @since 11
      */
     adOptions: advertising.AdOptions;
@@ -47,6 +50,7 @@ declare struct AutoAdComponent {
      * The interaction options info for displaying ads.
      * @type { AdDisplayOptions }
      * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
      * @since 11
      */
     displayOptions: advertising.AdDisplayOptions;
@@ -55,6 +59,7 @@ declare struct AutoAdComponent {
      * The interaction listener to be registered that use to show ads.
      * @type { AdInteractionListener }
      * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
      * @since 11
      */
     interactionListener: advertising.AdInteractionListener;
@@ -62,6 +67,7 @@ declare struct AutoAdComponent {
     /**
      * The method to build auto ad component.
      * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
      * @since 11
      */
     build(): void;
