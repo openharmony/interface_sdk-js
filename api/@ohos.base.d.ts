@@ -39,6 +39,15 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the basic callback.
+ * @typedef Callback
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
 export interface Callback<T> {
   /**
    * Defines the callback info.
@@ -60,6 +69,15 @@ export interface Callback<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Defines the callback info.
+   * @param { T } data
+   * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   (data: T): void;
 }
