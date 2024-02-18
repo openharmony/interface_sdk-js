@@ -443,6 +443,16 @@ export interface HapModuleInfo {
    * @since 12
    */
   readonly routerMap: Array<RouterItem>;
+
+  /**
+   * Indicates native library path.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly nativeLibraryPath: string;
 }
 
 /**
