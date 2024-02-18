@@ -1001,6 +1001,17 @@ declare namespace formInfo {
    */
   interface FormInfoFilter {
     /**
+     * optional bundleName that used to ask getFormsInfo to return
+     * form infos with the same bundleName.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    bundleName?: string;
+
+    /**
      * optional moduleName that used to ask getFormsInfo to return
      * form infos with the same moduleName.
      *
@@ -1018,6 +1029,17 @@ declare namespace formInfo {
      * @since 11
      */
     moduleName?: string;
+
+    /**
+     * optional supportedDimensions that used to ask getFormsInfo to return
+     * form infos with the same supportedDimensions.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    supportedDimensions?: Array<number>;
   }
 
   /**
