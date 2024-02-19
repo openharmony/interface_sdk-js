@@ -759,7 +759,7 @@ declare namespace router {
    * @crossplatform
    * @since 12
    */
-   function getStateByIndex(index: number): RouterState;
+   function getStateByIndex(index: number): RouterState | undefined;
 
    /**
     * Obtains page information by url.
