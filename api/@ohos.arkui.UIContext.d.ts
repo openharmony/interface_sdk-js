@@ -452,6 +452,17 @@ export class Router {
    */
   back(options?: router.RouterOptions): void;
 
+ /**
+   * Returns to the specified page.
+   *
+   * @param { number } index - index of page.
+   * @param { Object } [params] - params of page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+ back(index: number, params?: Object): void;
+
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
    *
@@ -506,6 +517,28 @@ export class Router {
    * @since 11
    */
   getState(): router.RouterState;
+
+   /**
+   * Obtains page information by index.
+   *
+   * @param { number } index - Index of page.
+   * @returns { RouterState | undefined } Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   getStateByIndex(index: number): router.RouterState | undefined;
+
+   /**
+    * Obtains page information by url.
+    *
+    * @param { string } url - URL of page.
+    * @returns { Array<RouterState> } Page state.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+   getStateByUrl(url: string): Array<router.RouterState>;
 
   /**
    * Pop up alert dialog to ask whether to back.
