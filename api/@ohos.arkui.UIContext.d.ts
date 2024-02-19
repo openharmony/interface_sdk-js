@@ -452,7 +452,7 @@ export class Router {
    */
   back(options?: router.RouterOptions): void;
 
- /**
+  /**
    * Returns to the specified page.
    *
    * @param { number } index - index of page.
@@ -461,7 +461,7 @@ export class Router {
    * @crossplatform
    * @since 12
    */
- back(index: number, params?: Object): void;
+  back(index: number, params?: Object): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -527,7 +527,7 @@ export class Router {
    * @crossplatform
    * @since 12
    */
-   getStateByIndex(index: number): router.RouterState | undefined;
+  getStateByIndex(index: number): router.RouterState | undefined;
 
    /**
     * Obtains page information by url.
@@ -538,7 +538,7 @@ export class Router {
     * @crossplatform
     * @since 12
     */
-   getStateByUrl(url: string): Array<router.RouterState>;
+  getStateByUrl(url: string): Array<router.RouterState>;
 
   /**
    * Pop up alert dialog to ask whether to back.
