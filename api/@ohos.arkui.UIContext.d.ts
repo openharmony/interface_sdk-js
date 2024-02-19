@@ -518,26 +518,26 @@ export class Router {
    */
   getState(): router.RouterState;
 
-   /**
-   * Obtains page information by index.
-   *
-   * @param { number } index - Index of page.
-   * @returns { router.RouterState | undefined } Page state.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
+ /**
+  * Obtains page information by index.
+  *
+  * @param { number } index - Index of page.
+  * @returns { router.RouterState | undefined } Page state.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
   getStateByIndex(index: number): router.RouterState | undefined;
 
-   /**
-    * Obtains page information by url.
-    *
-    * @param { string } url - URL of page.
-    * @returns { Array<router.RouterState> } Page state.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @since 12
-    */
+ /**
+  * Obtains page information by url.
+  *
+  * @param { string } url - URL of page.
+  * @returns { Array<router.RouterState> } Page state.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
   getStateByUrl(url: string): Array<router.RouterState>;
 
   /**
