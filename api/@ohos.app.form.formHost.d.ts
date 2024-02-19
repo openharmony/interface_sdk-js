@@ -1076,5 +1076,26 @@ declare namespace formHost {
    * @since 11
    */
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Update location of the form.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form id.
+   * @param { formInfo.FormLocation } location - The location of the form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
 }
 export default formHost;
