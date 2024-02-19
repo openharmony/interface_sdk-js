@@ -294,4 +294,49 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 12
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys the UI extension.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelf(callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys the UI extension.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelf(): Promise<void>;
+
+  /**
+   * Destroys the UI extension while returning the specified result code and data to the caller.
+   *
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys the UI extension while returning the specified result code and data to the caller.
+   *
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 }
