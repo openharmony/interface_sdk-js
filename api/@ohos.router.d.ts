@@ -668,7 +668,7 @@ declare namespace router {
    * Returns to the specified page.
    *
    * @param { number } index - index of page.
-   * @param { object } [params] - params of page.
+   * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
