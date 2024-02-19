@@ -765,7 +765,7 @@ declare namespace router {
     * Obtains page information by url.
     *
     * @param { string } url - URL of page.
-    * @returns { Array<RouterState> } Page state.
+    * @returns { Array<RouterState> | undefined} Page state.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
