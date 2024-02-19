@@ -522,7 +522,7 @@ export class Router {
    * Obtains page information by index.
    *
    * @param { number } index - Index of page.
-   * @returns { RouterState | undefined } Page state.
+   * @returns { router.RouterState | undefined } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -533,7 +533,7 @@ export class Router {
     * Obtains page information by url.
     *
     * @param { string } url - URL of page.
-    * @returns { Array<RouterState> } Page state.
+    * @returns { Array<router.RouterState> } Page state.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
