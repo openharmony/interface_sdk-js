@@ -45,6 +45,7 @@ import type connection from './@ohos.net.connection';
 declare namespace webSocket {
   /**
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @typedef HttpProxy
    * @since 12
    */
   type HttpProxy = connection.HttpProxy;
