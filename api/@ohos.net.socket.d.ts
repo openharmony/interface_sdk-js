@@ -2637,7 +2637,7 @@ declare namespace socket {
 
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2650,7 +2650,7 @@ declare namespace socket {
      */
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2664,7 +2664,7 @@ declare namespace socket {
      */
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string | ArrayBuffer } data - Optional parameters.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2680,7 +2680,7 @@ declare namespace socket {
 
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2693,7 +2693,7 @@ declare namespace socket {
      */
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2707,7 +2707,7 @@ declare namespace socket {
      */
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string | ArrayBuffer } data - Optional parameters.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
