@@ -26,7 +26,7 @@ import Context from './application/Context';
  * This module provides settings data access abilities.
  *
  * @namespace settings
- * @syscap SystemCapability.Applications.settings.Core
+ * @syscap SystemCapability.Applications.Settings.Core
  * @since 7
  */
 declare namespace settings {
@@ -35,7 +35,7 @@ declare namespace settings {
    * Provide domain name for query.
    *
    * @namespace domainName
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 11
    */
   namespace domainName {
@@ -45,7 +45,7 @@ declare namespace settings {
      * <p>This constants is a domain name for device level shared key.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 11
      */
     const DEVICE_SHARED: string;
@@ -56,7 +56,7 @@ declare namespace settings {
      * <p>This constants is a domain name for user level key.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 11
      */
     const USER_PROPERTY: string;
@@ -67,7 +67,7 @@ declare namespace settings {
      * <p>This constants is a domain name for user security level key.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @systemapi
      * @since 11
      */
@@ -78,7 +78,7 @@ declare namespace settings {
    * Provides methods for setting time and date formats.
    *
    * @namespace date
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace date {
@@ -89,7 +89,7 @@ declare namespace settings {
      * <p>The formats {@code mm/dd/yyyy}, {@code dd/mm/yyyy}, and {@code yyyy/mm/dd} are available.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DATE_FORMAT: string
@@ -101,7 +101,7 @@ declare namespace settings {
      * is used.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const TIME_FORMAT: string
@@ -114,7 +114,7 @@ declare namespace settings {
      * If the value is {@code false}, the information is not obtained from NITZ.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_GAIN_TIME: string
@@ -126,7 +126,7 @@ declare namespace settings {
      * is {@code false}, the information is not obtained from NITZ.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_GAIN_TIME_ZONE: string
@@ -137,7 +137,7 @@ declare namespace settings {
    * animation factor, and display color.
    *
    * @namespace display
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace display {
@@ -145,7 +145,7 @@ declare namespace settings {
      * Indicates the scaling factor of fonts, which is a float number.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const FONT_SCALE: string
@@ -154,7 +154,7 @@ declare namespace settings {
      * Indicates the screen brightness. The value ranges from 0 to 255.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SCREEN_BRIGHTNESS_STATUS: string
@@ -166,7 +166,7 @@ declare namespace settings {
      * adjustment is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_SCREEN_BRIGHTNESS: string
@@ -175,7 +175,7 @@ declare namespace settings {
      * Indicates the value of {@code AUTO_SCREEN_BRIGHTNESS} when automatic screen brightness adjustment is used.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_SCREEN_BRIGHTNESS_MODE: number
@@ -184,7 +184,7 @@ declare namespace settings {
      * Indicates the value of {@code AUTO_SCREEN_BRIGHTNESS} when manual screen brightness adjustment is used.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const MANUAL_SCREEN_BRIGHTNESS_MODE: number
@@ -194,7 +194,7 @@ declare namespace settings {
      * milliseconds.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SCREEN_OFF_TIMEOUT: string
@@ -213,7 +213,7 @@ declare namespace settings {
      * </ul>
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_SCREEN_ROTATION: string
@@ -225,7 +225,7 @@ declare namespace settings {
      * the animation ends immediately. The default value is {@code 1}.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ANIMATOR_DURATION_SCALE: string
@@ -235,7 +235,7 @@ declare namespace settings {
      * If the value is {@code 0}, transition animations are disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const TRANSITION_ANIMATION_SCALE: string
@@ -245,7 +245,7 @@ declare namespace settings {
      * If the value is {@code 0}, window animations are disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const WINDOW_ANIMATION_SCALE: string
@@ -257,7 +257,7 @@ declare namespace settings {
      * inversion is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DISPLAY_INVERSION_STATUS: string
@@ -268,7 +268,7 @@ declare namespace settings {
    * airplane mode, debugging information, accessibility feature switch, and touch exploration status.
    *
    * @namespace general
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace general {
@@ -279,7 +279,7 @@ declare namespace settings {
      * wizard has been run.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SETUP_WIZARD_FINISHED: string
@@ -296,7 +296,7 @@ declare namespace settings {
      * </ul>
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const END_BUTTON_ACTION: string
@@ -309,7 +309,7 @@ declare namespace settings {
      * the accelerometer is disabled by default.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ACCELEROMETER_ROTATION_STATUS: string
@@ -320,7 +320,7 @@ declare namespace settings {
      * <p>If the value is {@code 1}, airplane mode is enabled. If the value is {@code 0}, airplane mode is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AIRPLANE_MODE_STATUS: string
@@ -332,7 +332,7 @@ declare namespace settings {
      * In addition, other abilities cannot be started on the system user unless they are marked to display over
      * the screen lock.
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEVICE_PROVISION_STATUS: string
@@ -343,7 +343,7 @@ declare namespace settings {
      * <p>If the value is {@code true}, the HDC is enabled. If the value is {@code false}, the HDC is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const HDC_STATUS: string
@@ -352,7 +352,7 @@ declare namespace settings {
      * Indicates the number of boot operations after the device is powered on.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const BOOT_COUNTING: string
@@ -364,7 +364,7 @@ declare namespace settings {
      * synchronization is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const CONTACT_METADATA_SYNC_STATUS: string
@@ -376,7 +376,7 @@ declare namespace settings {
      * If the value is {@code false}, developer options are disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEVELOPMENT_SETTINGS_STATUS: string
@@ -385,7 +385,7 @@ declare namespace settings {
      * Indicates the device name.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEVICE_NAME: string
@@ -397,7 +397,7 @@ declare namespace settings {
      * If the value is {@code false}, USB mass storage is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const USB_STORAGE_STATUS: string
@@ -409,7 +409,7 @@ declare namespace settings {
      * If the value is {@code 0}, the system does not wait for the debugger, and so the application runs normally.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEBUGGER_WAITING: string
@@ -418,7 +418,7 @@ declare namespace settings {
      * Indicates the bundle name of the application to debug.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEBUG_APP_PACKAGE: string
@@ -430,7 +430,7 @@ declare namespace settings {
      * accessibility feature is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ACCESSIBILITY_STATUS: string
@@ -439,7 +439,7 @@ declare namespace settings {
      * Indicates the list of accessibility features that have been activated.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ACTIVATED_ACCESSIBILITY_SERVICES: string
@@ -449,7 +449,7 @@ declare namespace settings {
      * are separated by spaces.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const GEOLOCATION_ORIGINS_ALLOWED: string
@@ -462,7 +462,7 @@ declare namespace settings {
      * If the value is {@code 0}, the application does not skip introductory hints at the first startup.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SKIP_USE_HINTS: string
@@ -474,7 +474,7 @@ declare namespace settings {
      * disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const TOUCH_EXPLORATION_STATUS: string
@@ -485,7 +485,7 @@ declare namespace settings {
    * punctuation, autocorrect, password presentation, input method engine, and input method subtypes.
    *
    * @namespace input
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace input {
@@ -493,7 +493,7 @@ declare namespace settings {
      * Indicates the default input method and its ID.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_INPUT_METHOD: string
@@ -502,7 +502,7 @@ declare namespace settings {
      * Indicates the default input method keyboard type and its ID.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ACTIVATED_INPUT_METHOD_SUB_MODE: string
@@ -516,7 +516,7 @@ declare namespace settings {
      * and the type of <b>keyboard</b> is int.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ACTIVATED_INPUT_METHODS: string
@@ -528,7 +528,7 @@ declare namespace settings {
      * method selector is invisible.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SELECTOR_VISIBILITY_FOR_INPUT_METHOD: string
@@ -540,7 +540,7 @@ declare namespace settings {
      * capitalization is enabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_CAPS_TEXT_INPUT: string
@@ -553,7 +553,7 @@ declare namespace settings {
      * punctuation is enabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_PUNCTUATE_TEXT_INPUT: string
@@ -565,7 +565,7 @@ declare namespace settings {
      * <p>If the value is {@code 0}, autocorrect is disabled. If the value {@code 1}, autocorrect is enabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AUTO_REPLACE_TEXT_INPUT: string
@@ -578,7 +578,7 @@ declare namespace settings {
      * presentation is enabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SHOW_PASSWORD_TEXT_INPUT: string
@@ -589,7 +589,7 @@ declare namespace settings {
    * and preferred networks.
    *
    * @namespace network
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace network {
@@ -600,7 +600,7 @@ declare namespace settings {
      * data roaming is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DATA_ROAMING_STATUS: string
@@ -610,7 +610,7 @@ declare namespace settings {
      * The host name and port number are separated by a colon (:).
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const HTTP_PROXY_CFG: string
@@ -619,7 +619,7 @@ declare namespace settings {
      * Indicates the user preferences of the network to use.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const NETWORK_PREFERENCE_USAGE: string
@@ -629,7 +629,7 @@ declare namespace settings {
    * Provides methods for setting the answering mode of incoming and outgoing calls.
    *
    * @namespace phone
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace phone {
@@ -639,7 +639,7 @@ declare namespace settings {
      * enabled. If the value is {@code 0}, RTT calling is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const RTT_CALLING_STATUS: string
@@ -650,7 +650,7 @@ declare namespace settings {
    * and haptic feedback.
    *
    * @namespace sound
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace sound {
@@ -662,7 +662,7 @@ declare namespace settings {
      * any other application or scenario.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const VIBRATE_WHILE_RINGING: string
@@ -673,7 +673,7 @@ declare namespace settings {
      * <p>You can obtain the URI of the system default alarm.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_ALARM_ALERT: string
@@ -685,7 +685,7 @@ declare namespace settings {
      * effect.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DTMF_TONE_TYPE_WHILE_DIALING: string
@@ -697,7 +697,7 @@ declare namespace settings {
      * played.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DTMF_TONE_WHILE_DIALING: string
@@ -709,7 +709,7 @@ declare namespace settings {
      * corresponding bit to {@code 1}.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AFFECTED_MODE_RINGER_STREAMS: string
@@ -720,7 +720,7 @@ declare namespace settings {
      * <p>If you want a specific audio stream to remain muted in mute mode, set the corresponding bit to {@code 1}.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AFFECTED_MUTE_STREAMS: string
@@ -731,7 +731,7 @@ declare namespace settings {
      * <p>You can obtain the URI of the system default notification tone.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_NOTIFICATION_SOUND: string
@@ -742,7 +742,7 @@ declare namespace settings {
      * <p>You can obtain the URI of the system default ringtone.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_RINGTONE: string
@@ -754,7 +754,7 @@ declare namespace settings {
      * are enabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const SOUND_EFFECTS_STATUS: string
@@ -766,7 +766,7 @@ declare namespace settings {
      * not vibrate for an event.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const VIBRATE_STATUS: string
@@ -777,7 +777,7 @@ declare namespace settings {
      * <p>The value is of the boolean type.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const HAPTIC_FEEDBACK_STATUS: string
@@ -788,7 +788,7 @@ declare namespace settings {
    * engine, and plug-ins.
    *
    * @namespace TTS
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace TTS {
@@ -798,7 +798,7 @@ declare namespace settings {
      * <p>100 = 1x. If the value is set to {@code 200}, the frequency is twice the normal sound frequency.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_TTS_PITCH: string
@@ -807,7 +807,7 @@ declare namespace settings {
      * Indicates the default speech rate of the TTS engine. 100 = 1x.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_TTS_RATE: string
@@ -816,7 +816,7 @@ declare namespace settings {
      * Indicates the default TTS engine.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const DEFAULT_TTS_SYNTH: string
@@ -826,7 +826,7 @@ declare namespace settings {
      * spaces.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const ENABLED_TTS_PLUGINS: string
@@ -837,7 +837,7 @@ declare namespace settings {
    * Communication (NFC), and the airplane mode.
    *
    * @namespace wireless
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   namespace wireless {
@@ -849,7 +849,7 @@ declare namespace settings {
      * and discovered.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const BLUETOOTH_DISCOVER_ABILITY_STATUS: string
@@ -860,7 +860,7 @@ declare namespace settings {
      * <p>After the duration expires, the device cannot be discovered through Bluetooth.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const BLUETOOTH_DISCOVER_TIMEOUT: string
@@ -877,7 +877,7 @@ declare namespace settings {
      * </ul>
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const AIRPLANE_MODE_RADIOS: string
@@ -888,7 +888,7 @@ declare namespace settings {
      * <p>If the value is {@code true}, Bluetooth is enabled. If the value is {@code false}, Bluetooth is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const BLUETOOTH_STATUS: string
@@ -897,7 +897,7 @@ declare namespace settings {
      * A constant of {@code AIRPLANE_MODE_RADIOS} to indicate that Bluetooth is disabled in airplane mode.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const BLUETOOTH_RADIO: string
@@ -906,7 +906,7 @@ declare namespace settings {
      * A constant of {@code AIRPLANE_MODE_RADIOS} to indicate that cellular radio is disabled in airplane mode.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const CELL_RADIO: string
@@ -915,7 +915,7 @@ declare namespace settings {
      * A constant of {@code AIRPLANE_MODE_RADIOS} to indicate that NFC is disabled in airplane mode.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const NFC_RADIO: string
@@ -924,7 +924,7 @@ declare namespace settings {
      * A constant of {@code AIRPLANE_MODE_RADIOS} to indicate that Wi-Fi is disabled in airplane mode.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const WIFI_RADIO: string
@@ -937,7 +937,7 @@ declare namespace settings {
      * If the value is {@code false}, the Wi-Fi configuration should not be locked down.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const OWNER_LOCKDOWN_WIFI_CFG: string
@@ -946,7 +946,7 @@ declare namespace settings {
      * Indicates the maximum number of attempts to obtain an IP address from the DHCP server.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const WIFI_DHCP_MAX_RETRY_COUNT: string
@@ -956,7 +956,7 @@ declare namespace settings {
      * establish after the Wi-Fi connection is disconnected.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const WIFI_TO_MOBILE_DATA_AWAKE_TIMEOUT: string
@@ -967,7 +967,7 @@ declare namespace settings {
      * <p>If the value is {@code true}, Wi-Fi is enabled. If the value is {@code false}, Wi-Fi is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const WIFI_STATUS: string
@@ -979,7 +979,7 @@ declare namespace settings {
      * If the value is {@code false}, Wi-Fi watchdog is disabled.
      *
      * @constant
-     * @syscap SystemCapability.Applications.settings.Core
+     * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
     const WIFI_WATCHDOG_STATUS: string
@@ -991,7 +991,7 @@ declare namespace settings {
    *
    * @param { string } name - Indicates the name of the setting to set.
    * @param { AsyncCallback<object> } [callback] - The callback of getURI result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    * @deprecated since 9
    */
@@ -1003,7 +1003,7 @@ declare namespace settings {
    *
    * @param { string } name - Indicates the name of the setting to set.
    * @returns { Promise<object> } Returns the corresponding URI; returns {@code null} if the URI does not exist.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    * @deprecated since 9
    */
@@ -1016,7 +1016,7 @@ declare namespace settings {
    * to access the database.
    * @param { string } name - Indicates the name of the character string.
    * @param { AsyncCallback<object> } [callback] - The callback of getValue result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
    * @since 7
    * @deprecated since 9
@@ -1032,7 +1032,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @returns { Promise<object> } Returns the value of the character string in the domain if any is found; returns {@code
    * null} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
    * @since 7
    * @deprecated since 9
@@ -1047,7 +1047,7 @@ declare namespace settings {
    * the database.
    * @param { string } name - Indicates the name of the character string.
    * @param { AsyncCallback<string> } [callback] - The callback of getValue result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 10
    */
@@ -1060,7 +1060,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
    * null} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 10
    */
@@ -1074,7 +1074,7 @@ declare namespace settings {
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
    * null} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
    */
@@ -1088,7 +1088,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { object } value - Indicates the value of the character string.
    * @param { AsyncCallback<boolean> } [callback] - The callback of setValue result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @systemapi Hide this for inner system use.
    * @famodelonly
    * @since 7
@@ -1105,7 +1105,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { object } value - Indicates the value of the character string.
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @systemapi Hide this for inner system use.
    * @famodelonly
    * @since 7
@@ -1122,7 +1122,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @param { AsyncCallback<boolean> } [callback] - The callback of setValue result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 10
    */
@@ -1136,7 +1136,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 10
    */
@@ -1151,7 +1151,8 @@ declare namespace settings {
    * @param { string } value - Indicates the value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
    */
@@ -1163,7 +1164,7 @@ declare namespace settings {
    * @param { boolean } enable - Specifies whether to enable airplane mode. The value {@code true} means to enable
    * airplane mode, and {@code false} means to disable airplane mode.
    * @param { AsyncCallback<void> } [callback] - The callback of enableAirplaneMode result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
@@ -1174,7 +1175,7 @@ declare namespace settings {
    * @param { boolean } enable - Specifies whether to enable airplane mode. The value {@code true} means to enable
    * airplane mode, and {@code false} means to disable airplane mode.
    * @returns { Promise<void> } - Return Promise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   function enableAirplaneMode(enable: boolean): Promise<void>;
@@ -1183,7 +1184,7 @@ declare namespace settings {
    * Checks whether a specified application can show as a floating window.
    *
    * @param { AsyncCallback<boolean> } [callback] - The callback of canShowFloating result.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   function canShowFloating(callback: AsyncCallback<boolean>): void;
@@ -1193,7 +1194,7 @@ declare namespace settings {
    *
    * @returns { Promise<boolean> } Returns {@code true} if the application can draw over other applications; returns
    * {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
   function canShowFloating(): Promise<boolean>;
@@ -1203,7 +1204,7 @@ declare namespace settings {
    *
    * @param { string } name - Indicates the name of the setting to set.
    * @returns { string } Returns settingsdata uri.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @since 8
    */
   function getUriSync(name: string): string;
@@ -1215,7 +1216,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
    * @returns { string } Returns settingsdata value.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
    * @since 8
    * @deprecated since 9
@@ -1230,7 +1231,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
    * @returns { string } Returns settingsdata value.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 10
    */
@@ -1244,7 +1245,7 @@ declare namespace settings {
    * @param { string } defValue - Indicates the default value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { string } Returns settingsdata value.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
    */
@@ -1258,7 +1259,7 @@ declare namespace settings {
    * @param { string } name Indicates the name of the character string.
    * @param { string } value Indicates the value of the character string.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
    * @since 8
    * @deprecated since 9
@@ -1274,7 +1275,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 10
    */
@@ -1289,7 +1290,8 @@ declare namespace settings {
    * @param { string } value - Indicates the value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
    */
@@ -1303,7 +1305,7 @@ declare namespace settings {
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @param { AsyncCallback<void> } observer - callback when monitored key value is changed.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
    */
@@ -1316,7 +1318,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.settings.Core
+   * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
    */

@@ -750,6 +750,13 @@ declare namespace tag {
     payload: number[];
   }
 
+  /**
+   * Provides methods for accessing NDEF tag.
+   *
+   * @namespace ndef
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   namespace ndef {
     /**
      * Creates an NDEF record with uri data.
@@ -832,16 +839,92 @@ declare namespace tag {
     function messageToBytes(ndefMessage: NdefMessage): number[];
   }
 
+ /**
+  * Exports type NfcATag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcATag = _NfcATag;
+
+ /**
+  * Exports type NfcBTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcBTag = _NfcBTag;
+
+ /**
+  * Exports type NfcFTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcFTag = _NfcFTag;
+
+ /**
+  * Exports type NfcVTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcVTag = _NfcVTag;
+
+ /**
+  * Exports type IsoDepTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type IsoDepTag = _IsoDepTag;
+
+ /**
+  * Exports type NdefTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type NdefTag = _NdefTag;
+
+ /**
+  * Exports type MifareClassicTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type MifareClassicTag = _MifareClassicTag;
+
+ /**
+  * Exports type MifareUltralightTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type MifareUltralightTag = _MifareUltralightTag;
+
+ /**
+  * Exports type NdefFormatableTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type NdefFormatableTag = _NdefFormatableTag;
+
+ /**
+  * Exports type NdefMessage.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type NdefMessage = _NdefMessage;
+
+ /**
+  * Exports type TagSession.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type TagSession = _TagSession;
 }
 export default tag;
