@@ -105,7 +105,7 @@ declare namespace screen {
    * Stop expand screens
    *
    * @param { Array<number> } expandScreen IDs of expand screens to stop
-   * @param { AsyncCallback<number> } callback used to return the result
+   * @param { AsyncCallback<void> } callback used to return the result
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -602,10 +602,49 @@ declare namespace screen {
    * @since 9
    */
   enum Orientation {
+    /**
+     * Indicates that the orientation of the screen is unspecified.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     UNSPECIFIED = 0,
+
+    /**
+     * Indicates that the orientation of the screen is vertical.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     VERTICAL = 1,
+
+    /**
+     * Indicates that the orientation of the screen is horizontal.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     HORIZONTAL = 2,
+
+    /**
+     * Indicates that the orientation of the screen is reverse_vertical.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     REVERSE_VERTICAL = 3,
+
+    /**
+     * Indicates that the orientation of the screen is reverse_horizontal.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     REVERSE_HORIZONTAL = 4
   }
 
@@ -618,9 +657,44 @@ declare namespace screen {
    * @since 9
    */
   interface ScreenModeInfo {
+    /**
+     * Screen id
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     id: number;
+
+    /**
+     * Indicates the width of the screen
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     width: number;
+
+   /**
+     * Indicates the height of the screen
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     height: number;
+
+    /**
+     * Indicates the refreshRate of the screen
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     refreshRate: number;
   }
 }
