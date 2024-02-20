@@ -20,7 +20,6 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
-import { BundleNotificationStatus as _BundleNotificationStatus } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
@@ -591,7 +590,7 @@ declare namespace notificationManager {
    * Obtains allow notification application list.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
+   * @returns { Promise<Array<BundleOption>> } Returns all enable notification applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -601,7 +600,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function getAllNotificationEnabledBundles(): Promise<Array<BundleNotificationStatus>>;
+  function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
@@ -2649,15 +2648,6 @@ declare namespace notificationManager {
    * @since 9
    */
   export type BundleOption = _BundleOption;
-
-  /**
-   * Describes a bundleStatus in a notification.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  export type BundleNotificationStatus = _BundleNotificationStatus;
 
   /**
    * Describes an action button displayed in a notification.

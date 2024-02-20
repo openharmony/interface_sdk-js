@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,34 +38,4 @@ export interface BundleOption {
    * @since 9
    */
   uid?: number;
-}
-
-/**
- * Describes a BundleNotificationStatus.
- *
- * @typedef BundleNotificationStatus
- * @syscap SystemCapability.Notification.Notification
- * @systemapi
- * @since 12
- */
-export interface BundleNotificationStatus {
-  /**
-   * bundle option.
-   *
-   * @type { BundleOption }
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  bundleOption: BundleOption;
-
-  /**
-   * Status of enable notification.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  status: boolean;
 }
