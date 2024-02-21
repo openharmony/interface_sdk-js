@@ -128,7 +128,6 @@
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
-    "SystemCapability.UserIAM.UserAuth.FaceAuth",
     "SystemCapability.MiscServices.InputMethodFramework",
     "SystemCapability.MiscServices.Pasteboard",
     "SystemCapability.MiscServices.Time",
