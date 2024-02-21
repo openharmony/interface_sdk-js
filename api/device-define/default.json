@@ -209,6 +209,10 @@
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Graphic.Graphic2D.NativeDrawing",
     "SystemCapability.Developtools.Syscap",
-    "SystemCapability.Resourceschedule.Ffrt.Core"
+    "SystemCapability.Resourceschedule.Ffrt.Core",
+    "SystemCapability.Graphic.Graphic2D.NativeWindow",
+    "SystemCapability.Graphic.Vulkan",
+    "SystemCapability.Multimedia.Image.ImageCreator",
+    "SystemCapability.Graphic.Graphic2D.WebGL2"
   ]
 }
