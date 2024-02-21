@@ -1011,7 +1011,7 @@ declare interface RichEditorTextSpanResult {
   /**
    * The Style of paragraph.
    *
-   * @type { ?paragraphStyle }
+   * @type { paragraphStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1201,7 +1201,7 @@ declare interface RichEditorImageSpanResult {
   /**
    * RichEditor ImageSpan Layout Style.
    *
-   * @type { ?RichEditorLayoutStyle }
+   * @type { RichEditorLayoutStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
