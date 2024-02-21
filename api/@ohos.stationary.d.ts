@@ -24,6 +24,7 @@ import type { Callback } from './@ohos.base';
  * Declares a namespace that provides APIs to report the device status.
  *
  * @namespace stationary
+ * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
  * @since 9
  */
 declare namespace stationary {
@@ -31,12 +32,14 @@ declare namespace stationary {
    * Declares a response interface to receive the device status.
    *
    * @interface ActivityResponse
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   interface ActivityResponse {
     /**
      * Declares a response interface to receive the device status.
      *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
     state: ActivityState;
@@ -45,6 +48,7 @@ declare namespace stationary {
   /**
    * Declares the device status type.
    *
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   type ActivityType = 'still' | 'relativeStill';
@@ -53,12 +57,14 @@ declare namespace stationary {
    * Enumerates the device status events.
    *
    * @enum {number}
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   enum ActivityEvent {
     /**
      * Event indicating entering device status.
      *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
     ENTER = 1,
@@ -66,6 +72,7 @@ declare namespace stationary {
     /**
      * Event indicating exiting device status.
      *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
     EXIT = 2,
@@ -73,6 +80,7 @@ declare namespace stationary {
     /**
      * Event indicating entering and exiting device status.
      *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
     ENTER_EXIT = 3
@@ -82,12 +90,14 @@ declare namespace stationary {
    * Enumerates the device status state.
    *
    * @enum {number}
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   enum ActivityState {
     /**
      * Entering device status.
      *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
     ENTER = 1,
@@ -95,6 +105,7 @@ declare namespace stationary {
     /**
      * Exiting device status.
      *
+     * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
     EXIT = 2
@@ -107,6 +118,7 @@ declare namespace stationary {
    * @param { ActivityEvent } event Indicates the device status event.
    * @param { number } reportLatencyNs Indicates the event reporting period.
    * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   function on(activity: ActivityType, event: ActivityEvent, reportLatencyNs: number, callback: Callback<ActivityResponse>): void;
@@ -116,6 +128,7 @@ declare namespace stationary {
    *
    * @param { ActivityType } activity Indicates the device status type. For details, see {@code type: ActivityType}.
    * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   function once(activity: ActivityType, callback: Callback<ActivityResponse>): void;
@@ -126,6 +139,7 @@ declare namespace stationary {
    * @param { ActivityType } activity Indicates the device status type. For details, see {@code type: ActivityType}.
    * @param { ActivityEvent } event Indicates the device status event.
    * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   function off(activity: ActivityType, event: ActivityEvent, callback?: Callback<ActivityResponse>): void;
