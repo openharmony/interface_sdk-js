@@ -282,4 +282,16 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 10
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
+
+  /**
+   * Report to system when the extension is drawn completed.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of startUIExtensionAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  reportDrawnCompleted(callback: AsyncCallback<void>): void;
 }
