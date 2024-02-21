@@ -40,7 +40,6 @@
     "SystemCapability.MultimodalInput.Input.InputSimulator",
     "SystemCapability.MultimodalInput.Input.ShortKey",
     "SystemCapability.PowerManager.BatteryManager.Extension",
-    "SystemCapability.PowerManager.BatteryStatistics",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.PowerManager.ThermalManager",
     "SystemCapability.PowerManager.PowerManager.Core",
