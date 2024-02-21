@@ -192,6 +192,7 @@
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.Request.FileTransferAgent",
     "SystemCapability.ResourceSchedule.DeviceStandby",
+    "SystemCapability.DistributedDataManager.UDMF.Core",
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
     "SystemCapability.Multimedia.Media.SoundPool",
