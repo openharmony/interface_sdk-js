@@ -183,6 +183,24 @@ declare interface AccessibilityEvent {
    * @since 9
    */
   timeStamp?: number;
+
+  /**
+   * ElementId
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
+  elementId?: number;
+
+  /**
+   * The content of announce accessibility text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
+  textAnnouncedForAccessibility?: string;
 }
 
 /**
