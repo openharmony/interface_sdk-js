@@ -1007,6 +1007,16 @@ declare interface RichEditorTextSpanResult {
    * @since 11
    */
   valueResource?: Resource;
+
+  /**
+   * The Style of paragraph.
+   *
+   * @type { ?paragraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  paragraphStyle: RichEditorParagraphStyle;
 }
 
 /**
@@ -1187,6 +1197,16 @@ declare interface RichEditorImageSpanResult {
    * @since 11
    */
   offsetInSpan: [number, number];
+
+  /**
+   * RichEditor ImageSpan Layout Style.
+   *
+   * @type { ?RichEditorLayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutStyle: RichEditorLayoutStyle;
 }
 
 /**
