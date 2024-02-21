@@ -4773,7 +4773,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 10
+     * @since 11
      */
     function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
 
