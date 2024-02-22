@@ -175,20 +175,33 @@ declare namespace reminderAgentManager {
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
   
   /**
-   * add exclude date for calendar reminder request
+   * add exclude date for calendar reminder request.
    *
+   * @throw { BusinessError } 201 - Permission denied
+   * @throw { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throw { BusinessError } 1700003 - The reminder does not exist.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 12
    */
   function addExcludeDate(reminderId: number, date: Date): Promise<void>;
   
   /**
+   * delete exclude date for calendar reminder request.
    *
-   *
+   * @throw { BusinessError } 201 - Permission denied
+   * @throw { BusinessError } 1700003 - The reminder does not exist.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 12
    */
   function deleteExcludeDates(reminderId: number): Promise<void>;
   
   /**
+   * get exclude dates
    *
-   *
+   * @throw { BusinessError } 201 - Permission denied
+   * @throw { BusinessError } 1700003 - The reminder does not exist.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 12
    */
   function getExcludeDates(reminderId: number): Promise<Array<Date>>;
   
@@ -638,6 +651,23 @@ declare namespace reminderAgentManager {
      * @since 11
      */
     daysOfWeek?: Array<number>;
+	
+	/**
+	 * calendar end date time
+	 *
+	 * @syscap SystemCapability.Notification.ReminderAgent
+	 * @since 12
+	 */
+	endDateTime?: LocalDateTime;
+	
+	/**
+	 * information about the ability that is pulled up when the notification is arrived.
+	 *
+	 * @syscap SystemCapability.Notification.ReminderAgent
+	 * @systemapi Hide this for inner system use.
+	 * @since 12
+	 */
+	rruleWantAgent?: WantAgent;
   }
 
   /**
