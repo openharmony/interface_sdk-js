@@ -92,7 +92,7 @@ declare namespace performanceMonitor {
     PERF_MOUSE_EVENT = 1,
 
     /**
-     * The user uses the trackpad to trigger the scene.
+     * The user uses the touch-pad to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 10
