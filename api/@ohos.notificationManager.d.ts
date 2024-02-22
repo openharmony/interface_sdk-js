@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -585,6 +585,22 @@ declare namespace notificationManager {
    * @since 9
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
+
+  /**
+   * Obtains allow notification application list.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<Array<BundleOption>> } Returns all enable notification applications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
