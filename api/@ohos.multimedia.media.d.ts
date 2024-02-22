@@ -529,7 +529,7 @@ declare namespace media {
    * you must use createAVImageGenerator() to create an AVImageGenerator instance.
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 12
+   * @since 12 
    */
   interface AVImageGenerator {
     /**
