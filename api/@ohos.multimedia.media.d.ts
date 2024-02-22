@@ -623,6 +623,15 @@ declare namespace media {
      * @since 12
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
+
+    /**
+     * This option is used to fetch a frame (maybe not keyframe) from
+     * the given media resource that is located closest to or at the given time.
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @systemapi
+     * @since 11
+     */
+    AV_IMAGE_QUERY_CLOSEST,
   }
 
   /**
@@ -649,6 +658,15 @@ declare namespace media {
      * @since 12
      */
     height?: number;
+
+    /**
+     * Expected pixelmap's color format, see {@link PixelFormat}.
+     * @type { ?PixelFormat }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @systemapi
+     * @since 11
+     */
+    colorFormat?: PixelFormat;
   }
 
   /**
