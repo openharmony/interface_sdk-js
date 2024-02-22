@@ -147,7 +147,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  imageSize: SizeOptions;
+  /**
+   * Sets the TipsDialog image size.
+   * @type { ?SizeOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageSize?: SizeOptions;
   /**
    * Sets the TipsDialog title.
    * @type { ResourceStr }.
@@ -161,7 +168,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  title: ResourceStr;
+  /**
+   * Sets the TipsDialog title.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  title?: ResourceStr;
   /**
    * Sets the TipsDialog content.
    * @type { ?ResourceStr }.
@@ -204,6 +218,13 @@ export declare struct TipsDialog {
    * @since 11
    */
   @Prop isChecked?: boolean;
+  /**
+   * Sets the TipsDialog CheckBox Callback.
+   * @type { ?(isChecked: boolean) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  checkAction?: (isChecked: boolean) => void;
   /**
    * Sets the TipsDialog primary button.
    * @type { ?ButtonOptions }.
