@@ -200,7 +200,6 @@
     "SystemCapability.DistributedDataManager.UDMF.Core",
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
-    "SystemCapability.AI.IntelligentVoice.Core",
     "SystemCapability.Multimedia.Media.SoundPool",
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AudioHaptic.Core",
