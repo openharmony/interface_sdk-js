@@ -113,6 +113,19 @@ declare class SwiperController {
   showPrevious();
 
   /**
+   * Controlling Swiper to change to the specified subcomponent.
+   *
+   * @param { number } index - the index of item to be redirected.
+   * @param { boolean } useAnimation - If true, swipe to index item with animation. If false, swipe to index item without animation. 
+   *      The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  changeIndex(index: number, useAnimation?: boolean);
+
+  /**
    * Called when need to stop the swiper animation.
    *
    * @param { function } callback
