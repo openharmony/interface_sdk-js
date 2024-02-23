@@ -4034,6 +4034,52 @@ declare namespace request {
     }
 
     /**
+     * The HTTP response.
+     *
+     * @interface HttpResponse
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 12
+     */
+    interface HttpResponse {
+      /**
+       * The version of the HTTP response.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly version: string,
+      /**
+       * The status code of the HTTP response.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly statusCode: number,
+      /**
+       * The reason of the HTTP response.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly reason: string,
+      /**
+       * The headers of the HTTP response.
+       *
+       * @type { Map<string, Array<string>> }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly headers: Map<string, Array<string>>,
+    }
+
+    /**
      * The task entry.
      * New task' status is "initialized" and enqueue.
      * Can `start` a initialized task.
@@ -4290,6 +4336,24 @@ declare namespace request {
        * @since 11
        */
       off(event: 'remove', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the response callback.
+       *
+       * @param { 'response' } event - event types.
+       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      on(event: 'response', callback: Callback<HttpResponse>): void;
+      /**
+       * Disables the response callback.
+       *
+       * @param { 'response' } event - event types.
+       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
        * Starts the task.
        *
