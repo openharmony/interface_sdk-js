@@ -1363,6 +1363,16 @@ declare type LengthConstrain = {
 };
 
 /**
+ * Defines VoidCallback.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type VoidCallback  = () => void;
+
+/**
  * Defines the font used for text.
  *
  * @interface Font
