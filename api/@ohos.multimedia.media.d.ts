@@ -263,8 +263,7 @@ declare namespace media {
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   function createAVImageGenerator(): Promise<AVImageGenerator>;
 
@@ -274,8 +273,7 @@ declare namespace media {
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void;
 
@@ -531,16 +529,14 @@ declare namespace media {
    * you must use createAVImageGenerator() to create an AVImageGenerator instance.
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12 
    */
   interface AVImageGenerator {
     /**
      * Media file descriptor.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -556,8 +552,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams,
       callback: AsyncCallback<image.PixelMap>): void;
@@ -575,8 +570,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
@@ -585,8 +579,7 @@ declare namespace media {
      * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -595,8 +588,7 @@ declare namespace media {
      * @returns { Promise<void> } A Promise instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     release(): Promise<void>;
   }
@@ -605,16 +597,14 @@ declare namespace media {
    * Enumerates options about the relationship between the given timeUs and a key frame.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   enum AVImageQueryOptions {
     /**
      * This option is used to fetch a key frame from the given media
      * resource that is located right after or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_NEXT_SYNC,
 
@@ -622,8 +612,7 @@ declare namespace media {
      * This option is used to fetch a key frame from the given media
      * resource that is located right before or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_PREVIOUS_SYNC,
 
@@ -631,8 +620,7 @@ declare namespace media {
      * This option is used to fetch a key frame from the given media
      * resource that is located closest to or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
 
@@ -650,8 +638,7 @@ declare namespace media {
    * Expected pixel map format for the fetched image from video resource.
    * @typedef PixelMapParams
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   interface PixelMapParams {
     /**
@@ -659,8 +646,7 @@ declare namespace media {
      * original dimensions of the given video resource.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     width?: number;
 
@@ -669,8 +655,7 @@ declare namespace media {
      * original dimensions of the given video resource.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     height?: number;
 
