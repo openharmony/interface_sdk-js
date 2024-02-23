@@ -3922,6 +3922,71 @@ declare interface ItemDragInfo {
 }
 
 /**
+ * Defines the drag status before drag action.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum PreDragStatus {
+  /**
+   * Define the status for user prepare to start long press gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_DETECTING_STATUS = 0,
+
+  /**
+   * Define the status for user can start drag action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  READY_TO_TRIGGER_DRAG_ACTION = 1,
+
+  /**
+   * Define the status for dragItem lift animation started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LIFT_STARTED = 2,
+
+  /**
+   * Define the status for dragItem lift animation finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LIFT_FINISHED = 3,
+
+  /**
+   * Define the status for dragItem landing animation started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LANDING_STARTED = 4,
+
+  /**
+   * Define the status for dragItem landing animation finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LANDING_FINISHED = 5,
+
+  /**
+   * Define the status for user cancel drag action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_CANCELED_BEFORE_DRAG = 6,
+}
+
+/**
  * DragItemInfo object description
  *
  * @interface DragItemInfo
@@ -14695,6 +14760,16 @@ declare class CommonMethod<T> {
    * @since 11
    */
   dragPreviewOptions(value: DragPreviewOptions): T;
+
+  /**
+   * After binding, a callback is triggered when the preDrag status change finished.
+   *
+   * @param { Callback<PreDragStatus> } callback callback - The callback will be triggered when the preDrag status change.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onPreDrag(callback: Callback<PreDragStatus>): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
