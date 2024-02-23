@@ -63,8 +63,6 @@ export class BasicApiInfo {
   syscap: string = '';
   currentVersion = '-1';
   jsDocText: string = '';
-  isJoinType: boolean = false;
-  genericInfo: GenericInfo[] = [];
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -213,22 +211,6 @@ export class BasicApiInfo {
   getJsDocText(): string {
     return this.jsDocText;
   }
-
-  setIsJoinType(jsJoinType: boolean) {
-    this.isJoinType = jsJoinType;
-  }
-
-  getIsJoinType(): boolean {
-    return this.isJoinType;
-  }
-
-  setGenericInfo(genericInfo: GenericInfo): void{
-    this.genericInfo.push(genericInfo);
-  }
-
-  getGenericInfo(): GenericInfo[] {
-    return this.genericInfo;
-  }
 }
 
 export class ExportDefaultInfo extends BasicApiInfo { }
@@ -292,8 +274,7 @@ export class ApiInfo extends BasicApiInfo {
       parentKitInfo = this.getKitInfoFromParent(parentApi);
     }    
     const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node, apiType, parentKitInfo);
-    const jsDocText = node.getFullText().substring(0, node.getFullText().length - node.getText().length);
-    this.setJsDocText(jsDocText);
+    this.setJsDocText(node.getFullText().replace(node.getText(), ''));
     this.addJsDocInfos(jsDocInfos);
   }
 
@@ -333,14 +314,14 @@ export class ApiInfo extends BasicApiInfo {
 }
 
 export class ClassInfo extends ApiInfo {
-  parentClasses: ParentClass[] = []; // 继承的父类
+  parentClasses: string[] = []; // 继承的父类
   childApis: BasicApiInfo[] = []; // 子节点的信息
 
-  setParentClasses(parentClass: ParentClass): void {
-    this.parentClasses.push(parentClass);
+  setParentClasses(parentClasses: string[]): void {
+    this.parentClasses.push(...parentClasses);
   }
 
-  getParentClasses(): ParentClass[] {
+  getParentClasses(): string[] {
     return this.parentClasses;
   }
 
@@ -358,14 +339,14 @@ export class ClassInfo extends ApiInfo {
 }
 
 export class InterfaceInfo extends ApiInfo {
-  parentClasses: ParentClass[] = []; // 继承的父类
+  parentClasses: string[] = []; // 继承的父类
   childApis: BasicApiInfo[] = []; // 子节点的信息
 
-  setParentClasses(parentClass: ParentClass): void {
-    this.parentClasses.push(parentClass);
+  setParentClasses(parentClasses: string[]): void {
+    this.parentClasses.push(...parentClasses);
   }
 
-  getParentClasses(): ParentClass[] {
+  getParentClasses(): string[] {
     return this.parentClasses;
   }
 
@@ -657,47 +638,6 @@ export class ParamInfo {
 
   getDefinedText(): string {
     return this.definedText;
-  }
-}
-
-export class GenericInfo {
-  isGenericity: boolean = false;
-  genericContent: string = '';
-
-  setIsGenericity(isGenericity: boolean) {
-    this.isGenericity = isGenericity;
-  }
-  getIsGenericity() {
-    return this.isGenericity;
-  }
-
-  setGenericContent(genericContent: string) {
-    this.genericContent = genericContent;
-  }
-
-  getGenericContent() {
-    return this.genericContent;
-  }
-}
-
-export class ParentClass {
-  extendClass: string = '';
-  implementClass: string = '';
-
-  setExtendClass(extendClass: string):void {
-    this.extendClass = extendClass;
-  }
-
-  getExtendClass(): string {
-    return this.extendClass;
-  }
-
-  setImplementClass(implementClass: string): void {
-    this.implementClass = implementClass;
-  }
-
-  getImplementClass(): string {
-    return this.implementClass;
   }
 }
 
