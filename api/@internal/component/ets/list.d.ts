@@ -253,6 +253,52 @@ declare enum ListItemAlign {
 }
 
 /**
+ * Declare list item group area
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum ListItemGroupArea {
+  /**
+   * List item group area is none
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NONE = 0,
+
+  /**
+   * List item group area is list item
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  IN_LIST_ITEM_AREA = 1,
+
+  /**
+   * List item group area is header
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  IN_HEADER_AREA = 2,
+
+  /**
+   * List item group area is footer
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  IN_FOOTER_AREA = 3,
+}
+
+/**
  * Declare item group sticky style.
  *
  * @enum { number }
@@ -576,6 +622,56 @@ declare interface CloseSwipeActionOptions {
    */
   onFinish?: ()=>void
 }
+
+/**
+ * Defines the visible list content info.
+ *
+ * @interface VisibleListContentInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface VisibleListContentInfo {
+  /**
+   * Index number of a child in the list.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  index: number
+
+  /**
+   * Area of the ListItemGroup.
+   *
+   * @type { ?ListItemGroupArea }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  itemGroupArea?: ListItemGroupArea
+
+  /**
+   * Index number of a ListItem in ListItemGroup.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  itemIndexInGroup?: number
+}
+
+/**
+ * Callback of scroll visible content, using in onScrollVisibleContentChange.
+ *
+ * @typedef {function} OnScrollVisibleContentChangeCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
 
 /**
  * @extends Scroller
@@ -1320,6 +1416,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @form
    */
   onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
+
+  /**
+   * Called when the list visible content changes.
+   *
+   * @param { OnScrollVisibleContentChangeCallback } handler - Callback of Scroll Visible.
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback): ListAttribute;
 
   /**
    * Called when the list begins to arrive.
