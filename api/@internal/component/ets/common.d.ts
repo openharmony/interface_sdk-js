@@ -12732,6 +12732,17 @@ declare class CommonMethod<T> {
   onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
+   * Handle keyboard events before input method events.
+   *
+   * @param { Callback<KeyEvent, boolean> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
+
+  /**
    * Set focusable.
    *
    * @param { boolean } value
