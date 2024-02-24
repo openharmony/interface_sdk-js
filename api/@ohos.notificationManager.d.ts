@@ -304,6 +304,30 @@ declare namespace notificationManager {
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
 
   /**
+   * Publishes a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { BundleOption } representativeBundle - bundle option of the representative.
+   * @param { NotificationRequest } request - a notification.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
+
+  /**
    * Cancel a notification with the specified ID.
    *
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
@@ -398,6 +422,28 @@ declare namespace notificationManager {
    * @since 9
    */
   function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
+
+  /**
+   * Cancel a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { BundleOption } representativeBundle - bundle option of the representative.
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function cancelAsBundle(representativeBundle: BundleOption, id: number): Promise<void>;
 
   /**
    * Cancel all notifications of the current application.
