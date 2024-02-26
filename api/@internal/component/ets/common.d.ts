@@ -9299,6 +9299,43 @@ declare interface PopupMessageOptions {
 }
 
 /**
+ * Dismiss reason type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DismissReason {  
+  /**
+  * Press back
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  PRESS_BACK = 0,
+
+  /**
+  * Touch component outside
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  TOUCH_OUTSIDE = 1,
+
+  /**
+  * Close button
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  CLOSE_BUTTON = 2
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
