@@ -1038,6 +1038,29 @@ export class UIObserver {
    * @since 11
    */
   off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the screen density in a ui context is updated.
+   *
+   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
+   * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
+   * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                        will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
 }
 
 /**
