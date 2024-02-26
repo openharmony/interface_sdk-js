@@ -37,7 +37,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000003 - Data already exists.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -61,7 +61,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000003 - Data already exists.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -84,7 +84,7 @@ declare namespace asset {
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
@@ -103,7 +103,7 @@ declare namespace asset {
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
@@ -125,7 +125,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -148,7 +148,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -171,7 +171,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -195,7 +195,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -220,7 +220,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000004 - Access denied.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -244,7 +244,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000002 - Data not found.
    * @throws { BusinessError } 24000004 - Access denied.
    * @throws { BusinessError } 24000005 - Device status mismatch.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000007 - Data corrupted.
    * @throws { BusinessError } 24000008 - Database operation failed.
    * @throws { BusinessError } 24000009 - Key management service is abnormal.
@@ -265,7 +265,7 @@ declare namespace asset {
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
    * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
@@ -281,7 +281,7 @@ declare namespace asset {
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuerySync}.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
-   * @throws { BusinessError } 24000006 - Out of rom.
+   * @throws { BusinessError } 24000006 - Out of memory.
    * @throws { BusinessError } 24000010 - IPC communication is abnormal.
    * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
@@ -314,7 +314,7 @@ declare namespace asset {
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
-  enum Availability {
+  enum Accessibility {
     /**
      * The secret value in the Asset can only be accessed after the device is powered on.
      *
@@ -500,7 +500,7 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
-    AVAILIABILITY = TagType.NUMBER | 0x03,
+    ACCESSIBILITY = TagType.NUMBER | 0x03,
     /**
      * A tag whose value is a bool indicating whether a screen lock password is required for the device.
      *
@@ -703,12 +703,12 @@ declare namespace asset {
      */
     STATUS_MISMATCH = 24000005,
     /**
-     * The error code indicates insufficient rom.
+     * The error code indicates insufficient memory.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
-    OUT_OF_ROM = 24000006,
+    OUT_OF_MEMORY = 24000006,
     /**
      * The error code indicates that the Asset is corrupted.
      *
