@@ -170,6 +170,50 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
 
   /**
+   * UIAbility uses this method to request start running in background.
+   * <p> System will publish a notification related to the UIAbility. </p>
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @param { string[] } bgModes - Indicates which background mode to request.
+   * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Background task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed.
+   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 12
+   */
+  function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<void>;
+
+  /**
+   * UIAbility uses this method to update background mode.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @param { string[] } bgModes - Indicates which background mode to request.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800002 - Parcel operation failed.
+   * @throws { BusinessError } 9800003 - Inner transact failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Background task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed.
+   * @throws { BusinessError } 9800007 - Task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 12
+   */
+  function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<void>;
+
+  /**
    * Service ability uses this method to request stop running in background.
    *
    * @param { Context } context - App running context.
