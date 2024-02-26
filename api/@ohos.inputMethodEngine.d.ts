@@ -494,7 +494,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 11
+     * @since 12
      */
     on(type: 'sendPrivateCommand', callback: (record: Record<string, Object>) => void): void;
 
@@ -506,7 +506,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 11
+     * @since 12
      */
     off(type: 'sendPrivateCommand', callback?: (record: Record<string, Object>) => void): void;
   }
@@ -1281,7 +1281,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800006 - Input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 11
+     * @since 12
      */
     sendPrivateCommand(record: Record<string, Object>): Promise<void>;
   }
