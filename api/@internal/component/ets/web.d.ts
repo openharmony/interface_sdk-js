@@ -744,6 +744,50 @@ declare class FullScreenExitHandler {
 }
 
 /**
+ * Defines the event details when the web component enter full screen mode.
+ *
+ * @interface FullScreenEnterEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface FullScreenEnterEvent {
+  /**
+   * A function handle to exit full-screen mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  handler: FullScreenExitHandler;
+  /**
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  videoWidth?: number;
+  /**
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  videoHeight?: number;
+}
+
+/**
+ * The callback when the web component enter full screen mode.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
+
+/**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  *
  * @enum { number }
@@ -5451,16 +5495,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFullScreenEnter(callback: (event: {
-    /**
-     * A function handle to exit full-screen mode.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    handler: FullScreenExitHandler
-  }) => void): WebAttribute;
+  /**
+   * Triggered when the web component enter the full screen mode.
+   *
+   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
   /**
    * Triggered when the scale of WebView changed.
