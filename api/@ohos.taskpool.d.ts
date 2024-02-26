@@ -705,6 +705,17 @@ declare namespace taskpool {
      * @since 11
      */
     duration?: number;
+
+    /**
+     * Task name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    name: string;
   }
 
   /**
