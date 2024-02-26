@@ -167,4 +167,24 @@ export class FrameNode {
    * @since 12
    */
   dispose(): void;
+
+  /**
+   * Get the position of the node relative to window.
+   *
+   * @returns { Position } - Returns position of the node relative to window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToWindow(): Position;
+
+  /**
+   * Get the position of the node relative to its parent.
+   *
+   * @returns { Position } - Returns position of the node relative to its parent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getPositionToParent(): Position;
 }
