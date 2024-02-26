@@ -875,7 +875,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */
-    on(type: 'headerReceive', callback?: Callback<ResponseHeaders>): void;
+    on(type: 'headerReceive', callback: Callback<ResponseHeaders>): void;
 
     /**
      * Unregisters the observer for HTTP Response Header events.
