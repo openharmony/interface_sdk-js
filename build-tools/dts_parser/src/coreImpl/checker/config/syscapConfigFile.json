@@ -228,7 +228,7 @@
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Cloud.Push",
     "SystemCapability.XTS.DeviceAttest",
-    "SystemCapability.XTS.DeviceAttestLite",
+    "SystemCapability.XTS.DeviceAttest.Lite",
     "SystemCapability.Base",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
     "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",

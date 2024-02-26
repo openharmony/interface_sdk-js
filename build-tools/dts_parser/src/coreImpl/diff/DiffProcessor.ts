@@ -98,10 +98,10 @@ export namespace DiffProcessorHelper {
 
     static diffSinceVersion(oldApiInfo: ApiInfo, newApiInfo: ApiInfo, diffInfos: BasicDiffInfo[]): void {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      const oldJsDocInfos: Comment.JsDocInfo[] = oldApiInfo.getJsDocInfos();
-      const newJsDocInfos: Comment.JsDocInfo[] = newApiInfo.getJsDocInfos();
-      const sinceVersionOfOld: string = JsDocDiffHelper.getFirstSinceVersion(oldJsDocInfos);
-      const sinceVersionOfNew: string = JsDocDiffHelper.getFirstSinceVersion(newJsDocInfos);
+      const oldFirstJsDocInfo: Comment.JsDocInfo | undefined = oldApiInfo.getJsDocInfos()[0];
+      const newFirstJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getJsDocInfos()[0];
+      const sinceVersionOfOld: string = oldFirstJsDocInfo ? oldFirstJsDocInfo.getSince() : '-1';
+      const sinceVersionOfNew: string = newFirstJsDocInfo ? newFirstJsDocInfo.getSince() : '-1';
       diffTypeInfo
         .setStatusCode(ApiStatusCode.VERSION_CHNAGES)
         .setOldMessage(sinceVersionOfOld)
