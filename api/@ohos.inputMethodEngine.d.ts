@@ -485,6 +485,30 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
+
+    /**
+     * Subscribe 'sendPrivateCommand'
+     *
+     * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
+     * @param { function } callback - indicates the callback of on('sendPrivateCommand').
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 11
+     */
+    on(type: 'sendPrivateCommand', callback: (record: Record) => void): void;
+
+    /**
+     * Unsubscribe 'sendPrivateCommand'
+     *
+     * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
+     * @param { function } [callback] - optional, indicates the callback of off('sendPrivateCommand').
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 11
+     */
+    off(type: 'sendPrivateCommand', callback?: (record: Record) => void): void;
   }
 
   /**
@@ -1245,6 +1269,21 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     sendExtendAction(action: ExtendAction): Promise<void>;
+
+    /**
+     * Send private command.
+     *
+     * @param { Record } record - action code which will be send.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 11
+     */
+    sendPrivateCommand(record: Record): Promise<void>;
   }
 
   /**
@@ -1876,6 +1915,33 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
+  }
+
+  /**
+   * Private command.
+   *
+   * @interface Record
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  export interface Record {
+    /**
+     * Indicates the key of private command
+     *
+     * @type { String }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    key: String;
+
+    /**
+     * Indicates the value of private command
+     *
+     * @type { Object }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    value: Object;
   }
 }
 
