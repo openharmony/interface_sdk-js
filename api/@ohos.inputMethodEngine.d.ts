@@ -496,7 +496,7 @@ declare namespace inputMethodEngine {
      * @systemapi
      * @since 11
      */
-    on(type: 'sendPrivateCommand', callback: (record: Record) => void): void;
+    on(type: 'sendPrivateCommand', callback: (record: Record<string, Object>) => void): void;
 
     /**
      * Unsubscribe 'sendPrivateCommand'
@@ -508,7 +508,7 @@ declare namespace inputMethodEngine {
      * @systemapi
      * @since 11
      */
-    off(type: 'sendPrivateCommand', callback?: (record: Record) => void): void;
+    off(type: 'sendPrivateCommand', callback?: (record: Record<string, Object>) => void): void;
   }
 
   /**
@@ -1273,7 +1273,7 @@ declare namespace inputMethodEngine {
     /**
      * Send private command.
      *
-     * @param { Record } record - action code which will be send.
+     * @param { Record<string, Object> } record - action code which will be send.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 401 - parameter error.
@@ -1283,7 +1283,7 @@ declare namespace inputMethodEngine {
      * @systemapi
      * @since 11
      */
-    sendPrivateCommand(record: Record): Promise<void>;
+    sendPrivateCommand(record: Record<string, Object>): Promise<void>;
   }
 
   /**
@@ -1915,33 +1915,6 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
-  }
-
-  /**
-   * Private command.
-   *
-   * @interface Record
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
-   */
-  export interface Record {
-    /**
-     * Indicates the key of private command
-     *
-     * @type { String }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    key: String;
-
-    /**
-     * Indicates the value of private command
-     *
-     * @type { Object }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    value: Object;
   }
 }
 
