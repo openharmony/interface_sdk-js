@@ -939,6 +939,26 @@ declare namespace uniformTypeDescriptor {
     readonly iconFile: string;
 
     /**
+     * File name extensions for the uniform data type.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     readonly filenameExtensions: Array<string>;
+
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    readonly mimeTypes: Array<string>;
+
+    /**
      * Checks whether the uniform data type belongs to the given uniform data type.
      *
      * @param { string } type - A uniform data type to be compared.
