@@ -19,7 +19,7 @@
  */
 
 import UIAbility from './@ohos.app.ability.UIAbility';
-import EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
+import type EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
 /**
  * class of embeddable UIAbility.
  *
