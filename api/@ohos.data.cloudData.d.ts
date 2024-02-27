@@ -551,7 +551,6 @@ declare namespace cloudData {
      *
      * @param { CloudStrategyType } strategy - Indicates the CloudStrategyType.
      * @param { Record<string, commonType.ValueType> } param - Indicates the param of strategy.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
