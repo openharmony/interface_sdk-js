@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type relationalStore from './@ohos.data.relationalStore';
+import commonType from './@ohos.data.commonType';
 
 /**
  * Provides methods for cloud capabilities.
@@ -159,6 +160,48 @@ declare namespace cloudData {
      * @since 12
      */
     normal: number;
+  }
+
+  /**
+   * Describes the strategy of cloud sync.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @since 12
+   */
+  enum CloudStrategyType {
+
+    /**
+     * Indicates that synchronization is not allowed when using both WiFi and CELLULAR.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    NO_SYNC = 0,
+
+    /**
+     * Indicates that synchronization is allowed when using WiFi.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    WIFI = 1,
+
+    /**
+     * Indicates that synchronization is allowed when using CELLULAR.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    CELLULAR = 2,
+
+    /**
+     * Indicates that synchronization is allowed when using CELLULAR or WIFI.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    CELLULAR_OR_WIFI = 3
   }
 
   /**
@@ -502,6 +545,20 @@ declare namespace cloudData {
      * @since 11
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+
+    /**
+     * Set cloud sync strategy.
+     *
+     * @param { CloudStrategyType } strategy - Indicates the CloudStrategyType.
+     * @param { Record<string, commonType.ValueType> } param - Indicates the param of strategy.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    static setCloudStrategy(strategy: CloudStrategyType, param?: Record<string, commonType.ValueType>):
+        Promise<void>;
   }
 
   /**
