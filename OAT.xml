@@ -61,6 +61,7 @@ Note:If the text contains special characters, please escape them according to th
         <policylist>
             <policy name="projectPolicy" desc="">
                 <policyitem type="copyright" name="Huawei Device Co.," path="ace_engine/.*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="ace子系统对外提供的js接口，无法添加版权头"/>
+                <policyitem type="copyright" name="Shenzhen Kaihong Digital Industry Development Co., Ltd." path="api\@ohos.font.d.ts" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="文件为深开鸿创建，无需修改版权头"/>
             </policy>
         </policylist>
         <filefilterlist>
