@@ -112,11 +112,11 @@ declare namespace PiPWindow {
     contentHeight?: number;
 
     /**
-     * Describes the height of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
+     * Describes the custom controls to be displayed in PiP window control pannel. If the parameter is empty, only mandatory controls are displayed.
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since 12
      */
     controlGroup?: Array<PiPControlGroup>;
   }
