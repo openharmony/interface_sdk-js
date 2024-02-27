@@ -110,14 +110,14 @@ declare namespace cloudData {
      */
     extraData: string;
   }
-  
+
   /**
-   * Participants in cloud sharing.
+   * Additional data for querying data statistics information.
    *
    * @interface StatisticInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @systemapi
-   * @since 11
+   * @since 12
    */
   interface StatisticInfo {
     /**
@@ -126,7 +126,7 @@ declare namespace cloudData {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     table: string;
 
@@ -136,7 +136,7 @@ declare namespace cloudData {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     inserted: number;
 
@@ -146,7 +146,7 @@ declare namespace cloudData {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     updated: number;
 
@@ -156,7 +156,7 @@ declare namespace cloudData {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     normal: number;
   }
@@ -420,16 +420,20 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName - Indicates the name of application.
      * @param { number } [storeId] - Indicates the store ID.
-     * @returns { Promise<StatisticInfo> } the promise returned by the function.
+     * @returns { Promise<Record<string, Array<StatisticInfo>>> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
-     * @since 11
+     * @since 12
      */
-    static queryStatistics(accountId: string, bundleName: string, storeId?: string): Promise<StatisticInfo>;
+    static queryStatistics(
+        accountId: string,
+        bundleName: string,
+        storeId?: string
+    ): Promise<Record<string, Array<StatisticInfo>>>;
 
     /**
      * deletes cloud information from local data.
