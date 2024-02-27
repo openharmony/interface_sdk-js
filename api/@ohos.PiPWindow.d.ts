@@ -110,6 +110,15 @@ declare namespace PiPWindow {
      * @since 11
      */
     contentHeight?: number;
+
+    /**
+     * Describes the height of content to be displayed in PiP window. For adjusting PiP window aspect ratio.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    controlGroup?: Array<PiPControlGroup>;
   }
 
   /**
@@ -207,6 +216,63 @@ declare namespace PiPWindow {
   }
 
   /**
+ * Enum for PiP window custom controls.
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.Window.SessionManager
+ * @since 12
+ */
+  enum PiPControlGroup {
+    /**
+     * Previous/Next for video.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    VIDEO_PREVIOUS_NEXT,
+
+    /**
+     * Forward/Back for video.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    FAST_FORWARD_BACKWARD,
+
+    /**
+     * Turn on/off the microphone.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MICROPHONE_SWITCH,
+
+    /**
+     * Hang up.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    HANG_UP_BUTTON,
+
+    /**
+     * Turn on/off the camera
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    CAMERA_SWITCH,
+
+    /**
+     * Mute switch.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    MUTE_SWITCH,
+  }
+
+  /**
    * Describe picture-in-picture action event type.
    *
    * @syscap SystemCapability.Window.SessionManager
@@ -220,7 +286,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-  type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo';
+  type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
 
   /**
    * Describe picture-in-picture call template action event type.
@@ -316,11 +382,11 @@ declare namespace PiPWindow {
     /**
      * Register picture-in-picture control event listener.
      * @param { 'controlPanelActionEvent' } type - Registration type, user action event, 'controlPanelActionEvent'
-     * @param { function } callback - Used to handle {'controlPanelActionEvent'} command
+     * @param { function } callback - Used to handle {'controlPanelActionEvent'} command. The status parameter is used to identify the control status.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType) => void): void;
+    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType, status?:number) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
