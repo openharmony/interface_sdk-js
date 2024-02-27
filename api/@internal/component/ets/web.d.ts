@@ -2234,6 +2234,35 @@ declare enum WebNavigationType {
   NAVIGATION_TYPE_AUTO_SUBFRAME = 5,
 }
 
+
+/**
+ * Defines the web render mode, related to {@link RenderMode}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum RenderMode {
+  /**
+   * Web and arkui render async
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ASYNC_RENDER = 0,
+
+  /**
+   * Web and arkui render synchronously
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  SYNC_RENDER = 1,
+}
+
 /**
  * Defines the context menu param, related to {@link WebContextMenuParam} method.
  *
@@ -3703,6 +3732,16 @@ declare interface WebOptions {
    * @since 11
   */
   controller: WebController | WebviewController;
+
+  /**
+   * Sets the render mode of the web.
+   *
+   * @type { ?RenderMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  renderMode? : RenderMode;
 
   /**
    * Sets the incognito mode of the Web, the parameter is optional and default value is false.
