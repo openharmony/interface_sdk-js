@@ -16,13 +16,14 @@
     "apiType": "EnumValue",
     "definedText": "VALUE_ONE = 1",
     "pos": {
-      "line": 2,
+      "line": 17,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_enum_no_value_002.d.ts",
@@ -41,13 +42,14 @@
     "apiType": "EnumValue",
     "definedText": "VALUE_TWO",
     "pos": {
-      "line": 3,
+      "line": 18,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_enum_no_value_002.d.ts",
@@ -66,12 +68,13 @@
     "apiType": "EnumValue",
     "definedText": "VALUE_THREE = 4",
     "pos": {
-      "line": 4,
+      "line": 19,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

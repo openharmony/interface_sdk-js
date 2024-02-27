@@ -16,13 +16,14 @@
     "apiType": "EnumValue",
     "definedText": "ONE = 1",
     "pos": {
-      "line": 7,
+      "line": 22,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_jsdoc_enum_006.d.ts",
@@ -41,13 +42,14 @@
     "apiType": "EnumValue",
     "definedText": "TWO = 2",
     "pos": {
-      "line": 8,
+      "line": 23,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_jsdoc_enum_006.d.ts",
@@ -66,12 +68,13 @@
     "apiType": "EnumValue",
     "definedText": "THREE = 3",
     "pos": {
-      "line": 9,
+      "line": 24,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

@@ -16,12 +16,13 @@
     "apiType": "TypeAlias",
     "definedText": "type TextOneType = { [key: string | number]: ValueType | Uint8Array | (false & null) };",
     "pos": {
-      "line": 3,
+      "line": 18,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

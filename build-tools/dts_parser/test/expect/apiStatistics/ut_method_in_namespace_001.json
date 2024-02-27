@@ -16,12 +16,13 @@
     "apiType": "Method",
     "definedText": "function func(): void {}",
     "pos": {
-      "line": 6,
+      "line": 21,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]
