@@ -605,5 +605,39 @@ declare namespace abilityAccessCtrl {
 
 export default abilityAccessCtrl;
 export { Permissions };
+/**
+ * PermissionRequestResult interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * PermissionRequestResult interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export type PermissionRequestResult = _PermissionRequestResult;
+/**
+ * Context interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Context interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export type Context = _Context;

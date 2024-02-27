@@ -163,12 +163,14 @@ interface RectInterface {
  * rect attribute declaration.
  *
  * @extends CommonShapeMethod<RectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * rect attribute declaration.
  *
  * @extends CommonShapeMethod<RectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -176,6 +178,7 @@ interface RectInterface {
  * rect attribute declaration.
  *
  * @extends CommonShapeMethod<RectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -184,6 +187,7 @@ interface RectInterface {
  * rect attribute declaration.
  *
  * @extends CommonShapeMethod<RectAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11

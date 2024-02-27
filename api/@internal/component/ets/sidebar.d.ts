@@ -502,12 +502,14 @@ interface DividerStyle {
  * The attribute function of sidebar
  *
  * @extends CommonMethod<SideBarContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The attribute function of sidebar
  *
  * @extends CommonMethod<SideBarContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -515,6 +517,7 @@ interface DividerStyle {
  * The attribute function of sidebar
  *
  * @extends CommonMethod<SideBarContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11

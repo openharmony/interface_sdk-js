@@ -869,12 +869,14 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  *
  * @extends CommonMethod<TabContentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the attribute functions of TabContent.
  *
  * @extends CommonMethod<TabContentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -882,6 +884,7 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  *
  * @extends CommonMethod<TabContentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -953,6 +956,28 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @since 11
    */
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
+
+  /**
+   * Called when the tab content will show.
+   * @param { VoidCallback  } event
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillShow(event: VoidCallback): TabContentAttribute;
+
+  /**
+   * Called when the tab content will hide.
+   * @param { VoidCallback  } event
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillHide(event: VoidCallback): TabContentAttribute;
 }
 
 /**

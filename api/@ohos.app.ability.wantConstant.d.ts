@@ -19,14 +19,14 @@
  */
 
 /**
- * the constant for action and entity in the want
+ * the constant for params and flags in the want
  *
  * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
  */
 /**
- * the constant for action and entity in the want
+ * the constant for params and flags in the want
  *
  * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase

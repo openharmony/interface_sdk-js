@@ -961,3 +961,4 @@ sandboxes
 sar
 adapts
 followx
+precomposited

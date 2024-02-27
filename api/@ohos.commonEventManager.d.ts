@@ -2011,6 +2011,16 @@ declare namespace commonEventManager {
       * @since 11
       */
     COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
+
+    /**
+     * This commonEvent means when a new application package start to install on the device.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
   }
 
   /**

@@ -22,7 +22,12 @@ import type rpc from './@ohos.rpc';
 import type Want from './@ohos.app.ability.Want';
 import _DriverExtensionContext from './application/DriverExtensionContext';
 
-
+/**
+ * Define a DriverExtensionContext for store context.
+ *
+ * @syscap SystemCapability.Driver.ExternalDevice
+ * @since 10
+ */
 export type DriverExtensionContext = _DriverExtensionContext;
 
 /**

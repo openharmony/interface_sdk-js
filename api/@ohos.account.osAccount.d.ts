@@ -1089,6 +1089,27 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * Creates an OS account with the specified local name and type.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName or type.
+     * @throws { BusinessError } 12300004 - Local name already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
@@ -1111,7 +1132,30 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    createOsAccount(localName: string, type: OsAccountType): Promise<OsAccountInfo>;
+    /**
+     * Creates an OS account with the specified local name, type and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { CreateOsAccountOptions } [options] - Indicates the options for creating an OS account.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName, type or options.
+     * @throws { BusinessError } 12300004 - Local name already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300015 - Short name already exists.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
     /**
      * Creates an OS account using the account type and domain account info.
@@ -1779,6 +1823,16 @@ declare namespace osAccount {
     localName: string;
 
     /**
+     * The short name of an OS account.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    shortName?: string;
+
+    /**
      * Include: ADMIN, Normal, GUEST.
      *
      * @type { OsAccountType }
@@ -1898,6 +1952,26 @@ declare namespace osAccount {
      * @since 8
      */
     domainInfo: DomainAccountInfo;
+  }
+
+  /**
+   * Options for creating an OS account.
+   *
+   * @interface CreateOsAccountOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface CreateOsAccountOptions {
+    /**
+     * Indicates the short name of the OS account.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    shortName: string;
   }
 
   /**

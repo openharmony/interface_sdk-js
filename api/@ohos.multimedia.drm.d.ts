@@ -108,56 +108,6 @@ declare namespace drm {
      */
     CONFIG_SESSION_CURRENT = 'currentSessionNum',
   }
-  /**
-   * Enumerates event types of listener.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  enum ListenerType {
-    /**
-     * DRM event base.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_DRM_EVENT = 200,
-    /**
-     * Provision required event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_PROVISION_REQUIRED = 201,
-    /**
-     * Media key required event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_KEY_REQUIRED = 202,
-    /**
-     * Media key expired event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_KEY_EXPIRED = 203,
-    /**
-     * Vendor defined event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_VENDOR_DEFINED = 204,
-    /**
-     * Expiration update event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_EXPIRATION_UPDATE = 206,
-    /**
-     * Media key change event.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    LISTENER_KEY_CHANGE = 207,
-  }
 
   /**
    * Enumerates media key type.
@@ -685,7 +635,7 @@ declare namespace drm {
     getCertificateStatus(): CertificateStatus;
 
     /**
-     * Register or unregister listens for drm events.
+     * Register keySystemRequired events.
      * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key system required event.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -695,6 +645,15 @@ declare namespace drm {
      */
     on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void;
 
+    /**
+     * Unregister keySystemRequired events.
+     * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
+     * @param { function } callback - Used to listen for the key system required event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 11
+     */
     off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
@@ -879,7 +838,7 @@ declare namespace drm {
     requireSecureDecoderModule(mimeType: string): boolean;
 
     /**
-     * Register or unregister keyRequired event.
+     * Register keyRequired event.
      * @param { 'keyRequired' } type - Type of the drm event to listen for.
      * @param { function } callback used to listen for the key required event.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -889,10 +848,19 @@ declare namespace drm {
      */
     on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void;
 
+    /**
+     * Unregister keyRequired event.
+     * @param { 'keyRequired' } type - Type of the drm event to listen for.
+     * @param { function } callback used to listen for the key required event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 11
+     */
     off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register or unregister keyExpired event.
+     * Register keyExpired event.
      * @param { 'keyExpired' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the key required event.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -902,10 +870,19 @@ declare namespace drm {
      */
     on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void;
 
+    /**
+     * Unregister keyExpired event.
+     * @param { 'keyExpired' } type - Type of the drm event to listen for.
+     * @param { function } callback - Used to listen for the key required event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 11
+     */
     off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register or unregister vendorDefined event.
+     * Register vendorDefined event.
      * @param { 'vendorDefined' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for the vendor defined event.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -915,10 +892,19 @@ declare namespace drm {
      */
     on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void;
 
+    /**
+     * Unregister vendorDefined event.
+     * @param { 'vendorDefined' } type - Type of the drm event to listen for.
+     * @param { function } callback - Used to listen for the vendor defined event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 11
+     */
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register or unregister expirationUpdate event.
+     * Register expirationUpdate event.
      * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for expiration update event.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -928,10 +914,19 @@ declare namespace drm {
      */
     on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void;
 
+    /**
+     * Unregister expirationUpdate event.
+     * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
+     * @param { function } callback - Used to listen for expiration update event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 11
+     */
     off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register or unregister keysChange event.
+     * Register keysChange event.
      * @param { 'keysChange' } type - Type of the drm event to listen for.
      * @param { function } callback - Used to listen for keys change event.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -941,6 +936,15 @@ declare namespace drm {
      */
     on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
+    /**
+     * Unregister keysChange event.
+     * @param { 'keysChange' } type - Type of the drm event to listen for.
+     * @param { function } callback - Used to listen for keys change event.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 24700101 - All unknown errors.
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 11
+     */
     off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**

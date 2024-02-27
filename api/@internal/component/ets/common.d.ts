@@ -225,6 +225,16 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
+ * Defining observed ClassDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const observed: ClassDecorator;
+
+/**
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -340,6 +350,16 @@ declare const State: PropertyDecorator;
  * @form
  */
 declare const Track: PropertyDecorator;
+
+/**
+ * Defining track PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const track: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
@@ -9279,6 +9299,43 @@ declare interface PopupMessageOptions {
 }
 
 /**
+ * Dismiss reason type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DismissReason {  
+  /**
+  * Press back
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  PRESS_BACK = 0,
+
+  /**
+  * Touch component outside
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  TOUCH_OUTSIDE = 1,
+
+  /**
+  * Close button
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  CLOSE_BUTTON = 2
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -10998,13 +11055,6 @@ declare interface MenuElement {
    */
   value: ResourceStr;
 
-  /**
-   * Sets the icon of the menu element.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
   /**
    * Sets the icon of the menu element.
    *
@@ -15762,6 +15812,40 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @form
  */
 interface CommonInterface {
+  /**
+   * Constructor.
+   *
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Constructor
+   * 
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Constructor
+   *
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Constructor
+   * 
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (): CommonAttribute;
 }
 
@@ -16392,9 +16476,105 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @since 11
  */
 declare interface LinearGradient {
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   angle?: number | string;
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   direction?: GradientDirection;
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   colors: Array<any>;
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   repeating?: boolean;
 }
 
@@ -16907,7 +17087,22 @@ declare interface MeasureResult extends SizeResult {
  
 }
 
+/**
+ * The navigation destination information.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+
+/**
+ * UIContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**

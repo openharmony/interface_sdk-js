@@ -692,6 +692,28 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   optionHeight(value: Dimension): SelectAttribute;
+
+  /**
+   * set the menu's background color
+   *
+   * @param { ResourceColor } value - The backgroundColor of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  menuBackgroundColor(value: ResourceColor): SelectAttribute;
+
+  /**
+   * set menu background blur Style
+   *
+   * @param { BlurStyle } value - The BackgroundBlurStyle of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
 }
 
 /**

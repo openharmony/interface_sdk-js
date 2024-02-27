@@ -2465,6 +2465,18 @@ export default class UIAbilityContext extends Context {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Report to system when the ability is drawn completed.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
   /**

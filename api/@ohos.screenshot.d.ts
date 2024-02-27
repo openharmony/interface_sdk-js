@@ -93,9 +93,44 @@ declare namespace screenshot {
    * @since 7
    */
   interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     top: number;
+
+    /**
+     * Width of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     width: number;
+
+    /**
+     * Height of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     height: number;
   }
 
@@ -108,7 +143,24 @@ declare namespace screenshot {
    * @since 7
    */
   interface Size {
+    /**
+     * Defines the width property.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     width: number;
+
+    /**
+     * Defines the height property.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     height: number;
   }
 

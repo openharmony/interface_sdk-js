@@ -1876,6 +1876,22 @@ declare namespace connection {
     port: number;
 
     /**
+     * Http proxy username.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    username?: string;
+
+    /**
+     * Http proxy password.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    password?: string;
+
+    /**
      * Do not use a blocking list for proxy servers.
      * @type {Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Core

@@ -50,23 +50,31 @@
 interface PolylineInterface {
   /**
    * Uses new to create Polyline.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Uses new to create Polyline.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
    * Uses new to create Polyline.
-   * @form
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
    */
   /**
    * Uses new to create Polyline.
-   * @form
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
    */

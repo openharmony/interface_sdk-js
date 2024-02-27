@@ -456,17 +456,20 @@ declare namespace resourceManager {
   /**
    * Provides the device configuration.
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 6
    */
   /**
    * Provides the device configuration.
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @since 10
    */
   /**
    * Provides the device configuration.
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -522,17 +525,20 @@ declare namespace resourceManager {
   /**
    * Provides the device capability.
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 6
    */
   /**
    * Provides the device capability.
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @since 10
    */
   /**
    * Provides the device capability.
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -594,6 +600,15 @@ declare namespace resourceManager {
    * @deprecated since 9
    */
   export interface AsyncCallback<T> {
+    /**
+     * Defines the callback format.
+     *
+     * @param { Error } err - Indicates the error info.
+     * @param { T } data - Indicates the return data.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 6
+     * @deprecated since 9
+    */
     (err: Error, data: T): void;
   }
 

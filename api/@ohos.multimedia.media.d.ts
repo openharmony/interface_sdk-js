@@ -263,8 +263,7 @@ declare namespace media {
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   function createAVImageGenerator(): Promise<AVImageGenerator>;
 
@@ -274,8 +273,7 @@ declare namespace media {
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void;
 
@@ -531,16 +529,14 @@ declare namespace media {
    * you must use createAVImageGenerator() to create an AVImageGenerator instance.
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12 
    */
   interface AVImageGenerator {
     /**
      * Media file descriptor.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -556,8 +552,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams,
       callback: AsyncCallback<image.PixelMap>): void;
@@ -575,8 +570,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
@@ -585,8 +579,7 @@ declare namespace media {
      * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -595,8 +588,7 @@ declare namespace media {
      * @returns { Promise<void> } A Promise instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     release(): Promise<void>;
   }
@@ -605,16 +597,14 @@ declare namespace media {
    * Enumerates options about the relationship between the given timeUs and a key frame.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   enum AVImageQueryOptions {
     /**
      * This option is used to fetch a key frame from the given media
      * resource that is located right after or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_NEXT_SYNC,
 
@@ -622,8 +612,7 @@ declare namespace media {
      * This option is used to fetch a key frame from the given media
      * resource that is located right before or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_PREVIOUS_SYNC,
 
@@ -631,8 +620,7 @@ declare namespace media {
      * This option is used to fetch a key frame from the given media
      * resource that is located closest to or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
 
@@ -650,8 +638,7 @@ declare namespace media {
    * Expected pixel map format for the fetched image from video resource.
    * @typedef PixelMapParams
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   interface PixelMapParams {
     /**
@@ -659,8 +646,7 @@ declare namespace media {
      * original dimensions of the given video resource.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     width?: number;
 
@@ -669,8 +655,7 @@ declare namespace media {
      * original dimensions of the given video resource.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     height?: number;
 
@@ -1331,7 +1316,7 @@ declare namespace media {
      * Set decryption session to codec module.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
      * @param { boolean } secureVideoPath - Secure video path required or not.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1364,14 +1349,14 @@ declare namespace media {
     off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => void): void;
 
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
      * @param { function } callback - Callback used to listen for the playback stateChange event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
      * @param { function } callback - Callback used to listen for the playback stateChange event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1380,13 +1365,13 @@ declare namespace media {
      */
     on(type: 'stateChange', callback: (state: AVPlayerState, reason: StateChangeReason) => void): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback stateChange event.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1394,7 +1379,7 @@ declare namespace media {
      */
     off(type: 'stateChange'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1402,14 +1387,14 @@ declare namespace media {
      */
     on(type: 'volumeChange', callback: Callback<number>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback volumeChange event.
      * @param { 'volumeChange' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     off(type: 'volumeChange'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback endOfStream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1417,21 +1402,21 @@ declare namespace media {
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback endOfStream event.
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     off(type: 'endOfStream'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1440,13 +1425,13 @@ declare namespace media {
      */
     on(type: 'seekDone', callback: Callback<number>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback seekDone event.
      * @param { 'seekDone' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1454,7 +1439,7 @@ declare namespace media {
      */
     off(type: 'seekDone'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback speedDone event.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1462,14 +1447,14 @@ declare namespace media {
      */
     on(type: 'speedDone', callback: Callback<number>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback speedDone event.
      * @param { 'speedDone' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     off(type: 'speedDone'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1477,21 +1462,21 @@ declare namespace media {
      */
     on(type: 'bitrateDone', callback: Callback<number>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback setBitrateDone event.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     off(type: 'bitrateDone'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1500,13 +1485,13 @@ declare namespace media {
      */
     on(type: 'timeUpdate', callback: Callback<number>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback timeUpdate event.
      * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
@@ -1514,7 +1499,7 @@ declare namespace media {
      */
     off(type: 'timeUpdate'): void;
     /**
-     * Register listens for media playback events.
+     * Register listens for media playback durationUpdate event.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1522,7 +1507,7 @@ declare namespace media {
      */
     on(type: 'durationUpdate', callback: Callback<number>): void;
     /**
-     * Unregister listens for media playback events.
+     * Unregister listens for media playback durationUpdate event.
      * @param { 'durationUpdate' } type - Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -1661,7 +1646,7 @@ declare namespace media {
      * The event is triggered when output device change for this stream.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1671,7 +1656,7 @@ declare namespace media {
      * Unsubscribes output device change event callback.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
@@ -1684,12 +1669,16 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
+   * @deprecated since 11
+   * @useinstead ohos.multimedia.media/media.AVErrorCode
    */
   enum MediaErrorCode {
     /**
      * operation success.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_OK
      */
     MSERR_OK = 0,
 
@@ -1697,6 +1686,8 @@ declare namespace media {
      * malloc or new memory failed. maybe system have no memory.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_NO_MEMORY
      */
     MSERR_NO_MEMORY = 1,
 
@@ -1704,6 +1695,8 @@ declare namespace media {
      * no permission for the operation.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_OPERATE_NOT_PERMIT
      */
     MSERR_OPERATION_NOT_PERMIT = 2,
 
@@ -1711,6 +1704,8 @@ declare namespace media {
      * invalid argument.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_INVALID_PARAMETER
      */
     MSERR_INVALID_VAL = 3,
 
@@ -1718,6 +1713,8 @@ declare namespace media {
      * an I/O error occurred.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_IO
      */
     MSERR_IO = 4,
 
@@ -1725,6 +1722,8 @@ declare namespace media {
      * operation time out.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_TIMEOUT
      */
     MSERR_TIMEOUT = 5,
 
@@ -1732,6 +1731,8 @@ declare namespace media {
      * unknown error.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_INVALID_PARAMETER
      */
     MSERR_UNKNOWN = 6,
 
@@ -1739,6 +1740,8 @@ declare namespace media {
      * media service died.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_SERVICE_DIED
      */
     MSERR_SERVICE_DIED = 7,
 
@@ -1746,6 +1749,8 @@ declare namespace media {
      * operation is not permit in current state.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_INVALID_PARAMETER
      */
     MSERR_INVALID_STATE = 8,
 
@@ -1753,6 +1758,8 @@ declare namespace media {
      * operation is not supported in current version.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.media/media.AVErrorCode#AVERR_UNSUPPORT_CAPABILITY
      */
     MSERR_UNSUPPORTED = 9,
   }
@@ -2165,7 +2172,7 @@ declare namespace media {
      * @param { AVRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -2179,7 +2186,7 @@ declare namespace media {
      * @param { AVRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -2430,8 +2437,7 @@ declare namespace media {
      * Listens for recording audioCapturerChange events.
      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -2849,7 +2855,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -2863,7 +2869,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder

@@ -1363,6 +1363,16 @@ declare type LengthConstrain = {
 };
 
 /**
+ * Defines VoidCallback.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type VoidCallback  = () => void;
+
+/**
  * Defines the font used for text.
  *
  * @interface Font
@@ -1779,7 +1789,15 @@ declare interface Position {
    */
   y?: Length;
 }
-
+/**
+ * Defines the Bias.
+ *
+ * @interface Bias
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
 declare interface Bias {
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
@@ -2408,12 +2426,14 @@ declare interface MarkStyle {
 /**
  * Defines the ColorFilter object.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
  * Defines the ColorFilter object.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -2421,6 +2441,7 @@ declare interface MarkStyle {
 /**
  * Defines the ColorFilter object.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11

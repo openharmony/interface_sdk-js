@@ -63,6 +63,8 @@ export class BasicApiInfo {
   syscap: string = '';
   currentVersion = '-1';
   jsDocText: string = '';
+  isJoinType: boolean = false;
+  genericInfo: GenericInfo[] = [];
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -211,6 +213,22 @@ export class BasicApiInfo {
   getJsDocText(): string {
     return this.jsDocText;
   }
+
+  setIsJoinType(jsJoinType: boolean) {
+    this.isJoinType = jsJoinType;
+  }
+
+  getIsJoinType(): boolean {
+    return this.isJoinType;
+  }
+
+  setGenericInfo(genericInfo: GenericInfo): void{
+    this.genericInfo.push(genericInfo);
+  }
+
+  getGenericInfo(): GenericInfo[] {
+    return this.genericInfo;
+  }
 }
 
 export class ExportDefaultInfo extends BasicApiInfo { }
@@ -267,11 +285,26 @@ export class ImportInfo extends BasicApiInfo {
 export class ApiInfo extends BasicApiInfo {
   jsDocInfos: Comment.JsDocInfo[] = []; // 所有的JsDoc信息
 
-  constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo) {
+  constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
-    const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node);
-    this.setJsDocText(node.getFullText().replace(node.getText(), ''));
+    let parentKitInfo = '';
+    if (parentApi) {
+      parentKitInfo = this.getKitInfoFromParent(parentApi);
+    }    
+    const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node, apiType, parentKitInfo);
+    const jsDocText = node.getFullText().substring(0, node.getFullText().length - node.getText().length);
+    this.setJsDocText(jsDocText);
     this.addJsDocInfos(jsDocInfos);
+  }
+
+  getKitInfoFromParent(parentApi: BasicApiInfo): string {
+    const parentApiInfo = parentApi as ApiInfo;
+    const jsDocInfos: Comment.JsDocInfo[] = parentApiInfo.getJsDocInfos();
+    let kitInfo: string = '';
+    jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
+      kitInfo = jsDocInfo.getKit();
+    });
+    return kitInfo;
   }
 
   getJsDocInfos(): Comment.JsDocInfo[] {
@@ -300,14 +333,14 @@ export class ApiInfo extends BasicApiInfo {
 }
 
 export class ClassInfo extends ApiInfo {
-  parentClasses: string[] = []; // 继承的父类
+  parentClasses: ParentClass[] = []; // 继承的父类
   childApis: BasicApiInfo[] = []; // 子节点的信息
 
-  setParentClasses(parentClasses: string[]): void {
-    this.parentClasses.push(...parentClasses);
+  setParentClasses(parentClass: ParentClass): void {
+    this.parentClasses.push(parentClass);
   }
 
-  getParentClasses(): string[] {
+  getParentClasses(): ParentClass[] {
     return this.parentClasses;
   }
 
@@ -325,14 +358,14 @@ export class ClassInfo extends ApiInfo {
 }
 
 export class InterfaceInfo extends ApiInfo {
-  parentClasses: string[] = []; // 继承的父类
+  parentClasses: ParentClass[] = []; // 继承的父类
   childApis: BasicApiInfo[] = []; // 子节点的信息
 
-  setParentClasses(parentClasses: string[]): void {
-    this.parentClasses.push(...parentClasses);
+  setParentClasses(parentClass: ParentClass): void {
+    this.parentClasses.push(parentClass);
   }
 
-  getParentClasses(): string[] {
+  getParentClasses(): ParentClass[] {
     return this.parentClasses;
   }
 
@@ -624,6 +657,47 @@ export class ParamInfo {
 
   getDefinedText(): string {
     return this.definedText;
+  }
+}
+
+export class GenericInfo {
+  isGenericity: boolean = false;
+  genericContent: string = '';
+
+  setIsGenericity(isGenericity: boolean) {
+    this.isGenericity = isGenericity;
+  }
+  getIsGenericity() {
+    return this.isGenericity;
+  }
+
+  setGenericContent(genericContent: string) {
+    this.genericContent = genericContent;
+  }
+
+  getGenericContent() {
+    return this.genericContent;
+  }
+}
+
+export class ParentClass {
+  extendClass: string = '';
+  implementClass: string = '';
+
+  setExtendClass(extendClass: string):void {
+    this.extendClass = extendClass;
+  }
+
+  getExtendClass(): string {
+    return this.extendClass;
+  }
+
+  setImplementClass(implementClass: string): void {
+    this.implementClass = implementClass;
+  }
+
+  getImplementClass(): string {
+    return this.implementClass;
   }
 }
 

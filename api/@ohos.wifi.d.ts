@@ -1235,9 +1235,40 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.IpConfig
    */
   interface IpConfig {
+    /**
+     * IP address.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     * @deprecated since 9
+     */
     ipAddress: number;
+
+    /**
+     * Gate way.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     * @deprecated since 9
+     */
     gateway: number;
+
+    /**
+     * DNS servers.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     * @deprecated since 9
+     */
     dnsServers: number[];
+
+    /**
+     * Domains.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     * @deprecated since 9
+     */
     domains: Array<string>;
   }
 
@@ -2091,7 +2122,20 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.P2pConnectState
    */
   enum P2pConnectState {
+    /**
+     * p2p is disconnected. 
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     DISCONNECTED = 0,
+
+    /**
+     * p2p is connected.
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     CONNECTED = 1,
   }
 
@@ -2139,10 +2183,44 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus
    */
   enum P2pDeviceStatus {
+    /** 
+     * Indicate p2p device is connected.  
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     CONNECTED = 0,
+
+    /** 
+     * Indicate p2p device is invited.  
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     INVITED = 1,
+
+    /** 
+     * Indicate p2p device is failed.  
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     FAILED = 2,
+
+    /** 
+     * Indicate p2p device is available.  
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     AVAILABLE = 3,
+
+    /** 
+     * Indicate p2p device is unavailable.  
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     UNAVAILABLE = 4,
   }
 
@@ -2156,8 +2234,28 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.GroupOwnerBand
    */
   enum GroupOwnerBand {
+    /**
+     * default band.
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     GO_BAND_AUTO = 0,
+
+    /**
+     * 2.4G band.
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     GO_BAND_2GHZ = 1,
+
+    /**
+     * 5G band.
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8
+     * @deprecated since 9
+     */
     GO_BAND_5GHZ = 2,
   }
 }

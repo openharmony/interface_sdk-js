@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -258,6 +258,15 @@ declare namespace common {
    * @StageModelOnly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The event center of a context, support the subscription and publication of events.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   export type EventHub = _EventHub.default;
 

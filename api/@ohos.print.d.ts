@@ -2065,6 +2065,20 @@ declare namespace print {
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function notifyPrintService(jobId: string, type: 'spooler_closed_for_cancelled' | 'spooler_closed_for_started', callback: AsyncCallback<void>): void;
+    
+  /**
+   * Notify print service the information.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates id of the print job.
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Indicates notify information.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
