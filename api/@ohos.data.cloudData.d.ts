@@ -419,7 +419,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName - Indicates the name of application.
-     * @param { number } [storeId] - Indicates the store ID.
+     * @param { string } [storeId] - Indicates the store ID.
      * @returns { Promise<Record<string, Array<StatisticInfo>>> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
