@@ -164,4 +164,24 @@ export interface Configuration {
    * @since 11
    */
   hasPointerDevice?: boolean;
+
+  /**
+   * Indicates the font size scale.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 12
+   */
+  fontSizeScale?: number;
+
+  /**
+   * Indicates the font weight scale.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 12
+   */
+  fontWeightScale?: number;
 }
