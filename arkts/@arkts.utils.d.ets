@@ -14,9 +14,11 @@
  */
 
 /**
- * @file
+ * @file Defines the utils for ArkTS
  * @kit ArkTS
  */
+
+import collections from './@arkts.collections';
 
 /**
  * @namespace utils
@@ -363,6 +365,197 @@ declare namespace utils {
        */
       reason: T
     }
+  }
+
+  namespace json {
+    /**
+     * Define JSONObject
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type JSONObject = collections.Map<string, JSONValue>;
+    /**
+     * Define JSONArray
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type JSONArray = collections.Array<JSONValue>;
+    /**
+     * Represents a JSON value.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONValue {
+      /**
+       * Default constructor. Create a JSONValue to represent null.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor();
+      /**
+       * Converts the JSON value to a JSONObject.
+       * @returns { JSONObject } The JSONObject representation of the JSON value.
+       * @throws { BusinessError } 10200011 - The toJSONObject method cannot be bound.
+       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not JSONObject.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */    
+      toJSONObject(): JSONObject;
+      /**
+       * Checks whether the JSON value is a JSONObject.
+       * @returns { boolean } True if the JSON value is a JSONObject, otherwise false.
+       * @throws { BusinessError } 10200011 - The isJSONObject method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      isJSONObject(): boolean;
+      /**
+       * Converts the JSON value to a JSONArray.
+       * @returns { JSONArray } The JSONArray representation of the JSON value.
+       * @throws { BusinessError } 10200011 - The toJSONArray method cannot be bound.
+       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not JSONArray.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      toJSONArray(): JSONArray;
+      /**
+       * Checks whether the JSON value is a JSONArray.
+       * @returns { boolean } True if the JSON value is a JSONArray, otherwise false.
+       * @throws { BusinessError } 10200011 - The isJSONArray method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      isJSONArray(): boolean;
+      /**
+       * Converts the JSON value to a string.
+       * @returns { string } The string representation of the JSON value.
+       * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not string.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      toString(): string;
+      /**
+       * Checks whether the JSON value is a string.
+       * @returns { boolean } True if the JSON value is a string, otherwise false.
+       * @throws { BusinessError } 10200011 - The isString method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      isString(): boolean;
+      /**
+       * Converts the JSON value to a number.
+       * @returns { number } The number representation of the JSON value.
+       * @throws { BusinessError } 10200011 - The toNumber method cannot be bound.
+       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not number.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      toNumber(): number;
+      /**
+       * Checks whether the JSON value is a number.
+       * @returns { boolean } True if the JSON value is a number, otherwise false.
+       * @throws { BusinessError } 10200011 - The isNumber method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      isNumber(): boolean;
+      /**
+       * Converts the JSON value to a boolean.
+       * @returns {boolean} The boolean representation of the JSON value.
+       * @throws { BusinessError } 10200011 - The toBoolean method cannot be bound.
+       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not boolean.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      toBoolean(): boolean;
+      /**
+       * Checks whether the JSON value is a boolean.
+       * @returns { boolean } True if the JSON value is a boolean, otherwise false.
+       * @throws { BusinessError } 10200011 - The isBoolean method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      isBoolean(): boolean;
+      /**
+       * Converts the JSON value to null.
+       * @returns { null } The null representation of the JSON value.
+       * @throws { BusinessError } 10200011 - The toNull method cannot be bound. 
+       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not null.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      toNull(): null;
+      /**
+       * Checks whether the JSON value is null.
+       * @returns { boolean } True if the JSON value is null, otherwise false.
+       * @throws { BusinessError } 10200011 - The isNull method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      isNull(): boolean;
+    }
+    /**
+     * Converts a JavaScript Object Notation (JSON) string into a JSONValue.
+     *
+     * @param { string } text - A valid JSON string.
+     * @returns { JSONValue } Return a JSONValue.
+     * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function parse(text: string): JSONValue;
+    /**
+     * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
+     *
+     * @param { JSONValue } value - The JSONValue to stringify.
+     * @returns { string } The JSON string representation of the value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid JSONValue.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function stringify(value: JSONValue): string;
   }
 }
 export default utils;
