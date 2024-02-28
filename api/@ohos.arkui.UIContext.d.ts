@@ -1026,7 +1026,7 @@ export class UIObserver {
    * @crossplatform
    * @since 12
    */
-  on(type: 'scrollEvent', options: { id: ResourceStr }, callback: Callback<observer.ScrollEventInfo>): void;
+  on(type: 'scrollEvent', options: { id: string }, callback: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
@@ -1039,7 +1039,7 @@ export class UIObserver {
    * @crossplatform
    * @since 12
    */
-  off(type: 'scrollEvent', options: { id: ResourceStr }, callback?: Callback<observer.ScrollEventInfo>): void;
+  off(type: 'scrollEvent', options: { id: string }, callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.

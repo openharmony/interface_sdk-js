@@ -197,12 +197,12 @@ declare namespace uiObserver {
     /**
      * Scroll id.
      *
-     * @type { ResourceStr }
+     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    id: ResourceStr,
+    id: string,
 
     /**
      * Changed ScrollEvent type.
@@ -342,7 +342,7 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 12
    */
-  export function on(type: 'scrollEvent', options: { id: ResourceStr }, callback: Callback<ScrollEventInfo>): void;
+  export function on(type: 'scrollEvent', options: { id: string }, callback: Callback<ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
@@ -355,7 +355,7 @@ declare namespace uiObserver {
    * @crossplatform
    * @since 12
    */
-  export function off(type: 'scrollEvent', options: { id: ResourceStr }, callback?: Callback<ScrollEventInfo>): void;
+  export function off(type: 'scrollEvent', options: { id: string }, callback?: Callback<ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.
