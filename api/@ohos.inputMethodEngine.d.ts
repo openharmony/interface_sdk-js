@@ -499,7 +499,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'sendPrivateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback of on('sendPrivateCommand').
+     * @param { function } callback - indicates the callback of on('privateCommand').
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -511,7 +511,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'sendPrivateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
-     * @param { function } [callback] - optional, indicates the callback of off('sendPrivateCommand').
+     * @param { function } [callback] - optional, indicates the callback of off('privateCommand').
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
