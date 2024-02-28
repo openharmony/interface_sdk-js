@@ -132,7 +132,6 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @since 12
-       * @form
        */
       SCROLL_START = 0,
   
@@ -142,7 +141,6 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @since 12
-       * @form
        */
       SCROLL_STOP = 1
     }
