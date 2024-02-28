@@ -959,6 +959,12 @@ declare namespace audio {
      * @since 10
      */
     STREAM_USAGE_ULTRASONIC = 16,
+    /**
+     * Video call usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    STREAM_USAGE_VIDEO_COMMUNICATION = 17,
   }
 
   /**
