@@ -497,7 +497,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    NO_SPACE_FOR_ASSET
+    NO_SPACE_FOR_ASSET,
+
+    /**
+     * BLOCKED_BY_NETWORK_STRATEGY: means the sync blocked by network strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_NETWORK_STRATEGY
   }
 
   /**
