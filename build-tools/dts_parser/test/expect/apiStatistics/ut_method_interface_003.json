@@ -16,13 +16,14 @@
     "apiType": "Interface",
     "definedText": " export interface Test",
     "pos": {
-      "line": 5,
+      "line": 20,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_method_interface_003.d.ts",
@@ -41,12 +42,13 @@
     "apiType": "Property",
     "definedText": "onRequestRedirected: (str: string) => void;",
     "pos": {
-      "line": 6,
+      "line": 21,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

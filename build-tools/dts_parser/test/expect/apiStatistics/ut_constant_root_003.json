@@ -16,12 +16,13 @@
     "apiType": "Property",
     "definedText": "export declare const CONSTANT: string;",
     "pos": {
-      "line": 4,
+      "line": 19,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]
