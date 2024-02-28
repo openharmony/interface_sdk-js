@@ -16,12 +16,13 @@
     "apiType": "Class",
     "definedText": " export class test",
     "pos": {
-      "line": 7,
+      "line": 22,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

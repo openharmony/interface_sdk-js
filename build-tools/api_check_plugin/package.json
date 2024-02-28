@@ -1,7 +1,7 @@
 {
   "name": "api-checker",
   "version": "1.0.0",
-  "checkApiVersion": "11",
+  "checkApiVersion": "12",
   "description": "",
   "main": "index.js",
   "scripts": {

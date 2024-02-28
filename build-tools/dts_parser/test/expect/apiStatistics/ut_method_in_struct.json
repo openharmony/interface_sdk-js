@@ -22,7 +22,8 @@
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_method_in_struct.d.ets",
@@ -49,6 +50,7 @@
     "decorators": [
       "BuilderParam"
     ],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

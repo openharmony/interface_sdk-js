@@ -13,6 +13,27 @@
  * limitations under the License.
  */
 
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 9
+ */
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
 
 /**
@@ -2213,6 +2234,35 @@ declare enum WebNavigationType {
   NAVIGATION_TYPE_AUTO_SUBFRAME = 5,
 }
 
+
+/**
+ * Defines the web render mode, related to {@link RenderMode}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum RenderMode {
+  /**
+   * Web and arkui render asynchronously
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ASYNC_RENDER = 0,
+
+  /**
+   * Web and arkui render synchronously
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  SYNC_RENDER = 1,
+}
+
 /**
  * Defines the context menu param, related to {@link WebContextMenuParam} method.
  *
@@ -3682,6 +3732,16 @@ declare interface WebOptions {
    * @since 11
   */
   controller: WebController | WebviewController;
+
+  /**
+   * Sets the render mode of the web.
+   *
+   * @type { ?RenderMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  renderMode? : RenderMode;
 
   /**
    * Sets the incognito mode of the Web, the parameter is optional and default value is false.
@@ -5568,7 +5628,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @since 11
      */
     isDoneCounting: boolean
-  }) => void): WebAttribute
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the scroll bar slides to the specified position.

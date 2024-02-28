@@ -770,7 +770,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 8
    */
   /**
    * Called when using the Clipboard menu
@@ -799,7 +799,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 8
    */
   /**
    * Called when using the Clipboard menu
