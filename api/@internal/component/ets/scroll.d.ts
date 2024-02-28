@@ -394,6 +394,18 @@ declare class Scroller {
   scrollEdge(value: Edge);
 
   /**
+   * Fling the scroll view.
+   *
+   * @param { number } velocity - initial velocity of fling, in vp/s.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fling(velocity: number): void;
+
+  /**
    * Called when page turning mode is set.
    *
    * @param { object } value
