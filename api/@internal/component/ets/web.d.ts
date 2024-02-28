@@ -2245,7 +2245,7 @@ declare enum WebNavigationType {
  */
 declare enum RenderMode {
   /**
-   * Web and arkui render async
+   * Web and arkui render asynchronously
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
