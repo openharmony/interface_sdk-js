@@ -1089,6 +1089,16 @@ declare interface RichEditorImageSpanStyleResult {
    * @since 11
    */
   objectFit: ImageFit;
+
+  /**
+   * RichEditor ImageSpan Layout Style.
+   *
+   * @type { RichEditorLayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutStyle: RichEditorLayoutStyle;
 }
 
 /**
@@ -1197,16 +1207,6 @@ declare interface RichEditorImageSpanResult {
    * @since 11
    */
   offsetInSpan: [number, number];
-
-  /**
-   * RichEditor ImageSpan Layout Style.
-   *
-   * @type { RichEditorLayoutStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  layoutStyle: RichEditorLayoutStyle;
 }
 
 /**
