@@ -1043,7 +1043,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): TextAreaAttribute;
+  /**
+   * Define custom keyboard of the text area.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of TextArea
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextArea
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute;
   
   /**
    * Called when the input type is set.
