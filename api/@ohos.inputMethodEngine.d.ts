@@ -368,6 +368,15 @@ declare namespace inputMethodEngine {
   function createKeyboardDelegate(): KeyboardDelegate;
 
   /**
+   * Indicates possible command data types.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 12
+   */
+  type CommandDtaType = number | string | boolean;
+
+  /**
    * @interface KeyboardController
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
@@ -487,28 +496,28 @@ declare namespace inputMethodEngine {
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
 
     /**
-     * Subscribe 'sendPrivateCommand'
+     * Subscribe 'sendPrivateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
      * @param { function } callback - indicates the callback of on('sendPrivateCommand').
      * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @systemapi
      * @since 12
      */
-    on(type: 'sendPrivateCommand', callback: (record: Record<string, Object>) => void): void;
+    on(type: 'privateCommand', callback: (commandData: Record<string, CommandDtaType>) => void): void;
 
     /**
-     * Unsubscribe 'sendPrivateCommand'
+     * Unsubscribe 'sendPrivateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
      * @param { function } [callback] - optional, indicates the callback of off('sendPrivateCommand').
      * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @systemapi
      * @since 12
      */
-    off(type: 'sendPrivateCommand', callback?: (record: Record<string, Object>) => void): void;
+    off(type: 'privateCommand', callback?: (commandData: Record<string, CommandDtaType>) => void): void;
   }
 
   /**
@@ -1271,19 +1280,17 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Send private command.
+     * Send private command.This function can only be called by default input method configured by system.
      *
-     * @param { Record<string, Object> } record - action code which will be send.
+     * @param { Record<string, CommandDtaType> } record - action code which will be send.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @systemapi
      * @since 12
      */
-    sendPrivateCommand(record: Record<string, Object>): Promise<void>;
+    sendPrivateCommand(commandData: Record<string, CommandDtaType>): Promise<void>;
   }
 
   /**
