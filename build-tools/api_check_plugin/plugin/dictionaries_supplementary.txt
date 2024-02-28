@@ -988,3 +988,4 @@ sar
 adapts
 followx
 precomposited
+refresher
