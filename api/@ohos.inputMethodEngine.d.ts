@@ -496,9 +496,9 @@ declare namespace inputMethodEngine {
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
 
     /**
-     * Subscribe 'sendPrivateCommand'.This function can only be called by default input method configured by system.
+     * Subscribe 'privateCommand'.This function can only be called by default input method configured by system.
      *
-     * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
+     * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { function } callback - indicates the callback of on('privateCommand').
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
@@ -508,9 +508,9 @@ declare namespace inputMethodEngine {
     on(type: 'privateCommand', callback: (commandData: Record<string, CommandDtaType>) => void): void;
 
     /**
-     * Unsubscribe 'sendPrivateCommand'.This function can only be called by default input method configured by system.
+     * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
      *
-     * @param { 'sendPrivateCommand' } type - indicates the type of subscribe event.
+     * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { function } [callback] - optional, indicates the callback of off('privateCommand').
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
