@@ -374,7 +374,7 @@ declare namespace inputMethodEngine {
    * @systemapi
    * @since 12
    */
-  type CommandDtaType = number | string | boolean;
+  type CommandDataType = number | string | boolean;
 
   /**
    * @interface KeyboardController
@@ -500,24 +500,22 @@ declare namespace inputMethodEngine {
      *
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { function } callback - indicates the callback of on('privateCommand').
-     * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    on(type: 'privateCommand', callback: (commandData: Record<string, CommandDtaType>) => void): void;
+    on(type: 'privateCommand', callback: (commandData: Record<string, CommandDataType>) => void): void;
 
     /**
      * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { function } [callback] - optional, indicates the callback of off('privateCommand').
-     * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    off(type: 'privateCommand', callback?: (commandData: Record<string, CommandDtaType>) => void): void;
+    off(type: 'privateCommand', callback?: (commandData: Record<string, CommandDataType>) => void): void;
   }
 
   /**
@@ -1282,7 +1280,7 @@ declare namespace inputMethodEngine {
     /**
      * Send private command.This function can only be called by default input method configured by system.
      *
-     * @param { Record<string, CommandDtaType> } record - action code which will be send.Max size 32KB.
+     * @param { Record<string, CommandDtaType> } commandData - action code which will be send.Max size 32KB.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
@@ -1290,7 +1288,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    sendPrivateCommand(commandData: Record<string, CommandDtaType>): Promise<void>;
+    sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>;
   }
 
   /**
