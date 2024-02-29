@@ -867,12 +867,14 @@ declare namespace dataShare {
     /**
      * Close the connection between datashare and extension.
      * 
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 15700000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12
      */
-    close(): void;
+    close(): Promise<void>;
   }
 }
 
