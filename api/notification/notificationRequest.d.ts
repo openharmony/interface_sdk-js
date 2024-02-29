@@ -405,6 +405,16 @@ export interface NotificationRequest {
    * @since 9
    */
   badgeNumber?: number;
+
+  /**
+   * Whether the notification need to be agent display.
+   *
+   * @type { ?BundleOption }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  representativeBundle?: BundleOption;
 }
 
 /**
