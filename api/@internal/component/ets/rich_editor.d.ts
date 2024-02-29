@@ -809,14 +809,14 @@ declare interface RichEditorTextStyleResult {
   decoration: { type: TextDecorationType; color: ResourceColor; };
   
   /**
-   * line height.
+   * font lineheight.
    *
-   * @type { ? (number | string | Resource) } 
+   * @type { (number | string | Resource) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  lineHeight?: number | string | Resource;
+  lineHeight: number | string | Resource;
 }
 
 /**
