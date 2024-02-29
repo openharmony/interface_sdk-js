@@ -4545,20 +4545,20 @@ declare namespace media {
     /**
      * Unregister listens for AVScreenCaptureRecord info callback.
      * @param { 'info' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @param { ?Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
      * @since 12
      */
-    off(type: 'info', callback: Callback<AVScreenCaptureOnInfoType>): void;
+    off(type: 'info', callback?: Callback<AVScreenCaptureOnInfoType>): void;
 
     /**
      * Unregister listens for AVScreenCaptureRecord error callback.
      * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @param { ?ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
      * @since 12
      */
-    off(type: 'error', callback: ErrorCallback): void;
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 export default media;
