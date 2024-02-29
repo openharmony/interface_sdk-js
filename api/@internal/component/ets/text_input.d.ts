@@ -481,7 +481,18 @@ declare class TextInputController extends TextContentControllerBase {
    * @atomicservice
    * @since 11
    */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Exit edit state.
