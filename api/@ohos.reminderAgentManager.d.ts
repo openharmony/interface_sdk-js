@@ -377,7 +377,7 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 12
      */
-    parameters?: { [key: string]: Object };
+    parameters?: Record<string, Object>;
   }
 
   /**
@@ -651,23 +651,24 @@ declare namespace reminderAgentManager {
      * @since 11
      */
     daysOfWeek?: Array<number>;
-	
-	/**
-	 * calendar end date time
-	 *
-	 * @syscap SystemCapability.Notification.ReminderAgent
-	 * @since 12
-	 */
-	endDateTime?: LocalDateTime;
-	
-	/**
-	 * information about the ability that is pulled up when the notification is arrived.
-	 *
-	 * @syscap SystemCapability.Notification.ReminderAgent
-	 * @systemapi Hide this for inner system use.
-	 * @since 12
-	 */
-	rruleWantAgent?: WantAgent;
+
+    /**
+     * calendar end date time
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 12
+     */
+    endDateTime?: LocalDateTime;
+
+    /**
+     * For custom repeat calendar(RRule), the service extension will pull up when
+     * param set and the notification arrived.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+	  rruleWantAgent?: WantAgent;
   }
 
   /**
@@ -735,15 +736,15 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 12
      */
-	reminderId: number;
-	
+    reminderId: number;
+
     /**
      * Reminder request
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 12
      */
-	reminderReq: ReminderRequest;
+    reminderReq: ReminderRequest;
   }
 
   /**
