@@ -1280,7 +1280,7 @@ declare namespace inputMethodEngine {
     /**
      * Send private command.This function can only be called by default input method configured by system.
      *
-     * @param { Record<string, CommandDtaType> } commandData - action code which will be send.Max size 32KB.
+     * @param { Record<string, CommandDtaType> } commandData - command data which will be send.Max size 32KB.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
