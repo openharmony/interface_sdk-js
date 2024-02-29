@@ -6066,6 +6066,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   minLogicalFontSize(size: number): WebAttribute;
 
   /**
+   * Set the default text encodingFormat value of webview. The default value is UTF-8.
+   *
+   * @param { string } default text encodingFormat.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
+
+  /**
    * Whether web component can load resource from network.
    *
    * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
