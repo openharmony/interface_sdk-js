@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
+import type { Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to get systemload.
@@ -112,7 +112,7 @@ declare namespace systemLoad {
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12
      */
-    function off(type: 'systemLoadChange', callback: Callback<SystemLoadLevel>): void;
+    function off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void;
 
     /**
      * Queries the current system level
