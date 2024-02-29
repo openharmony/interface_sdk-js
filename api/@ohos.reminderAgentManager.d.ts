@@ -668,7 +668,7 @@ declare namespace reminderAgentManager {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-	  rruleWantAgent?: WantAgent;
+    rruleWantAgent?: WantAgent;
   }
 
   /**
