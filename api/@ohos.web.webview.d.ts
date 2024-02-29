@@ -3928,6 +3928,28 @@ declare namespace webview {
      * @since 12
      */
     closeCamera(): void;
+
+    /**
+     * Pauses all layout, parsing, and JavaScript timers for all WebViews.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static pauseAllTimers(): void;
+
+    /**
+     * Resumes all layout, parsing, and JavaScript timers for all WebViews.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static resumeAllTimers(): void;
   }
 
   /**
