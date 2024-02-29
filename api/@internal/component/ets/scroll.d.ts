@@ -238,6 +238,51 @@ declare interface OffsetResult {
 }
 
 /**
+ * Provides custom animation parameters.
+ *
+ * @interface ScrollAnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ScrollAnimationOptions {
+  /**
+   * Set the duration of the animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  duration?: number;
+
+  /**
+   * Set the curve of the animation.
+   *
+   * @type { ?(Curve | ICurve) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  curve?: Curve | ICurve;
+
+  /**
+   * Set whether the animation can over the boundary.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  canOverScroll?: boolean;
+}
+
+/**
  * Scroller
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -364,7 +409,17 @@ declare class Scroller {
      * @atomicservice
      * @since 11
      */
-    animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
+    /**
+     * Descriptive animation.
+     *
+     * @type { ?( ScrollAnimationOptions | boolean) } The ScrollAnimationOptions type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    animation?: ScrollAnimationOptions | boolean;
   });
 
   /**
