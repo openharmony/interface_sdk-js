@@ -1071,6 +1071,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   selectionMenuHidden(value: boolean): SearchAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): SearchAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): SearchAttribute;
+
+  /**
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value
