@@ -46,6 +46,26 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
+ * The callback of largestContentfulPaint.
+ *
+ * @typedef OnLargestContentfulPaintCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentfulPaint) => void;
+
+/**
+ * The callback of firstMeaningfulPaint.
+ *
+ * @typedef OnFirstMeaningfulPaintCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -4047,6 +4067,106 @@ declare interface NativeEmbedTouchInfo {
   touchEvent?: TouchEvent;
 }
 
+  /**
+   * Defines the first content paint rendering of web page.
+   *
+   * @interface FirstMeaningfulPaint
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+declare interface FirstMeaningfulPaint {
+  /**
+   * Start time of navigation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  navigationStartTime?: number;
+
+  /**
+   * Paint time of first meaningful content.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  firstMeaningfulPaintTime?: number;
+}
+
+/**
+ * Defines the largest content paint rendering of web page.
+ *
+ * @interface LargestContentfulPaint
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface LargestContentfulPaint {
+  /**
+   *  Start time of navigation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+ navigationStartTime?: number;
+
+  /**
+   * Paint time of largest image.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  largestImagePaintTime?: number;
+
+    /**
+     * Paint time of largest text.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  largestTextPaintTime?: number;
+
+    /**
+     * Bits per pixel of image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  imageBPP?: number;
+
+    /**
+     * Load start time of largest image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  largestImageLoadStartTime?: number;
+
+    /**
+     * Load end time of largest image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  largestImageLoadEndTime?: number;
+}
+
 /**
  * Defines the Web attribute functions.
  *
@@ -6368,6 +6488,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      */
     firstContentfulPaintMs: number
   }) => void): WebAttribute;
+
+  /**
+   * Called when the First rendering of meaningful content time(FMP)
+   *
+   * @param { OnFirstMeaningfulPaintCallback } callback Function Triggered when the firstMeaningfulPaint.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onFirstMeaningfulPaint(callback: OnFirstMeaningfulPaintCallback): WebAttribute;
+
+   /**
+   * Called when the Maximum content rendering time(LCP).
+   *
+   * @param { OnLargestContentfulPaintCallback } callback Function Triggered when the largestContentfulPaint.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onLargestContentfulPaint(callback: OnLargestContentfulPaintCallback): WebAttribute;
 
   /**
    * Triggered when the resources loading is intercepted.
