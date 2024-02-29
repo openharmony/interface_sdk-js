@@ -2043,6 +2043,26 @@ declare namespace notificationManager {
   function setBadgeNumber(badgeNumber: number): Promise<void>;
 
   /**
+   * Set badge number by bundle.
+   *
+   * @param { BundleOption } bundle - Use the bundleOption to carry bundleName and uid of the application.
+   * @param { number } badgeNumber - Badge number.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
+
+  /**
    * Subscribe the callback for check notifications.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
