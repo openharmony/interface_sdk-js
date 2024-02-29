@@ -177,6 +177,9 @@ declare namespace reminderAgentManager {
   /**
    * add exclude date for calendar reminder request.
    *
+   * @param { number } reminderId reminder id
+   * @param { Date } date date time
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
@@ -188,6 +191,8 @@ declare namespace reminderAgentManager {
   /**
    * delete exclude date for calendar reminder request.
    *
+   * @param { number } reminderId reminder id
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -198,6 +203,8 @@ declare namespace reminderAgentManager {
   /**
    * get exclude dates
    *
+   * @param { number } reminderId reminder id
+   * @returns { Promise<Array<Date>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
