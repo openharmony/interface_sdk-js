@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -122,6 +122,15 @@ export interface NotificationSubscriber {
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
 
   /**
+   * Callback when badge enabled state changed.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
+
+  /**
    * Callback when badge cancel notifications.
    *
    * @type { ?function }
@@ -199,7 +208,8 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Describes the properties of the application that the permission to send notifications has changed.
+ * Describes the properties of the application that the permission to send notifications 
+ * or the badge enabled state has changed.
  *
  * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
@@ -282,4 +292,21 @@ export interface BadgeNumberCallbackData {
    * @since 10
    */
   readonly badgeNumber: number;
+}
+
+/**
+ * Defines the callback of BadgeEnabledChanged.
+ * @typedef BadgeEnabledChangedCallback
+ * @syscap SystemCapability.Notification.Notification
+ * @since 12
+ */
+export interface BadgeEnabledChangedCallback {
+  /**
+   * Defines the BadgeEnabledChanged callback.
+   * @param { EnabledNotificationCallbackData } data
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  (data: EnabledNotificationCallbackData): void;
 }

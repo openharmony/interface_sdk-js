@@ -923,6 +923,49 @@ declare namespace userAuth {
   function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
   /**
+   * Enrolled state.
+   *
+   * @typedef EnrolledState
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 12
+   */
+  interface EnrolledState {
+    /**
+     * The credential digest.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    credentialDigest: number;
+
+    /**
+     * The credential count.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    credentialCount: number;
+  }
+
+  /**
+   * Get the state of enrolled credentials which varies as credentials change.
+   *
+   * @permission ohos.permission.ACCESS_BIOMETRIC
+   * @param { UserAuthType } authType - Credential type for authentication.
+   * @returns { EnrolledState } Returns the enrolled state.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 12
+   */
+  function getEnrolledState(authType: UserAuthType): EnrolledState;
+
+  /**
    * Get Authentication instance.
    *
    * @param { Uint8Array } challenge - Pass in challenge value.
@@ -1076,6 +1119,16 @@ declare namespace userAuth {
      * @since 10
      */
     authType?: UserAuthType;
+
+    /**
+     * The enrolled state for authentication succeed. EnrolledState would be returned when the authentication has
+     * passed.
+     *
+     * @type { ?EnrolledState }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    enrolledState?: EnrolledState;
   }
 
   /**

@@ -16,12 +16,13 @@
     "apiType": "TypeAlias",
     "definedText": "export type test = { a: string; b: '123'; c: false };",
     "pos": {
-      "line": 2,
+      "line": 17,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

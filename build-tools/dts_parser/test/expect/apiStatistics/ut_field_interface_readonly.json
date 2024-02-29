@@ -16,13 +16,14 @@
     "apiType": "Interface",
     "definedText": " interface TestInterface",
     "pos": {
-      "line": 2,
+      "line": 17,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_field_interface_readonly.d.ts",
@@ -41,12 +42,13 @@
     "apiType": "Property",
     "definedText": "readonly id: string;",
     "pos": {
-      "line": 3,
+      "line": 18,
       "character": 5
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

@@ -24,7 +24,8 @@
     "decorators": [
       "Component"
     ],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   },
   {
     "filePath": "ut_decorator_argument.d.ets",
@@ -51,6 +52,7 @@
     "decorators": [
       "Provide"
     ],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

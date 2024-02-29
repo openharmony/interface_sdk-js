@@ -650,6 +650,20 @@ declare namespace matrix4 {
     scale(options: ScaleOption): Matrix4Transit;
 
     /**
+     * Skew function of the Matrix, which can add the x-axis, y-axis skew effect to the current matrix.
+     * Skew function takes a generic point with coordinates (x0, y0, z0) to the point (x0 + x*y0, y0 + y*x0, z0), 
+     * where x, y are fixed parameters, called the shear factors.
+     *
+     * @param { number } x - the shear factor of x-axis.
+     * @param { number } y - the shear factor of y-axis.
+     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    skew(x: number, y: number): Matrix4Transit;
+
+    /**
      * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
      *
      * @param { RotateOption } options
