@@ -578,6 +578,14 @@ declare namespace bundleManager {
     ADS_SERVICE = 20,
 
     /**
+     * Indicates extension info with type of embedded UI
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 12
+     */
+    EMBEDDED_UI = 21,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
