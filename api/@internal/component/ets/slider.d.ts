@@ -900,7 +900,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  trackColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the track color of the slider is set.
+   *
+   * @param { ResourceColor | LinearGradient } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  trackColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
   /**
    * Called when the slider of the slider bar is set to slide over the area color.
