@@ -58,16 +58,4 @@ export default class InputMethodExtensionAbility {
    * @since 9
    */
   onDestroy(): void;
-
-  /**
-   * inputmethod extension uses this method to start a specific ability.
-   *
-   * @param { Want } want - Indicates the ability to start.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - parameter error.
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @stagemodelonly
-   * @since 12
-   */
-  startAbility(want: Want): Promise<void>;
 }

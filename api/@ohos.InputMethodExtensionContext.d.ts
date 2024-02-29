@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -49,4 +50,16 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @since 9
    */
   destroy(): Promise<void>;
+
+  /**
+   * inputmethod extension uses this method to start a specific ability.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
+   * @since 12
+   */
+  startAbility(want: Want): Promise<void>;
 }
