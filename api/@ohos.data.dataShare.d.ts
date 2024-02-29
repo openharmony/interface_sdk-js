@@ -863,6 +863,16 @@ declare namespace dataShare {
      * @since 9
      */
     notifyChange(uri: string): Promise<void>;
+
+    /**
+     * Close the connection between datashare and extension.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    close(): void;
   }
 }
 
