@@ -63,7 +63,7 @@ import Request, {
   DownloadRequestOptions, DownloadResponse, OnDownloadCompleteOptions,
   OnDownloadCompleteResponse, RequestData, RequestFile, UploadRequestOptions, UploadResponse
 } from '@system.request';
-import systemLoad from '../api/ohos.resourceschedule.systemload';
+import systemLoad from '@ohos.resourceschedule.systemload';
 
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
