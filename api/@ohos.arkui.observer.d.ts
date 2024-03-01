@@ -123,7 +123,6 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
     export enum ScrollEventType {
       /**
@@ -224,6 +223,26 @@ declare namespace uiObserver {
      */
     offset: number
   }
+
+    /**
+   * observer options.
+   *
+   * @interface Options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    export interface Options {
+      /**
+       * component id.
+       *
+       * @type { string }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 12
+       */
+      id: string
+    }
 
   /**
    * Router page info.
@@ -336,26 +355,26 @@ declare namespace uiObserver {
    * Registers a callback function to be called when the scroll event start or stop.
    *
    * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { object } options - The options object.
+   * @param { Options } options - The options object.
    * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  export function on(type: 'scrollEvent', options: { id: string }, callback: Callback<ScrollEventInfo>): void;
+  export function on(type: 'scrollEvent', options: Options, callback: Callback<ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { object } options - The options object.
+   * @param { Options } options - The options object.
    * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
    *                                                    scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  export function off(type: 'scrollEvent', options: { id: string }, callback?: Callback<ScrollEventInfo>): void;
+  export function off(type: 'scrollEvent', options: Options, callback?: Callback<ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.
