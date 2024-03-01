@@ -281,7 +281,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Whether the relevant check icon is displayed when a menu item is selected.
    *
-   * @param { boolean | ResourceStr } value - Indicates whether to display the check icon when selected.
+   * @param { boolean } value - Indicates whether to display the check icon when selected.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9

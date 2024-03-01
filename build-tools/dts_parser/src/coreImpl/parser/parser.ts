@@ -20,7 +20,7 @@ import _ from 'lodash';
 
 import { NodeProcessorHelper } from './NodeProcessor';
 import { ResultsProcessHelper } from './ResultsProcess';
-import { ApiType, BasicApiInfo } from '../../typedef/parser/ApiInfoDefination';
+import { ApiType, BasicApiInfo, ApiInfo } from '../../typedef/parser/ApiInfoDefination';
 import { StringConstant } from '../../utils/Constant';
 import { FileUtils } from '../../utils/FileUtils';
 import * as ResultsInfo from '../../typedef/parser/ResultsInfo';
@@ -67,7 +67,7 @@ export class Parser {
       .replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), StringConstant.TS_EXTENSION)
       .replace(new RegExp(StringConstant.DETS_EXTENSION, 'g'), StringConstant.ETS_EXTENSION);
     const sourceFile: ts.SourceFile = ts.createSourceFile(fileName, fileContent, ts.ScriptTarget.ES2017, true);
-    const sourceFileInfo: BasicApiInfo = new BasicApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
+    const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
     sourceFileInfo.setApiName(relFilePath);
     sourceFileInfo.setIsStruct(filePath.endsWith(StringConstant.ETS_EXTENSION));

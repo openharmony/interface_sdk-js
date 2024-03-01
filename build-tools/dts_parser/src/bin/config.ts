@@ -209,9 +209,9 @@ function collectApi(options: OptionObjType): ToolNameValueType {
 
     return {
       data:
-        options.format === 'excel' ?
-          ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos : 
-          [fileContent],
+        options.format === 'excel'
+          ? ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos
+          : [fileContent],
       callback: collectApiCallback as ToolNameExcelCallback,
     };
   } catch (exception) {
@@ -246,6 +246,7 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
     '是否支持卡片应用',
     '是否为高阶API',
     '装饰器',
+    'kit',
     '文件路径',
     '子系统',
   ];
@@ -273,6 +274,7 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getIsForm(),
       apiInfo.getIsAutomicService(),
       apiInfo.getDecorators()?.join(),
+      apiInfo.getKitInfo(),
       apiInfo.getFilePath(),
       subsystemMap.get(FunctionUtils.handleSyscap(apiInfo.getSyscap())),
     ];
@@ -386,6 +388,9 @@ export function joinOldMessage(diffInfo: BasicDiffInfo): string {
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
   oldDescription =
     diffInfo.getOldDescription() === '-1' || !diffInfo.getOldDescription() ? 'NA' : diffInfo.getOldDescription();
+  if (diffInfo.getDiffType() === ApiDiffType.KIT_CHANGE) {
+    return `${oldDescription}`;
+  }
   return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getOldApiDefinedText()}\n差异内容：${oldDescription}`;
 }
 
@@ -398,6 +403,9 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
   const parentModuleName: string = diffInfo.getParentModuleName(relation);
   newDescription =
     diffInfo.getNewDescription() === '-1' || !diffInfo.getNewDescription() ? 'NA' : diffInfo.getNewDescription();
+  if (diffInfo.getDiffType() === ApiDiffType.KIT_CHANGE) {
+    return `${newDescription}`;
+  }
   return `类名：${parentModuleName}；\n` + `API声明：${diffInfo.getNewApiDefinedText()}\n差异内容：${newDescription}`;
 }
 

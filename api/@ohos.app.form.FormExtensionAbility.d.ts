@@ -296,4 +296,14 @@ export default class FormExtensionAbility {
    * @since 11
    */
   onAcquireFormData?(formId: string): Record<string, Object>;
+
+  /**
+   * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onStop?(): void;
 }

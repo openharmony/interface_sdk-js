@@ -984,7 +984,7 @@ interface GridRowInterface {
  */
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
-   * Callback triggered when the breakpoint changes
+   * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
    *
    * @param { function } callback
    * @returns { GridRowAttribute }
@@ -993,7 +993,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @form
    */
   /**
-   * Callback triggered when the breakpoint changes
+   * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
    *
    * @param { function } callback
    * @returns { GridRowAttribute }
@@ -1003,7 +1003,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @form
    */
   /**
-   * Callback triggered when the breakpoint changes
+   * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
    *
    * @param { function } callback
    * @returns { GridRowAttribute }

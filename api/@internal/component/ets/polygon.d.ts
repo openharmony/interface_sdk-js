@@ -50,23 +50,30 @@
 interface PolygonInterface {
   /**
    * Uses new to create Polygon.
+   * 
    * @since 7
    */
   /**
    * Uses new to create Polygon.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
    * Uses new to create Polygon.
-   * @form
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
    */
   /**
    * Uses new to create Polygon.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
    */

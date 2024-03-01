@@ -5704,6 +5704,12 @@ interface CopyOptions {
   progressListener?: ProgressListener;
 }
 
+/**
+ * Listener of copy progress.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
 type ProgressListener = (progress: Progress) => void;
 
 /**

@@ -117,7 +117,7 @@ export declare class TreeListener {
      * The event will not be destroyed after being processed.
      *
      * @param { type } event Registered Events.
-     * @param callback.
+     * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
@@ -126,7 +126,7 @@ export declare class TreeListener {
      * The event will not be destroyed after being processed.
      *
      * @param { type } event Registered Events.
-     * @param callback.
+     * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
@@ -138,7 +138,7 @@ export declare class TreeListener {
      * After the event is processed once, it will be destroyed.
      *
      * @param { type } event Registered Events.
-     * @param callback.
+     * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
@@ -147,7 +147,7 @@ export declare class TreeListener {
      * After the event is processed once, it will be destroyed.
      *
      * @param { type } event Registered Events.
-     * @param callback.
+     * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
@@ -158,7 +158,7 @@ export declare class TreeListener {
      * Destroy event.
      *
      * @param { type } event Registered Events.
-     * @param callback.
+     * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
@@ -166,7 +166,7 @@ export declare class TreeListener {
      * Destroy event.
      *
      * @param { type } event Registered Events.
-     * @param callback.
+     * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11

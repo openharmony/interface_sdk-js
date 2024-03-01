@@ -637,6 +637,15 @@ declare namespace bluetooth {
     off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
   }
 
+  /**
+   * Provides methods to operate or manage Bluetooth.
+   *
+   * @namespace BLE
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bluetoothManager/bluetoothManager.BLE
+   */
   namespace BLE {
     /**
      * create a JavaScript Gatt server instance.

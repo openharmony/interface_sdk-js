@@ -19,5 +19,6 @@
  */
 
 import camera from '@ohos.multimedia.camera';
+import cameraPicker from '@ohos.multimedia.cameraPicker';
 
-export { camera };
+export { camera, cameraPicker };

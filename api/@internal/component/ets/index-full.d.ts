@@ -60,6 +60,7 @@
 /// <reference path="./location_button.d.ts" />
 /// <reference path="./matrix2d.d.ts" />
 /// <reference path="./marquee.d.ts" />
+/// <reference path="./media_cached_image.d.ts" />
 /// <reference path="./menu.d.ts" />
 /// <reference path="./menu_item.d.ts" />
 /// <reference path="./menu_item_group.d.ts" />

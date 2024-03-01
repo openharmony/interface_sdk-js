@@ -554,6 +554,21 @@ declare namespace i18n {
      * @since 11
      */
     static getTimePeriodName(hour:number, locale?: string): string;
+
+    /**
+     * Get the best matched locale in the specified list.
+     *
+     * @param { string } locale - the origin locale.
+     * @param { string[] } localeList - a list of locales to be matched.
+     * @returns { string } the string of the best matched locale name. 
+     * The return value may be empty string due to none is matched.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    static getBestMatchLocale(locale: string, localeList: string[]): string;
   }
 
   /**

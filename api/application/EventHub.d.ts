@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -30,6 +30,15 @@ import { BusinessError } from '../@ohos.base';
  * @atomicservice
  * @since 11
  */
+/**
+ * The event center of a context, support the subscription and publication of events.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export default class EventHub {
   /**
    * Subscribe to an event.
@@ -51,6 +60,18 @@ export default class EventHub {
    * @StageModelOnly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Subscribe to an event.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { Function } callback - Indicates the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   on(event: string, callback: Function): void;
 
@@ -75,6 +96,18 @@ export default class EventHub {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Unsubscribe from an event.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { Function } [callback] - Indicates the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   off(event: string, callback?: Function): void;
 
   /**
@@ -97,6 +130,18 @@ export default class EventHub {
    * @StageModelOnly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Trigger the event callbacks.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { Object[] } args - Indicates the callback arguments.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   emit(event: string, ...args: Object[]): void;
 }

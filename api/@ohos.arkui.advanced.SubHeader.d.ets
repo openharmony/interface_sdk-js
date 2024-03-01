@@ -104,11 +104,13 @@ export declare class OperationOption {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -117,11 +119,13 @@ export declare class OperationOption {
   /**
    * callback function when operate the text or icon.
    * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * callback function when operate the text or icon.
    * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -143,11 +147,13 @@ export declare class SelectOptions {
   /**
    * SubOption array of the select.
    * @type { Array<SelectSubOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * SubOption array of the select.
    * @type { Array<SelectSubOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -156,11 +162,13 @@ export declare class SelectOptions {
   /**
    * The default selected index.
    * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The default selected index.
    * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -169,11 +177,13 @@ export declare class SelectOptions {
   /**
    * The default text value.
    * @type { string }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The default text value.
    * @type { string }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -182,11 +192,13 @@ export declare class SelectOptions {
  /**
   * Callback when the select is selected.
   * @type { (index: number, value?: string) => void }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 10
   */
  /**
   * Callback when the select is selected.
   * @type { (index: number, value?: string) => void }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
   */

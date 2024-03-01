@@ -23,6 +23,13 @@
 import type { ExpectedFrameRateRange } from 'ExpectedFrameRateRange';
 import type { Callback } from './@ohos.base';
 
+/**
+ * Provides functions of applying an independent draw frame rate used for drawing the UI.
+ *
+ * @namespace displaySync
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
 declare namespace displaySync {
   /**
    * Provides the IntervalInfo interface, which includes timestamp and targetTimestamp.

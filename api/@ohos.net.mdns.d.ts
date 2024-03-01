@@ -36,6 +36,11 @@ import Context from "./application/Context";
  * @since 11
  */
 declare namespace mdns {
+  /**
+   * Get a network address.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
   type NetAddress = connection.NetAddress;
 
   /**

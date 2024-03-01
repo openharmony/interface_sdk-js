@@ -128,6 +128,7 @@ export interface AnimatorOptions {
    * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
+   * interpolating-spring(velocity, mass, stiffness, damping), interpolating spring curve.
    * The default value is ease.
    * @type {string}
    * @syscap SystemCapability.ArkUI.ArkUI.Full

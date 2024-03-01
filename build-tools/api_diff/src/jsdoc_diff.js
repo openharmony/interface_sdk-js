@@ -266,12 +266,12 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
 }
 
 function getLatestVersion(jsdocs) {
-  if (!jsdocs) {
+  if (!jsdocs || jsdocs.length === 0) {
     return;
   }
   const jsdoc = jsdocs[jsdocs.length - 1];
   let apiLatestVersion = '';
-  jsdoc.tags.forEach(tagObject => {
+  jsdoc.tags?.forEach(tagObject => {
     if (tagObject.tag === 'since') {
       apiLatestVersion = tagObject.name;
     }

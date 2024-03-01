@@ -225,12 +225,14 @@ interface ToggleInterface {
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -238,6 +240,7 @@ interface ToggleInterface {
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -246,6 +249,7 @@ interface ToggleInterface {
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11

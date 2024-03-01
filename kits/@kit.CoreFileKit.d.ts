@@ -19,7 +19,6 @@
  */
 
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
-import document from '@ohos.document';
 import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
@@ -29,7 +28,7 @@ import fileExtensionInfo from '@ohos.file.fileExtensionInfo';
 import fileUri from '@ohos.file.fileuri';
 import fileIo, {
   ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
-  Watcher
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
 import picker from '@ohos.file.picker';
@@ -39,24 +38,13 @@ import statfs from '@ohos.file.statvfs';
 import storageStatistics from '@ohos.file.storageStatistics';
 import trash from '@ohos.file.trash';
 import volumeManager from '@ohos.file.volumeManager';
-import fileIO from '@ohos.fileio';
 import userFileManager from '@ohos.filemanagement.userFileManager';
 import fileShare from '@ohos.fileshare';
-import Statfs from '@ohos.statfs';
-import File, {
-  FileAccessOption, FileCopyOption, FileDeleteOption, FileGetOption, FileListOption,
-  FileListResponse, FileMkdirOption, FileMoveOption, FileReadArrayBufferOption,
-  FileReadArrayBufferResponse, FileReadTextOption, FileReadTextResponse, FileResponse,
-  FileRmdirOption, FileWriteArrayBufferOption, FileWriteTextOption
-} from '@system.file';
 
 export {
-  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, File, FileAccessOption,
-  FileCopyOption, FileDeleteOption, FileGetOption, FileListOption, FileListResponse,
-  FileMkdirOption, FileMoveOption, FileReadArrayBufferOption, FileReadArrayBufferResponse,
-  FileReadTextOption, FileReadTextResponse, FileResponse, FileRmdirOption,
-  FileWriteArrayBufferOption, FileWriteTextOption, Filter, Options, ReaderIteratorResult,
-  Statfs, WatchEvent, WatchEventListener, Watcher, backup, cloudSync, cloudSyncManager, document,
-  fileAccess, fileExtensionInfo, fileIO, fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
+  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
+  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
+  backup, cloudSync, cloudSyncManager, fileAccess, fileExtensionInfo,
+  fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager
 };

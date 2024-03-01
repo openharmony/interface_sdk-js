@@ -151,11 +151,13 @@ export declare class OperateIcon {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -164,11 +166,13 @@ export declare class OperateIcon {
   /**
    * Callback function when operate the icon.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when operate the icon.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -190,11 +194,13 @@ export declare class OperateCheck {
   /**
    * Whether is checked on default.
    * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Whether is checked on default.
    * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -203,11 +209,13 @@ export declare class OperateCheck {
   /**
    * Callback function when operate the checkbox/switch/radio.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when operate the checkbox/switch/radio.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -229,11 +237,13 @@ export declare class OperateButton {
   /**
    * The text on the button.
    * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The text on the button.
    * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */

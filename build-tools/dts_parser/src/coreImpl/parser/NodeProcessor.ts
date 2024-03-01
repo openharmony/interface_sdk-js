@@ -43,6 +43,8 @@ import {
   TypeAliasType,
   TypeAliasInfo,
   containerApiTypes,
+  GenericInfo,
+  ParentClass,
 } from '../../typedef/parser/ApiInfoDefination';
 import { StringUtils } from '../../utils/StringUtils';
 import { StringConstant, EventConstant } from '../../utils/Constant';
@@ -169,6 +171,7 @@ export class NodeProcessorHelper {
     if (type.kind === ts.SyntaxKind.LiteralType && ts.isStringLiteral(literal)) {
       const text: string = literal.getText();
       apiInfo.setApiName(`${apiInfo.getApiName()}_${text.substring(1, text.length - 1)}`);
+      apiInfo.setIsJoinType(true);
     } else if (type.kind === ts.SyntaxKind.UnionType) {
       const types: ts.NodeArray<ts.TypeNode> = (type as ts.UnionTypeNode).types;
       types.forEach((item: ts.TypeNode) => {
@@ -177,13 +180,16 @@ export class NodeProcessorHelper {
           const cloneApiInfo: BasicApiInfo = _.cloneDeep(apiInfo);
           cloneApiInfo.setParentApi(apiInfo.getParentApi());
           cloneApiInfo.setApiName(`${apiInfo.getApiName()}_${text.substring(1, text.length - 1)}`);
+          apiInfo.setIsJoinType(true);
           apiInfos.push(cloneApiInfo);
         }
       });
     } else if (type.kind === ts.SyntaxKind.StringKeyword) {
       apiInfo.setApiName(`${apiInfo.getApiName()}_string`);
+      apiInfo.setIsJoinType(true);
     } else if (type.kind === ts.SyntaxKind.BooleanKeyword) {
       apiInfo.setApiName(`${apiInfo.getApiName()}_boolean`);
+      apiInfo.setIsJoinType(true);
     }
     if (apiInfos.length === 0) {
       apiInfos.push(apiInfo);
@@ -369,22 +375,40 @@ export class NodeProcessorHelper {
     const interfaceDeclaration: ts.InterfaceDeclaration = node as ts.InterfaceDeclaration;
     const interfaceInfo: InterfaceInfo = new InterfaceInfo(ApiType.INTERFACE, node, parentApi);
     interfaceInfo.setApiName(interfaceDeclaration.name.getText());
+    interfaceDeclaration.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
+      interfaceInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
+    });
     ModifierHelper.processModifiers(interfaceDeclaration.modifiers, interfaceInfo);
     if (interfaceDeclaration.heritageClauses === undefined) {
       return interfaceInfo;
     }
-    const parentClasses: string[] = [];
+    
     interfaceDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
       if (value.token === ts.SyntaxKind.ExtendsKeyword) {
         value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-          parentClasses.push(value.getText());
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setImplementClass('');
+          parentClass.setExtendClass(value.getText());
+          interfaceInfo.setParentClasses(parentClass);
+        });
+      } else if (value.token === ts.SyntaxKind.ImplementsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setImplementClass(value.getText());
+          parentClass.setExtendClass('');
+          interfaceInfo.setParentClasses(parentClass);
         });
       }
     });
-    interfaceInfo.setParentClasses(parentClasses);
     return interfaceInfo;
   }
 
+  static processGenericity(typeParameter: ts.TypeParameterDeclaration) {
+    const genericInfo: GenericInfo = new GenericInfo();
+    genericInfo.setIsGenericity(true);
+    genericInfo.setGenericContent(typeParameter.getText());
+    return genericInfo;
+  }
   /**
    * 处理class节点
    *
@@ -397,19 +421,30 @@ export class NodeProcessorHelper {
     const classInfo: ClassInfo = new ClassInfo(ApiType.CLASS, node, parentApi);
     const className: string = classDeclaration.name ? classDeclaration.name.getText() : '';
     classInfo.setApiName(className);
+    classDeclaration.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
+      classInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
+    });
     ModifierHelper.processModifiers(classDeclaration.modifiers, classInfo);
     if (classDeclaration.heritageClauses === undefined) {
       return classInfo;
     }
-    const parentClasses: string[] = [];
     classDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
       if (value.token === ts.SyntaxKind.ExtendsKeyword) {
         value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-          parentClasses.push(value.getText());
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setExtendClass(value.getText());
+          parentClass.setImplementClass('');
+          classInfo.setParentClasses(parentClass);
+        });
+      } else if (value.token === ts.SyntaxKind.ImplementsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setImplementClass(value.getText());
+          parentClass.setExtendClass('');
+          classInfo.setParentClasses(parentClass);
         });
       }
     });
-    classInfo.setParentClasses(parentClasses);
     return classInfo;
   }
 
@@ -565,6 +600,9 @@ export class NodeProcessorHelper {
       methodName = StringConstant.CONSTRUCTOR_API_NAME;
     }
     methodInfo.setApiName(methodName);
+    methodNode.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
+      methodInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
+    });
     const callForm: string = methodNode.getText().replace(/export\s+|declare\s+|function\s+|\r\n|\;/g, '');
     methodInfo.setCallForm(callForm);
     if (methodNode.type && ts.SyntaxKind.VoidKeyword !== methodNode.type.kind) {

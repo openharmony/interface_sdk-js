@@ -225,6 +225,16 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
+ * Defining observed ClassDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const observed: ClassDecorator;
+
+/**
  * Defining Preview ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -340,6 +350,16 @@ declare const State: PropertyDecorator;
  * @form
  */
 declare const Track: PropertyDecorator;
+
+/**
+ * Defining track PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const track: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
@@ -2757,6 +2777,47 @@ declare interface AlignRuleOption {
    * @form
    */
   bias?: Bias;
+}
+
+/**
+ * Defines the style of the chain in relative container.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum ChainStyle {
+  /**
+   * Elements of the chain will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD,
+
+  /**
+   * Elements except chain's head and tail will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD_INSIDE,
+
+  /**
+   * Elements of the chain will be packed together.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  PACKED,
 }
 
 /**
@@ -5836,7 +5897,7 @@ declare interface MultiShadowOptions {
    * Current shadow radius.
    * 
    * @type { ?(number | Resource) }
-   * @default 5
+   * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9238,6 +9299,43 @@ declare interface PopupMessageOptions {
 }
 
 /**
+ * Dismiss reason type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DismissReason {  
+  /**
+  * Press back
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  PRESS_BACK = 0,
+
+  /**
+  * Touch component outside
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  TOUCH_OUTSIDE = 1,
+
+  /**
+  * Close button
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  CLOSE_BUTTON = 2
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -10962,13 +11060,6 @@ declare interface MenuElement {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the icon of the menu element.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -12054,7 +12145,7 @@ declare class CommonMethod<T> {
   /**
    * Border style
    *
-   * @param { BorderStyle | EdgeStyles } value
+   * @param { BorderStyle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12094,7 +12185,7 @@ declare class CommonMethod<T> {
   /**
    * Border width
    *
-   * @param { Length | EdgeWidths } value
+   * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12134,7 +12225,7 @@ declare class CommonMethod<T> {
   /**
    * Border color
    *
-   * @param { ResourceColor | EdgeColors } value
+   * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -12174,7 +12265,7 @@ declare class CommonMethod<T> {
   /**
    * Border radius
    *
-   * @param { Length | BorderRadiuses } value
+   * @param { Length } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -14353,6 +14444,19 @@ declare class CommonMethod<T> {
   alignRules(value: AlignRuleOption): T;
 
   /**
+   * Specifies the direction and style of chain in relative container
+   *
+   * @param { Axis } value - indicates direction of the chain
+   * @param { ChainStyle } value - indicates style of the chain
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  chainMode(direction: Axis, style: ChainStyle): T;
+
+  /**
    * Specifies the aspect ratio of the current component.
    *
    * @param { number } value
@@ -15191,6 +15295,19 @@ declare class CommonMethod<T> {
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
+   * ContextMenu control
+   *
+   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
+
+  /**
    * Bind content cover
    *
    * @param { boolean } isShow - true means display content, false means hide content.
@@ -15400,7 +15517,7 @@ declare class CommonMethod<T> {
    *
    * @param { string | FunctionKey } value - Character of the combination key.
    * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15411,7 +15528,7 @@ declare class CommonMethod<T> {
    *
    * @param { string | FunctionKey } value - Character of the combination key.
    * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15695,6 +15812,40 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @form
  */
 interface CommonInterface {
+  /**
+   * Constructor.
+   *
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Constructor
+   * 
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Constructor
+   *
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Constructor
+   * 
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (): CommonAttribute;
 }
 
@@ -16325,9 +16476,105 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @since 11
  */
 declare interface LinearGradient {
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   angle?: number | string;
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   direction?: GradientDirection;
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   colors: Array<any>;
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   repeating?: boolean;
 }
 
@@ -16684,7 +16931,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16692,7 +16939,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16781,7 +17028,7 @@ declare interface Measurable {
  */
 declare interface SizeResult {
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16789,7 +17036,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16800,7 +17047,7 @@ declare interface SizeResult {
   width: number,
 
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16808,7 +17055,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16840,7 +17087,22 @@ declare interface MeasureResult extends SizeResult {
  
 }
 
+/**
+ * The navigation destination information.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+
+/**
+ * UIContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**

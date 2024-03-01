@@ -253,6 +253,20 @@ declare namespace accessibility {
   ): void;
 
   /**
+   * Queries the list of accessibility abilities.
+   *
+   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
+   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
+   * @returns { Array<AccessibilityAbilityInfo> } Returns the list of abilityInfos.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
+  function getAccessibilityExtensionListSync(
+    abilityType: AbilityType,
+    stateType: AbilityState
+  ): Array<AccessibilityAbilityInfo>;
+
+  /**
    * Send accessibility Event.
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
@@ -565,6 +579,13 @@ declare namespace accessibility {
    * @since 7
    */
   class EventInfo {
+    /**
+     * A constructor used to create a EventInfo object.
+     *
+     * @param jsonObject - Character string in JSON format required for creating an object.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 7
+     */
     constructor(jsonObject);
     /**
      * A constructor used to create a EventInfo object.

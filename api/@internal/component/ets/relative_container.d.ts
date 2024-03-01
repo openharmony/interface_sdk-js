@@ -41,7 +41,206 @@
  * @form
  */
 interface RelativeContainerInterface {
+  /**
+   * Constructor.
+   *
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Constructor.
+   *
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Constructor.
+   *
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (): RelativeContainerAttribute;
+}
+
+/**
+ * Specifies the position of guideLine
+ *
+ * @interface GuideLinePosition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface GuideLinePosition {
+  /**
+   * Specifies the distance to start of container
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  start? : Dimension;
+
+  /**
+   * Specifies the distance to end of container
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  end? : Dimension;
+}
+
+/**
+ * Specifies the GuideLineStyle of relative container
+ *
+ * @interface GuideLineStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface GuideLineStyle {
+  /**
+   * Specifies the id of guideLine
+   *
+   * @type {string}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  id : string;
+
+  /**
+   * Specifies the direction of guideLine
+   *
+   * @type {Axis}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  direction : Axis;
+
+  /**
+   * Specifies the position of guideLine
+   *
+   * @type {GuideLinePosition}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  position : GuideLinePosition;
+}
+
+/**
+ * Specifies the direction value of Barrier.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum BarrierDirection {
+  /**
+   * Barrier will be positioned to the far left of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  LEFT,
+
+  /**
+   * Barrier will be positioned to the far right of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  RIGHT,
+
+  /**
+   * Barrier will be positioned to the top of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  TOP,
+
+  /**
+   * Barrier will be positioned to the bottom of all referenced components.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  BOTTOM,
+}
+
+/**
+ * Specifies the BarrierStyle of relative container
+ *
+ * @interface BarrierStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface BarrierStyle {
+  /**
+   * Specifies the id of barrier
+   *
+   * @type {string}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  id : string;
+
+  /**
+   * Specifies the direction of barrier
+   *
+   * @type {BarrierDirection}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  direction : BarrierDirection;
+
+  /**
+   * Specifies the referencedId of barrier
+   *
+   * @type {Array<string>}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  referencedId : Array<string>;
 }
 
 /**
@@ -65,7 +264,31 @@ interface RelativeContainerInterface {
  * @since 11
  * @form
  */
-declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {}
+declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
+  /**
+   * Specifies guideLines of relativeContainer
+   *
+   * @param { Array<GuideLineStyle> } value
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  guideLine(value: Array<GuideLineStyle>): RelativeContainerAttribute;
+
+  /**
+   * Specifies barriers of relativeContainer
+   *
+   * @param { Array<BarrierStyle> } value
+   * @returns { RelativeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  barrier(value: Array<BarrierStyle>): RelativeContainerAttribute;
+}
 
 /**
  * RelativeContainer

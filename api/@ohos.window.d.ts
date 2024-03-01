@@ -342,10 +342,45 @@ declare namespace window {
    * @since 7
    */
   enum WindowMode {
+    /**
+     * Undefined mode of the window
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     UNDEFINED = 1,
+    /**
+     * Fullscreen mode of the window
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     FULLSCREEN,
+    /**
+     * Primary mode of the window
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     PRIMARY,
+    /**
+     * Secondary mode of the window
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     SECONDARY,
+    /**
+     * Floating mode of the window
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     FLOATING
   }
 

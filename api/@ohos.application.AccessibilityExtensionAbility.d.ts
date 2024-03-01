@@ -157,8 +157,31 @@ export default class AccessibilityExtensionAbility {
  * @since 9
  */
 declare interface AccessibilityEvent {
+  /**
+   * EventType
+   *
+   * @type { accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
+
+  /**
+   * Target
+   *
+   * @type { ?AccessibilityElement }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   target?: AccessibilityElement;
+
+  /**
+   * TimeStamp
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   timeStamp?: number;
 }
 

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame } from './Graphics';
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges } from './Graphics';
 
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
@@ -435,6 +435,106 @@ export class RenderNode {
   get shadowRadius(): number;
 
   /**
+   * Set border style of the RenderNode.
+   *
+   * @param { Edges<BorderStyle> } style - the border style of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set borderStyle(style: Edges<BorderStyle>);
+
+  /**
+   * Get border style of the RenderNode.
+   *
+   * @returns { Edges<BorderStyle> } - Returns the border style of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get borderStyle(): Edges<BorderStyle>;
+
+  /**
+   * Set border width of the RenderNode.
+   *
+   * @param { Edges<number> } width - the border width of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set borderWidth(width: Edges<number>);
+
+  /**
+   * Get border width of the RenderNode.
+   *
+   * @returns { Edges<number> } - Returns the border width of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get borderWidth(): Edges<number>;
+
+  /**
+   * Set border color of the RenderNode.
+   *
+   * @param { Edges<number> } color - the border color of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set borderColor(color: Edges<number>);
+
+  /**
+   * Get border color of the RenderNode.
+   *
+   * @returns { Edges<number> } - Returns the border color of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get borderColor(): Edges<number>;
+
+  /**
+   * Set border radius of the RenderNode.
+   *
+   * @param { BorderRadiuses } radius - the border radius of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set borderRadius(radius: BorderRadiuses);
+
+  /**
+   * Get border radius of the RenderNode.
+   *
+   * @returns { BorderRadiuses } - Returns the border radius of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get borderRadius(): BorderRadiuses;
+
+  /**
+   * Set shape mask of the RenderNode.
+   *
+   * @param { ShapeMask } shapeMask - the shape mask of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set shapeMask(shapeMask: ShapeMask);
+
+  /**
+   * Get shape mask of the RenderNode.
+   *
+   * @returns { BorderRadiuses } - Returns the shape mask of the RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get shapeMask(): ShapeMask;
+
+  /**
    * Draw Method. Executed when the associated RenderNode is onDraw.
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
@@ -452,4 +552,13 @@ export class RenderNode {
    * @since 11
    */
   invalidate(): void;
+
+  /**
+   * Dispose the RenderNode immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dispose(): void;
 }

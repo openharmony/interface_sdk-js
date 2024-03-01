@@ -4848,7 +4848,7 @@ declare enum PixelRoundCalcPolicy {
    * @since 11
    * @form
    */
-   NO_FORCE_ROUND = 0,
+  NO_FORCE_ROUND = 0,
   /**
    * Force ceil the component boundary coordinates to integer pixel.
    *
@@ -8309,6 +8309,15 @@ declare enum XComponentType {
    * @since 11
    */
   TEXTURE,
+
+  /**
+   * Node type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  NODE,
 }
 
 /**
@@ -8762,6 +8771,7 @@ declare enum DialogButtonStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum WordBreak {
@@ -8770,6 +8780,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   NORMAL = 0,
@@ -8779,6 +8790,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   BREAK_ALL = 1,
@@ -8789,6 +8801,7 @@ declare enum WordBreak {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   BREAK_WORD = 2,
@@ -8975,4 +8988,53 @@ declare enum FoldStatus {
    * @since 11
    */
   FOLD_STATUS_HALF_FOLDED = 3,
+}
+
+/**
+ * Enumerates the app rotation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum AppRotation {
+
+  /**
+   * App does not rotate to display vertically.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_0 = 0,
+
+  /**
+   * App rotates 90 degrees clockwise to display horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_90 = 1,
+
+  /**
+   * App rotates 180 degrees clockwise to display vertically in reverse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_180 = 2,
+
+  /**
+   * App rotates 270 degrees clockwise to display horizontally in reverse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_270 = 3
+}
+
+declare module 'borderStyle' {
+  module 'borderStyle' {
+    // @ts-ignore
+    export type { BorderStyle };
+  }
 }

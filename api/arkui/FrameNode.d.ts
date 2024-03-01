@@ -42,4 +42,13 @@ export class FrameNode {
    * @since 11
    */
   getRenderNode(): RenderNode | null;
+
+  /**
+   * Dispose the FrameNode immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dispose(): void;
 }

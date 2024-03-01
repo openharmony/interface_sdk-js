@@ -175,7 +175,7 @@ declare class List<T> {
    */
   getIndexOf(element: T): number;
   /**
-   * Find the corresponding element according to the index,
+   * Find the corresponding element according to the index.
    *
    * @param { number } index - index index the index in the list
    * @returns { T } the T type ,returns undefined if list is empty,If the index is
@@ -187,7 +187,7 @@ declare class List<T> {
    * @since 8
    */
   /**
-   * Find the corresponding element according to the index,
+   * Find the corresponding element according to the index.
    *
    * @param { number } index - index index the index in the list
    * @returns { T } the T type ,returns undefined if list is empty,If the index is

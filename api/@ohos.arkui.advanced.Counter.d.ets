@@ -305,6 +305,7 @@ declare class DateStyleOptions extends CommonOptions {
      * Set the year of the counter component, ranges from 1 to 5000.
      *
      * @type { ?number }
+     * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
@@ -315,6 +316,7 @@ declare class DateStyleOptions extends CommonOptions {
      * Set the month of the counter component.
      *
      * @type { ?number }
+     * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
@@ -325,6 +327,7 @@ declare class DateStyleOptions extends CommonOptions {
      * Set the day of the counter component.
      *
      * @type { ?number }
+     * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11

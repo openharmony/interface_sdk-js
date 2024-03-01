@@ -92,6 +92,7 @@ interface XComponentInterface {
  * Defines XComponentAttribute.
  *
  * @extends CommonMethod<XComponentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {

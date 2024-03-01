@@ -29,10 +29,29 @@ import type Want from './@ohos.app.ability.Want';
  * @since 11
  */
 declare namespace vpnExtension {
+  /**
+   * Get network link information.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
   export type LinkAddress = connection.LinkAddress;
+
+  /**
+   * Get network route information.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
   export type RouteInfo = connection.RouteInfo;
+
+  /**
+   * The context of vpn extension. It allows access to
+   * serviceExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 11
+   */
   export type VpnExtensionContext = _VpnExtensionContext;
-  
+
   /**
    * Starts a new vpn extension ability.
    *

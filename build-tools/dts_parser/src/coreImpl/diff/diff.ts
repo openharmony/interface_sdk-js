@@ -16,7 +16,13 @@
 import _ from 'lodash';
 import ts from 'typescript';
 import { StringConstant } from '../../utils/Constant';
-import { ApiInfo, BasicApiInfo, ContainerApiInfo, containerApiTypes } from '../../typedef/parser/ApiInfoDefination';
+import {
+  ApiInfo,
+  ApiType,
+  BasicApiInfo,
+  ContainerApiInfo,
+  containerApiTypes,
+} from '../../typedef/parser/ApiInfoDefination';
 import { ApiDiffType, ApiStatusCode, BasicDiffInfo, DiffTypeInfo } from '../../typedef/diff/ApiInfoDiff';
 import { ApiInfosMap, FileInfoMap, FilesMap, Parser } from '../parser/parser';
 import { apiStatisticsType } from '../../typedef/statistics/ApiStatistics';
@@ -39,6 +45,7 @@ export class DiffHelper {
     const diffInfos: BasicDiffInfo[] = [];
     const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap, isCheck);
     const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
+    DiffHelper.diffKit(clonedOldSDKApiMap, clonedNewSDKApiMap, diffInfos);
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
@@ -77,6 +84,63 @@ export class DiffHelper {
       });
     }
     return diffInfos;
+  }
+
+  static diffKit(clonedOldSDKApiMap: FilesMap, clonedNewSDKApiMap: FilesMap, diffInfos: BasicDiffInfo[]): void {
+    for (const key of clonedOldSDKApiMap.keys()) {
+      const oldSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedOldSDKApiMap.get(key));
+      oldSourceFileInfo?.setSyscap(DiffHelper.getSyscapField(oldSourceFileInfo));
+      const oldKitInfo: string | undefined = oldSourceFileInfo?.getLastJsDocInfo()?.getKit();
+      //文件在新版本中被删除
+      if (!clonedNewSDKApiMap.get(key) && oldKitInfo) {
+        diffInfos.push(
+          DiffProcessorHelper.wrapDiffInfo(
+            oldSourceFileInfo,
+            undefined,
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, 'NA')
+          )
+        );
+      } else if (clonedNewSDKApiMap.get(key)) {
+        const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
+        const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
+        if (oldKitInfo !== newKitInfo) {
+          diffInfos.push(
+            DiffProcessorHelper.wrapDiffInfo(
+              oldSourceFileInfo,
+              newSourceFileInfo,
+              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, newKitInfo)
+            )
+          );
+        }
+      }
+    }
+
+    for (const key of clonedNewSDKApiMap.keys()) {
+      const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
+      const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
+      if (!clonedOldSDKApiMap.get(key) && newKitInfo) {
+        diffInfos.push(
+          DiffProcessorHelper.wrapDiffInfo(
+            undefined,
+            newSourceFileInfo,
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, 'NA', newKitInfo)
+          )
+        );
+      }
+    }
+  }
+
+  static getSourceFileInfo(fileMap: FileInfoMap | undefined): ApiInfo | undefined {
+    if (!fileMap) {
+      return undefined;
+    }
+    let sourceFileInfos: ApiInfo[] = [];
+    for (const apiKey of fileMap.keys()) {
+      if (apiKey === StringConstant.SELF) {
+        sourceFileInfos = fileMap.get(apiKey) as ApiInfo[];
+      }
+    }
+    return sourceFileInfos[0];
   }
 
   /**
@@ -250,6 +314,20 @@ export class DiffHelper {
   }
 
   static getSyscapField(apiInfo: BasicApiInfo): string {
+    if (apiInfo.getApiType() === ApiType.SOURCE_FILE) {
+      const sourceFileContent: string = apiInfo.getNode()?.getFullText() as string;
+      let syscap = '';
+      if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(sourceFileContent)) {
+        sourceFileContent.replace(
+          /\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
+          (sysCapInfo: string, args:[]) => {
+            syscap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
+            return syscap;
+          }
+        );
+      }
+      return FunctionUtils.handleSyscap(syscap);
+    }
     if (notJsDocApiTypes.has(apiInfo.getApiType())) {
       return '';
     }

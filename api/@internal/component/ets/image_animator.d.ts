@@ -99,7 +99,7 @@ interface ImageFrameInfo {
   /**
    * Image path
    *
-   * @type { string | Resource }
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */

@@ -90,11 +90,13 @@ export declare class ToolBarOption {
   /**
   * Define text content.
   * @type { ResourceStr }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 10
   */
   /**
   * Define text content.
   * @type { ResourceStr }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
   */
@@ -102,11 +104,13 @@ export declare class ToolBarOption {
   /**
    * Define the action event.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Define the action event.
    * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -114,11 +118,13 @@ export declare class ToolBarOption {
   /**
    * Define icon resource.
    * @type { ?Resource }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Define icon resource.
    * @type { ?Resource }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -126,11 +132,13 @@ export declare class ToolBarOption {
   /**
    * Define item type.
    * @type { ?ItemState }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Define item type.
    * @type { ?ItemState }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
