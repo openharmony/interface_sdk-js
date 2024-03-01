@@ -116,7 +116,6 @@ declare namespace systemLoad {
 
     /**
      * Queries the current system level
-     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12
      */
