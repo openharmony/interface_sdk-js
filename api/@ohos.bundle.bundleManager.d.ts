@@ -1193,6 +1193,81 @@ declare namespace bundleManager {
   }
 
   /**
+   * This enumeration value is used to identify the distribution type of application.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export enum AppDistributionType {
+    /**
+     * Indicates the application is distributed by the App Gallery.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    APP_GALLERY = 1,
+
+    /**
+     * Indicates the enterprise application, which can be installed in personal devices.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTERPRISE = 2,
+
+    /**
+     * Indicates the normal enterprise application.
+     * This kind of application can only be installed on enterprise devices through the enterprise MDM application and does not require device management privileges.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTERPRISE_NORMAL = 3,
+
+    /**
+     * Indicates the enterprise MDM application, which can only be installed on enterprise devices.
+     * This kind of application requires device management privileges, such as remote locking, which can install normal enterprise applications, etc.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTERPRISE_MDM = 4,
+
+    /**
+     * Indicates the system preinstalled application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    OS_INTEGRATION = 5,
+
+    /**
+     * Indicates the crowd testing application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    CROWD_TESTING = 6,
+
+    /**
+     * Indicates other types of application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    NONE = 7
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -1833,17 +1908,6 @@ declare namespace bundleManager {
    * @since 9
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
-
-  /**
-   * Clears cache data of own application.
-   *
-   * @returns { Promise<void> } Clean bundle cache files result
-   * @throws { BusinessError } 17700030 - Own application does not support clearing of cache files.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  function cleanBundleCacheFiles(): Promise<void>;
 
   /**
    * Sets whether to enable a specified application.
@@ -2799,6 +2863,37 @@ declare namespace bundleManager {
    * @since 12
    */
   function canOpenLink(link: string): boolean;
+
+  /**
+   * Get a list of BundleInfo objects by developerId.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } developerId - Indicates the developerId of the application.
+   * @returns { Array<BundleInfo> } Returns a list of BundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700059 - The specified developerId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAllBundleInfoByDeveloperId(developerId: string): Array<BundleInfo>;
+
+  /**
+   * Get a list of developedId by distribution type.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } appDistributionType - Indicates the distribution type of the application, and if not passed in, it gets all the developerId.
+   * @returns { Array<String> } Returns a list of developerId.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getDeveloperIds(appDistributionType?: number): Array<String>;
 
   /**
    * Obtains configuration information about an application.

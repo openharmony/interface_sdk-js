@@ -134,6 +134,17 @@ export interface AppProvisionInfo {
    * @since 11
    */
   readonly appIdentifier: string;
+
+  /**
+   * Indicates the organization information of the profile file.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly organization: string;
 }
 
 /**
