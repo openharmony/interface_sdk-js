@@ -4492,12 +4492,11 @@ declare namespace media {
 
     /**
      * start screen capture recording.
-     * @param { ?boolean } useMicrophone - start screen capture recording with microphone on or off.
      * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
      * @since 12
      */
-    startRecording(useMicrophone?: boolean): Promise<void>;
+    startRecording(): Promise<void>;
 
     /**
      * stop screen capture recording.
