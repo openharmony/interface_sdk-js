@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -81,6 +81,14 @@ export declare class EditableTitleBarMenuItem {
 }
 
 /**
+ * Declaration of the image item .
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type EditableTitleBarItem = EditableTitleBarMenuItem;
+
+/**
  * Declaration of the left icon type.
  * @enum { EditableLeftIconType }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,6 +158,15 @@ export declare struct EditableTitleBar {
   leftIconStyle: EditableLeftIconType;
 
   /**
+   * Image item between the left icon and the title.
+   * @type { ?EditableTitleBarItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  imageItem?: EditableTitleBarItem;
+
+  /**
    * Title of this title bar.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -163,6 +180,25 @@ export declare struct EditableTitleBar {
    * @since 11
    */
   title: ResourceStr;
+
+  /**
+   * Sub-Title of this title bar.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  subtitle?: ResourceStr;
+
+  /**
+   * Whether to required the save icon.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isSaveIconRequired: boolean;
 
   /**
    * Menu items on the right side.
