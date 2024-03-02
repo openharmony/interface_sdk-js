@@ -832,8 +832,36 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead scroll/Scroll#onWillScroll
+   * 
    */
   onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
+
+  /**
+   * Called when the Scroll will scroll.
+   *
+   * @param { ScrollOnScrollCallback } handler - callback of Scroll,
+   * xOffset and yOffset are offsets this frame will scroll, which may or may not be reached.
+   * scrollState is current scroll state.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillScroll(handler: ScrollOnScrollCallback): ScrollAttribute;
+
+  /**
+   * Called when the Scroll did scroll.
+   *
+   * @param { ScrollOnScrollCallback } handler - callback of Scroll,
+   * xOffset and yOffset are offsets this frame did scroll, scrollState is current scroll state.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidScroll(handler: ScrollOnScrollCallback): ScrollAttribute;
 
   /**
    * Called when scrolling to the edge of the container.
@@ -1172,6 +1200,15 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    */
   enablePaging(value: boolean): ScrollAttribute;
 }
+
+  /**
+   * callback of Scroll, using in onWillScroll and onDidScroll.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState) => void;
 
 /**
  * Defines Scroll Component.
