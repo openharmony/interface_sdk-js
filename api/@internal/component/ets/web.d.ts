@@ -48,6 +48,7 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 /**
  * The callback of largestContentfulPaint.
  *
+ * @typedef OnLargestContentfulPaintCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -57,6 +58,7 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
 /**
  * The callback of firstMeaningfulPaint.
  *
+ * @typedef OnFirstMeaningfulPaintCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -73,6 +75,15 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  * @since 12
  */
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
+
+/**
+ * The callback of Intelligent Tracking Prevention.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
@@ -3925,6 +3936,36 @@ declare interface LoadCommittedDetails {
 }
 
 /**
+ * Defines the Intelligent Tracking Prevention details.
+ *
+ * @interface IntelligentTrackingPreventionDetails
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface IntelligentTrackingPreventionDetails {
+  /**
+   * The host of website url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  host: string;
+
+  /**
+   * The host of tracker url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  trackerHost: string;
+}
+
+/**
  * Defines the Web interface.
  *
  * @interface WebInterface
@@ -6669,6 +6710,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onNavigationEntryCommitted(callback: OnNavigationEntryCommittedCallback): WebAttribute;
+
+  /**
+   * Called when tracker's cookie is prevented.
+   *
+   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback triggered when tracker's cookie is prevented.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 
   /**
    * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
