@@ -115,6 +115,7 @@ declare namespace systemLoad {
     function off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void;
 
     /**
+     * @returns { Promise<Want> } The promise form returns the SystemLoadLevel result
      * Queries the current system level
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12
