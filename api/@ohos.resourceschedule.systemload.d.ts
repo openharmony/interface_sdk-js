@@ -105,7 +105,7 @@ declare namespace systemLoad {
     function on(type: 'systemLoadChange', callback: Callback<SystemLoadLevel>): void;
 
     /**
-     * Unregister system load callback for preception system load change
+     * Unregister system load callback for perception system load change
      * @param { 'systemLoadChange' } type system load change type.
      * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
      * @throws { BusinessError } 401 - Parameter error.
