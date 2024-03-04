@@ -35,6 +35,13 @@ import { ResourceStr } from 'GlobalResource';
  * @atomicservice
  * @since 11
  */
+/**
+ * Control style of operation element
+ * @enum { OperationStyle }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 export declare enum OperationType {
   /**
    * The TextArrow style.
@@ -46,6 +53,13 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+   */
+  /**
+   * The TextArrow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   TEXT_ARROW = 0,
 
@@ -60,6 +74,12 @@ export declare enum OperationType {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The Button style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   BUTTON = 1,
 
   /**
@@ -73,6 +93,12 @@ export declare enum OperationType {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The IconGroup style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   ICON_GROUP = 2,
 
   /**
@@ -85,6 +111,12 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The LoadingProgress style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   LOADING = 3
 }
@@ -100,6 +132,12 @@ export declare enum OperationType {
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare type OperationOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 export declare class OperationOption {
   /**
    * The content of text or the address of icon.
@@ -113,6 +151,13 @@ export declare class OperationOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The content of text or the address of icon.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   value: ResourceStr;
 
@@ -129,6 +174,13 @@ export declare class OperationOption {
    * @atomicservice
    * @since 11
    */
+  /**
+   * callback function when operate the text or icon.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   action?: () => void;
 }
 
@@ -143,6 +195,12 @@ export declare class OperationOption {
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare type SelectOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 export declare class SelectOptions {
   /**
    * SubOption array of the select.
@@ -156,6 +214,13 @@ export declare class SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * SubOption array of the select.
+   * @type { Array<SelectSubOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   options: Array<SelectOption>;
 
@@ -172,6 +237,13 @@ export declare class SelectOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The default selected index.
+   * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   selected?: number;
   
   /**
@@ -186,6 +258,13 @@ export declare class SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The default text value.
+   * @type { string }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   value?: string;
 
@@ -202,6 +281,13 @@ export declare class SelectOptions {
   * @atomicservice
   * @since 11
   */
+ /**
+  * Callback when the select is selected.
+  * @type { (index: number, value?: string) => void }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 12
+  */
   onSelect?: (index: number, value?: string) => void;
 }
 
@@ -211,7 +297,7 @@ export declare class SelectOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  */
 declare enum SymbolRenderingStrategy {
   /**
@@ -219,7 +305,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   SINGLE = 0,
 
@@ -228,7 +314,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   MULTIPLE_COLOR = 1,
 
@@ -237,7 +323,7 @@ declare enum SymbolRenderingStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   MULTIPLE_OPACITY = 2,
 }
@@ -248,7 +334,7 @@ declare enum SymbolRenderingStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  */
 declare enum SymbolEffectStrategy {
   /**
@@ -256,7 +342,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   NONE = 0,
 
@@ -265,7 +351,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   SCALE = 1,
 
@@ -274,7 +360,7 @@ declare enum SymbolEffectStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   HIERARCHICAL = 2,
 }
@@ -343,6 +429,12 @@ export declare class SymbolOptions {
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare struct SubHeader
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 @Component
 export declare struct SubHeader {
 
@@ -358,6 +450,13 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Icon resource of content area.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   @Prop icon?: ResourceStr;
 
@@ -382,6 +481,13 @@ export declare struct SubHeader {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The first line text of content area.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   @Prop primaryTitle?: ResourceStr;
 
   /**
@@ -396,6 +502,13 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The secondary line text of content area.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   @Prop secondaryTitle?: ResourceStr;
 
@@ -412,6 +525,13 @@ export declare struct SubHeader {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Select option of content area.
+   * @type { SelectOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   select?: SelectOptions;
 
   /**
@@ -427,6 +547,13 @@ export declare struct SubHeader {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Operation style of SubHeader.
+   * @type { OperationStyle }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   @Prop operationType?: OperationType;
 
   /**
@@ -441,6 +568,13 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * operation item.
+   * @type { Array<OperationOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   operationItem?: Array<OperationOption>;
 
