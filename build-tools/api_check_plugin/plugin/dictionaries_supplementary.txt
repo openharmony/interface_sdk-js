@@ -478,6 +478,7 @@ minibar
 minimizing
 mirrored
 misconfigured
+mismatches
 missions
 mkdtemp
 mmax
@@ -573,6 +574,7 @@ pdu
 peap
 persion
 persistable
+persistently
 perso
 personalisation
 pertaining
