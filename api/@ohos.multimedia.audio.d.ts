@@ -742,7 +742,7 @@ declare namespace audio {
     /**
      * 88.2kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 8
+     * @since 12
      */
     SAMPLE_RATE_88200 = 88200,
     /**
@@ -754,13 +754,13 @@ declare namespace audio {
     /**
      * 176.4kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 8
+     * @since 12
      */
     SAMPLE_RATE_176400 = 176400,
     /**
      * 192kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 8
+     * @since 12
      */
     SAMPLE_RATE_192000 = 192000
   }
