@@ -227,12 +227,12 @@ declare namespace uiObserver {
     /**
    * observer options.
    *
-   * @interface Options
+   * @interface ObserverOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-    export interface Options {
+    export interface ObserverOptions {
       /**
        * component id.
        *
@@ -355,26 +355,26 @@ declare namespace uiObserver {
    * Registers a callback function to be called when the scroll event start or stop.
    *
    * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Options } options - The options object.
+   * @param { ObserverOptions } options - The options object.
    * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  export function on(type: 'scrollEvent', options: Options, callback: Callback<ScrollEventInfo>): void;
+  export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { Options } options - The options object.
+   * @param { ObserverOptions } options - The options object.
    * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
    *                                                    scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  export function off(type: 'scrollEvent', options: Options, callback?: Callback<ScrollEventInfo>): void;
+  export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.

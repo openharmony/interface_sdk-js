@@ -1020,26 +1020,26 @@ export class UIObserver {
    * Registers a callback function to be called when the scroll event start or stop.
    *
    * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { observer.Options } options - The options object.
+   * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  on(type: 'scrollEvent', options: observer.Options, callback: Callback<observer.ScrollEventInfo>): void;
+  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { observer.Options } options - The options object.
+   * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
    *                                                    scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  off(type: 'scrollEvent', options: observer.Options, callback?: Callback<observer.ScrollEventInfo>): void;
+  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.
