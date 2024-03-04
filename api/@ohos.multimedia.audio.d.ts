@@ -762,7 +762,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    SAMPLE_RATE_192000 = 192000,
+    SAMPLE_RATE_192000 = 192000
   }
 
   /**
