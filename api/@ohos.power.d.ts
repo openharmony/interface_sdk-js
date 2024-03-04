@@ -198,7 +198,7 @@ declare namespace power {
   /**
   * hibernate the device.
   *
-  * @param { boolean } clearMemory indicates whether to clear the memory before the device hibernates.
+  * @param { boolean } clearMemory Indicates whether to clear the memory before the device hibernates.
   * @throws { BusinessError } 202 - If the system permission is denied.
   * @throws { BusinessError } 4900101 - If connecting to the service failed.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -208,9 +208,9 @@ declare namespace power {
   function hibernate(clearMemory: boolean): void;
 
   /**
-  * Sets the timetout duration(ms) for turning off the screen.
+  * Sets the timeout duration(ms) for turning off the screen.
   *
-  * @param { number } timeout indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+  * @param { number } timeout Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
   * @throws { BusinessError } 201 – If the permission is denied.
   * @throws { BusinessError } 202 - If the system permission is denied.
   * @throws { BusinessError } 4900101 - If connecting to the service failed.
