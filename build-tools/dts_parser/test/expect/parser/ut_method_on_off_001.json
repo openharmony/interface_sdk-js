@@ -5,7 +5,7 @@
       "apiType": "Interface",
       "definedText": " export interface Test",
       "pos": {
-        "line": 5,
+        "line": 20,
         "character": 1
       },
       "isExport": true,
@@ -16,6 +16,10 @@
       ],
       "isStruct": false,
       "syscap": "",
+      "currentVersion": "-1",
+      "jsDocText": "/*\n * Copyright (c) 2021-2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *     http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n/**\n * the ut for method of on or off\n *\n */\n",
+      "isJoinType": false,
+      "genericInfo": [],
       "jsDocInfos": [
         {
           "description": "the ut for method of on or off",
@@ -30,7 +34,10 @@
           "permissions": "",
           "errorCodes": [],
           "typeInfo": "",
-          "isConstant": false
+          "isConstant": false,
+          "isAtomicService": false,
+          "kit": "",
+          "isFile": false
         }
       ],
       "parentClasses": [],
@@ -40,7 +47,7 @@
           "apiType": "Method",
           "definedText": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void;",
           "pos": {
-            "line": 6,
+            "line": 21,
             "character": 3
           },
           "isExport": false,
@@ -52,6 +59,10 @@
           ],
           "isStruct": false,
           "syscap": "",
+          "currentVersion": "-1",
+          "jsDocText": "\n  ",
+          "isJoinType": false,
+          "genericInfo": [],
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void",
           "params": [
@@ -79,14 +90,15 @@
           ],
           "returnValue": [],
           "isStatic": false,
-          "sync": "AsyncCallback"
+          "sync": "AsyncCallback",
+          "returnValueType": -1
         },
         {
           "filePath": "ut_method_on_off_001.d.ts",
           "apiType": "Method",
           "definedText": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void;",
           "pos": {
-            "line": 6,
+            "line": 21,
             "character": 3
           },
           "isExport": false,
@@ -98,6 +110,10 @@
           ],
           "isStruct": false,
           "syscap": "",
+          "currentVersion": "-1",
+          "jsDocText": "\n  ",
+          "isJoinType": true,
+          "genericInfo": [],
           "jsDocInfos": [],
           "callForm": "on(type: 'add' | 'reduce', callback: AsyncCallback<number>): void",
           "params": [
@@ -125,7 +141,8 @@
           ],
           "returnValue": [],
           "isStatic": false,
-          "sync": "AsyncCallback"
+          "sync": "AsyncCallback",
+          "returnValueType": -1
         }
       ]
     }

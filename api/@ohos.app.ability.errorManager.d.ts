@@ -141,6 +141,33 @@ declare namespace errorManager {
   function off(type: 'loopObserver', observer?: LoopObserver): void;
 
   /**
+   * Register unhandled rejection observer.
+   *
+   * @param { 'unhandledRejection' } type - 'unhandledRejection'.
+   * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+  function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
+
+  /**
+   * Unregister unhandled rejection observer.
+   *
+   * @param { 'unhandledRejection' } type - error.
+   * @param { UnhandledRejectionObserver } [observer]  - the registered observer
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+  function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
+
+  /**
    * The observer will be called by system when an error occurs.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -162,6 +189,16 @@ declare namespace errorManager {
    * @since 12
    */
   export type LoopObserver = _LoopObserver.default;
+  /**
+   * The observer will be called by system when an unhandled rejection occurs.
+   *
+   * { Error | any } reason - the reason of the rejection, typically of Error type
+   * { Promise<any> } promise - the promise that is rejected
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+  export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
 }
 
 export default errorManager;

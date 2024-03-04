@@ -1121,6 +1121,84 @@ declare class NavPathStack {
    * @since 11
    */
   disableAnimation(value: boolean): void;
+
+  /**
+   * set navigation transition interception.It will be called in navPathStack changes or navigation mode changes.
+   *
+   * @param { NavigationInterception } interception - the instance to intercept in navigation changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setInterception(interception: NavigationInterception): void;
+}
+
+/**
+ * Navigation home name
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type NavBar = 'navBar'
+
+/**
+ * navigation interception callback using in willShow and didShow
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
+
+/**
+ * navigation interception callback using in navigation mode change
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type InterceptionModeCallback = (mode: NavigationMode) => void;
+
+/**
+ * Provide navigation transition interception
+ *
+ * @interface NavigationInterception
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface NavigationInterception {
+  /**
+   * Called before destination transition.NavPathStack can be changed in this callback,
+   * it will takes effect during this transition.For details, see { @Link InterceptionShowCallback}.
+   *
+   * @type { ?InterceptionShowCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  willShow?: InterceptionShowCallback;
+
+  /**
+   * Called after destination transition.For details, see { @Link InterceptionShowCallback}.
+   *
+   * @type { ?InterceptionShowCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  didShow?: InterceptionShowCallback;
+
+  /**
+   * Called when navigation mode changed.For details, see { @Link InterceptionModeCallback}.
+   *
+   * @type { ?InterceptionModeCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  modeChange?: InterceptionModeCallback;
 }
 
 /**

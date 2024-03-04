@@ -46,6 +46,26 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
+ * The callback of largestContentfulPaint.
+ *
+ * @typedef OnLargestContentfulPaintCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentfulPaint) => void;
+
+/**
+ * The callback of firstMeaningfulPaint.
+ *
+ * @typedef OnFirstMeaningfulPaintCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -2234,6 +2254,35 @@ declare enum WebNavigationType {
   NAVIGATION_TYPE_AUTO_SUBFRAME = 5,
 }
 
+
+/**
+ * Defines the web render mode, related to {@link RenderMode}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum RenderMode {
+  /**
+   * Web and arkui render asynchronously
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  ASYNC_RENDER = 0,
+
+  /**
+   * Web and arkui render synchronously
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  SYNC_RENDER = 1,
+}
+
 /**
  * Defines the context menu param, related to {@link WebContextMenuParam} method.
  *
@@ -3705,6 +3754,16 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
+   * Sets the render mode of the web.
+   *
+   * @type { ?RenderMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  renderMode? : RenderMode;
+
+  /**
    * Sets the incognito mode of the Web, the parameter is optional and default value is false.
    * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
    * will not save in persistent files.
@@ -4006,6 +4065,106 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   touchEvent?: TouchEvent;
+}
+
+  /**
+   * Defines the first content paint rendering of web page.
+   *
+   * @interface FirstMeaningfulPaint
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+declare interface FirstMeaningfulPaint {
+  /**
+   * Start time of navigation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  navigationStartTime?: number;
+
+  /**
+   * Paint time of first meaningful content.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  firstMeaningfulPaintTime?: number;
+}
+
+/**
+ * Defines the largest content paint rendering of web page.
+ *
+ * @interface LargestContentfulPaint
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface LargestContentfulPaint {
+  /**
+   *  Start time of navigation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+ navigationStartTime?: number;
+
+  /**
+   * Paint time of largest image.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  largestImagePaintTime?: number;
+
+    /**
+     * Paint time of largest text.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  largestTextPaintTime?: number;
+
+    /**
+     * Bits per pixel of image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  imageBPP?: number;
+
+    /**
+     * Load start time of largest image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  largestImageLoadStartTime?: number;
+
+    /**
+     * Load end time of largest image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+  largestImageLoadEndTime?: number;
 }
 
 /**
@@ -6027,6 +6186,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   minLogicalFontSize(size: number): WebAttribute;
 
   /**
+   * Set the default text encodingFormat value of webview. The default value is UTF-8.
+   *
+   * @param { string } default text encodingFormat.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
+
+  /**
    * Whether web component can load resource from network.
    *
    * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
@@ -6318,6 +6488,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      */
     firstContentfulPaintMs: number
   }) => void): WebAttribute;
+
+  /**
+   * Called when the First rendering of meaningful content time(FMP)
+   *
+   * @param { OnFirstMeaningfulPaintCallback } callback Function Triggered when the firstMeaningfulPaint.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onFirstMeaningfulPaint(callback: OnFirstMeaningfulPaintCallback): WebAttribute;
+
+   /**
+   * Called when the Maximum content rendering time(LCP).
+   *
+   * @param { OnLargestContentfulPaintCallback } callback Function Triggered when the largestContentfulPaint.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onLargestContentfulPaint(callback: OnLargestContentfulPaintCallback): WebAttribute;
 
   /**
    * Triggered when the resources loading is intercepted.

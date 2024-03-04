@@ -341,6 +341,47 @@ declare namespace webview {
   }
 
   /**
+   * The playback status of all audio and video.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum MediaPlaybackState {
+    /**
+     * No audio or video currently.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * All audio and video are playing.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    PLAYING = 1,
+
+    /**
+     * All audio and video are paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    PAUSED = 2,
+
+    /**
+     * All audio and video are stopped.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    STOPPED = 3
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    *
    * @interface HitTestValue
@@ -3895,6 +3936,117 @@ declare namespace webview {
      * @since 12
      */
     getPrintBackground(): boolean;
+
+    /**
+     * Start current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    startCamera(): void;
+
+    /**
+     * Stop current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    stopCamera(): void;
+
+    /**
+     * Close current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    closeCamera(): void;
+
+    /**
+     * Pauses all layout, parsing, and JavaScript timers for all WebViews.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static pauseAllTimers(): void;
+
+    /**
+     * Resumes all layout, parsing, and JavaScript timers for all WebViews.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static resumeAllTimers(): void;
+
+    /**
+     * Stop all audio and video playback on the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    stopAllMedia(): void;
+
+    /**
+     * Restart playback of all audio and video on the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    resumeAllMedia(): void;
+
+    /**
+     * Pause all audio and video playback on the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    pauseAllMedia(): void;
+
+    /**
+     * Close fullscreen video.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    closeAllMediaPresentations(): void;
+
+    /**
+     * View the playback status of all audio and video on the web page.
+     *
+     * @returns { MediaPlaybackState } The playback status of all audio and video.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getMediaPlaybackState(): MediaPlaybackState;
   }
 
   /**

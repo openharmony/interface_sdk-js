@@ -2282,6 +2282,15 @@ declare namespace util {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The Type represents four different encoding formats for base64
+   *
+   * @enum { number } Type
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum Type {
     /**
      * The value indicates that the encoding format of base64 is BASIC
@@ -2310,7 +2319,23 @@ declare namespace util {
      * @atomicservice
      * @since 11
      */
-    MIME
+    MIME,
+    /**
+     * The value indicates that the encoding format of base64 is BASIC_URL_SAFE
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    BASIC_URL_SAFE,
+    /**
+     * The value indicates that the encoding format of base64 is MIME_URL_SAFE
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    MIME_URL_SAFE
   }
 
   /**
@@ -2391,7 +2416,19 @@ declare namespace util {
      * @atomicservice
      * @since 11
      */
-    encodeSync(src: Uint8Array): Uint8Array;
+    /**
+     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
+     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    encodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
     /**
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -2417,13 +2454,25 @@ declare namespace util {
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
      *
      * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } options - Enumerating input parameters includes two encoding formats: BASIC and MIME
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { string } Return the encoded string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Encodes the specified byte array into a String using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } options - one of the Type enumeration
+     * @returns { string } Return the encoded string.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     encodeToStringSync(src: Uint8Array, options?: Type): string;
 
@@ -2459,6 +2508,18 @@ declare namespace util {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
+     * @param { Type } [options] - one of the Type enumeration
+     * @returns { Uint8Array } Return the decoded Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
@@ -2491,7 +2552,19 @@ declare namespace util {
      * @atomicservice
      * @since 11
      */
-    encode(src: Uint8Array): Promise<Uint8Array>;
+    /**
+     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
+     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
     /**
      * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -2512,6 +2585,17 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - one of the Type enumeration
+     * @returns { Promise<string> } Returns the encoded asynchronous string.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
      */
     encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
@@ -2536,6 +2620,18 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
+     * input u8 array into a newly allocated u8 array.
+     *
+     * @param { Uint8Array | string } src - A Uint8Array value or value A string value
+     * @param { Type } [options] - one of the Type enumeration
+     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
+     * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
      */
     decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }

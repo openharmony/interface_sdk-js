@@ -996,6 +996,25 @@ declare namespace formHost {
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
+   * Recycle permanent dynamic ArkTS forms.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be recycled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function recycleForms(formIds: Array<string>): Promise<void>;
+
+  /**
    * Recover recycled permanent dynamic ArkTS forms.
    *
    * @permission ohos.permission.REQUIRE_FORM
