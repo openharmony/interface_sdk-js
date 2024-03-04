@@ -79,7 +79,7 @@ declare namespace performanceMonitor {
      * The user touches the screen to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 10
+     * @since 12
      */
     PERF_TOUCH_EVENT = 0,
 
@@ -87,7 +87,7 @@ declare namespace performanceMonitor {
      * TThe user uses the mouse to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 10
+     * @since 12
      */
     PERF_MOUSE_EVENT = 1,
 
@@ -95,7 +95,7 @@ declare namespace performanceMonitor {
      * The user uses the touch-pad to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 10
+     * @since 12
      */
     PERF_TOUCH_PAD = 2,
 	
@@ -103,7 +103,7 @@ declare namespace performanceMonitor {
      * TThe user uses the joystick to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 10
+     * @since 12
      */
     PERF_JOY_STICK = 3,
 
@@ -111,7 +111,7 @@ declare namespace performanceMonitor {
      * The user uses the keyboard to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 10
+     * @since 12
      */
     PERF_KEY_EVENT = 4
   }
@@ -146,7 +146,7 @@ declare namespace performanceMonitor {
    * @param { number } time Indicates the scene input time.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 10
+   * @since 12
    */
   function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;  
 }
