@@ -47,7 +47,6 @@ export declare enum OperationType {
    * @atomicservice
    * @since 11
    */
-   */
   TEXT_ARROW = 0,
 
   /**
