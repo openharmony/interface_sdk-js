@@ -16,12 +16,13 @@
     "apiType": "TypeAlias",
     "definedText": "type TextOneType = { a: string & number; b: '123' | 123; c: (false & 123) | number };",
     "pos": {
-      "line": 1,
+      "line": 16,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

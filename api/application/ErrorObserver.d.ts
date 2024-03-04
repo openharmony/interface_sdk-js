@@ -45,14 +45,14 @@ export default class ErrorObserver {
   onUnhandledException(errMsg: string): void;
 
   /**
-   * Will be called when the native executions exception.
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */
   /**
-   * Will be called when the native executions exception.
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
    *
    * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

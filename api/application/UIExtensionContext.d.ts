@@ -282,4 +282,80 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 10
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
+
+  /**
+   * Report to system when the extension is drawn completed.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of startUIExtensionAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  reportDrawnCompleted(callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys the UI extension.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelf(callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys the UI extension.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelf(): Promise<void>;
+
+  /**
+   * Destroys the UI extension while returning the specified result code and data to the caller.
+   *
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys the UI extension while returning the specified result code and data to the caller.
+   *
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
+
+  /**
+   * Full-screen pop-us startup atomic service.
+   *
+   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000003 - The appId does not exist.
+   * @throws { BusinessError } 16000004 - Can not start invisible component
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  openAtomicService(appId: string): Promise<AbilityResult>;
 }

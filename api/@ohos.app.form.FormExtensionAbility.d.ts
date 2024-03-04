@@ -28,14 +28,14 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * class of form extension.
  *
  * @syscap SystemCapability.Ability.Form
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
  * class of form extension.
  *
  * @syscap SystemCapability.Ability.Form
- * @StageModelOnly
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -45,7 +45,7 @@ export default class FormExtensionAbility {
    *
    * @type { FormExtensionContext }
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -53,7 +53,7 @@ export default class FormExtensionAbility {
    *
    * @type { FormExtensionContext }
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -68,7 +68,7 @@ export default class FormExtensionAbility {
    *                        acquisition, update, and deletion.
    * @returns { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -80,7 +80,7 @@ export default class FormExtensionAbility {
    *                        acquisition, update, and deletion.
    * @returns { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -91,7 +91,7 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the form.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -99,7 +99,7 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the form.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -110,7 +110,7 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the form to update.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -118,7 +118,7 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the form to update.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -136,7 +136,7 @@ export default class FormExtensionAbility {
    *                               {@link formInfo#VisibilityType#FORM_INVISIBLE} means that the form becomes
    *                               invisible.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -152,7 +152,7 @@ export default class FormExtensionAbility {
    *                                               {@link formInfo#VisibilityType#FORM_INVISIBLE} means that the form
    *                                               becomes invisible.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onChangeFormVisibility(newStatus: Record<string, number>): void;
@@ -166,7 +166,7 @@ export default class FormExtensionAbility {
    * @param { string } message - Indicates the value of the {@code params} field of the message event. This parameter
    *                             is used to identify the specific component on which the event is triggered.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -178,7 +178,7 @@ export default class FormExtensionAbility {
    * @param { string } message - Indicates the value of the {@code params} field of the message event. This parameter
    *                             is used to identify the specific component on which the event is triggered.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -190,7 +190,7 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the destroyed form.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -199,7 +199,7 @@ export default class FormExtensionAbility {
    *
    * @param { string } formId - Indicates the ID of the destroyed form.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -210,7 +210,7 @@ export default class FormExtensionAbility {
    *
    * @param { Configuration } newConfig - Indicates the system configuration, such as language and color mode.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -218,7 +218,7 @@ export default class FormExtensionAbility {
    *
    * @param { Configuration } newConfig - Indicates the system configuration, such as language and color mode.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -234,7 +234,7 @@ export default class FormExtensionAbility {
    *                        form name, and form dimensions.
    * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -247,7 +247,7 @@ export default class FormExtensionAbility {
    *                        form name, and form dimensions.
    * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
    * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -260,7 +260,7 @@ export default class FormExtensionAbility {
    * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -270,7 +270,7 @@ export default class FormExtensionAbility {
    * @returns { Record<string, Object> } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onShareForm?(formId: string): Record<string, Object>;
@@ -282,7 +282,7 @@ export default class FormExtensionAbility {
    * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -292,8 +292,18 @@ export default class FormExtensionAbility {
    * @returns { Record<string, Object> } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onAcquireFormData?(formId: string): Record<string, Object>;
+
+  /**
+   * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onStop?(): void;
 }

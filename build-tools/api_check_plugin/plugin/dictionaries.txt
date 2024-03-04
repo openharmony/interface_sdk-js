@@ -3899,6 +3899,7 @@ ast
 astaire
 astarte
 astatine
+astc
 aster
 asteria
 asterisk

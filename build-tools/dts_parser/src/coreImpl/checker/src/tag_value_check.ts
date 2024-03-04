@@ -16,7 +16,7 @@
 import { ErrorTagFormat, ErrorMessage, PermissionData } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions } from '../../../utils/checkUtils';
-import { ApiInfo, ApiType, ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType, ClassInfo, GenericInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { MethodInfo, PropertyInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { PunctuationMark } from '../../../utils/Constant';
 import { SystemCapability } from '../config/syscapConfigFile.json';
@@ -154,13 +154,17 @@ export class TagValueCheck {
     };
     let extendsTagValue: string = tag.name;
     if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
-      let extendsApiValue = (singleApi as ClassInfo).getParentClasses();
-      if (extendsTagValue !== extendsApiValue[0]) {
+      const extendsApiValue: string = CommonFunctions.getExtendsApiValue(singleApi);
+      const ImplementsApiValue: string = CommonFunctions.getImplementsApiValue(singleApi);
+      if (tag.tag === 'extends' && extendsTagValue !== extendsApiValue) {
         extendsValueCheckResult.state = false;
         extendsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_EXTENDS;
       }
+      if (tag.tag === 'implements' && extendsTagValue !== ImplementsApiValue) {
+        extendsValueCheckResult.state = false;
+        extendsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_IMPLEMENTS;
+      }
     }
-
     return extendsValueCheckResult;
   }
 

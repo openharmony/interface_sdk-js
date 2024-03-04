@@ -22,6 +22,7 @@ alerting
 algrithom
 aligns
 alpha
+alpn
 alpnprotocols
 alterase
 alternating
@@ -55,6 +56,7 @@ atomicservice
 atqa
 attaches
 attachment0
+attackers
 attribs
 audios
 authenticates
@@ -120,6 +122,7 @@ chrominance
 circled
 clamped
 clamps
+cleartext
 cloudfile
 coincides
 collaborated
@@ -128,6 +131,7 @@ collations
 collectable
 colno
 colorfilter
+complied
 complies
 compositing
 compresses
@@ -171,6 +175,7 @@ deactivated
 deactivation
 decodes
 decomposed
+decompression
 decompressed
 decompressing
 decr
@@ -194,11 +199,13 @@ devicemanager
 dfactor
 dfx
 dialling
+differed
 dimbehind
 dirent
 dirxml
 disables
 disallowed
+disallowing
 disallows
 discharging
 disconnecting
@@ -263,6 +270,7 @@ excepted
 exempted
 extention
 f1
+fatally
 faultlog
 faultlogger
 fchmod
@@ -276,6 +284,7 @@ fillets
 flac
 flg
 flushes
+foiling
 foldable
 foregrounding
 formatable
@@ -293,6 +302,7 @@ geofence
 getunfilteredlinkurl
 glasses
 gnss
+goaway
 graphicseditor
 greate
 gtc
@@ -341,6 +351,7 @@ hspap
 htmltext
 huks
 hwid
+icann
 icq
 id
 idm
@@ -353,6 +364,7 @@ imclient
 imengine
 immersive
 imms
+improperly
 ims
 imsi
 inactived
@@ -405,6 +417,7 @@ kneading
 kvpairs
 kvstore
 lable
+lacked
 lanes
 lasted
 lastmode
@@ -464,6 +477,7 @@ mifare
 minibar
 minimizing
 mirrored
+misconfigured
 missions
 mkdtemp
 mmax
@@ -584,6 +598,7 @@ precon
 preconnect
 preconnected
 preconnectable
+preconnecting
 preempted
 preferentially
 preinstalled
@@ -613,6 +628,7 @@ puk
 pvr
 querier
 queriers
+racing
 radiuses
 rasterizer
 rawfile
@@ -631,6 +647,7 @@ reclaimed
 redirections
 refill
 refusing
+rehandshake
 rejects
 relocation
 remidner
@@ -638,6 +655,7 @@ remotedevice
 removable
 renderbuffer
 renderbuffertarget
+renegotiation
 repayment
 repeates
 reposition
@@ -693,6 +711,7 @@ semicircles
 sendable
 sensing
 sequenceable
+setsockopt
 settingsdata
 sfactor
 sha1
@@ -763,6 +782,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symantec
 symbolglyph
 synched
 synchronizes
@@ -793,6 +813,7 @@ textblob
 textclock
 texttimer
 thirdparty
+throttled
 timeinterfaceimpl
 tlsv12
 tlsv13
@@ -832,6 +853,7 @@ unblocking
 uncalibrated
 uncategorized
 uncatergorized
+unchangeable
 unclearable
 unconditional
 undefer
@@ -847,6 +869,7 @@ unicom
 unicon
 uniform1ui
 uniforms
+unimplemented
 uninit
 uninitialize
 uninitializes
@@ -871,6 +894,7 @@ unregisters
 unremovable
 unrendered
 unrestricted
+unrevoked
 unsecure
 unsent
 unspec

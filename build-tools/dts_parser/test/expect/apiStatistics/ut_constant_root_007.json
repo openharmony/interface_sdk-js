@@ -16,12 +16,13 @@
     "apiType": "Constant",
     "definedText": "declare const CONSTANT = 1024;",
     "pos": {
-      "line": 4,
+      "line": 19,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

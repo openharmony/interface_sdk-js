@@ -1151,6 +1151,7 @@ declare namespace settings {
    * @param { string } value - Indicates the value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
@@ -1289,6 +1290,7 @@ declare namespace settings {
    * @param { string } value - Indicates the value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
    * @since 11
