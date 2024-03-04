@@ -85,6 +85,7 @@
 /// <reference path="./rect.d.ts" />
 /// <reference path="./refresh.d.ts" />
 /// <reference path="./relative_container.d.ts" />
+/// <reference path="./repeat.d.ts" />
 /// <reference path="./rich_editor.d.ts" />
 /// <reference path="./rich_text.d.ts" />
 /// <reference path="./root_scene.d.ts" />
