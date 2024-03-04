@@ -15904,6 +15904,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   monopolizeEvents(monopolize: boolean): T;
+
+  /**
+   * When the component does a touch test, a user-defined callback is triggered.
+   *
+   * @param { Callback<TouchEvent, HitTestMode> } callback - A callback instance used when the component does a touch test.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 }
 
 /**
