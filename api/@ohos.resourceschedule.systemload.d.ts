@@ -21,7 +21,7 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * This module provides the capability to get systemload.
+ * This module provides the capability to get systemLoad.
  *
  * @namespace systemLoad
  * @syscap SystemCapability.ResourceSchedule.SystemLoad
