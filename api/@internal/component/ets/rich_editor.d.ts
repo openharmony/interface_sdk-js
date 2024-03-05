@@ -2530,7 +2530,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @crossplatform
   * @since 12
    */
-  selectedBackgroundCorlor(value: ResourceColor): RichEditorAttribute;
+  selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
 }
 
 /**
