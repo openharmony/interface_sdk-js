@@ -472,7 +472,15 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollPage(value: { next: boolean });
+  /**
+   * Called when page turning mode is set.
+   *
+   * @param { ScrollPageOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  scrollPage(value: ScrollPageOptions);
 
   /**
    * Called when page turning mode is set.
@@ -600,6 +608,35 @@ declare class Scroller {
    * @since 11
    */
   getItemRect(index: number): RectResult;
+}
+
+/*
+ * Define scroll page options
+ * @interface ScrollPageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface ScrollPageOptions {
+  /**
+   * Control whether to scroll to the next page or the previous page.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  next: boolean;
+
+  /**
+   * Set whether the scrollPage have animate.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  animation?: boolean;
 }
 
 /**
