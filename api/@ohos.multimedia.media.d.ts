@@ -182,22 +182,10 @@ declare namespace media {
    * @returns { Promise<AVScreenCaptureRecorder> } A Promise instance used to return AVScreenCaptureRecorder instance if the operation is successful;
    * returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
-   * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
    */
   function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>;
-
-  /**
-   * report user choice back to AVScreenCapture server
-   * 
-   * @param {number} sessionId The AVScreenCapture server session ID.
-   * @param {string} choice Content chosen by user.
-   * @throws { BusinessError } 
-   * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
-   * @systemapi
-   * @since 12
-   */
-  function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
   /**
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
@@ -4326,19 +4314,19 @@ declare namespace media {
    *  Enumerates AVScreenCaptureRecord preset types.
    * 
    * @enum { number }
-   * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
    */
   enum AVScreenCaptureRecordPreset {
     /**
      * screen record normal type, h264
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREEN_RECORD_PRESET_NORMAL = 0,
     /**
      * screen record high efficient type, h265
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREEN_RECORD_PRESET_HIGH_EFFICIENT = 1,
@@ -4348,67 +4336,67 @@ declare namespace media {
    *  Enumerates AVScreenCapture callback info type.
    * 
    * @enum { number }
-   * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
    */
   enum AVScreenCaptureOnInfoType {
     /**
      * screen capture started
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_STARTED = 0,
     /**
      * screen capture canceled
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_CANCELED = 1,
     /**
      * screen capture stopped by user
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_STOPPED_BY_USER = 2,
     /**
      * screen capture stopped by interrupt
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_STOPPED_BY_INTERRUPT = 3,
     /**
      * screen capture stopped by phone call
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_STOPPED_BY_INCALL = 4,
     /**
      * screen capture microphone not available
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_MIC_UNAVAILABLE = 5,
     /**
      * screen capture microphone is muted by user
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_MIC_MUTED_BY_USER = 6,
     /**
      * screen capture microphone is unmuted by user
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_MIC_UNMUTED_BY_USER = 7,
     /**
      * screen capture enter private scene
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_ENTER_PRIVATE_SCENE = 8,
     /**
      * screen capture exit private scene
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_INFO_EXIT_PRIVATE_SCENE = 9,
@@ -4418,58 +4406,58 @@ declare namespace media {
    * Provides the media AVScreenCaptureRecord config definition.
    *
    * @typedef AVScreenCaptureRecordConfig
-   * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
    */
   interface AVScreenCaptureRecordConfig {
     /**
      * Indicates video frame width.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     frameWidth?: number;
     /**
      * Indicates video frame height.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     frameHeight?: number;
     /**
      * Indicates video bitrate.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     videoBitrate?: number;
     /**
      * Indicates audio sample rate.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioSampleRate?: number;
     /**
      * Indicates audio channel count.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioChannelCount?: number;
     /**
      * Indicates audio bitrate.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     audioBitrate?: number;
     /**
      * Indicates AVScreenCaptureRecordPreset.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     preset?: number;
     /**
      * Indicates record file url.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    url: number;
+    url: string;
   }
 
   /**
@@ -4477,7 +4465,7 @@ declare namespace media {
    * to create an AVScreenCaptureRecorder instance.
    *
    * @typedef AVScreenCaptureRecorder
-   * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
    */
   interface AVScreenCaptureRecorder {
@@ -4485,7 +4473,7 @@ declare namespace media {
      * init AVScreenCaptureRecorder.
      * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
      * @returns { Promise<void> } A Promise instance used to return when init completed.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     init(config: AVScreenCaptureRecordConfig): Promise<void>;
@@ -4493,7 +4481,7 @@ declare namespace media {
     /**
      * start screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     startRecording(): Promise<void>;
@@ -4501,7 +4489,7 @@ declare namespace media {
     /**
      * stop screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when stopRecording completed.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     stopRecording(): Promise<void>;
@@ -4510,7 +4498,7 @@ declare namespace media {
      * set microphone enable or disable.
      * @param { ?boolean } enable - set microphone enable or disable during recording.
      * @returns { Promise<void> } A Promise instance used to return when setMicrophoneEnabled completed.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     setMicrophoneEnabled(enable?: boolean): Promise<void>;
@@ -4518,7 +4506,7 @@ declare namespace media {
     /**
      * release screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when release completed.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     release(): Promise<void>;
@@ -4527,7 +4515,7 @@ declare namespace media {
      * Listens for AVScreenCaptureRecord info callback.
      * @param { 'info' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     on(type: 'info', callback: Callback<AVScreenCaptureOnInfoType>): void;
@@ -4536,7 +4524,7 @@ declare namespace media {
      * Listens for AVScreenCaptureRecord info callback.
      * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
@@ -4545,7 +4533,7 @@ declare namespace media {
      * Unregister listens for AVScreenCaptureRecord info callback.
      * @param { 'info' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { ?Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     off(type: 'info', callback?: Callback<AVScreenCaptureOnInfoType>): void;
@@ -4554,7 +4542,7 @@ declare namespace media {
      * Unregister listens for AVScreenCaptureRecord error callback.
      * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { ?ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCaptureRecorder
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
