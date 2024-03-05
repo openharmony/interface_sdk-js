@@ -14749,7 +14749,15 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dragPreview(value: CustomBuilder | DragItemInfo): T;
+  /**
+   * Set preview of the component for dragging process
+   *
+   * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dragPreview(value: CustomBuilder | DragItemInfo | string): T;
 
   /**
    * Set the selectable area drag preview options.
