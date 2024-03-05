@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type connection from './@ohos.net.connection';
 
 /**
  * Obtains traffic statistics.
@@ -27,6 +28,13 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @since 10
  */
 declare namespace statistics {
+  /**
+   * @typedef NetBearType
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 12
+   */
+  type NetBearType = connection.NetBearType;
+
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
    * @param { string } nic - Network interface card.
