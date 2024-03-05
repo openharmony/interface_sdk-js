@@ -359,7 +359,7 @@ declare namespace a2dp {
      * @systemapi
      * @since 12
      */
-    getAutoPlayDisableDuration(deviceId: string): Promise<number>;
+    getAutoPlayDisabledDuration(deviceId: string): Promise<number>;
   }
 
   /**
