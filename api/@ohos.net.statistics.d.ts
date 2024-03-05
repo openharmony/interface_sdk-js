@@ -562,14 +562,14 @@ declare namespace statistics {
   }
 
   /**
-   * A {@link NetStatsInfo} array with start time and end time.
+   * An {@link NetStatsInfo} array with start time and end time.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12
    */
   export type NetStatsInfoSequence = {
     /**
-     * Start time of this statistics info.
+     * Start time for querying traffic.
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -577,7 +577,7 @@ declare namespace statistics {
      */
     startTime: number;
     /**
-     * End time of this statistics info.
+     * End time for querying traffic.
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -585,7 +585,7 @@ declare namespace statistics {
      */
     endTime: number;
     /**
-     * Network traffic statistics info.
+     * Detailed information of statistics.
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -603,8 +603,9 @@ declare namespace statistics {
   export type UidNetStatsInfo = {
     [uid: number]: NetStatsInfo;
   }
+
   /**
-   * Information about the network to be queried.
+   * Parameters for obtaining detailed information on specified network traffic usage.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -643,8 +644,9 @@ declare namespace statistics {
      */
     simId?: number;
   }
+
   /**
-   * Get the traffic usage details of network in the specified time period.
+   * Get the traffic usage details of the specified network of all applications in the specified time period.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { NetworkInfo } networkInfo - Information about the network to be queried.
    * @returns { Promise<UidNetStatsInfo> } The statistics of the sim card.
@@ -661,9 +663,9 @@ declare namespace statistics {
    */
   function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
   /**
-   * Get the traffic usage history of SIM in the specified time period.
+   * Get the traffic usage sequence of the specified network of the application in the specified time period.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { number } uid - UID with this parameter, get stats info of this UID, or get all stats info.
+   * @param { number } uid - UID with this parameter, get stats info of this UID.
    * @param { NetworkInfo } networkInfo - Information about the network to be queried.
    * @returns { Promise<NetStatsInfoSequence> } The statistics history of the sim card.
    * @throws { BusinessError } 201 - Permission denied.
