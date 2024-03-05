@@ -354,6 +354,26 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
+  
+  /**
+   * letter spacing.
+   *
+   * @type { ?(number | string) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing?: number | string;
+
+  /**
+   * line height.
+   *
+   * @type { ? (number | string | Resource) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight?: number | string | Resource;
 }
 
 
@@ -807,7 +827,7 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
-  
+
   /**
    * font lineheight.
    *
@@ -817,6 +837,16 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   lineHeight: number | string | Resource;
+
+  /**
+   * font letterspacing.
+   *
+   * @type { (number | string | Resource) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterspacing: number | string | Resource;
 }
 
 /**
