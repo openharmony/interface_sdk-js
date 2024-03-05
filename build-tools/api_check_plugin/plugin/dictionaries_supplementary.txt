@@ -972,6 +972,7 @@ useriam
 userspace
 usim
 ussd
+utd
 utilized
 utimes
 uuids
