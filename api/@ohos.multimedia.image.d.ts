@@ -1480,6 +1480,28 @@ declare namespace image {
      * @since 11
      */
     stride: number;
+
+    /**
+     * Indicates image format.
+     *
+     * @type { PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    pixelFormat: PixelMapFormat;
+
+    /**
+     * Indicates image alpha type.
+     *
+     * @type { AlphaType }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    alphaType: AlphaType;
   }
 
   /**
