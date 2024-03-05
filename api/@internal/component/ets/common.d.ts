@@ -18298,3 +18298,24 @@ declare module 'touchEvent'{
     export { TouchEvent };
   }
 }
+
+/**
+ * Defines the basic callback.
+ *
+ * @typedef Callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface Callback<T,V = void> {
+  /**
+   * Defines the callback info.
+   *
+   * @param { T } data - the data will be used in the callback.
+   * @returns { V } - Returns result of the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  (data: T): V;
+}
