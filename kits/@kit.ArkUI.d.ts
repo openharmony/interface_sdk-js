@@ -78,6 +78,7 @@ import font from '@ohos.font';
 import matrix4 from '@ohos.matrix4';
 import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
+import overlay from '@ohos.overlay';
 import PiPWindow from '@ohos.PiPWindow';
 import pluginComponentManager from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
@@ -122,6 +123,6 @@ export {
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility,
   WindowExtensionContext, XComponentNode, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
-  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
+  font, inspector, matrix4, mediaquery, overlay, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog
 };

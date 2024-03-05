@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
+import { FrameNode } from './@ohos.arkui.node'
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -1254,6 +1255,72 @@ export class ComponentUtils {
 }
 
 /**
+ * class Overlay
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class Overlay {
+  /**
+   * Add the FrameNode to the Overlay.
+   *
+   * @param { FrameNode } node - The node will be added to the Overlay.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addFrameNode(node: FrameNode): void;
+
+  /**
+   * Delete the FrameNode to the Overlay.
+   *
+   * @param { FrameNode } node - The node will be deleted from the Overlay.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  deleteFrameNode(node: FrameNode): void;
+
+  /**
+   * Show the FrameNode.
+   *
+   * @param { FrameNode } node - The node will be shown.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showNode(node: FrameNode): void;
+
+  /**
+   * Hide the FrameNode.
+   *
+   * @param { FrameNode } node - The node will be hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hideNode(node: FrameNode): void;
+
+  /**
+   * Show all FrameNodes on the Overlay.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  show(): void;
+
+  /**
+   * Hide all FrameNodes on the Overlay.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hide(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1539,6 +1606,16 @@ export class UIContext {
    * @since 11
    */
   getUIObserver(): UIObserver;
+
+  /**
+   * Get object Overlay.
+   *
+   * @returns { Overlay } object Overlay.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getOverlay(): Overlay;
 
   /**
    * Create an animator object for custom animation.
