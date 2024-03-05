@@ -11594,6 +11594,15 @@ declare enum DragPreviewMode {
 }
 
 /**
+ * ImageModifier
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
+
+/**
  * Defines the preview options.
  *
  * @interface DragPreviewOptions
@@ -11609,6 +11618,15 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+
+  /**
+  * Drag preview modifier.
+  *
+  * @type { ?ImageModifier }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  modifier?: ImageModifier;
 }
 
 /**
