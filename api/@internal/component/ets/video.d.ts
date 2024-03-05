@@ -1191,6 +1191,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @since 11
    */
   onError(event: () => void): VideoAttribute;
+
+  /**
+   * Called when the video is stopped.
+   *
+   * @param { Callback<void> } event
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onStop(event: Callback<void>): VideoAttribute;
 }
 
 /**
