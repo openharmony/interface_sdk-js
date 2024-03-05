@@ -829,7 +829,7 @@ declare interface RichEditorTextStyleResult {
   decoration: { type: TextDecorationType; color: ResourceColor; };
 
   /**
-   * font lineheight.
+   * line height.
    *
    * @type { (number | string | Resource) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -839,7 +839,7 @@ declare interface RichEditorTextStyleResult {
   lineHeight: number | string | Resource;
 
   /**
-   * font letterspacing.
+   * letter spacing.
    *
    * @type { (number | string | Resource) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
