@@ -13454,7 +13454,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 12
    */
   freeze(value: boolean): T;
 
