@@ -560,6 +560,124 @@ declare namespace statistics {
      */
     uid?: number;
   }
+
+  /**
+   * A {@link NetStatsInfo} array with start time and end time.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export type NetStatsInfoSequence = {
+    /**
+     * Start time of this statistics info.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    startTime: number;
+    /**
+     * End time of this statistics info.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    endTime: number;
+    /**
+     * Network traffic statistics info.
+     * @type { NetStatsInfo }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    info: NetStatsInfo;
+  }[];
+
+  /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export type UidNetStatsInfo = {
+    [uid: number]: NetStatsInfo;
+  }
+  /**
+   * Information about the network to be queried.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface NetworkInfo {
+    /**
+     * Network type.
+     * @type { NetBearType }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    type: NetBearType;
+    /**
+     * Query start time.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    startTime: number;
+    /**
+     * Query end time.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    endTime: number;
+    /**
+     * Query SIM id.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    simId?: number;
+  }
+  /**
+   * Get the traffic usage details of network in the specified time period.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<UidNetStatsInfo> } The statistics of the sim card.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Read data from database failed.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
+  /**
+   * Get the traffic usage history of SIM in the specified time period.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { number } uid - UID with this parameter, get stats info of this UID, or get all stats info.
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<NetStatsInfoSequence> } The statistics history of the sim card.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Read data from database failed.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getTrafficStatsByUidNetwork(uid: number, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
 }
 
 export default statistics;
