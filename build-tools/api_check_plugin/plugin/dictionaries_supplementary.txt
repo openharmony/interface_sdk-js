@@ -464,6 +464,7 @@ mifare
 minibar
 minimizing
 mirrored
+mismatches
 missions
 mkdtemp
 mmax
@@ -559,6 +560,7 @@ pdu
 peap
 persion
 persistable
+persistently
 perso
 personalisation
 pertaining
