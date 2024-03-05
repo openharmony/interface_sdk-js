@@ -308,6 +308,7 @@ declare namespace a2dp {
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
      * @param { number } duration - Restricted duration <milliseconds>.
+     * @returns { Promise<void> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter.
@@ -319,13 +320,14 @@ declare namespace a2dp {
      * @systemapi
      * @since 12
      */
-    disableAutoPlay(deviceId: string, duration: number): void;
+    disableAutoPlay(deviceId: string, duration: number): Promise<void>;
 
     /**
      * Allow devices to automatically play music when connected.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<void> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter.
@@ -337,7 +339,27 @@ declare namespace a2dp {
      * @systemapi
      * @since 12
      */
-    enableAutoPlay(deviceId: string): void;
+    enableAutoPlay(deviceId: string): Promise<void>;
+
+    /**
+     * Obtains the duration for which automatic playback is disabled.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { Promise<number> } Returns the duration <milliseconds>.
+     * @returns {@code -1} means allow devices automatic play music when connected.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    getAutoPlayDisableDuration(deviceId: string): Promise<number>;
   }
 
   /**
