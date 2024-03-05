@@ -2547,6 +2547,25 @@ export default class UIAbilityContext extends Context {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
+   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
+   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
+   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
+   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
   /**
@@ -2568,6 +2587,25 @@ export default class UIAbilityContext extends Context {
    * @systemapi
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
+   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
+   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
+   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
+   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
