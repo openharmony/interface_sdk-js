@@ -4042,6 +4042,24 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   url?: string;
+  /**
+   * The embed tag name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  tag?: string;
+  /**
+   * The embed param list information used by object tag.
+   *
+   * @type { ?Map<string, string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  params?: Map<string, string>;
 }
 
 /**
@@ -6721,6 +6739,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   enableNativeEmbedMode(mode: boolean): WebAttribute;
+
+  /**
+   * Register native pattern with specific tag and type.
+   *
+   * @param { string } tag - Tag name used by html webpage.
+   * @param { string } type - Type of the tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  registerNativeEmbedRule(tag: string, type:string): WebAttribute;
 
   /**
    * Triggered when embed lifecycle changes.
