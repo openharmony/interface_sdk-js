@@ -829,6 +829,16 @@ declare interface RichEditorTextStyleResult {
   decoration: { type: TextDecorationType; color: ResourceColor; };
 
   /**
+   * letter spacing.
+   *
+   * @type { (number | string) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterspacing: number | string;
+
+  /**
    * line height.
    *
    * @type { (number | string | Resource) } 
@@ -837,16 +847,6 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   lineHeight: number | string | Resource;
-
-  /**
-   * letter spacing.
-   *
-   * @type { (number | string | Resource) } 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  letterspacing: number | string | Resource;
 }
 
 /**
