@@ -303,7 +303,7 @@ declare namespace a2dp {
     setCurrentCodecInfo(deviceId: string, codecInfo: CodecInfo): void;
 
     /**
-     * Restriction devices to play music within (@code duration) milliseconds of connection.
+     * Restriction devices to play music within {@code duration} milliseconds of connection.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
