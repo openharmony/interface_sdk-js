@@ -2511,24 +2511,24 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
   
    /**
-   * Called when the color of the insertion cursor is set.
+   * Set caret color of rich editor.
    *
    * @param { ResourceColor } value -  Custom color types.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-  * @since 12
+   * @since 12
    */
   caretColor(value: ResourceColor): RichEditorAttribute;
 
   /**
-   * Define the text selected background color of rich editor.
+   * Set background color of selected text in rich editor.
    *
    * @param { ResourceColor } value -  Custom color types.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-  * @since 12
+   * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
 }
