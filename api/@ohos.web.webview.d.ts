@@ -20,7 +20,7 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
@@ -3936,6 +3936,19 @@ declare namespace webview {
      * @since 12
      */
     getPrintBackground(): boolean;
+
+    /**
+     * Get the url of the last frame that calls the JavaScriptProxy.
+     * This should be called on the UI thread.
+     *
+     * @returns { string } The url of the last frame that calls the JavaScriptProxy.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getLastJavascriptProxyCallingFrameUrl(): string
 
     /**
      * Start current camera.
