@@ -4333,73 +4333,73 @@ declare namespace media {
   }
 
   /**
-   *  Enumerates AVScreenCapture callback info type.
+   *  Enumerates AVScreenCapture callback state type.
    * 
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
    */
-  enum AVScreenCaptureOnInfoType {
+  enum AVScreenCaptureStateCode {
     /**
      * screen capture started
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_STARTED = 0,
+    SCREENCAPTURE_STATE_STARTED = 0,
     /**
      * screen capture canceled
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_CANCELED = 1,
+    SCREENCAPTURE_STATE_CANCELED = 1,
     /**
      * screen capture stopped by user
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_STOPPED_BY_USER = 2,
+    SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
     /**
      * screen capture stopped by interrupt
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_STOPPED_BY_INTERRUPT = 3,
+    SCREENCAPTURE_STATE_STOPPED_BY_INTERRUPT = 3,
     /**
      * screen capture stopped by phone call
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_STOPPED_BY_INCALL = 4,
+    SCREENCAPTURE_STATE_STOPPED_BY_INCALL = 4,
     /**
      * screen capture microphone not available
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_MIC_UNAVAILABLE = 5,
+    SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
     /**
      * screen capture microphone is muted by user
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_MIC_MUTED_BY_USER = 6,
+    SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
     /**
      * screen capture microphone is unmuted by user
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_MIC_UNMUTED_BY_USER = 7,
+    SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
     /**
      * screen capture enter private scene
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_ENTER_PRIVATE_SCENE = 8,
+    SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
     /**
      * screen capture exit private scene
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_INFO_EXIT_PRIVATE_SCENE = 9,
+    SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
   }
 
   /**
@@ -4513,12 +4513,12 @@ declare namespace media {
 
     /**
      * Listens for AVScreenCaptureRecord info callback.
-     * @param { 'info' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    on(type: 'info', callback: Callback<AVScreenCaptureOnInfoType>): void;
+    on(type: 'stateChange', callback: Callback<AVScreenCaptureOnInfoType>): void;
 
     /**
      * Listens for AVScreenCaptureRecord info callback.
@@ -4531,12 +4531,12 @@ declare namespace media {
 
     /**
      * Unregister listens for AVScreenCaptureRecord info callback.
-     * @param { 'info' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { ?Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    off(type: 'info', callback?: Callback<AVScreenCaptureOnInfoType>): void;
+    off(type: 'stateChange', callback?: Callback<AVScreenCaptureOnInfoType>): void;
 
     /**
      * Unregister listens for AVScreenCaptureRecord error callback.
