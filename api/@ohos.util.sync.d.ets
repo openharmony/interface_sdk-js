@@ -79,11 +79,15 @@ declare namespace locks {
      * Perform an operation under lock.
      * The method acquire the lock first, then calls the callback and after releases the lock.
      * The callback may be called asynchronously but it always called in the same thread where lockAsync is called.
+     * An optional timeout value can be provided in {@link AsyncLockOptions}. In this case lockAsync will reject the
+     * resulting promise with a BusinessError instance if the lock is not acquired before timeout exceeds.
+     * The error message in this case will contain the held and waited locks information and possible deadlock warnings.
      *
      * @param { Function<T> } callback - callback to call when the lock gets acquired.
      * @param { AsyncLockMode } mode - mode of the lock operation.
      * @param { AsyncLockOptions<U> } options - lock operation options.
-     * @returns { Promise<T|U> } Promise which will be resolved after the callback gets executed.
+     * @returns { Promise<T|U> } Promise which will be resolved after the callback gets executed or rejected in case if timeout
+     * exceeded.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -172,6 +176,16 @@ declare namespace locks {
      * @since 12
      */
     signal?: AbortSignal<T>;
+    /**
+     * Lock operation timeout in milliseconds. If it is specified, the lockAsync will reject the resulting promise
+     * when timeout exceeds.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    timeout?: number;
   }
 
   /**
