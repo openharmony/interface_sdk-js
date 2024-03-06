@@ -4163,6 +4163,62 @@ declare namespace webview {
      * @since 12
      */
     static clearServiceWorkerWebSchemeHandler(): void;
+
+    /**
+     * Enable the ability to use Intelligent Tracking Prevention; default is disabled.
+     *
+     * @param { boolean } enable {@code true} enable Intelligent Tracking Prevention; {@code false} otherwise.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    enableIntelligentTrackingPrevention(enable: boolean): void;
+
+    /**
+     * Get whether Intelligent Tracking Prevention is enabled.
+     *
+     * @returns { boolean } True if enable the Intelligent Tracking Prevention; else false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isIntelligentTrackingPreventionEnabled(): boolean;
+
+    /**
+     * Add bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts that bypass the Intelligent Tracking Prevention.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
+
+    /**
+     * Remove bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts needs to remove from bypass list.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
+
+    /**
+     * Clear bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearIntelligentTrackingPreventionBypassingList(): void;
   }
 
   /**
