@@ -4453,7 +4453,8 @@ declare namespace media {
      */
     preset?: number;
     /**
-     * Indicates record file url.
+     * Indicates record file url. Support a kind of url now.
+     * format like: "fd://" + "context".
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4496,12 +4497,12 @@ declare namespace media {
 
     /**
      * set microphone enable or disable.
-     * @param { ?boolean } enable - set microphone enable or disable during recording.
+     * @param { boolean } enable - set microphone enable or disable during recording.
      * @returns { Promise<void> } A Promise instance used to return when setMicrophoneEnabled completed.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    setMicrophoneEnabled(enable?: boolean): Promise<void>;
+    setMicrophoneEnabled(enable: boolean): Promise<void>;
 
     /**
      * release screen capture recording.
