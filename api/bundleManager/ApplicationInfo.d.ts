@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -584,4 +584,59 @@ export interface ModuleMetadata {
    * @since 11
    */
   readonly metadata: Array<Metadata>;
+}
+
+/**
+ * Indicates the information of preinstalled application
+ *
+ * @typedef PreinstalledApplicationInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 12
+ */
+export interface PreinstalledApplicationInfo {
+
+  /**
+   * Indicates the name of this bundle
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the name of entry module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly entryModuleName: string;
+
+  /**
+   * Indicates the icon id of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly iconId: number;
+
+  /**
+   * Indicates the label id of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly labelId: number;
 }
