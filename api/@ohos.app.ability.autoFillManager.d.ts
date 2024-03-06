@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -123,6 +123,16 @@ declare namespace autoFillManager {
    * @since 11
    */
   export type SaveRequest = _AutoFillRequest.SaveRequest;
+
+  /**
+   * The interface of update request.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  export type UpdateRequest = _AutoFillRequest.UpdateRequest;
 
   /**
    * The interface of fill response.

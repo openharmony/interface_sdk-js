@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,82 +13,53 @@
  * limitations under the License.
  */
 
-import type PageNodeInfo from './PageNodeInfo';
-import type AutoFillRect from './AutoFillRect';
-
 /**
- * View data for automatic filling.
+ * Auto fill rectangle.
  *
- * @interface ViewData
+ * @interface AutoFillRect
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since 12
  */
-export default interface ViewData {
+export default interface AutoFillRect {
   /**
-   * The bundle name.
+   * The left of the rect.
    *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  bundleName: string;
-
-  /**
-   * The module name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  moduleName: string;
-
-  /**
-   * The ability name.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  abilityName: string;
-
-  /**
-   * The page url.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  pageUrl: string;
-
-  /**
-   * The page node infos.
-   *
-   * @type { Array<PageNodeInfo> }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  pageNodeInfos: Array<PageNodeInfo>;
-
-  /**
-   * The page rect infos.
-   *
-   * @type { AutoFillRect }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
    * @since 12
    */
-  pageRect: AutoFillRect;
+  left: number;
+
+  /**
+   * The top of the rect.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  top: number;
+
+  /**
+   * The width of the rect.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  width: number;
+
+  /**
+   * The height of the rect.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  height: number;
 }
