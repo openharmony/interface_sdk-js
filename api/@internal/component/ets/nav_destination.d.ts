@@ -457,7 +457,6 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
