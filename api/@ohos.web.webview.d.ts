@@ -4961,6 +4961,15 @@ declare namespace webview {
      */
     setNetErrorCode(code: WebNetErrorList): void;
     /**
+     * Get net error code.
+     * 
+     * @returns { WebNetErrorList } Return response error code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getNetErrorCode(): WebNetErrorList;
+    /**
      * Set http status code.
      * 
      * @param { number } code - Http status code.
