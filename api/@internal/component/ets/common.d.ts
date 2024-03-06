@@ -3301,6 +3301,55 @@ declare type TransitionEffects = {
 };
 
 /**
+ * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DrawModifier {
+  /**
+   * drawBehind Method. Executed before drawing associated Node.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawBehind?(drawContext: DrawContext): void;
+
+  /**
+   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced 
+   * if this method is set.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawContent?(drawContext: DrawContext): void;
+  
+  /**
+   * drawFront Method. Executed after drawing associated Node.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawFront?(drawContext: DrawContext): void;
+  
+  /**
+   * Invalidate the component, which will cause a re-render of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
+}
+
+/**
  * Defines the transition effect
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11521,6 +11570,17 @@ declare class CommonMethod<T> {
    * @form
    */
   height(value: Length): T;
+  
+  /**
+   * Sets the drawModifier of the current component.
+   *
+   * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawModifier(modifier: DrawModifier | undefined): T;
 
   /**
    * Expands the safe area.
@@ -17209,6 +17269,15 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
  * @since 11
  */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
+
+/**
+ * DrawContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
 
 /**
  * Custom Component
