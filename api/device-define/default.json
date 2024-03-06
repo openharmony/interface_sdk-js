@@ -203,9 +203,13 @@
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Graphic.Graphic2D.NativeDrawing",
+    "SystemCapability.Graphic.Graphic2D.NativeImage",
     "SystemCapability.Developtools.Syscap",
     "SystemCapability.Resourceschedule.Ffrt.Core",
     "SystemCapability.Graphic.Graphic2D.NativeWindow",
+    "SystemCapability.Graphic.Graphic2D.NativeBuffer",
+    "SystemCapability.Graphic.Graphic2D.NativeImage",
+    "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Graphic.Graphic2D.WebGL2"
