@@ -460,7 +460,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @atomicservice
    * @since 12
    */
-  menuItems(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
+  menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
 
   /**
    * Invoked before sub-components of NavDestination are created.
