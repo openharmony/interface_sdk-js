@@ -2089,7 +2089,7 @@ declare namespace print {
   function notifyPrintService(jobId: string, type: 'spooler_closed_for_cancelled' | 'spooler_closed_for_started'): Promise<void>;
 
   /**
-   * Query all added printers.
+   * Get all added printers.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2098,10 +2098,10 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function queryAddedPrinters(): Promise<Array<string>>;
+  function getAddedPrinters(): Promise<Array<string>>;
 
   /**
-   * Query printer info by printer id.
+   * Get printer info by printer id.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } printerId - Indicates id of the printer.
    * @returns { Promise<PrinterInfo> } the promise returned by the function.
@@ -2111,7 +2111,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function queryPrinterInfoByPrinterId(printerId: string): Promise<PrinterInfo>;
+  function getPrinterInfoById(printerId: string): Promise<PrinterInfo>;
 }
 
 export default print;
