@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BasicApiInfo as nodeBaseApiInfo, ExportImportValue } from '../../typedef/parser/ApiInfoDefination';
+import { BasicApiInfo as nodeBaseApiInfo, ExportImportValue, ParentClass } from '../../typedef/parser/ApiInfoDefination';
 
 import { StringConstant } from '../../utils/Constant';
 import { Comment } from './Comment';
@@ -233,9 +233,9 @@ export class NamespaceEnumInfo extends ApiInfo {
 }
 
 export class ClassInterfaceInfo extends NamespaceEnumInfo {
-  parentClasses: string[] = [];
+  parentClasses: ParentClass[] = [];
 
-  setParentClasses(parentClasses: string[]): ClassInterfaceInfo {
+  setParentClasses(parentClasses: ParentClass[]): ClassInterfaceInfo {
     this.parentClasses.push(...parentClasses);
     return this;
   }

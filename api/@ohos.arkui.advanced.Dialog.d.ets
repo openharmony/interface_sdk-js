@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2023-2023 Huawei Device Co., Ltd.
+* Copyright (C) 2023-2024 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -92,6 +92,24 @@ export declare class ButtonOptions {
    * @since 11
    */
   fontColor?: ResourceColor;
+  /**
+   * Describes the Button style.
+   * @type { ?ButtonStyleMode }
+   * @default ButtonStyleMode.TEXTUAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: ButtonStyleMode;
+  /**
+   * Describes the Button role.
+   * @type { ?ButtonRole }
+   * @default ButtonRole.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  role?: ButtonRole;
 }
 /**
  * Declare CustomDialog TipsDialog
@@ -558,4 +576,54 @@ export declare struct LoadingDialog {
    * @since 11
    */
   content?: ResourceStr;
+}
+
+/**
+ * Declare custom content dialog
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+@CustomDialog
+export declare struct CustomContentDialog {
+  /**
+   * Sets the CustomContentDialog Controller.
+   * @type { CustomDialogController }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  controller: CustomDialogController;
+  /**
+   * Sets the CustomContentDialog title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primaryTitle?: ResourceStr;
+  /**
+   * Sets the CustomContentDialog secondary title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  secondaryTitle?: ResourceStr;
+  /**
+   * Sets the CustomContentDialog content.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @BuilderParam contentBuilder: () => void;
+  /**
+   * Sets the CustomContentDialog buttons.
+   * @type { ?ButtonOptions[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttons?: ButtonOptions[];
 }

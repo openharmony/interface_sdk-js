@@ -1508,6 +1508,38 @@ declare interface RichEditorBuilderSpanOptions {
 }
 
 /**
+ * Defines the placeholder style.
+ *
+ * @interface PlaceholderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface PlaceholderStyle {
+  /**
+   * font.
+   *
+   * @type { ?Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  font?: Font;
+
+  /**
+   * fontColor.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fontColor?: ResourceColor;
+}
+
+/**
  * Defines span style option of RichEditor.
  *
  * @interface RichEditorSpanStyleOptions
@@ -2465,6 +2497,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
+
+  /**
+   * Set richEditor placeholder.
+   *
+   * @param { ResourceStr } value - The value of placeholder.
+   * @param { PlaceholderStyle } options - The style of placeholder.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
 }
 
 /**

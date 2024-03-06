@@ -3102,6 +3102,21 @@ declare namespace relationalStore {
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
     /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<ValueType> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
+
+    /**
      * BeginTransaction before execute your sql.
      *
      * @throws { BusinessError } 401 - Parameter error.

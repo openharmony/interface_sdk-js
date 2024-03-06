@@ -27,6 +27,7 @@ const {
   getCheckApiVersion,
   FUNCTION_TYPES,
   DIFF_INFO,
+  createErrorInfo
 } = require('./utils');
 const ts = requireTypescriptModule();
 const { addAPICheckErrorLogs } = require('./compile_info');
@@ -95,7 +96,7 @@ function checkApiChangeVersion(currentJSDoc, lastJSDoc, node) {
   if (lastVersion === 0 || currentVersion !== checkApiVersion) {
     changeErrors.push({
       node: node,
-      errorInfo: ErrorValueInfo.ERROR_CHANGES_VERSION,
+      errorInfo: createErrorInfo(ErrorValueInfo.ERROR_CHANGES_VERSION, [checkApiVersion]),
       LogType: LogType.LOG_JSDOC,
     });
   }

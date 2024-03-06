@@ -45,11 +45,12 @@ import worker, {
   WorkerEventListener, WorkerEventTarget, WorkerOptions
 } from '@ohos.worker';
 import xml from '@ohos.xml';
+import JSON from '@ohos.util.json';
 
 export {
   ArrayList, convertxml, DedicatedWorkerGlobalScope, Deque, ErrorEvent, Event, EventListener,
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, buffer, process, taskpool,
-  uri, url, util, worker, xml
+  uri, url, util, worker, xml, JSON
 };

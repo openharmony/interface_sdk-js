@@ -953,7 +953,33 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 11
      */
-    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode'
+    /**
+     * Indicates the key specifying the form rendering mode, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_RENDERING_MODE_KEY: FormRenderingMode.SINGLE_COLOR
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode',
+
+    /**
+     * Indicates the key specifying the inverse of the host background color, which is represented as
+     * want: {
+     *   "parameters": {
+     *       HOST_BG_INVERSE_COLOR_KEY: "#FF000000"
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    HOST_BG_INVERSE_COLOR_KEY = 'ohos.extra.param.key.host_bg_inverse_color',
   }
 
   /**
