@@ -401,6 +401,7 @@ isim
 issuers
 ivi
 iwlan
+jank
 jis
 judged
 kaihong
@@ -552,6 +553,7 @@ osd
 ott
 ounted
 overheated
+overlimit
 overline
 owningproperties
 ows
