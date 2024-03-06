@@ -352,7 +352,8 @@
       "SystemCapability.Multimedia.AudioHaptic.Core",
       "SystemCapability.ArkUi.Graphics3D",
       "SystemCapability.Multimedia.Drm.Core",
-      "SystemCapability.Graphics.Drawing"
+      "SystemCapability.Graphics.Drawing",
+      "SystemCapability.ResourceSchedule.SystemLoad"
     ]
   },
   "administrators": [
