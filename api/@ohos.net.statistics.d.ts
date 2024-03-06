@@ -620,7 +620,7 @@ declare namespace statistics {
    */
   export interface NetworkInfo {
     /**
-     * Network type.
+     * Network type for querying traffic.
      * @type { NetBearType }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -628,7 +628,7 @@ declare namespace statistics {
      */
     type: NetBearType;
     /**
-     * Query start time.
+     * Start time for querying traffic.
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -636,7 +636,7 @@ declare namespace statistics {
      */
     startTime: number;
     /**
-     * Query end time.
+     * End time for querying traffic.
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -644,7 +644,7 @@ declare namespace statistics {
      */
     endTime: number;
     /**
-     * Query SIM id.
+     * SIM card id for querying traffic.
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
