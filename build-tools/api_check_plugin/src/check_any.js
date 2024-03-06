@@ -21,7 +21,7 @@ const ts = requireTypescriptModule();
 function checkAnyInAPI(node, sourcefile, fileName) {
   if (node.kind === ts.SyntaxKind.AnyKeyword && checkVersionNeedCheck(node)) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.ILLEGAL_ANY, ErrorValueInfo.ILLEGAL_USE_ANY, FileType.API,
-      ErrorLevel.MIDDLE);
+      ErrorLevel.LOW);
   }
 }
 exports.checkAnyInAPI = checkAnyInAPI;
