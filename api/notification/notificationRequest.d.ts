@@ -310,6 +310,25 @@ export interface NotificationRequest {
   readonly creatorUserId?: number;
 
   /**
+   * Application instance key value.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  createorInstanceKey?: number;
+
+  /**
+   * Apply custom ringtones.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  sound?: string;
+
+  /**
    * Obtains the classification of this notification.
    *
    * @type { ?string }
