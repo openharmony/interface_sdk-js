@@ -368,7 +368,7 @@ declare namespace inputMethodEngine {
   function createKeyboardDelegate(): KeyboardDelegate;
 
   /**
-   * Indicates possible command data types.
+   * Indicates the possible data types of the command.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
