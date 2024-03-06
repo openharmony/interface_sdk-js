@@ -155,6 +155,24 @@ declare namespace promptAction {
      * @since 11
      */
     showMode?: ToastShowMode;
+    /**
+     * Defines the toast alignment of the screen.
+     *
+     * @type { ?Alignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    alignment?: Alignment;
+    /**
+     * Defines the toast offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    offset?: Offset;
   }
 
   /**
