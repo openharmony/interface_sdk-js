@@ -9032,6 +9032,23 @@ declare enum AppRotation {
   ROTATION_270 = 3
 }
 
+/**
+ * Enum of EmbeddedType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum EmbeddedType {
+  /**
+   * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  EMBEDDED_UI_EXTENSION = 0,
+}
+
 declare module 'borderStyle' {
   module 'borderStyle' {
     // @ts-ignore

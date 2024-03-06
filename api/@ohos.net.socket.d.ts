@@ -2637,7 +2637,7 @@ declare namespace socket {
 
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2650,7 +2650,7 @@ declare namespace socket {
      */
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2662,11 +2662,25 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    send(data: string, callback: AsyncCallback<void>): void;
+    /**
+     * Sends data over a TLSSocket connection.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
+     * @param { AsyncCallback<void> } callback - the callback of send.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - Error in tls writing.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
+    send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2679,7 +2693,7 @@ declare namespace socket {
      */
     /**
      * Sends data over a TLSSocket connection.
-     * @param { string } data - Optional parameters {@link string}.
+     * @param { string } data - Parameters for sending data {@link string}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
@@ -2691,7 +2705,21 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    send(data: string): Promise<void>;
+    /**
+     * Sends data over a TLSSocket connection.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - Error in tls writing.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
+    send(data: string | ArrayBuffer): Promise<void>;
 
     /**
      * Closes a TLSSocket connection
@@ -2765,13 +2793,20 @@ declare namespace socket {
      * @since 9
      */
     /**
-     * Certificate used to verify the identity of the server
+     * Certificate used to verify the identity of the server.
      * @type {string | Array<string>}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    ca: string | Array<string>;
+    /**
+     * Certificate used to verify the identity of the server, if it is not set, use system ca.
+     * @type {?(string | Array<string>)}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 12
+     */
+    ca?: string | Array<string>;
 
     /**
      * Certificate proving the identity of the client
@@ -3315,7 +3350,20 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    send(data: string, callback: AsyncCallback<void>): void;
+    /**
+     * Sends data over a TLSSocketServer connection to client.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
+     * @param { AsyncCallback<void> } callback - The callback of send.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - Error in tls writing.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
      * Sends data over a TLSSocketServer connection to client.
@@ -3330,7 +3378,20 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    send(data: string): Promise<void>;
+    /**
+     * Sends data over a TLSSocketServer connection to client.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - Error in tls writing.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    send(data: string | ArrayBuffer): Promise<void>;
 
     /**
      * Closes a TLSSocket client connection.

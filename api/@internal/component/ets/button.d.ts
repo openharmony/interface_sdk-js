@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -187,6 +187,37 @@ declare enum ButtonStyleMode {
 }
 
 /**
+ * Enum for button role.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare enum ButtonRole {
+  /**
+   * Normal button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  NORMAL = 0,
+
+  /**
+   * Error button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  ERROR = 1,
+}
+
+/**
  * Enum for Control Size.
  *
  * @enum { string }
@@ -347,6 +378,18 @@ declare interface ButtonOptions {
    * @form
    */
   controlSize?: ControlSize;
+
+  /**
+   * Describes the button role.
+   *
+   * @type { ?ButtonRole }
+   * @default ButtonRole.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+    role?: ButtonRole;
 }
 
 /**
@@ -776,6 +819,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    */
   controlSize(value: ControlSize): ButtonAttribute;
+
+  /** 
+   * Set the Button role.
+   * 
+   * @param { ButtonRole } value - button role
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12 
+   */
+  role(value: ButtonRole): ButtonAttribute;
 
   /**
    * Text color.

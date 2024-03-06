@@ -478,6 +478,7 @@ minibar
 minimizing
 mirrored
 misconfigured
+mismatches
 missions
 mkdtemp
 mmax
@@ -573,11 +574,13 @@ pdu
 peap
 persion
 persistable
+persistently
 perso
 personalisation
 pertaining
 pgo
 photographing
+phy
 pickers
 pixelmap
 playpause
@@ -986,3 +989,4 @@ sar
 adapts
 followx
 precomposited
+refresher

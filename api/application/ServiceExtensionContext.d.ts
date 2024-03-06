@@ -1332,7 +1332,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -1351,7 +1351,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
@@ -1373,7 +1373,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -1392,7 +1392,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
