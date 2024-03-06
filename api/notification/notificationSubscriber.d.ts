@@ -294,7 +294,7 @@ export interface BadgeNumberCallbackData {
   readonly badgeNumber: number;
 
   /**
-   * Application instance key value.
+   * Application instance key.
    *
    * @type { ?number }
    * @readonly
