@@ -122,7 +122,17 @@ export default class FormExtensionAbility {
    * @atomicservice
    * @since 11
    */
-  onUpdateForm(formId: string): void;
+  /**
+   * Called to notify the form provider to update a specified form.
+   *
+   * @param { string } formId - Indicates the ID of the form to update.
+   * @param { Record<string, Object> } [wantParams] - Indicates the detailed information for updating the form.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
   /**
    * Called when the form provider receives form events from the system.
