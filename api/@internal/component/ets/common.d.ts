@@ -8787,6 +8787,28 @@ declare interface BindOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * Callback function before overlay animation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillAppear?: () => void;
+
+  /**
+   * Callback function before overlay popAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillDisappear?: () => void;
 }
 
 /**
