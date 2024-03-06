@@ -3068,7 +3068,7 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * Indicates the PreinstalledApplicationInfo.
+   * Indicates the information of preinstalled application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
