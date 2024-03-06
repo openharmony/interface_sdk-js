@@ -48,7 +48,6 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 /**
  * The callback of largestContentfulPaint.
  *
- * @typedef OnLargestContentfulPaintCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
@@ -58,12 +57,22 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
 /**
  * The callback of firstMeaningfulPaint.
  *
- * @typedef OnFirstMeaningfulPaintCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
  */
 type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
+
+/**
+ * The callback of onOverrideUrlLoading.
+ * Should not call WebviewController.loadUrl with the request's URL and then return true.
+ * Returning true causes the current Web to abort loading the URL, false causes the Web to continue loading the url as usual.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
@@ -6745,6 +6754,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   copyOptions(value: CopyOptions): WebAttribute;
+
+  /**
+   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
+   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
+   *
+   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 }
 
 /**
