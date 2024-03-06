@@ -282,7 +282,12 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture video template action event type.
-   *
+   * 
+   * playbackStateChanged: action event to change playback state.
+   * nextVideo: action event to play next video.
+   * previousVideo: action event to play previous video.
+   * fastForward: action event to fast forward video.
+   * fastBackward: action event to fast backward video.
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -386,7 +391,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType, status?:number) => void): void;
+    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType, status? :number) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
