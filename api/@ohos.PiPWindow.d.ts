@@ -391,7 +391,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType, status? :number) => void): void;
+    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType, status?: number) => void): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
