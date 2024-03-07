@@ -614,6 +614,7 @@ declare namespace statistics {
 
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.
+   * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -645,7 +646,7 @@ declare namespace statistics {
     endTime: number;
     /**
      * SIM card id for querying traffic.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12
