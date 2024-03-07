@@ -4319,13 +4319,13 @@ declare namespace media {
    */
   enum AVScreenCaptureRecordPreset {
     /**
-     * screen record normal type, h264
+     * screen record normal type, h264/aac mp4
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREEN_RECORD_PRESET_NORMAL = 0,
     /**
-     * screen record high efficient type, h265
+     * screen record high efficient type, h265/aac mp4
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4447,11 +4447,11 @@ declare namespace media {
      */
     audioBitrate?: number;
     /**
-     * Indicates AVScreenCaptureRecordPreset.
+     * Indicates AVScreenCaptureRecordPreset, details see @AVScreenCaptureRecordPreset
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    preset?: number;
+    preset?: AVScreenCaptureRecordPreset;
     /**
      * Indicates record file url. Support a kind of url now.
      * format like: "fd://" + "context".
@@ -4474,6 +4474,9 @@ declare namespace media {
      * init AVScreenCaptureRecorder.
      * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
      * @returns { Promise<void> } A Promise instance used to return when init completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4482,6 +4485,8 @@ declare namespace media {
     /**
      * start screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4490,6 +4495,8 @@ declare namespace media {
     /**
      * stop screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when stopRecording completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4497,8 +4504,11 @@ declare namespace media {
 
     /**
      * set microphone enable or disable.
+     * 
      * @param { boolean } enable - set microphone enable or disable during recording.
      * @returns { Promise<void> } A Promise instance used to return when setMicrophoneEnabled completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4507,6 +4517,8 @@ declare namespace media {
     /**
      * release screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4525,6 +4537,8 @@ declare namespace media {
      * Listens for AVScreenCaptureRecord info callback.
      * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @throws { BusinessError } 5400103 - IO error. Return by ErrorCallback.
+     * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
