@@ -2602,6 +2602,15 @@ declare namespace notificationManager {
     CUSTOMER_SERVICE = 5,
 
     /**
+     * NotificationSlot for emergency information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    EMERGENCY_INFORMATION = 10,
+
+    /**
      * NotificationSlot for other purposes.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -2935,6 +2944,64 @@ declare namespace notificationManager {
      * @since 9
      */
     TYPE_TIMER = 2
+  }
+
+  /**
+   * Enum for notification control flag status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export enum NotificationControlFlagStatus {
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of ringtone.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_SOUND = 1 << 0,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of lock screen.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_LOCKSCREEN = 1 << 1,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of banner.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_BANNER = 1 << 2,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of light screen.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_LIGHT_SCREEN = 1 << 3,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of vibration.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_VIBRATION = 1 << 4,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of status bar icon.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
   }
 
   /**
