@@ -25,6 +25,7 @@ import type { LocalStorage } from 'StateManagement';
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
+import type uiExtension from "./@ohos.arkui.uiExtension";
 
 /**
  * class of ui extension content session.
@@ -563,4 +564,15 @@ export default class UIExtensionContentSession {
    * @since 11
    */
   getUIExtensionHostWindowProxy(): uiExtensionHost.UIExtensionHostWindowProxy;
+
+  /**
+   * Get the UIExtension Window proxy.
+   *
+   * @returns { uiExtension.WindowProxy } Returns the UIExtension Window proxy.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
+  getUIExtensionWindowProxy(): uiExtension.WindowProxy;
 }
