@@ -4319,13 +4319,13 @@ declare namespace media {
    */
   enum AVScreenCaptureRecordPreset {
     /**
-     * screen record normal type, h264/aac mp4
+     * Screen record normal type, h264/aac mp4
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREEN_RECORD_PRESET_NORMAL = 0,
     /**
-     * screen record high efficient type, h265/aac mp4
+     * Screen record high efficient type, h265/aac mp4
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4341,61 +4341,61 @@ declare namespace media {
    */
   enum AVScreenCaptureStateCode {
     /**
-     * screen capture started
+     * Screen capture started
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STARTED = 0,
     /**
-     * screen capture canceled
+     * Screen capture canceled
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_CANCELED = 1,
     /**
-     * screen capture stopped by user
+     * Screen capture stopped by user
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
     /**
-     * screen capture stopped by interrupt
+     * Screen capture stopped by interrupt
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STOPPED_BY_INTERRUPT = 3,
     /**
-     * screen capture stopped by phone call
+     * Screen capture stopped by phone call
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_STOPPED_BY_INCALL = 4,
     /**
-     * screen capture microphone not available
+     * Screen capture microphone not available
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
     /**
-     * screen capture microphone is muted by user
+     * Screen capture microphone is muted by user
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
     /**
-     * screen capture microphone is unmuted by user
+     * Screen capture microphone is unmuted by user
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
     /**
-     * screen capture enter private scene
+     * Screen capture enter private scene
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
     SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
     /**
-     * screen capture exit private scene
+     * Screen capture exit private scene
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4471,7 +4471,7 @@ declare namespace media {
    */
   interface AVScreenCaptureRecorder {
     /**
-     * init AVScreenCaptureRecorder.
+     * Init AVScreenCaptureRecorder.
      * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
      * @returns { Promise<void> } A Promise instance used to return when init completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -4483,7 +4483,7 @@ declare namespace media {
     init(config: AVScreenCaptureRecordConfig): Promise<void>;
 
     /**
-     * start screen capture recording.
+     * Start screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -4493,7 +4493,7 @@ declare namespace media {
     startRecording(): Promise<void>;
 
     /**
-     * stop screen capture recording.
+     * Stop screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when stopRecording completed.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -4503,9 +4503,8 @@ declare namespace media {
     stopRecording(): Promise<void>;
 
     /**
-     * set microphone enable or disable.
-     * 
-     * @param { boolean } enable - set microphone enable or disable during recording.
+     * Set microphone enable or disable.
+     * @param { boolean } enable - Set microphone enable or disable during recording.
      * @returns { Promise<void> } A Promise instance used to return when setMicrophoneEnabled completed.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -4515,7 +4514,7 @@ declare namespace media {
     setMicrophoneEnabled(enable: boolean): Promise<void>;
 
     /**
-     * release screen capture recording.
+     * Release screen capture recording.
      * @returns { Promise<void> } A Promise instance used to return when release completed.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
