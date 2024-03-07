@@ -196,6 +196,31 @@ declare namespace power {
   function isStandby(): boolean;
 
   /**
+  * hibernate the device.
+  *
+  * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
+  * @throws { BusinessError } 202 - If the system permission is denied.
+  * @throws { BusinessError } 4900101 - If connecting to the service failed.
+  * @syscap SystemCapability.PowerManager.PowerManager.Core
+  * @systemapi
+  * @since 12
+  */
+  function hibernate(clearMemory: boolean): void;
+
+  /**
+  * Sets the timeout duration(ms) for turning off the screen.
+  *
+  * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+  * @throws { BusinessError } 201 – If the permission is denied.
+  * @throws { BusinessError } 202 - If the system permission is denied.
+  * @throws { BusinessError } 4900101 - If connecting to the service failed.
+  * @syscap SystemCapability.PowerManager.PowerManager.Core
+  * @systemapi
+  * @since 12
+  */
+  function setScreenOffTime(timeout: number): void;
+
+  /**
    * Power mode of a device.
    *
    * @enum { number }
