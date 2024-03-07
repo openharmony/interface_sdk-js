@@ -92,7 +92,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.startScan
+   * @useinstead  ohos.wifiManager/wifiManager#startScan
    */
   function scan(): void;
 
@@ -105,6 +105,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 10
    */
   function startScan(): void;
@@ -120,7 +121,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.getScanInfoList
+   * @useinstead ohos.wifiManager/wifiManager#getScanInfoList
    */
   function getScanResults(): Promise<Array<WifiScanInfo>>;
 
@@ -136,7 +137,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.getScanInfoList
+   * @useinstead ohos.wifiManager/wifiManager#getScanInfoList
    */
   function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
@@ -151,7 +152,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.getScanInfoList
+   * @useinstead ohos.wifiManager/wifiManager#getScanInfoList
    */
   function getScanResultsSync(): Array<WifiScanInfo>;
 
@@ -163,6 +164,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 10
    */
   function getScanInfoList(): Array<WifiScanInfo>;
@@ -208,6 +210,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 9
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
@@ -341,6 +344,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 9
    */
   function connectToNetwork(networkId: number): void;
@@ -400,6 +404,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
@@ -449,7 +454,7 @@ declare namespace wifiManager {
   /**
    * Check whether the device supports a specified feature.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { number } featureId Indicates the ID of the feature.
+   * @param { number } featureId - Indicates the ID of the feature.
    * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -564,6 +569,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 10
    */
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
@@ -571,7 +577,7 @@ declare namespace wifiManager {
   /**
    * Update the specified Wi-Fi configuration.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param { WifiDeviceConfig } config Indicates the Wi-Fi configuration to update.
+   * @param { WifiDeviceConfig } config - Indicates the Wi-Fi configuration to update.
    * @returns { number } Returns the network ID in the updated Wi-Fi configuration if the update is successful;
    *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -581,6 +587,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 9
    */
   function updateNetwork(config: WifiDeviceConfig): number;
@@ -589,7 +596,7 @@ declare namespace wifiManager {
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId Identifies the network to disable.
+   * @param { number } netId - Identifies the network to disable.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1216,6 +1223,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
@@ -1232,6 +1240,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
@@ -1246,6 +1255,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
@@ -1261,6 +1271,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
@@ -1275,6 +1286,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
@@ -1290,6 +1302,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
@@ -1374,6 +1387,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi device config change events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'deviceConfigChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
@@ -1471,6 +1485,7 @@ declare namespace wifiManager {
 
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of off
@@ -2082,6 +2097,7 @@ declare namespace wifiManager {
     /** 
      * Wi-Fi SSID: the maximum length is 32.
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
      * @since 9
      */
     ssid: string;
@@ -2118,6 +2134,7 @@ declare namespace wifiManager {
     /**
      * Security type: reference definition of WifiSecurityType
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
      * @since 9
      */
     securityType: WifiSecurityType;
@@ -2640,6 +2657,7 @@ declare namespace wifiManager {
    * Wi-Fi connection information.
    * @typedef WifiLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   interface WifiLinkedInfo {
