@@ -4766,25 +4766,25 @@ declare namespace webview {
   }
 
   /**
-   * The post data stream of the request.
+   * The http body stream of the request.
    * 
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  class WebPostDataStream {
+  class WebHttpBodyStream {
     /**
-     * Initialize post data stream.
+     * Initialize data stream.
      * 
-     * @returns { Promise<void> } The promise of post data is initialized.
-     * @throws { BusinessError } 17100022 - Post data stream init failed.
+     * @returns { Promise<void> } The promise of data stream is initialized.
+     * @throws { BusinessError } 17100022 - Data stream init failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     initialize(): Promise<void>;
     /**
-     * Read the post data to the buffer.
+     * Read the data stream to the buffer.
      * 
      * @param { number } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
@@ -4797,7 +4797,7 @@ declare namespace webview {
     /**
      * Get the total size of the data stream. When data is chunked, always return zero.
      * 
-     * @returns { number } Return size of post data size.
+     * @returns { number } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4813,19 +4813,19 @@ declare namespace webview {
      */
     getPosition(): number;
     /**
-     * Whether post data is chunked.
+     * Whether data stream is chunked.
      * 
-     * @returns { boolean } Whether post data is chunked.
+     * @returns { boolean } Whether data stream is chunked.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
     isChunked(): boolean;
     /**
-     * Whether all post data has been consumed. For chunked uploads,
+     * Whether all data stream has been consumed. For chunked uploads,
      * returns false until the first read attempt.
      * 
-     * @returns { boolean } Whether post data has been consumed.
+     * @returns { boolean } Whether data stream has been consumed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4835,7 +4835,7 @@ declare namespace webview {
      * Returns true if the upload data in the stream is entirely in memory, and all read requests will succeed
      * synchronously. Expected to return false for chunked requests.
      * 
-     * @returns { boolean } Whether post data is in memory.
+     * @returns { boolean } Whether the data stream is in memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4906,14 +4906,14 @@ declare namespace webview {
      */
     hasGesture(): boolean;
     /**
-     * Get post data stream.
+     * Get http body stream.
      * 
-     * @returns { WebPostDataStream | null } Return post data stream. If request has no post data, return null.
+     * @returns { WebHttpBodyStream | null } Return http body stream. If request has no http body stream, return null.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
      */
-    getPostDataStream(): WebPostDataStream | null;
+    getHttpBodyStream(): WebHttpBodyStream | null;
   }
 
   /**
