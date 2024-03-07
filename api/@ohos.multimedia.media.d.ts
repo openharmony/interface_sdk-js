@@ -4454,7 +4454,7 @@ declare namespace media {
     preset?: AVScreenCaptureRecordPreset;
     /**
      * Indicates record file url. Support a kind of url now.
-     * format like: "fd://" + "context".
+     * Format like: "fd://" + "context".
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
