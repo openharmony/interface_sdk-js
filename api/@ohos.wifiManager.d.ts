@@ -92,7 +92,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.startScan
+   * @useinstead  ohos.wifiManager/wifiManager#startScan
    */
   function scan(): void;
 
@@ -121,7 +121,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.getScanInfoList
+   * @useinstead ohos.wifiManager/wifiManager#getScanInfoList
    */
   function getScanResults(): Promise<Array<WifiScanInfo>>;
 
@@ -137,7 +137,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.getScanInfoList
+   * @useinstead ohos.wifiManager/wifiManager#getScanInfoList
    */
   function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
@@ -152,7 +152,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    * @deprecated since 10
-   * @useinstead wifiManager.getScanInfoList
+   * @useinstead ohos.wifiManager/wifiManager#getScanInfoList
    */
   function getScanResultsSync(): Array<WifiScanInfo>;
 
@@ -454,7 +454,7 @@ declare namespace wifiManager {
   /**
    * Check whether the device supports a specified feature.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { number } featureId Indicates the ID of the feature.
+   * @param { number } featureId - Indicates the ID of the feature.
    * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -577,7 +577,7 @@ declare namespace wifiManager {
   /**
    * Update the specified Wi-Fi configuration.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param { WifiDeviceConfig } config Indicates the Wi-Fi configuration to update.
+   * @param { WifiDeviceConfig } config - Indicates the Wi-Fi configuration to update.
    * @returns { number } Returns the network ID in the updated Wi-Fi configuration if the update is successful;
    *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -596,7 +596,7 @@ declare namespace wifiManager {
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId Identifies the network to disable.
+   * @param { number } netId - Identifies the network to disable.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1387,6 +1387,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi device config change events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'deviceConfigChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
@@ -1484,6 +1485,7 @@ declare namespace wifiManager {
 
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of off
