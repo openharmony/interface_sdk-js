@@ -371,7 +371,6 @@ declare namespace inputMethodEngine {
    * Indicates the possible data types of the command.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @systemapi
    * @since 12
    */
   type CommandDataType = number | string | boolean;
