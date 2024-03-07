@@ -229,7 +229,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    VIDEO_PREVIOUS_NEXT,
+    VIDEO_PREVIOUS_NEXT = 1,
 
     /**
      * Forward/Back for video.
@@ -237,7 +237,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    FAST_FORWARD_BACKWARD,
+    FAST_FORWARD_BACKWARD = 2,
 
     /**
      * Turn on/off the microphone.
@@ -245,7 +245,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MICROPHONE_SWITCH,
+    MICROPHONE_SWITCH = 3,
 
     /**
      * Hang up.
@@ -253,7 +253,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    HANG_UP_BUTTON,
+    HANG_UP_BUTTON = 4,
 
     /**
      * Turn on/off the camera
@@ -261,7 +261,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    CAMERA_SWITCH,
+    CAMERA_SWITCH = 5,
 
     /**
      * Mute switch.
@@ -269,7 +269,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MUTE_SWITCH,
+    MUTE_SWITCH = 6,
   }
 
   /**
