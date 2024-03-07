@@ -1539,6 +1539,14 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Stop current cast and disconnect device connection.
+     * @returns { Promise<void> } void result promise when executed successfully 
+     * @throws { BusinessError } 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     stopCasting(): Promise<void>;
 
     /**
