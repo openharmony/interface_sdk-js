@@ -467,28 +467,6 @@ declare namespace notificationManager {
   function cancelAsBundle(representativeBundle: BundleOption, id: number): Promise<void>;
 
   /**
-   * Cancel a representative notification with agent relationship.
-   * <p>If there is no agent relationship,
-   * you need to verify the ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER.
-   *
-   * @param { BundleOption } representativeBundle - The bundle option.
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } [label] - Label of the notification to cancel.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  function cancelAsBundle(representativeBundle: BundleOption, id: number, label?: string): Promise<void>;
-
-  /**
    * Cancel all notifications of the current application.
    *
    * @param { AsyncCallback<void> } callback - The callback of cancelAll.
