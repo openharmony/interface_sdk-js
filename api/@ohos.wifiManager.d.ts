@@ -105,6 +105,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 10
    */
   function startScan(): void;
@@ -163,6 +164,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 10
    */
   function getScanInfoList(): Array<WifiScanInfo>;
@@ -208,6 +210,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 9
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
@@ -341,6 +344,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 9
    */
   function connectToNetwork(networkId: number): void;
@@ -400,6 +404,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
@@ -564,6 +569,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 10
    */
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
@@ -581,6 +587,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
+   * @atomicservice
    * @since 9
    */
   function updateNetwork(config: WifiDeviceConfig): number;
@@ -1216,6 +1223,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
@@ -1232,6 +1240,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
@@ -1246,6 +1255,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
@@ -1261,6 +1271,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
@@ -1275,6 +1286,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
@@ -1290,6 +1302,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
@@ -2082,6 +2095,7 @@ declare namespace wifiManager {
     /** 
      * Wi-Fi SSID: the maximum length is 32.
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
      * @since 9
      */
     ssid: string;
@@ -2118,6 +2132,7 @@ declare namespace wifiManager {
     /**
      * Security type: reference definition of WifiSecurityType
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
      * @since 9
      */
     securityType: WifiSecurityType;
@@ -2640,6 +2655,7 @@ declare namespace wifiManager {
    * Wi-Fi connection information.
    * @typedef WifiLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   interface WifiLinkedInfo {
