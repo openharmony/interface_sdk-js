@@ -9049,6 +9049,34 @@ declare enum EmbeddedType {
   EMBEDDED_UI_EXTENSION = 0,
 }
 
+/**
+ * Marquee scrolling strategy after text update
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MarqueeUpdateStrategy  {
+  /**
+   * Reset scroll position and restart scroll.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Preserve scroll position, just change to new text
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PRESERVE_POSITION = 1
+}
+
 declare module 'borderStyle' {
   module 'borderStyle' {
     // @ts-ignore
