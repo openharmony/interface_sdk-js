@@ -4057,6 +4057,15 @@ declare interface NativeEmbedInfo {
    */
   src?: string;
   /**
+   * The coordinate position of embed element relative to the webcomponent.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  position?: Position;
+  /**
    * The embed tag width.
    *
    * @type { ?number }
