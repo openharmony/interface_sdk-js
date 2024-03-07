@@ -218,7 +218,7 @@ declare namespace wantConstant {
      * @stagemodelonly
      * @since 12
      */
-    ASSERT_FAULT_SESSION_ID = 'ohos.ability.params.asssertFaultSessionId'
+    ASSERT_FAULT_SESSION_ID = 'ohos.ability.params.asssertFaultSessionId',
 
     /**
      * Indicates the param of show mode key.
