@@ -993,3 +993,8 @@ adapts
 followx
 precomposited
 refresher
+irnss
+beidou
+qzss
+glonass
+sbas
