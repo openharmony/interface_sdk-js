@@ -20,7 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import * as _ErrorObserver from './application/ErrorObserver';
-import * as _LoopObserver from './application/LoopObserver';
+import { LoopObserver as _LoopObserver } from './application/LoopObserver';
 
 /**
  * This module provides the function of error manager.
@@ -188,7 +188,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 12
    */
-  export type LoopObserver = _LoopObserver.default;
+  export type LoopObserver = _LoopObserver;
   /**
    * The observer will be called by system when an unhandled rejection occurs.
    *
