@@ -4515,11 +4515,11 @@ declare namespace media {
     /**
      * Listens for AVScreenCaptureRecord info callback.
      * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    on(type: 'stateChange', callback: Callback<AVScreenCaptureOnInfoType>): void;
+    on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void;
 
     /**
      * Listens for AVScreenCaptureRecord info callback.
@@ -4533,11 +4533,11 @@ declare namespace media {
     /**
      * Unregister listens for AVScreenCaptureRecord info callback.
      * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { ?Callback<AVScreenCaptureOnInfoType> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @param { ?Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    off(type: 'stateChange', callback?: Callback<AVScreenCaptureOnInfoType>): void;
+    off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void;
 
     /**
      * Unregister listens for AVScreenCaptureRecord error callback.
