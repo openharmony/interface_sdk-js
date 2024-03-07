@@ -831,7 +831,7 @@ declare interface RichEditorTextStyleResult {
   /**
    * letter spacing.
    *
-   * @type { (number ) } 
+   * @type { number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -841,7 +841,7 @@ declare interface RichEditorTextStyleResult {
   /**
    * line height.
    *
-   * @type { (number ) } 
+   * @type { number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
