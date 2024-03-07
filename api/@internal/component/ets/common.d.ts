@@ -15116,10 +15116,22 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   linearGradient(value: {
     angle?: number | string;
     direction?: GradientDirection;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -15187,14 +15199,32 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
+   */
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
+   * number:number
+   * rotating:rotating
+   * colors:Color description for gradients
+   * repeating:repeating
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   sweepGradient(value: {
-    center: Array<any>;
+    center: [Length, Length];
     start?: number | string;
     end?: number | string;
     rotation?: number | string;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -15252,7 +15282,27 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient
+   * colors:Color description for gradients
+   * repeating: Refill
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  radialGradient(value: {
+    center: [Length, Length];
+    radius: number | string;
+    colors: Array<[ResourceColor, number]>;
+    repeating?: boolean;
+  }): T;
 
   /**
    * Set the motion path of the component
@@ -16906,7 +16956,16 @@ declare interface LinearGradient {
    * @atomicservice
    * @since 11
    */
-  colors: Array<any>;
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  colors: Array<[ResourceColor, number]>;
   /**
    * Linear Gradient Repeating
    *
