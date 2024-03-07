@@ -399,6 +399,16 @@ export declare class console {
    * @since 10
    */
   static trace(...arguments: Object[]): void;
+
+  /**
+   * Prints hybrid stack information for the current code location.
+   *
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 12
+   */
+  static traceHybridStack(): void;
 }
 
 /**
