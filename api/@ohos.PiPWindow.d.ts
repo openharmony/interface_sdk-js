@@ -216,12 +216,12 @@ declare namespace PiPWindow {
   }
 
   /**
- * Enum for PiP window custom controls.
- *
- * @enum { number }.
- * @syscap SystemCapability.Window.SessionManager
- * @since 12
- */
+   * Enum for PiP window custom controls.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
   enum PiPControlGroup {
     /**
      * Previous/Next for video.
