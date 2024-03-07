@@ -2513,7 +2513,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    /**
    * Set caret color of rich editor.
    *
-   * @param { ResourceColor } value -  Custom color types.
+   * @param { ResourceColor } value - Custom color types.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2524,7 +2524,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Set background color of selected text in rich editor.
    *
-   * @param { ResourceColor } value -  Custom color types.
+   * @param { ResourceColor } value - Custom color types.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
