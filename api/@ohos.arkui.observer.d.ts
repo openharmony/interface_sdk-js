@@ -216,6 +216,35 @@ declare namespace uiObserver {
   }
 
   /**
+   * Density info.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export class DensityInfo {
+    /**
+     * The context of the changed screen density.
+     *
+     * @type { UIContext }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    context: UIContext;
+
+    /**
+     * The changed screen density.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    density: number;
+  }
+
+  /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
@@ -287,6 +316,31 @@ declare namespace uiObserver {
    * @since 11
    */
   export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the screen density is updated.
+   *
+   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<DensityInfo> } callback - The callback function to be called when the router page is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
 }
 
 export default uiObserver;
