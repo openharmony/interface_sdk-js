@@ -293,7 +293,7 @@ export declare class SymbolOptions {
    * @atomicservice
    * @since 12
    */
-  fontSize: number | string | Resource;
+  fontSize?: number | string | Resource;
 
   /**
    * The color of symbol icon.
@@ -302,7 +302,7 @@ export declare class SymbolOptions {
    * @atomicservice
    * @since 12
    */
-  fontColor: Array<ResourceColor>;
+  fontColor?: Array<ResourceColor>;
 
   /**
    * The fontWeight of symbol icon.
@@ -311,7 +311,7 @@ export declare class SymbolOptions {
    * @atomicservice
    * @since 12
    */
-  fontWeight: number | FontWeight | string;
+  fontWeight?: number | FontWeight | string;
 
   /**
    * The effect strategy of symbol icon.
@@ -320,7 +320,7 @@ export declare class SymbolOptions {
    * @atomicservice
    * @since 12
    */
-  effectStrategy: SymbolEffectStrategy;
+  effectStrategy?: SymbolEffectStrategy;
 
   /**
    * The rendering strategy of symbol icon.
@@ -329,7 +329,7 @@ export declare class SymbolOptions {
    * @atomicservice
    * @since 12
    */
-  renderingStrategy: SymbolRenderingStrategy;
+  renderingStrategy?: SymbolRenderingStrategy;
 }
 
 /**
