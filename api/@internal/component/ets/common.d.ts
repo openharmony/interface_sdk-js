@@ -3301,6 +3301,55 @@ declare type TransitionEffects = {
 };
 
 /**
+ * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DrawModifier {
+  /**
+   * drawBehind Method. Executed before drawing associated Node.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawBehind?(drawContext: DrawContext): void;
+
+  /**
+   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced 
+   * if this method is set.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawContent?(drawContext: DrawContext): void;
+  
+  /**
+   * drawFront Method. Executed after drawing associated Node.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawFront?(drawContext: DrawContext): void;
+  
+  /**
+   * Invalidate the component, which will cause a re-render of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
+}
+
+/**
  * Defines the transition effect
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3919,6 +3968,71 @@ declare interface ItemDragInfo {
    * @since 11
    */
   y: number;
+}
+
+/**
+ * Defines the drag status before drag action.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum PreDragStatus {
+  /**
+   * Define the status for user prepare to start long press gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_DETECTING_STATUS = 0,
+
+  /**
+   * Define the status for user can start drag action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  READY_TO_TRIGGER_DRAG_ACTION = 1,
+
+  /**
+   * Define the status for dragItem lift animation started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LIFT_STARTED = 2,
+
+  /**
+   * Define the status for dragItem lift animation finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LIFT_FINISHED = 3,
+
+  /**
+   * Define the status for dragItem landing animation started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LANDING_STARTED = 4,
+
+  /**
+   * Define the status for dragItem landing animation finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LANDING_FINISHED = 5,
+
+  /**
+   * Define the status for user cancel drag action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_CANCELED_BEFORE_DRAG = 6,
 }
 
 /**
@@ -8722,6 +8836,28 @@ declare interface BindOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * Callback function before overlay animation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillAppear?: () => void;
+
+  /**
+   * Callback function before overlay popAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillDisappear?: () => void;
 }
 
 /**
@@ -11434,6 +11570,17 @@ declare class CommonMethod<T> {
    * @form
    */
   height(value: Length): T;
+  
+  /**
+   * Sets the drawModifier of the current component.
+   *
+   * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawModifier(modifier: DrawModifier | undefined): T;
 
   /**
    * Expands the safe area.
@@ -14684,7 +14831,15 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dragPreview(value: CustomBuilder | DragItemInfo): T;
+  /**
+   * Set preview of the component for dragging process
+   *
+   * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dragPreview(value: CustomBuilder | DragItemInfo | string): T;
 
   /**
    * Set the selectable area drag preview options.
@@ -14695,6 +14850,16 @@ declare class CommonMethod<T> {
    * @since 11
    */
   dragPreviewOptions(value: DragPreviewOptions): T;
+
+  /**
+   * After binding, a callback is triggered when the preDrag status change finished.
+   *
+   * @param { Callback<PreDragStatus> } callback callback - The callback will be triggered when the preDrag status change.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onPreDrag(callback: Callback<PreDragStatus>): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -17106,6 +17271,15 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
+ * DrawContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
  * Custom Component
  *
  * @extends CommonAttribute
@@ -17831,6 +18005,31 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
   /**
+   * Called when the scrollable will scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame will scroll, which may or may not be reached.
+   * scrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillScroll(handler: OnScrollCallback): T;
+
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidScroll(handler: OnScrollCallback): T;
+
+  /**
    * Called when the scrollable reaches the start position.
    *
    * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
@@ -17891,6 +18090,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    */
   flingSpeedLimit(speedLimit: number): T;
 }
+
+/**
+  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 declare module "SpecialEvent" {
   module "SpecialEvent" {
@@ -18188,4 +18396,25 @@ declare module 'touchEvent'{
     // @ts-ignore
     export { TouchEvent };
   }
+}
+
+/**
+ * Defines the basic callback.
+ *
+ * @typedef Callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface Callback<T,V = void> {
+  /**
+   * Defines the callback info.
+   *
+   * @param { T } data - the data will be used in the callback.
+   * @returns { V } - Returns result of the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  (data: T): V;
 }

@@ -21,6 +21,7 @@
 import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';
+import Context from './application/Context';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundleManager/ElementName';
@@ -364,6 +365,21 @@ declare namespace abilityManager {
    * @since 11
    */
   function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
+
+  /**
+   * Querying whether to allow embedded startup of atomic service.
+   *
+   * @param { Context } context - The context that initiates the query request.
+   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @returns { Promise<boolean> } Returns the result in the form of callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
 
   /**
    * The class of an ability running information.

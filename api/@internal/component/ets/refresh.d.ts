@@ -255,6 +255,16 @@ interface RefreshOptions {
   friction?: number | string;
 
   /**
+   * The text displayed during refreshing
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  promptText?: ResourceStr;
+
+  /**
    * Custom component to display during dragging.
    *
    * @type { ?CustomBuilder }
