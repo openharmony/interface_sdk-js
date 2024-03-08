@@ -836,7 +836,7 @@ declare interface RichEditorTextStyleResult {
    * @crossplatform
    * @since 12
    */
-  letterSpacing: number ;
+  letterSpacing: number;
 
   /**
    * line height.
@@ -846,7 +846,7 @@ declare interface RichEditorTextStyleResult {
    * @crossplatform
    * @since 12
    */
-  lineHeight: number ;
+  lineHeight: number;
 }
 
 /**
