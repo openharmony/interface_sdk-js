@@ -756,7 +756,7 @@ declare namespace drm {
     /**
      * Generate the media key request.
      * @param { string } mimeType - Media type.
-     * @param { Uint8Array } initData - PSSH after base64 encoding.
+     * @param { Uint8Array } initData - PSSH info.
      * @param { number } mediaKeyType - Offline or online.
      * @param { OptionsData[] } options - Optional data the application set to drm framework.
      * @returns { Promise<MediaKeyRequest> } Promise with MediaKeyRequest used to return the result.
