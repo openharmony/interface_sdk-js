@@ -288,7 +288,7 @@ declare enum SymbolEffectStrategy {
 export declare class SymbolOptions {
   /**
    * The size of symbol icon.
-   * @type { number | string | Resource }.
+   * @type { ?number | ?string | ?Resource }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -297,7 +297,7 @@ export declare class SymbolOptions {
 
   /**
    * The color of symbol icon.
-   * @type { Array<ResourceColor> }.
+   * @type { ?Array<ResourceColor> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -306,7 +306,7 @@ export declare class SymbolOptions {
 
   /**
    * The fontWeight of symbol icon.
-   * @type { number | FontWeight | string }.
+   * @type { ?number | ?FontWeight | ?string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -315,7 +315,7 @@ export declare class SymbolOptions {
 
   /**
    * The effect strategy of symbol icon.
-   * @type { SymbolEffectStrategy }.
+   * @type { ?SymbolEffectStrategy }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -324,7 +324,7 @@ export declare class SymbolOptions {
 
   /**
    * The rendering strategy of symbol icon.
-   * @type { SymbolRenderingStrategy }.
+   * @type { ?SymbolRenderingStrategy }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -363,7 +363,7 @@ export declare struct SubHeader {
 
   /**
    * Attributes of Symbol icon.
-   * @type { SymbolOptions}.
+   * @type { ?SymbolOptions}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
@@ -446,7 +446,7 @@ export declare struct SubHeader {
 
   /**
    * Attributes of Symbol icons in operation area.
-   * @type { Array<SymbolOptions> }.
+   * @type { ?Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
