@@ -21,12 +21,12 @@
 /**
  * Asynchronous lock.
  *
- * @namespace locks
+ * @namespace sync
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 12
  */
-declare namespace locks {
+declare namespace sync {
   /**
    * Class to execute an asynchronous operation under lock.
    * AsyncLock may be anonymous of named. Anonymous locks has unique identifier in 'id' property.
@@ -294,4 +294,4 @@ declare namespace locks {
     reason: T
   }
 }
-export default locks;
+export default sync;
