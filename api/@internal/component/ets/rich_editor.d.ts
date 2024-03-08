@@ -415,6 +415,16 @@ declare interface RichEditorParagraphStyle {
    * @since 11
    */
   leadingMargin?: Dimension | LeadingMarginPlaceholder;
+
+  /**
+   * Set word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak?: WordBreak;
 }
 
 /**
