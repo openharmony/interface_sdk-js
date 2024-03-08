@@ -5095,6 +5095,19 @@ declare namespace window {
      * @since 11
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
+    /**
+     *  Set the window mask of window
+     *
+     * @param { Array<Array<number>> } windowMask - The mask of window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+     setWindowMask(windowMask: Array<Array<number>>): Promise<void>;
   }
   /**
    * Window stage callback event type
