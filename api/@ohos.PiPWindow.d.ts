@@ -114,7 +114,7 @@ declare namespace PiPWindow {
     /**
      * Describes the custom controls to be displayed in PiP window control pannel. If the parameter is empty, only mandatory controls are displayed.
      *
-     * @type { ?number }
+     * @type { ?Array<PiPControlGroup> }
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
