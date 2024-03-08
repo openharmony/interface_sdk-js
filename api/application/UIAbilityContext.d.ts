@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -317,6 +317,40 @@ export default class UIAbilityContext extends Context {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @param { StartOptions } options - Indicates the start options.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000067 - Start options check failed.
+   * @throws { BusinessError } 16000068 - Ability already running.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -406,6 +440,42 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16000067 - Start options check failed.
+   * @throws { BusinessError } 16000068 - Ability already running.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16300003 - The target application is not self application.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -2668,4 +2738,32 @@ export default class UIAbilityContext extends Context {
    * @since 12
    */
   moveAbilityToBackground(): Promise<void>;
+
+  /**
+   * Show current ability. The ability needs to be started by UIAbilityContext.startAbility
+   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000067 - Start options check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  showAbility(): Promise<void>;
+
+  /**
+   * Hide current ability. The ability needs to be started by UIAbilityContext.startAbility
+   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000067 - Start options check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  hideAbility(): Promise<void>;
 }
