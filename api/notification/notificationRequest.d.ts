@@ -310,6 +310,26 @@ export interface NotificationRequest {
   readonly creatorUserId?: number;
 
   /**
+   * Application instance key.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly creatorInstanceKey?: number;
+
+  /**
+   * Obtain the prompt tone resource path of the notification.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  sound?: string;
+
+  /**
    * Obtains the classification of this notification.
    *
    * @type { ?string }

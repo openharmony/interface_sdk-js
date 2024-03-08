@@ -292,6 +292,17 @@ export interface BadgeNumberCallbackData {
    * @since 10
    */
   readonly badgeNumber: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly instanceKey?: number;
 }
 
 /**
