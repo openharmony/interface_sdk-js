@@ -328,6 +328,7 @@ declare namespace reminderAgentManager {
      * Information about the ability that is redirected to when the button is clicked.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     wantAgent?: WantAgent;
@@ -372,7 +373,6 @@ declare namespace reminderAgentManager {
      * The Uniform Resource Identifier (URI) that will be redirected to.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @systemapi Hide this for inner system use.
      * @since 10
      */
     uri?: string;
