@@ -102,6 +102,47 @@ declare namespace abilityManager {
   }
 
   /**
+   * Enum for the user status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export enum UserStatus {
+    /**
+     * Indicates the status of the operation that the user clicks to terminate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    ASSERT_TERMINATE = 0,
+
+    /**
+     * Indicates the status of the operation that the user clicks to continue.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    ASSERT_CONTINUE = 1,
+
+    /**
+     * Indicates the status of the operation that the user clicks to retry.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    ASSERT_RETRY = 2
+  }
+
+  /**
    * Register Ability foreground or background state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -380,6 +421,24 @@ declare namespace abilityManager {
    * @since 12
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
+
+  /**
+   * Notifies the application of the assertion debugging result.
+   *
+   * @permission ohos.permission.NOTIFY_DEBUG_ASSERT_RESULT
+   * @param { sessionId } string - Indicates the request ID of AssertFault.
+   * @param { status } UserStatus - Operation status of the user.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
   /**
    * The class of an ability running information.
