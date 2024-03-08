@@ -7640,6 +7640,17 @@ declare interface TouchEvent extends BaseEvent {
 }
 
 /**
+ * Defines the callback type used in onSizeChange.
+ * The value of oldValue is last size of the component.
+ * The value of newValue is new size of the component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15915,6 +15926,17 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
+
+  /**
+   * This callback is triggered when the size of this component change finished.
+   *
+   * @param { SizeChangeCallback } event - event callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onSizeChange(event: SizeChangeCallback): T;
 }
 
 /**
