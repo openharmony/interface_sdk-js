@@ -52,6 +52,20 @@ declare namespace contact {
    * @deprecated since 10
    * @useinstead contact.addContact#addContact
    */
+  /**
+   * Creates a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Contact } contact - Indicates the contact information.
+   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
+   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
+   * creation fails.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 12
+   * @deprecated since 10
+   * @useinstead contact.addContact#addContact
+   */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
@@ -68,6 +82,21 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
+  /**
+   * Creates a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
+   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
+   * creation fails.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 12
+   */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
@@ -79,6 +108,19 @@ declare namespace contact {
    * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.addContact#addContact
+   */
+  /**
+   * Creates a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Contact } contact - Indicates the contact information.
+   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
+   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 12
    * @deprecated since 10
    * @useinstead contact.addContact#addContact
    */
@@ -96,6 +138,20 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   */
+  /**
+   * Creates a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
+   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 12
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
 
