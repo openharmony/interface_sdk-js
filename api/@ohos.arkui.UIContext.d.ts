@@ -1017,6 +1017,54 @@ export class UIObserver {
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
   
   /**
+   * Registers a callback function to be called when the scroll event start or stop.
+   *
+   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
+   * @param { observer.ObserverOptions } options - The options object.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
+   * @param { observer.ObserverOptions } options - The options object.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    scroll ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the scroll event start or stop.
+   *
+   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
+   * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
    * Registers a callback function to be called when the router page in a ui context is updated.
    *
    * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
