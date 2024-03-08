@@ -282,7 +282,7 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture video template action event type.
-   * 
+   *
    * playbackStateChanged: action event to change playback state.
    * nextVideo: action event to play next video.
    * previousVideo: action event to play previous video.
