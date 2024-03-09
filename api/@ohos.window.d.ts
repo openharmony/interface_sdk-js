@@ -4514,6 +4514,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
      * @since 12
      */
     setWindowOnlyHandwrite(enable: boolean): Promise<void>;
