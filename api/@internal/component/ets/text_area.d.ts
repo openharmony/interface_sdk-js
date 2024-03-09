@@ -644,6 +644,39 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   fontFamily(value: ResourceStr): TextAreaAttribute;
 
   /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { TextOverflow } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textOverflow(value: TextOverflow): TextAreaAttribute;
+
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { Dimension } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  baselineOffset(value: Dimension): TextAreaAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @param { Dimension } value - The length of text indent.
+   * @returns { TextAreaAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textIndent(value: Dimension): TextAreaAttribute;
+
+  /**
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value
@@ -674,6 +707,28 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
+
+  /**
+   * Define the caret style of the text input
+   *
+   * @param { CaretStyle } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  caretStyle(value: CaretStyle): TextAreaAttribute;
+
+  /**
+   * Define the text selected background color of the text input.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when submitted.
@@ -862,7 +917,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *          Executed when a paste operation is performed.
    *          { string } value - The text content to be pasted.
    *          { PasteEvent } event - The user-defined paste event.
-   * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
