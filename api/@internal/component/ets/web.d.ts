@@ -4726,6 +4726,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   userAgent(userAgent: string): WebAttribute;
 
   /**
+   * Set whether to support the viewport attribute of the meta tag in the frontend page.
+   *
+   * @param { boolean } enabled {@code true} means support the viewport attribute of the meta tag; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  metaViewport(enabled: boolean): WebAttribute;
+
+  /**
    * Triggered at the end of web page loading.
    *
    * @param { function } callback The triggered function at the end of web page loading.
