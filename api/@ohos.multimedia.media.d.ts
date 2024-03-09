@@ -4323,13 +4323,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREEN_RECORD_PRESET_NORMAL = 0,
+    SCREEN_RECORD_PRESET_H264_AAC_MP4 = 0,
     /**
      * Screen record high efficient type, h265/aac mp4
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREEN_RECORD_PRESET_HIGH_EFFICIENT = 1,
+    SCREEN_RECORD_PRESET_H265_AAC_MP4 = 1,
   }
 
   /**
@@ -4411,6 +4411,12 @@ declare namespace media {
    */
   interface AVScreenCaptureRecordConfig {
     /**
+     * Indicates record file descriptor.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    fd: number;
+    /**
      * Indicates video frame width.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
@@ -4452,13 +4458,6 @@ declare namespace media {
      * @since 12
      */
     preset?: AVScreenCaptureRecordPreset;
-    /**
-     * Indicates record file url. Support a kind of url now.
-     * Format like: "fd://" + "context".
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
-     */
-    url: string;
   }
 
   /**
