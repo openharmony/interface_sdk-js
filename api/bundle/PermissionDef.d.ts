@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Indicates the defined permission details in file config.json
  *
  * @typedef PermissionDef

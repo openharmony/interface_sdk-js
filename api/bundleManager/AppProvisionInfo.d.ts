@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Indicates the profile file information of a bundle.
  *
  * @typedef AppProvisionInfo

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Dispatch info related to free install
  *
  * @typedef DispatchInfo

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The class of an process running information.
  *
  * @typedef ProcessRunningInfo

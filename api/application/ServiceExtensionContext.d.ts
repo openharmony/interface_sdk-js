@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
@@ -1332,7 +1337,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 11
    */
   /**
@@ -1351,7 +1356,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
@@ -1373,7 +1378,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 11
    */
   /**
@@ -1384,7 +1389,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
-   * 
+   *
    * @param { Want } type - Indicates the UIExtensionAbility to start.
    * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1392,7 +1397,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;

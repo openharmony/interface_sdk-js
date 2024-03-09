@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AbilityInfo } from './AbilityInfo';
 import { ExtensionAbilityInfo } from './ExtensionAbilityInfo';
 import { Metadata } from './Metadata';

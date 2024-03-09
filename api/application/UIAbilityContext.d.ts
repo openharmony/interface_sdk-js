@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 /// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
@@ -347,7 +352,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16300003 - The target application is not self application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -473,7 +478,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16300003 - The target application is not self application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
