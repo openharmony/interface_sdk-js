@@ -114,6 +114,83 @@ declare namespace systemSoundManager {
   }
 
   /**
+   * Enum for tone customized type.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  enum ToneCustType {
+    /**
+     * Pre-installed tone type.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    PRE_INSTALLED = 0,
+    /**
+     * Customized tone type.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    CUSTOMIZED = 1,
+  }
+
+  /**
+   * Tone attributes.
+   * @typedef ToneAttrs
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  interface ToneAttrs {
+    /**
+     * Gets title of tone.
+     * @returns { string } title.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getTitle(): string;
+
+    /**
+     * Gets file name of tone.
+     * @returns { string } file name.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getFileName(): string;
+
+    /**
+     * Gets uri of tone.
+     * @returns { string } uri.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getUri(): string;
+
+    /**
+     * Gets customized type of tone.
+     * @returns { ToneCustType } Customized type of tone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getCustType(): ToneCustType;
+  }
+
+  /**
+   * Array of tone attributes.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  type ToneAttrsArray = Array<ToneAttrs>;
+
+  /**
    * Gets system sound manager for all type sound.
    * @returns { SystemSoundManager } SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -218,6 +295,34 @@ declare namespace systemSoundManager {
     getRingtoneUri(context: BaseContext, type: RingtoneType): Promise<string>;
 
     /**
+     * Gets attributes of the default ringtone.
+     * @param { BaseContext } context - Current application context.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default ringtone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getDefaultRingtoneAttrs(context: BaseContext, type: RingtoneType): Promise<ToneAttrs>;
+
+    /**
+     * Gets attribute list of ringtones.
+     * @param { BaseContext } context - Current application context.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of ringtone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getRingtoneAttrList(context: BaseContext, type: RingtoneType): Promise<ToneAttrsArray>;
+
+    /**
      * Gets the ringtone player.
      * @param { Context } context - Current application context.
      * @param { RingtoneType } type - Ringtone type to get.
@@ -292,6 +397,35 @@ declare namespace systemSoundManager {
     getSystemToneUri(context: BaseContext, type: SystemToneType): Promise<string>;
 
     /**
+     * Gets attributes of the default system tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @param { SystemToneType } type - system tone type to get.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default system tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getDefaultSystemToneAttrs(context: BaseContext, type: SystemToneType): Promise<ToneAttrs>;
+
+    /**
+     * Gets attribute list of alarm tones.
+     * @param { BaseContext } context - Current application context.
+     * @param { SystemToneType } type - System tone type to get.
+     * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of system tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getSystemToneAttrList(context: BaseContext, type: SystemToneType): Promise<ToneAttrsArray>;
+
+    /**
      * Gets the system tone player.
      * @param { BaseContext } context - Current application context.
      * @param { SystemToneType } type - System tone type to get.
@@ -305,6 +439,75 @@ declare namespace systemSoundManager {
      * @since 11
      */
     getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer>;
+
+    /**
+     * Gets attributes of the default alarm tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default alarm tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getDefaultAlarmToneAttrs(context: BaseContext): Promise<ToneAttrs>;
+
+    /**
+     * Gets uri of the current alarm tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @returns { Promise<string> } Promise used to return uri of current alarm tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getAlarmToneUri(context: BaseContext): Promise<string>;
+
+    /**
+     * Gets attribute list of alarm tones.
+     * @param { BaseContext } context - Current application context.
+     * @returns { Promise<ToneAttrsArray> } Promise used to return attribute list of system tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    getAlarmToneAttrList(context: BaseContext): Promise<ToneAttrsArray>;
+
+    /**
+     * Open alarm tone file.
+     * @param { BaseContext } context - Current application context.
+     * @param { string } uri - Uri of alarm tone to open.
+     * @returns { Promise<number> } Promise used to return fd.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of uri is notification instead of alarm.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    openAlarmTone(context: BaseContext, uri: string): Promise<number>
+
+    /**
+     * Close fd.
+     * @param { number } fd - File descriptor to close.
+     * @returns { Promise<void> } Promise used to return the result of close fd.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    close(fd: number): Promise<void>;
   }
 
   /**
