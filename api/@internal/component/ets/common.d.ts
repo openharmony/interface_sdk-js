@@ -13662,6 +13662,18 @@ declare class CommonMethod<T> {
   renderGroup(value: boolean): T;
 
   /**
+   * Sets whether the component should remain stationary, reusing the results of the current frame's off-screen rendering.
+   * If the input parameter is true, the component and subcomponent changes do not affect the display.
+   *
+   * @param { boolean } value - true means the component should remain stationary.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  freeze(value: boolean): T;
+
+  /**
    * Sets the translation effect during page transition.
    * The value is the start point of entry and end point of exit.
    * When this parameter is set together with slide, slide takes effect by default.
