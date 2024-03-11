@@ -70,7 +70,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-    /**
+  /**
    * Query the Wi-Fi status
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
@@ -78,6 +78,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -402,6 +403,19 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+  /**
+   * Obtain connection information about the Wi-Fi connection.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiLinkedInfo> } Returns Wi-Fi linked information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
+   */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
   /**
@@ -416,6 +430,19 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+  /**
+   * Obtain connection information about the Wi-Fi connection.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
+   */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
@@ -428,6 +455,18 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   */
+  /**
+   * Check whether the Wi-Fi connection has been set up.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { boolean } Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
    */
   function isConnected(): boolean;
 
@@ -1218,6 +1257,19 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+  /**
+   * Subscribe Wi-Fi status change events.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiStateChange' } type - event name.
+   * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
+   */
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
   /**
@@ -1234,6 +1286,21 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+  /**
+   * Unsubscribe Wi-Fi status change events.
+   *
+   * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiStateChange' } type - event name.
+   * @param { Callback<number> } callback - the callback of off
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
+   */
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
 
   /**
@@ -1247,6 +1314,19 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   */
+  /**
+   * Subscribe Wi-Fi connection change events.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiConnectionChange' } type - event name.
+   * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
    */
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
@@ -1262,6 +1342,20 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   */
+  /**
+   * Unsubscribe Wi-Fi connection change events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiConnectionChange' } type - event name.
+   * @param { Callback<number> } callback - the callback of off
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 11
    */
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
 
