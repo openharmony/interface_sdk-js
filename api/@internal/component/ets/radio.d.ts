@@ -414,6 +414,57 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 11
    */
   radioStyle(value?: RadioStyle): RadioAttribute;
+
+    /**
+   * Set the Configuration of radio.
+   *
+   * @param { ContentModifier<RadioConfiguration> } modifier - The contentModifier of radio.
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
+}
+
+/**
+ * RadioConfiguration used by radio Configuration
+ *
+ * @interface RadioConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
+    /**
+   * Radio name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: string;
+  
+    /**
+   * Called when the radio box is selected.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  checked: boolean;
+
+  /**
+   * Called when the radio box selection status changes.
+   *
+   * @type { Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerChange: Callback<boolean>;
 }
 
 /**
