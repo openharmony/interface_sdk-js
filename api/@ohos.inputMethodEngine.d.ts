@@ -503,7 +503,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    on(type: 'privateCommand', callback: (commandData: Record<string, CommandDataType>) => void): void;
+    on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
 
     /**
      * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
@@ -514,7 +514,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    off(type: 'privateCommand', callback?: (commandData: Record<string, CommandDataType>) => void): void;
+    off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
   }
 
   /**
