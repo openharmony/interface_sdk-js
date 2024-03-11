@@ -578,6 +578,16 @@ interface ActionSheetOptions
    * @since 12
    */
   onWillDismiss?: (dismissDialog: DismissDialog) => void;  
+
+  /**
+   * Transition parameters of opening/closing ActionSheet.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
