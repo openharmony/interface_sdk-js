@@ -218,7 +218,6 @@ declare namespace PiPWindow {
   /**
    * PiP window custom controls.
    *
-   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
