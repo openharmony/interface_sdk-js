@@ -246,7 +246,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    FAST_FORWARD_BACKWARD = 102
+    FAST_FORWARD_BACKWARD = 102,
   }
 
   /**
@@ -279,7 +279,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    CAMERA_SWITCH = 203
+    CAMERA_SWITCH = 203,
   }
 
   /**
