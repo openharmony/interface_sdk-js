@@ -553,14 +553,14 @@ declare interface TextInputOptions {
   placeholder?: ResourceStr;
 
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -568,7 +568,7 @@ declare interface TextInputOptions {
    * @since 10
    */
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
