@@ -216,20 +216,29 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enum for PiP window custom controls.
+   * PiP window custom controls.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
-  enum PiPControlGroup {
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup;
+
+  /**
+   * Enum for video play PiP window custom controls.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum VideoPlayControlGroup {
     /**
      * Previous/Next for video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    VIDEO_PREVIOUS_NEXT = 1,
+    VIDEO_PREVIOUS_NEXT = 101,
 
     /**
      * Forward/Back for video.
@@ -237,15 +246,24 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    FAST_FORWARD_BACKWARD = 2,
+    FAST_FORWARD_BACKWARD = 102
+  }
 
+  /**
+   * Enum for video call PiP window custom controls.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum VideoCallControlGroup {
     /**
      * Turn on/off the microphone.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MICROPHONE_SWITCH = 3,
+    MICROPHONE_SWITCH = 201,
 
     /**
      * Hang up.
@@ -253,7 +271,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    HANG_UP_BUTTON = 4,
+    HANG_UP_BUTTON = 202,
 
     /**
      * Turn on/off the camera
@@ -261,7 +279,32 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    CAMERA_SWITCH = 5,
+    CAMERA_SWITCH = 203
+  }
+
+  /**
+   * Enum for video meeting PiP window custom controls.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  enum VideoMeetingControlGroup {
+    /**
+     * Hang up.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    HANG_UP_BUTTON = 301,
+
+    /**
+     * Turn on/off the camera
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    CAMERA_SWITCH = 302,
 
     /**
      * Mute switch.
@@ -269,7 +312,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    MUTE_SWITCH = 6,
+    MUTE_SWITCH = 303,
   }
 
   /**
