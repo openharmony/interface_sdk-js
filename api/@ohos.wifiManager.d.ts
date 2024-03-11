@@ -346,7 +346,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 9
    */
   function connectToNetwork(networkId: number): void;
