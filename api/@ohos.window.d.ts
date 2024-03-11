@@ -5098,7 +5098,8 @@ declare namespace window {
     /**
      *  Set the window mask of window
      *
-     * @param { Array<Array<number>> } windowMask - The mask of window.
+     * @permission ohos.permission.MASK_WINDOW
+     * @param { Array<Array<number>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
