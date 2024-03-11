@@ -118,7 +118,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    controlGroup?: Array<PiPControlGroup>;
+    controlGroups?: Array<PiPControlGroup>;
   }
 
   /**
