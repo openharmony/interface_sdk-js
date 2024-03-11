@@ -968,6 +968,14 @@ declare namespace uniformTypeDescriptor {
     OPENTYPE_FONT = 'general.opentype-font',
 
     /**
+     * Markdown format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    MARKDOWM = 'general.markdown',
+
+    /**
      * PostScript font.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1197,7 +1205,15 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
-    OPENHARMONY_HINOTE = 'openharmony.hinote'
+    OPENHARMONY_HINOTE = 'openharmony.hinote',
+
+    /**
+     * OpenHarmony system defined styled string.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     OPENHARMONY_STYLED_STRING = 'openharmony.styled-string'
   }
 
   /**
