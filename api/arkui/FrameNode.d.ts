@@ -15,6 +15,8 @@
 
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
+import { UICommonEvent } from 'commonEvent';
+
 /**
  * Defines FrameNode.
  *
@@ -187,4 +189,14 @@ export class FrameNode {
    * @since 12
    */
   getPositionToParent(): Position;
+
+  /**
+   * Set commonEvent response to the current FrameNode.
+   *
+   * @returns { UICommonEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different events.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get commonEvent(): UICommonEvent;
 }
