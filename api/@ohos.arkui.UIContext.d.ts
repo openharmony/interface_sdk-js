@@ -1257,6 +1257,20 @@ export class DragController {
 }
 
 /**
+ * class FocusController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+export class FocusController {
+  /**
+   * clear focus to the root container.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  clearFocus(): void;
+}
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1610,6 +1624,14 @@ export class UIContext {
    * @since 12
    */
    getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getFocusController(): FocusController;
 }
 
 /**
