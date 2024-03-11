@@ -216,7 +216,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * PiP window custom controls.
+   * Describe PiP window custom controls.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
