@@ -147,6 +147,17 @@ type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingDa
 type OnRenderProcessRespondingCallback = () => void;
 
 /**
+* The callback of ViewportFit Changed.
+ *
+ * @typedef {function} OnViewportFitChangedCallback
+ * @param {ViewportFit} viewportFit - details of OnViewportFitChangedCallback.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -2434,6 +2445,45 @@ declare enum RenderMode {
 }
 
 /**
+ * Defines the viewport-fit type, related to {@link ViewportFit}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare enum ViewportFit {
+  /**
+   * No effect - the whole web page is viewable(default)
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  AUTO = 0,
+
+  /**
+   * The initial layout viewport and the visual viewport are set to the
+   * largest rectangle which is inscribe in the display of the device.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  CONTAINS = 1,
+
+  /**
+   * The initial layout viewport and the visual viewport are set to the
+   * circumscribe rectangle of the physical screen of the device.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  COVER = 2,
+}
+
+/**
  * Defines the context menu param, related to {@link WebContextMenuParam} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -3618,7 +3668,7 @@ declare class EventResult {
 
   /**
    * Set whether the event is consumed.
-   * 
+   *
    * @param { boolean } result - True if the event is consumed.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7110,6 +7160,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
    selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
+
+  /**
+  * Triggered when the viewport-fit meta is detected for web page.
+  *
+  * @param { OnViewportFitChangedCallback } callback - The callback for onViewportFitChanged.
+  * @returns { WebAttribute }
+  * @syscap SystemCapability.Web.Webview.Core
+  * @atomicservice
+  * @since 12
+  */
+  onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
 }
 
 /**
