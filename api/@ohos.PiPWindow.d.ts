@@ -241,7 +241,7 @@ declare namespace PiPWindow {
     VIDEO_PREVIOUS_NEXT = 101,
 
     /**
-     * Forward/Back for video.
+     * Forward/Backward for video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
