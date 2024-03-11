@@ -105,7 +105,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 10
    */
   function startScan(): void;
@@ -210,7 +209,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 9
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
@@ -243,6 +241,7 @@ declare namespace wifiManager {
   * @throws {BusinessError} 801 - Capability not supported.
   * @throws {BusinessError} 2501000 - Operation failed.
   * @syscap SystemCapability.Communication.WiFi.STA
+  * @atomicservice
   * @since 9
   */
   function addCandidateConfig(config: WifiDeviceConfig): Promise<number>;
@@ -274,6 +273,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function removeCandidateConfig(networkId: number): Promise<void>;
@@ -313,6 +313,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 10
    */
   function getCandidateConfigs(): Array<WifiDeviceConfig>;
@@ -329,6 +330,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   * @atomicservice
    */
   function connectToCandidateConfig(networkId: number): void;
 
@@ -432,6 +434,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
    * @since 9
    */
   function isConnected(): boolean;
@@ -569,7 +572,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 10
    */
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
@@ -587,7 +589,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 9
    */
   function updateNetwork(config: WifiDeviceConfig): number;
