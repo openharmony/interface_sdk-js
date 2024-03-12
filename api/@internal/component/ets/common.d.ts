@@ -10502,6 +10502,15 @@ interface ContextMenuAnimationOptions {
    * @since 11
    */
   scale?: AnimationRange<number>;
+  /**
+   * Defines the transition effect of menu preview opening and closing.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10704,6 +10713,16 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the transition effect of menu opening and closing.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
