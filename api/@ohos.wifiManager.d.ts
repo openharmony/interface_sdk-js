@@ -2276,8 +2276,14 @@ declare namespace wifiManager {
     /** 
      * Wi-Fi SSID: the maximum length is 32.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @atomicservice
      * @since 9
+     */
+
+	/**
+     * Wi-Fi SSID: the maximum length is 32.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     ssid: string;
 
