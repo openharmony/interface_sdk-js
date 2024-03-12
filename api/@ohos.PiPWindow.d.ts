@@ -332,7 +332,7 @@ declare namespace PiPWindow {
    */
   /**
    * Describe picture-in-picture video template action event type.
-   * 
+   *
    * @typedef { 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
@@ -366,7 +366,7 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture control panel action event callback.
    * 
-   * @typedef {(PiPActionEventType, number?) => void}
+   * @typedef { (PiPActionEventType, number?) => void }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
