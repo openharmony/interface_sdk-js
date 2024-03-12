@@ -28,6 +28,15 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines an AppVersionInfo object.
+ *
+ * @typedef AppVersionInfo
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @famodelonly
+ * @atomicservice
+ * @since 12
+ */
 export interface AppVersionInfo {
   /**
    * Application name.
@@ -47,6 +56,17 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Application name.
+   *
+   * @type { string }
+   * @default appName
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @famodelonly
+   * @atomicservice
+   * @since 12
    */
   readonly appName: string;
 
@@ -69,6 +89,17 @@ export interface AppVersionInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Application version number.
+   *
+   * @type { number }
+   * @default versionCode
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @famodelonly
+   * @atomicservice
+   * @since 12
+   */
   readonly versionCode: number;
 
   /**
@@ -89,6 +120,17 @@ export interface AppVersionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Application version name.
+   *
+   * @type { string }
+   * @default versionName
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @famodelonly
+   * @atomicservice
+   * @since 12
    */
   readonly versionName: string;
 }
