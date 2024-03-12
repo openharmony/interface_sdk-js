@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit FormKit
+ */
+
 import { AsyncCallback } from '../@ohos.base';
 import type { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';

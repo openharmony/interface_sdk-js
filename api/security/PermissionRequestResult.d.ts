@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
  * @syscap SystemCapability.Security.AccessToken
