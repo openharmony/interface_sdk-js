@@ -448,6 +448,7 @@ declare namespace PiPWindow {
      */
     /**
      * Register picture-in-picture control event listener.
+     *
      * @param { 'controlPanelActionEvent' } type - Registration type, user action event, 'controlPanelActionEvent'
      * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
