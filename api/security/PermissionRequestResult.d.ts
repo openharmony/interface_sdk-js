@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,14 +17,14 @@
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
  * @syscap SystemCapability.Security.AccessToken
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
  * @syscap SystemCapability.Security.AccessToken
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -32,7 +32,7 @@
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
  * @syscap SystemCapability.Security.AccessToken
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -42,14 +42,14 @@ export default class PermissionRequestResult {
    * The permissions passed in by the user.
    *
    * @syscap SystemCapability.Security.AccessToken
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
    * The permissions passed in by the user.
    *
    * @syscap SystemCapability.Security.AccessToken
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -57,7 +57,7 @@ export default class PermissionRequestResult {
    * The permissions passed in by the user.
    *
    * @syscap SystemCapability.Security.AccessToken
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -69,7 +69,7 @@ export default class PermissionRequestResult {
    * permission is granted, and the value -1 indicates not.
    *
    * @syscap SystemCapability.Security.AccessToken
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -77,7 +77,7 @@ export default class PermissionRequestResult {
    * permission is granted, and the value -1 indicates not.
    *
    * @syscap SystemCapability.Security.AccessToken
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -86,10 +86,21 @@ export default class PermissionRequestResult {
    * permission is granted, and the value -1 indicates not.
    *
    * @syscap SystemCapability.Security.AccessToken
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
    */
   authResults: Array<number>;
+
+  /**
+   * Specifies whether a dialog box is shown for each requested permission.
+   * The value true means that a dialog box is shown, and false means the opposite.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  dialogShownResults?: Array<boolean>;
 }
