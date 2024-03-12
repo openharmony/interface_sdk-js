@@ -475,6 +475,13 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 11
    */
+  /**
+   * Define different protocol capability
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
   enum ProtocolType {
     /**
      * The default cast type "local", media can be routed on the same device, 
@@ -2565,6 +2572,13 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * The metadata of the current media.Used to set the properties of the current media file
+   * @interface AVMetadata
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface AVMetadata {
     /**
      * Unique ID used to represent this media.
@@ -3149,6 +3163,13 @@ declare namespace avSession {
    * @interface AVQueueItem
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
+   */
+  /**
+   * The item in the playlist of the session
+   * @interface AVQueueItem
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
    */
   interface AVQueueItem {
     /**
