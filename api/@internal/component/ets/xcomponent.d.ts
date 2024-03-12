@@ -19,11 +19,25 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Defines XComponentController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 8
+ */
 declare class XComponentController {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 8
    */
   constructor();
@@ -35,6 +49,14 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Get the id of surface created by XComponent.
+   *
+   * @returns { string } The id of surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 9
+   */
   getXComponentSurfaceId(): string;
 
   /**
@@ -44,6 +66,14 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
+  /**
+   * Get the context of native XComponent.
+   *
+   * @returns { Object } The context of native XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 8
+   */
   getXComponentContext(): Object;
 
   /**
@@ -51,6 +81,14 @@ declare class XComponentController {
    *
    * @param { object } value - surface size
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Set the surface size created by XComponent.
+   *
+   * @param { object } value - surface size
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 9
    */
   setXComponentSurfaceSize(value: {
@@ -66,6 +104,14 @@ declare class XComponentController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Defines XComponent.
+ *
+ * @interface XComponentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 8
+ */
 interface XComponentInterface {
   /**
    * Constructor parameters
@@ -73,6 +119,15 @@ interface XComponentInterface {
    * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Constructor parameters
+   *
+   * @param { object } value - Indicates the options of the xcomponent.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 8
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
@@ -85,6 +140,15 @@ interface XComponentInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Constructor parameters
+   *
+   * @param { object } value - Indicates the options of the xcomponent.
+   * @returns { XComponentAttribute } The attribute of the xcomponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 }
 
@@ -95,6 +159,14 @@ interface XComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Defines XComponentAttribute.
+ *
+ * @extends CommonMethod<XComponentAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 8
+ */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent surface is created.
@@ -102,6 +174,15 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @param { function } [callback] - Called when judging whether the xcomponent surface is created.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when judging whether the xcomponent surface is created.
+   *
+   * @param { function } [callback] - Called when judging whether the xcomponent surface is created.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 8
    */
   onLoad(callback: (event?: object) => void): XComponentAttribute;
@@ -114,6 +195,15 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
+  /**
+   * Called when judging whether the xcomponent is destroyed.
+   *
+   * @param { function } event - Called when judging whether the xcomponent is destroyed.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 8
+   */
   onDestroy(event: () => void): XComponentAttribute;
 }
 
@@ -123,12 +213,26 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
+/**
+ * Defines XComponent Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 8
+ */
 declare const XComponent: XComponentInterface;
 
 /**
  * Defines XComponent Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 8
+ */
+/**
+ * Defines XComponent Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 8
  */
 declare const XComponentInstance: XComponentAttribute;
