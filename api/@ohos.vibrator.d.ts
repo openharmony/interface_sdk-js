@@ -269,6 +269,16 @@ declare namespace vibrator {
   function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;
 
   /**
+   * Whether the high-definition haptic is supported.
+   *
+   * @returns { boolean } Returns whether the high-definition haptic is supported.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  function isHdHapticSupported(): boolean;
+
+  /**
    * Preset vibration effect string.
    * 
    * @enum { string }
