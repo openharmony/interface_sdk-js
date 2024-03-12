@@ -19,12 +19,26 @@
  * @syscap SystemCapability.Advertising.Ads
  * @since 11
  */
+/**
+ * Defines the advertisement data model.
+ * @typedef Advertisement
+ * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice
+ * @since 12
+ */
 export interface Advertisement {
   /**
    * The advertisement type.
    * @type { number }
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
+   */
+  /**
+   * The advertisement type.
+   * @type { number }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
    */
   adType: number;
 
@@ -34,6 +48,13 @@ export interface Advertisement {
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
+  /**
+   * The server verifies the configuration parameters.
+   * @type { Map<string, string> }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
+   */
   rewardVerifyConfig: Map<string, string>;
 
   /**
@@ -41,6 +62,13 @@ export interface Advertisement {
    * @type { string }
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
+   */
+  /**
+   * The unique identifier of the advertisement.
+   * @type { string }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
    */
   uniqueId: string;
 
@@ -50,6 +78,13 @@ export interface Advertisement {
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
+  /**
+   * The subscriber has been rewarded.
+   * @type { boolean }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
+   */
   rewarded: boolean;
 
   /**
@@ -57,6 +92,13 @@ export interface Advertisement {
    * @type { boolean }
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
+   */
+  /**
+   * The advertisement has been shown.
+   * @type { boolean }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
    */
   shown: boolean;
 
@@ -66,6 +108,13 @@ export interface Advertisement {
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */
+  /**
+   * The advertisement has been clicked.
+   * @type { boolean }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
+   */
   clicked: boolean;
 
   /**
@@ -73,6 +122,13 @@ export interface Advertisement {
    * @type { Object }
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
+   */
+  /**
+   * The extended attributes of advertisement.
+   * @type { Object }
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice
+   * @since 12
    */
   [key:string]: Object;
 }

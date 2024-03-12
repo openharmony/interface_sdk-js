@@ -354,6 +354,26 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
+  
+  /**
+   * letter spacing.
+   *
+   * @type { ?(number | string) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing?: number | string;
+
+  /**
+   * line height.
+   *
+   * @type { ? (number | string | Resource) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight?: number | string | Resource;
 }
 
 
@@ -415,6 +435,16 @@ declare interface RichEditorParagraphStyle {
    * @since 11
    */
   leadingMargin?: Dimension | LeadingMarginPlaceholder;
+
+  /**
+   * Set word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak?: WordBreak;
 }
 
 /**
@@ -807,6 +837,26 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
+
+  /**
+   * letter spacing.
+   *
+   * @type { number } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing: number;
+
+  /**
+   * line height.
+   *
+   * @type { number } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight: number;
 }
 
 /**
@@ -1505,6 +1555,38 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 11
    */
   offset?: number;
+}
+
+/**
+ * Defines the placeholder style.
+ *
+ * @interface PlaceholderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface PlaceholderStyle {
+  /**
+   * font.
+   *
+   * @type { ?Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  font?: Font;
+
+  /**
+   * fontColor.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fontColor?: ResourceColor;
 }
 
 /**
@@ -2465,6 +2547,40 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
+
+  /**
+   * Set richEditor placeholder.
+   *
+   * @param { ResourceStr } value - The value of placeholder.
+   * @param { PlaceholderStyle } options - The style of placeholder.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
+  
+   /**
+   * Set caret color of rich editor.
+   *
+   * @param { ResourceColor } value - Custom color types.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  caretColor(value: ResourceColor): RichEditorAttribute;
+
+  /**
+   * Set background color of selected text in rich editor.
+   *
+   * @param { ResourceColor } value - Custom color types.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
 }
 
 /**

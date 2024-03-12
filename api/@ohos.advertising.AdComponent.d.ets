@@ -25,6 +25,12 @@ import advertising from './@ohos.advertising';
  * @syscap SystemCapability.Advertising.Ads
  * @since 11
  */
+/**
+ * Defines the ad component.
+ * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice
+ * @since 12
+ */
 @Component
 declare struct AdComponent {
     /**
@@ -32,6 +38,13 @@ declare struct AdComponent {
      * @type { Advertisement[] }
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
+     */
+    /**
+     * The ads to display.
+     * @type { Advertisement[] }
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 12
      */
     ads: advertising.Advertisement[];
 
@@ -41,6 +54,13 @@ declare struct AdComponent {
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
      */
+    /**
+     * The interaction options info for displaying ads.
+     * @type { AdDisplayOptions }
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 12
+     */
     displayOptions: advertising.AdDisplayOptions;
 
     /**
@@ -49,12 +69,33 @@ declare struct AdComponent {
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
      */
+    /**
+     * The interaction listener to be registered that use to show ads.
+     * @type { AdInteractionListener }
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 12
+     */
     interactionListener: advertising.AdInteractionListener;
+
+    /**
+     * The builder param to render customized ad content.
+     * @type { ?() => void }
+     * @syscap SystemCapability.Advertising.Ads
+     * @since 12
+     */
+    @BuilderParam adRenderer?: () => void;
 
     /**
      * The method to build ad component.
      * @syscap SystemCapability.Advertising.Ads
      * @since 11
+     */
+    /**
+     * The method to build ad component.
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 12
      */
     build(): void;
 }

@@ -118,6 +118,36 @@ interface SheetInfo {
 }
 
 /**
+ * Component dialog dismiss
+ *
+ * @interface DismissDialog
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissDialog {
+  /**
+   * Defines dialog dismiss function.
+   *
+   * @type { function  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: () => void;
+  
+  /**
+   * Dismiss reason type.
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * The options of ActionSheet.
  *
  * @interface ActionSheetOptions
@@ -538,6 +568,26 @@ interface ActionSheetOptions
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Callback function when the actionSheet interactive dismiss
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: (dismissDialog: DismissDialog) => void;  
+
+  /**
+   * Transition parameters of opening/closing ActionSheet.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**

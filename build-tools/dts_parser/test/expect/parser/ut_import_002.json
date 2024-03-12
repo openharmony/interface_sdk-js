@@ -5,7 +5,7 @@
       "apiType": "Import",
       "definedText": "import Want from './@ohos.app.ability.Want';",
       "pos": {
-        "line": 4,
+        "line": 19,
         "character": 1
       },
       "isExport": false,
@@ -16,6 +16,10 @@
       ],
       "isStruct": false,
       "syscap": "",
+      "currentVersion": "-1",
+      "jsDocText": "",
+      "isJoinType": false,
+      "genericInfo": [],
       "importValues": [
         {
           "key": "Want",

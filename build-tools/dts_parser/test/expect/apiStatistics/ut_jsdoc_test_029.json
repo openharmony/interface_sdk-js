@@ -16,12 +16,13 @@
     "apiType": "Property",
     "definedText": "const testStr: string;",
     "pos": {
-      "line": 9,
+      "line": 24,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

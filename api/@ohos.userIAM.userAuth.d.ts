@@ -29,6 +29,15 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace userAuth {
   /**
+   * The maximum allowable reuse duration is 300000 milliseconds.
+   *
+   * @constant
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 12
+   */
+  const MAX_ALLOWABLE_REUSE_DURATION: 300000n;
+
+  /**
    * Enum for authentication result.
    *
    * @enum { number }
@@ -1012,6 +1021,60 @@ declare namespace userAuth {
   }
 
   /**
+   * The mode for reusing unlock authentication result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 12
+   */
+  enum ReuseMode {
+    /**
+     * Authentication type relevant.The unlock authentication result can be reused only when the result is within
+     * valid duration as well as it comes from one of specified UserAuthTypes of the AuthParam.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    AUTH_TYPE_RELEVANT = 1,
+
+    /**
+     * Authentication type irrelevant.The unlock authentication result can be reused as long as the result is within
+     * valid duration.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    AUTH_TYPE_IRRELEVANT = 2
+  }
+
+  /**
+   * Reuse unlock authentication result.
+   *
+   * @typedef ReuseUnlockResult
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 12
+   */
+  interface ReuseUnlockResult {
+    /**
+     * The mode for reusing unlock authentication result.
+     *
+     * @type { ReuseMode }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    reuseMode: ReuseMode;
+
+    /**
+     * The allowable reuse duration.The value of the duration should be between 0 and MAX_ALLOWABLE_REUSE_DURATION.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    reuseDuration: number;
+  }
+
+  /**
    * Auth parameter.
    *
    * @typedef AuthParam
@@ -1045,6 +1108,15 @@ declare namespace userAuth {
      * @since 10
      */
     authTrustLevel: AuthTrustLevel;
+
+    /**
+     * Reuse unlock authentication result.
+     *
+     * @type { ?ReuseUnlockResult }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    reuseUnlockResult?: ReuseUnlockResult;
   }
 
   /**

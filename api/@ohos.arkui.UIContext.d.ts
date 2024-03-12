@@ -453,6 +453,17 @@ export class Router {
   back(options?: router.RouterOptions): void;
 
   /**
+   * Returns to the specified page.
+   *
+   * @param { number } index - index of page.
+   * @param { Object } [params] - params of page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  back(index: number, params?: Object): void;
+
+  /**
    * Clears all historical pages and retains only the current page at the top of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -506,6 +517,28 @@ export class Router {
    * @since 11
    */
   getState(): router.RouterState;
+
+ /**
+  * Obtains page information by index.
+  *
+  * @param { number } index - Index of page.
+  * @returns { router.RouterState | undefined } Page state.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  getStateByIndex(index: number): router.RouterState | undefined;
+
+ /**
+  * Obtains page information by url.
+  *
+  * @param { string } url - URL of page.
+  * @returns { Array<router.RouterState> } Page state.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  getStateByUrl(url: string): Array<router.RouterState>;
 
   /**
    * Pop up alert dialog to ask whether to back.
@@ -984,6 +1017,54 @@ export class UIObserver {
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
   
   /**
+   * Registers a callback function to be called when the scroll event start or stop.
+   *
+   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
+   * @param { observer.ObserverOptions } options - The options object.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
+   * @param { observer.ObserverOptions } options - The options object.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    scroll ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the scroll event start or stop.
+   *
+   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
+   * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                      will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
    * Registers a callback function to be called when the router page in a ui context is updated.
    *
    * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
@@ -1005,6 +1086,29 @@ export class UIObserver {
    * @since 11
    */
   off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the screen density in a ui context is updated.
+   *
+   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
+   * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
+   * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                        will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
 }
 
 /**
@@ -1150,6 +1254,20 @@ export class DragController {
    * @since 11
    */
   getDragPreview(): dragController.DragPreview;
+}
+
+/**
+ * class FocusController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+export class FocusController {
+  /**
+   * clear focus to the root container.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  clearFocus(): void;
 }
 
 /**
@@ -1495,6 +1613,25 @@ export class UIContext {
    * @since 11
    */
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
+
+  /**
+   * Get FrameNode by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getFocusController(): FocusController;
 }
 
 /**

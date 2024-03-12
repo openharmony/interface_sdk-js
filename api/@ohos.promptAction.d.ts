@@ -155,6 +155,24 @@ declare namespace promptAction {
      * @since 11
      */
     showMode?: ToastShowMode;
+    /**
+     * Defines the toast alignment of the screen.
+     *
+     * @type { ?Alignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    alignment?: Alignment;
+    /**
+     * Defines the toast offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    offset?: Offset;
   }
 
   /**
@@ -565,6 +583,16 @@ declare namespace promptAction {
      * @since 11
      */
     builder: CustomBuilder;
+
+    /**
+    * Callback function when the CustomDialog interactive dismiss.
+    *
+    * @type { ?function }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+    onWillDismiss?: (dismissDialog: DismissDialog) => void;
   }
 
   /**
@@ -905,6 +933,36 @@ declare namespace promptAction {
    * @since 11
    */
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
+}
+
+/**
+ * Component dialog dismiss
+ *
+ * @interface DismissDialog
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissDialog {
+  /**
+   * Defines dialog dismiss function.
+   *
+   * @type { function  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: () => void;
+    
+  /**
+   * Dismiss reason type.
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
 }
 
 export default promptAction;

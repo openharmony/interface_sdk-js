@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  *
  * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
@@ -36,7 +36,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  *
  * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -46,7 +46,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  *
  * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -57,7 +57,7 @@ export default class Context extends BaseContext {
    *
    * @type { resmgr.ResourceManager }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -65,7 +65,7 @@ export default class Context extends BaseContext {
    *
    * @type { resmgr.ResourceManager }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -74,7 +74,7 @@ export default class Context extends BaseContext {
    *
    * @type { resmgr.ResourceManager }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -86,7 +86,7 @@ export default class Context extends BaseContext {
    *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -94,7 +94,7 @@ export default class Context extends BaseContext {
    *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -103,7 +103,7 @@ export default class Context extends BaseContext {
    *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -115,7 +115,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -123,7 +123,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -132,7 +132,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -144,7 +144,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -152,7 +152,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -161,7 +161,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -173,7 +173,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -181,7 +181,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -190,7 +190,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -202,7 +202,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -210,7 +210,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -219,7 +219,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -231,7 +231,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -239,7 +239,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -248,7 +248,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -260,7 +260,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -268,7 +268,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -277,7 +277,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -289,7 +289,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -297,7 +297,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -308,7 +308,7 @@ export default class Context extends BaseContext {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -320,7 +320,7 @@ export default class Context extends BaseContext {
    *
    * @type { EventHub }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -328,9 +328,19 @@ export default class Context extends BaseContext {
    *
    * @type { EventHub }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates event hub.
+   *
+   * @type { EventHub }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   eventHub: EventHub;
 
@@ -339,7 +349,7 @@ export default class Context extends BaseContext {
    *
    * @type { contextConstant.AreaMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -347,7 +357,7 @@ export default class Context extends BaseContext {
    *
    * @type { contextConstant.AreaMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -364,7 +374,7 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   createBundleContext(bundleName: string): Context;
@@ -376,7 +386,7 @@ export default class Context extends BaseContext {
    * @returns { Context } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -386,7 +396,7 @@ export default class Context extends BaseContext {
    * @returns { Context } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -397,7 +407,7 @@ export default class Context extends BaseContext {
    * @returns { Context } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -413,10 +423,25 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   createModuleContext(bundleName: string, moduleName: string): Context;
+
+  /**
+   * Create a system HSP module resource manager.
+   *
+   * @param { string } bundleName - Indicates the bundle name.
+   * @param { string } moduleName - Indicates the module name.
+   * @returns { resmgr.ResourceManager } Returns the system HSP module resource manager.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16400001 - If the input bundleName is not system hsp.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
   /**
    * Get application context
@@ -424,7 +449,7 @@ export default class Context extends BaseContext {
    * @returns { ApplicationContext } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -433,7 +458,7 @@ export default class Context extends BaseContext {
    * @returns { ApplicationContext } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -443,7 +468,7 @@ export default class Context extends BaseContext {
    * @returns { ApplicationContext } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -458,7 +483,7 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -469,7 +494,7 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -483,7 +508,7 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -494,7 +519,7 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -512,7 +537,7 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
