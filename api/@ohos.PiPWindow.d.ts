@@ -217,7 +217,8 @@ declare namespace PiPWindow {
 
   /**
    * Describe PiP window custom controls.
-   *
+   * 
+   * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup }
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
@@ -324,14 +325,17 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture video template action event type.
-   *
-   * playbackStateChanged: action event to change playback state.
-   * nextVideo: action event to play next video.
-   * previousVideo: action event to play previous video.
-   * fastForward: action event to fast forward video.
-   * fastBackward: action event to fast backward video.
+   * 
+   * @typedef { 'playbackStateChanged' | 'nextVideo' | 'previousVideo' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
+   */
+  /**
+   * Describe picture-in-picture video template action event type.
+   * 
+   * @typedef { 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
    */
   type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
 
@@ -358,6 +362,14 @@ declare namespace PiPWindow {
    * @since 11
    */
   type PiPLiveActionEvent = 'playbackStateChanged';
+
+  /**
+   * Describe picture-in-picture control panel action event callback.
+   * 
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 12
+   */
+  type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void;
 
   /**
    * PiPController
@@ -429,11 +441,18 @@ declare namespace PiPWindow {
     /**
      * Register picture-in-picture control event listener.
      * @param { 'controlPanelActionEvent' } type - Registration type, user action event, 'controlPanelActionEvent'
-     * @param { function } callback - Used to handle {'controlPanelActionEvent'} command. The status parameter is used to identify the control status.
+     * @param { function } callback - Used to handle {'controlPanelActionEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'controlPanelActionEvent', callback: (event: PiPActionEventType, status?: number) => void): void;
+    /**
+     * Register picture-in-picture control event listener.
+     * @param { 'controlPanelActionEvent' } type - Registration type, user action event, 'controlPanelActionEvent'
+     * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
