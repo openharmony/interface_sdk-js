@@ -24,7 +24,7 @@ import Want from '../@ohos.app.ability.Want';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.Form
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
@@ -33,7 +33,7 @@ import Want from '../@ohos.app.ability.Want';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.Form
- * @StageModelOnly
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -51,8 +51,24 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
+   */
+  /**
+   * Start an ability.
+   *
+   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16500101 - The application is not a system application.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -69,8 +85,24 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
+   */
+  /**
+   * Start an ability.
+   *
+   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16500101 - The application is not a system application.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   startAbility(want: Want): Promise<void>;
 
@@ -101,7 +133,7 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
@@ -116,7 +148,7 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
@@ -131,7 +163,7 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
