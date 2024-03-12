@@ -395,8 +395,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 12
    * @atomicservice
+   * @since 12
    */
   function connectToCandidateConfig(networkId: number): void;
 
