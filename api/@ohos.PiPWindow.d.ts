@@ -366,6 +366,7 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture control panel action event callback.
    * 
+   * @typedef {(PiPActionEventType, number?) => void}
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
