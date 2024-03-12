@@ -1513,6 +1513,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Unregister session output device change callback
+     * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
+     * @param { function } callback - Used to handle output device changed.
+     * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     off(type: 'outputDeviceChange', callback?: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
     /**
@@ -2835,14 +2847,6 @@ declare namespace avSession {
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
-     */
-    /**
-     * The supported skipIntervals when doing fast forward and rewind operation, the default is {@link SECONDS_15}.
-     * See {@link SkipIntervals}
-     * @type { ?SkipIntervals }
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 12
      */
     skipIntervals?: SkipIntervals;
 
