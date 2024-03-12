@@ -325,7 +325,7 @@ declare namespace PiPWindow {
 
   /**
    * Describe picture-in-picture video template action event type.
-   * 
+   *
    * @typedef { 'playbackStateChanged' | 'nextVideo' | 'previousVideo' }
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
