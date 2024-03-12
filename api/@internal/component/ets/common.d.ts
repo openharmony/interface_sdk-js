@@ -17394,12 +17394,16 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -17407,6 +17411,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17415,6 +17421,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17426,12 +17434,16 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -17439,6 +17451,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17447,6 +17461,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17565,13 +17581,17 @@ declare class CustomComponent extends CommonAttribute {
 
   /**
    * onPageShow Method
-   *
+   * 
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * onPageShow Method
    *
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17579,6 +17599,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onPageShow Method
    *
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17589,12 +17611,16 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onPageHide Method
    *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * onPageHide Method
    *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17602,6 +17628,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onPageHide Method
    *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17636,6 +17664,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * Triggered when the user clicks the back button
+   * 
    * @returns { void | boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -17643,6 +17673,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * Triggered when the user clicks the back button
+   * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
@@ -17653,6 +17685,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * Triggered when the user clicks the back button
+   * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
