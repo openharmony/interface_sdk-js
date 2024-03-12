@@ -143,6 +143,14 @@ declare namespace uniformTypeDescriptor {
     XML = 'general.xml',
 
     /**
+     * Real synchronized multimedia integration language.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SMIL = 'com.real.smil',
+
+    /**
      * Source code data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -261,6 +269,14 @@ declare namespace uniformTypeDescriptor {
      * @since 11
      */
     JAVA_SOURCE = 'general.java-source',
+
+    /**
+     * Markdown format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    MARKDOWN = 'general.markdown',
 
     /**
      * Ebook data type.
@@ -398,6 +414,70 @@ declare namespace uniformTypeDescriptor {
     AI_IMAGE = 'com.adobe.illustrator.ai-image',
 
     /**
+     * Base type for fax images.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    FAX = 'general.fax',
+
+    /**
+     *  J2 jConnect fax file format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    JFX_FAX = 'com.j2.jfx-fax',
+
+    /**
+     * The electronic fax document format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    EFX_FAX = 'com.js.efx-fax',
+
+    /**
+     * X bitmap image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    XBITMAP_IMAGE = 'general.xbitmap-image',
+
+    /**
+     * Tagged Graphics (TGA), a type of image format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    TGA_IMAGE = 'com.truevision.tga-image',
+
+    /**
+     * Silicon Graphics image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SGI_IMAGE = 'com.sgi.sgi-image',
+
+    /**
+     * OpenEXR image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENEXR_IMAGE = 'com.ilm.openexr-image',
+
+    /**
+     * FlashPix image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    FLASHPIX_IMAGE = 'com.kodak.flashpix.image',
+
+    /**
      * Microsoft Word data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -525,6 +605,30 @@ declare namespace uniformTypeDescriptor {
     WINDOWS_MEDIA_WMP = 'com.microsoft.windows-media-wmp',
 
     /**
+     * Windows WVX video format data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
+
+    /**
+     * Windows WMX video format data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
+
+    /**
+     * RealMedia.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    REALMEDIA = 'com.real.realmedia',
+
+    /**
      * Audio data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -612,28 +716,44 @@ declare namespace uniformTypeDescriptor {
     WAVEFORM_AUDIO = 'com.microsoft.waveform-audio',
 
     /**
-     * Windows WMX audio format data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
-
-    /**
-     * Windows WVX audio format data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
-
-    /**
      * Windows WAX audio format data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
     WINDOWS_MEDIA_WAX = 'com.microsoft.windows-media-wax',
+
+    /**
+     * Au file format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    AU_AUDIO = 'general.au-audio',
+
+    /**
+     * Audio Interchange File Format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    AIFC_AUDIO = 'general.aifc-audio',
+
+    /**
+     * Digidesign Sound Designer II audio.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SD2_AUDIO = 'com.digidesign.sd2-audio',
+
+    /**
+     * RealMedia audio.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    REALAUDIO = 'com.real.realaudio',
 
     /**
      * File data type.
@@ -754,356 +874,6 @@ declare namespace uniformTypeDescriptor {
     GNU_ZIP_TAR_ARCHIVE = 'org.gnu.gnu-zip-tar-archive',
 
     /**
-     * Calendar data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    CALENDAR = 'general.calendar',
-
-    /**
-     * Contact data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    CONTACT = 'general.contact',
-
-    /**
-     * Database data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    DATABASE = 'general.database',
-
-    /**
-     * Message data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    MESSAGE = 'general.message',
-
-    /**
-     * A file format data type stand for electronic business card.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    VCARD = 'general.vcard',
-
-    /**
-     * Navigation data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    NAVIGATION = 'general.navigation',
-
-    /**
-     * Location data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    LOCATION = 'general.location',
-
-    /**
-     * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    OPENHARMONY_FORM = 'openharmony.form',
-
-    /**
-     * OpenHarmony system defined app item data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * OpenHarmony system defined app item data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */    
-    OPENHARMONY_APP_ITEM = 'openharmony.app-item',
-
-    /**
-     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
-
-    /**
-     * OpenHarmony system defined atomic service data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service',
-
-    /**
-     * OpenHarmony system defined package, which is a directory presented to the user as a file(the data is provided
-     * <br>and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    OPENHARMONY_PACKAGE = 'openharmony.package',
-
-    /**
-     * OpenHarmony system defined ability package(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    OPENHARMONY_HAP = 'openharmony.hap',
-
-    /**
-     * Base type for fax images.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    FAX = 'general.fax',
-
-    /**
-     * X bitmap image.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    XBITMAP_IMAGE = 'general.xbitmap-image',
-
-    /**
-     * Au file format.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    AU_AUDIO = 'general.au-audio',
-
-    /**
-     * Audio Interchange File Format.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    AIFC_AUDIO = 'general.aifc-audio',
-
-    /**
-     * vCalendar type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    VCS = 'general.vcs',
-
-    /**
-     * iCalendar type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    ICS = 'general.ics',
-
-    /**
-     * Base type for executable data.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    EXECUTABLE = 'general.executable',
-
-    /**
-     * Base type for fonts.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    FONT = 'general.font',
-
-    /**
-     * TrueType font.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    TRUETYPE_FONT = 'general.truetype-font',
-
-    /**
-     * TrueType collection font.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    TRUETYPE_COLLECTION_FONT = 'general.truetype-collection-font',
-
-    /**
-     * OpenType font.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    OPENTYPE_FONT = 'general.opentype-font',
-
-    /**
-     * Markdown format.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    MARKDOWM = 'general.markdown',
-
-    /**
-     * PostScript font.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    POSTSCRIPT_FONT = 'com.adobe.postscript-font',
-
-    /**
-     * PostScriptType1 outline font.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    POSTSCRIPT_PFB_FONT = 'com.adobe.postscript-pfb-font',
-
-    /**
-     * PostScript Type 1 outline font.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    POSTSCRIPT_PFA_FONT = 'com.adobe.postscript-pfa-font',
-
-    /**
-     * Microsoft Windows application.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    PORTABLE_EXECUTABLE = 'com.microsoft.portable-excutable',
-
-    /**
-     * Java class.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    SUN_JAVA_CLASS = 'com.sun.java-class',
-
-    /**
-     * TGA image.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    TRUEVISION_TGA_IMAGE = 'com.truevision.tga-image',
-
-    /**
-     * Silicon Graphics image.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    SGI_SGI_IMAGE = 'com.sgi.sgi-image',
-
-    /**
-     * OpenEXR image.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    ILM_OPENEXR_IMAGE = 'com.ilm.openexr-image',
-
-    /**
-     * FlashPix image.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    KODAK_FLASHPIX_IMAGE = 'com.kodak.flashpix.image',
-
-    /**
-     * J2 fax.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    J2_JFX_FAX = 'com.j2.jfx-fax',
-
-    /**
-     * eFax fax.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    JS_EFX_FAX = 'com.js.efx-fax',
-
-    /**
-     * Digidesign Sound Designer II audio.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    DIGIDESIGN_SD2_AUDIO = 'com.digidesign.sd2-audio',
-
-    /**
-     * RealMedia.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    REALMEDIA = 'com.real.realmedia',
-
-    /**
-     * RealMedia audio.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    REALAUDIO = 'com.real.realaudio',
-
-    /**
-     * Real synchronized multimedia integration language.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    SMIL = 'com.real.smil',
-
-    /**
-     * Stuffit archive.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12
-     */
-    STUFFIT_ARCHIVE = 'com.allume.stuffit-archive',
-
-    /**
      * Office Open XML.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1184,12 +954,234 @@ declare namespace uniformTypeDescriptor {
     OPENDOCUMENT_FORMULA = 'org.oasis.opendocument.formula',
 
     /**
-     * OpenHarmony system defined Want.
+     * Stuffit archive.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
-    OPENHARMONY_WANT = 'openharmony.want',
+    STUFFIT_ARCHIVE = 'com.allume.stuffit-archive',
+
+    /**
+     * Calendar data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    CALENDAR = 'general.calendar',
+
+    /**
+     * VCalendar type, a type of calendar format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    VCS = 'general.vcs',
+
+    /**
+     * ICalendar type, a type of calendar format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    ICS = 'general.ics',
+
+    /**
+     * Contact data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    CONTACT = 'general.contact',
+
+    /**
+     * Database data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    DATABASE = 'general.database',
+
+    /**
+     * Message data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    MESSAGE = 'general.message',
+
+    /**
+     * Base type for executable data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    EXECUTABLE = 'general.executable',
+
+    /**
+     * Microsoft Windows application.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    PORTABLE_EXECUTABLE = 'com.microsoft.portable-executable',
+
+    /**
+     * Java class.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SUN_JAVA_CLASS = 'com.sun.java-class',
+
+    /**
+     * A file format data type stand for electronic business card.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    VCARD = 'general.vcard',
+
+    /**
+     * Navigation data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    NAVIGATION = 'general.navigation',
+
+    /**
+     * Location data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    LOCATION = 'general.location',
+
+    /**
+     * Base type for fonts.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    FONT = 'general.font',
+
+    /**
+     * TrueType font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    TRUETYPE_FONT = 'general.truetype-font',
+
+    /**
+     * TrueType collection font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    TRUETYPE_COLLECTION_FONT = 'general.truetype-collection-font',
+
+    /**
+     * OpenType font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENTYPE_FONT = 'general.opentype-font',
+
+    /**
+     * PostScript font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    POSTSCRIPT_FONT = 'com.adobe.postscript-font',
+
+    /**
+     * A Printer Font Binary version of Adobe's Type 1.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    POSTSCRIPT_PFB_FONT = 'com.adobe.postscript-pfb-font',
+
+    /**
+     * Adobe Type 1 font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    POSTSCRIPT_PFA_FONT = 'com.adobe.postscript-pfa-font',
+
+    /**
+     * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    OPENHARMONY_FORM = 'openharmony.form',
+
+    /**
+     * OpenHarmony system defined app item data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * OpenHarmony system defined app item data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */    
+    OPENHARMONY_APP_ITEM = 'openharmony.app-item',
+
+    /**
+     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
+
+    /**
+     * OpenHarmony system defined atomic service data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service',
+
+    /**
+     * OpenHarmony system defined package, which is a directory presented to the user as a file(the data is provided
+     * <br>and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_PACKAGE = 'openharmony.package',
+
+    /**
+     * OpenHarmony system defined ability package(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    OPENHARMONY_HAP = 'openharmony.hap',
 
     /**
      * OpenHarmony system AppNotepad data format.
@@ -1213,7 +1205,15 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
-     OPENHARMONY_STYLED_STRING = 'openharmony.styled-string'
+    OPENHARMONY_STYLED_STRING = 'openharmony.styled-string',
+
+    /**
+     * OpenHarmony system defined Want.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENHARMONY_WANT = 'openharmony.want'
   }
 
   /**
