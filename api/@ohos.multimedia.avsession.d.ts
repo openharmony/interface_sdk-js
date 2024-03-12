@@ -32,7 +32,12 @@ import type Context from './application/BaseContext';
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @since 9
  */
-
+/**
+ * @namespace avSession
+ * @syscap SystemCapability.Multimedia.AVSession.Core
+ * @atomicservice
+ * @since 12
+ */
 
 declare namespace avSession {
   /**
@@ -46,6 +51,18 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Create an AVSession instance. An ability can only create one AVSession
+   * @param { Context } context - The context of application
+   * @param { string } tag - A user-defined name for this session
+   * @param { AVSessionType } type - The type of session {@link AVSessionType}
+   * @param { AsyncCallback<AVSession> } callback - async callback for AVSession.
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
 
   /**
@@ -58,6 +75,18 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
+   */
+  /**
+   * Create an AVSession instance. An ability can only create one AVSession
+   * @param { Context } context - The context of application
+   * @param { string } tag - A user-defined name for this session
+   * @param { AVSessionType } type - The type of session {@link AVSessionType}
+   * @returns { Promise<AVSession> } Promise for AVSession
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType): Promise<AVSession>;
 
@@ -453,6 +482,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
+    /**
+     * The default cast type "local", media can be routed on the same device, 
+     * including internal speakers or audio jack on the device itself, A2DP devices.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     TYPE_LOCAL = 0,
 
     /**
@@ -691,6 +727,12 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 11
    */
+  /**
+   * Session type, support voice_call
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   type AVSessionType = 'audio' | 'video' | 'voice_call';
 
   /**
@@ -699,11 +741,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * AVSession object.
+   * @interface AVSession
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface AVSession {
     /**
      * unique session Id
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * unique session Id
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     readonly sessionId: string;
 
@@ -711,6 +766,12 @@ declare namespace avSession {
      * Get current session type
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Get current session type
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     readonly sessionType: AVSessionType;
 
@@ -737,6 +798,18 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Set the metadata of this session.
+     * In addition to the required properties, users can fill in partially supported properties
+     * @param { AVMetadata } data {@link AVMetadata}
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     setAVMetadata(data: AVMetadata): Promise<void>;
 
@@ -785,6 +858,17 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Set the playback state of this session.
+     * @param { AVPlaybackState } state {@link AVPlaybackState}
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     setAVPlaybackState(state: AVPlaybackState): Promise<void>;
 
@@ -974,6 +1058,16 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return null.
+     * @returns { Promise<AVCastController> } Promise for the AVCastController
+     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
+     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     getAVCastController(): Promise<AVCastController>;
 
     /**
@@ -993,6 +1087,15 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Get output device information
+     * @returns { Promise<OutputDeviceInfo> } Promise for the OutputDeviceInfo
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
@@ -1378,6 +1481,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Register session output device change callback
+     * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
+     * @param { function } callback - Used to handle output device changed.
+     * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
     /**
@@ -1567,6 +1682,15 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Activate the session, indicating that the session can accept control commands
+     * @returns { Promise<void> } void result promise when executed successfully 
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     activate(): Promise<void>;
 
     /**
@@ -1586,6 +1710,15 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Deactivate the session, indicating that the session not ready to accept control commands
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     deactivate(): Promise<void>;
 
@@ -1607,6 +1740,15 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Destroy this session, the server will clean up the session resources
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     destroy(): Promise<void>;
   }
 
@@ -1614,6 +1756,12 @@ declare namespace avSession {
    * The type of control command
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
+   */
+  /**
+   * The type of control command
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast\
+   * @atomicservice
+   * @since 12
    */
   type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute';
@@ -1624,11 +1772,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
    */
+  /**
+   * The definition of command to be sent to the session
+   * @interface AVCastControlCommand
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
   interface AVCastControlCommand {
     /**
      * The command value {@link AVCastControlCommandType}
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * The command value {@link AVCastControlCommandType}
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     command: AVCastControlCommandType;
 
@@ -1643,6 +1804,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Parameter carried in the command.
+     * The seek command must carry the number parameter.
+     * The setVolume command must carry the number parameter.
+     * The toggleFavorite command must carry the {@link AVMediaDescription.assetId} parameter.
+     * The setSpeed command must carry the {@link #media.PlaybackSpeed} parameter.
+     * The setLoopMode command must carry the {@link LoopMode} parameter.
+     * Other commands do not need to carry parameters.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     parameter?: media.PlaybackSpeed | number | string | LoopMode;
   }
 
@@ -1651,6 +1824,13 @@ declare namespace avSession {
    * @interface AVCastController
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
+   */
+  /**
+   * AVCastController definition used to implement a remote control when a cast is connected
+   * @interface AVCastController
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
    */
   interface AVCastController {
     /**
@@ -1693,6 +1873,14 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Get the playback status of the current player
+     * @returns { Promise<AVPlaybackState> } (AVPlaybackState) returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     getAVPlaybackState(): Promise<AVPlaybackState>;
 
     /**
@@ -1719,6 +1907,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+     /**
+     * Send control commands to remote player
+     * @param { AVCastControlCommand } command The command to be send.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600105 - Invalid session command
+     * @throws { BusinessError } 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     sendControlCommand(command: AVCastControlCommand): Promise<void>;
 
     /**
@@ -1742,6 +1942,17 @@ declare namespace avSession {
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * Play the current item, should contain mediaUri otherwise the playback will fail.
+     * @param { AVQueueItem } item media item info.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - Session service exception
+     * @throws {BusinessError} 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     start(item: AVQueueItem): Promise<void>;
 
@@ -1767,6 +1978,17 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Load the current item and mediaUri can be null, this is needed for sink media information displaying
+     * @param { AVQueueItem } item media item info.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - Session service exception
+     * @throws {BusinessError} 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     prepare(item: AVQueueItem): Promise<void>;
 
     /**
@@ -1784,6 +2006,14 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * Get the current playing item
+     * @returns { Promise<AVQueueItem> } (AVQueueItem) returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     getCurrentItem(): Promise<AVQueueItem>;
 
@@ -1821,6 +2051,14 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
+    /**
+     * Destroy the controller
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     release(): Promise<void>;
 
     /**
@@ -1834,6 +2072,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Register playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
@@ -1846,6 +2096,17 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Unregister playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void;
 
     /**
@@ -1857,6 +2118,16 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Register listener for current media item playback events.
+     * @param { 'mediaItemChange' } type Type of the playback event to listen for.
+     * @param { Callback<AVQueueItem> } callback Callback used to listen for current item changed.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'mediaItemChange', callback: Callback<AVQueueItem>): void;
 
     /**
@@ -1866,6 +2137,15 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * Unregister listener for current media item playback events.
+     * @param { 'mediaItemChange' } type Type of the playback event to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     off(type: 'mediaItemChange'): void;
 
@@ -1878,6 +2158,16 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     *//**
+     * Register playback command callback sent by remote side or media center.
+     * Application needs update the new media resource when receive these commands by using playItem.
+     * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
+     * @param { Callback<void> } callback - Used to handle 'playNext' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     on(type: 'playNext', callback: Callback<void>): void;
 
@@ -1889,6 +2179,16 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * Unregister playback command callback sent by remote side or media center.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     off(type: 'playNext'): void;
 
@@ -1902,6 +2202,17 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Register playback command callback sent by remote side or media center.
+     * Application needs update the new media resource when receive these commands by using playItem.
+     * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
+     * @param { Callback<void> } callback - Used to handle 'playPrevious' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'playPrevious', callback: Callback<void>): void;
 
     /**
@@ -1912,6 +2223,16 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * Unregister playback command callback sent by remote side or media center.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     off(type: 'playPrevious'): void;
 
@@ -1970,6 +2291,16 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Register listens for playback events.
+     * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'seekDone', callback: Callback<number>): void;
 
     /**
@@ -1979,6 +2310,15 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * Unregister listens for playback events.
+     * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     off(type: 'seekDone'): void;
 
@@ -2046,6 +2386,22 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Register listeners for playback error events.
+     * @param { 'error' } type Type of the 'error' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the playback error event.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -2062,6 +2418,21 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * Unregister listens for playback error events.
+     * @param { 'error' } type Type of the 'error' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     off(type: 'error'): void;
   }
 
@@ -2071,11 +2442,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Define the device connection state.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   enum ConnectionState {
     /**
      * A connection state indicating the device is in the process of connecting.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * A connection state indicating the device is in the process of connecting.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     STATE_CONNECTING = 0,
 
@@ -2084,12 +2468,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * A connection state indicating the device is connected.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     STATE_CONNECTED = 1,
 
     /**
      * The default connection state indicating the device is disconnected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The default connection state indicating the device is disconnected.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     STATE_DISCONNECTED = 6,
   }
@@ -2176,6 +2572,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Unique ID used to represent this media.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     assetId: string;
 
     /**
@@ -2183,6 +2586,13 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The title of this media, for display in media center.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     title?: string;
 
@@ -2192,6 +2602,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The artist of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     artist?: string;
 
     /**
@@ -2199,6 +2616,13 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The author of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     author?: string;
 
@@ -2232,6 +2656,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The album of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     album?: string;
 
     /**
@@ -2239,6 +2670,13 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The writer of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     writer?: string;
 
@@ -2256,6 +2694,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The duration of this media, used to automatically calculate playback position
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     duration?: number;
 
     /**
@@ -2263,6 +2708,13 @@ declare namespace avSession {
      * used to display in media center.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The image of the media as a {@link PixelMap} or an uri formatted String,
+     * used to display in media center.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     mediaImage?: image.PixelMap | string;
 
@@ -2280,6 +2732,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The subtitle of the media, used for display
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     subtitle?: string;
 
     /**
@@ -2287,6 +2746,13 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The discription of the media, used for display
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     description?: string;
 
@@ -2305,6 +2771,14 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The previous playable media id.
+     * Used to tell the controller if there is a previous playable media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     previousAssetId?: string;
 
     /**
@@ -2313,6 +2787,14 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The next playable media id.
+     * Used to tell the controller if there is a next playable media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     nextAssetId?: string;
 
@@ -2323,6 +2805,14 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
+    /**
+     * The protocols supported by this session, if not set, the default is {@link TYPE_CAST_PLUS_STREAM}.
+     * See {@link ProtocolType}
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     filter?: number;
 
     /**
@@ -2331,6 +2821,14 @@ declare namespace avSession {
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
+     */
+    /**
+     * The supported skipIntervals when doing fast forward and rewind operation, the default is {@link SECONDS_15}.
+     * See {@link SkipIntervals}
+     * @type { ?SkipIntervals }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     skipIntervals?: SkipIntervals;
 
@@ -2349,6 +2847,13 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * The description of the media for an item in the playlist of the session
+   * @interface AVMediaDescription
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface AVMediaDescription {
     /**
      * Unique ID used to represent this media.
@@ -2356,12 +2861,26 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Unique ID used to represent this media.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     assetId: string;
     /**
      * The title of this media, for display in media center.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The title of this media, for display in media center.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     title?: string;
 
@@ -2371,6 +2890,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The subtitle of the media, used for display
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     subtitle?: string;
 
     /**
@@ -2379,6 +2905,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The description of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     description?: string;
 
     /**
@@ -2386,6 +2919,13 @@ declare namespace avSession {
      * It can be a {@link PixelMap} or a URI formatted string,
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The image of this media asset displayed in the media center.
+     * It can be a {@link PixelMap} or a URI formatted string,
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     mediaImage?: image.PixelMap | string;
     /**
@@ -2401,6 +2941,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The type of this media, such as video, audio and so on.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     mediaType?: string;
 
     /**
@@ -2408,6 +2955,13 @@ declare namespace avSession {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The size of this media.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     mediaSize?: number;
 
@@ -2417,6 +2971,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The album title of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     albumTitle?: string;
 
     /**
@@ -2424,6 +2985,13 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The album cover uri of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     albumCoverUri?: string;
 
@@ -2433,6 +3001,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The lyric content of the media, it should be in standard lyric format
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     lyricContent?: string;
 
     /**
@@ -2440,6 +3015,13 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The lyric uri of the media.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     lyricUri?: string;
 
@@ -2449,6 +3031,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The artist of this media.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     artist?: string;
 
     /**
@@ -2457,12 +3046,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The uri of the media, used to locate the media in some special cases
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     mediaUri?: string;
 
     /**
      * Media file descriptor.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Media file descriptor.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     fdSrc?: media.AVFileDescriptor;
 
@@ -2472,6 +3074,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The duration of this media
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     duration?: number;
 
     /**
@@ -2479,6 +3088,13 @@ declare namespace avSession {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Media start position, described by milliseconds.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     startPosition?: number;
 
@@ -2488,6 +3104,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Media credits position, described by milliseconds.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     creditsPosition?: number;
 
     /**
@@ -2496,6 +3119,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Application name.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     appName?: string;
 
     /**
@@ -2503,6 +3133,13 @@ declare namespace avSession {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
+     */
+    /**
+     * The display tags supported by application to be displayed on media center
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core\
+     * @atomicservice
+     * @since 12
      */
     displayTags?: number;
   }
@@ -2520,12 +3157,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Sequence number of the item in the playlist.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     itemId: number;
 
     /**
      * The media description of the item in the playlist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The media description of the item in the playlist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     description?: AVMediaDescription;
   }
@@ -2537,11 +3187,25 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Used to indicate the playback state of the current media.
+   * If the playback state of the media changes, it needs to be updated synchronously
+   * @interface AVPlaybackState
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface AVPlaybackState {
     /**
      * Current playback state. See {@link PlaybackState}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Current playback state. See {@link PlaybackState}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     state?: PlaybackState;
 
@@ -2551,12 +3215,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Current playback speed
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     speed?: number;
 
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Current playback position of this media. See {@link PlaybackPosition}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     position?: PlaybackPosition;
 
@@ -2566,12 +3243,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The current buffered time, the maximum playable position
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     bufferedTime?: number;
 
     /**
      * Current playback loop mode. See {@link LoopMode}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Current playback loop mode. See {@link LoopMode}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     loopMode?: LoopMode;
 
@@ -2581,6 +3271,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Current Favorite Status
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     isFavorite?: boolean;
 
     /**
@@ -2588,6 +3285,13 @@ declare namespace avSession {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Current active item id
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     activeItemId?: number;
 
@@ -2597,6 +3301,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Current player volume
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     volume?: number;
 
     /**
@@ -2605,6 +3316,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
+    /**
+     * maximum  volume
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     maxVolume?: number;
 
     /**
@@ -2612,6 +3330,13 @@ declare namespace avSession {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
+     */
+    /**
+     * Current muted status
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     muted?: boolean;
 
@@ -2629,6 +3354,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
+    /**
+     * The video width of this media asset.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     videoWidth?: number;
 
     /**
@@ -2637,12 +3369,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
+    /**
+     * The video height of this media asset.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     videoHeight?: number;
 
     /**
      * Current custom media packets
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Current custom media packets
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     extras?: {[key: string]: Object};
   }
@@ -2653,12 +3398,26 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Playback position definition
+   * @interface PlaybackPosition
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface PlaybackPosition {
     /**
      * Elapsed time(position) of this media set by the app.
      * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Elapsed time(position) of this media set by the app.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     elapsedTime: number;
 
@@ -2667,6 +3426,13 @@ declare namespace avSession {
      * @type { number }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Record the system time when elapsedTime is set.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     updateTime: number;
   }
@@ -2790,12 +3556,26 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
    */
+  /**
+   * cast category indicating different playback scenes
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
   enum AVCastCategory {
     /**
      * The default cast type "local", media can be routed on the same device, 
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
+     */
+    /**
+     * The default cast type "local", media can be routed on the same device, 
+     * including internal speakers or audio jack on the device itself, A2DP devices.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
      */
     CATEGORY_LOCAL = 0,
 
@@ -2805,6 +3585,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * The remote category indicating the media is presenting on a remote device,
+     * the application needs to get an AVCastController to control remote playback.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     CATEGORY_REMOTE = 1,
   }
   /**
@@ -2813,11 +3600,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Device type definition
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   enum DeviceType {
     /**
      * A device type indicating the route is on internal speakers or audio jack on the device itself.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * A device type indicating the route is on internal speakers or audio jack on the device itself.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     DEVICE_TYPE_LOCAL = 0,
 
@@ -2826,6 +3626,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * A device type indicating the route is on a TV.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     DEVICE_TYPE_TV = 2,
 
     /**
@@ -2833,12 +3639,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+    /**
+     * A device type indicating the route is on a smart speaker.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     DEVICE_TYPE_SMART_SPEAKER = 3,
 
     /**
      * A device type indicating the route is on a bluetooth device.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * A device type indicating the route is on a bluetooth device.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     DEVICE_TYPE_BLUETOOTH = 10,
   }
@@ -2849,11 +3667,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Device Information Definition
+   * @interface DeviceInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface DeviceInfo {
     /**
      * The playback type supported by the device. See {@link AVCastCategory}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The playback type supported by the device. See {@link AVCastCategory}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     castCategory: AVCastCategory;
     /**
@@ -2861,6 +3692,13 @@ declare namespace avSession {
      * if output to multiple devices at the same time.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Audio device id.The length of the audioDeviceId array is greater than 1
+     * if output to multiple devices at the same time.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     deviceId: string;
 
@@ -2870,12 +3708,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Device name. The length of the deviceName array is greater than 1
+     * if output to multiple devices at the same time.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     deviceName: string;
 
     /**
      * device type.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * device type.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     deviceType: DeviceType;
 
@@ -2901,6 +3752,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
+    /**
+     * The protocols supported by current device, can be union of {@link ProtocolType}.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
     supportedProtocols?: number;
 
     /**
@@ -2921,11 +3779,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Target Device Information Definition
+   * @interface OutputDeviceInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   interface OutputDeviceInfo {
     /**
      * Arrays of device information
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Arrays of device information
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     devices: Array<DeviceInfo>;
   }
@@ -3006,11 +3877,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Definition of current playback state
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   enum PlaybackState {
     /**
      * Initial state. The initial state of media file
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Initial state. The initial state of media file
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     PLAYBACK_STATE_INITIAL = 0,
 
@@ -3020,12 +3904,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Preparing state. Indicates that the media file is not ready to play,
+     * the media is loading or buffering
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     PLAYBACK_STATE_PREPARE = 1,
 
     /**
      * Playing state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Playing state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     PLAYBACK_STATE_PLAY = 2,
 
@@ -3034,12 +3931,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Paused state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     PLAYBACK_STATE_PAUSE = 3,
 
     /**
      * Fast forwarding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Fast forwarding state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     PLAYBACK_STATE_FAST_FORWARD = 4,
 
@@ -3048,12 +3957,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Rewinding state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     PLAYBACK_STATE_REWIND = 5,
 
     /**
      * Stopped state.The server will clear the media playback position and other information.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Stopped state.The server will clear the media playback position and other information.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     PLAYBACK_STATE_STOP = 6,
 
@@ -3062,12 +3983,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Completed state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     PLAYBACK_STATE_COMPLETED = 7,
 
     /**
      * Released state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Released state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     PLAYBACK_STATE_RELEASED = 8,
 
@@ -3076,6 +4009,12 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * error state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     PLAYBACK_STATE_ERROR = 9,
 
     /**
@@ -3083,12 +4022,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
+    /**
+     * Idle state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     PLAYBACK_STATE_IDLE = 10,
 
     /**
      * Buffering state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
+     */
+    /**
+     * Buffering state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     PLAYBACK_STATE_BUFFERING = 11,
   }
@@ -4017,11 +4968,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Enumerates ErrorCode types, returns in BusinessError.code.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   enum AVSessionErrorCode {
     /**
      * Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Session service exception.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     ERR_CODE_SERVICE_EXCEPTION = 6600101,
 
@@ -4030,12 +4994,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     ERR_CODE_SESSION_NOT_EXIST = 6600102,
 
     /**
      * The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     ERR_CODE_CONTROLLER_NOT_EXIST = 6600103,
 
@@ -4044,12 +5020,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The remote session connection failed.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     ERR_CODE_REMOTE_CONNECTION_ERR = 6600104,
 
     /**
      * Invalid session command.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Invalid session command.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     ERR_CODE_COMMAND_INVALID = 6600105,
 
@@ -4058,12 +5046,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * The session is not activated.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     ERR_CODE_SESSION_INACTIVE = 6600106,
 
     /**
      * Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * Too many commands or events.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     ERR_CODE_MESSAGE_OVERLOAD = 6600107,
 
@@ -4072,12 +5072,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Device connecting failed.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     ERR_CODE_DEVICE_CONNECTION_FAILED = 6600108,
 
     /**
      * The remote connection is not established.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The remote connection is not established.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
   }

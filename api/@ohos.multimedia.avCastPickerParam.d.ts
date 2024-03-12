@@ -24,11 +24,24 @@
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @since 11
  */
+/**
+ * Definition of av cast picker state
+ * @enum { number }
+ * @syscap SystemCapability.Multimedia.AVSession.AVCast
+ * @atomicservice
+ * @since 12
+ */
 export declare enum AVCastPickerState {
   /**
    * The picker starts showing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 11
+   */
+  /**
+   * The picker starts showing.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
    */
   STATE_APPEARING,
 
@@ -36,6 +49,12 @@ export declare enum AVCastPickerState {
    * The picker finishes presenting.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 11
+   */
+  /**
+   * The picker finishes presenting.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
    */
   STATE_DISAPPEARING,
 }
