@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -2641,6 +2641,49 @@ declare namespace cert {
   function createCertCRLCollection(certs: Array<X509Cert>, crls?: Array<X509CRL>): CertCRLCollection;
 
   /**
+   * Create and validate a certificate chain with the build parameters.
+   *
+   * @param { CertChainBuildParameters } param - indicate the certificate chain build parameters.
+   * @returns { Promise<CertChainBuildResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - the certificate has expired.
+   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
+
+  /**
+   * Get trust anchor array from specified P12.
+   *
+   * @param { Uint8Array } keystore - the file path of the P12.
+   * @param { string } pwd - the password of the P12.
+   * @returns { Promise<Array<X509TrustAnchor>> } the promise returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - the certificate has expired.
+   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  function createTrustAnchorsWithKeyStore(keystore: Uint8Array, pwd: string): Promise<Array<X509TrustAnchor>>;
+
+  /**
    * X509 Certification chain object.
    *
    * @typedef X509CertChain
@@ -2859,6 +2902,78 @@ declare namespace cert {
      * @since 11
      */
     readonly entityCert: X509Cert;
+  }
+
+  /**
+   * Provides the certificate chain build parameters type.
+   *
+   * @typedef CertChainBuildParameters
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface CertChainBuildParameters {
+    /**
+     * The certificate match parameters to selects certificate from the certificate collection.
+     *
+     * @type { X509CertMatchParameters }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    certMatchParameters: X509CertMatchParameters;
+
+    /**
+     * The maximum length of the certificate chain to be built.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    maxLength?: number;
+
+    /**
+     * The CertChain validation parameters.
+     *
+     * @type { CertChainValidationParameters }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    validationParameters: CertChainValidationParameters;
+  }
+
+  /**
+   * Certification chain build result.
+   *
+   * @typedef CertChainBuildResult
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface CertChainBuildResult {
+    /**
+     * The certificate chain of build result.
+     *
+     * @type { X509CertChain }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    readonly certChain: X509CertChain;
+
+    /**
+     * The certificate chain validation result.
+     *
+     * @type { CertChainValidationResult }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    readonly validationResult: CertChainValidationResult;
   }
 }
 
