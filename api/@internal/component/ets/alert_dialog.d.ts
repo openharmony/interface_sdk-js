@@ -802,6 +802,76 @@ declare interface AlertDialogParam {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Defines the alertDialog's corner radius.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cornerRadius?: Dimension | BorderRadiuses;
+
+  /**
+   * Defines the alertDialog's width.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width?: Dimension;
+
+  /**
+   * Defines the alertDialog's height.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  height?: Dimension;
+
+  /**
+   * Defines the alertDialog's border width.
+   *
+   * @type { ?(Dimension | EdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderWidth?: Dimension | EdgeWidths;
+
+  /**
+   * Defines the alertDialog's border color.
+   *
+   * @type { ?(ResourceColor | EdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderColor?: ResourceColor | EdgeColors;
+
+  /**
+   * Defines the alertDialog's border style.
+   *
+   * @type { ?(BorderStyle | EdgeStyles) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderStyle?: BorderStyle | EdgeStyles;
+
+  /**
+   * Defines the alertDialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
