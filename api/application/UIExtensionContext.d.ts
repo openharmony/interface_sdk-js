@@ -24,6 +24,7 @@ import type { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions.d.ts';
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.
@@ -319,7 +320,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
@@ -330,7 +331,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelf(callback: AsyncCallback<void>): void;
@@ -340,7 +341,7 @@ export default class UIExtensionContext extends ExtensionContext {
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelf(): Promise<void>;
@@ -352,7 +353,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
@@ -364,7 +365,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -373,6 +374,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * Full-screen pop-us startup atomic service.
    *
    * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -383,8 +385,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
-  openAtomicService(appId: string): Promise<AbilityResult>;
+  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 }
