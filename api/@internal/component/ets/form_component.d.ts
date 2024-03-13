@@ -78,13 +78,13 @@ declare enum FormDimension {
   DIMENSION_1_1 = 6,
 
   /**
-   * 4 x 6 cards
+   * 6 x 4 cards
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12
    */
-  DIMENSION_4_6,
+  DIMENSION_6_4,
 }
 
 /**
