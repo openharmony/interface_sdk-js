@@ -3832,11 +3832,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
+  /**
+   * Loop Play Mode Definition
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   enum LoopMode {
     /**
      * The default mode is sequential playback
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * The default mode is sequential playback
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     LOOP_MODE_SEQUENCE = 0,
 
@@ -3845,12 +3858,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Single loop mode
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     LOOP_MODE_SINGLE = 1,
 
     /**
      * List loop mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
+     */
+    /**
+     * List loop mode
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     LOOP_MODE_LIST = 2,
 
@@ -3859,12 +3884,24 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
+    /**
+     * Shuffle playback mode
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
     LOOP_MODE_SHUFFLE = 3,
 
     /**
      * Custom playback mode supported by application
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
+     */
+    /**
+     * Custom playback mode supported by application
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
      */
     LOOP_MODE_CUSTOM = 4,
   }
