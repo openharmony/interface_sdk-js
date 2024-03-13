@@ -18540,7 +18540,7 @@ declare module 'touchEvent'{
  * @crossplatform
  * @since 12
  */
-declare interface Callback<T,V = void> {
+declare interface Callback<T, V = void> {
   /**
    * Defines the callback info.
    *
