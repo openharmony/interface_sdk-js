@@ -18,6 +18,8 @@ from utils.util import (get_start_characters, get_remaining_characters, json_fil
                         set_label_to_result, get_js_doc_info)
 from utils.constants import mutex_label_dist, contrast_function, label_name_dist, one_to_many_function
 from typedef.detection import Output, ErrorMessage, ErrorType
+from src.coreImpl.process_three_type import process_tag_dict
+from src.typedef.process_three_type import get_judgment_node_type_dict
 
 
 result_list = []
@@ -26,6 +28,7 @@ result_list = []
 def judgement_dict_data(result, result_key):
     my_dict = dict()
     for dict_data in result[result_key]:  # 代表对应文件的解析数据
+        judgment_node_type = get_judgment_node_type_dict()
         # 互斥标签
         if 'jsDocInfos' in dict_data:
             if len(dict_data['jsDocInfos']) > 0:
@@ -33,6 +36,10 @@ def judgement_dict_data(result, result_key):
         # 枚举类标签检测
         if dict_data['apiType'] == 'Enum':
             enum_label_detection(dict_data)
+        elif 'apiType' in dict_data and dict_data['apiType'] in judgment_node_type:
+            message_list = process_tag_dict(dict_data)
+            if message_list:
+                result_list.extend(message_list)
         my_dict[dict_data['definedText']] = dict_data
         dict_keys = dict_data.keys()
         if 'childApis' in dict_keys:  # 递归处理child

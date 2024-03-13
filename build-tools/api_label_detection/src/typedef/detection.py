@@ -39,7 +39,7 @@ class ErrorMessage(enum.Enum):
     PARENT_HAVE_METHOD_NO = '[$] has a [&] label, but none of its methods have a [&] label'
     METHOD_HAVE_PARENT_NO = '[$]does not have [&] label，but the methods below it has [&] label'
     METHOD_HAVE_INPUT_PARAM_NO = 'functions have [&] label, but the param do not have [&] label'
-    METHOD_HAVE_OUTPUT_PARAM_NO = 'functions have [&] label, but the return value has no [&] label'
+    METHOD_HAVE_OUTPUT_PARAM_NO = 'functions have [&] label, but the return value do not have [&] label'
     METHOD_HAVE_OBJ_NO = 'functions have [&] label, but anonymous objects do not have [&] label'
 
 
