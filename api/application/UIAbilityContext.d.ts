@@ -35,6 +35,7 @@ import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
+import window from '../@ohos.window';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -150,6 +151,18 @@ export default class UIAbilityContext extends Context {
    * @since 11
    */
   config: Configuration;
+
+  /**
+   * Indicates windowStage information.
+   * Exists from onWindowStageCreate lifecycle, does not exist from onWindowStageDestroy lifecycle.
+   *
+   * @type { window.WindowStage }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  windowStage: window.WindowStage;
 
   /**
    * Starts a new ability.
