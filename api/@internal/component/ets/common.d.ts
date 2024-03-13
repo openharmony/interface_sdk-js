@@ -8872,6 +8872,36 @@ declare interface BindOptions {
 }
 
 /**
+ * Component content cover dismiss
+ *
+ * @interface DismissContentCoverAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissContentCoverAction {
+  /**
+   * Defines content cover dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Defines content cover dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * Component content cover options
  *
  * @interface ContentCoverOptions
@@ -8909,6 +8939,26 @@ declare interface ContentCoverOptions extends BindOptions {
    * @since 11
    */
   modalTransition?: ModalTransition,
+
+  /**
+   * Callback function when the content cover interactive dismiss
+   *
+   * @type { ?Callback<DismissContentCoverAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: Callback<DismissContentCoverAction>;
+
+  /**
+   * Defines transition effect param
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
