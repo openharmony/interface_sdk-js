@@ -1778,7 +1778,7 @@ declare namespace avSession {
    */
   /**
    * The type of control command
-   * @syscap SystemCapability.Multimedia.AVSession.AVCast\
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
    * @since 12
    */
@@ -2177,7 +2177,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
-     *//**
+     */
+    /**
      * Register playback command callback sent by remote side or media center.
      * Application needs update the new media resource when receive these commands by using playItem.
      * @param { 'playNext' } type - Type of the 'playNext' event to listen for.
@@ -3155,7 +3156,7 @@ declare namespace avSession {
     /**
      * The display tags supported by application to be displayed on media center
      * @type { ?number }
-     * @syscap SystemCapability.Multimedia.AVSession.Core\
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
