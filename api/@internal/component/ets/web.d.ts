@@ -6859,6 +6859,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
+
+  /**
+   * Enable whether to automatically resize text. The default value is true.
+   *
+   * @param { boolean } textAutosizing - Whether to enable text autosizing.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  textAutosizing(textAutosizing: boolean): WebAttribute;
 }
 
 /**
