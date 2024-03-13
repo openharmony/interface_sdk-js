@@ -24,7 +24,7 @@ import type { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions.d.ts';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.
