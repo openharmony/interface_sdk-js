@@ -34,7 +34,8 @@ declare namespace uriPermissionManager {
    *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
-   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
+   *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
    *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @param { AsyncCallback<number> } callback - the callback of grantUriPermission.
@@ -61,7 +62,8 @@ declare namespace uriPermissionManager {
    *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
-   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
+   *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
    *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @returns { Promise<number> } - the promise returned by the function.
@@ -94,6 +96,20 @@ declare namespace uriPermissionManager {
    * @systemapi hide this for inner system use
    * @since 10
    */
+  /**
+   * Revoke URI from one application
+   *
+   * @param { string } uri - File URI.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @param { AsyncCallback<number> } callback - the callback of revokeUriPermission.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @since 12
+   */
   function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
   /**
@@ -111,6 +127,20 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 10
+   */
+    /**
+   * Revoke URI from one application
+   *
+   * @param { string } uri - File URI.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @returns { Promise<number> } - the promise returned by the function.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @since 12
    */
   function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 }
