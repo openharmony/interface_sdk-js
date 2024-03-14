@@ -62,6 +62,7 @@ audios
 authenticates
 authinfo
 autocorrect
+autosizing
 averr
 avoidareachange
 avrcp
@@ -815,7 +816,6 @@ telecom
 tethering
 texel
 textarget
-textautosizing
 textblob
 textclock
 texttimer
