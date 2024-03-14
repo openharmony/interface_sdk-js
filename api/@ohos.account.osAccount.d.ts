@@ -680,6 +680,16 @@ declare namespace osAccount {
     setOsAccountName(localId: number, localName: string): Promise<void>;
 
     /**
+     * Gets the name of the OS account to which the caller belongs.
+     *
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 12
+     */
+    getOsAccountName(): Promise<string>;
+
+    /**
      * Obtains the number of all OS accounts created on a device.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
