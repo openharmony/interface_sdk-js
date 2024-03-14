@@ -1100,6 +1100,21 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 11
    */
   type(value: SearchType): SearchAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of search component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): SearchAttribute;
 }
 
 /**
