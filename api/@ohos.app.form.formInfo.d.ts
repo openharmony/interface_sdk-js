@@ -943,6 +943,19 @@ declare namespace formInfo {
     PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize',
 
     /**
+     * Indicates the key specifying the form location, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_LOCATION_KEY: FormLocation.DESKTOP
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 12
+     */
+    FORM_LOCATION_KEY = 'ohos.extra.param.key.form_location',
+
+    /**
      * Indicates the key specifying the form rendering mode, which is represented as
      * want: {
      *   "parameters": {
@@ -1379,6 +1392,17 @@ declare namespace formInfo {
     readonly hostBundleName: string;
 
     /**
+     * The location of this form.
+     *
+     * @type { FormLocation }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    readonly formLocation: FormLocation;
+
+    /**
      * Obtains the visibility of this form.
      *
      * @type { VisibilityType }
@@ -1482,6 +1506,97 @@ declare namespace formInfo {
      * @since 11
      */
     UNUSED = 1,
+  }
+
+  /**
+   * Defines the FormLocation enum.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
+  enum FormLocation {
+    /**
+     * Form is on the other location.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    OTHER = -1,
+  
+    /**
+     * Form is on the desktop
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    DESKTOP = 0,
+  
+    /**
+     * Form is on the form center.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_CENTER = 1,
+  
+    /**
+     * Form is on the form manager.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_MANAGER = 2,
+  
+    /**
+     * Form is on the negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    NEGATIVE_SCREEN = 3,
+  
+    /**
+     * Form is on the form center of negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_CENTER_NEGATIVE_SCREEN = 4,
+  
+    /**
+     * Form is on the form manager of negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_MANAGER_NEGATIVE_SCREEN = 5,
+  
+    /**
+     * Form is on the screen lock.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    SCREEN_LOCK = 6,
+  
+    /**
+     * Form is on the ai suggestion.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    AI_SUGGESTION = 7,
   }
 }
 export default formInfo;
