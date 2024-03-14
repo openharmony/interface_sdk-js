@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -628,6 +628,20 @@ declare namespace cryptoFramework {
      * @since 11
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
+
+    /**
+     * Encode the public key object to binary data in DER format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { DataBlob } the binary data of the key object in DER format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    getEncodedDer(format: string): DataBlob;
   }
 
   /**
@@ -4310,6 +4324,39 @@ declare namespace cryptoFramework {
      * @since 11
      */
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
+
+    /**
+     * Used to convert the encoded point data to a point object, according to the ECC curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @param { Uint8Array } encodedPoint - the encoded ECC point data.
+     * @returns { Point } the ECC point object.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
+
+    /**
+     * Used to get the encoded point data from a point object, according to the ECC curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @param { Point } point - the ECC point object.
+     * @param { string } format - indicates the format of the encoded point data.
+     * @returns { Uint8Array } the encoded point data.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Array;
   }
 
   /**
