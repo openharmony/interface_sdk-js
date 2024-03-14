@@ -2278,12 +2278,24 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
+    /**
+     * Wi-Fi SSID: the maximum length is 32.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
+     */
     ssid: string;
 
     /**
      * Wi-Fi bssid(MAC): the length is 6.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * Wi-Fi bssid(MAC): the length is 6.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     bssid?: string;
 
@@ -2293,12 +2305,25 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
+    /**
+     * Wi-Fi bssid type.
+     * @type { ?DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
+     */
     bssidType?: DeviceAddressType;
 
     /**
      * Wi-Fi key: maximum length is 64.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * Wi-Fi key: maximum length is 64.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     preSharedKey: string;
 
@@ -2531,12 +2556,26 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+  /**
+   * Describes the scanned Wi-Fi information.
+   * @typedef WifiScanInfo
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
+   * @since 12
+   */
   interface WifiScanInfo {
     /**
      * Wi-Fi SSID: the maximum length is 32 
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * Wi-Fi SSID: the maximum length is 32 
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     ssid: string;
 
@@ -2546,6 +2585,13 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
+    /**
+     * Wi-Fi bssid(MAC): the length is 6
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
+     */
     bssid: string;
 
     /**
@@ -2553,6 +2599,13 @@ declare namespace wifiManager {
      * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
+     */
+    /**
+     * Wi-Fi bssid type
+     * @type { DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     bssidType: DeviceAddressType;
 
@@ -2570,6 +2623,13 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
+    /**
+     * Security type: reference definition of WifiSecurityType
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+	 * @atomicservice
+     * @since 12
+     */
     securityType: WifiSecurityType;
 
     /**
@@ -2577,6 +2637,13 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * Received signal strength indicator (RSSI)
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     rssi: number;
 
@@ -2593,6 +2660,13 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * Frequency
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     frequency: number;
 
@@ -2643,6 +2717,13 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 9
    */
+  /**
+   * Describes the wifi security type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @atomicservice
+   * @since 12
+   */
   enum WifiSecurityType {
     /**
      * Invalid security type
@@ -2657,6 +2738,13 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9
+     */
+    /**
+     * Open
+     *
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @atomicservice
+     * @since 12
      */
     WIFI_SEC_TYPE_OPEN = 1,
 
@@ -2858,12 +2946,24 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
+    /**
+     * The SSID of the Wi-Fi hotspot
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
+     */
     ssid: string;
 
     /**
      * The BSSID of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * The BSSID of the Wi-Fi hotspot
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     bssid: string;
 
@@ -2879,6 +2979,12 @@ declare namespace wifiManager {
      * The RSSI(dBm) of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * The RSSI(dBm) of a Wi-Fi access point.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     rssi: number;
 
@@ -2921,6 +3027,12 @@ declare namespace wifiManager {
      * The frequency of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
+     */
+    /**
+     * The frequency of a Wi-Fi access point.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @atomicservice
+     * @since 12
      */
     frequency: number;
 
