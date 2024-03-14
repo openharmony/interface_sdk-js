@@ -17,7 +17,6 @@
  * @file
  * @kit DeviceCertificateKit
  */
-
 import type { AsyncCallback } from './@ohos.base';
 import cryptoFramework from './@ohos.security.cryptoFramework';
 
@@ -1396,7 +1395,7 @@ declare namespace cert {
     checkCA(): number;
 
     /**
-     * Check If exists Unsupported critical extension.
+     * Check if exists Unsupported critical extension.
      *
      * @returns { boolean } true - exists unsupported critical extension, false - else.
      * @throws { BusinessError } 19020001 - memory error.
@@ -1634,7 +1633,7 @@ declare namespace cert {
     getExtensions(): DataBlob;
 
     /**
-     * Check If CRL Entry has extension .
+     * Check if CRL Entry has extension .
      *
      * @returns { boolean } true - CRL Entry has extension,  false - else.
      * @throws { BusinessError } 19020001 - memory error.
@@ -2410,6 +2409,127 @@ declare namespace cert {
   function createCertChainValidator(algorithm: string): CertChainValidator;
 
   /**
+   * Enum for general name use type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  enum GeneralNameType {
+    /**
+     * Indicates the name used for other.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_OTHER_NAME = 0,
+
+    /**
+     * Indicates the name used for RFC822.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_RFC822_NAME = 1,
+
+    /**
+     * Indicates the name used for DNS.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_DNS_NAME = 2,
+
+    /**
+     * Indicates the name used for X.400 address.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_X400_ADDRESS = 3,
+
+    /**
+     * Indicates the name used for X.500 directory.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_DIRECTORY_NAME = 4,
+
+    /**
+     * Indicates the name used for EDI.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_EDI_PARTY_NAME = 5,
+
+    /**
+     * Indicates the name used for URI.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_UNIFORM_RESOURCE_ID = 6,
+
+    /**
+     * Indicates the name used for IP address.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_IP_ADDRESS = 7,
+
+    /**
+     * Indicates the name used for registered ID.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_REGISTERED_ID = 8
+  }
+
+  /**
+   * GeneralName object
+   *
+   * @typedef GeneralName
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface GeneralName {
+    /**
+     * The general name type.
+     *
+     * @type { GeneralNameType }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    type: GeneralNameType;
+
+    /**
+     * The general name in DER format
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    name?: Uint8Array;
+  }
+
+  /**
    * X509 Cert match parameters
    *
    * @typedef X509CertMatchParameters
@@ -2418,6 +2538,59 @@ declare namespace cert {
    * @since 11
    */
   interface X509CertMatchParameters {
+    /**
+     * To match SubjectAlternativeNames of cert extensions:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match after [matchAllSubjectAltNames]
+     *
+     * @type { ?Array<GeneralName> } SubjectAlternativeNames is in DER encoding format
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    subjectAlternativeNames?: Array<GeneralName>;
+
+    /**
+     * Indicate if match all subject alternate name:
+     * [Rule]
+     * true : match if [subjectAlternativeNames] is equal with all of [SubjectAlternativeNames of cert extensions]
+     * false : match if [subjectAlternativeNames] is only equal with one of [SubjectAlternativeNames of cert extensions]
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    matchAllSubjectAltNames?: boolean;
+
+    /**
+     * To match AuthorityKeyIdentifier of cert extensions in DER encoding:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match if it is equal with [AuthorityKeyIdentifier of cert extensions] in DER encoding
+     *
+     * @type { ?Uint8Array } the key identifier
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    authorityKeyIdentifier?: Uint8Array;
+
+    /**
+     * To match BaseConstraints.pathLenConstraint of cert extensions:
+     * [Rule]
+     * >=0 : The certificate must contain BaseConstraints extension, and the cA field in the extension takes.
+     * -2 : The cA field in the BaseConstraints extension of the certificate must be set to false or the certificate does not contain BaseConstraints extension.
+     * other : Do not match.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    minPathLenConstraint?: number;
+
     /**
      * To match X509Cert:
      * [Rule]
@@ -2458,7 +2631,63 @@ declare namespace cert {
     issuer?: Uint8Array;
 
     /**
-     * To match the KeyUsage of cert extensions: :
+     * To match the ExtendedKeyUsage of cert extensions:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [ExtendedKeyUsage of cert extensions] is null, or
+     *    [ExtendedKeyUsage of cert extensions] include [extendedKeyUsage].
+     *
+     * @type { ?Array<string> } array of oIDs.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    extendedKeyUsage?: Array<string>;
+
+    /**
+     * The X509Certificate must have subject and subject alternative names that meet the specified name constraints:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [NameConstraints of cert extensions] is null, or
+     *    [NameConstraints of cert extensions] include [nameConstraints].
+     *
+     * @type { ?Uint8Array } ASN.1 DER encoded form of nameConstraints
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    nameConstraints?: Uint8Array;
+
+    /**
+     * The X509Certificate must have subject and subject alternative names that meet the specified name constraints:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [Certificate Policies of cert extensions] is null, or
+     *    [Certificate Policies of cert extensions] include [certPolicy].
+     *
+     * @type { ?Array<string> } array of oIDs.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    certPolicy?: Array<string>;
+
+    /**
+     * The specified date must fall within the private key validity period for the X509Certificate:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [Private Key Valid Period of cert extensions] is null, or
+     *    [privateKeyValid] fall in [Private Key Valid Period of cert extensions].
+     *
+     * @type { ?string } format is YYMMDDHHMMSSZ or YYYYMMDDHHMMSSZ
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    privateKeyValid?: string;
+
+    /**
+     * To match the KeyUsage of cert extensions:
      * [Rule]
      * null : Do not match.
      * NOT null : match ok if [KeyUsage of cert extensions] is null, or
@@ -2496,6 +2725,19 @@ declare namespace cert {
      * @since 11
      */
     subject?: Uint8Array;
+
+    /**
+     * The specified value must match the Subject Key Identifier extension for the X509Certificate:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if it is equal with [Subject Key Identifier of cert extensions].
+     *
+     * @type { ?Uint8Array } subjectKeyIdentifier in DER encoding format ??
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    subjectKeyIdentifier?: Uint8Array;
 
     /**
      * The specified value must match the publicKey for the X509Certificate:
@@ -2558,6 +2800,45 @@ declare namespace cert {
      * @since 11
      */
     x509Cert?: X509Cert;
+
+    /**
+     * To match updateDateTime of CRL:
+     * [Rule]
+     * null : Do not verify.
+     * NOT null : verify if [thisUpdate in CRL] <= updateDateTime <= [nextUpdate in CRL]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    updateDateTime?: string;
+
+    /**
+     * To match the maximum of CRL number extension:
+     * [Rule]
+     * null : Do not verify.
+     * NOT null : verify if [CRL number extension] <= maxCRL.
+     *
+     * @type { ?bigint }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    maxCRL?: bigint;
+
+    /**
+     * To match the minimum of CRL number extension:
+     * [Rule]
+     * null : Do not verify.
+     * NOT null : verify if [CRL number extension] >= minCRL.
+     *
+     * @type { ?bigint }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    minCRL?: bigint;
   }
 
   /**
