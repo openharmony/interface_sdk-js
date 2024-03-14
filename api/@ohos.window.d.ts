@@ -4517,7 +4517,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    setWindowOnlyHandwrite(enable: boolean): Promise<void>;
+    setHandwritingFlag(enable: boolean): Promise<void>;
 
     /**
      * Sets the flag of the window is forbidden to move in split screen mode
