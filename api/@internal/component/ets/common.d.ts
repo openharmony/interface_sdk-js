@@ -12940,7 +12940,7 @@ declare interface InvertOptions {
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  * @form
  */
 declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
@@ -12950,7 +12950,7 @@ declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  * @form
  */
 declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
@@ -12960,7 +12960,7 @@ declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  * @form
  */
 declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
@@ -12970,7 +12970,7 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  * @form
  */
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
@@ -17005,10 +17005,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
+   * @since 7
    * @deprecated since 12
    * @useinstead common[CommonMethod]#clipShape
-   * @form
    */
   clip(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -17019,9 +17018,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
-   * @form
    */
   clip(value: boolean): T;
 
@@ -17033,7 +17030,6 @@ declare class CommonMethod<T> {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 12
-  * @form
   */
   clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
@@ -17082,10 +17078,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
+   * @since 7
    * @deprecated since 12
    * @useinstead common[CommonMethod]#maskShape
-   * @form
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -17096,9 +17091,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
-   * @form
    */
   mask(value: ProgressMask): T;
 
@@ -17110,7 +17103,6 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 

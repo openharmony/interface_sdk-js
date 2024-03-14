@@ -167,6 +167,7 @@ declare class CommonShapeMethod<T> {
 /**
  * Base shape class
  *
+ * @extends CommonShapeMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
