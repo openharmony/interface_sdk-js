@@ -3835,7 +3835,15 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6
      */
-    CALL_STATE_OFFHOOK = 2
+    CALL_STATE_OFFHOOK = 2,
+
+    /**
+     * Indicates that call is answered
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    CALL_STATE_ANSWERED = 3
   }
 
   /**
