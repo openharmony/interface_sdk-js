@@ -1143,13 +1143,13 @@ declare namespace formInfo {
     DIMENSION_1_1,
 
     /**
-     * 4 x 6 form
+     * 6 x 4 form
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 12
      */
-    DIMENSION_4_6,
+    DIMENSION_6_4,
   }
   /**
    * The visibility of a form.
