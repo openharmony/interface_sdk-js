@@ -2627,7 +2627,7 @@ declare namespace wifiManager {
      * Security type: reference definition of WifiSecurityType
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-	 * @atomicservice
+     * @atomicservice
      * @since 12
      */
     securityType: WifiSecurityType;
