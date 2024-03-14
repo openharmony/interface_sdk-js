@@ -283,6 +283,36 @@ declare interface ScrollAnimationOptions {
 }
 
 /**
+ * OffsetOptions info.
+ *
+ * @interface OffsetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface OffsetOptions {
+  /**
+   * The X-axis offset.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  xOffset?: Dimension;
+
+  /**
+   * The y-axis offset.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  yOffset?: Dimension;
+}
+
+/**
  * Scroller
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1236,6 +1266,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   enablePaging(value: boolean): ScrollAttribute;
+  
+  /**
+   * Called to setting the initial offset
+   *
+   * @param { OffsetOptions } value - options for scroll initial offset.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  initialOffset(value: OffsetOptions): ScrollAttribute;
 }
 
   /**
