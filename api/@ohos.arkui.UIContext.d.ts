@@ -1268,6 +1268,17 @@ export class FocusController {
    * @since 12
    */
   clearFocus(): void;
+
+  /**
+   * request focus to the specific component.
+   * @param { string } key - the inspector key of the component.
+   * @throws { BusinessError } 150001 - the component cannot be focused.
+   * @throws { BusinessError } 150002 - there are components in ancestor nodes cannot be focused.
+   * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  requestFocus(key: string): void;
 }
 
 /**
