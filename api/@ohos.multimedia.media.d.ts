@@ -4376,13 +4376,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_STATE_STOPPED_BY_INTERRUPT = 3,
+    SCREENCAPTURE_STATE_INTERRUPTED_BY_OTHER = 3,
     /**
      * Screen capture stopped by phone call
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    SCREENCAPTURE_STATE_STOPPED_BY_INCALL = 4,
+    SCREENCAPTURE_STATE_STOPPED_BY_CALL = 4,
     /**
      * Screen capture microphone not available
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -4517,13 +4517,13 @@ declare namespace media {
     /**
      * Set microphone enable or disable.
      * @param { boolean } enable - Set microphone enable or disable during recording.
-     * @returns { Promise<void> } A Promise instance used to return when setMicrophoneEnabled completed.
+     * @returns { Promise<void> } A Promise instance used to return when setMicEnabled completed.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
-    setMicrophoneEnabled(enable: boolean): Promise<void>;
+    setMicEnabled(enable: boolean): Promise<void>;
 
     /**
      * Release screen capture recording.
