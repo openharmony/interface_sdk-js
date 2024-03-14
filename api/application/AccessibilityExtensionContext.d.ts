@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Provides accessibility extension context
+ * @kit AccessibilityKit
+ */
+
 import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
