@@ -878,22 +878,22 @@ declare interface RichEditorTextStyleResult {
   /**
    * letter spacing.
    *
-   * @type { number } 
+   * @type { ?number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  letterSpacing: number;
+  letterSpacing?: number;
 
   /**
    * line height.
    *
-   * @type { number } 
+   * @type { ?number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  lineHeight: number;
+  lineHeight?: number;
 }
 
 /**
