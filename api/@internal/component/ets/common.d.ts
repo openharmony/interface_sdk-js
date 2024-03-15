@@ -9145,6 +9145,34 @@ declare enum SheetType {
 }
 
 /**
+ * Define the display mode of the sheet.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum SheetMode {
+  /**
+   * Sheet displays above all page levels.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  OVERLAY = 0,
+
+  /**
+   * Sheet displays within the current page.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  EMBEDDED = 1,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -9375,6 +9403,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onHeightDidChange?: Callback<number>;
+
+  /**
+   * Determine the level sheet shows, whether sheet should be displayed within the page
+   *
+   * @type { ?SheetMode }
+   * @default SheetMode.OVERLAY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mode?: SheetMode;
 }
 
 /**
