@@ -1254,6 +1254,21 @@ export class DragController {
    * @since 11
    */
   getDragPreview(): dragController.DragPreview;
+
+  /**
+   * Enable drag event strict reporting for drag enter and leave notification in nested situation. 
+   * For example, the parent and child both register the onDragEnter/onDragLeave events, if this 
+   * flag is enabled, the parent will be notified with leave event, and the child will notified with 
+   * enter event at the same time, when user drag action is passing through the parent and enter the 
+   * scope of the child.
+   * Please be noted, the default value of the flag is false, it means, for the same situation, the 
+   * parent will not receive the leave notification, just the child can get the enter event, which is 
+   * not fully strict.
+   * @param { boolean } enable - Indicating enable drag event strict reporting or not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setDragEventStrictReportingEnabled(enable: boolean): void;
 }
 
 /**
