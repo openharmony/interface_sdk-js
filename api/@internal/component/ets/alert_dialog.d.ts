@@ -786,12 +786,12 @@ declare interface AlertDialogParam {
     /**
    * Callback function when the dialog interactive dismiss
    *
-   * @type { ?function }
+   * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillDismiss?: (dismissDialog: DismissDialog) => void;
+  onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
    * Transition parameters of opening/closing AlertDialog.
@@ -1088,23 +1088,23 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 }
 
 /**
- * Component dialog dismiss
+ * Component dialog dismiss action.
  *
- * @interface DismissDialog
+ * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface DismissDialog {
+declare interface DismissDialogAction {
   /**
    * Defines dialog dismiss function.
    *
-   * @type { function  }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  dismiss: () => void;
+  dismiss: Callback<void>;
   
   /**
    * Dismiss reason type.
