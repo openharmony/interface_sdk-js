@@ -18716,3 +18716,10 @@ declare module 'commonEvent' {
     export { UICommonEvent };
   }
 }
+
+declare module 'commonAttribute'{
+  module 'commonAttribute' {
+    // @ts-ignore
+    export { CommonAttribute };
+  }
+}
