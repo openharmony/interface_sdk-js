@@ -61,6 +61,7 @@ attribs
 audios
 authenticates
 authinfo
+authmode
 autocorrect
 autosizing
 averr
@@ -306,6 +307,7 @@ glasses
 gnss
 goaway
 graphicseditor
+granting
 greate
 gtc
 hailing
