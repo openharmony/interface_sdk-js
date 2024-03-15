@@ -1357,7 +1357,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or dynamic type if the uniform data type does not exist.
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
@@ -1370,7 +1370,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or dynamic type if the uniform data type does not exist.
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
