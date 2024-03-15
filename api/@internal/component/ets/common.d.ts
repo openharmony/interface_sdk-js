@@ -18596,3 +18596,123 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
+
+/**
+ * Defines the callback type used in hover events.
+ * The value of isHover indicates whether the mouse is hovering over the component.
+ * The value of event contains information about HoverEvent.
+ *
+ * @typedef HoverCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
+
+/**
+ * Defines a UICommonEvent which is used to set different common event to target component.
+ *
+ * @interface UICommonEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface UICommonEvent {
+  /**
+   * Set or reset the callback which will be triggered a click event when clicked.
+   *
+   * @param { Callback<ClickEvent> | undefined } callback - The callback about the click event. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnClick(callback: Callback<ClickEvent> | undefined): void;
+
+  /**
+   * Set or reset the callback which will be triggered a touch event when touched.
+   *
+   * @param { Callback<TouchEvent> | undefined } callback - The callback about the touch event. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnTouch(callback: Callback<TouchEvent> | undefined): void;
+
+  /**
+   * Set or reset the callback is triggered when a component mounts a display.
+   *
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnAppear(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback is triggered when component uninstallation disappears.
+   * 
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnDisappear(callback: Callback<void> | undefined): void;
+
+
+  /**
+   * Set or reset the callback is triggered when component has keyboard input.
+   *
+   * @param { Callback<KeyEvent> | undefined } callback - The callback will be triggered when has keyboard input. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when component get focus.
+   *
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnFocus(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when lose focus.
+   *
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnBlur(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when has a hover event.
+   * 
+   * @param { HoverCallback | undefined } callback - The callback will be triggered when has a hover event. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnHover(callback: HoverCallback | undefined): void;
+
+  /**
+  * Set or reset the callback which is triggered when has a mouse event.
+  *
+  * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  setOnMouse(callback: Callback<MouseEvent> | undefined): void;
+}
+
+declare module 'commonEvent' {
+  module 'commonEvent' {
+    // @ts-ignore
+    export { UICommonEvent };
+  }
+}
