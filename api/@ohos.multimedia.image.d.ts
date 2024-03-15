@@ -4720,7 +4720,7 @@ declare namespace image {
      */
     readonly format: number;
 
-     /**
+    /**
      * Image timestamp.
      *
      * @type { number }
