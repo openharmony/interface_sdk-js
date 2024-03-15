@@ -520,6 +520,9 @@ nmea
 nnrt
 nopadding
 mori
+nodownload
+nofullscreen
+noremoteplayback
 normalizer
 notifies
 notifying
