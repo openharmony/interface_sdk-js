@@ -14924,7 +14924,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  allowDrop(value: Array<UniformDataType>): T;
+  /**
+   * Allowed drop uniformData type for this node.
+   *
+   * @param { Array<UniformDataType> | null } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  allowDrop(value: Array<UniformDataType> | null): T;
 
   /**
    * Enable the selectable area can be dragged.
