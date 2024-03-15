@@ -41,7 +41,7 @@ declare namespace usbManager {
    * @param { USBDevice } device - USB device on the device list returned by getDevices().
    * @returns { Readonly<USBDevicePipe> } object for data transfer.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 14400001 - Permission denied. Need call requestRight to get permission.
+   * @throws { BusinessError } 202 - Permission denied. Need call requestRight to get permission.
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -90,10 +90,11 @@ declare namespace usbManager {
    * @param { string } deviceName - device name defined by USBDevice.name.
    * @returns { boolean } value to indicate whether the permission is granted.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied. 
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 12
    * @useinstead ohos.usbManager/usbManager#addDeviceAccessRight
    */
   function addRight(bundleName: string, deviceName: string): boolean;
@@ -104,10 +105,11 @@ declare namespace usbManager {
    * @param { string } funcs - descriptor of the supported function list.
    * @returns { number } the numeric mask combination of the function list.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 12
    * @useinstead ohos.usbManager/usbManager#getFunctionsFromString
    */
   function usbFunctionsFromString(funcs: string): number;
@@ -118,11 +120,12 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the function list.
    * @returns { string } - descriptor of the supported function list.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied. 
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
-   * @useinstead ohos.usbManager/usbManager#convertFunctionsToString
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getStringFromFunctions
    */
   function usbFunctionsToString(funcs: FunctionType): string;
 
@@ -132,11 +135,11 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the supported function list.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 14400002 - Permission denied.The HDC is disabled by the system.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 12
    * @useinstead ohos.usbManager/usbManager#setDeviceFunctions
    */
   function setCurrentFunctions(funcs: FunctionType): Promise<void>;
@@ -145,10 +148,11 @@ declare namespace usbManager {
    * Obtains the numeric mask combination for the current USB function list in Device mode.
    *
    * @returns { FunctionType } the numeric mask combination for the current USB function list in FunctionType.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
+   * @deprecated since 12
    * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
@@ -158,11 +162,12 @@ declare namespace usbManager {
    * Obtains the USBPort list.
    *
    * @returns { Array<USBPort> } the USBPort list.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
-   * @useinstead ohos.usbManager/usbManager#getUsbPorts
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getPortList
    */
   function getPorts(): Array<USBPort>;
 
@@ -172,11 +177,12 @@ declare namespace usbManager {
    * @param { number } portId
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
-   * @useinstead ohos.usbManager/usbManager#getUsbPortSupportModes
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getPortSupportModes
    */
   function getSupportedModes(portId: number): PortModeType;
 
@@ -188,11 +194,12 @@ declare namespace usbManager {
    * @param { DataRoleType } dataRole - data role.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
-   * @deprecated since 11
-   * @useinstead ohos.usbManager/usbManager#setUsbPortRoles
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#setPortRoleTypes
    */
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
@@ -201,15 +208,16 @@ declare namespace usbManager {
    * The system application has access to the device by default, and calling this interface will not have any impact.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { string } bundleName - refers to application that require access permissions.
+   * @param { string } tokenId - refers to application that require access permissions.
    * @param { string } deviceName - device name defined by USBDevice.name.
    * @returns { boolean } value to indicate whether the permission is granted.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
-  function addDeviceAccessRight(bundleName: string, deviceName: string): boolean;
+  function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
   /**
    * Converts the string descriptor of a given USB function list to a numeric mask combination.
@@ -218,9 +226,10 @@ declare namespace usbManager {
    * @param { string } funcs - descriptor of the supported function list.
    * @returns { number } the numeric mask combination of the function list.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
   function getFunctionsFromString(funcs: string): number;
 
@@ -231,11 +240,12 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the function list.
    * @returns { string } - descriptor of the supported function list.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
-  function convertFunctionsToString(funcs: FunctionType): string;
+  function getStringFromFunctions(funcs: FunctionType): string;
 
   /**
    * Sets the current USB function list in Device mode.
@@ -244,10 +254,10 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the supported function list.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 14400002 - Permission denied.The HDC is disabled by the system.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
 
@@ -256,9 +266,10 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @returns { FunctionType } the numeric mask combination for the current USB function list in FunctionType.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
   function getDeviceFunctions(): FunctionType;
 
@@ -268,11 +279,12 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @returns { Array<USBPort> } the USBPort list.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
-  function getUsbPorts(): Array<USBPort>;
+  function getPortList(): Array<USBPort>;
 
   /**
    * Gets the mask combination for the supported mode list of the specified USBPort.
@@ -281,11 +293,12 @@ declare namespace usbManager {
    * @param { number } portId
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
-  function getUsbPortSupportModes(portId: number): PortModeType;
+  function getPortSupportModes(portId: number): PortModeType;
 
   /**
    * Sets the role types supported by the specified USBPort, which can be powerRole (for charging) and dataRole (for data transfer).
@@ -296,11 +309,12 @@ declare namespace usbManager {
    * @param { DataRoleType } dataRole - data role.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws { BusinessError } 202 - Permission denied.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 11
+   * @since 12
    */
-  function setUsbPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
+  function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
   /* usb pipe functions begin */
   /**
