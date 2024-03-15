@@ -20,26 +20,26 @@
  * @namespace securityGuard
  * @syscap SystemCapability.Security.SecurityGuard
  * @systemapi Hide this for inner system use.
- * @since 11
+ * @since 12
  */
 declare namespace securityGuard {
 
   /**
-   * Provides the EventInfo type, including the event id, version info, report content.
+   * Provides the SecurityEvent type, including the event id, version info, report content.
    *
-   * @typedef EventInfo
+   * @typedef SecurityEvent
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
-  interface EventInfo {
+  interface SecurityEvent {
     /**
      * The event id
      *
      * @type { number }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     eventId: number;
 
@@ -49,7 +49,7 @@ declare namespace securityGuard {
      * @type { string }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     version: string;
 
@@ -59,7 +59,7 @@ declare namespace securityGuard {
      * @type { string }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     content: string;
   }
@@ -68,82 +68,41 @@ declare namespace securityGuard {
    * Report security information to the security guard.
    *
    * @permission ohos.permission.securityguard.REPORT_SECURITY_INFO
-   * @param { EventInfo } info - indicates the infomation to be reported.
+   * @param { SecurityEvent } securityEvent - indicates the infomation to be reported.
+   * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
-  function reportSecurityInfo(info: EventInfo): void;
+  function reportSecurityEvent(securityEvent: SecurityEvent): void;
 
   /**
-   * Provides the SecurityModelResult type, including the device id, security model id, result of security model.
+   * Provides the conditions of querySecurityEvent.
    *
-   * @typedef SecurityModelResult
+   * @interface SecurityEventRuler
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
-  interface SecurityModelResult {
-    /**
-     * The security model name
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.SecurityGuard
-     * @systemapi Hide this for inner system use.
-     * @since 11
-     */
-    modelName: string;
-
-    /**
-     * The result of security model, include 'risk'|'safe'|'unknown'
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.SecurityGuard
-     * @systemapi Hide this for inner system use.
-     * @since 11
-     */
-    result: string;
-  }
-
-  /**
-   * Request security model result from security guard.
-   *
-   * @permission ohos.permission.securityguard.REQUEST_SECURITY_MODEL_RESULT
-   * @param { string } modelName -  indicates the security model id.
-   * @param { string } extra - additional parameters required for model running.
-   * @returns { Promise<SecurityModelResult> } the promise returned by the function.
-   * @syscap SystemCapability.Security.SecurityGuard
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  function requestSecurityModelResult(modelName: string, extra?: string): Promise<SecurityModelResult>;
-
-  /**
-   * Provides the conditions of requestSecurityEventInfo, including the event id, the begin time and the end time.
-   *
-   * @interface Conditions
-   * @syscap SystemCapability.Security.SecurityGuard
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  interface Conditions {
+  interface SecurityEventRuler {
     /**
      * The security event ids.
      *
-     * @type { Array<number> }
+     * @type { number }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
-    eventIds: Array<number>;
-
+    eventId: number;
+    
     /**
      * The begin time.
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     beginTime?: string;
 
@@ -153,108 +112,189 @@ declare namespace securityGuard {
      * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     endTime?: string;
-  }
 
-  /**
-   * Definition the request data response.
-   *
-   * @interface Response
-   * @syscap SystemCapability.Security.SecurityGuard
-   * @systemapi Hide this for inner system use.
-   * @since 11
-   */
-  interface Response {
     /**
-     * Triggered when data is returned.
-     * @param { 'change' | 'end' | 'error' } type - The type of the received result.
-     * @param { string } result - The received result.
+     * The query condition.
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
-    on: (type: 'change' | 'end' | 'error', result: string) => void;
+    param?: string
   }
 
   /**
-   * Request security event information from security guard.
+   * Definition callback of receiving the query data.
+   *
+   * @interface Querier
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface Querier {
+    /**
+     * Triggered when data is returned.
+     * @param { Array<SecurityEvent> } events - The received result.
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    onQuery: (events: Array<SecurityEvent>) => void;
+    /**
+     * Triggered when data is complate.
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    onComplete: () => void;
+    /**
+     * Triggered when error.
+     * @param { string } message - The received error message.
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    onError: (message: string) => void;
+  }
+
+  /**
+   * Query security event information from security guard.
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
-   * @param { Conditions } conditions - conditions of request security event information.
-   * @param { function } callback - callback of receiving the request data.
+   * @param { Array<SecurityEventRuler> } rulers - rule of get security event information.
+   * @param { Querier } querier - callback of receiving the query data.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
-  function requestSecurityEventInfo(conditions: Conditions, response: Response): void;
+  function querySecurityEvent(rulers: Array<SecurityEventRuler>, querier: Querier): void;
 
   /**
-   * Definition the event information.
+   * Provides the conditions of Collector.
    *
-   * @interface Event
+   * @typedef CollectorRuler
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
-  interface Event {
+  interface CollectorRuler {
     /**
-     * The request event id.
+     * The event id
      *
      * @type { number }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
     eventId: number;
 
     /**
-     * The event version.
+     * The query condition.
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 12
      */
-    version?: string;
-
-    /**
-     * The event content.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Security.SecurityGuard
-     * @systemapi Hide this for inner system use.
-     * @since 11
-     */
-    content?: string;
-
-    /**
-     * The event extra information.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Security.SecurityGuard
-     * @systemapi Hide this for inner system use.
-     * @since 11
-     */
-    extra?: string;
+    param?: string;
   }
 
   /**
-   * Notify the collector to collect data.
+   * start the collector to collect data
    *
-   * @permission ohos.permission.securityguard.REPORT_SECURITY_INFO
-   * @param { Event } event - Carried event information.
-   * @param { ?number } duration - Duration of the collector.
+   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @param { CollectorRuler } ruler - rule of collect security event information..
+   * @param { number } duration -  duration of the collector.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
-  function notifyCollector(event: Event, duration?: number): void;
+  function startSecurityEventCollector(ruler: CollectorRuler, duration?: number): void;
+
+  /**
+   * stop the collector.
+   *
+   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @param { CollectorRuler } ruler - rule of collect security event information.
+   * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function stopSecurityEventCollector(ruler: CollectorRuler): void;
+
+  /**
+   * Provides the ModelRuler type.
+   *
+   * @typedef ModelRuler
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface ModelRuler {
+    /**
+     * The security model ruler
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    modelName: string;
+
+    /**
+     * The model param.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    param?: string
+  }
+
+  /**
+   * Provides the ModelResult type.
+   *
+   * @typedef ModelResult
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface ModelResult {
+    /**
+     * The result of security model, include 'risk'|'safe'|'unknown'
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    result: string;
+  }
+
+  /**
+   * Request security model result from security guard.
+   *
+   * @permission ohos.permission.securityguard.REQUEST_SECURITY_MODEL_RESULT
+   * @param { ModelRuler } ruler -  indicates the security model ruler.
+   * @returns { Promise<ModelResult> } model Results with Promises.
+   * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getModelResult(ruler: ModelRuler): Promise<ModelResult>;
 }
 
 export default securityGuard;
