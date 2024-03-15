@@ -21,6 +21,15 @@
  * @crossplatform
  * @since 11
  */
+/**
+ * Define the background style of span.
+ *
+ * @interface TextBackgroundStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface TextBackgroundStyle {
   /**
    * Background color of span.
@@ -29,6 +38,15 @@ declare interface TextBackgroundStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Background color of span.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   color?: ResourceColor;
   
@@ -39,6 +57,15 @@ declare interface TextBackgroundStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Background radius of span.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   radius?: Dimension | BorderRadiuses;
 }
@@ -51,6 +78,15 @@ declare interface TextBackgroundStyle {
  * @crossplatform
  * @since 11
  */
+/**
+ * Define the BaseSpan class, contains the common methods of span.
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare class BaseSpan<T> extends CommonMethod<T> {
   /**
    * Span background style.
@@ -60,6 +96,16 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Span background style.
+   *
+   * @param { TextBackgroundStyle } style - The background style of span.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   textBackgroundStyle(style: TextBackgroundStyle): T;
 }
@@ -535,6 +581,16 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
 }

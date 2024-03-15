@@ -617,6 +617,16 @@ declare class SubTabBarStyle {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Set an id to the sub tab bar to identify it
+   *
+   * @param { string } value - id of the sub tab bar to identify it
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   id(value: string): SubTabBarStyle;
 }
 
@@ -809,6 +819,16 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set an id to the bottom tab bar to identify it
+   *
+   * @param { string } value - id of the bottom tab bar to identify it
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   id(value: string): BottomTabBarStyle;
 }

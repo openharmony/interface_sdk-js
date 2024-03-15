@@ -21,6 +21,15 @@
  * @crossplatform
  * @since 11
  */
+/**
+ * Provides an interface for SymbolGlyph.
+ *
+ * @interface SymbolGlyphInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface SymbolGlyphInterface {
   /**
    * Called when resource is entered in SymbolGlyph.
@@ -30,6 +39,16 @@ interface SymbolGlyphInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when resource is entered in SymbolGlyph.
+   *
+   * @param { Resource } value
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   (value: Resource): SymbolGlyphAttribute;
 }
@@ -42,6 +61,15 @@ interface SymbolGlyphInterface {
  * @crossplatform
  * @since 11
  */
+/**
+ * The symbol rendering strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum SymbolRenderingStrategy {
   /**
    * The single rendering strategy.
@@ -49,6 +77,14 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The single rendering strategy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   SINGLE = 0,
 
@@ -59,6 +95,14 @@ declare enum SymbolRenderingStrategy {
    * @crossplatform
    * @since 11
    */
+  /**
+   * The multiple color rendering strategy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   MULTIPLE_COLOR = 1,
 
   /**
@@ -67,6 +111,14 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The multiple opacity rendering strategy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   MULTIPLE_OPACITY = 2,
 }
@@ -79,6 +131,15 @@ declare enum SymbolRenderingStrategy {
  * @crossplatform
  * @since 11
  */
+/**
+ * The symbol effect strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum SymbolEffectStrategy {
   /**
    * There is no effect strategy.
@@ -86,6 +147,14 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * There is no effect strategy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NONE = 0,
 
@@ -96,6 +165,14 @@ declare enum SymbolEffectStrategy {
    * @crossplatform
    * @since 11
    */
+  /**
+   * The scale effect strategy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   SCALE = 1,
 
   /**
@@ -104,6 +181,14 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The hierarchical effect strategy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   HIERARCHICAL = 2,
 }
@@ -116,6 +201,15 @@ declare enum SymbolEffectStrategy {
  * @crossplatform
  * @since 11
  */
+/**
+ * Provides attribute for SymbolGlyph.
+ * 
+ * @extends CommonMethod<SymbolGlyphAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * Called when the SymbolGlyph size is set.
@@ -125,6 +219,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the SymbolGlyph size is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
@@ -137,6 +241,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when the SymbolGlyph color is set.
+   *
+   * @param { Array<ResourceColor> } value
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
@@ -147,6 +261,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the font symbolGlyph weight is set.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
@@ -159,6 +283,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when the symbolGlyph effect is set.
+   *
+   * @param { SymbolEffectStrategy } value
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
   /**
@@ -170,6 +304,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when the symbolGlyph rendering strategy is set.
+   *
+   * @param { SymbolRenderingStrategy } value
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 }
 
@@ -180,6 +324,14 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines SymbolGlyph Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare const SymbolGlyph: SymbolGlyphInterface;
 
 /**
@@ -188,5 +340,13 @@ declare const SymbolGlyph: SymbolGlyphInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines SymbolGlyph Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare const SymbolGlyphInstance: SymbolGlyphAttribute;
