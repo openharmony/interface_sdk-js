@@ -1502,6 +1502,109 @@ declare namespace window {
   }
 
   /**
+   * Rect change options
+   *
+   * @interface RectChangeOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12
+   */
+  interface RectChangeOptions {
+    /**
+     * Rect
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    rect: Rect,
+
+    /**
+     * Rect change reason
+     *
+     * @type { RectChangeReason }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    reason: RectChangeReason
+  }
+
+  /**
+   * Window rect change reason.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12
+   */
+  enum RectChangeReason {
+    /**
+     * Default RectChangeReason.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    UNDEFINED = 0,
+
+    /**
+     * Window maximize.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    MAXIMIZE,
+
+    /**
+     * Window recover.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    RECOVER,
+
+    /**
+     * Window move.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    MOVE,
+
+    /**
+     * Window drag.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    DRAG,
+
+    /**
+     * Window drag start.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    DRAG_START,
+
+    /**
+     * Window drag end.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    DRAG_END,
+  }
+
+  /**
    * Create a window with a specific configuration
    *
    * @param { Configuration } config - Parameters for window creation.
@@ -5207,7 +5310,38 @@ declare namespace window {
      * @since 12
      */
      setWindowMask(windowMask: Array<Array<number>>): Promise<void>;
+
+    /**
+     * Register the callback of windowRectChange
+     *
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'windowRectChange', callback: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of windowRectChange
+     *
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
   }
+
   /**
    * Window stage callback event type
    *
