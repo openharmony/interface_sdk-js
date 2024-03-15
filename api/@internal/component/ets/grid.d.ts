@@ -101,6 +101,16 @@ declare interface GridLayoutOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called to return the size of the grid items with the specified index in 
+   * [rowStart, columnStart, rowSpan, columnSpan].
+   *
+   * @type { ?function } onGetRectByIndex
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   onGetRectByIndex?: (index: number) => [number, number, number, number]
 }
 

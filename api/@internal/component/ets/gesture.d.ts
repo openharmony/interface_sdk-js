@@ -516,6 +516,15 @@ declare enum GestureMask {
  * @crossplatform
  * @since 11
  */
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum GestureJudgeResult {
   /**
    * The system gesture determination is not affected.
@@ -523,6 +532,14 @@ declare enum GestureJudgeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The system gesture determination is not affected.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   CONTINUE = 0,
 
@@ -532,6 +549,14 @@ declare enum GestureJudgeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The user-defined gesture determination result of the current component is fail.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   REJECT = 1,
 }
@@ -553,6 +578,15 @@ declare namespace GestureControl {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Creating an Object
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum GestureType {
     /**
      * TapGesture.
@@ -560,6 +594,14 @@ declare namespace GestureControl {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * TapGesture.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TAP_GESTURE = 0,
 
@@ -570,6 +612,14 @@ declare namespace GestureControl {
      * @crossplatform
      * @since 11
      */
+    /**
+     * LongPressGesture.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     LONG_PRESS_GESTURE = 1,
 
     /**
@@ -578,6 +628,14 @@ declare namespace GestureControl {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * PanGesture.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     PAN_GESTURE = 2,
 
@@ -588,6 +646,14 @@ declare namespace GestureControl {
      * @crossplatform
      * @since 11
      */
+    /**
+     * PinchGesture.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     PINCH_GESTURE = 3,
 
     /**
@@ -596,6 +662,14 @@ declare namespace GestureControl {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * SwipeGesture.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     SWIPE_GESTURE = 4,
 
@@ -606,6 +680,14 @@ declare namespace GestureControl {
      * @crossplatform
      * @since 11
      */
+    /**
+     * RotationGesture.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     ROTATION_GESTURE = 5,
 
     /**
@@ -615,6 +697,14 @@ declare namespace GestureControl {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Drag.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     DRAG = 6,
 
     /**
@@ -623,6 +713,14 @@ declare namespace GestureControl {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Click.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     CLICK = 7,
   }
@@ -636,6 +734,15 @@ declare namespace GestureControl {
  * @crossplatform
  * @since 11
  */
+/**
+ * The description of gesture information.
+ *
+ * @interface GestureInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface GestureInfo {
   /**
    * The tag of gesture.
@@ -644,6 +751,15 @@ declare interface GestureInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The tag of gesture.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   tag?: string;
 
@@ -655,6 +771,15 @@ declare interface GestureInfo {
    * @crossplatform
    * @since 11
    */
+  /**
+   * The type of gesture.
+   *
+   * @type { GestureControl.GestureType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   type: GestureControl.GestureType;
 
   /**
@@ -664,6 +789,15 @@ declare interface GestureInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The flag whether it is a system gesture.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   isSystemGesture: boolean;
 }
@@ -862,6 +996,15 @@ declare type GestureType =
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the gesture base event.
+ *
+ * @interface BaseGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface BaseGestureEvent extends BaseEvent {
   /**
    * All finger information.
@@ -870,6 +1013,15 @@ interface BaseGestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * All finger information.
+   *
+   * @type { FingerInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   fingerList: FingerInfo[];
 }
@@ -882,6 +1034,15 @@ interface BaseGestureEvent extends BaseEvent {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines event info for tap gesture.
+ *
+ * @interface TapGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface TapGestureEvent extends BaseGestureEvent {
 }
 
@@ -893,6 +1054,15 @@ interface TapGestureEvent extends BaseGestureEvent {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines event info for long press gesture.
+ *
+ * @interface LongPressGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface LongPressGestureEvent extends BaseGestureEvent {
   /**
    * Indicates whether an event is triggered repeatedly.
@@ -901,6 +1071,15 @@ interface LongPressGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Indicates whether an event is triggered repeatedly.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   repeat: boolean;
 }
@@ -913,6 +1092,15 @@ interface LongPressGestureEvent extends BaseGestureEvent {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines event info for pan gesture.
+ *
+ * @interface PanGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface PanGestureEvent extends BaseGestureEvent {
   /**
    * Gesture event offset X.
@@ -922,6 +1110,16 @@ interface PanGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Gesture event offset X.
+   * The unit is vp.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   offsetX: number;
 
@@ -934,6 +1132,16 @@ interface PanGestureEvent extends BaseGestureEvent {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Gesture event offset Y.
+   * The unit is vp.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   offsetY: number;
 
   /**
@@ -942,6 +1150,14 @@ interface PanGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * X-axis velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   velocityX: number;
 
@@ -952,6 +1168,14 @@ interface PanGestureEvent extends BaseGestureEvent {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Y-axis velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   velocityY: number;
 
   /**
@@ -960,6 +1184,14 @@ interface PanGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   velocity: number;
 }
@@ -972,6 +1204,15 @@ interface PanGestureEvent extends BaseGestureEvent {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines event info for pinch gesture.
+ *
+ * @interface PinchGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface PinchGestureEvent extends BaseGestureEvent {
   /**
    * Scaling ratio.
@@ -980,6 +1221,15 @@ interface PinchGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Scaling ratio.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   scale: number;
 
@@ -992,6 +1242,16 @@ interface PinchGestureEvent extends BaseGestureEvent {
    * @crossplatform
    * @since 11
    */
+  /**
+   * X-axis coordinate of the kneading center point.
+   * The unit is vp.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   pinchCenterX: number;
 
   /**
@@ -1002,6 +1262,16 @@ interface PinchGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Y-axis coordinate of the kneading center point.
+   * The unit is vp.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   pinchCenterY: number;
 }
@@ -1014,6 +1284,15 @@ interface PinchGestureEvent extends BaseGestureEvent {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines event info for rotation gesture.
+ *
+ * @interface RotationGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface RotationGestureEvent extends BaseGestureEvent {
   /**
    * Gesture event direction angle.
@@ -1023,6 +1302,16 @@ interface RotationGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Gesture event direction angle.
+   * The unit is deg.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   angle: number;
 }
@@ -1035,6 +1324,15 @@ interface RotationGestureEvent extends BaseGestureEvent {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines event info for swipe gesture.
+ *
+ * @interface SwipeGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 112
+ */
 interface SwipeGestureEvent extends BaseGestureEvent {
   /**
    * Gesture event direction angle.
@@ -1044,6 +1342,16 @@ interface SwipeGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Gesture event direction angle.
+   * The unit is deg.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   angle: number;
 
@@ -1055,6 +1363,16 @@ interface SwipeGestureEvent extends BaseGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Gesture event slide speed.
+   * The unit is vp.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   speed: number;
 }

@@ -21,6 +21,15 @@
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the grid item style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum GridItemStyle {
   /**
    * Show none style.
@@ -28,6 +37,14 @@ declare enum GridItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Show none style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NONE = 0,
 
@@ -37,6 +54,14 @@ declare enum GridItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Show plain style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   PLAIN = 1,
 }
@@ -49,6 +74,15 @@ declare enum GridItemStyle {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the grid item options.
+ *
+ * @interface GridItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface GridItemOptions {
   /**
    * Describes the GridItem style.
@@ -57,6 +91,15 @@ declare interface GridItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Describes the GridItem style.
+   *
+   * @type { ?GridItemStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   style?: GridItemStyle;
 }

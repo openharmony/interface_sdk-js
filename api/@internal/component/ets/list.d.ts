@@ -565,6 +565,15 @@ declare interface ChainAnimationOptions {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the close swipe action options.
+ *
+ * @interface CloseSwipeActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface CloseSwipeActionOptions {
   /**
    * Called after collapse animation completed.
@@ -574,6 +583,15 @@ declare interface CloseSwipeActionOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called after collapse animation completed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   onFinish?: ()=>void
 }
 
@@ -582,6 +600,13 @@ declare interface CloseSwipeActionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * @extends Scroller
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare class ListScroller extends Scroller {
   /**
@@ -595,6 +620,19 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Gets the size and position of a ListItem in a ListItemGroup.
+   *
+   * @param { number } index - Index of the ListItemGroup in List.
+   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+   * @returns { RectResult } Returns the size and position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   getItemRectInGroup(index: number, indexInGroup: number): RectResult;
 
@@ -611,6 +649,20 @@ declare class ListScroller extends Scroller {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when sliding to the specified index in specified ListItemGroup.
+   *
+   * @param { number } index - Index of the ListItemGroup in List.
+   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   scrollToItemInGroup(index: number, indexInGroup:number, smooth?: boolean, align?: ScrollAlign): void;
 
   /**
@@ -622,6 +674,17 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Collapse all listItem.
+   *
+   * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
 }
@@ -924,6 +987,15 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when need to decide contentStartOffset the list will show.
+   * @param { number } value - the value Of startOffset.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   contentStartOffset(value: number): ListAttribute;
 
   /**
@@ -933,6 +1005,15 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when need to decide contentEndOffset the list will show.
+   * @param { number } value - the value Of endOffset.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   contentEndOffset(value: number): ListAttribute;
 

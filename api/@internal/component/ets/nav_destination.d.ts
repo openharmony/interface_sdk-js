@@ -177,6 +177,15 @@ declare interface NavDestinationCustomTitle {
  * @crossplatform
  * @since 11
  */
+/**
+ * NavDestination mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum NavDestinationMode {
   /**
    * Standard mode is default mode of NavDestination.
@@ -184,6 +193,14 @@ declare enum NavDestinationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Standard mode is default mode of NavDestination.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   STANDARD = 0,
 
@@ -193,6 +210,14 @@ declare enum NavDestinationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Dialog mode is transparent by default and does not affect the life cycle of other NavDestination.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   DIALOG = 1,
 }
@@ -437,6 +462,16 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @crossplatform
    * @since 11
    */
+  /**
+   * Sets the different mode of NavDestination.
+   *
+   * @param { NavDestinationMode } value - NavDestinationMode
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   mode(value: NavDestinationMode): NavDestinationAttribute;
 
   /**
@@ -447,6 +482,16 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set back button icon.
+   *
+   * @param { ResourceStr | PixelMap } value - Indicates icon of back button.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
 
