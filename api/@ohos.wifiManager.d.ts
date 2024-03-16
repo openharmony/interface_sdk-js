@@ -89,8 +89,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function isWifiActive(): boolean;
@@ -496,8 +496,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
@@ -550,8 +550,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function isConnected(): boolean;
@@ -1354,8 +1354,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
@@ -1387,8 +1387,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
@@ -1416,8 +1416,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
@@ -1447,8 +1447,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
