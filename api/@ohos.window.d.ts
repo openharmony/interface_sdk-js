@@ -5851,6 +5851,19 @@ declare namespace window {
      * @since 9
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
+
+    /**
+     * Set whether use default density or follow system density
+     *
+     * @param { boolean } isUseDefaultDensity Use default density if true, or follow system density if false
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager
+     * @StageModelOnly
+     * @since 12
+     */
+    setUseDefaultDensity(isUseDefaultDensity: boolean): void;
   }
 }
 
