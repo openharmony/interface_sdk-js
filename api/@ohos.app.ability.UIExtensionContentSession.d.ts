@@ -25,7 +25,7 @@ import type { LocalStorage } from 'StateManagement';
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
-import type uiExtension from "./@ohos.arkui.uiExtension";
+import type uiExtension from './@ohos.arkui.uiExtension';
 
 /**
  * class of ui extension content session.
