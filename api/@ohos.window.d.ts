@@ -2145,7 +2145,7 @@ declare namespace window {
     /**
      * Follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
      *
-     * @syscap  SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     AUTO_ROTATION_UNSPECIFIED = 12,
@@ -2153,7 +2153,7 @@ declare namespace window {
     /**
      * Display in portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
      *
-     * @syscap  SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     USER_ROTATION_PORTRAIT = 13,
@@ -2161,7 +2161,7 @@ declare namespace window {
     /**
      * Display in landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
      *
-     * @syscap  SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     USER_ROTATION_LANDSCAPE = 14,
@@ -2169,7 +2169,7 @@ declare namespace window {
     /**
      * Display in inverted portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
      *
-     * @syscap  SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     USER_ROTATION_PORTRAIT_INVERTED = 15,
@@ -2177,7 +2177,7 @@ declare namespace window {
     /**
      * Display in inverted landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
      *
-     * @syscap  SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     USER_ROTATION_LANDSCAPE_INVERTED = 16
@@ -3236,7 +3236,6 @@ declare namespace window {
      * @returns { Orientation } orientation - The orientation config of the window
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
