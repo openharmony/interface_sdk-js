@@ -17739,6 +17739,17 @@ declare class CommonMethod<T> {
   attributeModifier(modifier: AttributeModifier<T>): T;
 
   /**
+   * Sets the gesture modifier.
+   *
+   * @param { GestureModifier } modifier
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  gestureModifier(modifier: GestureModifier): T;
+
+  /**
    * Adds a background dynamic light up effect to the current component.
    *
    * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
@@ -20714,6 +20725,78 @@ declare interface UICommonEvent {
   * @since 12
   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
+}
+
+/**
+ * Defines a UIGestureEvent which is used to set different gestures to target component.
+ *
+ * @interface UIGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface UIGestureEvent {
+  /**
+   * Add a gesture bound to the component.
+   *
+   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GesturePriority } priority - priority indicates the gesture's priority.
+   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
+
+  /**
+   * Add a parallel gesture bound to the component.
+   *
+   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
+
+  /**
+   * Remove the gesture that is bound to the component and marked as tag.
+   *
+   * @param { string } tag - tag indicates the gesture's tag.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  removeGestureByTag(tag: string): void;
+
+  /**
+   * Clear gestures bound to the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  clearGestures(): void;
+}
+
+/**
+ * Defines the gesture modifier.
+ * 
+ * @interface GestureModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface GestureModifier {
+  /**
+   * Defines the gesture update function.
+   * 
+   * @param { UIGestureEvent } event
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  applyGesture(event: UIGestureEvent): void;
 }
 
 declare module 'commonEvent' {
