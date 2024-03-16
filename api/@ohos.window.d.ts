@@ -2140,7 +2140,47 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    LOCKED = 11
+    LOCKED = 11,
+
+    /**
+     * Follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    AUTO_ROTATION_UNSPECIFIED = 12,
+
+    /**
+     * Display in portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_PORTRAIT = 13,
+
+    /**
+     * Display in landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_LANDSCAPE = 14,
+
+    /**
+     * Display in inverted portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_PORTRAIT_INVERTED = 15,
+
+    /**
+     * Display in inverted landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_LANDSCAPE_INVERTED = 16
   }
 
   /**
@@ -3189,6 +3229,18 @@ declare namespace window {
      * @since 11
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+
+    /**
+     * Get the preferred orientation config of the window
+     *
+     * @returns { Orientation } orientation - The orientation config of the window
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getPreferredOrientation(): Orientation;
 
     /**
      * Loads content
