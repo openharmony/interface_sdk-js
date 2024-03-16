@@ -119,6 +119,16 @@ declare interface CheckboxOptions {
    * @form
    */
   group?: string;
+
+  /**
+   * Custom builder function.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  indicatorBuilder?: CustomBuilder;
 }
 
 /**
