@@ -1070,6 +1070,18 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(): Promise<Array<number>>;
 
     /**
+     * Gets the local ID of the foreground OS account.
+     *
+     * @returns { Promise<number> } Returns local ID of the foreground OS account.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getForegroundOsAccountLocalId(): Promise<number>;
+
+    /**
      * Creates an OS account using the local name and account type.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
