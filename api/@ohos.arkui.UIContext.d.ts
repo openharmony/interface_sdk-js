@@ -1109,6 +1109,52 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+
+    /**
+   * Registers a callback function to be called when the draw command will be drawn.
+   *
+   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    on(type: 'willDraw', callback: Callback<void>): void;
+
+    /**
+     * Removes a callback function that was previously registered with `on()`.
+     *
+     * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+     * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+     *                                                        will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    off(type: 'willDraw', callback?: Callback<void>): void;
+
+      /**
+   * Registers a callback function to be called when the layout is done.
+   *
+   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didLayout', callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                        will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didLayout', callback?: Callback<void>): void;
 }
 
 /**
