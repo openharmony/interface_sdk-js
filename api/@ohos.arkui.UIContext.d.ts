@@ -1630,6 +1630,18 @@ export class UIContext {
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
   /**
+   * Define animation functions for immediate distribution.
+   *
+   * @param { AnimateParam } param - Set animation effect parameters.
+   * @param { Callback<void> } event - Specify the closure function that displays dynamic effects,
+   * and the system will automatically insert transition animations for state changes caused by the closure function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  animateToImmediately(param: AnimateParam, event: Callback<void>): void;
+
+  /**
    * Get FrameNode by id.
    *
    * @param { string } id - The id of FrameNode.
