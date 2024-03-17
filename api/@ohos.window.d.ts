@@ -5853,9 +5853,9 @@ declare namespace window {
     setShowOnLockScreen(showOnLockScreen: boolean): void;
 
     /**
-     * Set whether use default density or follow system density
+     * Set whether use default density or follow system density change
      *
-     * @param { boolean } isUseDefaultDensity Use default density if true, or follow system density if false
+     * @param { boolean } isUseDefaultDensity Use default density if true, or follow system density change if false
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
