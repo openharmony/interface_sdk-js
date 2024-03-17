@@ -5859,7 +5859,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager
+     * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @since 12
      */
