@@ -3946,6 +3946,14 @@ declare namespace media {
      * @since 11
      */
     isHdr?: boolean;
+
+    /**
+     * Whether to enable the hierarchical P encoding structure
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    hierarchicalPEnable?: boolean;
   }
 
   /**
