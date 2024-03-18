@@ -1169,6 +1169,7 @@ declare namespace pasteboard {
 
     /**
      * Gets pasteData from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
      * @returns { PasteData }  a new PasteData.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
