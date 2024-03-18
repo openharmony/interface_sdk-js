@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AdsKit
+ */
+
+/**
  * Defines the advertisement data model.
  * @typedef Advertisement
  * @syscap SystemCapability.Advertising.Ads
