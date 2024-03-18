@@ -5855,7 +5855,7 @@ declare namespace window {
     /**
      * Set whether to use default density.
      *
-     * @param { boolean } isUseDefaultDensity Use default density if true, or follow system density change if false
+     * @param { boolean } isUseDefaultDensity - Use default density if true, or follow system density change if false
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
