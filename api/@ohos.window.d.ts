@@ -1898,7 +1898,7 @@ declare namespace window {
    * gets snapshot of window
    *
    * @param { number } windowId - Indicates target window id.
-   * @returns { Promise<image.PixelMap> }Promise that returns no value.
+   * @returns { Promise<image.PixelMap> } - Promise that returns no value.
    * @throws {BusinessError} 801 - Capability not supported on this device.
    * @throws {BusinessError} 1300002 - This window state is abnormal.
    * @throws {BusinessError} 1300003 - This window manager service work abnormally.
