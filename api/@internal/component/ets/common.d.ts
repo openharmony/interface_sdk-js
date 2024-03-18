@@ -16957,6 +16957,17 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
+   * The parameter specifies whether to crop based on the edge contour.
+   *
+   * @param { boolean } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  clip(value: boolean): T;
+
+  /**
    * The current component is cropped according to the specified shape.
    *
    * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
@@ -16970,17 +16981,6 @@ declare class CommonMethod<T> {
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
-   * The parameter specifies whether to crop based on the edge contour.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  clip(value: boolean): T;
-
-  /**
   * The current component is cropped according to the specified shape.
   *
   * @param { CircleShape | EllipseShape | PathShape | RectShape } value - indicates the shape of the clip.
@@ -16990,6 +16990,17 @@ declare class CommonMethod<T> {
   * @since 12
   */
   clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
+
+  /**
+   * Sets the mask of the current component.
+   *
+   * @param { ProgressMask } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mask(value: ProgressMask): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
@@ -17003,17 +17014,6 @@ declare class CommonMethod<T> {
    * @useinstead common[CommonMethod]#maskShape
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
-
-  /**
-   * Sets the mask of the current component.
-   *
-   * @param { ProgressMask } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  mask(value: ProgressMask): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
