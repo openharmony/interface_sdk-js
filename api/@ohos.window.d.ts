@@ -5857,6 +5857,7 @@ declare namespace window {
      *
      * @param { boolean } isUseDefaultDensity Use default density if true, or follow system density change if false
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
