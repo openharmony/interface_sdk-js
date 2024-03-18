@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,6 +23,7 @@ import type * as _ViewData from './application/ViewData';
 import type * as _PageNodeInfo from './application/PageNodeInfo';
 import { AutoFillType } from './application/AutoFillType';
 import type * as _AutoFillRequest from './application/AutoFillRequest';
+import type * as _AutoFillRect from './application/AutoFillRect';
 
 /**
  * This module provides the function of auto fill manager.
@@ -153,6 +154,16 @@ declare namespace autoFillManager {
    * @since 11
    */
   export type SaveRequestCallback = _AutoFillRequest.SaveRequestCallback;
+
+  /**
+   * Auto fill rectangle.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  export type AutoFillRect = _AutoFillRect.default;
 }
 
 export default autoFillManager;
