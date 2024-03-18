@@ -502,6 +502,23 @@ declare namespace cloudData {
      * @since 11
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+
+    /**
+     * Sets global cloud strategy.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { StrategyType } strategy - Indicates the strategy type of the cloud sync.
+     * @param { Array<commonType.ValueType> } param - Indicates specific strategy of the cloud sync.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static setGlobalCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
   }
 
   /**
