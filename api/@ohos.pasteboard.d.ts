@@ -1139,8 +1139,8 @@ declare namespace pasteboard {
      */
     /**
      * Gets pastedata from the system pasteboard.
-     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @permission ohos.permission.READ_PASTEBOARD
+     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
