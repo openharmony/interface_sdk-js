@@ -292,6 +292,15 @@ interface TextAreaInterface {
  * @crossplatform
  * @since 11
  */
+/**
+ * Declare the type of input box
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum TextAreaType {
   /**
    * Basic input mode.
@@ -299,6 +308,14 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Basic input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NORMAL = 0,
 
@@ -309,6 +326,14 @@ declare enum TextAreaType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Pure digital input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   NUMBER = 2,
 
   /**
@@ -318,6 +343,14 @@ declare enum TextAreaType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Phone number entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   PHONE_NUMBER = 3,
 
   /**
@@ -326,6 +359,14 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * E-mail address input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   EMAIL = 5,
 }
@@ -421,6 +462,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the type of soft keyboard input button is set.
+   *
+   * @param { EnterKeyType } value: the type of soft keyboard
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   enterKeyType(value: EnterKeyType): TextAreaAttribute;
 
@@ -667,6 +718,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when submitted.
+   *
+   * @param { function } callback
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
 
@@ -1053,6 +1114,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the input type is set.
+   *
+   * @param { TextAreaType } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   type(value: TextAreaType): TextAreaAttribute;
 }
