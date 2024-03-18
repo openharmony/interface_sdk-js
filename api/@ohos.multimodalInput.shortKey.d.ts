@@ -57,3 +57,85 @@ declare namespace shortKey {
 
 }
 export default shortKey;
+
+/**
+ * FingerprintAction
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+export declare enum FingerprintAction {
+  /**
+   * This action represents the user placing their finger down, initiating the sliding action.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  DOWN = 0,
+
+  /**
+   * This action represents the user lifting their finger, and the sliding action has ended.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  UP = 1,
+
+  /**
+   * This action signifies that the user is currently engaged in sliding.
+   * The sequnces of "DOWN, SLIDE, UP" constitutes a complete sliding process.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  SLIDE = 2,
+
+  /**
+   * This action corresponds to a click event
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  CLICK = 3,
+}
+
+/**
+ * FingerprintEvent
+ *
+ * @interface FingerprintEvent
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+export declare interface FingerprintEvent {
+  /**
+   * Fingerprint action
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  action: FingerprintAction;
+
+
+  /**
+   * This field represents the percentage of relative sliding distance on X-axis
+   * compared to the total sliding distance.
+   * A positve value indicates sliding to the right, while a negative value indicates sliding to the left.
+   * This value is only meaningful when the type is "SLIDE".
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  distanceX: number;
+
+  /**
+   * This field represents the percentage of relative sliding distance on Y-axis
+   * compared to the total sliding distance.
+   * A positve value indicates upward sliding , while a negative value indicates downward sliding.
+   * This value is only meaningful when the type is "SLIDE".
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  distanceY: number;
+}
