@@ -173,6 +173,16 @@ declare interface RadioOptions {
    * @form
    */
   indicatorType?: RadioIndicatorType;
+  /**
+   * builder for IndicatorType.CUSTOM
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  indicatorBuilder?: CustomBuilder;
 }
 
 /**
