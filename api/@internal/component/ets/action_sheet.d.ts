@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 
-
 /**
  * The information of sheet.
  *
