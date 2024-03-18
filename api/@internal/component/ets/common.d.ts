@@ -12144,7 +12144,20 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backgroundImage(src: ResourceStr, repeat?: ImageRepeat): T;
+  /**
+   * Background image
+   * src: Image address url
+   *
+   * @param { ResourceStr | PixelMap } src
+   * @param { ImageRepeat } repeat
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
