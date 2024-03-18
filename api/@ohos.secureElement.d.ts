@@ -41,8 +41,22 @@ declare namespace omapi {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10
+   * @deprecated since 12
+   * @useinstead omapi#createService
    */
   function newSEService(type: 'serviceState', callback: Callback<ServiceState>): SEService;
+
+  /**
+   * Establish a new connection that can be used to connect to all the SEs available in the system.
+   * The connection process can be quite long, so it happens in an asynchronous way. It is usable only
+   * if isConnected() returns true.
+   *
+   * @returns { Promise<SEService> } Returns the created SEService instance.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 12
+   */
+  function createService(): Promise<SEService>;
 
   /**
    * SEService realizes the communication to available SEs on the device.
@@ -483,6 +497,8 @@ declare namespace omapi {
    * @enum { number }
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10
+   * @deprecated since 12
+   * @useinstead omapi#createService
    */
   enum ServiceState {
     /**
@@ -490,6 +506,8 @@ declare namespace omapi {
      *
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
+     * @deprecated since 12
+     * @useinstead omapi#createService
      */
     DISCONNECTED = 0,
 
@@ -498,6 +516,8 @@ declare namespace omapi {
      *
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
+     * @deprecated since 12
+     * @useinstead omapi#createService
      */
     CONNECTED = 1
   }
