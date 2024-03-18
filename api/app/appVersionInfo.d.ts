@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Defines an AppVersionInfo object.
  *
  * @typedef AppVersionInfo

@@ -61,7 +61,9 @@ attribs
 audios
 authenticates
 authinfo
+authmode
 autocorrect
+autosizing
 averr
 avoidareachange
 avrcp
@@ -305,6 +307,7 @@ glasses
 gnss
 goaway
 graphicseditor
+granting
 greate
 gtc
 hailing
@@ -519,6 +522,9 @@ nmea
 nnrt
 nopadding
 mori
+nodownload
+nofullscreen
+noremoteplayback
 normalizer
 notifies
 notifying

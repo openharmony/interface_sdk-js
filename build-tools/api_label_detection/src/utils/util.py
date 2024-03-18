@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-# coding=utf-8
-##############################################
-# Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+# -*- coding: utf-8 -*-
+# Copyright (c) 2024 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,7 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-##############################################
 
 import json
 import re
@@ -82,3 +80,10 @@ def get_position_information(pos: dict):
 
 def set_label_to_result(message, label, mutex_label):
     return message.replace('$', label).replace('&', mutex_label)
+
+
+def get_js_doc_info(js_doc_info_list: list):
+    if len(js_doc_info_list) > 0:
+        return js_doc_info_list[len(js_doc_info_list) - 1]
+    return None
+

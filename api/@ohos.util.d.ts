@@ -360,6 +360,21 @@ declare namespace util {
    */
   class TextDecoder {
     /**
+     * The textDecoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @since 9
+     */
+    /**
+     * The textDecoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    constructor();
+
+    /**
      * The source encoding's name, lowercased.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -415,21 +430,6 @@ declare namespace util {
      * @useinstead ohos.util.TextDecoder.create
      */
     constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean });
-
-    /**
-     * The textDecoder constructor.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * The textDecoder constructor.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    constructor();
 
     /**
      * Replaces the original constructor to process arguments and return a textDecoder object.
@@ -642,6 +642,19 @@ declare namespace util {
      * @since 11
      */
     constructor(encoding?: string);
+
+    /**
+     * Create a TextEncoder object.
+     *
+     * @param { string } [encoding] - The string for encoding format.
+     * @returns { TextEncoder }
+     * @throws { BusinessError } 401 - The type of encoding must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    static create(encoding?: string): TextEncoder;
 
     /**
      * Returns the result of encoder.

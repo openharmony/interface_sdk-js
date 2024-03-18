@@ -547,7 +547,18 @@ export default class UIAbility extends Ability {
    * @atomicservice
    * @since 11
    */
-  onContinue(wantParam: Record<string, Object>): AbilityConstant.OnContinueResult;
+  /**
+   * Called back when an ability prepares to continue.
+   *
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Return the result of onContinue, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
+  onContinue(wantParam: Record<string, Object>):
+    AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult>;
 
   /**
    * Called when the launch mode of an ability is set to singleton.

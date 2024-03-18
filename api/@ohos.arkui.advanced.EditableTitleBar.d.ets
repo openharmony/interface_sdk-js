@@ -130,6 +130,56 @@ export declare enum EditableLeftIconType {
 }
 
 /**
+ * Indicates the options of the editable title bar.
+ *
+ * @interface EditableTitleBarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export declare interface EditableTitleBarOptions {
+  /**
+   * Background color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Background blur style.
+   *
+   * @type { ?BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Indicates the types of the safe area.
+   *
+   * @type { ?Array<SafeAreaType> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  safeAreaTypes?: Array<SafeAreaType>;
+
+  /**
+   * Indicates the edges of the safe area.
+   *
+   * @type { ?Array<SafeAreaEdge> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  safeAreaEdges?: Array<SafeAreaEdge>;
+}
+
+/**
  * Declaration of the editable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -244,4 +294,14 @@ export declare struct EditableTitleBar {
    * @since 11
    */
   onCancel?: () => void;
+  
+  /**
+   * Indicates the options of titlebar.
+   * @type { EditableTitleBarOptions }
+   * @default {expandSafeAreaTypes: SafeAreaType.SYSTEM, expandSafeAreaEdges: SafeAreaEdge.TOP}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  options: EditableTitleBarOptions;
 }

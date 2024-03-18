@@ -377,6 +377,37 @@ declare namespace dataShare {
   }
 
   /**
+   * Struct for a batch update operation.
+   *
+   * @interface UpdateOperation
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  interface UpdateOperation {
+    /**
+     * Indicates the data to update.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    values: ValuesBucket;
+
+    /**
+     * Indicates filter criteria.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    predicates: dataSharePredicates.DataSharePredicates;
+  }
+
+  /**
    * DataShareHelper
    *
    * @interface DataShareHelper
@@ -748,6 +779,21 @@ declare namespace dataShare {
      * @since 9
      */
     update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
+
+    /**
+     * Updates data records in the database.
+     *
+     * @param { Record<string, Array<UpdateOperation>> } operations - Indicates the data to update.
+     * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700000 - Inner error.
+     * @throws { BusinessError } 15700010 - The dataShareHelper has been closed.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<number>>>;
 
     /**
      * Inserts multiple data records into the database.

@@ -1109,6 +1109,52 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+
+    /**
+   * Registers a callback function to be called when the draw command will be drawn.
+   *
+   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    on(type: 'willDraw', callback: Callback<void>): void;
+
+    /**
+     * Removes a callback function that was previously registered with `on()`.
+     *
+     * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+     * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+     *                                                        will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    off(type: 'willDraw', callback?: Callback<void>): void;
+
+      /**
+   * Registers a callback function to be called when the layout is done.
+   *
+   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didLayout', callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                        will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didLayout', callback?: Callback<void>): void;
 }
 
 /**
@@ -1254,6 +1300,35 @@ export class DragController {
    * @since 11
    */
   getDragPreview(): dragController.DragPreview;
+
+  /**
+   * Enable drag event strict reporting for drag enter and leave notification in nested situation. 
+   * For example, the parent and child both register the onDragEnter/onDragLeave events, if this 
+   * flag is enabled, the parent will be notified with leave event, and the child will notified with 
+   * enter event at the same time, when user drag action is passing through the parent and enter the 
+   * scope of the child.
+   * Please be noted, the default value of the flag is false, it means, for the same situation, the 
+   * parent will not receive the leave notification, just the child can get the enter event, which is 
+   * not fully strict.
+   * @param { boolean } enable - Indicating enable drag event strict reporting or not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setDragEventStrictReportingEnabled(enable: boolean): void;
+}
+
+/**
+ * class FocusController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+export class FocusController {
+  /**
+   * clear focus to the root container.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  clearFocus(): void;
 }
 
 /**
@@ -1610,6 +1685,14 @@ export class UIContext {
    * @since 12
    */
    getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getFocusController(): FocusController;
 }
 
 /**

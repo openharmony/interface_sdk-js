@@ -1070,6 +1070,18 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(): Promise<Array<number>>;
 
     /**
+     * Gets the local ID of the foreground OS account.
+     *
+     * @returns { Promise<number> } Returns local ID of the foreground OS account.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getForegroundOsAccountLocalId(): Promise<number>;
+
+    /**
      * Creates an OS account using the local name and account type.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1380,6 +1392,23 @@ declare namespace osAccount {
      * @since 9
      */
     getOsAccountType(): Promise<OsAccountType>;
+
+    /**
+     * Gets the type of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<OsAccountType> } Returns the OS account type.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getOsAccountType(localId: number): Promise<OsAccountType>;
 
     /**
      * Obtains the distributed virtual device ID (DVID).
@@ -2051,7 +2080,16 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      */
-    GUEST
+    GUEST,
+
+    /**
+     * Indicates a private account.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PRIVATE = 1024
   }
 
   /**

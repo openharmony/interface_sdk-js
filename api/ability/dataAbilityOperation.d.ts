@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import featureAbility from '../@ohos.ability.featureAbility';
 import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';

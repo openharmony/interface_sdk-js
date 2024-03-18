@@ -283,6 +283,36 @@ declare interface ScrollAnimationOptions {
 }
 
 /**
+ * OffsetOptions info.
+ *
+ * @interface OffsetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface OffsetOptions {
+  /**
+   * The X-axis offset.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  xOffset?: Dimension;
+
+  /**
+   * The y-axis offset.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  yOffset?: Dimension;
+}
+
+/**
  * Scroller
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -447,6 +477,18 @@ declare class Scroller {
    * @since 11
    */
   scrollEdge(value: Edge);
+
+  /**
+   * Fling the scroll view.
+   *
+   * @param { number } velocity - initial velocity of fling, in vp/s.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fling(velocity: number): void;
 
   /**
    * Called when page turning mode is set.
@@ -1236,6 +1278,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   enablePaging(value: boolean): ScrollAttribute;
+  
+  /**
+   * Called to setting the initial offset
+   *
+   * @param { OffsetOptions } value - options for scroll initial offset.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  initialOffset(value: OffsetOptions): ScrollAttribute;
 }
 
   /**

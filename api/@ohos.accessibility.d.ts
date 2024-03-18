@@ -599,6 +599,14 @@ declare namespace accessibility {
      * @since 7
      */
     readonly eventTypes: Array<EventType>;
+
+    /**
+     * Indicates whether the extended service needs to be hidden.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly needHide: boolean;
   }
 
   /**

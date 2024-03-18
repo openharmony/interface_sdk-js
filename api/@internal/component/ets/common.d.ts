@@ -8872,6 +8872,36 @@ declare interface BindOptions {
 }
 
 /**
+ * Component content cover dismiss
+ *
+ * @interface DismissContentCoverAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissContentCoverAction {
+  /**
+   * Defines content cover dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Defines content cover dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * Component content cover options
  *
  * @interface ContentCoverOptions
@@ -8909,6 +8939,26 @@ declare interface ContentCoverOptions extends BindOptions {
    * @since 11
    */
   modalTransition?: ModalTransition,
+
+  /**
+   * Callback function when the content cover interactive dismiss
+   *
+   * @type { ?Callback<DismissContentCoverAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: Callback<DismissContentCoverAction>;
+
+  /**
+   * Defines transition effect param
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10014,6 +10064,16 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the transition effect of popup opening and closing
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10425,6 +10485,16 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Defines the transition effect of popup opening and closing
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10482,6 +10552,15 @@ interface ContextMenuAnimationOptions {
    * @since 11
    */
   scale?: AnimationRange<number>;
+  /**
+   * Defines the transition effect of menu preview opening and closing.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10684,6 +10763,16 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the transition effect of menu opening and closing.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -12055,7 +12144,20 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backgroundImage(src: ResourceStr, repeat?: ImageRepeat): T;
+  /**
+   * Background image
+   * src: Image address url
+   *
+   * @param { ResourceStr | PixelMap } src
+   * @param { ImageRepeat } repeat
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
@@ -12741,6 +12843,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   onKeyEvent(event: (event: KeyEvent) => void): T;
+
+  /**
+   * Handle keyboard events before input method events.
+   *
+   * @param { Callback<KeyEvent, boolean> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
 
   /**
    * Set focusable.
@@ -13662,6 +13775,18 @@ declare class CommonMethod<T> {
   renderGroup(value: boolean): T;
 
   /**
+   * Sets whether the component should remain stationary, reusing the results of the current frame's off-screen rendering.
+   * If the input parameter is true, the component and subcomponent changes do not affect the display.
+   *
+   * @param { boolean } value - true means the component should remain stationary.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  freeze(value: boolean): T;
+
+  /**
    * Sets the translation effect during page transition.
    * The value is the start point of entry and end point of exit.
    * When this parameter is set together with slide, slide takes effect by default.
@@ -14422,7 +14547,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  position(value: Position): T;
+  /**
+   * position
+   *
+   * @param { Position | Edges } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  position(value: Position | Edges): T;
 
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
@@ -14506,7 +14642,19 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  offset(value: Position): T;
+  /**
+   * Coordinate offset relative to the layout completion position.
+   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   *
+   * @param { Position | Edges } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  offset(value: Position | Edges): T;
 
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
@@ -14812,7 +14960,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  allowDrop(value: Array<UniformDataType>): T;
+  /**
+   * Allowed drop uniformData type for this node.
+   *
+   * @param { Array<UniformDataType> | null } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  allowDrop(value: Array<UniformDataType> | null): T;
 
   /**
    * Enable the selectable area can be dragged.
@@ -18439,7 +18597,7 @@ declare module 'touchEvent'{
  * @crossplatform
  * @since 12
  */
-declare interface Callback<T,V = void> {
+declare interface Callback<T, V = void> {
   /**
    * Defines the callback info.
    *
@@ -18450,4 +18608,131 @@ declare interface Callback<T,V = void> {
    * @since 12
    */
   (data: T): V;
+}
+
+/**
+ * Defines the callback type used in hover events.
+ * The value of isHover indicates whether the mouse is hovering over the component.
+ * The value of event contains information about HoverEvent.
+ *
+ * @typedef HoverCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
+
+/**
+ * Defines a UICommonEvent which is used to set different common event to target component.
+ *
+ * @interface UICommonEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface UICommonEvent {
+  /**
+   * Set or reset the callback which will be triggered a click event when clicked.
+   *
+   * @param { Callback<ClickEvent> | undefined } callback - The callback about the click event. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnClick(callback: Callback<ClickEvent> | undefined): void;
+
+  /**
+   * Set or reset the callback which will be triggered a touch event when touched.
+   *
+   * @param { Callback<TouchEvent> | undefined } callback - The callback about the touch event. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnTouch(callback: Callback<TouchEvent> | undefined): void;
+
+  /**
+   * Set or reset the callback is triggered when a component mounts a display.
+   *
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnAppear(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback is triggered when component uninstallation disappears.
+   * 
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnDisappear(callback: Callback<void> | undefined): void;
+
+
+  /**
+   * Set or reset the callback is triggered when component has keyboard input.
+   *
+   * @param { Callback<KeyEvent> | undefined } callback - The callback will be triggered when has keyboard input. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when component get focus.
+   *
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnFocus(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when lose focus.
+   *
+   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnBlur(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when has a hover event.
+   * 
+   * @param { HoverCallback | undefined } callback - The callback will be triggered when has a hover event. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setOnHover(callback: HoverCallback | undefined): void;
+
+  /**
+  * Set or reset the callback which is triggered when has a mouse event.
+  *
+  * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  setOnMouse(callback: Callback<MouseEvent> | undefined): void;
+}
+
+declare module 'commonEvent' {
+  module 'commonEvent' {
+    // @ts-ignore
+    export { UICommonEvent };
+  }
+}
+
+declare module 'commonAttribute'{
+  module 'commonAttribute' {
+    // @ts-ignore
+    export { CommonAttribute };
+  }
 }
