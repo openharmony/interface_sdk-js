@@ -1111,6 +1111,7 @@ declare namespace pasteboard {
 
     /**
      * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6
@@ -1121,6 +1122,7 @@ declare namespace pasteboard {
 
     /**
      * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6
