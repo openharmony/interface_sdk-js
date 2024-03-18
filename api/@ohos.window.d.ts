@@ -5853,7 +5853,7 @@ declare namespace window {
     setShowOnLockScreen(showOnLockScreen: boolean): void;
 
     /**
-     * Set whether use default density or follow system density change
+     * Set whether to use default density.
      *
      * @param { boolean } isUseDefaultDensity Use default density if true, or follow system density change if false
      * @throws { BusinessError } 401 - Parameter error.
