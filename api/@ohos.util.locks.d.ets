@@ -21,22 +21,31 @@
 /**
  * Asynchronous lock.
  *
- * @namespace sync
+ * @namespace locks
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 12
  */
-declare namespace sync {
+declare namespace locks {
   /**
-   * Class to execute an asynchronous operation under lock.
-   * AsyncLock may be anonymous of named. Anonymous locks has unique identifier in 'id' property.
-   * Zero id is the invalid id. For named locks the field 'id' should be 0.
+   * Type of callback for asyncLock operation.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12
    */
+  type AsyncLockCallback<T> = () => T;
+
+  /**
+   * Class to execute an asynchronous operation under lock.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  @Sendable
   class AsyncLock {
     /**
      * Default constructor.
@@ -48,7 +57,7 @@ declare namespace sync {
      */
     constructor();
     /**
-     * Find or create an instance of AsyncLock with the specified name.
+     * Find or create an instance of AsyncLock using the specified name.
      *
      * @param { string } name - name of the lock to find or create.
      * @returns { AsyncLock } Returns an instance of AsyncLock.
@@ -62,9 +71,9 @@ declare namespace sync {
 
     /**
      * Query information about the specified lock.
-     * If id is not specified the method return information about all locks.
+     * If 'name' is not specified, the method returns information about all locks.
      *
-     * @param { number|string } id - name of the lock.
+     * @param { string } name - name of the lock.
      * @returns { AsyncLockState[] } Returns an array of AsyncLockState.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @static
@@ -73,20 +82,20 @@ declare namespace sync {
      * @atomicservice
      * @since 12
      */
-    static query(id?: number|string): AsyncLockState[];
+    static query(name?: string): AsyncLockState[];
 
     /**
-     * Perform an operation under lock.
-     * The method acquire the lock first, then calls the callback and after releases the lock.
-     * The callback may be called asynchronously but it always called in the same thread where lockAsync is called.
-     * An optional timeout value can be provided in {@link AsyncLockOptions}. In this case lockAsync will reject the
+     * Perform an operation with the acquired lock.
+     * The method acquires the lock first, then calls the callback, and then releases the lock.
+     * The callback is called asynchronously in the same thread where lockAsync was called.
+     * An optional timeout value can be provided in {@link AsyncLockOptions}. In this case, lockAsync will reject the
      * resulting promise with a BusinessError instance if the lock is not acquired before timeout exceeds.
-     * The error message in this case will contain the held and waited locks information and possible deadlock warnings.
+     * The error message, in this case, will contain the held and waited locks information and possible deadlock warnings.
      *
-     * @param { Function<T> } callback - callback to call when the lock gets acquired.
-     * @param { AsyncLockMode } mode - mode of the lock operation.
+     * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+     * @param { AsyncLockMode } mode - mode of the lock operation. If the parameter is not specified, the default value is AsyncLockMode.EXCLUSIVE.
      * @param { AsyncLockOptions<U> } options - lock operation options.
-     * @returns { Promise<T|U> } Promise which will be resolved after the callback gets executed or rejected in case if timeout
+     * @returns { Promise<T|U> } Promise that will be resolved after the callback gets executed or rejected in case timeout
      * exceeded.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -94,10 +103,10 @@ declare namespace sync {
      * @atomicservice
      * @since 12
      */
-    lockAsync<T, U>(callback: Function<T>, mode?: AsyncLockMode, options?: AsyncLockOptions<U>): Promise<T|U>;
+    lockAsync<T, U>(callback: AsyncLockCallback<T>, mode?: AsyncLockMode, options?: AsyncLockOptions<U>): Promise<T|U>;
 
     /**
-     * For named locks contains the lock's name. For anonymous locks the field is empty.
+     * Name of the lock.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -105,15 +114,6 @@ declare namespace sync {
      * @since 12
      */
     readonly name: string;
-    /**
-     * For named locks the field contains 0. For anonymous locks the field contains unique identifier.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    readonly id: number;
   }
 
   /**
@@ -128,8 +128,7 @@ declare namespace sync {
   enum AsyncLockMode {
     /**
      * Shared lock operation.
-     * In shared mode lockAsync calls the callback if the lock is already acquired in the shared mode and
-     * by the same thread.
+     * The operation could reenter in the same thread if this mode is specified. 
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -139,7 +138,7 @@ declare namespace sync {
     SHARED = 1,
     /**
      * Exclusive lock operation.
-     * In exclusive mode the callback is called only after another callback release the lock.
+     * If this mode is specified, the operation is executed only when the lock is acquired exclusively.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -159,7 +158,7 @@ declare namespace sync {
    */
   class AsyncLockOptions<T> {
     /**
-     * If the value is true and lockAsync cannot acquire the lock immediately the operation is canceled.
+     * If the value is true and lockAsync cannot acquire the lock immediately, the operation is canceled.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -168,7 +167,7 @@ declare namespace sync {
      */
     isAvailable?: boolean;
     /**
-     * An object used to abort the async operation. If signal.aborted is true the callback will not be called.
+     * The object used to abort the async operation. If signal.aborted is true, the callback will not be called.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -177,8 +176,8 @@ declare namespace sync {
      */
     signal?: AbortSignal<T>;
     /**
-     * Lock operation timeout in milliseconds. If it is specified, the lockAsync will reject the resulting promise
-     * when timeout exceeds.
+     * Lock operation timeout in milliseconds. If it is specified, lockAsync will reject the resulting promise
+     * when the timeout is exceeded.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -198,7 +197,7 @@ declare namespace sync {
    */
   class AsyncLockState {
     /**
-     * Array of lock operations which held the lock.
+     * Held locks information.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -207,7 +206,7 @@ declare namespace sync {
      */
     held: AsyncLockInfo[];
     /**
-     * Array of lock operations waiting for the lock.
+     * Pending locks information.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -218,7 +217,7 @@ declare namespace sync {
   }
 
   /**
-   * Information about a lock and a lock operation.
+   * Information about a lock.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -227,25 +226,16 @@ declare namespace sync {
    */
   class AsyncLockInfo {
     /**
-     * Identifier of the lock if the lock is anonymous. For named locks this field is undefined
+     * Name of the lock.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    id?: number;
+    name: string;
     /**
-     * Name of the named lock. For anonymous locks this field is undefined.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    name?: string;
-    /**
-     * Lock operation's mode.
+     * Lock operation mode.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -254,18 +244,18 @@ declare namespace sync {
      */
     mode: AsyncLockMode;
     /**
-     * lockAsync caller thread's identifier.
+     * lockAsync caller's execution context identifier.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    threadId: number;
+    id: number;
   }
 
   /**
-   * Object to abort an async operation.
+   * Object used to abort an async operation.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -274,7 +264,7 @@ declare namespace sync {
    */
   class AbortSignal<T> {
     /**
-     * Set to true to abort an operation
+     * Set to true to abort an operation.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -284,7 +274,7 @@ declare namespace sync {
     aborted: boolean;
 
     /**
-     * Reason of the abort. This value will be used to reject the promise returned from lockAsync.
+     * Reason for the abort. This value will be used to reject the promise returned from lockAsync.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -294,4 +284,4 @@ declare namespace sync {
     reason: T
   }
 }
-export default sync;
+export default locks;
