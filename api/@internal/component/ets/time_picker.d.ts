@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the struct of TimePickerResult.
  *
  * @interface TimePickerResult

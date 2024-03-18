@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the options of CustomDialogController.
  *
  * @interface CustomDialogControllerOptions

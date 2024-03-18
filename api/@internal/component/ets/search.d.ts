@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase

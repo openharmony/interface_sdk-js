@@ -14,6 +14,12 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+
+/**
  * The information of sheet.
  *
  * @interface SheetInfo

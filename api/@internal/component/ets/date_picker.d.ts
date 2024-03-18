@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the struct of DatePickerResult.
  *
  * @interface DatePickerResult

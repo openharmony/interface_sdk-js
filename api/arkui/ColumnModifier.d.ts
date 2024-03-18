@@ -17,6 +17,11 @@
 /// <reference path="../../component/column.d.ts" />
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines Column Modifier
  *
  * @extends ColumnAttribute

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the ParticleOptions Interface.
  * @interface ParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full

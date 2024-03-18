@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="./action_sheet.d.ts" />
 /// <reference path="./alert_dialog.d.ts" />
 /// <reference path="./alphabet_indexer.d.ts" />

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Input parameter for creating a radio box.
  *
  * @interface RadioOptions

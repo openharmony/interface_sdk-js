@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../../component/common.d.ts" />
 /// <reference path="../../component/radio.d.ts" />
 

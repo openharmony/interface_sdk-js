@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the navigation destination common title.
  *
  * @interface NavDestinationCommonTitle

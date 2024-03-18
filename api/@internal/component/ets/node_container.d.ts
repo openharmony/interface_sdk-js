@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
  *
  * @interface NodeContainerInterface

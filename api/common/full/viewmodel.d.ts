@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { Image, ImageData, ImageBitmap } from "./global";
 import image from "../../@ohos.multimedia.image";
 import { CanvasPattern } from './canvaspattern';

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Span container interface.
  *
  * @interface ContainerSpanInterface
