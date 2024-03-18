@@ -192,6 +192,7 @@ declare namespace media {
    *
    * @param {number} sessionId The AVScreenCapture server session ID.
    * @param {string} choice Content chosen by user.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Input parameter invalid. Return by promise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -4558,7 +4559,7 @@ declare namespace media {
     /**
      * Unregister listens for AVScreenCaptureRecord info callback.
      * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { ?Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
@@ -4567,7 +4568,7 @@ declare namespace media {
     /**
      * Unregister listens for AVScreenCaptureRecord error callback.
      * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
-     * @param { ?ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12
      */
