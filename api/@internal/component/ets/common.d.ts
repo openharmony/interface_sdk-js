@@ -160,6 +160,17 @@ declare interface EntryOptions {
    * @form
    */
   storage? : LocalStorage,
+
+  /**
+   * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  useSharedStorage? : boolean,
 }
 
 /**
