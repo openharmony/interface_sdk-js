@@ -219,6 +219,15 @@ declare enum SearchType {
    * @since 11
    */
   EMAIL = 5,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
