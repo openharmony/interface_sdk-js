@@ -9533,6 +9533,36 @@ declare enum DismissReason {
 }
 
 /**
+ * Component popup dismiss
+ *
+ * @interface DismissPopupAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissPopupAction {
+  /**
+   * Defines popup dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Defines popup dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -10074,6 +10104,16 @@ declare interface PopupOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?(boolean | Callback<DismissPopupAction>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: boolean | Callback<DismissPopupAction>;
 }
 
 /**
@@ -10495,6 +10535,16 @@ declare interface CustomPopupOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?(boolean | Callback<DismissPopupAction>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  onWillDismiss?: boolean | Callback<DismissPopupAction>;
 }
 
 /**
