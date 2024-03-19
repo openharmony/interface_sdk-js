@@ -613,6 +613,7 @@ preconnectable
 preconnecting
 preempted
 preferentially
+prefetched
 preinstalled
 prelaunch
 preloads
@@ -726,6 +727,7 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+seventh
 sfactor
 sha1
 shadertype

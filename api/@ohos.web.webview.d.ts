@@ -606,6 +606,40 @@ declare namespace webview {
   }
 
   /**
+   * Defines the Web's request info.
+   *
+   * @interface RequestInfo
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface RequestInfo {
+    /**
+     * Gets the url of the request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    url: string;
+
+    /**
+     * Gets the method of the request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    method: string;
+
+    /**
+     * Gets the form data of the request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    formData: string;
+  }
+
+  /**
    * Subscribe to a callback of a specified type of web event once.
    *
    * @param {string} type Types of web event.
@@ -4356,6 +4390,35 @@ declare namespace webview {
      * @since 12
      */
     webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
+
+    /**
+     * Prefetch the resources request and save it to the memory cache. Only support post request and its Content-Type
+     * is application/x-www-form-urlencoded now.
+     * You can prefetch no more than 6 resources. If you want to prefetch the seventh resource, you can clear one of
+     * the prefetched resources that you won't use any more. Otherwise the oldest resource you prefetched will be
+     * cleared.
+     * @param { RequestInfo } request - The information of the request.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
+     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
+     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     *                                      The unit is second. Default value is 300s.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
+      cacheValidTime?: number): void;
+
+    /**
+    * Clear the resource that you prefetch to the memory cache using API{@link prefetchResource}.
+    * @param { Array<string> } cacheKeyList - The keys for memory cache.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
+    * @since 12
+    */
+    static clearPrefetchedResource(cacheKeyList: Array<string>): void;
   }
 
   /**
