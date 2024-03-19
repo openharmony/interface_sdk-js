@@ -428,6 +428,19 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Registers an observer to observe data specified by the given uri.
+     *
+     * @param { 'dataChange' } type - Type must be 'dataChange'.
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { AsyncCallback<void> } callback - The callback of on.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -440,6 +453,19 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Deregisters an observer used for monitoring data specified by the given uri.
+     *
+     * @param { 'dataChange' } type - Type must be 'dataChange'.
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { AsyncCallback<void> } callback - The callback of off.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
@@ -456,6 +482,21 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 10
      */
+    /**
+     * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
+     *
+     * @param { string } uri - Indicates the uri to add.
+     * @param { string } subscriberId - The subscribe id to add..
+     * @param { Template } template - The template to add.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     addTemplate(uri: string, subscriberId: string, template: Template): void;
 
     /**
@@ -469,6 +510,20 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     */
+    /**
+     * Deletes a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
+     *
+     * @param { string } uri - Indicates the uri to delete.
+     * @param { string } subscriberId - The subscribe id.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     delTemplate(uri: string, subscriberId: string): void;
 
@@ -485,6 +540,22 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     */
+    /**
+     * Registers observers to observe rdb data specified by the given uri and template.
+     *
+     * @param { 'rdbDataChange' } type - Type must be 'rdbDataChange'.
+     * @param { Array<string> } uris - Indicates the paths of the data to operate.
+     * @param { TemplateId } templateId - The template of on.
+     * @param { AsyncCallback<RdbDataChangeNode> } callback - The callback of on.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     on(
       type: 'rdbDataChange',
@@ -507,6 +578,22 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 10
      */
+    /**
+     * Deregisters observers used for monitoring data specified by the given uri and template.
+     *
+     * @param { 'rdbDataChange' } type - Type must be 'rdbDataChange'.
+     * @param { Array<string> } uris - Indicates the paths of the data to operate.
+     * @param { TemplateId } templateId - The template of off.
+     * @param { AsyncCallback<RdbDataChangeNode> } callback - The callback of off.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     off(
       type: 'rdbDataChange',
       uris: Array<string>,
@@ -527,6 +614,22 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     */
+    /**
+     * Registers observers to observe published data specified by the given key and subscriberId.
+     *
+     * @param { 'publishedDataChange' } type - Type must be 'publishedDataChange'.
+     * @param { Array<string> } uris - Indicates the uris of the data to operate.
+     * @param { string } subscriberId - The subscriberId of on.
+     * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of on.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     on(
       type: 'publishedDataChange',
@@ -549,6 +652,22 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 10
      */
+    /**
+     * Deregisters observers used for monitoring data specified by the given key and subscriberId.
+     *
+     * @param { 'publishedDataChange' } type - Type must be 'publishedDataChange'.
+     * @param { Array<string> } uris - Indicates the uris of the data to operate.
+     * @param { string } subscriberId - The subscriberId of off.
+     * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of off.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     off(
       type: 'publishedDataChange',
       uris: Array<string>,
@@ -570,6 +689,22 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 10
      */
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @param { AsyncCallback<Array<OperationResult>> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     publish(
       data: Array<PublishedItem>,
       bundleName: string,
@@ -589,6 +724,21 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     */
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { AsyncCallback<Array<OperationResult>> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     publish(
       data: Array<PublishedItem>,
@@ -610,6 +760,22 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 10
      */
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @returns { Promise<Array<OperationResult>> }
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
 
     /**
@@ -624,6 +790,20 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 10
      */
+    /**
+     * Registers a one-time observer to observe data specified by the given uri and template.
+     *
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { AsyncCallback<Array<PublishedItem>> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
 
     /**
@@ -637,6 +817,20 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10
+     */
+    /**
+     * Registers a one-time observer to observe data specified by the given uri and template.
+     *
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @returns { Promise<Array<PublishedItem>> }
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
 
@@ -653,6 +847,21 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Inserts a single data record into the database.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
+     * a blank row will be inserted.
+     * @param { AsyncCallback<number> } callback - {number}: the index of the inserted data record.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
@@ -667,6 +876,21 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Inserts a single data record into the database.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
+     * a blank row will be inserted.
+     * @returns { Promise<number> } {number}: the index of the inserted data record.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     insert(uri: string, value: ValuesBucket): Promise<number>;
 
@@ -683,6 +907,21 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Deletes one or more data records from the database.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * @param { AsyncCallback<number> } callback - {number}: the number of data records deleted.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
     /**
@@ -697,6 +936,21 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Deletes one or more data records from the database.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * @returns { Promise<number> } {number}: the number of data records deleted.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -714,6 +968,23 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Queries data in the database.
+     *
+     * @param { string } uri - Indicates the path of data to query.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * @param { Array<string> } columns - Indicates the columns to query.
+     * If this parameter is null, all columns are queried.
+     * @param { AsyncCallback<DataShareResultSet> } callback - {DataShareResultSet}: the query result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     query(
       uri: string,
@@ -737,6 +1008,23 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Queries data in the database.
+     *
+     * @param { string } uri - Indicates the path of data to query.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * @param { Array<string> } columns - Indicates the columns to query.
+     * If this parameter is null, all columns are queried.
+     * @returns { Promise<DataShareResultSet> } {DataShareResultSet}: the query result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     query(
       uri: string,
       predicates: dataSharePredicates.DataSharePredicates,
@@ -756,6 +1044,22 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Updates data records in the database.
+     *
+     * @param { string } uri - Indicates the path of data to update.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
+     * @param { AsyncCallback<number> } callback - {number}: the number of data records updated.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     update(
       uri: string,
@@ -778,6 +1082,22 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Updates data records in the database.
+     *
+     * @param { string } uri - Indicates the path of data to update.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
+     * @returns { Promise<number> } {number}: the number of data records updated.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
 
     /**
@@ -787,7 +1107,8 @@ declare namespace dataShare {
      * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15700000 - Inner error.
-     * @throws { BusinessError } 15700010 - The dataShareHelper has been closed.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -807,6 +1128,20 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Inserts multiple data records into the database.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
+     * @param { AsyncCallback<number> } callback - {number}: the number of data records inserted.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
     /**
@@ -820,6 +1155,20 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Inserts multiple data records into the database.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
+     * @returns { Promise<number> } {number}: the number of data records inserted.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -838,6 +1187,23 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
+     * A normalized uri can be used across devices, persisted, backed up, and restored.
+     * <p>To transfer a normalized uri from another environment to the current environment, you should call this
+     * method again to re-normalize the uri for the current environment or call {@link #denormalizeUri(Uri)}
+     * to convert it to a denormalized uri that can be used only in the current environment.
+     *
+     * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
+     * @param { AsyncCallback<string> } callback - {string}: the normalized Uri,
+     * if the DataShare supports uri normalization.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
     /**
@@ -854,6 +1220,22 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
+     * A normalized uri can be used across devices, persisted, backed up, and restored.
+     * <p>To transfer a normalized uri from another environment to the current environment, you should call this
+     * method again to re-normalize the uri for the current environment or call {@link #denormalizeUri(Uri)}
+     * to convert it to a denormalized uri that can be used only in the current environment.
+     *
+     * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
+     * @returns { Promise<string> } {string}: the normalized Uri if the DataShare supports uri normalization;
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     normalizeUri(uri: string): Promise<string>;
 
     /**
@@ -868,6 +1250,21 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Converts the given normalized {@code uri} generated by {@link #normalizeUri(Uri)} into a denormalized one.
+     *
+     * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to denormalize.
+     * @param { AsyncCallback<string> } callback - {string}: the denormalized {@code Uri} object if
+     * the denormalization is successful; returns the original {@code Uri} passed to this method if
+     * there is nothing to do; returns {@code null} if the data identified by the normalized {@code Uri}
+     * cannot be found in the current environment.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -884,6 +1281,21 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Converts the given normalized {@code uri} generated by {@link #normalizeUri(Uri)} into a denormalized one.
+     *
+     * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to denormalize.
+     * @returns { Promise<string> } {string}: the denormalized {@code Uri} object if the denormalization
+     * is successful; returns the original {@code Uri} passed to this method if there is nothing to do;
+     * returns {@code null} if the data identified by the normalized {@code Uri} cannot be found in the
+     * current environment.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     denormalizeUri(uri: string): Promise<string>;
 
     /**
@@ -896,6 +1308,18 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 9
      */
+    /**
+     * Notifies the registered observers of a change to the data resource specified by Uri.
+     *
+     * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
+     * @param { AsyncCallback<void> } callback - The callback of notifyChange.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -907,6 +1331,18 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 9
+     */
+    /**
+     * Notifies the registered observers of a change to the data resource specified by Uri.
+     *
+     * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
      */
     notifyChange(uri: string): Promise<void>;
   }
