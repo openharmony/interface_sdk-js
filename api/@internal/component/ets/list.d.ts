@@ -1083,8 +1083,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Called when setting whether to enable fading Edge effect.
    *
-   * @param { boolean } value
-   * @returns { ListAttribute }
+   * @param { boolean } value - If true, turn on the fading effect of the upper and lower edges. If false, turn off the fading effect of the upper and lower edges.
+   * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
