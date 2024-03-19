@@ -4742,6 +4742,36 @@ declare enum SourceTool {
    * @since 11
    */
   Pen,
+
+  /**
+   * The mouse type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  MOUSE,
+
+  /**
+   * The touchpad type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  TOUCHPAD,
+
+  /**
+   * The joystick type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  JOYSTICK,
 }
 
 /**
@@ -6414,6 +6444,28 @@ declare interface BaseEvent {
    * @form
    */
   source: SourceType;
+
+  /**
+   * the Horizontal axis coordinate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  axisHorizontal?: number;
+
+  /**
+   * the Vertical axis coordinate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  axisVertical?: number;
 
   /**
    * Touch pressure.

@@ -822,6 +822,28 @@ interface FingerInfo {
    * @since 11
    */
   localY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  displayY: number;
 }
 
 /**
@@ -2650,4 +2672,3 @@ declare const RotationGesture: RotationGestureInterface;
  * @since 11
  */
 declare const GestureGroup: GestureGroupInterface;
-
