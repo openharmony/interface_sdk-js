@@ -4903,6 +4903,24 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
+
+  /**
+   * Allocate a layer for subsequent drawing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  saveLayer(): void;
+
+  /**
+   * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  restoreLayer(): void;
 }
 
 /**
