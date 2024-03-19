@@ -1249,13 +1249,13 @@ declare namespace bundleManager {
     OS_INTEGRATION = 5,
 
     /**
-     * Indicates the crowd testing application.
+     * Indicates the crowdtesting application.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
      */
-    CROWD_TESTING = 6,
+    CROWDTESTING = 6,
 
     /**
      * Indicates other types of application.
