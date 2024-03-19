@@ -710,6 +710,7 @@ scdma
 scene
 sco
 scrambling
+screencapture
 screenlock
 screenoff
 screensaver
@@ -898,6 +899,7 @@ unmarshalling
 unmountable
 unmounted
 unmute
+unmuted
 unmutes
 unobserve
 unperceivable

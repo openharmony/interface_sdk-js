@@ -27,6 +27,7 @@ import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
+import './@internal/component/ets/units';
 
 /**
  * This module provides the capability to manage web modules.
@@ -2137,6 +2138,85 @@ declare namespace webview {
     getItemAtIndex(index: number): HistoryItem;
   }
 
+  /**
+   * Defines the snapshot info.
+   *
+   * @interface SnapshotInfo
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface SnapshotInfo {
+    /**
+     * Id of the snapshot.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    id?: string;
+
+    /**
+     * Size of the web.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    size?: SizeOptions;
+  }
+
+  /**
+   * Defines the snapshot result.
+   *
+   * @interface SnapshotResult
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface SnapshotResult {
+    /**
+     * Id of the snapshot.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    id?: string;
+
+    /**
+     * The status of the snapshot.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    status?: boolean;
+
+    /**
+     * Size of the web.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    size?: SizeOptions;
+
+    /**
+     * The image in PixelMap format.
+     *
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    imagePixelMap?: image.PixelMap;
+  }
   /**
    * Enum type supplied to {@link runJavaScriptExt} for indicating the result of JavaScript code execution.
    * @enum {number}
@@ -4290,6 +4370,26 @@ declare namespace webview {
      * @since 12
      */
     onCreateNativeVideoPlayer(callback: CreateNativeVideoPlayerCallback): void
+
+    /**
+     * Set enable overall web caching
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static enableWholeWebPageDrawing(): void;
+
+    /**
+     * Web page snapshot.
+     *
+     * @param { SnapshotInfo } info - The snapshot info.
+     * @param { AsyncCallback<SnapshotResult> } callback - the callback of snapshot.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
 
     /**
      * Prefetch the resources request and save it to the memory cache. Only support post request and its Content-Type

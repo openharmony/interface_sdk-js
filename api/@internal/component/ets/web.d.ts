@@ -3541,6 +3541,34 @@ declare class WebCookie {
 }
 
 /**
+ * Defines the touch event result.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare class EventResult {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set whether the event is consumed.
+   * 
+   * @param { boolean } result - True if the event is consumed.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  setGestureEventResult(result: boolean): void;
+}
+
+/**
  * Defines the Web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -4084,7 +4112,7 @@ declare interface NativeEmbedInfo {
    */
   src?: string;
   /**
-   * The coordinate position of embed element relative to the webcomponent.
+   * The coordinate position of embed element relative to the webComponent.
    *
    * @type { ?Position }
    * @syscap SystemCapability.Web.Webview.Core
@@ -4213,6 +4241,15 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   touchEvent?: TouchEvent;
+  /**
+   * Handle the user's touch result.
+   *
+   * @type { ?EventResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  result?: EventResult;
 }
 
   /**
