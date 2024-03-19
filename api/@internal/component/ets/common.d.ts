@@ -15680,10 +15680,19 @@ declare class CommonMethod<T> {
    * Popup control
    *
    * @param { boolean } show
-   * @param { PopupOptions | CustomPopupOptions } popup
+   * @param { PopupOptions } popup
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Popup control
+   *
+   * @param { boolean } show
+   * @param { PopupOptions | CustomPopupOptions } popup
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
    */
   /**
    * Popup control
