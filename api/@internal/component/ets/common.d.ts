@@ -18535,6 +18535,78 @@ declare interface EdgeEffectOptions {
 }
 
 /**
+ * Indicates children main size.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ChildrenMainSize {
+  /**
+   * Creates an instance of ChildrenMainSize.
+   *
+   * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
+   * If the main axis is horizontal, it indicates width.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(childDefaultSize: number);
+
+  /**
+   * Set default size.
+   *
+   * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
+   * If the main axis is horizontal, it indicates width.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set childDefaultSize(value: number);
+
+  /**
+   * Get default size
+   *
+   * @returns { number } - default main size, in vp. If the main axis is vertical, it indicates height.
+   * If the main axis is horizontal, it indicates width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get childDefaultSize(): number;
+
+  /**
+   * Changes children main size by removing or replacing existing elements and/or adding new elements in place.
+   *
+   * @param { number } start - Zero-based index at which to start changing the children main size.
+   * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
+   * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
+   * splice(1, 1), Delete the second child.
+   * splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
+   */
+  splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
+
+  /**
+   * Updates main size for specified child.
+   *
+   * @param { number } index - index of child to be updated.
+   * @param { number } childSize - new section options.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  update(index: number, childSize: number): void;
+}
+
+/**
  * Define BackgroundBrightness Options.
  *
  * @interface BackgroundBrightnessOptions

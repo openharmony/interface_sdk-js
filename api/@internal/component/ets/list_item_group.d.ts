@@ -315,6 +315,17 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
       endMargin?: Length;
     } | null,
   ): ListItemGroupAttribute;
+
+  /**
+   * Set children main size for ListItemGroup.
+   *
+   * @param { ChildrenMainSize } value - children main size for ListItemGroup
+   * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  childrenMainSize(value: ChildrenMainSize): ListItemGroupAttribute;
 }
 
 /**
