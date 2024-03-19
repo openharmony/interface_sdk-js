@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines the advertisement data model
  * @kit AdsKit
  */
 
