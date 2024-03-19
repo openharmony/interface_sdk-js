@@ -493,28 +493,6 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
-
-    /**
-     * Subscribe 'privateCommand'.This function can only be called by default input method configured by system.
-     *
-     * @param { 'privateCommand' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback of on('privateCommand').
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
-
-    /**
-     * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
-     *
-     * @param { 'privateCommand' } type - indicates the type of subscribe event.
-     * @param { function } [callback] - optional, indicates the callback of off('privateCommand').
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
   }
 
   /**
@@ -647,6 +625,27 @@ declare namespace inputMethodEngine {
      */
     off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
 
+    /**
+     * Subscribe 'privateCommand'.This function can only be called by default input method configured by system.
+     *
+     * @param { 'privateCommand' } type - indicates the type of subscribe event.
+     * @param { function } callback - indicates the callback of on('privateCommand').
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
+
+    /**
+     * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
+     *
+     * @param { 'privateCommand' } type - indicates the type of subscribe event.
+     * @param { function } [callback] - optional, indicates the callback of off('privateCommand').
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
      * Get input method's security mode.
