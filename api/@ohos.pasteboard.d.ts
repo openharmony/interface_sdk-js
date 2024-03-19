@@ -1150,6 +1150,7 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1177,6 +1178,7 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<PasteData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1195,7 +1197,9 @@ declare namespace pasteboard {
     /**
      * Gets pasteData from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
+
      * @returns { PasteData }  a new PasteData.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
