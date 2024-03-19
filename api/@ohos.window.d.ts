@@ -5095,6 +5095,7 @@ declare namespace window {
      * @since 11
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
+    
     /**
      *  Set the window mask of window
      *
