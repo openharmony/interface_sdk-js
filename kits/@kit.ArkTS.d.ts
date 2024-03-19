@@ -46,12 +46,14 @@ import worker, {
 } from '@ohos.worker';
 import xml from '@ohos.xml';
 import JSON from '@ohos.util.json';
-import lang from '@arkts.lang'
+import lang from '@arkts.lang';
+import ArkTSUtils from '@arkts.utils';
+import collections from '@arkts.collections';
 
 export {
   ArrayList, convertxml, DedicatedWorkerGlobalScope, Deque, ErrorEvent, Event, EventListener,
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, buffer, process, taskpool,
-  uri, url, util, worker, xml, JSON, lang
+  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections
 };

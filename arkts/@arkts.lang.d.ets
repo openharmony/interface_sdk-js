@@ -28,16 +28,16 @@
  * @since 12
  */
 declare namespace lang {
-    /**
-     * Base interface for all Sendable classes/interfaces
-     * 
-     * @interface ISendable
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    interface ISendable {}
-  }
-  
-  export default lang;
+  /**
+   * Base interface for all Sendable classes/interfaces
+   * 
+   * @interface ISendable
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface ISendable {}
+}
+
+export default lang;
