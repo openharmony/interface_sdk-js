@@ -13953,6 +13953,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Composite the contents of this view and its children into an offscreen cache before display in the screen.
+   *
+   * @param { boolean } value - if this view and its children need to composite into an offscreen cache.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   renderGroup(value: boolean): T;
 
   /**
