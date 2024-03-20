@@ -25,6 +25,12 @@ import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @since 10
  */
+ /**
+ * A picker view to show availale streaming device list.
+ * @syscap SystemCapability.Multimedia.AVSession.AVCast
+ * @atomicservice
+ * @since 12
+ */
 @Component
 declare struct AVCastPicker {
   /**
