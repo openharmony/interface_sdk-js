@@ -74,6 +74,14 @@ declare namespace performanceMonitor {
     FIRST_MOVE = 2
   }
   
+  /**
+   * Enumerates the input event type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
   export enum SourceType {
     /**
      * The user touches the screen to trigger the scene.
