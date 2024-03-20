@@ -346,7 +346,8 @@ declare namespace a2dp {
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-     * @returns { Promise<number> } Returns the duration <milliseconds>; if returns { @code -1 } means allow devices automatic play music when connected.
+     * @returns { Promise<number> } Returns the duration <milliseconds>; 
+     *                              If returns { @code -1 } means allow devices automatic play music when connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter.
