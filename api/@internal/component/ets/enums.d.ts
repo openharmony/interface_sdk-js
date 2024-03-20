@@ -5478,6 +5478,15 @@ declare enum ImageSize {
    * @form
    */
   Contain,
+
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FILL = 3,
 }
 
 /**

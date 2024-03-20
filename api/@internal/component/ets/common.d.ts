@@ -13755,6 +13755,17 @@ declare class CommonMethod<T> {
    */
   backgroundEffect(options: BackgroundEffectOptions): T;
 
+  /**
+   * Background image resizable.
+   * value:resizable options
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundImageResizable(value: ResizableOptions): T;
 
   /**
    * Foreground blur style.
