@@ -71,18 +71,30 @@ declare namespace locks {
 
     /**
      * Query information about the specified lock.
-     * If 'name' is not specified, the method returns information about all locks.
      *
      * @param { string } name - name of the lock.
-     * @returns { AsyncLockState[] } Returns an array of AsyncLockState.
+     * @returns { AsyncLockState } Returns an instance of AsyncLockState.
      * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200030 - No such lock.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    static query(name?: string): AsyncLockState[];
+    static query(name: string): AsyncLockState;
+
+    /**
+     * Query information about all locks.
+     *
+     * @returns { AsyncLockState[] } Returns an array of AsyncLockState.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    static queryAll(): AsyncLockState[];
 
     /**
      * Perform an operation with the acquired lock.
