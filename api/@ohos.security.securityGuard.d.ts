@@ -70,6 +70,7 @@ declare namespace securityGuard {
    * @permission ohos.permission.securityguard.REPORT_SECURITY_INFO
    * @param { SecurityEvent } securityEvent - indicates the infomation to be reported.
    * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -168,6 +169,7 @@ declare namespace securityGuard {
    * @param { Array<SecurityEventRuler> } rulers - rule of get security event information.
    * @param { Querier } querier - callback of receiving the query data.
    * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -212,6 +214,7 @@ declare namespace securityGuard {
    * @param { CollectorRuler } ruler - rule of collect security event information..
    * @param { number } duration -  duration of the collector.
    * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -225,6 +228,7 @@ declare namespace securityGuard {
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
    * @param { CollectorRuler } ruler - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
@@ -289,6 +293,7 @@ declare namespace securityGuard {
    * @param { ModelRuler } ruler -  indicates the security model ruler.
    * @returns { Promise<ModelResult> } model Results with Promises.
    * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
