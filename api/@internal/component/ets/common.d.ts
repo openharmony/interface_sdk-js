@@ -13384,7 +13384,7 @@ declare class CommonMethod<T> {
    * If the value is 0, the content blurring effect is not blurring.
    *
    * @param { number } value - value indicates radius of backdrop blur.
-   * @param { BlurOptions } options - options indicates blur options.
+   * @param { BlurOptions } [options] - options indicates blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13845,7 +13845,7 @@ declare class CommonMethod<T> {
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
    * @param { number } value - value indicates radius of backdrop blur.
-   * @param { BlurOptions } options - options indicates the backdrop blur options.
+   * @param { BlurOptions } [options] - options indicates the backdrop blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15450,7 +15450,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    *
-   * @param { ShadowOptions | ShadowStyle } value
+   * @param { ShadowOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -15458,7 +15458,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    *
-   * @param { ShadowOptions | ShadowStyle } value
+   * @param { ShadowOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
