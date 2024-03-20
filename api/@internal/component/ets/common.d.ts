@@ -16968,15 +16968,48 @@ declare class CommonMethod<T> {
   clip(value: boolean): T;
 
   /**
-   * The current component is cropped according to the specified shape.
+   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
+   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   *
+   * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
+   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   *
+   * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
+   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    *
    * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 7
+   * @since 10
+   * @form
+   */
+  /**
+   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
+   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   *
+   * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @deprecated since 12
    * @useinstead common[CommonMethod]#clipShape
+   * @form
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -17005,13 +17038,42 @@ declare class CommonMethod<T> {
   /**
    * Applies a mask of the specified shape to the current assembly.
    *
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   *
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   *
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 7
+   * @since 10
+   * @form
+   */
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   *
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @deprecated since 12
    * @useinstead common[CommonMethod]#maskShape
+   * @form
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
