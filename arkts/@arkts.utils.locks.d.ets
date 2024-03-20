@@ -45,7 +45,6 @@ declare namespace locks {
    * @atomicservice
    * @since 12
    */
-  @Sendable
   class AsyncLock {
     /**
      * Default constructor.
@@ -138,7 +137,7 @@ declare namespace locks {
      * The error message, in this case, will contain the held and waited locks information and possible deadlock warnings.
      *
      * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
-     * @param { AsyncLockMode } mode - mode of the lock operation. If the parameter is not specified, the default value is AsyncLockMode.EXCLUSIVE.
+     * @param { AsyncLockMode } mode - mode of the lock operation.
      * @param { AsyncLockOptions<U> } options - lock operation options.
      * @returns { Promise<T|U> } Promise that will be resolved after the callback gets executed or rejected in case timeout
      * exceeded.
@@ -307,11 +306,13 @@ declare namespace locks {
      * @atomicservice
      * @since 12
      */
-    id: number;
+    contextId: number;
   }
 
   /**
    * Object used to abort an async operation.
+   * An instance of this class must be accessed in the same thread where the instance is created.
+   * Access to fields of this class from another thread is undefined behaviour.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
