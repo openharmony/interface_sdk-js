@@ -24,26 +24,28 @@ import contextConstant from "./@ohos.app.ability.contextConstant";
  * StartOptions is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
  * StartOptions is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
 export default class StartOptions {
   /**
    * The type of {@link ohos.app.ability.AbilityConstant#WindowMode}
+   * {@link ohos.app.ability.AbilityConstant#WindowMode.WINDOW_MODE_SPLIT_PRIMARY} and
+   * {@link ohos.app.ability.AbilityConstant#WindowMode.WINDOW_MODE_SPLIT_SECONDARY} are
+   * valid only in intra-app redirection scenarios.
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 9
+   * @stagemodelonly
+   * @since 12
    */
   windowMode?: number;
 
@@ -52,7 +54,7 @@ export default class StartOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -60,7 +62,7 @@ export default class StartOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -71,7 +73,7 @@ export default class StartOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   withAnimation?: boolean;
@@ -81,7 +83,7 @@ export default class StartOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   windowLeft?: number;
@@ -91,7 +93,7 @@ export default class StartOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   windowTop?: number;
@@ -101,7 +103,7 @@ export default class StartOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   windowWidth?: number;
@@ -111,7 +113,7 @@ export default class StartOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   windowHeight?: number;
