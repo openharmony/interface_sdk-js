@@ -97,6 +97,39 @@ declare namespace locks {
     static queryAll(): AsyncLockState[];
 
     /**
+     * Perform an operation with the acquired lock exclusively.
+     * The method acquires the lock first, then calls the callback, and then releases the lock.
+     * The callback is called asynchronously in the same thread where lockAsync was called.
+     *
+     * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+     * @returns { Promise<T> } Promise that will be resolved after the callback gets executed.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200030 - No such lock.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>;
+
+    /**
+     * Perform an operation with the acquired lock.
+     * The method acquires the lock first, then calls the callback, and then releases the lock.
+     * The callback is called asynchronously in the same thread where lockAsync was called.
+     *
+     * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+     * @param { AsyncLockMode } mode - mode of the lock operation.
+     * @returns { Promise<T> } Promise that will be resolved after the callback gets executed or rejected.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200030 - No such lock.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>;
+
+    /**
      * Perform an operation with the acquired lock.
      * The method acquires the lock first, then calls the callback, and then releases the lock.
      * The callback is called asynchronously in the same thread where lockAsync was called.
@@ -110,12 +143,13 @@ declare namespace locks {
      * @returns { Promise<T|U> } Promise that will be resolved after the callback gets executed or rejected in case timeout
      * exceeded.
      * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200030 - No such lock.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    lockAsync<T, U>(callback: AsyncLockCallback<T>, mode?: AsyncLockMode, options?: AsyncLockOptions<U>): Promise<T|U>;
+    lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode, options: AsyncLockOptions<U>): Promise<T|U>;
 
     /**
      * Name of the lock.
@@ -170,6 +204,16 @@ declare namespace locks {
    */
   class AsyncLockOptions<T> {
     /**
+     * Default constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor();
+
+    /**
      * If the value is true and lockAsync cannot acquire the lock immediately, the operation is canceled.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -177,7 +221,7 @@ declare namespace locks {
      * @atomicservice
      * @since 12
      */
-    isAvailable?: boolean;
+    isAvailable: boolean;
     /**
      * The object used to abort the async operation. If signal.aborted is true, the callback will not be called.
      *
@@ -186,9 +230,9 @@ declare namespace locks {
      * @atomicservice
      * @since 12
      */
-    signal?: AbortSignal<T>;
+    signal: AbortSignal<T>;
     /**
-     * Lock operation timeout in milliseconds. If it is specified, lockAsync will reject the resulting promise
+     * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
      * when the timeout is exceeded.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -196,7 +240,7 @@ declare namespace locks {
      * @atomicservice
      * @since 12
      */
-    timeout?: number;
+    timeout: number;
   }
 
   /**
