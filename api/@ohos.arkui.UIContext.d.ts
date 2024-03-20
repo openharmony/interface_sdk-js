@@ -1155,6 +1155,68 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'didLayout', callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(
+    type: 'navDestinationSwitch',
+    callback: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(
+    type: 'navDestinationSwitch',
+    callback?: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(
+    type: 'navDestinationSwitch',
+    observerOptions: observer.NavDestinationSwitchObserverOptions,
+    callback: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(
+    type: 'navDestinationSwitch',
+    observerOptions: observer.NavDestinationSwitchObserverOptions,
+    callback?: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
 }
 
 /**
