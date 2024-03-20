@@ -75,7 +75,7 @@ declare namespace performanceMonitor {
   }
   
   /**
-   * Enumerates the input event type.
+   * Enumerates the input source type.
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
