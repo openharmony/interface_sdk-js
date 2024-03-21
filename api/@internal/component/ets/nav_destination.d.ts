@@ -250,6 +250,46 @@ declare interface NavDestinationInterface {
 }
 
 /**
+ * Indicates configuration info of destination.
+ *
+ * @interface RouteMapConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface RouteMapConfig {
+  /**
+   * Get destination name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  name: string;
+
+  /**
+   * Get destination builder file position
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pageSourceFile: string;
+
+  /**
+   * Indicate the custom data of current destination.
+   *
+   * @type { Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  data: Object
+}
+
+/**
  * Indicates the context of NavDestination.
  *
  * @interface NavDestinationContext
@@ -280,6 +320,18 @@ declare interface NavDestinationContext {
    * @since 11
    */
   pathStack: NavPathStack;
+
+
+  /**
+   * Get configuration of current Destination in module.json
+   * 
+   * @returns {RouteMapConfig | undefined}
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getConfigInRouteMap(): RouteMapConfig | undefined;
 }
 
 /**
