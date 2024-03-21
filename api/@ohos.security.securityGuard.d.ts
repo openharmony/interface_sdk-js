@@ -68,7 +68,7 @@ declare namespace securityGuard {
    * Report security information to the security guard.
    *
    * @permission ohos.permission.securityguard.REPORT_SECURITY_INFO
-   * @param { SecurityEvent } securityEvent - indicates the infomation to be reported.
+   * @param { SecurityEvent } securityEvent - indicates the information to be reported.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
@@ -139,7 +139,6 @@ declare namespace securityGuard {
   interface Querier {
     /**
      * Triggered when data is returned.
-     * @param { Array<SecurityEvent> } events - The received result.
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -154,7 +153,6 @@ declare namespace securityGuard {
     onComplete: () => void;
     /**
      * Triggered when error.
-     * @param { string } message - The received error message.
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -166,7 +164,7 @@ declare namespace securityGuard {
    * Query security event information from security guard.
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
-   * @param { Array<SecurityEventRuler> } rulers - rule of get security event information.
+   * @param { Array<SecurityEventRuler> } rules - rule of get security event information.
    * @param { Querier } querier - callback of receiving the query data.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
@@ -175,7 +173,7 @@ declare namespace securityGuard {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function querySecurityEvent(rulers: Array<SecurityEventRuler>, querier: Querier): void;
+  function querySecurityEvent(rules: Array<SecurityEventRuler>, querier: Querier): void;
 
   /**
    * Provides the conditions of Collector.
