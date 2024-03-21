@@ -18548,7 +18548,7 @@ declare interface BackgroundBrightnessOptions {
    * Rate represents the rate at which lightUpDegree
    * decreases with increasing pixel brightness.
    *
-   * @type { number }
+   * @type { number } -The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11
@@ -18560,7 +18560,7 @@ declare interface BackgroundBrightnessOptions {
    * of the rgb value changes when its brightness
    * is 0.
    *
-   * @type { number }
+   * @type { number }  -The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11
