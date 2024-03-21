@@ -2239,15 +2239,17 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
-     * Update record rotation. it must be called between prepare completed and start.
-     * @returns { Promise<void> } A Promise instance used to return the result.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * Update the video orientation before recorder start.
+     * @param { number } rotation: Rotation angle, should be [0, 90, 180, 270]. 
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
-    updateRecordRotation(): Promise<void>;
+    updateRotation(rotation: number): Promise<void>;
 
     /**
      * Start AVRecorder, it will to started state.
