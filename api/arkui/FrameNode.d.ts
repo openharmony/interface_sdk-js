@@ -47,7 +47,7 @@ export class FrameNode {
   getRenderNode(): RenderNode | null;
 
   /**
-   * Return a flag to indicate whether the current FrameNode can be modified.
+   * Return a flag to indicate whether the current FrameNode can be modified. Indicates whether the FrameNode supports appendChild, insertChildAfter, removeChild, clearChildren.
    *
    * @returns { boolean } - Returns true if the FrameNode can be modified, otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -114,7 +114,7 @@ export class FrameNode {
   /**
    * Get the first child of the current FrameNode.
    *
-   * @returns {  FrameNode | null } - Returns a FrameNode, which is first child of the current FrameNode.
+   * @returns {  FrameNode | null } - Returns a FrameNode, which is first child of the current FrameNode. If current FrameNode does not have child node, returns null.
    * If current FrameNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -135,7 +135,7 @@ export class FrameNode {
   /**
    * Get the previous sibling node of the current FrameNode.
    *
-   * @returns { FrameNode | null } - Returns a FrameNode.
+   * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have previous sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -145,7 +145,7 @@ export class FrameNode {
   /**
    * Get the parent node of the current FrameNode.
    *
-   * @returns { FrameNode | null } - Returns a FrameNode.
+   * @returns { FrameNode | null } - Returns a FrameNode. If current FrameNode does not have parent node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
