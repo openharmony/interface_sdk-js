@@ -2717,7 +2717,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700304 - EnableDynamicIcon failed due to pasre dynamic icon failed.
+   * @throws { BusinessError } 17700304 - EnableDynamicIcon failed due to parse dynamic icon failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
@@ -2746,7 +2746,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the bundleName.
-   * @returns { string } Returns dynamic icon key.
+   * @returns { Promise<string> } Returns dynamic icon key.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
