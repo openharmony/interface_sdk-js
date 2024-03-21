@@ -78,7 +78,6 @@ declare namespace performanceMonitor {
    * Enumerates the input source type.
    *
    * @enum { number }
-   * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12
