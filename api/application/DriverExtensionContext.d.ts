@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Defines the context of driver extension
+ * @kit DriverDevelopmentKit
+ */
+
 import ExtensionContext from './ExtensionContext';
 
 /**

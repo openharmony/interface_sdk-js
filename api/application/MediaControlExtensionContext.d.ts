@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AVSessionKit
+ */
+
 import UIExtensionContext from './UIExtensionContext';
 
 /**

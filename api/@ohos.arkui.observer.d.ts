@@ -20,6 +20,7 @@
 
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
+import type { NavigationOperation, NavBar } from '../component/navigation';
 
 /**
  * Register callbacks to observe ArkUI behavior.
@@ -181,7 +182,37 @@ declare namespace uiObserver {
      * @crossplatform
      * @since 11
      */
-    state: NavDestinationState
+    state: NavDestinationState,
+
+    /**
+     * NavDestination index.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    index: number;
+
+    /**
+     * The detailed parameter of NavDestination.
+     *
+     * @type { ?Object }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    param?: Object;
+
+    /**
+     * Auto-generated navDestination id, which is different from common property id of Component.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    navDestinationId: string;
   }
 
   /**
@@ -333,6 +364,76 @@ declare namespace uiObserver {
   }
 
   /**
+   * NavDestination switch info
+   *
+   * @interface NavDestinationSwitchInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export interface NavDestinationSwitchInfo {
+    /**
+     * The context of the navigation operation.
+     *
+     * @type { UIAbilityContext | UIContext }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    context: UIAbilityContext | UIContext;
+
+    /**
+     * From navigation content info.
+     *
+     * @type { NavDestinationInfo | NavBar }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    from: NavDestinationInfo | NavBar;
+
+    /**
+     * To navigation content info.
+     *
+     * @type { NavDestinationInfo | NavBar }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    to: NavDestinationInfo | NavBar;
+
+    /**
+     * The operation type.
+     *
+     * @type { NavigationOperation }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    operation: NavigationOperation;
+  }
+
+  /**
+   * Indicates the options of NavDestination switch.
+   *
+   * @interface NavDestinationSwitchObserverOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export interface NavDestinationSwitchObserverOptions {
+    /**
+     * The navigationId that need observation
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    navigationId: ResourceStr;
+  }
+
+  /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
@@ -477,6 +578,126 @@ declare namespace uiObserver {
    * @since 12
    */
   export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the draw command will be drawn.
+   *
+   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the layout is done.
+   *
+   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+   * @param { UIContext } context - The context scope of the observer.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function on(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    callback: Callback<NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function off(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    callback?: Callback<NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function on(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    observerOptions: NavDestinationSwitchObserverOptions,
+    callback: Callback<NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+   * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export function off(
+    type: 'navDestinationSwitch',
+    context: UIAbilityContext | UIContext,
+    observerOptions: NavDestinationSwitchObserverOptions,
+    callback?: Callback<NavDestinationSwitchInfo>
+  ): void;
 }
 
 export default uiObserver;

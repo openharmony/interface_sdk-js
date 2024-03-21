@@ -319,12 +319,27 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
    * @since 11
    */
+  /**
+   * Enumerates the picker's select mode types.
+   *
+   * @enum { number } DocumentSelectMode
+   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+   * @atomicservice
+   * @since 12
+   */
   export enum DocumentSelectMode {
     /**
      * Indicates that only files are allowed to be selected.
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
+     */
+    /**
+     * Indicates that only files are allowed to be selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @atomicservice
+     * @since 12
      */
     FILE = 0,
 
@@ -334,6 +349,13 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
      */
+    /**
+     * Indicates that only folders are allowed to be selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @atomicservice
+     * @since 12
+     */
     FOLDER = 1,
 
     /**
@@ -341,6 +363,13 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
+     */
+    /**
+     * Indicates that files and folders are allowed to be selected.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @atomicservice
+     * @since 12
      */
     MIXED = 2,
   }
@@ -351,6 +380,13 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * DocumentSelectOptions Object.
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 12
+   */
   class DocumentSelectOptions {
     /**
      * The default opening uri of the picker window.
@@ -358,6 +394,14 @@ declare namespace picker {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 10
+     */
+    /**
+     * The default opening uri of the picker window.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     defaultFilePathUri?: string;
 
@@ -368,6 +412,14 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 10
      */
+    /**
+     * Suffixes for file selected.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
     fileSuffixFilters?: Array<string>;
 
     /**
@@ -376,6 +428,14 @@ declare namespace picker {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 10
+     */
+    /**
+     * Maximum number of files for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     maxSelectNumber?: number;
 
@@ -386,7 +446,27 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @since 11
      */
+    /**
+     * Selection mode.
+     *
+     * @type { ?DocumentSelectMode }
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @atomicservice
+     * @since 12
+     */
     selectMode?: DocumentSelectMode;
+
+    /**
+     * Granting Permissions to Specified Directories or Files.
+     * The value true indicates that authorization is required.
+     * When authmode is set to true, the defaultFilePathUri field is mandatory.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @atomicservice
+     * @since 12
+     */
+    authMode?: boolean;
   }
 
   /**
@@ -395,6 +475,13 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * DocumentSaveOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 12
+   */
   class DocumentSaveOptions {
     /**
      * The names of the files to be saved.
@@ -402,6 +489,14 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * The names of the files to be saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     newFileNames?: Array<string>;
 
@@ -412,6 +507,14 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 10
      */
+    /**
+     * The default opening uri of the picker window.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
     defaultFilePathUri?: string;
 
     /**
@@ -420,6 +523,14 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 10
+     */
+    /**
+     * Suffixes for file saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     fileSuffixChoices?: Array<string>;
   }
@@ -430,6 +541,13 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
+  /**
+   * DocumentViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 12
+   */
   class DocumentViewPicker {
     /**
      * Pull up the document picker based on the selection mode.
@@ -438,6 +556,15 @@ declare namespace picker {
      * @returns { Promise<Array<string>> } Returns the uris for the selected files.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the document picker based on the selection mode.
+     *
+     * @param { DocumentSelectOptions } option - represents the options provided in select mode.
+     * @returns { Promise<Array<string>> } Returns the uris for the selected files.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     select(option?: DocumentSelectOptions): Promise<Array<string>>;
 
@@ -449,6 +576,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the document picker based on the selection mode.
+     *
+     * @param { DocumentSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -457,6 +593,14 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the document picker based on the selection mode.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
@@ -468,6 +612,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the document picker based on the save mode.
+     *
+     * @param { DocumentSaveOptions } option - represents the options provided in save mode.
+     * @returns { Promise<Array<string>> } Returns the uris for the saved files.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
     save(option?: DocumentSaveOptions): Promise<Array<string>>;
 
     /**
@@ -478,6 +631,15 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
+    /**
+     * Pull up the document picker based on the save mode.
+     *
+     * @param { DocumentSaveOptions } option - represents the options provided in save mode.
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -486,6 +648,14 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
+     */
+    /**
+     * Pull up the document picker based on the save mode.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - callback
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
      */
     save(callback: AsyncCallback<Array<string>>): void;
   }

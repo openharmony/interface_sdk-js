@@ -20,8 +20,8 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
-import type rpc from './@ohos.rpc';
 import type resourceManager from './@ohos.resourceManager';
+import type rpc from './@ohos.rpc';
 
 /**
  * @namespace image
@@ -4719,6 +4719,15 @@ declare namespace image {
      * @since 9
      */
     readonly format: number;
+
+     /**
+     * Image timestamp.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    readonly timestamp: number;
 
     /**
      * Get component buffer from image and uses a callback to return the result.

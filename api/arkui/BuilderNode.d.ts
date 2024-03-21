@@ -150,5 +150,5 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @since 12
    */
-    dispose(): void;
+  dispose(): void;
 }

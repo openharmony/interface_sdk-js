@@ -3111,6 +3111,16 @@ declare namespace cert {
      * @since 11
      */
     CASubject?: Uint8Array;
+
+    /**
+     * The name constraints in DER format.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    nameConstraints?: Uint8Array;
   }
 
   /**

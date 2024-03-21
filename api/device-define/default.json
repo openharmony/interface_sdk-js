@@ -3,6 +3,7 @@
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
+    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
@@ -211,7 +212,6 @@
     "SystemCapability.Graphic.Graphic2D.NativeImage",
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
-    "SystemCapability.Multimedia.Image.ImageCreator",
-    "SystemCapability.Graphic.Graphic2D.WebGL2"
+    "SystemCapability.Multimedia.Image.ImageCreator"
   ]
 }

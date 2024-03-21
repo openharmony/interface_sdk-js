@@ -14,9 +14,9 @@
 # limitations under the License.
 
 
-from src.typedef.detection import Output, ErrorMessage, ErrorType
-from src.utils.util import get_position_information, get_js_doc_info
-from src.typedef.process_three_type import get_three_label_value
+from typedef.detection import Output, ErrorMessage, ErrorType
+from utils.util import get_position_information, get_js_doc_info
+from typedef.process_three_type import get_three_label_value
 
 
 def process_class_type(dict_data: dict, label='default') -> list:

@@ -18,8 +18,8 @@ from utils.util import (get_start_characters, get_remaining_characters, json_fil
                         set_label_to_result, get_js_doc_info)
 from utils.constants import mutex_label_dist, contrast_function, label_name_dist, one_to_many_function
 from typedef.detection import Output, ErrorMessage, ErrorType
-from src.coreImpl.process_three_type import process_tag_dict
-from src.typedef.process_three_type import get_judgment_node_type_dict
+from coreImpl.process_three_type import process_tag_dict
+from typedef.process_three_type import get_judgment_node_type_dict
 
 
 result_list = []
