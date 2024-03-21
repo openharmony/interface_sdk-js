@@ -15,6 +15,7 @@
 import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
+import { execSync } from "child_process";
 import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
@@ -39,7 +40,7 @@ export enum toolNameType {
   /**
    * 统计工具
    */
-  COOLECT = 'collect',
+  COLLECT = 'collect',
   /**
    * 检查工具
    */
@@ -48,6 +49,10 @@ export enum toolNameType {
    * diff工具
    */
   DIFF = 'diff',
+  /**
+   * 标签漏标检查
+   */
+  LABELDETECTION = 'detection',
 }
 
 /**
@@ -61,6 +66,7 @@ export const toolNameSet: Set<string> = new Set(EnumUtils.enum2arr(toolNameType)
  * @enum { string }
  */
 export enum formatType {
+  NULL = 'null',
   JSON = 'json',
   EXCEL = 'excel',
   CHANGELOG = 'changelog',
@@ -84,6 +90,10 @@ export const Plugin: PluginType = {
       {
         isRequiredOption: false,
         options: ['-C,--collect-path <string>', 'collect api path', './api'],
+      },
+      {
+        isRequiredOption: false,
+        options: ['-F,--collect-file <string>', 'collect api file array', ''],
       },
       {
         isRequiredOption: false,
@@ -129,6 +139,7 @@ export const Plugin: PluginType = {
     const options: OptionObjType = {
       toolName: toolName,
       collectPath: argv.collectPath,
+      collectFile: argv.collectFile,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -186,10 +197,14 @@ function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: To
  */
 function collectApi(options: OptionObjType): ToolNameValueType {
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
+  let collectFile: string = '';
+  if (options.collectFile !== '') {
+    collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+  }
   let allApis: FilesMap;
   try {
     if (FileUtils.isDirectory(fileDir)) {
-      allApis = Parser.parseDir(fileDir);
+      allApis = Parser.parseDir(fileDir, collectFile);
     } else {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
@@ -354,6 +369,48 @@ function diffApi(options: OptionObjType): ToolNameValueType {
     };
   }
 }
+function detectionApi(options: OptionObjType): ToolNameValueType {
+  options.format = formatType.NULL
+  const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
+  let collectFile: string = '';
+  if (options.collectFile !== '') {
+    collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+  }
+  let allApis: FilesMap;
+  let buffer: Buffer | string = Buffer.from('');
+  try {
+    if (FileUtils.isDirectory(fileDir)) {
+      allApis = Parser.parseDir(fileDir, collectFile);
+    } else {
+      allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
+    }
+    const fileContent: string = Parser.getParseResults(allApis);
+    WriterHelper.JSONReporter(
+      fileContent,
+      path.dirname(options.output),
+      'detection.json'
+    );
+    let runningCommand: string = '';
+
+    if (process.env.NODE_ENV === 'development') {
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+    } else if (process.env.NODE_ENV === 'production') {
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+    }
+    buffer = execSync(runningCommand, {
+      timeout: 120000,
+    });
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
+  } finally {
+    return {
+      data: []
+    }
+
+  }
+
+}
 
 /**
  * diffApi工具导出excel时的回调方法
@@ -413,9 +470,10 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
  * 工具名称对应执行的方法
  */
 export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
-  [toolNameType.COOLECT, collectApi],
+  [toolNameType.COLLECT, collectApi],
   [toolNameType.CHECK, checkApi],
   [toolNameType.DIFF, diffApi],
+  [toolNameType.LABELDETECTION, detectionApi],
 ]);
 
 /**
@@ -424,6 +482,7 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
 export type OptionObjType = {
   toolName: toolNameType;
   collectPath: string;
+  collectFile: string;
   old: string;
   new: string;
   oldVersion: string;

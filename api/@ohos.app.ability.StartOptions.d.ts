@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,8 @@
  * @file
  * @kit AbilityKit
  */
+
+import contextConstant from "./@ohos.app.ability.contextConstant";
 
 /**
  * StartOptions is the basic communication component of the system.
@@ -113,4 +115,28 @@ export default class StartOptions {
    * @since 11
    */
   windowHeight?: number;
+
+  /**
+   * The process mode.
+   * This property only takes effect when calling UIAbilityContext.startAbility.
+   * The properties processMode and startupVisibility must be set simultaneously.
+   *
+   * @type { ?contextConstant.ProcessMode }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  processMode?: contextConstant.ProcessMode;
+
+  /**
+   * The ability visibility after the new process startup.
+   * This property only takes effect when calling UIAbilityContext.startAbility.
+   * The properties processMode and startupVisibility must be set simultaneously.
+   *
+   * @type { ?contextConstant.StartupVisibility }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  startupVisibility?: contextConstant.StartupVisibility;
 }

@@ -136,3 +136,5 @@
 /// <reference path="./ui_extension_component.d.ts" />
 /// <reference path="./component3d.d.ts" />
 /// <reference path="./container_span.d.ts" />
+/// <reference path="./embedded_component.d.ts" />
+/// <reference path="./styled_string.d.ts" />

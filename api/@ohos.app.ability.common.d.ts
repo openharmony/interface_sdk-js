@@ -36,6 +36,7 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
+import type * as _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -373,6 +374,16 @@ declare namespace common {
    * @since 11
    */
   export type VpnExtensionContext = _VpnExtensionContext.default;
+
+  /**
+   * The context of an embeddable UIAbility.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
 }
 
 export default common;

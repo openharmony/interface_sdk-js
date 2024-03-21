@@ -2113,6 +2113,22 @@ declare function listFileSync(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ *  Reposition file offset.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { number } offset - file offset.
+ * @param { WhenceType } [whence = WhenceType.SEEK_SET] - directive whence.
+ * @returns { number } Returns the file offset relative to starting position of file.
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900026 - Illegal seek
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 12
+ */
 declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 
 /**
@@ -5364,6 +5380,21 @@ declare function unlinkSync(path: string): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
+ */
+/**
+ * Change file mtime.
+ *
+ * @param { string } path - path.
+ * @param { number } mtime - last modification time
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 12
  */
 declare function utimes(path: string, mtime: number): void;
 

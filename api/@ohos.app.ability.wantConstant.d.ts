@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -208,7 +208,26 @@ declare namespace wantConstant {
      * @atomicservice
      * @since 11
      */
-    SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit'
+    SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit',
+
+    /**
+     * Indicates the session ID of AssertFault.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    ASSERT_FAULT_SESSION_ID = 'ohos.ability.params.asssertFaultSessionId',
+
+    /**
+     * Indicates the param of show mode key.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    SHOW_MODE_KEY = 'ohos.extra.param.key.showMode'
   }
 
   /**
@@ -296,6 +315,34 @@ declare namespace wantConstant {
      * @since 11
      */
     FLAG_START_WITHOUT_TIPS = 0x40000000
+  }
+
+  /**
+   * Used to indicate show mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 12
+   */
+  export enum ShowMode {
+    /**
+     * Indicates the window show mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    WINDOW = 0,
+
+    /**
+     * Indicates the embedded full show mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    EMBEDDED_FULL = 1
   }
 }
 

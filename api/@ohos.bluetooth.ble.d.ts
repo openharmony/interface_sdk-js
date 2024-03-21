@@ -91,6 +91,25 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
+  /**
+   * Starts scanning for specified BLE devices with filters.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Array<ScanFilter> } filters - Indicates the list of filters used to filter out specified devices.
+   * If you do not want to use filter, set this parameter to {@code null}.
+   * @param { ScanOptions } options - Indicates the parameters for scanning and if the user does not assign a value, the default value will be used.
+   * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+   * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+   * and {@link ScanOptions#phyType} set to {@link PHY_LE_ALL_SUPPORTED}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
   function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
 
   /**
@@ -112,7 +131,6 @@ declare namespace ble {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
-   * If you need to use the default value, set this parameter to {@code null}.
    * @param { AdvertiseData } advData - Indicates the advertising data.
    * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -699,7 +717,6 @@ declare namespace ble {
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @returns { Promise<string> } Returns a string representation of the name if obtained;
-     * returns {@code null} if the name fails to be obtained or the name does not exist.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1963,6 +1980,13 @@ declare namespace ble {
      * @since 10
      */
     matchMode?: MatchMode;
+    /**
+     * Physical Layer used during scan.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    phyType?: PhyType;
   }
 
   /**
@@ -2125,6 +2149,30 @@ declare namespace ble {
      * @since 11
      */
     STOPPED = 4
+  }
+
+  /**
+   * Phy type used during scan.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  enum PhyType {
+    /**
+     * Use 1M phy for scanning.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    PHY_LE_1M = 1,
+    /**
+     * Use all supported Phys for scanning.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    PHY_LE_ALL_SUPPORTED = 255
   }
 }
 
