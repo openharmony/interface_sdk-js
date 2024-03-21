@@ -14,6 +14,45 @@
  */
 
 /**
+ * Defines the IndicatorType of Radio component
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare enum RadioIndicatorType {
+  /**
+   * Tick shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  TICK = 0,
+  /**
+   * Dot shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  DOT = 1,
+    /**
+   * custom shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  CUSTOM = 2,
+}
+
+/**
  * Input parameter for creating a radio box.
  *
  * @interface RadioOptions
@@ -119,6 +158,16 @@ declare interface RadioOptions {
    * @form
    */
   value: string;
+  /**
+   * Indicator Type.
+   *
+   * @type { ?RadioIndicatorType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  indicatorType?: RadioIndicatorType;
 }
 
 /**

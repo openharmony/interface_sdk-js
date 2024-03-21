@@ -43,10 +43,17 @@ import {
   TypeAliasType,
   TypeAliasInfo,
   containerApiTypes,
+  GenericInfo,
+  ParentClass,
+  ParserParam,
 } from '../../typedef/parser/ApiInfoDefination';
+import { Comment } from '../../typedef/parser/Comment';
 import { StringUtils } from '../../utils/StringUtils';
 import { StringConstant, EventConstant } from '../../utils/Constant';
 import { BasicApiInfoMap, ApiInfosMap, FileInfoMap } from './parser';
+import { JsDocProcessorHelper } from './JsDocProcessor';
+
+export const parserParam: ParserParam = new ParserParam();
 
 export class NodeProcessorHelper {
   // 如果是字符串的话，会出现单双引号重复的情况
@@ -107,8 +114,7 @@ export class NodeProcessorHelper {
       return NodeProcessorHelper.setSingleApiInfo(apiInfo, parentMap);
     }
     let apiInfos: BasicApiInfo[] = [];
-    // 处理on/off
-    apiInfos = NodeProcessorHelper.processOnOrOffMethod(apiInfo, node);
+    apiInfos = NodeProcessorHelper.processEventMethod(apiInfo, node);
     // 处理promise/asynccallback
     NodeProcessorHelper.processAsyncMethod(apiInfos);
     let currentMap: BasicApiInfoMap = new Map();
@@ -148,14 +154,14 @@ export class NodeProcessorHelper {
   }
 
   /**
-   * 处理方法节点中方法名称为on或者off的方法
+   * 处理方法节点中事件订阅相关方法
    *
    * 第一个参数只要是字符串的字面量就将apiName修改为on_string，联合类型进行分开解析
    * @param {BasicApiInfo} apiInfo 当前api的解析对象
    * @param {ts.Node} node 当前apinode节点
    * @return {BasicApiInfo[]} 解析完on/off的apiInfo数组
    */
-  static processOnOrOffMethod(apiInfo: BasicApiInfo, node: ts.Node): BasicApiInfo[] {
+  static processEventMethod(apiInfo: BasicApiInfo, node: ts.Node): BasicApiInfo[] {
     const apiInfos: BasicApiInfo[] = [];
     const type: ts.TypeNode | undefined = NodeProcessorHelper.getOnOrOffMethodFirstParamType(
       apiInfo,
@@ -169,6 +175,7 @@ export class NodeProcessorHelper {
     if (type.kind === ts.SyntaxKind.LiteralType && ts.isStringLiteral(literal)) {
       const text: string = literal.getText();
       apiInfo.setApiName(`${apiInfo.getApiName()}_${text.substring(1, text.length - 1)}`);
+      apiInfo.setIsJoinType(true);
     } else if (type.kind === ts.SyntaxKind.UnionType) {
       const types: ts.NodeArray<ts.TypeNode> = (type as ts.UnionTypeNode).types;
       types.forEach((item: ts.TypeNode) => {
@@ -177,13 +184,18 @@ export class NodeProcessorHelper {
           const cloneApiInfo: BasicApiInfo = _.cloneDeep(apiInfo);
           cloneApiInfo.setParentApi(apiInfo.getParentApi());
           cloneApiInfo.setApiName(`${apiInfo.getApiName()}_${text.substring(1, text.length - 1)}`);
+          apiInfo.setIsJoinType(true);
           apiInfos.push(cloneApiInfo);
         }
       });
     } else if (type.kind === ts.SyntaxKind.StringKeyword) {
       apiInfo.setApiName(`${apiInfo.getApiName()}_string`);
+      apiInfo.setIsJoinType(true);
     } else if (type.kind === ts.SyntaxKind.BooleanKeyword) {
       apiInfo.setApiName(`${apiInfo.getApiName()}_boolean`);
+      apiInfo.setIsJoinType(true);
+    } else {
+      apiInfo.setApiName(`${apiInfo.getApiName()}_${type.getText()}`);
     }
     if (apiInfos.length === 0) {
       apiInfos.push(apiInfo);
@@ -293,7 +305,7 @@ export class NodeProcessorHelper {
       //export * from 'test';
       exportDeclareInfo.setApiName(
         StringConstant.EXPORT +
-          (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
+        (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
       );
     } else if (ts.isNamespaceExport(exportClause)) {
       //export * as myTest from 'test';
@@ -369,22 +381,39 @@ export class NodeProcessorHelper {
     const interfaceDeclaration: ts.InterfaceDeclaration = node as ts.InterfaceDeclaration;
     const interfaceInfo: InterfaceInfo = new InterfaceInfo(ApiType.INTERFACE, node, parentApi);
     interfaceInfo.setApiName(interfaceDeclaration.name.getText());
+    interfaceDeclaration.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
+      interfaceInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
+    });
     ModifierHelper.processModifiers(interfaceDeclaration.modifiers, interfaceInfo);
     if (interfaceDeclaration.heritageClauses === undefined) {
       return interfaceInfo;
     }
-    const parentClasses: string[] = [];
     interfaceDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
       if (value.token === ts.SyntaxKind.ExtendsKeyword) {
         value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-          parentClasses.push(value.getText());
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setImplementClass('');
+          parentClass.setExtendClass(value.getText());
+          interfaceInfo.setParentClasses(parentClass);
+        });
+      } else if (value.token === ts.SyntaxKind.ImplementsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setImplementClass(value.getText());
+          parentClass.setExtendClass('');
+          interfaceInfo.setParentClasses(parentClass);
         });
       }
     });
-    interfaceInfo.setParentClasses(parentClasses);
     return interfaceInfo;
   }
 
+  static processGenericity(typeParameter: ts.TypeParameterDeclaration) {
+    const genericInfo: GenericInfo = new GenericInfo();
+    genericInfo.setIsGenericity(true);
+    genericInfo.setGenericContent(typeParameter.getText());
+    return genericInfo;
+  }
   /**
    * 处理class节点
    *
@@ -397,19 +426,30 @@ export class NodeProcessorHelper {
     const classInfo: ClassInfo = new ClassInfo(ApiType.CLASS, node, parentApi);
     const className: string = classDeclaration.name ? classDeclaration.name.getText() : '';
     classInfo.setApiName(className);
+    classDeclaration.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
+      classInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
+    });
     ModifierHelper.processModifiers(classDeclaration.modifiers, classInfo);
     if (classDeclaration.heritageClauses === undefined) {
       return classInfo;
     }
-    const parentClasses: string[] = [];
     classDeclaration.heritageClauses.forEach((value: ts.HeritageClause) => {
       if (value.token === ts.SyntaxKind.ExtendsKeyword) {
         value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
-          parentClasses.push(value.getText());
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setExtendClass(value.getText());
+          parentClass.setImplementClass('');
+          classInfo.setParentClasses(parentClass);
+        });
+      } else if (value.token === ts.SyntaxKind.ImplementsKeyword) {
+        value.types.forEach((value: ts.ExpressionWithTypeArguments) => {
+          const parentClass: ParentClass = new ParentClass();
+          parentClass.setImplementClass(value.getText());
+          parentClass.setExtendClass('');
+          classInfo.setParentClasses(parentClass);
         });
       }
     });
-    classInfo.setParentClasses(parentClasses);
     return classInfo;
   }
 
@@ -565,16 +605,21 @@ export class NodeProcessorHelper {
       methodName = StringConstant.CONSTRUCTOR_API_NAME;
     }
     methodInfo.setApiName(methodName);
+    methodNode.typeParameters?.forEach((typeParameter: ts.TypeParameterDeclaration) => {
+      methodInfo.setGenericInfo(NodeProcessorHelper.processGenericity(typeParameter));
+    });
     const callForm: string = methodNode.getText().replace(/export\s+|declare\s+|function\s+|\r\n|\;/g, '');
     methodInfo.setCallForm(callForm);
     if (methodNode.type && ts.SyntaxKind.VoidKeyword !== methodNode.type.kind) {
       const returnValues: string[] = NodeProcessorHelper.processDataType(methodNode.type);
       methodInfo.setReturnValue(returnValues);
       methodInfo.setReturnValueType(methodNode.type.kind);
+      NodeProcessorHelper.processFunctionTypeReference(methodNode.type, methodInfo, new ParamInfo(ApiType
+        .PARAM), false)
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
       const param: ts.ParameterDeclaration = methodNode.parameters[i];
-      const paramInfo: ParamInfo = NodeProcessorHelper.processParam(param);
+      const paramInfo: ParamInfo = NodeProcessorHelper.processParam(param, methodInfo);
       methodInfo.addParam(paramInfo);
     }
     if (!ts.isCallSignatureDeclaration(methodNode) && !ts.isConstructSignatureDeclaration(methodNode)) {
@@ -587,9 +632,10 @@ export class NodeProcessorHelper {
    * 处理方法入参
    *
    * @param { ts.ParameterDeclaration } param 参数节点
+   * @param { MethodInfo } methodInfo MethodInfo对象
    * @returns { ParamInfo } 返回处理后的ParamInfo对象
    */
-  static processParam(param: ts.ParameterDeclaration): ParamInfo {
+  static processParam(param: ts.ParameterDeclaration, methodInfo: MethodInfo): ParamInfo {
     const paramInfo: ParamInfo = new ParamInfo(ApiType.PARAM);
     paramInfo.setApiName(param.name.getText());
     paramInfo.setIsRequired(!param.questionToken ? true : false);
@@ -599,11 +645,96 @@ export class NodeProcessorHelper {
       return paramInfo;
     }
     let typeMapValue: string | undefined = undefined;
+    NodeProcessorHelper.processFunctionTypeReference(param.type, methodInfo, paramInfo, true)
     if (ts.isLiteralTypeNode(param.type)) {
       typeMapValue = typeMap.get(param.type.literal.kind);
     }
     paramInfo.setType(NodeProcessorHelper.processDataType(param.type));
     return paramInfo;
+  }
+
+  /**
+   * 处理方法入参的类型、联合类型时会将多个类型遍历传入
+   * 引用类型获取对应文件中的jsdoc
+   * 匿名类型获取属性的doc信息
+   *
+   * @param { ts.TypeNode } typeNode 参数类型
+   * @param { MethodInfo } methodInfo MethodInfo对象
+   * @param { ParamInfo } paramInfo ParamInfo对象
+   * @param { boolean } [isParam = true] 是否是参数的type， 
+   * true：类型为参数（入参）的数据
+   * false：类型为返回值（出参）的数据
+   */
+  static processFunctionTypeReference(typeNode: ts.TypeNode, methodInfo: MethodInfo, paramInfo: ParamInfo, isParam: boolean = true): void {
+    if (ts.isTypeLiteralNode(typeNode)) {
+      NodeProcessorHelper.processFunctionTypeObject(typeNode, methodInfo, paramInfo, isParam)
+    } else if (ts.isUnionTypeNode(typeNode)) {
+      typeNode.types.forEach((type: ts.TypeNode) => {
+        NodeProcessorHelper.processFunctionTypeReference(type, methodInfo, paramInfo, isParam)
+      })
+    }
+    if (!ts.isTypeReferenceNode(typeNode)) {
+      return;
+    }
+    const myfile: string = typeNode.getSourceFile().fileName;
+    const paramStr: string = typeNode.getFullText();
+    const paramTypeStr: string = typeNode.getText();
+    let currentFile: string = "";
+    let hasTypeInfo: string = "无type节点";
+    try {
+      const tsProgram: ts.Program = parserParam.getTsProgram();
+      const typeChecker: ts.TypeChecker = tsProgram.getTypeChecker();
+      const nodeType: ts.Type = typeChecker.getTypeAtLocation(typeNode);
+      const declarations: ts.Declaration[] | undefined = nodeType.symbol.declarations;
+      if (!declarations) {
+        return;
+      }
+      hasTypeInfo = "有type节点";
+      const declaration: ts.Declaration = declarations[0]
+      const curr = declaration.getSourceFile()
+      currentFile = curr.fileName;
+      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(declaration, ApiType.TYPE_ALIAS, methodInfo.getKitInfoFromParent(methodInfo));
+      if (jsDocInfos.length === 0) {
+        return;
+      }
+      const jsDoc: Comment.JsDocInfo = jsDocInfos[jsDocInfos.length - 1];
+      jsDoc.removeTags()
+      if (isParam) {
+        paramInfo.addTypeLocations(jsDoc)
+      } else {
+        methodInfo.addTypeLocations(jsDoc)
+      }
+    } catch (error) {
+      console.log("error");
+
+    } finally {
+    }
+  }
+  /**
+   * 处理方法入参的匿名类型
+   * 将匿名类型的每个属性的doc存储
+   *
+   * @param {ts.TypeLiteralNode} typeObject 匿名对象
+   * @param {MethodInfo} methodInfo MethodInfo对象
+   * @param {ParamInfo} paramInfo ParamInfo对象
+   * @param { boolean } [isParam = true] 是否是参数的type， 
+   * true：类型为参数（入参）的数据
+   * false：类型为返回值（出参）的数据
+   */
+  static processFunctionTypeObject(typeObject: ts.TypeLiteralNode, methodInfo: MethodInfo, paramInfo: ParamInfo, isParam: boolean = true) {
+    typeObject.members.forEach(((member: ts.TypeElement) => {
+      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(member, ApiType.TYPE_ALIAS, methodInfo.getKitInfoFromParent(methodInfo));
+      if (jsDocInfos.length === 0) {
+        return;
+      }
+      const jsDoc: Comment.JsDocInfo = jsDocInfos[jsDocInfos.length - 1];
+      jsDoc.removeTags()
+      if (isParam) {
+        paramInfo.addObjLocations(jsDoc)
+      } else {
+        methodInfo.addObjLocations(jsDoc)
+      }
+    }))
   }
 
   /**
@@ -617,9 +748,8 @@ export class NodeProcessorHelper {
     if (!dataType || dataType.kind === ts.SyntaxKind.VoidKeyword) {
       return typeArr;
     }
-    if (dataType.kind === ts.SyntaxKind.UnionType) {
-      const unionTypeNode: ts.UnionTypeNode = dataType as ts.UnionTypeNode;
-      unionTypeNode.types.forEach((type: ts.TypeNode) => {
+    if (ts.isUnionTypeNode(dataType)) {
+      dataType.types.forEach((type: ts.TypeNode) => {
         typeArr.push(type.getText());
       });
       return typeArr;
@@ -822,7 +952,7 @@ export class ModifierHelper {
     let definedText: string = '';
     if (modifiers) {
       modifiers.forEach((modifier: ts.Modifier) => {
-        if (containerApiTypes.has(apiInfo.apiType)) {
+        if (containerApiTypes.has(apiInfo.apiType) && !ts.isDecorator(modifier)) {
           definedText += ` ${modifier.getText()}`;
         }
 

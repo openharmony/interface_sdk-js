@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -440,6 +440,13 @@ declare enum NavigationTitleMode {
  *
  * @interface NavigationMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 8
+ */
+/**
+ * Navigation menu item, include menu icon and menu info
+ *
+ * @interface NavigationMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -504,6 +511,16 @@ declare interface NavigationMenuItem {
    * @since 11
    */
   icon?: string;
+
+  /**
+   * Whether to enable this menu item.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEnabled?: boolean;
 
   /**
    * Trigger by navigation menu item click.
@@ -1114,6 +1131,84 @@ declare class NavPathStack {
    * @since 11
    */
   disableAnimation(value: boolean): void;
+
+  /**
+   * set navigation transition interception.It will be called in navPathStack changes or navigation mode changes.
+   *
+   * @param { NavigationInterception } interception - the instance to intercept in navigation changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setInterception(interception: NavigationInterception): void;
+}
+
+/**
+ * Navigation home name
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type NavBar = 'navBar'
+
+/**
+ * navigation interception callback using in willShow and didShow
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
+
+/**
+ * navigation interception callback using in navigation mode change
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type InterceptionModeCallback = (mode: NavigationMode) => void;
+
+/**
+ * Provide navigation transition interception
+ *
+ * @interface NavigationInterception
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface NavigationInterception {
+  /**
+   * Called before destination transition.NavPathStack can be changed in this callback,
+   * it will takes effect during this transition.For details, see { @Link InterceptionShowCallback}.
+   *
+   * @type { ?InterceptionShowCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  willShow?: InterceptionShowCallback;
+
+  /**
+   * Called after destination transition.For details, see { @Link InterceptionShowCallback}.
+   *
+   * @type { ?InterceptionShowCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  didShow?: InterceptionShowCallback;
+
+  /**
+   * Called when navigation mode changed.For details, see { @Link InterceptionModeCallback}.
+   *
+   * @type { ?InterceptionModeCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  modeChange?: InterceptionModeCallback;
 }
 
 /**

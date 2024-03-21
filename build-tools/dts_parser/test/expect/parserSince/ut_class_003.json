@@ -13,7 +13,10 @@
     "useinstead": "",
     "childApis": [],
     "parentClasses": [
-      "Parent<T>"
+      {
+        "extendClass": "Parent<T>",
+        "implementClass": ""
+      }
     ]
   }
 ]

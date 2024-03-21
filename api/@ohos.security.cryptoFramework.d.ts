@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,7 +17,6 @@
  * @file
  * @kit CryptoArchitectureKit
  */
-
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -629,6 +628,20 @@ declare namespace cryptoFramework {
      * @since 11
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
+
+    /**
+     * Encode the public key object to binary data in DER format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { DataBlob } the binary data of the key object in DER format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    getEncodedDer(format: string): DataBlob;
   }
 
   /**
@@ -905,6 +918,19 @@ declare namespace cryptoFramework {
     generateKeyPair(): Promise<KeyPair>;
 
     /**
+     * Used to generate asymmetric keypair.
+     *
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    generateKeyPairSync(): KeyPair;
+
+    /**
      * Used to convert asymmetric key data to keypair object.
      *
      * @param { DataBlob } pubKey - the public key data blob.
@@ -1013,6 +1039,21 @@ declare namespace cryptoFramework {
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
 
     /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob | null } pubKey - the public key data blob.
+     * @param { DataBlob | null } priKey - the private key data blob.
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair;
+
+    /**
      * The algName of the AsyKeyGenerator.
      *
      * @type { string }
@@ -1087,7 +1128,18 @@ declare namespace cryptoFramework {
     generateSymKey(): Promise<SymKey>;
 
     /**
-     * Generate a symmetric key object according to the provided binary key data.
+     * Generate a symmetric key object randomly.
+     *
+     * @returns { SymKey } return SymKey.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    generateSymKeySync(): SymKey;
+
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
      *
      * @param { DataBlob } key - the key data blob.
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
@@ -1097,7 +1149,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Generate a symmetric key object according to the provided binary key data.
+     * Used to convert symmetric key data to a symmetric key object.
      *
      * @param { DataBlob } key - the key data blob.
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
@@ -1110,7 +1162,7 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
     /**
-     * Generate a symmetric key object according to the provided binary key data.
+     * Used to convert symmetric key data to a symmetric key object.
      *
      * @param { DataBlob } key - the key data blob.
      * @returns { Promise<SymKey> } the promise returned by the function.
@@ -1120,7 +1172,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Generate a symmetric key object according to the provided binary key data.
+     * Used to convert symmetric key data to a symmetric key object.
      *
      * @param { DataBlob } key - the key data blob.
      * @returns { Promise<SymKey> } the promise returned by the function.
@@ -1131,6 +1183,19 @@ declare namespace cryptoFramework {
      * @since 11
      */
     convertKey(key: DataBlob): Promise<SymKey>;
+
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
+     *
+     * @param { DataBlob } key - the key data blob.
+     * @returns { SymKey } return SymKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    convertKeySync(key: DataBlob): SymKey;
 
     /**
      * Indicates the algorithm name of the SymKeyGenerator object.
@@ -1908,6 +1973,22 @@ declare namespace cryptoFramework {
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
     /**
+     * Init the crypto operation with the given crypto mode, key and parameters.
+     *
+     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
+     * @param { Key } key - indicates the symmetric key or the asymmetric key.
+     * @param { ParamsSpec | null } params - indicates the algorithm parameters such as IV.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    initSync(opMode: CryptoMode, key: Key, params: ParamsSpec | null): void;
+
+    /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
      * this time. RSA is not supported in this function.
      *
@@ -1964,6 +2045,22 @@ declare namespace cryptoFramework {
      * @since 11
      */
     update(data: DataBlob): Promise<DataBlob>;
+
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    updateSync(data: DataBlob): DataBlob;
 
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -2080,6 +2177,22 @@ declare namespace cryptoFramework {
      * @since 11
      */
     doFinal(data: DataBlob | null): Promise<DataBlob>;
+
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @returns { DataBlob } cipherText when encrypted or plainText when decrypted.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    doFinalSync(data: DataBlob | null): DataBlob;
 
     /**
      * Set the specified parameter to the cipher object.
@@ -2753,6 +2866,38 @@ declare namespace cryptoFramework {
      * @since 11
      */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
+
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<DataBlob | null> } the promise used to return the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    recover(signatureData: DataBlob): Promise<DataBlob | null>;
+
+    /**
+     * Used to recover signed data.
+     * Currently, only RSA is supported.
+     *
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { DataBlob | null } return the recovered data.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    recoverSync(signatureData: DataBlob): DataBlob | null;
 
     /**
      * Set the specified parameter to the verify object.
@@ -4179,6 +4324,39 @@ declare namespace cryptoFramework {
      * @since 11
      */
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
+
+    /**
+     * Used to convert the encoded point data to a point object, according to the ECC curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @param { Uint8Array } encodedPoint - the encoded ECC point data.
+     * @returns { Point } the ECC point object.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
+
+    /**
+     * Used to get the encoded point data from a point object, according to the ECC curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @param { Point } point - the ECC point object.
+     * @param { string } format - indicates the format of the encoded point data.
+     * @returns { Uint8Array } the encoded point data.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Array;
   }
 
   /**
@@ -4703,6 +4881,19 @@ declare namespace cryptoFramework {
     generateKeyPair(): Promise<KeyPair>;
 
     /**
+     * Generate an asymmetric keypair.
+     *
+     * @returns { KeyPair } return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    generateKeyPairSync(): KeyPair;
+
+    /**
      * Generate a private key instance.
      *
      * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
@@ -4749,6 +4940,19 @@ declare namespace cryptoFramework {
     generatePriKey(): Promise<PriKey>;
 
     /**
+     * Generate a private key instance.
+     *
+     * @returns { PriKey } return PriKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    generatePriKeySync(): PriKey;
+
+    /**
      * Generate a public key instance.
      *
      * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
@@ -4793,6 +4997,19 @@ declare namespace cryptoFramework {
      * @since 11
      */
     generatePubKey(): Promise<PubKey>;
+
+    /**
+     * Generate a public key instance.
+     *
+     * @returns { PubKey } return PubKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    generatePubKeySync(): PubKey;
 
     /**
      * Indicates the algorithm name of the generator.
@@ -4971,6 +5188,97 @@ declare namespace cryptoFramework {
    * @since 11
    */
   function createKdf(algName: string): Kdf;
+
+  /**
+   * Provides the interface for specifying detailed data in the SM2 ciphertext in ASN.1 format.
+   *
+   * @typedef SM2CipherTextSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 12
+   */
+  interface SM2CipherTextSpec {
+    /**
+     * Indicates the x coordinate, also known as C1x.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    xCoordinate: bigint;
+
+    /**
+     * Indicates the y coordinate, also known as C1y.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    yCoordinate: bigint;
+
+    /**
+     * Indicates the detailed ciphertext data, also known as C2.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    cipherTextData: Uint8Array;
+
+    /**
+     * Indicates the hash data, also known as C3.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    hashData: Uint8Array;
+  }
+
+  /**
+   * Utilities for SM2 crypto operations.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 12
+   */
+  class SM2CryptoUtil {
+    /**
+     * Generate the SM2 ciphertext in ASN.1 format according to the specific data.
+     *
+     * @param { SM2CipherTextSpec } spec - indicates the specific data of SM2 ciphertext.
+     * @param { string } [mode] - indicates the arrangement mode of the SM2 ciphertext.
+     * @returns { DataBlob } the SM2 ciphertext in ASN.1 format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
+
+    /**
+     * Get the specific data from the SM2 ciphertext in ASN.1 format.
+     *
+     * @param { DataBlob } cipherText - indicates the SM2 ciphertext in ASN.1 format.
+     * @param { string } [mode] - indicates the arrangement mode of the SM2 ciphertext.
+     * @returns { SM2CipherTextSpec } the specific data of SM2 ciphertext.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
+  }
 }
 
 export default cryptoFramework;

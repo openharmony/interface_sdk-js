@@ -16,12 +16,13 @@
     "apiType": "TypeAlias",
     "definedText": "export type SimState = sim.SimState;",
     "pos": {
-      "line": 2,
+      "line": 17,
       "character": 3
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

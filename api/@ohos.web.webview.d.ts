@@ -19,13 +19,15 @@
  */
 
 /// <reference path="../component/units.d.ts" />
+/// <reference path="./@ohos.web.netErrorList.d.ts" />
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
+import './@internal/component/ets/units';
 
 /**
  * This module provides the capability to manage web modules.
@@ -341,6 +343,47 @@ declare namespace webview {
   }
 
   /**
+   * The playback status of all audio and video.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum MediaPlaybackState {
+    /**
+     * No audio or video currently.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * All audio and video are playing.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    PLAYING = 1,
+
+    /**
+     * All audio and video are paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    PAUSED = 2,
+
+    /**
+     * All audio and video are stopped.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    STOPPED = 3
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    *
    * @interface HitTestValue
@@ -449,6 +492,57 @@ declare namespace webview {
      * @since 11
      */
     isSupportFetch: boolean;
+
+    /**
+     * If isStandard is true, the scheme will be handled as a standard scheme. The standard
+     * schemes needs to comply with the URL normalization and parsing rules defined in Section 3.1 of RFC 1738,
+     * which can be found in the http://www.ietf.org/rfc/rfc1738.txt.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isStandard?: boolean;
+
+    /**
+     * If isLocal is true, the same security rules as those applied to the "file" URL will be
+     * used to handle the scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isLocal?: boolean;
+
+    /**
+     * If isDisplayIsolated is true, then the scheme can only be displayed from other content
+     * hosted using the same scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isDisplayIsolated?: boolean;
+
+    /**
+     * If isSecure is true, the same security rules as those applied to the "https" URL will be
+     * used to handle the scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isSecure?: boolean;
+
+    /**
+     * If isCspBypassing is true, then this scheme can bypass Content Security Policy (CSP)
+     * checks. In most cases, this value should not be true when isStandard is true.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isCspBypassing?: boolean;
   }
 
   /**
@@ -509,6 +603,40 @@ declare namespace webview {
      * @since 11
      */
     quota: number;
+  }
+
+  /**
+   * Defines the Web's request info.
+   *
+   * @interface RequestInfo
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface RequestInfo {
+    /**
+     * Gets the url of the request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    url: string;
+
+    /**
+     * Gets the method of the request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    method: string;
+
+    /**
+     * Gets the form data of the request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    formData: string;
   }
 
   /**
@@ -2011,6 +2139,85 @@ declare namespace webview {
   }
 
   /**
+   * Defines the snapshot info.
+   *
+   * @interface SnapshotInfo
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface SnapshotInfo {
+    /**
+     * Id of the snapshot.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    id?: string;
+
+    /**
+     * Size of the web.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    size?: SizeOptions;
+  }
+
+  /**
+   * Defines the snapshot result.
+   *
+   * @interface SnapshotResult
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface SnapshotResult {
+    /**
+     * Id of the snapshot.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    id?: string;
+
+    /**
+     * The status of the snapshot.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    status?: boolean;
+
+    /**
+     * Size of the web.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    size?: SizeOptions;
+
+    /**
+     * The image in PixelMap format.
+     *
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    imagePixelMap?: image.PixelMap;
+  }
+  /**
    * Enum type supplied to {@link runJavaScriptExt} for indicating the result of JavaScript code execution.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
@@ -3223,7 +3430,22 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    runJavaScriptExt(script: string): Promise<JsMessageExt>;
+    /**
+     * Execute JavaScript code in the context of the currently displayed page, and return the result.
+     *
+     * @param { string | ArrayBuffer } script - JavaScript Script.
+     * @returns { Promise<JsMessageExt> } A promise is solved after the JavaScript script is executed.
+     *                              This parameter will be the result of JavaScript script execution.
+     *                              If the JavaScript script fails to execute or has no return value,
+     *                              a none type value will be returned.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    runJavaScriptExt(script: string | ArrayBuffer): Promise<JsMessageExt>;
 
     /**
      * Execute JavaScript code in the context of the currently displayed page, and return the result.
@@ -3248,7 +3470,19 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    runJavaScriptExt(script: string, callback: AsyncCallback<JsMessageExt>): void;
+    /**
+     * Execute JavaScript code in the context of the currently displayed page, and return the result.
+     *
+     * @param { string | ArrayBuffer } script - JavaScript Script.
+     * @param { AsyncCallback<JsMessageExt> } callback - Callbacks execute JavaScript script results.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
     /**
      * Gets the url of current Web page.
@@ -3611,6 +3845,15 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Register Web custom schemes.
+     * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100020 - Register custom schemes failed. 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
 
     /**
@@ -3784,7 +4027,6 @@ declare namespace webview {
      */
     setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
-
     /**
      * Start a download.
      * @param { string } url - The download url.
@@ -3895,6 +4137,288 @@ declare namespace webview {
      * @since 12
      */
     getPrintBackground(): boolean;
+
+    /**
+     * Get the url of the last frame that calls the JavaScriptProxy.
+     * This should be called on the UI thread.
+     *
+     * @returns { string } The url of the last frame that calls the JavaScriptProxy.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getLastJavascriptProxyCallingFrameUrl(): string
+
+    /**
+     * Start current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    startCamera(): void;
+
+    /**
+     * Stop current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    stopCamera(): void;
+
+    /**
+     * Close current camera.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    closeCamera(): void;
+
+    /**
+     * Pauses all layout, parsing, and JavaScript timers for all WebViews.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static pauseAllTimers(): void;
+
+    /**
+     * Resumes all layout, parsing, and JavaScript timers for all WebViews.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static resumeAllTimers(): void;
+
+    /**
+     * Stop all audio and video playback on the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    stopAllMedia(): void;
+
+    /**
+     * Restart playback of all audio and video on the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    resumeAllMedia(): void;
+
+    /**
+     * Pause all audio and video playback on the web page.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    pauseAllMedia(): void;
+
+    /**
+     * Close fullscreen video.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    closeAllMediaPresentations(): void;
+
+    /**
+     * View the playback status of all audio and video on the web page.
+     *
+     * @returns { MediaPlaybackState } The playback status of all audio and video.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getMediaPlaybackState(): MediaPlaybackState;
+
+    /**
+     * Set web scheme handler for specific scheme. This is only used for related web component.
+     * 
+     * @param { string } scheme - String value for url scheme.
+     * @param { WebSchemeHandler } handler - Web scheme handler.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
+
+    /**
+     * Clear all web scheme handlers for related web component.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    clearWebSchemeHandler(): void;
+
+    /**
+     * Set web scheme handler for specific scheme. This is used for service worker.
+     * @param { string } scheme - String value for url scheme.
+     * @param { WebSchemeHandler } handler - Web scheme handler.
+     * @throws { BusinessError } 401 - Invalid input parameter. 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setServiceWorkerWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
+
+    /**
+     * Clear all web service worker scheme handlers.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearServiceWorkerWebSchemeHandler(): void;
+
+    /**
+     * Enable the ability to use Intelligent Tracking Prevention; default is disabled.
+     *
+     * @param { boolean } enable {@code true} enable Intelligent Tracking Prevention; {@code false} otherwise.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    enableIntelligentTrackingPrevention(enable: boolean): void;
+
+    /**
+     * Get whether Intelligent Tracking Prevention is enabled.
+     *
+     * @returns { boolean } True if enable the Intelligent Tracking Prevention; else false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isIntelligentTrackingPreventionEnabled(): boolean;
+
+    /**
+     * Add bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts that bypass the Intelligent Tracking Prevention.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
+
+    /**
+     * Remove bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts needs to remove from bypass list.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
+
+    /**
+     * Clear bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearIntelligentTrackingPreventionBypassingList(): void;
+
+    /**
+     * Register a callback to intercept web pages playing video.
+     *
+     * @param { CreateNativeVideoPlayerCallback } callback - Called everytime when web pages try to play video.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    onCreateNativeVideoPlayer(callback: CreateNativeVideoPlayerCallback): void
+
+    /**
+     * Set enable overall web caching
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static enableWholeWebPageDrawing(): void;
+
+    /**
+     * Web page snapshot.
+     *
+     * @param { SnapshotInfo } info - The snapshot info.
+     * @param { AsyncCallback<SnapshotResult> } callback - the callback of snapshot.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
+
+    /**
+     * Prefetch the resources request and save it to the memory cache. Only support post request and its Content-Type
+     * is application/x-www-form-urlencoded now.
+     * You can prefetch no more than 6 resources. If you want to prefetch the seventh resource, you can clear one of
+     * the prefetched resources that you won't use any more. Otherwise the oldest resource you prefetched will be
+     * cleared.
+     * @param { RequestInfo } request - The information of the request.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
+     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
+     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     *                                      The unit is second. Default value is 300s.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
+      cacheValidTime?: number): void;
+
+    /**
+    * Clear the resource that you prefetch to the memory cache using API{@link prefetchResource}.
+    * @param { Array<string> } cacheKeyList - The keys for memory cache.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
+    * @since 12
+    */
+    static clearPrefetchedResource(cacheKeyList: Array<string>): void;
   }
 
   /**
@@ -4440,6 +4964,1003 @@ declare namespace webview {
      */
     static resumeDownload(webDownloadItem: WebDownloadItem): void;
   }
+
+  /**
+   * The http body stream of the request.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebHttpBodyStream {
+    /**
+     * Initialize data stream.
+     * 
+     * @returns { Promise<void> } The promise of data stream is initialized.
+     * @throws { BusinessError } 17100022 - Data stream init failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    initialize(): Promise<void>;
+    /**
+     * Read the data stream to the buffer.
+     * 
+     * @param { number } size - Read size.
+     * @returns { Promise<ArrayBuffer> } Read array buffer of result.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    read(size: number): Promise<ArrayBuffer>;
+    /**
+     * Get the total size of the data stream. When data is chunked, always return zero.
+     * 
+     * @returns { number } Return size of data stream size.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getSize(): number;
+    /**
+     * Get the current position of the data stream.
+     * 
+     * @returns { number } Return position in post data stream.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getPosition(): number;
+    /**
+     * Whether data stream is chunked.
+     * 
+     * @returns { boolean } Whether data stream is chunked.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isChunked(): boolean;
+    /**
+     * Whether all data stream has been consumed. For chunked uploads,
+     * returns false until the first read attempt.
+     * 
+     * @returns { boolean } Whether data stream has been consumed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isEof(): boolean;
+    /**
+     * Returns true if the upload data in the stream is entirely in memory, and all read requests will succeed
+     * synchronously. Expected to return false for chunked requests.
+     * 
+     * @returns { boolean } Whether the data stream is in memory.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isInMemory(): boolean;
+  }
+
+  /**
+   * Defines the Web resource request used for scheme handler.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebSchemeHandlerRequest {
+    /**
+     * Gets request headers.
+     *
+     * @returns { Array<WebHeader> } Return the request headers.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getHeader(): Array<WebHeader>;
+    /**
+     * Gets the request URL.
+     *
+     * @returns { string } Return the request URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getRequestUrl(): string;
+    /**
+     * Get request method.
+     *
+     * @returns { string } Return the request method.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getRequestMethod(): string;
+    /**
+     * Get referrer of request.
+     *
+     * @returns { string } Return referrer of request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getReferrer(): string;
+    /**
+     * Check whether the request is for getting the main frame.
+     *
+     * @returns { boolean } Whether request is main frame.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isMainFrame(): boolean;
+    /**
+     * Check whether the request is associated with gesture.
+     *
+     * @returns { boolean } Whether request has user gesture.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    hasGesture(): boolean;
+    /**
+     * Get http body stream.
+     * 
+     * @returns { WebHttpBodyStream | null } Return http body stream. If request has no http body stream, return null.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getHttpBodyStream(): WebHttpBodyStream | null;
+  }
+
+  /**
+   * Defines the Web resource response used for scheme handler.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebSchemeHandlerResponse {
+    /**
+     * Constructor.
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    constructor();
+    /**
+     * Set the resolved URL after redirects or changed as a result of HSTS.
+     * 
+     * @param { string } url - Set response url for redirects.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setUrl(url: string): void;
+    /**
+     * Get the resolved URL after redirects or changed as a result of HSTS.
+     * 
+     * @returns { string } Return response url for redirects.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getUrl(): string;
+    /**
+     * Set net error code.
+     * @param { WebNetErrorList } code - Set net error code.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setNetErrorCode(code: WebNetErrorList): void;
+    /**
+     * Get net error code.
+     * 
+     * @returns { WebNetErrorList } Return response error code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getNetErrorCode(): WebNetErrorList;
+    /**
+     * Set http status code.
+     * 
+     * @param { number } code - Http status code.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setStatus(code: number): void;
+    /**
+     * Get http status code.
+     * 
+     * @returns { number } Return http status code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getStatus(): number;
+    /**
+     * Set status text.
+     * 
+     * @param { string } text - Status text.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setStatusText(text: string): void;
+    /**
+     * Get status text.
+     * 
+     * @returns { string } Return http status text.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getStatusText(): string;
+    /**
+     * Set mime type.
+     * 
+     * @param { string } type - Mime type.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setMimeType(type: string): void;
+    /**
+     * Get mime type.
+     * 
+     * @returns { string } Return mime type of response.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getMimeType(): string;
+    /**
+     * Set the response encoding.
+     * 
+     * @param { string } type - Encoding.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setEncoding(encoding: string): void;
+    /**
+     * Get the response encoding.
+     * 
+     * @returns { string } Return encoding of response.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getEncoding(): string;
+    /**
+     * Set response hander value by name. 
+     * 
+     * @param { string } name - Header name.
+     * @param { string } value - Header value.
+     * @param { boolean } name - Whether to overwrite.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setHeaderByName(name: string, value: string, overwrite: boolean): void;
+    /**
+     * Get the header value by name from the response.
+     * 
+     * @param { string } name - Header name.
+     * @returns { string } Return header value by name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getHeaderByName(name: string): string
+  }
+
+  /**
+   * Used to intercept url requests. Response headers and body can be sent through
+   * WebResourceHandler.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebResourceHandler {
+    /**
+     * Pass response headers to intercepted requests.
+     * 
+     * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didReceiveResponse(response: WebSchemeHandlerResponse): void;
+    /**
+     * Pass response body data to intercepted requests.
+     * 
+     * @param { ArrayBuffer } data - Set response body to intercept.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didReceiveResponseBody(data: ArrayBuffer): void;
+    /**
+     * Notify that this request should be finished and there is no more data available.
+     * 
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didFinish(): void;
+    /**
+     * Notify that this request should be failed.
+     * 
+     * @param { WebNetErrorList } code - Set response error code to intercept.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didFail(code: WebNetErrorList): void;
+  }
+
+  /**
+   * This class is used to intercept requests for a specified scheme.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebSchemeHandler {
+    /**
+     * Callback for handling the request.
+     * 
+     * @param { function } callback - Callback of handling the request. If callback return false,
+     *                                it means no interception.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    onRequestStart(
+      callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
+    
+    /**
+     * Callback when the request is completed.
+     * 
+     * @param { Callback<WebSchemeHandlerRequest> } callback - Callback of request is completed.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
+  }
+
+  /**
+   * Enum type supplied to {@link handleStatusChanged} for indicating the playback status.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum PlaybackStatus {
+    /**
+     * Player status is paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    PAUSED = 0,
+    /**
+     * Player status is playing.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    PLAYING,
+  }
+
+  /**
+   * Enum type supplied to {@link handleNetworkStateChanged} for indicating the native player network state.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum NetworkState {
+    /**
+     * Player does not do any download tasks.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    EMPTY = 0,
+    /**
+     * Player downloads finished, waiting for next task.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    IDLE,
+    /**
+     * Player is downloading contents.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOADING,
+    /**
+     * Player downloads failed, due to network error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    NETWORK_ERROR
+  }
+
+  /**
+   * Enum type supplied to {@link handleReadyStateChanged} for indicating the native player network state.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum ReadyState {
+    /**
+     * Player hasn't downloaded anything.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    HAVE_NOTHING = 0,
+    /**
+     * Player has downloaded metadata.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    HAVE_METADATA,
+    /**
+     * Player has played all downloaded video data.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    HAVE_CURRENT_DATA,
+    /**
+     * The buffered video data is not enough, and will cause jank.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    HAVE_FUTURE_DATA,
+    /**
+     * The buffered video data is enough.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    HAVE_ENOUGH_DATA,
+  }
+
+  /**
+   * Enum type supplied to {@link handleError} for indicating the error type of native video player.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum VideoError {
+    /**
+     * Network error
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    NETWORK_ERROR = 1,
+    /**
+     * Video format error, such as not a valid file.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    FORMAT_ERROR,
+    /**
+     * Decode error, such as decoder doesn't support this format.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    DECODE_ERROR
+  }
+
+  /**
+   * The native video player status handler.
+   * Apps should use this class to handle native video player's status.
+   *
+   * @interface NativeVideoPlayerHandler
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface NativeVideoPlayerHandler {
+
+    /**
+     * Handle native video player playback status.
+     *
+     * @param { PlaybackStatus } status - Playback status of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleStatusChanged(status: PlaybackStatus): void
+
+    /**
+     * Handle native video player volume.
+     *  volume: float
+     *   value range: [0 - 1.0]
+     *
+     * @param { number } volume - Current volume of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleVolumeChanged(volume: number): void
+
+    /**
+     * Handle native video player muted status.
+     *
+     * @param { boolean } muted - Current mute status of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleMutedChanged(muted: boolean): void
+
+    /**
+     * Handle playback rate of native video player.
+     *  playbackRate: float
+     *   value range: [0 - infinity]
+     *
+     * @param { number } playbackRate - Current playback rate of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handlePlaybackRateChanged(playbackRate: number): void
+
+    /**
+     * Handle duration time of video.
+     *  duration: float
+     *   value range: [0 - infinity]
+     *
+     * @param { number } duration - Duration time (in seconds) of video.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleDurationChanged(duration: number): void
+
+    /**
+     * Handle current playing time of video.
+     *  currentPlayTime: float
+     *   value range: [0 - duration]
+     *
+     * @param { number } currentPlayTime - Current playing time (in seconds) of video.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleTimeUpdate(currentPlayTime: number): void
+
+    /**
+     * Handle buffered end time of video.
+     *  bufferedEndTime: float
+     *   value range: [0 - duration]
+     *
+     * @param { number } bufferedEndTime - Buffered end time (in seconds) of video.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleBufferedEndTimeChanged(bufferedEndTime: number): void
+
+    /**
+     * Handle native player ended event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleEnded(): void
+
+    /**
+     * Handle network state of native video player.
+     *
+     * @param { NetworkState } state - Network state of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleNetworkStateChanged(state: NetworkState): void
+
+    /**
+     * Handle ready state of native video player.
+     *
+     * @param { ReadyState } state - Ready state of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleReadyStateChanged(state: ReadyState): void
+
+    /**
+     * Handle native video player fullscreen state changed event.
+     *
+     * @param { boolean } fullscreen - Fullscreen state of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleFullscreenChanged(fullscreen: boolean): void
+
+    /**
+     * Handle native video player seeking state.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleSeeking(): void
+
+    /**
+     * Handle native video player seek finished state.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleSeekFinished(): void
+
+    /**
+     * Handle native video player error event.
+     *
+     * @param { VideoError } error - Error type of native video player.
+     * @param { string } errorMessage - Description of current error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleError(error: VideoError, errorMessage: string): void
+
+    /**
+     * Handle size of video.
+     *
+     * @param { number } width - Width of video.
+     * @param { number } height - Height of video.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    handleVideoSizeChanged(width: number, height: number): void
+  }
+
+  /**
+   * The bridge between web core and native video player.
+   * Apps should implements this interface, and pass an instance to web core.
+   * Then web core can control native video player by this bridge.
+   *
+   * @interface NativeVideoPlayerBridge
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface NativeVideoPlayerBridge {
+    /**
+     * Notify native video player that the rect of video tag has changed.
+     *
+     * @param { number } x - The x position of video tag in web component.
+     * @param { number } y - The y position of video tag in web component.
+     * @param { number } width - The width of video tag.
+     * @param { number } height - The height of video tag.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    updateRect(x: number, y: number, width: number, height: number): void
+
+    /**
+     * Request to play.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    play(): void
+
+    /**
+     * Request to pause.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    pause(): void
+
+    /**
+     * Request to fast forward / back forward to targetTime.
+     *  targetTime: float
+     *   value range: [0 - duration]
+     *
+     * @param { number } targetTime - The target time (in seconds) to FF/BF to.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    seek(targetTime: number): void
+
+    /**
+     * Request to change volume of native video player.
+     *  volume: float
+     *   value range: [0 - 1.0]
+     *
+     * @param { number } volume - The volume of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setVolume(volume: number): void
+
+    /**
+     * Request to mute native video player.
+     *
+     * @param { boolean } muted - Should mute native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setMuted(muted: boolean): void
+
+    /**
+     * Request to change playback rate of native video player.
+     *  playbackRate: float
+     *   value range: [0 - 10.0]
+     *
+     * @param { number } playbackRate - The playback rate of native video player.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setPlaybackRate(playbackRate: number): void
+
+    /**
+     * Request to release native video player.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    release(): void
+
+    /**
+     * Request to enter fullscreen.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    enterFullscreen(): void
+
+    /**
+     * Request to exit fullscreen.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    exitFullscreen(): void
+  }
+
+  /**
+   * Enum type for indicating the video source type of native video player.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum VideoType {
+    /**
+     * Video source is URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    URL = 0,
+    /**
+     * Video source is blob.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MSE
+  }
+
+  /**
+   * Video source information. Uri and format.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class VideoSourceInfo {
+    /**
+     * Video source, most time is Uri.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    videoSource: string;
+
+    /**
+     * Video format, such as mp4, webm, m3u8 etc.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    videoFormat: string;
+  }
+
+  /**
+   * Surface information.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class NativeVideoPlayerSurfaceInfo {
+    /**
+     * Id of surface.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    id: string;
+
+    /**
+     * Surface rect info.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    rect: {x: number, y: number, width: number, height: number};
+  }
+
+  /**
+   * Enum type for indicating the preload type.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum Preload {
+    /**
+     * Doesn't do preload.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    NONE = 0,
+    /**
+     * Only preload metadata.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    METADATA,
+    /**
+     * Preload enough data to ensure playing is smooth.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    AUTO
+  }
+
+  /**
+   * Video information.
+   *
+   * @interface VideoInfo
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface VideoInfo {
+    /**
+     * Video type : url or mse
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    videoType: VideoType,
+    /**
+     * Video source list, player should choose a appropriate one to play.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    videoSrcList: VideoSourceInfo[],
+    /**
+     * Surface to render video content on.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    surfaceInfo: NativeVideoPlayerSurfaceInfo,
+    /**
+     * Should show video controls.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    controlsShown: boolean,
+    /**
+     * Limit video controls items.
+     *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    controlList: string[],
+    /**
+     * Player should be muted;
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    muted: boolean,
+    /**
+     * Player should show poster before video first frame shown.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    posterUrl: string,
+    /**
+     * Preload type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    preload: Preload
+  }
+
+  /**
+   * The callback of creating a native video player.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  type CreateNativeVideoPlayerCallback =
+      (handler: NativeVideoPlayerHandler, videoInfo: VideoInfo) => NativeVideoPlayerBridge
 }
 
 export default webview;

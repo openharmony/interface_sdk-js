@@ -178,6 +178,30 @@ declare namespace media {
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
+   * Creates an AVScreenCaptureRecorder instance.
+   * @returns { Promise<AVScreenCaptureRecorder> } A Promise instance used to return AVScreenCaptureRecorder instance if the operation is successful;
+   * returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>;
+
+  /**
+   * Report user choice back to AVScreenCapture server
+   *
+   * @param {number} sessionId The AVScreenCapture server session ID.
+   * @param {string} choice Content chosen by user.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Input parameter invalid. Return by promise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 12
+   */
+  function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
+
+  /**
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
    * to create an SoundPool instance.
    *
@@ -263,8 +287,7 @@ declare namespace media {
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   function createAVImageGenerator(): Promise<AVImageGenerator>;
 
@@ -274,8 +297,7 @@ declare namespace media {
    * if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void;
 
@@ -531,16 +553,14 @@ declare namespace media {
    * you must use createAVImageGenerator() to create an AVImageGenerator instance.
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12 
    */
   interface AVImageGenerator {
     /**
      * Media file descriptor.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -556,8 +576,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams,
       callback: AsyncCallback<image.PixelMap>): void;
@@ -575,8 +594,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
@@ -585,8 +603,7 @@ declare namespace media {
      * @param { AsyncCallback<void> } callback - A callback instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -595,8 +612,7 @@ declare namespace media {
      * @returns { Promise<void> } A Promise instance used to return when release completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     release(): Promise<void>;
   }
@@ -605,16 +621,14 @@ declare namespace media {
    * Enumerates options about the relationship between the given timeUs and a key frame.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   enum AVImageQueryOptions {
     /**
      * This option is used to fetch a key frame from the given media
      * resource that is located right after or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_NEXT_SYNC,
 
@@ -622,8 +636,7 @@ declare namespace media {
      * This option is used to fetch a key frame from the given media
      * resource that is located right before or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_PREVIOUS_SYNC,
 
@@ -631,8 +644,7 @@ declare namespace media {
      * This option is used to fetch a key frame from the given media
      * resource that is located closest to or at the given time.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
 
@@ -650,8 +662,7 @@ declare namespace media {
    * Expected pixel map format for the fetched image from video resource.
    * @typedef PixelMapParams
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   interface PixelMapParams {
     /**
@@ -659,8 +670,7 @@ declare namespace media {
      * original dimensions of the given video resource.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     width?: number;
 
@@ -669,8 +679,7 @@ declare namespace media {
      * original dimensions of the given video resource.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     height?: number;
 
@@ -4313,6 +4322,257 @@ declare namespace media {
      * @since 11
      */
     VIDEO_HEVC = 'video/hevc',
+  }
+
+  /**
+   *  Enumerates AVScreenCaptureRecord preset types.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  enum AVScreenCaptureRecordPreset {
+    /**
+     * Screen record normal type, h264/aac mp4
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREEN_RECORD_PRESET_H264_AAC_MP4 = 0,
+    /**
+     * Screen record high efficient type, h265/aac mp4
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREEN_RECORD_PRESET_H265_AAC_MP4 = 1,
+  }
+
+  /**
+   *  Enumerates AVScreenCapture callback state type.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  enum AVScreenCaptureStateCode {
+    /**
+     * Screen capture started
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STARTED = 0,
+    /**
+     * Screen capture canceled
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_CANCELED = 1,
+    /**
+     * Screen capture stopped by user
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
+    /**
+     * Screen capture stopped by interrupt
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_INTERRUPTED_BY_OTHER = 3,
+    /**
+     * Screen capture stopped by phone call
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STOPPED_BY_CALL = 4,
+    /**
+     * Screen capture microphone not available
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
+    /**
+     * Screen capture microphone is muted by user
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
+    /**
+     * Screen capture microphone is unmuted by user
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
+    /**
+     * Screen capture enter private scene
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
+    /**
+     * Screen capture exit private scene
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
+  }
+
+  /**
+   * Provides the media AVScreenCaptureRecord config definition.
+   *
+   * @typedef AVScreenCaptureRecordConfig
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  interface AVScreenCaptureRecordConfig {
+    /**
+     * Indicates record file descriptor.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    fd: number;
+    /**
+     * Indicates video frame width.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    frameWidth?: number;
+    /**
+     * Indicates video frame height.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    frameHeight?: number;
+    /**
+     * Indicates video bitrate.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    videoBitrate?: number;
+    /**
+     * Indicates audio sample rate.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    audioSampleRate?: number;
+    /**
+     * Indicates audio channel count.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    audioChannelCount?: number;
+    /**
+     * Indicates audio bitrate.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    audioBitrate?: number;
+    /**
+     * Indicates AVScreenCaptureRecordPreset, details see @AVScreenCaptureRecordPreset
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    preset?: AVScreenCaptureRecordPreset;
+  }
+
+  /**
+   * Provides screen capture record. Before calling an AVScreenCaptureRecorder method, you must use createAVScreenCaptureRecorder()
+   * to create an AVScreenCaptureRecorder instance.
+   *
+   * @typedef AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  interface AVScreenCaptureRecorder {
+    /**
+     * Init AVScreenCaptureRecorder.
+     * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
+     * @returns { Promise<void> } A Promise instance used to return when init completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    init(config: AVScreenCaptureRecordConfig): Promise<void>;
+
+    /**
+     * Start screen capture recording.
+     * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    startRecording(): Promise<void>;
+
+    /**
+     * Stop screen capture recording.
+     * @returns { Promise<void> } A Promise instance used to return when stopRecording completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    stopRecording(): Promise<void>;
+
+    /**
+     * Set microphone enable or disable.
+     * @param { boolean } enable - Set microphone enable or disable during recording.
+     * @returns { Promise<void> } A Promise instance used to return when setMicEnabled completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    setMicEnabled(enable: boolean): Promise<void>;
+
+    /**
+     * Release screen capture recording.
+     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    release(): Promise<void>;
+
+    /**
+     * Listens for AVScreenCaptureRecord info callback.
+     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void;
+
+    /**
+     * Listens for AVScreenCaptureRecord info callback.
+     * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @throws { BusinessError } 5400103 - IO error. Return by ErrorCallback.
+     * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listens for AVScreenCaptureRecord info callback.
+     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void;
+
+    /**
+     * Unregister listens for AVScreenCaptureRecord error callback.
+     * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 export default media;

@@ -20,8 +20,8 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
-import type rpc from './@ohos.rpc';
 import type resourceManager from './@ohos.resourceManager';
+import type rpc from './@ohos.rpc';
 
 /**
  * @namespace image
@@ -1480,6 +1480,28 @@ declare namespace image {
      * @since 11
      */
     stride: number;
+
+    /**
+     * Indicates image format.
+     *
+     * @type { PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    pixelFormat: PixelMapFormat;
+
+    /**
+     * Indicates image alpha type.
+     *
+     * @type { AlphaType }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    alphaType: AlphaType;
   }
 
   /**
@@ -2277,6 +2299,19 @@ declare namespace image {
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise<PixelMap>;
 
   /**
+   * Create pixelmap by data buffer.
+   *
+   * @param { ArrayBuffer } colors The image color buffer.
+   * @param { InitializationOptions } options Initialization options for pixelmap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+  function createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap;
+
+  /**
    * Creates a PixelMap object based on MessageSequence parameter.
    *
    * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
@@ -2746,6 +2781,19 @@ declare namespace image {
     readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer.
+     *
+     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readPixelsToBufferSync(dst: ArrayBuffer): void;
+
+    /**
      * Reads image pixel map data in an area. This method uses a promise to return the data read.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
@@ -2868,6 +2916,18 @@ declare namespace image {
     writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
+     * Writes image pixel map data to the specified area.
+     *
+     * @param { PositionArea } area Area to which the image pixel map data will be written.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    writePixelsSync(area: PositionArea): void;
+    /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
      *
@@ -2985,6 +3045,18 @@ declare namespace image {
      * @since 11
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
+
+    /**
+     * Get image information from image source.
+     *
+     * @returns { ImageInfo } the image information.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getImageInfoSync(): ImageInfo;
 
     /**
      * Obtains the number of bytes in each line of the image pixel map.
@@ -3237,6 +3309,20 @@ declare namespace image {
      * @since 11
      */
     scale(x: number, y: number): Promise<void>;
+
+    /**
+     * Image zoom in width and height.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    scaleSync(x: number, y: number): void;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
@@ -4633,6 +4719,15 @@ declare namespace image {
      * @since 9
      */
     readonly format: number;
+
+     /**
+     * Image timestamp.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    readonly timestamp: number;
 
     /**
      * Get component buffer from image and uses a callback to return the result.

@@ -16,12 +16,13 @@
     "apiType": "Interface",
     "definedText": " export interface Test",
     "pos": {
-      "line": 6,
+      "line": 21,
       "character": 1
     },
     "isSystemapi": false,
     "modelLimitation": "",
     "decorators": [],
-    "errorCodes": []
+    "errorCodes": [],
+    "kitInfo": ""
   }
 ]

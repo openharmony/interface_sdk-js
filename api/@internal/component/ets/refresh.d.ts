@@ -255,6 +255,16 @@ interface RefreshOptions {
   friction?: number | string;
 
   /**
+   * The text displayed during refreshing
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  promptText?: ResourceStr;
+
+  /**
    * Custom component to display during dragging.
    *
    * @type { ?CustomBuilder }
@@ -411,6 +421,30 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @since 11
    */
   onRefreshing(callback: () => void): RefreshAttribute;
+
+  /**
+   * The pull-down offset to trigger refresh.
+   *
+   * @param { number } value
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  refreshOffset(value: number): RefreshAttribute;
+
+  /**
+   * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
+   *
+   * @param { boolean } value
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  pullToRefresh(value: boolean): RefreshAttribute;
 }
 
 /**

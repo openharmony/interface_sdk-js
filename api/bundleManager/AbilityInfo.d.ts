@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { ApplicationInfo } from './ApplicationInfo';
 import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
@@ -529,6 +534,17 @@ export interface AbilityInfo {
    * @since 11
    */
   readonly windowSize: WindowSize;
+
+  /**
+   * Indicates whether to hide the application icon from the dock area
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+    readonly excludeFromDock: boolean;
 }
 
 /**

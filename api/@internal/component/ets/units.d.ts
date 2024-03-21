@@ -1363,6 +1363,16 @@ declare type LengthConstrain = {
 };
 
 /**
+ * Defines VoidCallback.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type VoidCallback  = () => void;
+
+/**
  * Defines the font used for text.
  *
  * @interface Font
@@ -1779,6 +1789,67 @@ declare interface Position {
    */
   y?: Length;
 }
+
+/**
+ * Defines the Edges.
+ *
+ * @interface Edges
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare interface Edges {
+  /**
+   * top property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  top?: Dimension;
+
+  /**
+   * left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  left?: Dimension;
+
+   /**
+   * bottom property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  bottom?: Dimension;
+
+  /**
+   * right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  right?: Dimension;
+}
+
 /**
  * Defines the Bias.
  *

@@ -1672,6 +1672,13 @@ declare namespace connection {
      * @since 11
      */
     BEARER_ETHERNET = 3,
+
+    /**
+     * Indicates that the network is based on a VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    BEARER_VPN = 4,
   }
 
   /**

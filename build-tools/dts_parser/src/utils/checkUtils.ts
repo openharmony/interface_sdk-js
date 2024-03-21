@@ -17,6 +17,7 @@ import fs, { Stats } from 'fs';
 import { Workbook, Worksheet } from 'exceljs';
 import ts, { LineAndCharacter } from 'typescript';
 import { ApiResultSimpleInfo, ApiResultInfo } from '../typedef/checker/result_type';
+import { ApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
 
 export class PosOfNode {
   /**
@@ -213,6 +214,28 @@ export class CommonFunctions {
       specialCaseType = ['function'];
     }
     return specialCaseType;
+  }
+
+  static getExtendsApiValue(singleApi: ApiInfo): string {
+    let extendsApiValue: string = '';
+    const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
+    extendsApiArr.forEach(extendsApi => {
+      if (extendsApi.getExtendClass().length !== 0) {
+        extendsApiValue = extendsApi.getExtendClass();
+      }
+    });
+    return extendsApiValue;
+  }
+
+  static getImplementsApiValue(singleApi: ApiInfo): string {
+    let implementsApiValue: string = '';
+    const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
+    extendsApiArr.forEach(extendsApi => {
+      if (extendsApi.getImplementClass().length !== 0) {
+        implementsApiValue = extendsApi.getImplementClass();
+      }
+    });
+    return implementsApiValue;
   }
 }
 
