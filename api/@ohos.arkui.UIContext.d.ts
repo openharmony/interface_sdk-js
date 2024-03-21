@@ -44,6 +44,7 @@ import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type dragController from './@ohos.arkui.dragController';
+import type { ComponentContent } from './arkui/ComponentContent';
 
 /**
  * class Font
@@ -958,6 +959,50 @@ export class PromptAction {
    * @since 11
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
+
+  /**
+   * Open the custom dialog with frameNode.
+   *
+   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - the ComponentContent has already been opened.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    openCustomDialog(dialogContent: ComponentContent, options?: promptAction.BaseDialogOptions): Promise<void>;
+
+  /**
+   * Update the custom dialog with frameNode.
+   *
+   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    updateCustomDialog(dialogContent: ComponentContent, options: promptAction.BaseDialogOptions): Promise<void>;
+
+    /**
+     * Close the custom dialog with frameNode.
+     *
+     * @param { ComponentContent } dialogContent - the content of custom dialog.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+     * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+     * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    closeCustomDialog(dialogContent: ComponentContent): Promise<void>;
 }
 
 /**
