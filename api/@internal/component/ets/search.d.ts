@@ -775,6 +775,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   textFont(value?: Font): SearchAttribute;
 
   /**
+   * Set enter key type of soft keyboard
+   *
+   * @param { EnterKeyType } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enterKeyType(value: EnterKeyType): SearchAttribute;
+
+  /**
    * Call the function when clicked the search button
    *
    * @param { function } callback

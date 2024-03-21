@@ -293,6 +293,56 @@ interface TextPickerInterface {
 }
 
 /**
+ * Defines the struct of DividerOptions.
+ *
+ * @interface DividerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DividerOptions {
+  /**
+   * The strokeWidth of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth?: Dimension;
+
+  /**
+   * The color of Divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+
+  /**
+   * The startMargin of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  startMargin?: Dimension;
+
+  /**
+   * The endMargin of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  endMargin?: Dimension;
+}
+
+/**
  * Style the text selector.
  *
  * @extends CommonMethod<TextPickerAttribute>
@@ -504,6 +554,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 11
    */
   selectedIndex(value: number | number[]): TextPickerAttribute;
+
+  /**
+   * Set the divider of TextPicker
+   *
+   * @param { DividerOptions | null } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  divider(value: DividerOptions | null): TextPickerAttribute;
 }
 
 /**

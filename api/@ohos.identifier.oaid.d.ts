@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Provides the capability to manage OAID
  * @kit AdsKit
  */
 

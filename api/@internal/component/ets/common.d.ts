@@ -4747,6 +4747,36 @@ declare enum SourceTool {
    * @since 11
    */
   Pen,
+
+  /**
+   * The mouse type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  MOUSE,
+
+  /**
+   * The touchpad type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  TOUCHPAD,
+
+  /**
+   * The joystick type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  JOYSTICK,
 }
 
 /**
@@ -6419,6 +6449,28 @@ declare interface BaseEvent {
    * @form
    */
   source: SourceType;
+
+  /**
+   * the Horizontal axis coordinate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  axisHorizontal?: number;
+
+  /**
+   * the Vertical axis coordinate.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  axisVertical?: number;
 
   /**
    * Touch pressure.
@@ -9538,6 +9590,36 @@ declare enum DismissReason {
 }
 
 /**
+ * Component popup dismiss
+ *
+ * @interface DismissPopupAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissPopupAction {
+  /**
+   * Defines popup dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Defines popup dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -10079,6 +10161,16 @@ declare interface PopupOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?(boolean | Callback<DismissPopupAction>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: boolean | Callback<DismissPopupAction>;
 }
 
 /**
@@ -10500,6 +10592,16 @@ declare interface CustomPopupOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?(boolean | Callback<DismissPopupAction>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  onWillDismiss?: boolean | Callback<DismissPopupAction>;
 }
 
 /**
@@ -12149,7 +12251,20 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backgroundImage(src: ResourceStr, repeat?: ImageRepeat): T;
+  /**
+   * Background image
+   * src: Image address url
+   *
+   * @param { ResourceStr | PixelMap } src
+   * @param { ImageRepeat } repeat
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
@@ -13274,7 +13389,7 @@ declare class CommonMethod<T> {
    * If the value is 0, the content blurring effect is not blurring.
    *
    * @param { number } value - value indicates radius of backdrop blur.
-   * @param { BlurOptions } options - options indicates blur options.
+   * @param { BlurOptions } [options] - options indicates blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13735,7 +13850,7 @@ declare class CommonMethod<T> {
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
    * @param { number } value - value indicates radius of backdrop blur.
-   * @param { BlurOptions } options - options indicates the backdrop blur options.
+   * @param { BlurOptions } [options] - options indicates the backdrop blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15108,10 +15223,22 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   linearGradient(value: {
     angle?: number | string;
     direction?: GradientDirection;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -15179,14 +15306,32 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @form
+   */
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
+   * number:number
+   * rotating:rotating
+   * colors:Color description for gradients
+   * repeating:repeating
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   sweepGradient(value: {
-    center: Array<any>;
+    center: [Length, Length];
     start?: number | string;
     end?: number | string;
     rotation?: number | string;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -15244,7 +15389,27 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient
+   * colors:Color description for gradients
+   * repeating: Refill
+   *
+   * @param { object } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  radialGradient(value: {
+    center: [Length, Length];
+    radius: number | string;
+    colors: Array<[ResourceColor, number]>;
+    repeating?: boolean;
+  }): T;
 
   /**
    * Set the motion path of the component
@@ -15290,7 +15455,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    *
-   * @param { ShadowOptions | ShadowStyle } value
+   * @param { ShadowOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -15298,7 +15463,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    *
-   * @param { ShadowOptions | ShadowStyle } value
+   * @param { ShadowOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -16898,7 +17063,16 @@ declare interface LinearGradient {
    * @atomicservice
    * @since 11
    */
-  colors: Array<any>;
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  colors: Array<[ResourceColor, number]>;
   /**
    * Linear Gradient Repeating
    *
@@ -17532,12 +17706,16 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -17545,6 +17723,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17553,6 +17733,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToAppear Method
    *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17564,12 +17746,16 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -17577,6 +17763,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17585,6 +17773,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * aboutToDisappear Method
    *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17703,13 +17893,17 @@ declare class CustomComponent extends CommonAttribute {
 
   /**
    * onPageShow Method
-   *
+   * 
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * onPageShow Method
    *
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17717,6 +17911,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onPageShow Method
    *
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17727,12 +17923,16 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onPageHide Method
    *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * onPageHide Method
    *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17740,6 +17940,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onPageHide Method
    *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17774,6 +17976,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * Triggered when the user clicks the back button
+   * 
    * @returns { void | boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -17781,6 +17985,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * Triggered when the user clicks the back button
+   * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
@@ -17791,6 +17997,8 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * Triggered when the user clicks the back button
+   * 
    * @returns { void | boolean } true means that the page itself processes the return logic.
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
@@ -18345,7 +18553,7 @@ declare interface BackgroundBrightnessOptions {
    * Rate represents the rate at which lightUpDegree
    * decreases with increasing pixel brightness.
    *
-   * @type { number }
+   * @type { number } -The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11
@@ -18357,7 +18565,7 @@ declare interface BackgroundBrightnessOptions {
    * of the rgb value changes when its brightness
    * is 0.
    *
-   * @type { number }
+   * @type { number }  -The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11

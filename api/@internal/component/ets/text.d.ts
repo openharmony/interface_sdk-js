@@ -92,8 +92,20 @@ interface TextInterface {
    * @since 11
    * @form
    */
-  (content?: string | Resource, value?: TextOptions): TextAttribute;
-}
+   /**
+   * Called when writing text.
+   *
+   * @param { string | Resource | StyledString } content
+   * @param { TextOptions } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+   (content?: string | Resource | StyledString, value?: TextOptions): TextAttribute;
+  }
 
 /**
  * @extends CommonMethod<TextAttribute>
