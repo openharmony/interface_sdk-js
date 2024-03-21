@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Define the contents of each selector item.
  *
  * @interface TextPickerRangeContent

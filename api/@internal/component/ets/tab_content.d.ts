@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Enum for the mode of the tab bar when selected.
  *
  * @enum { number }

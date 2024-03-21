@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides ports for relative containers.
  *
  * @interface RelativeContainerInterface

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the ImageAnimator Interface.
  *
  * @interface ImageAnimatorInterface
