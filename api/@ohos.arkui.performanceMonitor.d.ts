@@ -106,9 +106,9 @@ declare namespace performanceMonitor {
      * @since 12
      */
     PERF_TOUCHPAD_EVENT = 2,
-	
-	/**
-     * TThe user uses the joystick to trigger the scene.
+    
+    /**
+     * The user uses the joystick to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12
