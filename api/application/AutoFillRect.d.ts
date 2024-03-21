@@ -14,21 +14,27 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Auto fill rectangle.
  *
  * @interface AutoFillRect
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 12
  */
 export default interface AutoFillRect {
   /**
    * The left of the rect.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   left: number;
@@ -36,9 +42,10 @@ export default interface AutoFillRect {
   /**
    * The top of the rect.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   top: number;
@@ -46,9 +53,10 @@ export default interface AutoFillRect {
   /**
    * The width of the rect.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   width: number;
@@ -56,9 +64,10 @@ export default interface AutoFillRect {
   /**
    * The height of the rect.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   height: number;

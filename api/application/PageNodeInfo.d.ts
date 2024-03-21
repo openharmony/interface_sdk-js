@@ -131,7 +131,7 @@ export default interface PageNodeInfo {
   rect: AutoFillRect;
 
   /**
-   * The auto fill focus of page node.
+   * Is the page node in the focus.
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

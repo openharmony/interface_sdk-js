@@ -52,6 +52,17 @@ export interface FillRequest {
    * @since 11
    */
   viewData: ViewData;
+
+  /**
+   * Whether the UI extension window type is popup window.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  isPopup: boolean;
 }
 
 /**
