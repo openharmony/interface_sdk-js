@@ -610,7 +610,7 @@ declare namespace statistics {
    */
   export type UidNetStatsInfo = {
     [uid: number]: NetStatsInfo;
-  }
+  };
 
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.
