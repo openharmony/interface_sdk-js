@@ -44,7 +44,7 @@ declare namespace securityGuard {
     eventId: number;
 
     /**
-     * The version info
+     * The version of a security event. Different versions indicate different data formats.
      *
      * @type { string }
      * @syscap SystemCapability.Security.SecurityGuard
@@ -98,7 +98,7 @@ declare namespace securityGuard {
     eventId: number;
     
     /**
-     * The begin time.
+     * The begin time, format is YYYYMMDDHHMMSS.
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
@@ -108,7 +108,7 @@ declare namespace securityGuard {
     beginTime?: string;
 
     /**
-     * The end time.
+     * The end time, format is YYYYMMDDHHMMSS.
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.SecurityGuard
@@ -146,7 +146,7 @@ declare namespace securityGuard {
      */
     onQuery: (events: Array<SecurityEvent>) => void;
     /**
-     * Triggered when data is complate.
+     * Triggered when data is complete.
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
