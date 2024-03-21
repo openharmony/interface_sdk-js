@@ -229,7 +229,7 @@ declare namespace locks {
      * @atomicservice
      * @since 12
      */
-    signal: AbortSignal<T>;
+    signal: AbortSignal<T>|null;
     /**
      * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
      * when the timeout is exceeded.
