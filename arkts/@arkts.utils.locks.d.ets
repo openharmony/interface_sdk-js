@@ -35,7 +35,7 @@ declare namespace locks {
    * @atomicservice
    * @since 12
    */
-  type AsyncLockCallback<T> = () => T;
+  type AsyncLockCallback<T> = () => T|Promise<T>;
 
   /**
    * Class to execute an asynchronous operation under lock.
