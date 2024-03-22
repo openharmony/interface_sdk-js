@@ -522,6 +522,37 @@ declare namespace media {
      * @since 11
      */
     videoOrientation?: string;
+
+     /**
+     * This value exists if the video is HDR video.
+     * @type { ?HdrType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 12
+     */
+    hdrType?: HdrType;
+  }
+
+  /**
+   * Enumerates options about the HDR Type of the video.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  enum HdrType {
+    /**
+     * This option is used to mark none HDR type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AV_HDR_TYPE_NONE = 0,
+
+    /**
+     * This option is used to mark HDR Vivid type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    AV_HDR_TYPE_VIVID = 1,
   }
 
   /**
