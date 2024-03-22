@@ -33,7 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { FrameNode } from './@ohos.arkui.node'
+import { ComponentContent } from './@ohos.arkui.node'
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -1262,47 +1262,47 @@ export class ComponentUtils {
  */
 export class Overlay {
   /**
-   * Add the FrameNode to the Overlay.
+   * Add the ComponentContent to the Overlay.
    *
-   * @param { FrameNode } node - The node will be added to the Overlay.
+   * @param { ComponentContent } content - The content will be added to the Overlay.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addFrameNode(node: FrameNode): void;
+  addComponentContent(content: ComponentContent): void;
 
   /**
-   * Delete the FrameNode to the Overlay.
+   * Remove the ComponentContent from the Overlay.
    *
-   * @param { FrameNode } node - The node will be deleted from the Overlay.
+   * @param { ComponentContent } content - The content will be removed from the Overlay.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  deleteFrameNode(node: FrameNode): void;
+  removeComponentContent(content: ComponentContent): void;
 
   /**
-   * Show the FrameNode.
+   * Show the ComponentContent.
    *
-   * @param { FrameNode } node - The node will be shown.
+   * @param { ComponentContent } content - The content will be shown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  showNode(node: FrameNode): void;
+  showComponentContent(content: ComponentContent): void;
 
   /**
-   * Hide the FrameNode.
+   * Hide the ComponentContent.
    *
-   * @param { FrameNode } node - The node will be hidden.
+   * @param { ComponentContent } content - The content will be hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  hideNode(node: FrameNode): void;
+  hideComponentContent(content: ComponentContent): void;
 
   /**
-   * Show all FrameNodes on the Overlay.
+   * Show all ComponentContents on the Overlay.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1311,7 +1311,7 @@ export class Overlay {
   show(): void;
 
   /**
-   * Hide all FrameNodes on the Overlay.
+   * Hide all ComponentContents on the Overlay.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -68,7 +68,7 @@ import { NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, 
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import {
-  AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, PromptAction, Router,
+  AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, Overlay, PromptAction, Router,
   UIContext, UIInspector, UIObserver
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
@@ -78,7 +78,6 @@ import font from '@ohos.font';
 import matrix4 from '@ohos.matrix4';
 import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
-import overlay from '@ohos.overlay';
 import PiPWindow from '@ohos.PiPWindow';
 import pluginComponentManager from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
@@ -113,7 +112,7 @@ export {
   GridObjectSortComponentType, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelMarginOptions,
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
-  OperateItem, OperationOption, OperationType, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
+  OperateItem, OperationOption, OperationType, Overlay, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
   PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RenderNode, RenderOptions, 
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
@@ -123,6 +122,6 @@ export {
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility,
   WindowExtensionContext, XComponentNode, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
-  font, inspector, matrix4, mediaquery, overlay, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
+  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog
 };
