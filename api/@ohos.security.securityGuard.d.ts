@@ -81,12 +81,12 @@ declare namespace securityGuard {
   /**
    * Provides the conditions of querySecurityEvent.
    *
-   * @interface SecurityEventRuler
+   * @interface SecurityEventRule
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface SecurityEventRuler {
+  interface SecurityEventRule {
     /**
      * The security event ids.
      *
@@ -143,6 +143,7 @@ declare namespace securityGuard {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+
     onQuery: (events: Array<SecurityEvent>) => void;
     /**
      * Triggered when data is complete.
@@ -150,6 +151,7 @@ declare namespace securityGuard {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+
     onComplete: () => void;
     /**
      * Triggered when error.
@@ -164,7 +166,7 @@ declare namespace securityGuard {
    * Query security event information from security guard.
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
-   * @param { Array<SecurityEventRuler> } rules - rule of get security event information.
+   * @param { Array<SecurityEventRule> } rules - rule of get security event information.
    * @param { Querier } querier - callback of receiving the query data.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
@@ -173,17 +175,17 @@ declare namespace securityGuard {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function querySecurityEvent(rules: Array<SecurityEventRuler>, querier: Querier): void;
+  function querySecurityEvent(rules: Array<SecurityEventRule>, querier: Querier): void;
 
   /**
    * Provides the conditions of Collector.
    *
-   * @typedef CollectorRuler
+   * @typedef CollectorRule
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface CollectorRuler {
+  interface CollectorRule {
     /**
      * The event id
      *
@@ -209,8 +211,7 @@ declare namespace securityGuard {
    * start the collector to collect data
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
-   * @param { CollectorRuler } ruler - rule of collect security event information..
-   * @param { number } duration -  duration of the collector.
+   * @param { CollectorRule } rule - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
@@ -218,13 +219,13 @@ declare namespace securityGuard {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function startSecurityEventCollector(ruler: CollectorRuler, duration?: number): void;
+  function startSecurityEventCollector(rule: CollectorRule): void;
 
   /**
    * stop the collector.
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
-   * @param { CollectorRuler } ruler - rule of collect security event information.
+   * @param { CollectorRule } rule - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
    * @throws { BusinessError } 401 - invalid parameters.
@@ -232,19 +233,19 @@ declare namespace securityGuard {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function stopSecurityEventCollector(ruler: CollectorRuler): void;
+  function stopSecurityEventCollector(rule: CollectorRule): void;
 
   /**
-   * Provides the ModelRuler type.
+   * Provides the ModelRule type.
    *
-   * @typedef ModelRuler
+   * @typedef ModelRule
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  interface ModelRuler {
+  interface ModelRule {
     /**
-     * The security model ruler
+     * The security model rule
      *
      * @type { string }
      * @syscap SystemCapability.Security.SecurityGuard
@@ -288,7 +289,7 @@ declare namespace securityGuard {
    * Request security model result from security guard.
    *
    * @permission ohos.permission.securityguard.REQUEST_SECURITY_MODEL_RESULT
-   * @param { ModelRuler } ruler -  indicates the security model ruler.
+   * @param { ModelRule } rule -  indicates the security model rule.
    * @returns { Promise<ModelResult> } model Results with Promises.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
@@ -297,7 +298,7 @@ declare namespace securityGuard {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getModelResult(ruler: ModelRuler): Promise<ModelResult>;
+  function getModelResult(rule: ModelRule): Promise<ModelResult>;
 }
 
 export default securityGuard;
