@@ -5051,6 +5051,20 @@ declare namespace window {
     setWindowDecorVisible(isVisible: boolean): void;
 	
     /**
+     * Set the modality of the window.
+     *
+     * @param { boolean } - Enable the window modal if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    setSubWindowModal(isModal: boolean): Promise<void>;
+
+    /**
      * Set the height of the window decor.
      *
      * @param { number } - The height of window decor.
@@ -5307,6 +5321,14 @@ declare namespace window {
      * @since 11
      */
     decorEnabled: boolean;
+    /**
+     * Indicates modality of subwindow
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    isModal?: boolean;
   }
   /**
    * WindowStage
