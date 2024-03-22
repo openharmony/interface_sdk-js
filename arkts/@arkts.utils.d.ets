@@ -52,6 +52,7 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
+    @Sendable
     class AsyncLock {
       /**
        * Default constructor.
