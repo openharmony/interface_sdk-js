@@ -1107,6 +1107,39 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   customKeyboard(value: CustomBuilder): SearchAttribute;
 
   /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): SearchAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): SearchAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): SearchAttribute;
+
+  /**
    * Called when the search type is set.
    *
    * @param { SearchType } value

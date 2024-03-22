@@ -73,6 +73,36 @@ declare interface InputCounterOptions {
 }
 
 /**
+ * Defines the options of decoration.
+ *
+ * @interface TextDecorationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextDecorationOptions {
+  /**
+   * The decoration type.
+   *
+   * @type { TextDecorationType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type: TextDecorationType;
+
+  /**
+   * Sets the color of decoration.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+}
+
+/**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
