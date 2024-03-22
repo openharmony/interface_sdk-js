@@ -3696,6 +3696,62 @@ declare namespace relationalStore {
      * @since 10
      */
     emit(event: string): void;
+
+    /**
+     * Attaches a database file to the currently linked database.
+     *
+     * @param { string } fullPath - Indicates the path of the database file to attach.
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
+     * @returns { Promise<number> } Promise used to return the number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    attach(fullPath: string, attachName: string, waitTime?: number) : Promise<number>;
+
+    /**
+     * Attaches a database file to the currently linked database.
+     *
+     * @param { Context } context - Indicates the context of an application or ability.
+     * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
+     * @returns { Promise<number> } Promise used to return the number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @throws { BusinessError } 14801001 - Only supported in stage mode.
+     * @throws { BusinessError } 14801002 - The data group id is not valid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    attach(context: Context, config: StoreConfig, attachName: string, waitTime?: number) : Promise<number>;
+
+    /**
+     * Detaches a database from this database.
+     *
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for detaching the database.
+     * @returns { Promise<number> } Return the current number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    detach(attachName: string, waitTime?: number) : Promise<number>;
   }
 
   /**
@@ -3841,6 +3897,20 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } name - Indicates the database name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
 

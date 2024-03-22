@@ -197,6 +197,8 @@ deregisters
 deselected
 designative
 desynchronized
+detaches
+detaching
 detents
 developtools
 devicemanager
