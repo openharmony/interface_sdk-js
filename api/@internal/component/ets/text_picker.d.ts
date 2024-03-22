@@ -756,6 +756,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   textStyle?: PickerTextStyle;
 
   /**
+   * Text style of button items
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: PickerDialogButtonStyle;
+
+  /**
    * Text style of selected items
    *
    * @type { ?PickerTextStyle }

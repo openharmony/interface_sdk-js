@@ -331,6 +331,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Text style of button items
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: PickerDialogButtonStyle;
+
+  /**
    * Callback function when the dialog appears.
    *
    * @type { ?function }
