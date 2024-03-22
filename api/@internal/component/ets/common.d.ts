@@ -241,14 +241,14 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
- * Defining observed ClassDecorator.
+ * Defining ObservedV2 ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare const observed: ClassDecorator;
+declare const ObservedV2: ClassDecorator;
 
 /**
  * Defining Preview ClassDecorator.
@@ -368,14 +368,14 @@ declare const State: PropertyDecorator;
 declare const Track: PropertyDecorator;
 
 /**
- * Defining track PropertyDecorator.
+ * Defining Trace PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare const track: PropertyDecorator;
+declare const Trace: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
@@ -6464,7 +6464,7 @@ declare interface BaseEvent {
   /**
    * the Horizontal axis coordinate.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -6475,7 +6475,7 @@ declare interface BaseEvent {
   /**
    * the Vertical axis coordinate.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
