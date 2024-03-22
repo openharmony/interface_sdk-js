@@ -87,6 +87,22 @@ declare namespace access {
   function disableBluetooth(): void;
 
   /**
+   * Restrict Bluetooth BR/EDR ability on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  function restrictBluetooth(): Promise<void>;
+
+  /**
    * Obtains the Bluetooth status of a device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
