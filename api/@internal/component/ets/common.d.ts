@@ -18932,6 +18932,16 @@ declare interface UICommonEvent {
   * @since 12
   */
   setOnMouse(callback: Callback<MouseEvent> | undefined): void;
+
+  /**
+  * Set or reset the callback which is triggered when the size of component changed.
+  *
+  * @param { SizeChangeCallback | undefined } callback - The callback will be triggered when the size of component changed. If set undefined will reset the target callback.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  setOnSizeChange(callback: SizeChangeCallback | undefined): void;
 }
 
 declare module 'commonEvent' {
