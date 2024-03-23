@@ -148,6 +148,7 @@ declare namespace systemSoundManager {
     /**
      * Gets title of tone.
      * @returns { string } title.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
@@ -157,6 +158,7 @@ declare namespace systemSoundManager {
     /**
      * Gets file name of tone.
      * @returns { string } file name.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
@@ -166,6 +168,7 @@ declare namespace systemSoundManager {
     /**
      * Gets uri of tone.
      * @returns { string } uri.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
@@ -175,6 +178,7 @@ declare namespace systemSoundManager {
     /**
      * Gets customized type of tone.
      * @returns { ToneCustType } Customized type of tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
