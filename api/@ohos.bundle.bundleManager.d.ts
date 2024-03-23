@@ -2763,6 +2763,76 @@ declare namespace bundleManager {
    */
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
+   /**
+   * Get extend resources.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<Array<string>> } Returns getExtResource result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700303 - GetExtResource failed due to no extend resource.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+   function getExtResource(bundleName: string): Promise<Array<string>>;
+
+  /**
+   * Enable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700304 - EnableDynamicIcon failed due to parse dynamic icon failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
+
+  /**
+   * Disable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<void> } Returns disableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700305 - DisableDynamicIcon failed due to no dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function disableDynamicIcon(bundleName: string): Promise<void>;
+
+  /**
+   * Get dynamic icon.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<string> } Returns dynamic icon key.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700306 - No dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getDynamicIcon(bundleName: string): Promise<string>;
+
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
