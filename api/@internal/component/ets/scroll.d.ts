@@ -243,6 +243,26 @@ declare interface OffsetResult {
 }
 
 /**
+ * Define scroll edge options
+ *
+ * @interface ScrollEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ScrollEdgeOptions {
+  /**
+   * The fasten speed of scrolling to the edge, unit is vp/s.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  velocity?: number;
+}
+
+/**
  * Provides custom animation parameters.
  *
  * @interface ScrollAnimationOptions
@@ -481,7 +501,17 @@ declare class Scroller {
    * @atomicservice
    * @since 11
    */
-  scrollEdge(value: Edge);
+  /**
+   * Called when scrolling to the edge of the container.
+   *
+   * @param { Edge } value - Edge type of the container.
+   * @param { ScrollEdgeOptions } [options] - Options of scrolling to edge.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollEdge(value: Edge, options?: ScrollEdgeOptions);
 
   /**
    * Fling the scroll view.
