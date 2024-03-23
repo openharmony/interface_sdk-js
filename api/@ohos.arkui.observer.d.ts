@@ -42,7 +42,7 @@ declare namespace uiObserver {
    */
   export enum NavDestinationState {
     /**
-     * When the NavDestination show.
+     * When the NavDestination is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -52,14 +52,44 @@ declare namespace uiObserver {
     ON_SHOWN = 0,
 
     /**
-     * When the NavDestination hidden.
+     * When the NavDestination is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      * @form
      */
-    ON_HIDDEN = 1
+    ON_HIDDEN = 1,
+
+    /**
+     * When the NavDestination appear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     * @form
+     */
+    ON_APPEAR = 2,
+
+    /**
+     * When the NavDestination disappear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     * @form
+     */
+    ON_DISAPPEAR = 3,
+
+    /**
+     * When back press event happened in NavDestination.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     * @form
+     */
+    ON_BACKPRESS = 100
   }
 
   /**
