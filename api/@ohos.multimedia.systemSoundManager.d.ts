@@ -568,7 +568,7 @@ declare namespace systemSoundManager {
      *
      * @param { BaseContext } context - Current application context.
      * @param { string } uri - Alarm tone uri.
-     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the default alarm tone.
+     * @returns { Promise<void> } Promise used to return result of set alarm tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - The parameters check failed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -659,6 +659,29 @@ declare namespace systemSoundManager {
      * @since 12
      */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, externalUri: string): Promise<string>;
+
+    /**
+     * Add customized tone into ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
+     * @param { number } fd - File descriptor.
+     * @param { number } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
+     * is zero.
+     * @param { number } [length] - The length in bytes of the data to be read. By default, the length is the rest of
+     * bytes in the file from the offset.
+     * @returns { Promise<string> } Tone uri after adding into ringtone library.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: number, offset?: number, length?: number)
+      : Promise<string>;
 
     /**
      * Remove customized tone in ringtone library.
