@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -132,6 +132,63 @@ declare namespace bluetoothManager {
    * @since 11
    */
   function isBluetoothDisabled(admin: Want): boolean;
+
+  /**
+   * Set bluetooth whitelist
+   * This function can be called by a super administrator.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } whitelist - the bluetooth whitelist.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function setBluetoothWhitelist(admin: Want, whitelist: Array<string>): void;
+
+  /**
+   * Get bluetooth whitelist
+   * This function can be called by a super administrator.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<string> } the bluetooth whitelist.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function getBluetoothWhitelist(admin: Want): Array<string>;
+
+  /**
+   * Remove bluetooth whitelist
+   * This function can be called by a super administrator.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } whitelist - the bluetooth whitelist.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function removeBluetoothWhitelist(admin: Want, whitelist: Array<string>): void;
 }
 
 export default bluetoothManager;
