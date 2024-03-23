@@ -44,19 +44,18 @@ declare namespace collections {
     /**
      * A constructor used to create an ArkTS Array.
      *
-     * @param { number } [arrayLength] - The length of the array
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    constructor(arrayLength?: number);
+    constructor();
     /**
      * A constructor used to create an ArkTS Array.
      *
-     * @param { T[] } items - An ArkTS array is initialized with the given elements
+     * @param { T } first - First element when initializing an ArkTS Array.
+     * @param { T[] } left - Left elements when initializing an ArkTS Array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -64,7 +63,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    constructor(...items: T[]);
+    constructor(first: T, ...left: T[]);
     /**
      * Creates an ArkTS Array from an array-like object.
      * 
@@ -79,21 +78,6 @@ declare namespace collections {
      * @since 12
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
-    /**
-     * Creates an ArkTS Array from an iterable object.
-     * 
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
-     * @param { function } mapFn - A mapping function to call on every element of the array.
-     * @returns { Array<U> } A new Array instance
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
-     * @static
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    static from<T, U>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => U): Array<U>;
     /**
      * Gets or sets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
      * 
@@ -131,21 +115,6 @@ declare namespace collections {
      * @since 12
      */
     push(...items: T[]): number;
-    /**
-     * Combines two or more arrays.
-     * This method returns a new array without modifying any existing arrays.
-     * 
-     * @param { (T | Array<T>)[] } items - Additional arrays and/or items to add to the end of the array.
-     * @returns { Array<T> } - A new Array instance
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The concat method cannot be bound.
-     * @throws { BusinessError } 10200201 - Concurrent modification error.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    concat(...items: (T | Array<T>)[]): Array<T>;
     /**
      * Adds all the elements of an ArkTS Array into a string, separated by the specified separator string.
      * 
@@ -269,20 +238,6 @@ declare namespace collections {
      * Returns the elements of an ArkTS Array that meet the condition specified in a callback function.
      * 
      * @param { function } predicate - A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
-     * @returns { Array<S> } A shallow copy of the given containing just the elements that pass the test. If no elements pass the test, an empty array is returned.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The filter method cannot be bound.
-     * @throws { BusinessError } 10200201 - Concurrent modification error.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    filter<S extends T>(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<S>;
-    /**
-     * Returns the elements of an ArkTS Array that meet the condition specified in a callback function.
-     * 
-     * @param { function } predicate - A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
      * @returns { Array<T> } A shallow copy of the given containing just the elements that pass the test. If no elements pass the test, an empty array is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -307,21 +262,6 @@ declare namespace collections {
      * @since 12
      */
     reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T;
-    /**
-     * Calls the specified callback function for all the elements in an ArkTS Array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
-     * 
-     * @param { function } callbackFn - A function that accepts up to four arguments. The reduce method calls the callbackFn function one time for each element in the array.
-     * @param { T } initialValue - If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackFn function provides this value as an argument instead of an array value.
-     * @returns { T } The value that results from running the "reducer" callback function to completion over the entire array.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
-     * @throws { BusinessError } 10200201 - Concurrent modification error.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T, initialValue: T): T;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
      * 
@@ -387,23 +327,6 @@ declare namespace collections {
      * @since 12
      */
     values(): IterableIterator<T>;
-    /**
-     * Returns the value of the first element in the array where predicate is true, and undefined
-     * otherwise.
-     * 
-     * @param { function } predicate - Find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
-     * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { S | undefined } The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The find method cannot be bound.
-     * @throws { BusinessError } 10200201 - Concurrent modification error.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    find<S extends T>(predicate: (value: T, index: number, obj: Array<T>) => boolean): S | undefined;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
