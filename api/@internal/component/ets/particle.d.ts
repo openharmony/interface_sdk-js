@@ -410,6 +410,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
     /**
      * Particle count.
      * @type { number }
+     * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -867,6 +868,7 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Curve of the particle animation.
    * @type { ?(Curve | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
