@@ -161,6 +161,8 @@ declare namespace utils {
       /**
        * Name of the lock.
        *
+       * @type { string }
+       * @readonly
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -223,6 +225,7 @@ declare namespace utils {
       /**
        * If the value is true and lockAsync cannot acquire the lock immediately, the operation is canceled.
        *
+       * @type { boolean }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -232,6 +235,7 @@ declare namespace utils {
       /**
        * The object used to abort the async operation. If signal.aborted is true, the callback will not be called.
        *
+       * @type { AbortSignal<T>|null }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -242,6 +246,7 @@ declare namespace utils {
        * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
        * when the timeout is exceeded.
        *
+       * @type { number }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -262,6 +267,7 @@ declare namespace utils {
       /**
        * Held locks information.
        *
+       * @type { AsyncLockInfo[] }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -271,6 +277,7 @@ declare namespace utils {
       /**
        * Pending locks information.
        *
+       * @type { AsyncLockInfo[] }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -291,6 +298,7 @@ declare namespace utils {
       /**
        * Name of the lock.
        *
+       * @type { string }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -300,6 +308,7 @@ declare namespace utils {
       /**
        * Lock operation mode.
        *
+       * @type { AsyncLockMode }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -309,6 +318,7 @@ declare namespace utils {
       /**
        * lockAsync caller's execution context identifier.
        *
+       * @type { number }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -331,6 +341,7 @@ declare namespace utils {
       /**
        * Set to true to abort an operation.
        *
+       * @type { boolean }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -341,6 +352,7 @@ declare namespace utils {
       /**
        * Reason for the abort. This value will be used to reject the promise returned from lockAsync.
        *
+       * @type { T }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
