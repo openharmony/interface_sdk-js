@@ -1107,6 +1107,7 @@ aec
 zoomreset
 zooms
 zpass
+tones
 commonevent
 clouddata
 unadjustable
