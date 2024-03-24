@@ -50,6 +50,13 @@ ohos_copy("bundle_kits") {
   module_install_name = ""
 }
 
+ohos_copy("bundle_arkts") {
+  sources = [ "//interface/sdk-js/arkts" ]
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
 ohos_copy_internal("ets_internal_api") {
   iv_input = "//interface/sdk-js/api/@internal/ets"
 }
