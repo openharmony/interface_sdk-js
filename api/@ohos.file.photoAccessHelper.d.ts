@@ -3082,7 +3082,7 @@ declare namespace photoAccessHelper {
    */
   interface TextContextInfo {
     /**
-     * The chinese words(UTF-8) text within 250 to recommend images.
+     * The Simplified Chinese(UTF-8) text within 250 to recommend images.
      *
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
