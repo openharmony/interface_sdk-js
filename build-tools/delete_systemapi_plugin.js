@@ -43,6 +43,7 @@ function collectDeclaration(url) {
     const utPath = path.resolve(__dirname, url);
     const utFiles = [];
     readFile(utPath, utFiles); // 读取文件
+    readFile(path.resolve(utPath, '../arkts'), utFiles); // read arkts
     tsTransform(utFiles, deleteSystemApi);
     tsTransformKitFile(utPath);
   } catch (error) {
