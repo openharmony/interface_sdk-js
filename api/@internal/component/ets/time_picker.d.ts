@@ -281,6 +281,15 @@ interface TimePickerInterface {
    */
   (options?: TimePickerOptions): TimePickerAttribute;
 }
+/**
+ * Define the internationalization parameter format.
+ *
+ * @typedef { import('../api/@ohos.intl').default.DateTimeOptions } DateTimeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
 
 /**
  * Defines the TimePicker attribute functions.
@@ -417,6 +426,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 11
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
+
+  /**
+   * Set time format
+   *
+   * @param { DateTimeOptions } value - indicates the format of the time display.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.
