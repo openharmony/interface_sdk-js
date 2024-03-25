@@ -467,28 +467,6 @@ declare namespace notificationManager {
   function cancelAsBundle(representativeBundle: BundleOption, id: number): Promise<void>;
 
   /**
-   * Cancel a representative notification with agent relationship.
-   * <p>If there is no agent relationship,
-   * you need to verify the ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER.
-   *
-   * @param { BundleOption } representativeBundle - The bundle option.
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } [label] - Label of the notification to cancel.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  function cancelAsBundle(representativeBundle: BundleOption, id: number, label?: string): Promise<void>;
-
-  /**
    * Cancel all notifications of the current application.
    *
    * @param { AsyncCallback<void> } callback - The callback of cancelAll.
@@ -2602,6 +2580,15 @@ declare namespace notificationManager {
     CUSTOMER_SERVICE = 5,
 
     /**
+     * NotificationSlot for emergency information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    EMERGENCY_INFORMATION = 10,
+
+    /**
      * NotificationSlot for other purposes.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -2935,6 +2922,64 @@ declare namespace notificationManager {
      * @since 9
      */
     TYPE_TIMER = 2
+  }
+
+  /**
+   * Enum for notification control flag status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export enum NotificationControlFlagStatus {
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of ringtone.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_SOUND = 1 << 0,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of lock screen.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_LOCKSCREEN = 1 << 1,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of banner.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_BANNER = 1 << 2,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of light screen.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_LIGHT_SCREEN = 1 << 3,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of vibration.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_VIBRATION = 1 << 4,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of status bar icon.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
   }
 
   /**

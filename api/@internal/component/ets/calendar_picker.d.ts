@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The type of alignment between entry and calendar.
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full

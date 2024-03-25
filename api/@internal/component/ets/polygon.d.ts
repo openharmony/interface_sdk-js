@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides the polygon drawing interface.
  *
  * @interface PolygonInterface

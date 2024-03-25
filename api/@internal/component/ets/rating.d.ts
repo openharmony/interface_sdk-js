@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides the interface for scoring bars.
  *
  * @interface RatingInterface

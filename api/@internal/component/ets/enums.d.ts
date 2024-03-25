@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * common enum of the checkbox shape
  *
  * @enum { number }
@@ -9030,6 +9035,23 @@ declare enum AppRotation {
    * @since 12
    */
   ROTATION_270 = 3
+}
+
+/**
+ * Enum of EmbeddedType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum EmbeddedType {
+  /**
+   * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  EMBEDDED_UI_EXTENSION = 0,
 }
 
 declare module 'borderStyle' {

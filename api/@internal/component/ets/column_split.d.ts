@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the ColumnSplit component.
  *
  * @interface ColumnSplitInterface

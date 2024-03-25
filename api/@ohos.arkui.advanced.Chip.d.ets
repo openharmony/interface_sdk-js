@@ -92,6 +92,16 @@ export interface IconCommonOptions {
    * @since 11
    */
   fillColor?: ResourceColor;
+
+  /**
+   * Image filled color when chip is activated.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activatedFillColor?: ResourceColor;
 }
 
 /**
@@ -199,6 +209,16 @@ export interface LabelOptions {
   fontColor?: ResourceColor;
 
   /**
+   * Text font color when chip is activated.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activatedFontColor?: ResourceColor;
+
+  /**
    * Text font family.
    *
    * @type { ?string }
@@ -279,6 +299,16 @@ export interface ChipOptions {
   enabled?: boolean;
 
   /**
+   * Set whether chip is active or not.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activated?: boolean;
+
+  /**
    * Chip background color.
    *
    * @type { ?ResourceColor }
@@ -287,6 +317,16 @@ export interface ChipOptions {
    * @since 11
    */
   backgroundColor?: ResourceColor;
+
+  /**
+   * Chip background color when chip is activated.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activatedBackgroundColor?: ResourceColor;
 
   /**
    * Chip radius.
@@ -317,6 +357,16 @@ export interface ChipOptions {
    * @since 11
    */
   onClose?: () => void;
+
+  /**
+   * On clicked action.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onClicked?: Callback<void>;
 }
 
 /**

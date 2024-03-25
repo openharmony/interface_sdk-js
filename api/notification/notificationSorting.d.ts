@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Provides sorting information about an active notification
+ * @kit NotificationKit
+ */
+
 import { NotificationSlot } from './notificationSlot';
 
 /**

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare scroll status
  *
  * @enum { number }
@@ -1275,6 +1280,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead common.ScrollableCommonMethod#onDidScroll
    * @form
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The observer will be called by system when an error occurs.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

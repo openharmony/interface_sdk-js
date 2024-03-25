@@ -35,7 +35,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 12
    */
-  const MAX_ALLOWABLE_REUSE_DURATION: 300000n;
+  const MAX_ALLOWABLE_REUSE_DURATION: 300000;
 
   /**
    * Enum for authentication result.
