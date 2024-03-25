@@ -1835,6 +1835,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxLines(value: number): TextInputAttribute;
 
   /**
+   * Set the text inline style word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak(value: WordBreak): TextInputAttribute;
+
+  /**
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value
