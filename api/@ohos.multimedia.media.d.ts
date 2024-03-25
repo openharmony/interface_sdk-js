@@ -3134,6 +3134,18 @@ declare namespace media {
      * @since 8
      */
     SPEED_FORWARD_2_00_X = 4,
+    /**
+     * playback at 0.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_0_50_X = 5,
+    /**
+     * playback at 1.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_1_50_X = 6,
   }
 
   /**
