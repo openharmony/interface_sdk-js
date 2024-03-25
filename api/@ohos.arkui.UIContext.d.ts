@@ -972,7 +972,7 @@ export class UIObserver {
    * Registers a callback function to be called when the navigation destination is updated.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
+   * @param { object } options - Specify the id of observed navigation.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -984,7 +984,7 @@ export class UIObserver {
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
+   * @param { object } options - Specify the id of observed navigation.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
    *                                                             navigation ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1356,7 +1356,7 @@ export class DragController {
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**
-   * Get a drag preview object.
+   * Get a drag preview object, which provides the functions of setting color or updating animation and has no effect in OnDrop and OnDragEnd callback.
    * @returns { dragController.DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -1555,8 +1555,8 @@ export class UIContext {
   /**
    * Defining animation function
    *
-   * @param { AnimateParam } value - animateTo parameters.
-   * @param { function } event
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1564,8 +1564,8 @@ export class UIContext {
   /**
    * Defining animation function
    *
-   * @param { AnimateParam } value - animateTo parameters.
-   * @param { function } event
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1688,7 +1688,7 @@ export class UIContext {
   runScopedTask(callback: () => void): void;
 
   /**
-   * set KeyboardAvoidMode.
+   * Set KeyboardAvoidMode. The default mode is KeyboardAvoidMode.OFFSET
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1699,7 +1699,7 @@ export class UIContext {
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
 
   /**
-   * get KeyboardAvoidMode.
+   * Get KeyboardAvoidMode.
    * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
