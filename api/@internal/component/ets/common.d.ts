@@ -11630,6 +11630,33 @@ declare interface DragPreviewOptions {
 }
 
 /**
+ * Defines the drag options.
+ *
+ * @interface DragInteractionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface DragInteractionOptions {
+  /**
+  * Define whether to gather selected nodes in grid or list.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  isMultiSelectionEnabled?: boolean;
+  
+  /**
+  * Define whether to execute animation before preview floating.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  defaultAnimationBeforeLifting?: boolean;
+}
+
+/**
  * Define the options of invert
  *
  * @interface InvertOptions
@@ -15154,7 +15181,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dragPreviewOptions(value: DragPreviewOptions): T;
+  /**
+   * Set the selectable area drag preview options.
+   *
+   * @param { DragPreviewOptions } value - preview options value.
+   * @param { DragInteractionOptions } options - drag interaction options value.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T;
 
   /**
    * After binding, a callback is triggered when the preDrag status change finished.
