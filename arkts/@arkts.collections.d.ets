@@ -65,6 +65,20 @@ declare namespace collections {
      */
     constructor(first: T, ...left: T[]);
     /**
+     * Creates an ArkTS Array with arrayLength elements initialized to initialValue.
+     *
+     * @param { number } arrayLength - The length of the array.
+     * @param { T } initialValue - Element initial value that will be filled into the Array.
+     * @returns { Array<T> } A new Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The create method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    static create<T>(arrayLength: number, initialValue: T): Array<T>;
+    /**
      * Creates an ArkTS Array from an array-like object.
      * 
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
@@ -79,15 +93,16 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
     /**
-     * Gets or sets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
+     * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
      * 
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    length: number;
+    readonly length: number;
     /**
      * Removes the last element from an ArkTS array and returns it.
      * If the array is empty, undefined is returned and the array is not modified.
@@ -394,6 +409,52 @@ declare namespace collections {
      * @since 12
      */
     fill(value: T, start?: number, end?: number): Array<T>;
+    /**
+     * Shrinks the ArkTS array to the given arrayLength.
+     * 
+     * @param { number } arrayLength - The new Array length.
+     * Throws error when arrayLength < 0 or arrayLength > 2^32.
+     * If arrayLength > array.length, array remains unchanged.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The shrinkTo method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    shrinkTo(arrayLength: number): void;
+    /**
+     * Extends the ArkTS array to the given arrayLength,
+     * and appends new elements with given initialValue up to the arrayLength.
+     * 
+     * @param { number } arrayLength - The new Array length.
+     * Throws error when arrayLength < 0 or arrayLength > 2^32.
+     * If arrayLength < array.length, array remains unchanged.
+     * @param { T } initialValue - Element initial value that will be appended to the array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The extendTo method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    extendTo(arrayLength: number, initialValue: T): void;
+    /**
+     * Returns the item at that index.
+     * 
+     * @param { number } index - The zero-based index of the desired code unit.
+     * Throws error if index < 0 or index >= array.length.
+     * @returns { T } The element in the array matching the given index. 
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    [index: number]: T;
   }
   
   /**
