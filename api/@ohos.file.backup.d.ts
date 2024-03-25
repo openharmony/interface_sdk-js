@@ -253,7 +253,22 @@ declare namespace backup {
    * @since 12
    */
   function getLocalCapabilities(dataList: Array<IncrementalBackupTime>): Promise<FileData>;
-
+  
+  /**
+    * Get Backup information from bundle.
+    *
+    * @permission ohos.permission.BACKUP
+    * @param { string } bundleToBackup Bundle to backup.
+    * @returns { string } Return the backup application's info.
+    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+    * @throws { BusinessError } 401 - The input parameter is invalid.
+    * @syscap SystemCapability.FileManagement.StorageService.Backup
+    * @systemapi
+    * @since 12
+    */
+  function getBackupInfo(bundleToBackup: string): string;
+  
   /**
    * General callbacks for both backup and restore procedure.
    * The backup service will notify the client by these callbacks.
@@ -372,6 +387,24 @@ declare namespace backup {
      * @since 10
      */
     onBackupServiceDied: Callback<undefined>;
+    
+    /**
+     * Callback called when the backup service return result information.
+     * The first return string parameter indicates the result of the bundle.
+     *
+     * @returns { Promise<string> } Return restore result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    onResultReport(): Promise<string>;
   }
 
   /**
