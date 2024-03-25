@@ -162,6 +162,46 @@ declare namespace cloudData {
   }
 
   /**
+   * Sync information.
+   *
+   * @interface SyncInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 12
+   */
+  interface SyncInfo {
+    /**
+     * Sync start time.
+     *
+     * @type { Date }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    startTime: Date;
+
+    /**
+     * Sync finish time.
+     *
+     * @type { Date }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    finishTime: Date;
+
+    /**
+     * Sync progress.
+     *
+     * @type { relationalStore.ProgressCode }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    code: relationalStore.ProgressCode;
+  }
+
+  /**
    * Provides methods to set CloudSync config.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -434,6 +474,28 @@ declare namespace cloudData {
         bundleName: string,
         storeId?: string
     ): Promise<Record<string, Array<StatisticInfo>>>;
+
+    /**
+     * Queries last sync information.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName - Indicates the name of application.
+     * @param { string } [storeId] - Indicates the store ID.
+     * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static queryLastSyncInfo(
+        accountId: string,
+        bundleName: string,
+        storeId?: string
+    ): Promise<Record<string, SyncInfo>>;
 
     /**
      * deletes cloud information from local data.
