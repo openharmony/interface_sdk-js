@@ -4877,6 +4877,20 @@ declare namespace window {
     minimize(): Promise<void>;
 
     /**
+     * Maximize app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    maximize(): Promise<void>;
+
+    /**
      * Set whether to enable a window to resize by drag.
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
@@ -5069,7 +5083,31 @@ declare namespace window {
      * @since 11
      */
     getTitleButtonRect(): TitleButtonRect;
-	
+
+    /**
+     * Enable landscape multiWindow
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    enableLandscapeMultiWindow(): Promise<void>;
+
+    /**
+     * Disable landscape multiWindow
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    disableLandscapeMultiWindow(): Promise<void>;
+
     /**
      * Register the callback of title buttons area change.
      *

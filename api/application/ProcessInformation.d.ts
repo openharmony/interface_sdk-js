@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import type appManager from '../@ohos.app.ability.appManager';
 
 /**

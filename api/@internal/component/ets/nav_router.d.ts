@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Indicates the information of the route page.
  *
  * @interface RouteInfo

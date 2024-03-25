@@ -3006,6 +3006,16 @@ declare namespace request {
        */
       redirect?: boolean;
       /**
+       * The proxy url for the task.
+       * Only this format is supported: http://<domain or IP-address>:<port>
+       * Username and password are not supported.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      proxy?: string;
+      /**
        * The index of paths for a task.
        * Usually used for a continuous job.
        * The default is 0.

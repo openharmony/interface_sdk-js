@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { TouchEvent } from 'touchEvent';
 import { FrameNode } from './FrameNode';
@@ -69,7 +74,7 @@ export abstract class NodeController {
   aboutToDisappear?(): void;
 
   /**
-   * Rebuild Method. Used to re invoke the makeNode method.
+   * Rebuild Method. Used to invoke the makeNode method.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

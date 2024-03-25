@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Information carried when a notification is sent
+ * @kit NotificationKit
+ */
+
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import type notificationManager from '../@ohos.notificationManager';
@@ -308,6 +313,26 @@ export interface NotificationRequest {
    * @since 8
    */
   readonly creatorUserId?: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly creatorInstanceKey?: number;
+
+  /**
+   * Obtain the prompt tone resource path of the notification.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  sound?: string;
 
   /**
    * Obtains the classification of this notification.

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Surface Rectangle information.
  *
  * @interface SurfaceRect

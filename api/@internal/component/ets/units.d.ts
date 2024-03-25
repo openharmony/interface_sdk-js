@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the data type of the interface restriction.
  *
  * @interface Resource
@@ -1789,6 +1794,67 @@ declare interface Position {
    */
   y?: Length;
 }
+
+/**
+ * Defines the Edges.
+ *
+ * @interface Edges
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare interface Edges {
+  /**
+   * top property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  top?: Dimension;
+
+  /**
+   * left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  left?: Dimension;
+
+   /**
+   * bottom property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  bottom?: Dimension;
+
+  /**
+   * right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  right?: Dimension;
+}
+
 /**
  * Defines the Bias.
  *

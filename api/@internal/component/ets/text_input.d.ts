@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare the type of input box
  *
  * @enum { number }
@@ -358,6 +363,53 @@ declare enum EnterKeyType {
 }
 
 /**
+  * Defines the underline color width property.
+  *
+  * @interface UnderlineColor
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+declare interface UnderlineColor {
+  /**
+    * Typing underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  typing?: ResourceColor | undefined;
+  /**
+    * Normal underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  normal?: ResourceColor | undefined;
+  /**
+    * Error underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  error?: ResourceColor | undefined;
+  /**
+    * Disable underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  disable?: ResourceColor | undefined;
+} 
+
+/**
  * Provides the method of keeping TextInput editable state when submitted.
  *
  * @interface SubmitEvent
@@ -553,14 +605,14 @@ declare interface TextInputOptions {
   placeholder?: ResourceStr;
 
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -568,7 +620,7 @@ declare interface TextInputOptions {
    * @since 10
    */
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1710,6 +1762,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   showUnderline(value: boolean): TextInputAttribute;
+
+  /**
+   * Define the underline color of the text input.
+   *
+   * @param { ResourceColor | UnderlineColor | undefined } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  underlineColor(value: ResourceColor | UnderlineColor | undefined): TextInputAttribute;
 
   /**
    * Controls whether the selection menu pops up.

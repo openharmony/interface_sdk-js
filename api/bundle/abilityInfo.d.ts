@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { ApplicationInfo } from './applicationInfo';
 import { CustomizeData } from './customizeData';
 import bundle from './../@ohos.bundle';

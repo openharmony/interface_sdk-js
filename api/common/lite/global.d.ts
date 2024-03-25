@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Sets the interval for repeatedly calling a function.
  *
  * @param { Function } handler - Indicates the function to be called repeatedly at the interval.

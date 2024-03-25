@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * common enum of the checkbox shape
  *
  * @enum { number }

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the option in length unit of grid-row component.
  *
  * @interface GridRowSizeOption

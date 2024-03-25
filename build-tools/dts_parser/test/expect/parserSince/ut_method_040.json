@@ -214,7 +214,7 @@
       },
       {
         "apiType": "Method",
-        "name": "on",
+        "name": "on_string",
         "syscap": "",
         "since": "-1",
         "isForm": false,
@@ -264,7 +264,7 @@
       },
       {
         "apiType": "Method",
-        "name": "off",
+        "name": "off_string",
         "syscap": "",
         "since": "-1",
         "isForm": false,

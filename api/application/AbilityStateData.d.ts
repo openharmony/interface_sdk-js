@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The ability or extension state data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
