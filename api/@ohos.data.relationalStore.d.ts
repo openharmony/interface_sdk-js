@@ -3196,7 +3196,7 @@ declare namespace relationalStore {
     beginTransaction(): void;
 
     /**
-     * beginTrans before execute your sql.
+     * Begins a transaction before executing the SQL statement.
      *
      * @returns { Promise<number> } Returns the transaction ID.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -3226,10 +3226,10 @@ declare namespace relationalStore {
     commit(): void;
 
     /**
-     * Commit the the sql you have executed.
+     * Commits the SQL statement executed.
      *
      * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -3255,10 +3255,10 @@ declare namespace relationalStore {
     rollBack(): void;
 
     /**
-     * Roll back the sql you have already executed.
+     * Rolls back the SQL statement executed.
      *
      * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
