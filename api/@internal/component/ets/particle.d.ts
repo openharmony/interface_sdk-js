@@ -403,7 +403,6 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
     /**
      * Particle count.
      * @type { number }
-     * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -411,7 +410,6 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
     /**
      * Particle count.
      * @type { number }
-     * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
