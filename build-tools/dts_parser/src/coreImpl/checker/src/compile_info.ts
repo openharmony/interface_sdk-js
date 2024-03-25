@@ -44,7 +44,7 @@ export class AddErrorLogs {
     checkErrorInfos: ApiResultSimpleInfo[],
     checkErrorAllInfos: ApiResultInfo[]
   ): void {
-    const location = `${filePath}(line:${pos.line},character:${pos.character})`;
+    const location = JSON.stringify(pos.line);
     const errorMessage: string = `API check error of [${errorType}]: ${message}`;
     const apiChecktSimpleErrorLog: ApiResultSimpleInfo = new ApiResultSimpleInfo();
     apiChecktSimpleErrorLog
@@ -52,7 +52,8 @@ export class AddErrorLogs {
       .setLevel(level)
       .setLocation(location)
       .setFilePath(filePath)
-      .setMessage(errorMessage);
+      .setMessage(errorMessage)
+      .setApiText(apiFullText);
 
     const apiCheckErrorLog: ApiResultInfo = new ApiResultInfo();
     apiCheckErrorLog

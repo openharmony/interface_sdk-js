@@ -24,7 +24,7 @@ import { DiffHelper } from '../coreImpl/diff/diff';
 import { BasicDiffInfo, diffTypeMap, ApiDiffType } from '../typedef/diff/ApiInfoDiff';
 import { WriterHelper } from './writer';
 import { LocalEntry } from '../coreImpl/checker/local_entry';
-import { ApiResultSimpleInfo } from '../typedef/checker/result_type';
+import { ApiResultMessage, ApiResultSimpleInfo } from '../typedef/checker/result_type';
 import { NumberConstant } from '../utils/Constant';
 import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
@@ -46,6 +46,10 @@ export enum toolNameType {
    */
   CHECK = 'check',
   /**
+   * 检查工具 线上版
+   */
+  CHECKONLINE = 'checkOnline',
+  /**
    * diff工具
    */
   DIFF = 'diff',
@@ -66,7 +70,7 @@ export const toolNameSet: Set<string> = new Set(EnumUtils.enum2arr(toolNameType)
  * @enum { string }
  */
 export enum formatType {
-  NULL = 'null',
+  NULL = '',
   JSON = 'json',
   EXCEL = 'excel',
   CHANGELOG = 'changelog',
@@ -85,7 +89,7 @@ export const Plugin: PluginType = {
     commands: [
       {
         isRequiredOption: true,
-        options: [`-N,--tool-name <${[...toolNameSet]}>`, 'tool name ', 'collect'],
+        options: [`-N,--tool-name <${[...toolNameSet]}>`, 'tool name ', 'checkOnline'],
       },
       {
         isRequiredOption: false,
@@ -94,6 +98,18 @@ export const Plugin: PluginType = {
       {
         isRequiredOption: false,
         options: ['-F,--collect-file <string>', 'collect api file array', ''],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--path <string>', 'check api path, split with comma', ''],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--checker <string>', 'check api rule, split with comma', 'all'],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--excel <string>', 'check api excel', 'false'],
       },
       {
         isRequiredOption: false,
@@ -140,6 +156,8 @@ export const Plugin: PluginType = {
       toolName: toolName,
       collectPath: argv.collectPath,
       collectFile: argv.collectFile,
+      path: argv.path,
+      checker: argv.checker,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -147,6 +165,7 @@ export const Plugin: PluginType = {
       output: argv.output,
       format: argv.format,
       changelogUrl: argv.changelogUrl,
+      excel: argv.excel,
     };
     const methodInfos: ToolNameValueType = method(options);
 
@@ -306,12 +325,13 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
 function checkApi(options: OptionObjType): ToolNameValueType {
   let allApis: FilesMap;
   try {
-    let fileContent: ApiResultSimpleInfo[] = [];
+    let fileContent: ApiResultMessage[] = [];
     if (process.env.NODE_ENV === 'development') {
-      fileContent = LocalEntry.checkEntryLocal();
+
+      fileContent = LocalEntry.checkEntryLocal([], [], "", 'false');
     } else if (process.env.NODE_ENV === 'production') {
     }
-    let finalData: (string | ApiResultSimpleInfo)[] = [];
+    let finalData: (string | ApiResultMessage)[] = [];
     if (options.format === formatType.JSON) {
       finalData = [JSON.stringify(fileContent, null, NumberConstant.INDENT_SPACE)];
     } else {
@@ -322,7 +342,29 @@ function checkApi(options: OptionObjType): ToolNameValueType {
     };
   } catch (exception) {
     const error = exception as Error;
-    LogUtil.e('error collect', error.stack ? error.stack : error.message);
+    LogUtil.e('error check', error.stack ? error.stack : error.message);
+    return {
+      data: [],
+    };
+  }
+}
+/**
+ * 收集api工具调用方法
+ *
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
+ */
+function checkOnline(options: OptionObjType): ToolNameValueType {
+  options.format = formatType.NULL
+  try {
+    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
+    return {
+      data: [],
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error check', error.stack ? error.stack : error.message);
+  } finally {
     return {
       data: [],
     };
@@ -472,6 +514,7 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
 export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
   [toolNameType.COLLECT, collectApi],
   [toolNameType.CHECK, checkApi],
+  [toolNameType.CHECKONLINE, checkOnline],
   [toolNameType.DIFF, diffApi],
   [toolNameType.LABELDETECTION, detectionApi],
 ]);
@@ -481,6 +524,8 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
  */
 export type OptionObjType = {
   toolName: toolNameType;
+  path: string;
+  checker: string;
   collectPath: string;
   collectFile: string;
   old: string;
@@ -490,6 +535,7 @@ export type OptionObjType = {
   output: string;
   format: formatType;
   changelogUrl: string;
+  excel: string;
 };
 
 /**
@@ -518,7 +564,7 @@ export type ToolNameValueType = {
    */
   callback?: ToolNameExcelCallback;
 };
-export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultSimpleInfo | BasicDiffInfo)[];
+export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultMessage | BasicDiffInfo)[];
 
 /**
  * 各个工具调用方法
