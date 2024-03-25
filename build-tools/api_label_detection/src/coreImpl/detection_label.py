@@ -13,10 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from src.utils.util import (get_start_characters, get_remaining_characters, json_file_data, label_type_conversion,
-                            get_check_labels, generate_excel, get_position_information, set_label_to_result)
-from src.utils.constants import mutex_label_dist, contrast_function, label_name_dist
-from src.typedef.detection import Output, ErrorMessage, ErrorType
+from utils.util import (get_start_characters, get_remaining_characters, json_file_data, label_type_conversion,
+                        get_check_labels, generate_excel, get_position_information,
+                        set_label_to_result, get_js_doc_info)
+from utils.constants import mutex_label_dist, contrast_function, label_name_dist, one_to_many_function
+from typedef.detection import Output, ErrorMessage, ErrorType
+from coreImpl.process_three_type import process_tag_dict
+from typedef.process_three_type import get_judgment_node_type_dict
+
 
 result_list = []
 
@@ -24,6 +28,7 @@ result_list = []
 def judgement_dict_data(result, result_key):
     my_dict = dict()
     for dict_data in result[result_key]:  # 代表对应文件的解析数据
+        judgment_node_type = get_judgment_node_type_dict()
         # 互斥标签
         if 'jsDocInfos' in dict_data:
             if len(dict_data['jsDocInfos']) > 0:
@@ -31,23 +36,32 @@ def judgement_dict_data(result, result_key):
         # 枚举类标签检测
         if dict_data['apiType'] == 'Enum':
             enum_label_detection(dict_data)
+        elif 'apiType' in dict_data and dict_data['apiType'] in judgment_node_type:
+            message_list = process_tag_dict(dict_data)
+            if message_list:
+                result_list.extend(message_list)
         my_dict[dict_data['definedText']] = dict_data
         dict_keys = dict_data.keys()
         if 'childApis' in dict_keys:  # 递归处理child
             judgement_dict_data(dict_data, 'childApis')
-    # 命令控制是否校验成对函数漏标
-    if 1 == 1:
-        paired_function_omission_label(my_dict)
+    #校验成对函数漏标
+    paired_function_omission_label(my_dict)
 
 
 def enum_label_detection(parent_enum_info: dict):
+    if 'jsDocInfos' not in parent_enum_info:
+        return
     parent_js_doc_info = get_js_doc_info(parent_enum_info['jsDocInfos'])
+    if parent_js_doc_info is None:
+        return
     if not parent_js_doc_info['isAtomicService']:
         return
     children_list = parent_enum_info['childApis']
     count = 0
     for child_info in children_list:
         child_doc_info = get_js_doc_info(child_info['jsDocInfos'])
+        if child_doc_info is None:
+            continue
         if child_doc_info['isAtomicService']:
             count = count + 1
     if count == 0:
@@ -67,55 +81,76 @@ def paired_function_omission_label(my_dict: dict):
 
 
 def is_pairing_function(defined_text, my_dict: dict):
-    api_type = my_dict[defined_text]['apiType']
+    target_api_info = my_dict[defined_text]
+    api_type = target_api_info['apiType']
     if api_type != 'Method':
         return False
-    start = get_start_characters(my_dict[defined_text]['apiName'])
+    start = get_start_characters(target_api_info['apiName'])
     return start in contrast_function.keys()
 
 
 def pairing(defined_text, my_dict, filter_duplicates_dist):
-    four_twin_list = ['off', 'on', 'emit', 'once']
     function_name = my_dict[defined_text]['apiName']
     start = get_start_characters(function_name)
     api_name_list = []
     # 4个中的其中之一
-    if start in four_twin_list:
-        dismantle_four_twin(my_dict, four_twin_list, start, function_name, api_name_list)
+    if start in one_to_many_function:
+        dismantle_one_to_many(my_dict, start, function_name, api_name_list)
     else:
         dismantle_ordinary(start, my_dict, function_name, api_name_list)
 
     # 找到对应的函数
     if len(api_name_list) != 0:
-        ff = my_dict[defined_text]
+        function_target_data = my_dict[defined_text]
         for api_name in api_name_list:
             api_info = my_dict[api_name]
-            handling_missing_labels(ff, api_info, filter_duplicates_dist)
+            handling_missing_labels(function_target_data, api_info, filter_duplicates_dist)
 
 
-def dismantle_four_twin(my_dict: dict, four_twin_list, start, function_name, api_name_list):
-    for func in my_dict:
-        if get_start_characters(my_dict[func]['apiName']) in four_twin_list:
-            if (get_remaining_characters(get_start_characters(my_dict[func]['apiName']), my_dict[func]['apiName'])
+def dismantle_one_to_many(my_dict: dict, start, function_name, api_name_list):
+    for defined_text in my_dict:
+        api_name = my_dict[defined_text]['apiName']
+        if get_start_characters(api_name) in one_to_many_function:
+            if (get_remaining_characters(get_start_characters(api_name), api_name)
                     == get_remaining_characters(start, function_name)):
-                api_name_list.append(func)
+                api_name_list.append(defined_text)
 
 
 def dismantle_ordinary(start, my_dict: dict, function_name, api_name_list):
     relative_function = contrast_function.get(start)
-    for api_name in my_dict:
-        if get_start_characters(my_dict[api_name]['apiName']) == relative_function:
-            if (get_remaining_characters(relative_function, my_dict[api_name]['apiName'])
+    for defined_text in my_dict:
+        api_name = my_dict[defined_text]['apiName']
+        if get_start_characters(api_name) == relative_function:
+            if (get_remaining_characters(relative_function, api_name)
                     == get_remaining_characters(start, function_name)):
-                api_name_list.append(api_name)
+                api_name_list.append(defined_text)
 
 
 # 处理成对函数漏标问题
 def handling_missing_labels(function_target_data: dict, function_relative_data: dict, filter_duplicates_dist):
-    target_doc_infos = function_target_data['jsDocInfos']
-    relative_doc_infos = function_relative_data['jsDocInfos']
-    target_doc_info = target_doc_infos[len(target_doc_infos) - 1]
-    relative_doc_info = relative_doc_infos[len(relative_doc_infos) - 1]
+    #目标函数与相对函数Doc信息都为空，直接返回不做判断
+    if 'jsDocInfos' not in function_target_data and 'jsDocInfos' not in function_relative_data:
+        return
+    #目标函数Doc信息为空，相对函数标记的标签全部为目标函数漏标
+    if 'jsDocInfos' not in function_target_data:
+        relative_doc_info = get_js_doc_info(function_relative_data['jsDocInfos'])
+        if relative_doc_info is None:
+            return
+        #判断相对函数中标记的标签
+        one_function_is_empty(function_relative_data, filter_duplicates_dist)
+        return
+    #相对函数Doc信息为空，目标函数标记的标签全部为相对函数漏标
+    if 'jsDocInfos' not in function_relative_data:
+        relative_doc_info = get_js_doc_info(function_target_data['jsDocInfos'])
+        if relative_doc_info is None:
+            return
+        # 判断相对函数中标记的标签
+        one_function_is_empty(function_target_data, filter_duplicates_dist)
+        return
+
+    #目标函数和相对函数Doc信息都不为空
+    target_doc_info = get_js_doc_info(function_target_data['jsDocInfos'])
+    relative_doc_info = get_js_doc_info(function_relative_data['jsDocInfos'])
     target_label_info = get_check_labels(target_doc_info)
     relative_label_info = get_check_labels(relative_doc_info)
     diff = target_label_info.keys() & relative_label_info
@@ -127,6 +162,19 @@ def handling_missing_labels(function_target_data: dict, function_relative_data: 
             get_label_exclusivity_results(function_relative_data, filter_duplicates_dist, val)
         else:
             get_label_exclusivity_results(function_target_data, filter_duplicates_dist, val)
+
+
+def one_function_is_empty(function_info: dict, filter_duplicates_dist):
+    doc_info = get_js_doc_info(function_info['jsDocInfos'])
+    if doc_info is None:
+        return
+    #判断需要校验的标签
+    if doc_info['isAtomicService']:
+        get_label_exclusivity_results(function_info, filter_duplicates_dist, 'isAtomicService')
+    if doc_info['isForm']:
+        get_label_exclusivity_results(function_info, filter_duplicates_dist, 'isForm')
+    if doc_info['isCrossPlatForm']:
+        get_label_exclusivity_results(function_info, filter_duplicates_dist, 'isCrossPlatForm')
 
 
 def get_label_exclusivity_results(relative_data: dict, filter_duplicates_dist, val):
@@ -163,16 +211,9 @@ def is_label_consistent(doc_info: dict, label, mutex_label_list, api_info):
             result_list.append(result)
 
 
-def get_js_doc_info(js_doc_info_list: list):
-    if len(js_doc_info_list) > 0:
-        return js_doc_info_list[len(js_doc_info_list) - 1]
-    return None
-
-
 # 按装订区域中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    path = r'E:\python_workspace\collect_0_0.json'
-    data = json_file_data(path)
+def detection_label(result_json_path, output_path):
+    data = json_file_data(result_json_path)
     for key in data:   # 代表每个ts文件
         judgement_dict_data(data, key)
-    generate_excel(result_list, '')
+    generate_excel(result_list, output_path)

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData';
 

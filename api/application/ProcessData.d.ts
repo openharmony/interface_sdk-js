@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The process data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

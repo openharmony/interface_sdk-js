@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Mesh container for static fixed-size layout scenarios.
  *
  * @interface FlowItemInterface

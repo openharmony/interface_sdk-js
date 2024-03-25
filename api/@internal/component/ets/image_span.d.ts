@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provide image decoration in the text component.
  *
  * @interface ImageSpanInterface

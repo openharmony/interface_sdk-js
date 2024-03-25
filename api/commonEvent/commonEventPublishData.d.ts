@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file Containing the common event content and attributes
+ * @kit BasicServicesKit
+ */
+
+/**
  * containing the common event content and attributes
  *
  * @typedef CommonEventPublishData

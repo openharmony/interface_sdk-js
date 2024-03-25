@@ -104,6 +104,7 @@ declare namespace fileIo {
   export { utimes };
   export { write };
   export { writeSync };
+  export { AccessModeType };
   export { File };
   export { OpenMode };
   export { RandomAccessFile };
@@ -421,7 +422,30 @@ declare namespace fileIo {
  * @atomicservice
  * @since 11
  */
-declare function access(path: string): Promise<boolean>;
+/**
+ * Access file.
+ *
+ * @param { string } path - path.
+ * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - accessibility mode.
+ * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 
 /**
  * Access file.
@@ -551,7 +575,31 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @atomicservice
  * @since 11
  */
-declare function accessSync(path: string): boolean;
+/**
+ *  
+ * Access file with sync interface.
+ *
+ * @param { string } path - path.
+ * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - accessibility mode.
+ * @returns { boolean } Returns the file is accessible or not.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare function accessSync(path: string, mode?: AccessModeType): boolean;
 
 /**
  * Close file or fd.
@@ -2112,6 +2160,22 @@ declare function listFileSync(
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
+ */
+/**
+ *  Reposition file offset.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { number } offset - file offset.
+ * @param { WhenceType } [whence = WhenceType.SEEK_SET] - directive whence.
+ * @returns { number } Returns the file offset relative to starting position of file.
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900026 - Illegal seek
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 12
  */
 declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 
@@ -5365,6 +5429,21 @@ declare function unlinkSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ * Change file mtime.
+ *
+ * @param { string } path - path.
+ * @param { number } mtime - last modification time
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 12
+ */
 declare function utimes(path: string, mtime: number): void;
 
 /**
@@ -7564,4 +7643,45 @@ declare enum LocationType {
    * @since 11
    */
   CLOUD = 1 << 1,
+}
+
+/**
+ * Enumeration of different types of access mode.
+ *
+ * @enum { number } access mode type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare enum AccessModeType {  
+  /**
+   * Check if the file exists.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  EXIST = 0,
+
+  /**
+   * Check if the file has write permission.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  WRITE = 2,
+
+  /**
+   * Check if the file has read permission.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  READ = 4,
+
+  /**
+   * Check if the file has read and write permission.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  READ_WRITE = 6,
 }

@@ -288,48 +288,48 @@ declare enum SymbolEffectStrategy {
 export declare class SymbolOptions {
   /**
    * The size of symbol icon.
-   * @type { number | string | Resource }.
+   * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  fontSize: number | string | Resource;
+  fontSize?: number | string | Resource;
 
   /**
    * The color of symbol icon.
-   * @type { Array<ResourceColor> }.
+   * @type { ?(Array<ResourceColor>) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  fontColor: Array<ResourceColor>;
+  fontColor?: Array<ResourceColor>;
 
   /**
    * The fontWeight of symbol icon.
-   * @type { number | FontWeight | string }.
+   * @type { ?(number | FontWeight | string) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  fontWeight: number | FontWeight | string;
+  fontWeight?: number | FontWeight | string;
 
   /**
    * The effect strategy of symbol icon.
-   * @type { SymbolEffectStrategy }.
+   * @type { ?(SymbolEffectStrategy) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  effectStrategy: SymbolEffectStrategy;
+  effectStrategy?: SymbolEffectStrategy;
 
   /**
    * The rendering strategy of symbol icon.
-   * @type { SymbolRenderingStrategy }.
+   * @type { ?(SymbolRenderingStrategy) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  renderingStrategy: SymbolRenderingStrategy;
+  renderingStrategy?: SymbolRenderingStrategy;
 }
 
 /**

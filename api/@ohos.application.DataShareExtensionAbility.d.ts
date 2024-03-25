@@ -23,6 +23,16 @@ import ExtensionContext from './application/ExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
+import dataShare from './@ohos.data.dataShare';
+
+/**
+   * Struct for a batch update operation.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @stagemodelonly
+   * @since 12
+   */
+type UpdateOperation = dataShare.UpdateOperation;
 
 /**
  * This module provides data sharing and expansion capabilities.
@@ -87,6 +97,21 @@ export default class DataShareExtensionAbility {
     predicates: dataSharePredicates.DataSharePredicates,
     valueBucket: ValuesBucket,
     callback: AsyncCallback<number>
+  ): void;
+
+  /**
+   * Updates data records in the database.
+   *
+   * @param { Record<string, Array<UpdateOperation>> } operations - Indicates the data to update.
+   * @param { AsyncCallback<Record<string, Array<number>>> } callback - Callback used to return the result.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  batchUpdate?(
+    operations: Record<string, Array<UpdateOperation>>,
+    callback: AsyncCallback<Record<string, Array<number>>>
   ): void;
 
   /**

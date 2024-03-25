@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import AppStateData from './AppStateData';
 import AbilityStateData from './AbilityStateData';
 import * as _ProcessData from './ProcessData';
