@@ -483,8 +483,6 @@ export interface AnimatorResult {
 
   /**
    * Trigger when vSync callback.
-   * 
-   * @param { function } progress - Indicates the current progress of animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
