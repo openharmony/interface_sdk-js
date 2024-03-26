@@ -242,6 +242,13 @@ declare namespace cooperate {
     state: CooperateState;
   }
 
+  interface MouseLocation {
+    displayX: number;
+    displayY: number;
+    displayWidth: number;
+    displayHeight: number;
+  }
+
   /**
    * Prepares for screen hopping.
    *
@@ -593,6 +600,11 @@ declare namespace cooperate {
    * @since 11
    */
   function off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>): void;
+
+
+  function on(type: 'cooperateMessage', receiver?: Callback<MouseLocation>): void;
+
+  function off(type: 'cooperateMessage', receiver?: Callback<MouseLocation>): void;
 }
 
 export default cooperate;
