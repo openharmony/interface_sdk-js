@@ -1116,6 +1116,39 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute;
   
   /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): TextAreaAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): TextAreaAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): TextAreaAttribute;
+
+  /**
    * Called when the input type is set.
    *
    * @param { TextAreaType } value
