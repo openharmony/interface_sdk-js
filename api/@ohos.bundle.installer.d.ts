@@ -683,6 +683,25 @@ declare namespace installer {
   * @since 12
   */
   removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
+
+    /**
+     * Uninstall updates for a pre-installed application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
+     * @throws { BusinessError } 17700057 - Failed to uninstall updates because the HAP is not pre-installed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
   }
 
   /**
