@@ -569,6 +569,7 @@ export declare class ShapeMask {
   /**
    * The fill color of the ShapeMask.
    *
+   * @default 0XFF000000
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -579,6 +580,7 @@ export declare class ShapeMask {
   /**
    * The stroke color of the ShapeMask.
    *
+   * @default 0XFF000000
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -589,6 +591,7 @@ export declare class ShapeMask {
   /**
    * The stroke width of the ShapeMask.
    *
+   * @default 0
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
