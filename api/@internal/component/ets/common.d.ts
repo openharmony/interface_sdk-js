@@ -241,14 +241,14 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
- * Defining observed ClassDecorator.
+ * Defining ObservedV2 ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare const observed: ClassDecorator;
+declare const ObservedV2: ClassDecorator;
 
 /**
  * Defining Preview ClassDecorator.
@@ -368,14 +368,14 @@ declare const State: PropertyDecorator;
 declare const Track: PropertyDecorator;
 
 /**
- * Defining track PropertyDecorator.
+ * Defining Trace PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare const track: PropertyDecorator;
+declare const Trace: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
@@ -6464,7 +6464,7 @@ declare interface BaseEvent {
   /**
    * the Horizontal axis coordinate.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -6475,7 +6475,7 @@ declare interface BaseEvent {
   /**
    * the Vertical axis coordinate.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -11594,6 +11594,15 @@ declare enum DragPreviewMode {
 }
 
 /**
+ * ImageModifier
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
+
+/**
  * Defines the preview options.
  *
  * @interface DragPreviewOptions
@@ -11609,6 +11618,42 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+
+  /**
+  * Drag preview modifier.
+  *
+  * @type { ?ImageModifier }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  modifier?: ImageModifier;
+}
+
+/**
+ * Defines the drag options.
+ *
+ * @interface DragInteractionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface DragInteractionOptions {
+  /**
+  * Define whether to gather selected nodes in grid or list.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  isMultiSelectionEnabled?: boolean;
+  
+  /**
+  * Define whether to execute animation before preview floating.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  defaultAnimationBeforeLifting?: boolean;
 }
 
 /**
@@ -15136,7 +15181,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dragPreviewOptions(value: DragPreviewOptions): T;
+  /**
+   * Set the selectable area drag preview options.
+   *
+   * @param { DragPreviewOptions } value - preview options value.
+   * @param { DragInteractionOptions } options - drag interaction options value.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T;
 
   /**
    * After binding, a callback is triggered when the preDrag status change finished.

@@ -110,7 +110,18 @@ declare class TextAreaController extends TextContentControllerBase {
    * @atomicservice
    * @since 11
    */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Exit edit state.
@@ -1031,6 +1042,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxLines(value: number): TextAreaAttribute;
 
   /**
+   * Set the word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak(value: WordBreak): TextAreaAttribute;
+
+  /**
    * Define custom keyboard of the text area.
    *
    * @param { CustomBuilder } value
@@ -1048,7 +1070,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): TextAreaAttribute;
+  /**
+   * Define custom keyboard of the text area.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of TextArea
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextArea
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute;
   
   /**
    * Called when the input type is set.
@@ -1060,6 +1092,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11
    */
   type(value: TextAreaType): TextAreaAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of TextArea component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): TextAreaAttribute;
 }
 
 /**

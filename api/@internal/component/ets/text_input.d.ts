@@ -533,7 +533,18 @@ declare class TextInputController extends TextContentControllerBase {
    * @atomicservice
    * @since 11
    */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Exit edit state.
@@ -1835,6 +1846,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxLines(value: number): TextInputAttribute;
 
   /**
+   * Set the text inline style word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak(value: WordBreak): TextInputAttribute;
+
+  /**
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value
@@ -1852,7 +1874,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * Define custom keyboard of the text input.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextInput
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextInputAttribute;
 
   /**
    * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
@@ -1908,6 +1941,21 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   passwordRules(value: string): TextInputAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of TextInput component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): TextInputAttribute;  
 }
 
 /**
