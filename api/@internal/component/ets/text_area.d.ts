@@ -1022,6 +1022,39 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   selectionMenuHidden(value: boolean): TextAreaAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): TextAreaAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): TextAreaAttribute;
+
+  /**
+   * Called when the height adaptive policy is set.
+   *
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAreaAttribute;
+
+  /**
    * Define max lines of the text area.
    *
    * @param { number } value

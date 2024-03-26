@@ -1923,6 +1923,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   selectAll(value: boolean): TextInputAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the height adaptive policy is set.
+   *
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
+
+  /**
    * Sets whether enable auto fill or not.
    *
    * @param { boolean } value - Indicates the flag whether autofill is enabled.
