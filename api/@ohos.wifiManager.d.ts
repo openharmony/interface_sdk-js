@@ -823,6 +823,23 @@ declare namespace wifiManager {
   function isMeteredHotspot(): boolean;
 
   /**
+   * Enable hiLink handshake.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { boolean } isHiLinkEnable - Indicates the HiLink enable or not.
+   * @param { string } bssid - Indicates the Wi-Fi bssid.
+   * @param { WifiDeviceConfig } config - Indicates the Wi-Fi device config.
+   * @returns { boolean } Returns {@code true} if the HiLink is enabled, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): boolean;
+
+  /**
    * Reset all saved device configure.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @throws {BusinessError} 201 - Permission denied.
@@ -2125,6 +2142,39 @@ declare namespace wifiManager {
   }
 
   /**
+   * Wi-Fi Category.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  enum WifiCategory {
+    /**
+     * Default.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    DEFAULT = 1,
+
+    /**
+     * Wifi6.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    WIFI6 = 2,
+
+    /**
+     * Wifi6+.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    WIFI6_PLUS = 3
+  }
+
+  /**
    * Wi-Fi Proxy config.
    * @typedef WifiProxyConfig
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -2740,6 +2790,22 @@ declare namespace wifiManager {
      * @since 9
      */
     timestamp: number;
+
+    /**
+     * Supported wifi category
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    supportedWifiCategory: WifiCategory;
+
+    /**
+     * Whether the Wi-Fi hotspot is HiLink network.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    isHiLinkNetwork: boolean;
   }
 
   /**
