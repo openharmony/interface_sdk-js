@@ -3147,6 +3147,30 @@ declare namespace audio {
      * @since 11
      */
     updateSpatialDeviceState(spatialDeviceState: AudioSpatialDeviceState): void;
+
+    /**
+     * Set spatialization rendering scene type.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioSpatializationSceneType } spatializationSceneType - Spatialization scene type.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    setSpatializationSceneType(spatializationSceneType: AudioSpatializationSceneType): void;
+
+    /**
+     * Get spatialization rendering scene type.
+     * @returns { AudioSpatializationSceneType } Current spatialization rendering scene type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    getSpatializationSceneType(): AudioSpatializationSceneType;
   }
 
   /**
@@ -5217,6 +5241,44 @@ declare namespace audio {
      * @since 11
      */
     SPATIAL_DEVICE_TYPE_OTHERS = 5,
+  }
+
+  /**
+   * Describes a spatialization scene type group.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi
+   * @since 12
+   */
+  enum AudioSpatializationSceneType {
+    /**
+     * Audio Spatialization Scene Type Default.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    DEFAULT = 0,
+    /**
+     * Audio Spatialization Scene Type Music.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    MUSIC = 1,
+    /**
+     * Audio Spatialization Scene Type Movie.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    MOVIE = 2,
+    /**
+     * Audio Spatialization Scene Type Audio Book.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    AUDIOBOOK = 3,
   }
 
   /**
