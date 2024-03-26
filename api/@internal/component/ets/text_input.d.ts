@@ -1874,7 +1874,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * Define custom keyboard of the text input.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextInput
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextInputAttribute;
 
   /**
    * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
