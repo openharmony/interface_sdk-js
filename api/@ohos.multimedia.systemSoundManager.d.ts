@@ -120,7 +120,7 @@ declare namespace systemSoundManager {
    * @systemapi
    * @since 12
    */
-  enum ToneCustType {
+  enum ToneCustomizedType {
     /**
      * Pre-installed tone type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -177,17 +177,19 @@ declare namespace systemSoundManager {
 
     /**
      * Gets customized type of tone.
-     * @returns { ToneCustType } Customized type of tone.
+     * @returns { ToneCustomizedType } Customized type of tone.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 12
      */
-    getCustType(): ToneCustType;
+    getCustomizedType(): ToneCustomizedType;
   }
 
   /**
    * Array of tone attributes.
+   *
+   * @typedef ToneAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
