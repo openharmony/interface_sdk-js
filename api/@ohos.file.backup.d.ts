@@ -503,27 +503,6 @@ declare namespace backup {
     constructor(callbacks: GeneralCallbacks);
 
     /**
-     * Append new bundles to be restore up during the restore.
-     *
-     * @permission ohos.permission.BACKUP
-     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
-     *     You can use the getLocalCapabilities method to obtain the value.
-     * @param { string[] } bundlesToBackup Bundles to restore.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 13600001 - IPC error
-     * @throws { BusinessError } 13900001 - Operation not permitted
-     * @throws { BusinessError } 13900005 - I/O error
-     * @throws { BusinessError } 13900011 - Out of memory
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 13900025 - No space left on device
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.StorageService.Backup
-     * @systemapi
-     * @since 10
-     */
-    appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[]): Promise<void>;
-
-    /**
      * Append new bundles and restoreInfos to be restore up during the restore.
      *
      * @permission ohos.permission.BACKUP
@@ -543,6 +522,27 @@ declare namespace backup {
      * @since 12
      */
     appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], infos?: string[]): Promise<void>;
+
+    /**
+     * Append new bundles to be restore up during the restore.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
+     *     You can use the getLocalCapabilities method to obtain the value.
+     * @param { string[] } bundlesToBackup Bundles to restore.
+     * @param { AsyncCallback<void> } callback Asynchronous callback to be called when appendBundles has finished.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 10
+     */
+    appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], callback: AsyncCallback<void>): void;
 
     /**
      * Publish the file handle to the backup service to make the service aware that the file's content is ready.
