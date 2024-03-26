@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2023-2023 Huawei Device Co., Ltd.
+* Copyright (C) 2023-2024 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -92,6 +92,24 @@ export declare class ButtonOptions {
    * @since 11
    */
   fontColor?: ResourceColor;
+  /**
+   * Describes the Button style.
+   * @type { ?ButtonStyleMode }
+   * @default ButtonStyleMode.TEXTUAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: ButtonStyleMode;
+  /**
+   * Describes the Button role.
+   * @type { ?ButtonRole }
+   * @default ButtonRole.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  role?: ButtonRole;
 }
 /**
  * Declare CustomDialog TipsDialog
@@ -147,7 +165,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  imageSize: SizeOptions;
+  /**
+   * Sets the TipsDialog image size.
+   * @type { ?SizeOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  imageSize?: SizeOptions;
   /**
    * Sets the TipsDialog title.
    * @type { ResourceStr }.
@@ -161,7 +186,14 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 11
    */
-  title: ResourceStr;
+  /**
+   * Sets the TipsDialog title.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  title?: ResourceStr;
   /**
    * Sets the TipsDialog content.
    * @type { ?ResourceStr }.
@@ -204,6 +236,13 @@ export declare struct TipsDialog {
    * @since 11
    */
   @Prop isChecked?: boolean;
+  /**
+   * Sets the TipsDialog CheckBox Callback.
+   * @type { ?(isChecked: boolean) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  checkAction?: (isChecked: boolean) => void;
   /**
    * Sets the TipsDialog primary button.
    * @type { ?ButtonOptions }.
@@ -474,6 +513,22 @@ export declare struct AlertDialog {
    */
   controller: CustomDialogController;
   /**
+   * Sets the AlertDialog title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primaryTitle?: ResourceStr;
+  /**
+   * Sets the AlertDialog secondary title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  secondaryTitle?: ResourceStr;
+  /**
    * Sets the AlertDialog content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -558,4 +613,62 @@ export declare struct LoadingDialog {
    * @since 11
    */
   content?: ResourceStr;
+}
+
+/**
+ * Declare custom content dialog
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+@CustomDialog
+export declare struct CustomContentDialog {
+  /**
+   * Sets the CustomContentDialog Controller.
+   * @type { CustomDialogController }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  controller: CustomDialogController;
+  /**
+   * Sets the CustomContentDialog title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primaryTitle?: ResourceStr;
+  /**
+   * Sets the CustomContentDialog secondary title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  secondaryTitle?: ResourceStr;
+  /**
+   * Sets the CustomContentDialog content.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  @BuilderParam contentBuilder: () => void;
+  /**
+   * Sets the CustomContentDialog content area padding.
+   * @type { ?Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentAreaPadding?: Padding;
+  /**
+   * Sets the CustomContentDialog buttons.
+   * @type { ?ButtonOptions[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttons?: ButtonOptions[];
 }

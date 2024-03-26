@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import tag from '../@ohos.nfc.tag';
 import { AsyncCallback } from '../@ohos.base';
 

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides a divider component to separate different content blocks/content elements.
  *
  * @interface DividerInterface

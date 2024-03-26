@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Define the background style of span.
  *
  * @interface TextBackgroundStyle

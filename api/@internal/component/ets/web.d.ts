@@ -46,6 +46,16 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
+ * The callback of ssl error event.
+ *
+ * @typedef OnSslErrorEventCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
+
+/**
  * The callback of largestContentfulPaint.
  *
  * @typedef OnLargestContentfulPaintCallback
@@ -64,6 +74,53 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
  * @since 12
  */
 type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
+
+/**
+ * The callback of onOverrideUrlLoading.
+ * Should not call WebviewController.loadUrl with the request's URL and then return true.
+ * Returning true causes the current Web to abort loading the URL, false causes the Web to continue loading the url as usual.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
+
+/**
+ * The callback of Intelligent Tracking Prevention.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
+
+/**
+ * The configuration of native video player.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type NativeVideoPlayerConfig = {
+  /**
+   * Should playing web video by native application instead of web player.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enable: boolean,
+
+  /**
+   * The contents painted by native video player should overlay web page.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  shouldOverlay: boolean
+}
 
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
@@ -744,6 +801,50 @@ declare class FullScreenExitHandler {
 }
 
 /**
+ * Defines the event details when the web component enter full screen mode.
+ *
+ * @interface FullScreenEnterEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface FullScreenEnterEvent {
+  /**
+   * A function handle to exit full-screen mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  handler: FullScreenExitHandler;
+  /**
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  videoWidth?: number;
+  /**
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  videoHeight?: number;
+}
+
+/**
+ * The callback when the web component enter full screen mode.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
+
+/**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  *
  * @enum { number }
@@ -1095,14 +1196,14 @@ declare class FileSelectorParam {
   getMode(): FileSelectorMode;
 
   /**
-    * Gets an array of acceptable MMIE type.
-    * @returns { Array<string> } Return an array of acceptable MMIE type.
+    * Gets an array of acceptable MIME type.
+    * @returns { Array<string> } Return an array of acceptable MIME type.
     * @syscap SystemCapability.Web.Webview.Core
     * @since 9
     */
   /**
-    * Gets an array of acceptable MMIE type.
-    * @returns { Array<string> } Return an array of acceptable MMIE type.
+    * Gets an array of acceptable MIME type.
+    * @returns { Array<string> } Return an array of acceptable MIME type.
     * @syscap SystemCapability.Web.Webview.Core
     * @crossplatform
     * @atomicservice
@@ -3450,6 +3551,34 @@ declare class WebCookie {
 }
 
 /**
+ * Defines the touch event result.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare class EventResult {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set whether the event is consumed.
+   * 
+   * @param { boolean } result - True if the event is consumed.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  setGestureEventResult(result: boolean): void;
+}
+
+/**
  * Defines the Web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -3872,6 +4001,36 @@ declare interface LoadCommittedDetails {
 }
 
 /**
+ * Defines the Intelligent Tracking Prevention details.
+ *
+ * @interface IntelligentTrackingPreventionDetails
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface IntelligentTrackingPreventionDetails {
+  /**
+   * The host of website url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  host: string;
+
+  /**
+   * The host of tracker url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  trackerHost: string;
+}
+
+/**
  * Defines the Web interface.
  *
  * @interface WebInterface
@@ -3963,6 +4122,15 @@ declare interface NativeEmbedInfo {
    */
   src?: string;
   /**
+   * The coordinate position of embed element relative to the webComponent.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  position?: Position;
+  /**
    * The embed tag width.
    *
    * @type { ?number }
@@ -3989,6 +4157,24 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   url?: string;
+  /**
+   * The embed tag name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  tag?: string;
+  /**
+   * The embed param list information used by object tag.
+   *
+   * @type { ?Map<string, string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  params?: Map<string, string>;
 }
 
 /**
@@ -4065,6 +4251,15 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   touchEvent?: TouchEvent;
+  /**
+   * Handle the user's touch result.
+   *
+   * @type { ?EventResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  result?: EventResult;
 }
 
   /**
@@ -4612,6 +4807,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @useinstead ohos.web.webview.webview.WebviewController#setCustomUserAgent
    */
   userAgent(userAgent: string): WebAttribute;
+
+  /**
+   * Set whether to support the viewport attribute of the meta tag in the frontend page.
+   *
+   * @param { boolean } enabled {@code true} means support the viewport attribute of the meta tag; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  metaViewport(enabled: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.
@@ -5451,16 +5657,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFullScreenEnter(callback: (event: {
-    /**
-     * A function handle to exit full-screen mode.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    handler: FullScreenExitHandler
-  }) => void): WebAttribute;
+  /**
+   * Triggered when the web component enter the full screen mode.
+   *
+   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
   /**
    * Triggered when the scale of WebView changed.
@@ -5824,6 +6030,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      */
     error: SslError
   }) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page receives an ssl Error.
+   *
+   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
   /**
    * Triggered when the Web page needs ssl client certificate from the user.
@@ -6618,6 +6835,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNavigationEntryCommitted(callback: OnNavigationEntryCommittedCallback): WebAttribute;
 
   /**
+   * Called when tracker's cookie is prevented.
+   *
+   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback triggered when tracker's cookie is prevented.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
+
+  /**
    * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
@@ -6670,6 +6898,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeEmbedMode(mode: boolean): WebAttribute;
 
   /**
+   * Register native pattern with specific tag and type.
+   *
+   * @param { string } tag - Tag name used by html webpage.
+   * @param { string } type - Type of the tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  registerNativeEmbedRule(tag: string, type:string): WebAttribute;
+
+  /**
    * Triggered when embed lifecycle changes.
    *
    * @param { function } callback - Function Triggered when embed lifecycle changes.
@@ -6701,6 +6941,40 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   copyOptions(value: CopyOptions): WebAttribute;
+
+  /**
+   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
+   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
+   *
+   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
+
+  /**
+   * Enable whether to automatically resize text. The default value is true.
+   *
+   * @param { boolean } textAutosizing - Whether to enable text autosizing.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  textAutosizing(textAutosizing: boolean): WebAttribute;
+
+  /**
+   * Enable app creates native video player to play web page video source.
+   *
+   * @param { NativeVideoPlayerConfig } config - The configuration of native video player.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enableNativeVideoPlayer(config: NativeVideoPlayerConfig): WebAttribute;
 }
 
 /**
@@ -6741,3 +7015,70 @@ declare const Web: WebInterface;
  * @since 11
  */
 declare const WebInstance: WebAttribute;
+
+/**
+ * Defines the ssl error event.
+ *
+ * @interface SslErrorEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface SslErrorEvent {
+  /**
+   * Notifies the user of the operation behavior of the web component.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  handler: SslErrorHandler,
+  /**
+   * Error codes.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  error: SslError
+  /**
+   * Request url.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  url: string;
+  /**
+   * Original url.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  originalUrl: string;
+  /**
+   * Referrer.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  referrer: string;
+  /**
+   * Whether the error is fatal.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  isFatalError: boolean;
+  /**
+   * Whether the request is main frame.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  isMainFrame: boolean;
+}

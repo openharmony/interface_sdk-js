@@ -59,7 +59,7 @@ class ToolBoxCommander {
       this.stopRun(`error toolName "${toolName}",toolName not in \[${[...toolNameSet]}\] `);
     }
     switch (toolName) {
-      case toolNameType.COOLECT:
+      case toolNameType.COLLECT:
         const collectPath = opts.collectPath;
         if (collectPath === '' || !FileUtils.isExists(collectPath)) {
           this.stopRun(`error collectPath "${collectPath}",collectPath need a exist file path`);

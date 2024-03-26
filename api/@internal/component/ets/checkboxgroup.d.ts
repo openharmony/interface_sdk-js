@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * CheckboxGroup SelectStatus
  *
  * @enum { number }

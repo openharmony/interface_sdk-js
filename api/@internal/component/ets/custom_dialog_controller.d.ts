@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the options of CustomDialogController.
  *
  * @interface CustomDialogControllerOptions
@@ -334,7 +339,7 @@ declare interface CustomDialogControllerOptions {
    * @since 11
    */
   backgroundColor?: ResourceColor;
- 
+
   /**
    * Corner radius of dialog.
    *
@@ -362,38 +367,98 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @since 11
    */
-  isModal?: boolean;  
+  isModal?: boolean;
 
   /**
    * Callback function when the CustomDialog interactive dismiss.
    *
-   * @type { ?function }
+   * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onWillDismiss?: (dismissDialog: DismissDialog) => void;
+  onWillDismiss?: Callback<DismissDialogAction>;
+
+  /**
+   * Defines the custom dialog's width.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width?: Dimension;
+
+  /**
+   * Defines the custom dialog's height.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  height?: Dimension;
+
+  /**
+   * Defines the custom dialog's border width.
+   *
+   * @type { ?(Dimension | EdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderWidth?: Dimension | EdgeWidths;
+
+  /**
+   * Defines the custom dialog's border color.
+   *
+   * @type { ?(ResourceColor | EdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderColor?: ResourceColor | EdgeColors;
+
+  /**
+   * Defines the custom dialog's border style.
+   *
+   * @type { ?(BorderStyle | EdgeStyles) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderStyle?: BorderStyle | EdgeStyles;
+
+  /**
+   * Defines the custom dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
- * Component dialog dismiss
+ * Component dialog dismiss action.
  *
- * @interface DismissDialog
+ * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface DismissDialog {
+declare interface DismissDialogAction {
   /**
    * Defines dialog dismiss function
    *
-   * @type { function  }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  dismiss: () => void;
-    
+  dismiss: Callback<void>;
+
   /**
    * Dismiss reason type.
    *

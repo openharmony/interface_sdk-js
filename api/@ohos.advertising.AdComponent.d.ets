@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines the ad component
  * @kit AdsKit
  */
 
@@ -77,6 +77,14 @@ declare struct AdComponent {
      * @since 12
      */
     interactionListener: advertising.AdInteractionListener;
+
+    /**
+     * The builder param to render customized ad content.
+     * @type { ?() => void }
+     * @syscap SystemCapability.Advertising.Ads
+     * @since 12
+     */
+    @BuilderParam adRenderer?: () => void;
 
     /**
      * The method to build ad component.

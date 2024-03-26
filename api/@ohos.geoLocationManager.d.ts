@@ -20,6 +20,8 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
+import { SlotType } from './@ohos.notificationManager';
+import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
  * Provides interfaces for acquiring location information, managing location switches,
@@ -104,6 +106,42 @@ declare namespace geoLocationManager {
    * @since 11
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
+
+  /**
+   * Subscribe continuous location changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'continuousLocationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { ContinuousLocationRequest } request - Indicates the location request parameters.
+   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function on(type: 'continuousLocationChange', request: ContinuousLocationRequest, callback: Callback<Location>): void;
+
+  /**
+   * Unsubscribe geolocation changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'continuousLocationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function off(type: 'continuousLocationChange', callback?: Callback<Location>): void;
 
   /**
    * Subscribe location switch changed.
@@ -423,6 +461,24 @@ declare namespace geoLocationManager {
    * @since 11
    */
   function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
+
+  /**
+   * Obtain current location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { SingleLocationRequest } [request] - Indicates the location request parameters.
+   * @returns { Promise<Location> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function getSingleLocation(request: SingleLocationRequest): Promise<Location>;
 
   /**
    * Obtain last known location.
@@ -831,6 +887,40 @@ declare namespace geoLocationManager {
   function getLocatingRequiredData(config: LocatingRequiredDataConfig): Promise<Array<LocatingRequiredData>>;
 
   /**
+   * Add a geofence.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { Geofence } fence - Indicates the Geo-fence configuration parameters.
+   * @param { GeofenceTransition } monitorEvent - Indicates geofence status event monitored.
+   * @param { FenceNotificationRequest } notification - Indicates the geofence reminder instance to publish.
+   * @returns { number } The ID of geofence.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  function addGnssGeofence(fence: Geofence, monitorEvent: GeofenceTransition, notification?: FenceNotificationRequest): number;
+
+  /**
+   * Delete a geofence.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { number } geofenceId - Indicates the ID of geofence.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  function deleteGnssGeofence(geofenceId: number): void;
+
+  /**
    * Configuration parameters for simulating reverse geocoding.
    *
    * @typedef ReverseGeocodingMockInfo
@@ -951,6 +1041,24 @@ declare namespace geoLocationManager {
      * @since 9
      */
     carrierFrequencies: Array<number>;
+
+    /**
+     * Satellite constellation type array.
+     *
+     * @type { Array<SatelliteConstellationCategory> }
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    satelliteConstellation: Array<SatelliteConstellationCategory>;
+
+    /**
+     * Satellite additional information array.
+     *
+     * @type { Array<SatelliteAdditionalInfo> }
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    additionalInfo: Array<SatelliteAdditionalInfo>;
   }
 
   /**
@@ -1070,6 +1178,24 @@ declare namespace geoLocationManager {
     locale?: string;
 
     /**
+     * Indicates the language information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    language?: string;
+
+    /**
+     * Indicates the country information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    country?: string;
+
+    /**
      * Latitude for reverse geocoding query.
      *
      * @type { number }
@@ -1113,6 +1239,24 @@ declare namespace geoLocationManager {
      * @since 9
      */
     locale?: string;
+
+    /**
+     * Indicates the language information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    language?: string;
+
+    /**
+     * Indicates the country information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    country?: string;
 
     /**
      * Address information.
@@ -1210,13 +1354,22 @@ declare namespace geoLocationManager {
     locale?: string;
 
     /**
-     * Indicates landmark of the location.
+     * Indicates detailed address information.
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @since 9
      */
     placeName?: string;
+
+    /**
+     * Indicates landmark name of the location.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    landmarkName?: string;
 
     /**
      * Indicates country code.
@@ -1540,6 +1693,246 @@ declare namespace geoLocationManager {
      * @since 11
      */
     timeoutMs?: number;
+  }
+
+  /**
+   * Configuring parameters in continuous location requests.
+   *
+   * @typedef ContinuousLocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export interface ContinuousLocationRequest {
+    /**
+     * Required accuracy level of the location request.
+     *
+     * @type { ?AccuracyLevel }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    requiredAccuracy?: AccuracyLevel;
+
+    /**
+     * User scenario of the location request.
+     *
+     * @type { ?LocationScenario }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    scenario?: LocationScenario;
+
+    /**
+     * Location report interval.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    timeInterval?: number;
+
+    /**
+     * Location report distance interval.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    distanceInterval?: number;
+  }
+
+  /**
+   * Configuring parameters in single location requests.
+   *
+   * @typedef SingleLocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export interface SingleLocationRequest {
+    /**
+     * Required accuracy level of the location request.
+     *
+     * @type { ?AccuracyLevel }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    requiredAccuracy?: AccuracyLevel;
+
+    /**
+     * Timeout of a single location request.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    timeoutMs?: number;
+  }
+
+  /**
+   * DataShareUpdate information.
+   * It will update the database when the button is clicked.
+   *
+   * @interface DataShareUpdate
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface DataShareUpdate {
+    /**
+     * Indicates the path of data to update.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    uri: string;
+
+    /**
+     * Indicates filter criteria.
+     *
+     * @type { Record<string, number | string | boolean> }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    equalTo: Record<string, number | string | boolean>;
+
+    /**
+     * Indicates the data to update. This parameter can be null.
+     *
+     * @type { ValuesBucket }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    value: ValuesBucket;
+  }
+
+  /**
+   * Action button information. The button will show on displayed reminder.
+   *
+   * @interface ActionButton
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export interface ActionButton {
+    /**
+     * Text on the button.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    title: string;
+
+    /**
+     * Button type.
+     *
+     * @type { ActionButtonType }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    type: ActionButtonType;
+
+    /**
+     * Information about the ability that is redirected to when the button is clicked.
+     *
+     * @type { ?WantAgent }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * It will update the database when the button is clicked.
+     *
+     * @type { ?DataShareUpdate }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    dataShareUpdate?: DataShareUpdate;
+  }
+
+  /**
+   * Geofence notification information.
+   *
+   * @interface FenceNotificationRequest
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export interface FenceNotificationRequest {
+    /**
+     * Action buttons displayed on the geofence reminder notification.
+     *
+     * @type { ?Array<ActionButton> }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    actionButton?: Array<ActionButton>;
+
+    /**
+     * Information about the ability that is redirected to when the notification is clicked.
+     *
+     * @type { ?WantAgent }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * Geofence notification title.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    title: string;
+
+    /**
+     * Geofence notification content.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    content: string;
+
+    /**
+     * Type of the slot used by the geofence notification.
+     *
+     * @type { ?SlotType }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    slotType?: SlotType;
+
+    /**
+     * Whether the notification is automatically cleared.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    tapDismissed?: boolean;
+
+    /**
+     * Time when the notification is automatically cleared.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    autoDeletedTime?: number;
   }
 
   /**
@@ -1943,6 +2336,296 @@ declare namespace geoLocationManager {
      * @since 10
      */
     timestamp: number;
+  }
+
+  /**
+   * Enum for geofence transition event.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export enum GeofenceTransition {
+    /**
+     * The device is within the geofence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GEOFENCE_TRANSITION_ENTER = 1,
+    
+    /**
+     * The device is out of the geofence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GEOFENCE_TRANSITION_EXIT = 2,
+
+    /**
+     * The device is in the geographical fence for a period of time.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GEOFENCE_TRANSITION_DWELL = 4
+  };
+
+  /**
+   * Enum for satellite constellation category.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @since 12
+   */
+  export enum SatelliteConstellationCategory {
+    /**
+     * Invalid value.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_UNKNOWN = 0,
+
+    /**
+     * GPS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_GPS = 1,
+
+    /**
+     * SBAS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_SBAS = 2,
+
+    /**
+     * GLONASS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_GLONASS = 3,
+
+    /**
+     * QZSS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_QZSS = 4,
+
+    /**
+     * BEIDOU.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_BEIDOU = 5,
+
+    /**
+     * GALILEO.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_GALILEO = 6,
+
+    /**
+     * IRNSS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_IRNSS = 7
+  };
+
+  /**
+   * Enum for satellite additional information.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @since 12
+   */
+  export enum SatelliteAdditionalInfo {
+    /**
+     * Default value.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_NULL = 0,
+
+    /**
+     * Ephemeris data exist.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_EPHEMERIS_DATA_EXIST = 1,
+
+    /**
+     * Almanac data exist.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_ALMANAC_DATA_EXIST = 2,
+
+    /**
+     * This satellite is being used in location fix.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_USED_IN_FIX = 4,
+
+    /**
+     * Carrier frequency exist.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_CARRIER_FREQUENCY_EXIST = 8
+  }
+
+  /**
+   * Enum for location scenario.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum LocationScenario {
+    /**
+     * Default scenario.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    OHTER = 0,
+
+    /**
+     * Navigation scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    NAVIGATION = 1,
+
+    /**
+     * Sport scenario. High positioning precision is required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    SPORT = 2,
+
+    /**
+     * Transport scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    TRANSPORT = 3,
+
+    /**
+     * Daily life scenarios. Low requirements on positioning precision and real-time performance.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    DAILY_LIFE_SERVICE = 4
+  }
+
+  /**
+   * Enum for location accuracy level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum AccuracyLevel {
+    /**
+     * Best location accuracy required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    ACCURACY_BEST = 1,
+
+    /**
+     * Requires location accuracy to the ten meters level.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    ACCURACY_TEN_METERS = 2,
+
+    /**
+     * Requires location accuracy to the hundred meters level.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    ACCURACY_HUNDRED_METERS = 3,
+
+    /**
+     * Requires location accuracy to the kilometer level.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    ACCURACY_KILOMETER = 4
+  }
+
+  /**
+   * Declares action button type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export enum ActionButtonType {
+    /**
+     * Button for closing the reminder.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    ACTION_BUTTON_TYPE_CLOSE = 0,
+
+    /**
+     * Button for snoozing the reminder.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    ACTION_BUTTON_TYPE_SNOOZE = 1,
+
+    /**
+     * The custom button.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ACTION_BUTTON_TYPE_CUSTOM = 2
   }
 
   /**

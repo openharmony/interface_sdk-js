@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 export * from './viewmodel';
 export * from './featureability';
 export * from './console';

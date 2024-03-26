@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 import { TouchEvent } from 'touchEvent';
@@ -150,5 +155,5 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @since 12
    */
-    dispose(): void;
+  dispose(): void;
 }

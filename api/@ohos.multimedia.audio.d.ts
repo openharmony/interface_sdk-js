@@ -4098,6 +4098,14 @@ declare namespace audio {
     setVolume(volume: number): Promise<void>;
 
     /**
+     * Gets volume of this stream.
+     * @returns { number } Returns one float value.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    getVolume(): number;
+
+    /**
      * Changes the volume with ramp for a duration.
      * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @param { number } duration -  Duration for volume ramp, in millisecond.

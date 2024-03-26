@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
@@ -103,6 +108,18 @@ declare class SearchController extends TextContentControllerBase {
    * @since 11
    */
   stopEditing(): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 }
 
 /**
@@ -770,6 +787,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   textFont(value?: Font): SearchAttribute;
 
   /**
+   * Set enter key type of soft keyboard
+   *
+   * @param { EnterKeyType } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enterKeyType(value: EnterKeyType): SearchAttribute;
+
+  /**
    * Call the function when clicked the search button
    *
    * @param { function } callback
@@ -1088,7 +1116,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): SearchAttribute;
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of Search
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of Search
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): SearchAttribute;
 
   /**
    * Called when the search type is set.
@@ -1100,6 +1138,21 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 11
    */
   type(value: SearchType): SearchAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of search component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): SearchAttribute;
 }
 
 /**

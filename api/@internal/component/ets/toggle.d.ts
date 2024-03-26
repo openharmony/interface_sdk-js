@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare the type of status button
  *
  * @enum { number }
@@ -143,6 +148,60 @@ declare enum ToggleType {
    * @form
    */
   Button,
+}
+
+/**
+ * Defines the switch style.
+ *
+ * @interface SwitchStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SwitchStyle {
+  /**
+   * Set the radius of the point of the switch.
+   *
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  pointRadius?: number | Resource;
+
+  /**
+   * Set the color of the unselected switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  unselectedColor?: ResourceColor;
+
+  /**
+   * Set the color of the point of the switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  pointColor?: ResourceColor;
+
+  /**
+   * Set the border radius of the track of the switch.
+   *
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  trackBorderRadius?: number | Resource;
 }
 
 /**
@@ -375,6 +434,17 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @form
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
+
+  /**
+   * Set the style of the switch.
+   *
+   * @param { SwitchStyle } value
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  switchStyle(value: SwitchStyle): ToggleAttribute;
 }
 
 /**

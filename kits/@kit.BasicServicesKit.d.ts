@@ -63,6 +63,7 @@ import Request, {
   DownloadRequestOptions, DownloadResponse, OnDownloadCompleteOptions,
   OnDownloadCompleteResponse, RequestData, RequestFile, UploadRequestOptions, UploadResponse
 } from '@system.request';
+import systemLoad from '@ohos.resourceschedule.systemload';
 
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
@@ -75,5 +76,5 @@ export {
   deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
-  StaticSubscriberExtensionContext
+  StaticSubscriberExtensionContext, systemLoad
 };

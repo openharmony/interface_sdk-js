@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the interface of WindowScene.
  *
  * @interface WindowSceneInterface

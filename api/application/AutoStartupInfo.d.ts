@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The class of auto startup info.
  *
  * @typedef AutoStartupInfo

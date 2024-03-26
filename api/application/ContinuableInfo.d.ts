@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Continuable information corresponding to ability.
  *
  * @typedef ContinuableInfo

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Provides the capability of integrating advertising services with vendors
  * @kit AdsKit
  */
 

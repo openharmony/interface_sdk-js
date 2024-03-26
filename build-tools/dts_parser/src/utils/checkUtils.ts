@@ -16,8 +16,11 @@ import path from 'path';
 import fs, { Stats } from 'fs';
 import { Workbook, Worksheet } from 'exceljs';
 import ts, { LineAndCharacter } from 'typescript';
-import { ApiResultSimpleInfo, ApiResultInfo } from '../typedef/checker/result_type';
+import { ApiResultSimpleInfo, ApiResultInfo, ApiResultMessage } from '../typedef/checker/result_type';
 import { ApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
+import { FileUtils } from './FileUtils';
+import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json'
+
 
 export class PosOfNode {
   /**
@@ -42,7 +45,7 @@ export class CompolerOptions {
    */
   static getCompolerOptions(): ts.CompilerOptions {
     const compilerOptions: ts.CompilerOptions = ts.readConfigFile(
-      path.resolve(__dirname, '../../tsconfig.json'),
+      path.resolve(FileUtils.getBaseDirName(), './tsconfig.json'),
       ts.sys.readFile
     ).config.compilerOptions;
     Object.assign(compilerOptions, {
@@ -79,10 +82,10 @@ export class GenerateFile {
    * @param { string } outputPath
    * @param { string } option
    */
-  static writeFile(resultData: ApiResultSimpleInfo[], outputPath: string, option: object): void {
+  static writeFile(resultData: ApiResultMessage[], outputPath: string, option: object): void {
     const STANDARD_INDENT: number = 2;
     fs.writeFile(
-      path.resolve(__dirname, outputPath),
+      path.resolve(outputPath),
       JSON.stringify(resultData, null, STANDARD_INDENT),
       option,
       (err) => {
@@ -104,6 +107,7 @@ export class GenerateFile {
     const sheet: Worksheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
     sheet.getRow(1).values = [
       'order',
+      'level',
       'errorType',
       'fileName',
       'apiName',
@@ -118,6 +122,7 @@ export class GenerateFile {
       sheet.getRow(i + 1).values = [
         i,
         apiData.getErrorType(),
+        apiData.getLevel(),
         apiData.getLocation(),
         apiData.getApiName(),
         apiData.getApiFullText(),
@@ -128,7 +133,7 @@ export class GenerateFile {
       ];
     }
     workbook.xlsx.writeBuffer().then((buffer) => {
-      fs.writeFile(path.resolve(__dirname, '../coreImpl/checker/Js_Api.xlsx'), buffer, function (err) {
+      fs.writeFile(path.resolve(FileUtils.getBaseDirName(), './Js_Api.xlsx'), buffer, function (err) {
         if (err) {
           console.error(err);
           return;
@@ -189,14 +194,10 @@ export class CommonFunctions {
    * Obtain the current version to be checked
    * @returns { number }
    */
-  static getCheckApiVersion(): number {
-    const packageJsonPath: string = path.join(__dirname, '../../package.json');
-    let packageJson;
-    let checkApiVersion: number = -1;
+  static getCheckApiVersion(): string {
+    let checkApiVersion: string = '-1';
     try {
-      const packageJsonContent: string = fs.readFileSync(packageJsonPath, 'utf8');
-      packageJson = JSON.parse(packageJsonContent);
-      checkApiVersion = JSON.parse(packageJsonContent).checkApiVersion;
+      checkApiVersion = JSON.stringify(ApiCheckVersion);
     } catch (error) {
       throw `Failed to read package.json or parse JSON content: ${error}`;
     }
@@ -215,10 +216,12 @@ export class CommonFunctions {
     }
     return specialCaseType;
   }
-
   static getExtendsApiValue(singleApi: ApiInfo): string {
     let extendsApiValue: string = '';
     const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
+    if (extendsApiArr.length === 0) {
+      return extendsApiValue;
+    }
     extendsApiArr.forEach(extendsApi => {
       if (extendsApi.getExtendClass().length !== 0) {
         extendsApiValue = extendsApi.getExtendClass();
@@ -229,10 +232,13 @@ export class CommonFunctions {
 
   static getImplementsApiValue(singleApi: ApiInfo): string {
     let implementsApiValue: string = '';
-    const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
-    extendsApiArr.forEach(extendsApi => {
-      if (extendsApi.getImplementClass().length !== 0) {
-        implementsApiValue = extendsApi.getImplementClass();
+    const implementsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
+    if (implementsApiArr.length === 0) {
+      return implementsApiValue;
+    }
+    implementsApiArr.forEach(implementsApi => {
+      if (implementsApi.getImplementClass().length !== 0) {
+        implementsApiValue = implementsApi.getImplementClass();
       }
     });
     return implementsApiValue;
@@ -243,10 +249,10 @@ export class CommonFunctions {
  * The order between labels
  */
 export const tagsArrayOfOrder: string[] = [
-  'namespace', 'struct', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
-  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated', 'useinstead',
-  'test', 'example'
+  'namespace', 'struct', 'extends', 'implements', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type',
+  'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly',
+  'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated',
+  'useinstead', 'test', 'example'
 ];
 
 /**
@@ -255,7 +261,7 @@ export const tagsArrayOfOrder: string[] = [
 export const officialTagArr: string[] = [
   'abstract', 'access', 'alias', 'async', 'augments', 'author', 'borrows', 'class', 'classdesc', 'constructs',
   'copyright', 'event', 'exports', 'external', 'file', 'function', 'generator', 'global', 'hideconstructor', 'ignore',
-  'implements', 'inheritdoc', 'inner', 'instance', 'lends', 'license', 'listens', 'member', 'memberof', 'mixes',
+  'inheritdoc', 'inner', 'instance', 'lends', 'license', 'listens', 'member', 'memberof', 'mixes',
   'mixin', 'modifies', 'module', 'package', 'private', 'property', 'protected', 'public', 'requires', 'see', 'summary',
   'this', 'todo', 'tutorial', 'variation', 'version', 'yields', 'also', 'description', 'kind', 'name', 'undocumented'
 ];
@@ -264,7 +270,7 @@ export const officialTagArr: string[] = [
  * Inherit tag
  */
 export const inheritTagArr: string[] = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly',
-  'deprecated', 'systemapi'];
+  'deprecated', 'systemapi', 'atomicservice', 'form'];
 
 /**
  * Optional tag
@@ -276,7 +282,7 @@ export const optionalTags: string[] = [
 /**
  * conditional optional tag
  */
-export const conditionalOptionalTags: string[] = ['type', 'default', 'readonly', 'permission', 'throws'];
+export const conditionalOptionalTags: string[] = ['default', 'readonly', 'permission', 'throws', 'constant'];
 
 /**
  * All api types that can use the permission tag.
@@ -297,17 +303,23 @@ export const permissionOptionalTags: ts.SyntaxKind[] = [
  */
 export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
   [ts.SyntaxKind.CallSignature, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
-  [ts.SyntaxKind.ClassDeclaration, ['extends', 'syscap', 'since']],
-  [ts.SyntaxKind.Constructor, ['param', 'syscap', 'permission', 'throws', 'since']],
+  [ts.SyntaxKind.ClassDeclaration, ['extends', 'implements', 'syscap', 'since']],
+  [ts.SyntaxKind.Constructor, ['param', 'syscap', 'permission', 'throws', 'syscap', 'since']],
   [ts.SyntaxKind.EnumDeclaration, ['enum', 'syscap', 'since']],
   [ts.SyntaxKind.FunctionDeclaration, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
-  [ts.SyntaxKind.InterfaceDeclaration, ['interface', 'typedef', 'extends', 'syscap', 'since']],
+  [ts.SyntaxKind.InterfaceDeclaration, ['typedef', 'extends', 'syscap', 'since']],
   [ts.SyntaxKind.MethodDeclaration, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
-  [ts.SyntaxKind.MethodSignature, ['param', 'returns', 'permission', 'syscap', 'since']],
+  [ts.SyntaxKind.MethodSignature, ['param', 'returns', 'permission', 'throws', 'syscap', 'since']],
   [ts.SyntaxKind.ModuleDeclaration, ['namespace', 'syscap', 'since']],
   [ts.SyntaxKind.PropertyDeclaration, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
   [ts.SyntaxKind.PropertySignature, ['type', 'default', 'permission', 'throws', 'readonly', 'syscap', 'since']],
   [ts.SyntaxKind.VariableStatement, ['constant', 'default', 'permission', 'throws', 'syscap', 'since']],
+  [ts.SyntaxKind.TypeAliasDeclaration, ['syscap', 'since', 'typedef']],
+  [ts.SyntaxKind.EnumMember, ['syscap', 'since']],
+  [ts.SyntaxKind.NamespaceExportDeclaration, ['syscap', 'since']],
+  [ts.SyntaxKind.TypeLiteral, ['syscap', 'since']],
+  [ts.SyntaxKind.LabeledStatement, ['syscap', 'since']],
+  [ts.SyntaxKind.StructDeclaration, ['struct', 'syscap', 'since']],
 ]);
 
 /**
@@ -320,6 +332,8 @@ export const compositiveResult: ApiResultSimpleInfo[] = [];
  */
 export const compositiveLocalResult: ApiResultInfo[] = [];
 
+export const apiCheckResult: ApiResultMessage[] = [];
+
 export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',
   '\\,', '\\;', '\\(', '\\)', '\\"', '\\/', '\\_', '\\-', '\\=', '\\?', '\\<', '\\>', '\\,', '\\!', '\\#', '\：', '\，',
-  '\\:', '\\|', '\\%', '\\+', '\\`', '\\\\', '\\\'']);
+  '\\:', '\\|', '\\%', '\\&', '\\¡', '\\¢', '\\+', '\\`', '\\\\', '\\\'']);

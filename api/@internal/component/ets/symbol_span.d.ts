@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides an interface for SymbolSpan.
  *
  * @interface SymbolSpanInterface

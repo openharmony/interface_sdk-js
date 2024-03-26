@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The enum of model type
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D

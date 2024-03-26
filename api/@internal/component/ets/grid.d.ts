@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The options to help grid layout
  *
  * @interface GridLayoutOptions

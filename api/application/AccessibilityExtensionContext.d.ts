@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Provides accessibility extension context
+ * @kit AccessibilityKit
+ */
+
 import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
@@ -412,6 +417,18 @@ declare interface AccessibilityElement {
    * @since 12
    */
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
+
+  /**
+   * Find elements that match the condition.
+   *
+   * @param { 'elementId' } type The type of query condition is element id.
+   * @param { number } condition Indicates the specific content to be queried.
+   * @returns { Promise<AccessibilityElement> }
+   * @throws { BusinessError } 401 - Input parameter error.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
+  findElement(type: 'elementId', condition: number): Promise<AccessibilityElement>;
 }
 
 /**
