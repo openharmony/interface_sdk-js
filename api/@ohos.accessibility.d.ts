@@ -92,7 +92,7 @@ declare namespace accessibility {
    * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
    * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
    * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility'|
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' }
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -100,7 +100,7 @@ declare namespace accessibility {
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-  'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility'|
+  'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility';
 
   /**

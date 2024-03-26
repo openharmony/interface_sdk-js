@@ -385,7 +385,8 @@ declare namespace curves {
    */
   interface ICurve {
     /**
-     * Get curve value by fraction.
+     * Get curve value by fraction.params,the parameter value range is from 0 to 1.
+     * 1 is taken when the value is greater than 1 and 0 is taken when it is less than 0.
      *
      * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
      * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
@@ -394,7 +395,8 @@ declare namespace curves {
      * @since 9
      */
     /**
-     * Get curve value by fraction.
+     * Get curve value by fraction,the parameter value range is from 0 to 1.
+     * 1 is taken when the value is greater than 1 and 0 is taken when it is less than 0.
      *
      * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
      * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
@@ -404,7 +406,8 @@ declare namespace curves {
      * @since 10
      */
     /**
-     * Get curve value by fraction.
+     * Get curve value by fraction,the parameter value range is from 0 to 1.
+     * 1 is taken when the value is greater than 1 and 0 is taken when it is less than 0.
      *
      * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
      * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
