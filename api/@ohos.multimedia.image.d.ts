@@ -2852,6 +2852,19 @@ declare namespace image {
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
+     * Reads image pixel map data in an area.
+     *
+     * @param { PositionArea } area Area from which the image pixel map data will be read.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readPixelsSync(area: PositionArea): void;
+
+    /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
      * the operation result.
      *
@@ -2990,6 +3003,19 @@ declare namespace image {
      * @since 11
      */
     writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
+
+    /**
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
+     *
+     * @param { ArrayBuffer } src A buffer from which the image data will be read.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    writeBufferToPixelsSync(src: ArrayBuffer): void;
 
     /**
      * Obtains pixel map information about this image. This method uses a promise to return the information.
@@ -3195,6 +3221,18 @@ declare namespace image {
     opacity(rate: number): Promise<void>;
 
     /**
+     * Set the transparent rate of pixel map.
+     *
+     * @param { number } rate The value of transparent rate.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    opacitySync(rate: number): void;
+    /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
@@ -3246,6 +3284,18 @@ declare namespace image {
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
+    /**
+     * Obtains new pixel map with alpha information.
+     *
+     * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    createAlphaPixelmapSync(): PixelMap;
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
@@ -3389,6 +3439,20 @@ declare namespace image {
     translate(x: number, y: number): Promise<void>;
 
     /**
+     * Image position transformation.
+     *
+     * @param { number } x The position value of width.
+     * @param { number } y The position value of height.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    translateSync(x: number, y: number): void;
+
+    /**
      * Image rotation. This method uses a callback to return the operation result.
      *
      * @param { number } angle The rotation angle.
@@ -3445,6 +3509,19 @@ declare namespace image {
      * @since 11
      */
     rotate(angle: number): Promise<void>;
+
+    /**
+     * Image rotation.
+     *
+     * @param { number } angle The rotation angle.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    rotateSync(angle: number): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
@@ -3511,6 +3588,20 @@ declare namespace image {
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
     /**
+     * Image flipping.
+     *
+     * @param { boolean } horizontal Is flip in horizontal.
+     * @param { boolean } vertical Is flip in vertical.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    flipSync(horizontal: boolean, vertical: boolean): void;
+
+    /**
      * Crop the image. This method uses a callback to return the operation result.
      *
      * @param { Region } region The region to crop.
@@ -3567,6 +3658,19 @@ declare namespace image {
      * @since 11
      */
     crop(region: Region): Promise<void>;
+
+    /**
+     * Crop the image.
+     *
+     * @param { Region } region The region to crop.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    cropSync(region: Region): void;
 
     /**
      * Get color space of pixel map.
