@@ -198,7 +198,7 @@ declare namespace relationalStore {
    * @since 10
    */
   /**
-   * Indicates possible value types and bigint
+   * Indicates possible value types
    *
    * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
