@@ -452,6 +452,7 @@ export interface AnimatorResult {
    */
   /**
    * Plays the animation in reverse direction.
+   * Invalid when using interpolating-spring curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
