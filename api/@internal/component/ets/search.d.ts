@@ -1099,6 +1099,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   selectionMenuHidden(value: boolean): SearchAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): SearchAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): SearchAttribute;
+
+  /**
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value
@@ -1127,6 +1149,39 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 12
    */
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): SearchAttribute;
+
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): SearchAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): SearchAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): SearchAttribute;
 
   /**
    * Called when the search type is set.

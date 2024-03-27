@@ -3121,6 +3121,18 @@ declare namespace window {
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
+     * Get the properties of system bar
+     *
+     * @returns { SystemBarProperties } Return system bar properties.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    getWindowSystemBarProperties(): SystemBarProperties;
+
+    /**
      * Set the preferred orientation config of the window
      *
      * @param { Orientation } orientation - The orientation config of the window
@@ -5086,6 +5098,23 @@ declare namespace window {
      * @since 11
      */
     getWindowDecorHeight(): number;
+    
+    /**
+     * Set touchable areas. By default, the entire window area is touchable.
+     * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
+     * If the window area changes, you need to reset it.
+     *
+     * @param { Array<Rect> } rects - Touchable areas. The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    setTouchableAreas(rects: Array<Rect>): void;
 	
     /**
      * Get the area of window title buttons.

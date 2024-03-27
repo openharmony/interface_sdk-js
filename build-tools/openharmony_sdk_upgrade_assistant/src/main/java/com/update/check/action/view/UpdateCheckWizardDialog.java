@@ -365,7 +365,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
                 UpdateCheckReportDto updateCheckReportDto = new UpdateCheckReportDto();
 
                 // fill data
-                updateCheckReportDto.setApiDefinition(this.deprecatedApiResults.get(i).getApiRawText());
+                updateCheckReportDto.setApiDefinition(this.deprecatedApiResults.get(i).getApiText());
                 String reminderInformation =
                         (StringUtils.isBlank(this.deprecatedApiResults.get(i).getUseinstead()))
                                 ? ConstString.get("obsolete.version.change.to")
@@ -384,7 +384,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
 
     private boolean judgeApi(ApiDiffResultDto apiDto, CollectApplicationApiDto collApiDto) {
         return apiDto.getDtsName().equals(collApiDto.getDtsName())
-                && apiDto.getRawText().equals(collApiDto.getApiRawText())
+                && apiDto.getRawText().equals(collApiDto.getApiText())
                 && apiDto.getClassName().equals(collApiDto.getTypeName());
     }
 

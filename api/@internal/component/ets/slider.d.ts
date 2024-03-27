@@ -292,6 +292,34 @@ declare enum SliderChangeMode {
 }
 
 /**
+ * Declare SliderInteraction
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum SliderInteraction {
+  /**
+   * Allow user to slide the block and click track to move the block
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDE_AND_CLICK,
+
+  /**
+   * Only allow user to slide the block
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDE_ONLY
+}
+
+/**
  * Defines the options of Slider.
  *
  * @interface SliderOptions
@@ -1313,6 +1341,28 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    */
   stepSize(value: Length): SliderAttribute;
+
+  /**
+   * Sets the interaction mode of the slider.
+   *
+   * @param { SliderInteraction } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  sliderInteractionMode(value: SliderInteraction): SliderAttribute;
+
+  /**
+   * Sets the min value when Slider response to drag event.
+   *
+   * @param { number } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minResponsiveDistance(value: number): SliderAttribute;
 }
 
 /**
