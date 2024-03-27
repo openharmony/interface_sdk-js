@@ -212,6 +212,7 @@
     "SystemCapability.Graphic.Graphic2D.NativeImage",
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
-    "SystemCapability.Multimedia.Image.ImageCreator"
+    "SystemCapability.Multimedia.Image.ImageCreator",
+    "SystemCapability.Ability.AppStartup"
   ]
 }
