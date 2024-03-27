@@ -4913,6 +4913,149 @@ declare namespace audio {
   }
 
   /**
+   * ASR noise suppression mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum ASRNoiseSuppressionMode {
+    /**
+     * Bypass noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    BYPASS = 0,
+    /**
+     * Standard noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    STANDARD = 1,
+    /**
+     * Near field noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    NEAR_FIELD = 2,
+    /**
+     * Far field noise suppression.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    FAR_FIELD = 3,
+  }
+
+  /**
+   * ASR AEC mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  enum ASRAECMode {
+    /**
+     * Bypass AEC.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    BYPASS = 0,
+    /**
+     * Using standard AEC.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    STANDARD = 1,
+  }
+
+  /**
+   * ASR processing controller.
+   * @typedef ASRProcessingController
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  interface ASRProcessingController {
+    /**
+     * Set ASR AEC mode.
+     * @param { ASRAECMode } mode - ASR AEC Mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setASRAECMode(mode: ASRAECMode): boolean;
+
+    /**
+     * Get ASR AEC mode.
+     * @returns { ASRAECMode } ASR AEC Mode.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getASRAECMode(): ASRAECMode;
+
+    /**
+     * Set ASR noise suppression mode.
+     * @param { ASRNoiseSuppressionMode } mode - ASR noise suppression mode.
+     * @returns { boolean } Indicates whether the mode has been successfully set.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    setNoiseSuppressionMode(mode: ASRNoiseSuppressionMode): boolean;
+
+    /**
+     * Get ASR noise suppression mode.
+     * @returns { ASRNoiseSuppressionMode } ASR noise suppression mode.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    getNoiseSuppressionMode(): ASRNoiseSuppressionMode;
+
+    /**
+     * Query whether is whispering.
+     * @returns { boolean } whether is whispering.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 12
+     */
+    isWhispering(): boolean;
+  }
+
+  /**
+   * Create ASR processing controller on one audio capturer.
+   * @param { AudioCapturer } audioCapture - The audio capturer whose ASR processing will be controlled. The source type
+   * of this capturer must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}.
+   * @returns { ASRProcessingController } ASR Processing Controller.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+   * @throws { BusinessError } 6800101 - Input parameter value error.
+   * @throws { BusinessError } 6800104 - Operation not allowed. e.g. the source type of the input audio capturer is not
+   * {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}, or this audio capturer is already released.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 12
+   */
+  function createASRProcessingController(audioCapture: AudioCapturer): ASRProcessingController;
+
+  /**
    * Enumerates tone types for player.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Tone
