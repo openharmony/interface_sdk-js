@@ -9315,6 +9315,56 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   enableOutsideInteractive?: boolean;
+
+  /**
+   * Defines the sheet's width.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width?: Dimension;
+
+  /**
+   * Defines the sheet's border width.
+   *
+   * @type { ?(Dimension | EdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderWidth?: Dimension | EdgeWidths;
+
+  /**
+   * Defines the sheet's border color.
+   *
+   * @type { ?(ResourceColor | EdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderColor?: ResourceColor | EdgeColors;
+
+  /**
+   * Defines the sheet's border style.
+   *
+   * @type { ?(BorderStyle | EdgeStyles) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderStyle?: BorderStyle | EdgeStyles;
+
+  /**
+   * Defines the sheet's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
