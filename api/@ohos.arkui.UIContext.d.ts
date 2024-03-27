@@ -1255,26 +1255,27 @@ export class ComponentUtils {
 }
 
 /**
- * class Overlay
+ * class OverlayManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-export class Overlay {
+export class OverlayManager {
   /**
-   * Add the ComponentContent to the Overlay.
+   * Add the ComponentContent to the OverlayManager.
    *
-   * @param { ComponentContent } content - The content will be added to the Overlay.
+   * @param { ComponentContent } content - The content will be added to the OverlayManager.
+   * @param { number } [ index ] - The index at which to add the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addComponentContent(content: ComponentContent): void;
+  addComponentContent(content: ComponentContent, index?: number): void;
 
   /**
-   * Remove the ComponentContent from the Overlay.
+   * Remove the ComponentContent from the OverlayManager.
    *
-   * @param { ComponentContent } content - The content will be removed from the Overlay.
+   * @param { ComponentContent } content - The content will be removed from the OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1302,22 +1303,22 @@ export class Overlay {
   hideComponentContent(content: ComponentContent): void;
 
   /**
-   * Show all ComponentContents on the Overlay.
+   * Show all ComponentContents on the OverlayManager.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  show(): void;
+  showAllComponentContents(): void;
 
   /**
-   * Hide all ComponentContents on the Overlay.
+   * Hide all ComponentContents on the OverlayManager.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  hide(): void;
+  hideAllComponentContents(): void;
 }
 
 /**
@@ -1608,14 +1609,14 @@ export class UIContext {
   getUIObserver(): UIObserver;
 
   /**
-   * Get object Overlay.
+   * Get object OverlayManager.
    *
-   * @returns { Overlay } object Overlay.
+   * @returns { OverlayManager } object OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  getOverlay(): Overlay;
+  getOverlayManager(): OverlayManager;
 
   /**
    * Create an animator object for custom animation.
