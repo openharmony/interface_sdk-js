@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare the type of input box
  *
  * @enum { number }
@@ -358,6 +363,53 @@ declare enum EnterKeyType {
 }
 
 /**
+  * Defines the underline color width property.
+  *
+  * @interface UnderlineColor
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+declare interface UnderlineColor {
+  /**
+    * Typing underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  typing?: ResourceColor | undefined;
+  /**
+    * Normal underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  normal?: ResourceColor | undefined;
+  /**
+    * Error underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  error?: ResourceColor | undefined;
+  /**
+    * Disable underline color width property.
+    *
+    * @type { ?(ResourceColor | undefined) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  disable?: ResourceColor | undefined;
+} 
+
+/**
  * Provides the method of keeping TextInput editable state when submitted.
  *
  * @interface SubmitEvent
@@ -481,7 +533,18 @@ declare class TextInputController extends TextContentControllerBase {
    * @atomicservice
    * @since 11
    */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Exit edit state.
@@ -553,14 +616,14 @@ declare interface TextInputOptions {
   placeholder?: ResourceStr;
 
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -568,7 +631,7 @@ declare interface TextInputOptions {
    * @since 10
    */
   /**
-   * Sets the current value of TextArea.
+   * Sets the current value of TextInput.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1712,6 +1775,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showUnderline(value: boolean): TextInputAttribute;
 
   /**
+   * Define the underline color of the text input.
+   *
+   * @param { ResourceColor | UnderlineColor | undefined } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  underlineColor(value: ResourceColor | UnderlineColor | undefined): TextInputAttribute;
+
+  /**
    * Controls whether the selection menu pops up.
    *
    * @param { boolean } value
@@ -1772,6 +1846,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxLines(value: number): TextInputAttribute;
 
   /**
+   * Set the text inline style word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak(value: WordBreak): TextInputAttribute;
+
+  /**
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value
@@ -1789,7 +1874,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * Define custom keyboard of the text input.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextInput
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextInputAttribute;
 
   /**
    * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
@@ -1827,6 +1923,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   selectAll(value: boolean): TextInputAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the height adaptive policy is set.
+   *
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
+
+  /**
    * Sets whether enable auto fill or not.
    *
    * @param { boolean } value - Indicates the flag whether autofill is enabled.
@@ -1837,6 +1966,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableAutoFill(value: boolean): TextInputAttribute;
 
   /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): TextInputAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): TextInputAttribute;
+
+  /**
    * Define the password rules of the text input.
    *
    * @param { string } value - Indicates the password rules. 
@@ -1845,6 +2007,21 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   passwordRules(value: string): TextInputAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of TextInput component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): TextInputAttribute;  
 }
 
 /**

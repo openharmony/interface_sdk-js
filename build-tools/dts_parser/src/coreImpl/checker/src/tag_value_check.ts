@@ -16,12 +16,11 @@
 import { ErrorTagFormat, ErrorMessage, PermissionData } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions } from '../../../utils/checkUtils';
-import { ApiInfo, ApiType, ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType, ClassInfo, GenericInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { MethodInfo, PropertyInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { PunctuationMark } from '../../../utils/Constant';
 import { SystemCapability } from '../config/syscapConfigFile.json';
 import { module } from '../config/permissionConfigFile.json';
-import ts from 'typescript';
 
 export class TagValueCheck {
   /**
@@ -45,7 +44,7 @@ export class TagValueCheck {
           tagValueError.push(sincevalueCheckResult);
         }
       }
-      if (tag.tag === 'extends') {
+      if (tag.tag === 'extends' || tag.tag === 'implements') {
         const extendsvalueCheckResult = TagValueCheck.extendsTagValueCheck(singleApi, tag);
         if (!extendsvalueCheckResult.state) {
           tagValueError.push(extendsvalueCheckResult);
@@ -63,7 +62,7 @@ export class TagValueCheck {
           tagValueError.push(returnsvalueCheckResult);
         }
       }
-      if (tag.tag === 'namespace' || tag.tag === 'interface' || tag.tag === 'typedef') {
+      if (tag.tag === 'namespace' || tag.tag === 'typedef' || tag.tag === 'struct') {
         const outerValueCheckResult = TagValueCheck.outerTagValueCheck(singleApi as ClassInfo, tag);
         if (!outerValueCheckResult.state) {
           tagValueError.push(outerValueCheckResult);
@@ -99,9 +98,9 @@ export class TagValueCheck {
           tagValueError.push(permissionValueCheckResult);
         }
       }
-      if (tag.tag === 'throws') {
+      if (tag.tag === 'throws' && singleApi.getLastJsDocInfo()?.deprecatedVersion === '-1') {
         throwsIndex += 1;
-        const throwsValueCheckResult = TagValueCheck.throwsTagValueCheck(tag, throwsIndex);
+        const throwsValueCheckResult = TagValueCheck.throwsTagValueCheck(tag, throwsIndex, tagsName);
         if (!throwsValueCheckResult.state) {
           tagValueError.push(throwsValueCheckResult);
         }
@@ -154,13 +153,17 @@ export class TagValueCheck {
     };
     let extendsTagValue: string = tag.name;
     if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
-      let extendsApiValue = (singleApi as ClassInfo).getParentClasses();
-      if (extendsTagValue !== extendsApiValue[0]) {
+      const extendsApiValue: string = CommonFunctions.getExtendsApiValue(singleApi);
+      const ImplementsApiValue: string = CommonFunctions.getImplementsApiValue(singleApi);
+      if (tag.tag === 'extends' && extendsTagValue !== extendsApiValue) {
         extendsValueCheckResult.state = false;
         extendsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_EXTENDS;
       }
+      if (tag.tag === 'implements' && extendsTagValue !== ImplementsApiValue) {
+        extendsValueCheckResult.state = false;
+        extendsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_IMPLEMENTS;
+      }
     }
-
     return extendsValueCheckResult;
   }
 
@@ -193,9 +196,12 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    const returnsTagValue: string = tag.type;
+    const returnsTagValue: string = tag.type.replace(/\s/g, '');
 
     let returnsApiValue: string[] = [];
+    if (singleApi.getApiType() !== ApiType.METHOD) {
+      return returnsValueCheckResult
+    }
     const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
     if (spacealCase.length > 0) {
       returnsApiValue = spacealCase;
@@ -204,8 +210,8 @@ export class TagValueCheck {
     }
     if (returnsApiValue.length === 0) {
       returnsValueCheckResult.state = false;
-      returnsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, ['returns']);
-    } else if (returnsTagValue !== returnsApiValue[0]) {
+      returnsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_RETURNS;
+    } else if (returnsTagValue !== returnsApiValue.join('|').replace(/\s/g, '')) {
       returnsValueCheckResult.state = false;
       returnsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_RETURNS;
     }
@@ -225,17 +231,33 @@ export class TagValueCheck {
     };
     let tagValue: string = tag.name;
     let apiValue: string = singleApi.getApiName();
+    const definedText: string = singleApi.getDefinedText();
     if (tag.tag === 'namespace' && tagValue !== apiValue) {
       outerValueCheckResult.state = false;
       outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_NAMESPACE;
     }
-    if (tag.tag === 'interface' && tagValue !== apiValue) {
-      outerValueCheckResult.state = false;
-      outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_INTERFACE;
+    if (tag.tag === 'typedef') {
+      const genericArr: GenericInfo[] = singleApi.getGenericInfo();
+      if (genericArr.length > 0) {
+        let genericInfo = genericArr.map((generic) => {
+          return generic.getGenericContent()
+        }).join(',')
+        apiValue = apiValue + '<' + genericInfo + '>';
+      }
+      if (singleApi.getApiType() === 'Interface' && tagValue !== apiValue) {
+        outerValueCheckResult.state = false;
+        outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
+      } else if (singleApi.getApiType() === 'TypeAlias') {
+        const typeContent: string = definedText.substring(definedText.indexOf('=') + 1, definedText.length);
+        if (tag.type !== typeContent.replace(/\s|\;/g, '')) {
+          outerValueCheckResult.state = false;
+          outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
+        }
+      }
     }
-    if (tag.tag === 'typedef' && tagValue !== apiValue) {
+    if (tag.tag === 'struct' && tagValue !== apiValue) {
       outerValueCheckResult.state = false;
-      outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_TYPEDEF;
+      outerValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_STRUCT;
     }
     return outerValueCheckResult;
   }
@@ -263,7 +285,7 @@ export class TagValueCheck {
       typeApiValue = (singleApi as PropertyInfo).type;
     }
 
-    let typeApiUnionValue: string = typeApiValue.join('|');
+    let typeApiUnionValue: string = typeApiValue.join('|').replace(/\s/g, '');
     const isOptional: boolean = !(singleApi as PropertyInfo).getIsRequired();
     if (isOptional && typeApiValue.length === 1) {
       typeApiUnionValue = '?' + typeApiUnionValue;
@@ -304,7 +326,7 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    const defaultTagValue: string = tag.name;
+    const defaultTagValue: string = tag.name + tag.type;
     if (defaultTagValue.length === 0) {
       defaultValueCheckResult.state = false;
       defaultValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_DEFAULT;
@@ -367,7 +389,7 @@ export class TagValueCheck {
    * @param { number } throwsIndex
    * @returns { ErrorTagFormat }
    */
-  static throwsTagValueCheck(tag: Comment.CommentTag, throwsIndex: number): ErrorTagFormat {
+  static throwsTagValueCheck(tag: Comment.CommentTag, throwsIndex: number, tagsName: Comment.CommentTag[] | undefined): ErrorTagFormat {
     const throwsValueCheckResult: ErrorTagFormat = {
       state: true,
       errorInfo: '',
@@ -385,6 +407,14 @@ export class TagValueCheck {
       throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_VALUE2_THROWS, [
         JSON.stringify(throwsIndex),
       ]);
+    }
+    const allTagName: string[] = [];
+    tagsName?.forEach((tag: Comment.CommentTag) => {
+      allTagName.push(tag.tag)
+    })
+    if (throwsTagName === '201' && !allTagName.includes('permission')) {
+      throwsValueCheckResult.state = false;
+      throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['permission']);
     }
     return throwsValueCheckResult;
   }
@@ -404,7 +434,7 @@ export class TagValueCheck {
     if (singleApi.getApiType() !== ApiType.METHOD) {
       return paramValueCheckResult;
     }
-    const paramTagType: string = tag.type;
+    const paramTagType: string = tag.type.replace(/\s/g, '');
     const paramTagName: string = tag.name;
     const paramApiInfos: ParamInfo[] = (singleApi as MethodInfo).getParams();
     const paramApiName: string = paramApiInfos[paramIndex]?.getApiName();
@@ -424,7 +454,7 @@ export class TagValueCheck {
         JSON.stringify(paramIndex + 1),
       ]);
     }
-    if (paramApiType === undefined || paramTagType !== paramApiType[0]) {
+    if (paramApiType === undefined || paramTagType !== paramApiType.join('|').replace(/\s/g, '')) {
       paramValueCheckResult.state = false;
       paramValueCheckResult.errorInfo =
         paramValueCheckResult.errorInfo +

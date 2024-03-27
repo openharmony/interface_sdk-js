@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Define the contents of each selector item.
  *
  * @interface TextPickerRangeContent
@@ -288,6 +293,56 @@ interface TextPickerInterface {
 }
 
 /**
+ * Defines the struct of DividerOptions.
+ *
+ * @interface DividerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DividerOptions {
+  /**
+   * The strokeWidth of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth?: Dimension;
+
+  /**
+   * The color of Divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+
+  /**
+   * The startMargin of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  startMargin?: Dimension;
+
+  /**
+   * The endMargin of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  endMargin?: Dimension;
+}
+
+/**
  * Style the text selector.
  *
  * @extends CommonMethod<TextPickerAttribute>
@@ -499,6 +554,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 11
    */
   selectedIndex(value: number | number[]): TextPickerAttribute;
+
+  /**
+   * Set the divider of TextPicker
+   *
+   * @param { DividerOptions | null } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  divider(value: DividerOptions | null): TextPickerAttribute;
 }
 
 /**
@@ -863,6 +929,48 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Callback function when the dialog appears.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDidAppear?: () => void;
+
+  /**
+   * Callback function when the dialog disappears.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDidDisappear?: () => void;
+
+  /**
+   * Callback function before the dialog openAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillAppear?: () => void;
+
+  /**
+   * Callback function before the dialog closeAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDisappear?: () => void;
 }
 
 /**

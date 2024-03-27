@@ -14,6 +14,56 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
+ * Surface Rectangle information.
+ *
+ * @interface SurfaceRect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface SurfaceRect {
+  /**
+   * The horizontal offset of the surface relative to XComponent.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  offsetX?: number;
+
+  /**
+   * The vertical offset of the surface relative to XComponent.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  offsetY?: number;
+
+  /**
+   * The width of the surface created by XComponent
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  surfaceWidth: number;
+
+  /**
+   * The height of the surface created by XComponent
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  surfaceHeight: number;
+}
+
+/**
  * Defines XComponentController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -53,10 +103,37 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Set the surface size created by XComponent.
+   *
+   * @param { object } value - surface size
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @deprecated since 12
+   * @useinstead setXComponentSurfaceRect
+   */
   setXComponentSurfaceSize(value: {
     surfaceWidth: number;
     surfaceHeight: number;
   }): void;
+
+  /**
+   * Set the rectangle information of surface created by XComponent.
+   *
+   * @param { SurfaceRect } rect - The surface rectangle information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setXComponentSurfaceRect(rect: SurfaceRect): void;
+
+  /**
+   * Get the rectangle information of Surface created by XComponent.
+   *
+   * @returns { SurfaceRect } The surface rectangle information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getXComponentSurfaceRect(): SurfaceRect;
 }
 
 /**

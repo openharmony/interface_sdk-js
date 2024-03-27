@@ -476,10 +476,20 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onFrame
    */
   onframe: (progress: number) => void;
 
   /**
+   * Trigger when vSync callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onFrame: (progress: number) => void;
+
+  /**
    * The animation is finished.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -496,10 +506,20 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onFinish
    */
   onfinish: () => void;
 
   /**
+   * The animation is finished.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onFinish: () => void;
+
+  /**
    * The animation is canceled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -516,8 +536,18 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onCancel
    */
   oncancel: () => void;
+
+  /**
+   * The animation is canceled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onCancel: () => void;
 
   /**
    * The animation is repeated.
@@ -536,8 +566,26 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onRepeat
    */
   onrepeat: () => void;
+
+  /**
+   * The animation is repeated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onRepeat: () => void;
+
+  /**
+   * The expected frame rate of dynamical of rate range.
+   * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 }
 
 /**

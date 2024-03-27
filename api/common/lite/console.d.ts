@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provide console
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Lite

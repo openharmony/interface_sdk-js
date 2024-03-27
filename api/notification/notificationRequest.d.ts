@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,6 +11,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ */
+
+/**
+ * @file Information carried when a notification is sent
+ * @kit NotificationKit
  */
 
 import notification from '../@ohos.notification';
@@ -49,6 +54,15 @@ export interface NotificationRequest {
    * @since 7
    */
   id?: number;
+
+  /**
+   * Globally unique notification message ID defined by application.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  appMessageId?: string;
 
   /**
    * Notification slot type.
@@ -301,6 +315,26 @@ export interface NotificationRequest {
   readonly creatorUserId?: number;
 
   /**
+   * Application instance key.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly creatorInstanceKey?: number;
+
+  /**
+   * Obtain the prompt tone resource path of the notification.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  sound?: string;
+
+  /**
    * Obtains the classification of this notification.
    *
    * @type { ?string }
@@ -405,6 +439,46 @@ export interface NotificationRequest {
    * @since 9
    */
   badgeNumber?: number;
+
+  /**
+   * Notification control flags.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  notificationControlFlags?: number;
+
+  /**
+   * Whether the notification need to be agent display.
+   *
+   * @type { ?BundleOption }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  representativeBundle?: BundleOption;
+  
+  /**
+   * Proxy identity of creation notification.
+   * 
+   * @type { ?BundleOption }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly agentBundle?: BundleOption;
+
+  /**
+   * Unified aggregation of information across applications.
+   *
+   * @type { ?UnifiedGroupInfo }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  unifiedGroupInfo?: UnifiedGroupInfo;
 }
 
 /**
@@ -532,4 +606,64 @@ export interface NotificationCheckRequest {
    * @since 11
    */
   extraInfoKeys: Array<string>;
+}
+
+/**
+ * Unified aggregation of information across applications.
+ *
+ * @typedef UnifiedGroupInfo
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 12
+ */
+export interface UnifiedGroupInfo {
+  /**
+   * The key is aggregated across applications.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  key?: string;
+
+  /**
+   * The title is aggregated across applications.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  title?: string;
+
+  /**
+   * The content is aggregated across applications.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  content?: string;
+
+  /**
+   * Aggregation scenario name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  sceneName?: string;
+
+  /**
+   * Other information is aggregated across applications.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  extraInfo?: { [key: string]: any };
 }

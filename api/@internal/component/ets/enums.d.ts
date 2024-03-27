@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * common enum of the checkbox shape
  *
  * @enum { number }
@@ -8988,6 +8993,65 @@ declare enum FoldStatus {
    * @since 11
    */
   FOLD_STATUS_HALF_FOLDED = 3,
+}
+
+/**
+ * Enumerates the app rotation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum AppRotation {
+
+  /**
+   * App does not rotate to display vertically.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_0 = 0,
+
+  /**
+   * App rotates 90 degrees clockwise to display horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_90 = 1,
+
+  /**
+   * App rotates 180 degrees clockwise to display vertically in reverse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_180 = 2,
+
+  /**
+   * App rotates 270 degrees clockwise to display horizontally in reverse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ROTATION_270 = 3
+}
+
+/**
+ * Enum of EmbeddedType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum EmbeddedType {
+  /**
+   * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  EMBEDDED_UI_EXTENSION = 0,
 }
 
 declare module 'borderStyle' {

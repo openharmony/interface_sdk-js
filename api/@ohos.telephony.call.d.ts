@@ -2557,6 +2557,26 @@ declare namespace call {
   function removeMissedIncomingCallNotification(): Promise<void>;
 
   /**
+   * Send call ui event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } eventName - Indicates the event name.
+   * @returns { Promise<void> } The promise returned by the sendCallUiEvent.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function sendCallUiEvent(callId: number, eventName: string): Promise<void>;
+
+  /**
    * Indicates the mode of the ims call.
    *
    * @enum { number }
@@ -3794,6 +3814,24 @@ declare namespace call {
      * @since 11
      */
     EVENT_SPLIT_CALL_FAILED,
+
+    /**
+     * Indicates show full screen.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_SHOW_FULL_SCREEN,
+
+    /**
+     * Indicates show float window.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_SHOW_FLOAT_WINDOW,
   }
 
   /**

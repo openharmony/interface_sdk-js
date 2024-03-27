@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Enum for the mode of the tab bar when selected.
  *
  * @enum { number }
@@ -430,6 +435,56 @@ declare interface LabelStyle {
    * @since 11
    */
   font?: Font;
+
+  /**
+   * The text color of the selected tab bar.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedColor?: ResourceColor;
+
+  /**
+   * The text color of the unselected tab bar.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  unselectedColor?: ResourceColor;
+}
+
+/**
+ * TabBarIconStyle object.
+ *
+ * @interface TabBarIconStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TabBarIconStyle {
+  /**
+   * The icon color of the selected tab bar.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedColor?: ResourceColor;
+
+  /**
+   * The icon color of the unselected tab bar.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  unselectedColor?: ResourceColor;
 }
 
 /**
@@ -811,6 +866,17 @@ declare class BottomTabBarStyle {
    * @since 11
    */
   id(value: string): BottomTabBarStyle;
+
+  /**
+   * Set the icon style of the bottom tab bar
+   *
+   * @param { TabBarIconStyle } style - indicates the icon style of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
 }
 
 /**
@@ -956,6 +1022,28 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @since 11
    */
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
+
+  /**
+   * Called when the tab content will show.
+   * @param { VoidCallback  } event
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillShow(event: VoidCallback): TabContentAttribute;
+
+  /**
+   * Called when the tab content will hide.
+   * @param { VoidCallback  } event
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillHide(event: VoidCallback): TabContentAttribute;
 }
 
 /**

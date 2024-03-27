@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * This interface is used to set the options for UIExtensionComponentAttribute during construction
  *
  * @interface UIExtensionOptions

@@ -632,9 +632,8 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 12
    */
   export enum WindowMode {
     /**
@@ -643,7 +642,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 12
      */
     WINDOW_MODE_UNDEFINED = 0,
 
@@ -653,29 +652,27 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 12
      */
     WINDOW_MODE_FULLSCREEN = 1,
 
     /**
-     * If the screen is horizontal, it means the right split screen, and if the screen is vertical,
-     * it means the lower split screen.
+     * Primary screen in split-screen mode. If the screen is horizontal, it means the left split screen.
+     * It is valid only in intra-app redirection scenarios.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 12
      */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
 
     /**
-     * If the screen is horizontal, it means the right split screen, and if the screen is vertical,
-     * it means the lower split screen.
+     * Secondary screen in split-screen mode. If the screen is horizontal, it means the right split screen.
+     * It is valid only in intra-app redirection scenarios.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 12
      */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
@@ -685,7 +682,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 12
      */
     WINDOW_MODE_FLOATING = 102
   }

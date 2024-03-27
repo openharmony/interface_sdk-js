@@ -72,6 +72,16 @@ declare namespace fileUri {
      * @since 11
      */
     getFullDirectoryUri(): string;
+
+    /**
+     * Check whether the incoming URI is a remote URI
+     *
+     * @returns { boolean } Return true or false
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 12
+     */
+    isRemoteUri(): boolean;
   }
   
   /**

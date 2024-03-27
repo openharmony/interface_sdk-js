@@ -578,6 +578,14 @@ declare namespace bundleManager {
     ADS_SERVICE = 20,
 
     /**
+     * Indicates extension info with type of embedded UI
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 12
+     */
+    EMBEDDED_UI = 21,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1182,6 +1190,81 @@ declare namespace bundleManager {
      * @since 11
      */
     INTENT_PROFILE = 1
+  }
+
+  /**
+   * This enumeration value is used to identify the distribution type of application.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export enum AppDistributionType {
+    /**
+     * Indicates the application is distributed by the App Gallery.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    APP_GALLERY = 1,
+
+    /**
+     * Indicates the enterprise application, which can be installed in personal devices.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTERPRISE = 2,
+
+    /**
+     * Indicates the normal enterprise application.
+     * This kind of application can only be installed on enterprise devices through the enterprise MDM application and does not require device management privileges.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTERPRISE_NORMAL = 3,
+
+    /**
+     * Indicates the enterprise MDM application, which can only be installed on enterprise devices.
+     * This kind of application requires device management privileges, such as remote locking, which can install normal enterprise applications, etc.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTERPRISE_MDM = 4,
+
+    /**
+     * Indicates the system preinstalled application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    OS_INTEGRATION = 5,
+
+    /**
+     * Indicates the crowdtesting application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    CROWDTESTING = 6,
+
+    /**
+     * Indicates other types of application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    NONE = 7
   }
 
   /**
@@ -2680,6 +2763,76 @@ declare namespace bundleManager {
    */
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string): string;
 
+   /**
+   * Get extend resources.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<Array<string>> } Returns getExtResource result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700303 - GetExtResource failed due to no extend resource.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+   function getExtResource(bundleName: string): Promise<Array<string>>;
+
+  /**
+   * Enable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700304 - EnableDynamicIcon failed due to parse dynamic icon failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
+
+  /**
+   * Disable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<void> } Returns disableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700305 - DisableDynamicIcon failed due to no dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function disableDynamicIcon(bundleName: string): Promise<void>;
+
+  /**
+   * Get dynamic icon.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<string> } Returns dynamic icon key.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700306 - No dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getDynamicIcon(bundleName: string): Promise<string>;
+
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
    *
@@ -2780,6 +2933,37 @@ declare namespace bundleManager {
    * @since 12
    */
   function canOpenLink(link: string): boolean;
+
+  /**
+   * Get a list of BundleInfo objects by developerId.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } developerId - Indicates the developerId of the application.
+   * @returns { Array<BundleInfo> } Returns a list of BundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700059 - The specified developerId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getAllBundleInfoByDeveloperId(developerId: string): Array<BundleInfo>;
+
+  /**
+   * Get a list of developedId by distribution type.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } appDistributionType - Indicates the distribution type of the application, and if not passed in, it gets all the developerId.
+   * @returns { Array<String> } Returns a list of developerId.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function getDeveloperIds(appDistributionType?: number): Array<String>;
 
   /**
    * Obtains configuration information about an application.

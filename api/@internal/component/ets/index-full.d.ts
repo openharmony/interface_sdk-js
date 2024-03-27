@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="./action_sheet.d.ts" />
 /// <reference path="./alert_dialog.d.ts" />
 /// <reference path="./alphabet_indexer.d.ts" />
@@ -60,6 +65,7 @@
 /// <reference path="./location_button.d.ts" />
 /// <reference path="./matrix2d.d.ts" />
 /// <reference path="./marquee.d.ts" />
+/// <reference path="./media_cached_image.d.ts" />
 /// <reference path="./menu.d.ts" />
 /// <reference path="./menu_item.d.ts" />
 /// <reference path="./menu_item_group.d.ts" />
@@ -135,3 +141,5 @@
 /// <reference path="./ui_extension_component.d.ts" />
 /// <reference path="./component3d.d.ts" />
 /// <reference path="./container_span.d.ts" />
+/// <reference path="./embedded_component.d.ts" />
+/// <reference path="./styled_string.d.ts" />

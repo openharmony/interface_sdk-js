@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { ElementName } from '../bundleManager/ElementName';
 import bundle from '../@ohos.bundle.bundleManager';
 

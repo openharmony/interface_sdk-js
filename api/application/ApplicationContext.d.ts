@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
@@ -20,13 +25,14 @@ import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
+import Want from '../@ohos.app.ability.Want';
 
 /**
  * The context of an application. It allows access to application-specific resources.
  *
  * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
@@ -34,7 +40,7 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
  *
  * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -43,7 +49,7 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
  *
  * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -57,7 +63,7 @@ export default class ApplicationContext extends Context {
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -68,7 +74,7 @@ export default class ApplicationContext extends Context {
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -80,7 +86,7 @@ export default class ApplicationContext extends Context {
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -95,7 +101,7 @@ export default class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -106,7 +112,7 @@ export default class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -118,7 +124,7 @@ export default class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -133,7 +139,7 @@ export default class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -144,7 +150,7 @@ export default class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -158,7 +164,7 @@ export default class ApplicationContext extends Context {
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -169,7 +175,7 @@ export default class ApplicationContext extends Context {
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -183,7 +189,7 @@ export default class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -194,7 +200,7 @@ export default class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -208,7 +214,7 @@ export default class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -219,7 +225,7 @@ export default class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -232,7 +238,7 @@ export default class ApplicationContext extends Context {
    * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -242,7 +248,7 @@ export default class ApplicationContext extends Context {
    * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -255,7 +261,7 @@ export default class ApplicationContext extends Context {
    * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -265,7 +271,7 @@ export default class ApplicationContext extends Context {
    * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -279,7 +285,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -290,7 +296,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -302,7 +308,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -317,7 +323,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -328,7 +334,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -340,7 +346,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -354,7 +360,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -364,7 +370,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -377,7 +383,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -387,7 +393,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -400,7 +406,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -413,7 +419,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -426,7 +432,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   clearUpApplicationData(): Promise<void>;
@@ -439,8 +445,23 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
+
+  /**
+   * Kill the application and does not call back the onDestroy method, then start UIAbility.
+   *
+   * @param { Want } want - Indicates the want name of the current app, and the ability name is UIAbility.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the current app or is not a UIAbility.
+   * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 10s later.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  restartApp(want: Want): void;
 }

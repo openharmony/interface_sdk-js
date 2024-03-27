@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The options to help grid layout
  *
  * @interface GridLayoutOptions
@@ -1112,6 +1117,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead common.ScrollableCommonMethod#onDidScroll
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): GridAttribute;
 

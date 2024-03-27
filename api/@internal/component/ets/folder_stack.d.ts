@@ -14,6 +14,19 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
+ * Import the WindowMode type object for onHoverStatusChange.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare type WindowMode = import('../api/@ohos.window').WindowMode;
+
+/**
  * Provides ports for stacking containers.
  *
  * @interface FolderStackInterface
@@ -75,6 +88,17 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
     foldStatus: FoldStatus
   }) => void): FolderStackAttribute;
 
+
+   /**
+   * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
+   *
+   * @param { function } handler - executed when hoverStatus changed
+   * @returns { FolderStackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onHoverStatusChange(handler: (param: HoverEventParam) => void): FolderStackAttribute;
+
   /**
    * Enable the animation of folderStack.
    *
@@ -98,6 +122,50 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   autoHalfFold(value: boolean): FolderStackAttribute;
 }
 
+/**
+ * Defines the Embed Data info.
+ *
+ * @interface HoverEventParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface HoverEventParam {
+  /**
+   * Folder state.
+   *
+   * @type { FoldStatus }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  foldStatus: FoldStatus
+
+  /**
+   * Is hover mode
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  isHoverMode: boolean
+
+  /**
+   * App rotation
+   *
+   * @type { AppRotation }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  appRotation: AppRotation
+
+  /**
+   * Window mode
+   *
+   * @type { WindowMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  windowMode: WindowMode
+}
 /**
  * Defines FolderStack Component.
  *

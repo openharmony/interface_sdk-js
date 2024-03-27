@@ -1070,6 +1070,18 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(): Promise<Array<number>>;
 
     /**
+     * Gets the local ID of the foreground OS account.
+     *
+     * @returns { Promise<number> } Returns local ID of the foreground OS account.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getForegroundOsAccountLocalId(): Promise<number>;
+
+    /**
      * Creates an OS account using the local name and account type.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1088,6 +1100,27 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * Creates an OS account with the specified local name and type.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName or type.
+     * @throws { BusinessError } 12300004 - Local name already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
@@ -1111,7 +1144,30 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    createOsAccount(localName: string, type: OsAccountType): Promise<OsAccountInfo>;
+    /**
+     * Creates an OS account with the specified local name, type and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { CreateOsAccountOptions } [options] - Indicates the options for creating an OS account.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName, type or options.
+     * @throws { BusinessError } 12300004 - Local name already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300015 - Short name already exists.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
     /**
      * Creates an OS account using the account type and domain account info.
@@ -1336,6 +1392,23 @@ declare namespace osAccount {
      * @since 9
      */
     getOsAccountType(): Promise<OsAccountType>;
+
+    /**
+     * Gets the type of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<OsAccountType> } Returns the OS account type.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getOsAccountType(localId: number): Promise<OsAccountType>;
 
     /**
      * Obtains the distributed virtual device ID (DVID).
@@ -1633,6 +1706,74 @@ declare namespace osAccount {
     off(type: 'activate' | 'activating', name: string, callback?: Callback<number>): void;
 
     /**
+     * Subscribes to the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { 'switching' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Unsubscribes from the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { 'switching' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Subscribes to the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { 'switched' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Unsubscribes from the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { 'switched' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
+
+    /**
      * Gets the bundle ID associated with the specified UID.
      *
      * @param { number } uid - Indicates the target uid.
@@ -1779,6 +1920,16 @@ declare namespace osAccount {
     localName: string;
 
     /**
+     * The short name of an OS account.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    shortName?: string;
+
+    /**
      * Include: ADMIN, Normal, GUEST.
      *
      * @type { OsAccountType }
@@ -1901,6 +2052,56 @@ declare namespace osAccount {
   }
 
   /**
+   * Defines the switching/switched event data structure for the OS account.
+   *
+   * @typedef OsAccountSwitchEventData
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface OsAccountSwitchEventData {
+    /**
+     * Indicates which OS account to switch from.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    fromAccountId: number;
+
+    /**
+     * Indicates which OS account to switch to.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    toAccountId: number;
+  }
+
+  /**
+   * Options for creating an OS account.
+   *
+   * @interface CreateOsAccountOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface CreateOsAccountOptions {
+    /**
+     * Indicates the short name of the OS account.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    shortName: string;
+  }
+
+  /**
    * Provides information about domain accounts.
    *
    * @interface DomainAccountInfo
@@ -1977,7 +2178,16 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      */
-    GUEST
+    GUEST,
+
+    /**
+     * Indicates a private account.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PRIVATE = 1024
   }
 
   /**

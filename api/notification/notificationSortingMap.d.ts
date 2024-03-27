@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Provides sorting information about the active notifications among all the notifications that have been subscribed to
+ * @kit NotificationKit
+ */
+
 import { NotificationSorting } from './notificationSorting';
 
 /**

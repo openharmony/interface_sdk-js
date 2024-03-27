@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -338,6 +338,23 @@ declare namespace commonEventManager {
    * @since 10
    */
   function setStaticSubscriberState(enable: boolean): Promise<void>;
+
+  /**
+   * Set static subscriber state.
+   *
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { Array<string> } events - The events array.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 12
+   */
+  function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
@@ -2011,6 +2028,26 @@ declare namespace commonEventManager {
       * @since 11
       */
     COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
+
+    /**
+     * This commonEvent means when a new application package start to install on the device.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
+
+    /**
+     * This common event means an application package enables or disables a dynamic icon.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_DYNAMIC_ICON_CHANGED = 'usual.event.DYNAMIC_ICON_CHANGED',
   }
 
   /**
