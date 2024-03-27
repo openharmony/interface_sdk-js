@@ -1923,6 +1923,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   selectAll(value: boolean): TextInputAttribute;
 
   /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minFontSize(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxFontSize(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the height adaptive policy is set.
+   *
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
+
+  /**
    * Sets whether enable auto fill or not.
    *
    * @param { boolean } value - Indicates the flag whether autofill is enabled.
@@ -1931,6 +1964,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   enableAutoFill(value: boolean): TextInputAttribute;
+
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): TextInputAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): TextInputAttribute;
 
   /**
    * Define the password rules of the text input.

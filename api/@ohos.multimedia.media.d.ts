@@ -4278,6 +4278,13 @@ declare namespace media {
      * @since 11
      */
     SEEK_PREV_SYNC = 1,
+    /**
+     * Seek to the closest frame of the given timestamp.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    SEEK_CLOSEST = 2,
   }
 
   /**
