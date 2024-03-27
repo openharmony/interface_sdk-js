@@ -197,7 +197,15 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  /**
+   * Indicates possible value types and bigint
+   *
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
+   */
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -2207,6 +2215,21 @@ declare namespace relationalStore {
      * @since 10
      */
     getAssets(columnIndex: number): Assets;
+
+    /**
+     * Obtains the value of the specified column in the current row.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corruption .
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    getValue(columnIndex: number): ValueType;
 
     /**
      * Obtains the values of all columns in the specified row.
