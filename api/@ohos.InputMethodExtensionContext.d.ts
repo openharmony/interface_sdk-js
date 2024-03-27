@@ -72,7 +72,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000061 - Can not start component belongs to other bundle.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
   startAbility(want: Want): Promise<void>;

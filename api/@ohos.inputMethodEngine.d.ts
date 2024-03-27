@@ -629,7 +629,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'privateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
-     * @param { function } callback - indicates the callback of on('privateCommand').
+     * @param { Callback<Record<string, CommandDataType>> } callback - indicates the callback of on('privateCommand').
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -640,7 +640,8 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
      *
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
-     * @param { function } [callback] - optional, indicates the callback of off('privateCommand').
+     * @param { Callback<Record<string, CommandDataType>> } [callback] - optional,
+     * indicates the callback of off('privateCommand').
      * @throws { BusinessError } 12800010 - not default input method configured by system.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1278,7 +1279,7 @@ declare namespace inputMethodEngine {
     /**
      * Send private command.This function can only be called by default input method configured by system.
      *
-     * @param { Record<string, CommandDtaType> } commandData - command data which will be send.Max size 32KB.
+     * @param { Record<string, CommandDataType> } commandData - command data which will be send.Max size 32KB.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
