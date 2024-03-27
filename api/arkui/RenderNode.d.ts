@@ -154,7 +154,7 @@ export class RenderNode {
    * Get whether the RenderNode clip to frame.
    *
    * @returns { boolean } - Returns whether the RenderNode clip to frame.
-   * @default false
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -489,7 +489,6 @@ export class RenderNode {
    * Get border width of the RenderNode.
    *
    * @returns { Edges<number> } - Returns the border width of the RenderNode.
-   * @type { VP }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -532,7 +531,6 @@ export class RenderNode {
    * Get border radius of the RenderNode.
    *
    * @returns { BorderRadiuses } - Returns the border radius of the RenderNode.
-   * @type { VP }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
