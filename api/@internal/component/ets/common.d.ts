@@ -1904,7 +1904,8 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction
+   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1913,7 +1914,8 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction
+   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1923,7 +1925,8 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction
+   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
