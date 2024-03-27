@@ -187,12 +187,14 @@ declare namespace relationalStore {
   /**
    * Indicates possible value types
    *
+   * @typedef { null | number | string | boolean | Uint8Array }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
    * Indicates possible value types
    *
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
