@@ -112,7 +112,7 @@ declare namespace PiPWindow {
     contentHeight?: number;
 
     /**
-     * Describes the custom controls to be displayed in PiP window control pannel. If the parameter is empty, only mandatory controls are displayed.
+     * Describes the custom controls to be displayed in PiP window control panel. If the parameter is empty, only mandatory controls are displayed.
      *
      * @type { ?Array<PiPControlGroup> }
      * @syscap SystemCapability.Window.SessionManager
@@ -366,7 +366,7 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture control panel action event callback.
    * 
-   * @typedef { (PiPActionEventType, number?) => void }
+   * @typedef {function} ControlPanelActionEventCallback
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
