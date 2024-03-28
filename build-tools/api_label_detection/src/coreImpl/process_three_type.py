@@ -119,8 +119,9 @@ def process_param_or_return(dict_data: dict, key_info: str, parent_info: dict,
             error_message = message_of_error[1].replace('&', new_label)
             error_result.setdefault('error_type', error_type)
             error_result.setdefault('error_message', error_message)
-            message_obj = get_message_obj(dict_data, error_result)
+            message_obj = get_message_obj(dict_data, error_result, process_data)
             missing_tag_message_list.append(message_obj)
+            break
 
     return missing_tag_message_list
 
@@ -129,12 +130,14 @@ def diff_of_param_obj(key, in_out=0):
     diff_data = {
         'typeLocations': '{}#{}'.format(ErrorType.PARAM_NO_TAG.value,
                                         ErrorMessage.METHOD_HAVE_INPUT_PARAM_NO.value),
-        'objLocations': '{}#{}'.format(ErrorType.OBJ_NO_TAG.value,
-                                       ErrorMessage.METHOD_HAVE_OBJ_NO.value)
+        'objLocations': '{}#{}'.format(ErrorType.PARAM_OBJ_NO_TAG.value,
+                                       ErrorMessage.METHOD_HAVE_PARAM_OBJ_NO.value)
     }
     if 1 == in_out:
         diff_data['typeLocations'] = '{}#{}'.format(ErrorType.RETURN_NO_TAG.value,
                                                     ErrorMessage.METHOD_HAVE_OUTPUT_PARAM_NO.value)
+        diff_data['objLocations'] = '{}#{}'.format(ErrorType.RETURN_OBJ_NO_TAG.value,
+                                                   ErrorMessage.METHOD_HAVE_RETURN_OBJ_NO.value)
     error_info = ''
     if key in diff_data:
         error_info = diff_data[key]
@@ -220,8 +223,14 @@ def process_js_info(dict_data: dict, label):
     return error_result
 
 
-def get_message_obj(dict_data: dict, error_result: dict) -> Output:
-    message_obj = Output(dict_data['filePath'], error_result['error_type'], dict_data['definedText'],
+def get_message_obj(dict_data: dict, error_result: dict, in_or_out=None) -> Output:
+    if not in_or_out:
+        defined_text = dict_data['definedText']
+    elif in_or_out != dict_data:
+        defined_text = in_or_out['definedText']
+    else:
+        defined_text = dict_data['definedText']
+    message_obj = Output(dict_data['filePath'], error_result['error_type'], defined_text,
                          get_position_information(dict_data['pos']),
                          error_result['error_message'])
     return message_obj
