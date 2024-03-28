@@ -354,7 +354,8 @@
       "SystemCapability.ArkUi.Graphics3D",
       "SystemCapability.Multimedia.Drm.Core",
       "SystemCapability.Graphics.Drawing",
-      "SystemCapability.ResourceSchedule.SystemLoad"
+      "SystemCapability.ResourceSchedule.SystemLoad",
+      "SystemCapability.Ability.AppStartup"
     ]
   },
   "administrators": [

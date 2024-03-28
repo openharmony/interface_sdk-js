@@ -2415,6 +2415,15 @@ declare class RichEditorController {
    * @since 12
    */
   isEditing(): boolean;
+
+  /**
+   * Stop editing state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  stopEditing(): void;
 }
 
 /**
@@ -2725,7 +2734,41 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   onEditingChange(callback: Callback<boolean>): RichEditorAttribute;
+
+  /**
+   * Set enter key type of soft keyboard.
+   *
+   * @param { EnterKeyType } value - the enter key type of soft keyboard
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enterKeyType(value: EnterKeyType): RichEditorAttribute;
+
+  /**
+   * Called when submitted.
+   *
+   * @param { SubmitCallback } callback - callback of the listened event.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onSubmit(callback: SubmitCallback): RichEditorAttribute;
 }
+
+/**
+ * callback of the listened enter key event.
+ *
+ * @typedef { Function } SubmitCallback
+ * @param { EnterKeyType } enterKey - the enter key type of soft keyboard.
+ * @param { SubmitEvent } event - Provides the method of keeping RichEditor editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
  * Provides an interface for writing texts.

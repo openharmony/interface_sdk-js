@@ -860,6 +860,7 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Curve of the particle animation.
    * @type { ?(Curve | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -867,6 +868,7 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Curve of the particle animation.
    * @type { ?(Curve | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

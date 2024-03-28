@@ -205,6 +205,7 @@
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
-    "SystemCapability.Graphic.Graphic2D.WebGL2"
+    "SystemCapability.Graphic.Graphic2D.WebGL2",
+    "SystemCapability.Ability.AppStartup"
   ]
 }
