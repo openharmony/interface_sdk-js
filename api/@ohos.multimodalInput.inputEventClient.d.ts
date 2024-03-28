@@ -183,7 +183,7 @@ declare namespace inputEventClient {
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
   /**
-   * Authorize event injection permission.
+   * Permit event injection permission.
    *
    * @param { boolean } result - Authorization result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -192,7 +192,7 @@ declare namespace inputEventClient {
    * @systemapi hide for inner use
    * @since 12
    */
-    function allowInjection(result: boolean): void;
+    function permitInjection(result: boolean): void;
 }
 
 export default inputEventClient;
