@@ -206,7 +206,7 @@ function processFileNameWithoutExt(filePath) {
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
-    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || apiBaseName === 'common.d.ts') {
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);
