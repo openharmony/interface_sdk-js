@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines delete text direction.
  *
  * @enum { number }
@@ -164,6 +169,43 @@ declare enum RichEditorResponseType {
    * @since 11
    */
   SELECT = 2,
+}
+
+/**
+ * Define the menu pop-up policy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MenuPolicy {
+  /**
+   * Default value. The default logic of whether to pop up a menu depends on the scene.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Never pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NEVER = 1,
+
+  /**
+   * Always pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ALWAYS = 2,
 }
 
 /**
@@ -354,6 +396,26 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
+  
+  /**
+   * letter spacing.
+   *
+   * @type { ?(number | string) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing?: number | string;
+
+  /**
+   * line height.
+   *
+   * @type { ? (number | string | Resource) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight?: number | string | Resource;
 }
 
 
@@ -817,6 +879,26 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
+
+  /**
+   * letter spacing.
+   *
+   * @type { ?number } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing?: number;
+
+  /**
+   * line height.
+   *
+   * @type { ?number } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight?: number;
 }
 
 /**
@@ -1017,6 +1099,16 @@ declare interface RichEditorTextSpanResult {
    * @since 11
    */
   valueResource?: Resource;
+
+  /**
+   * The Style of paragraph.
+   *
+   * @type { ?RichEditorParagraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  paragraphStyle?: RichEditorParagraphStyle;
 }
 
 /**
@@ -1089,6 +1181,16 @@ declare interface RichEditorImageSpanStyleResult {
    * @since 11
    */
   objectFit: ImageFit;
+
+  /**
+   * RichEditor ImageSpan Layout Style.
+   *
+   * @type { ?RichEditorLayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutStyle?: RichEditorLayoutStyle;
 }
 
 /**
@@ -1431,6 +1533,46 @@ declare interface RichEditorTextSpanOptions {
    * @since 11
    */
   gesture?: RichEditorGesture;
+}
+
+/**
+ * Defines the Keyboard options of RichEditor.
+ *
+ * @interface KeyboardOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface KeyboardOptions {
+  /**
+   * Indicates whether to support keyboard avoidance.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  supportAvoidance?: boolean;
+}
+
+/**
+ * Defines the selection options of RichEditor.
+ *
+ * @interface SelectionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SelectionOptions {
+  /**
+   * Menu pop-up policy.
+   *
+   * @type { ?MenuPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuPolicy?: MenuPolicy;
 }
 
 /**
@@ -2242,7 +2384,17 @@ declare class RichEditorController {
    * @crossplatform
    * @since 11
    */
-  setSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Specify the start and end positions to select a range of content.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Called when the content is selected.
@@ -2253,6 +2405,25 @@ declare class RichEditorController {
    * @since 11
    */
   getSelection(): RichEditorSelection;
+ 
+  /**
+   * Judge whether is in editing state
+   * 
+   * @returns { boolean } - true is editing state, false is non editing status
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEditing(): boolean;
+
+  /**
+   * Stop editing state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  stopEditing(): void;
 }
 
 /**
@@ -2473,7 +2644,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): RichEditorAttribute;
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of RichEditor
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of RichEditor
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): RichEditorAttribute;
 
   /**
     * Defines onPaste callback.
@@ -2541,7 +2723,52 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
+  
+  /**
+   * Called when edit status is changed
+   *
+   * @param { Callback<boolean> } callback - when edit status is changed
+   * @returns { RichEditorAttribute } returns The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onEditingChange(callback: Callback<boolean>): RichEditorAttribute;
+
+  /**
+   * Set enter key type of soft keyboard.
+   *
+   * @param { EnterKeyType } value - the enter key type of soft keyboard
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enterKeyType(value: EnterKeyType): RichEditorAttribute;
+
+  /**
+   * Called when submitted.
+   *
+   * @param { SubmitCallback } callback - callback of the listened event.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onSubmit(callback: SubmitCallback): RichEditorAttribute;
 }
+
+/**
+ * callback of the listened enter key event.
+ *
+ * @typedef { Function } SubmitCallback
+ * @param { EnterKeyType } enterKey - the enter key type of soft keyboard.
+ * @param { SubmitEvent } event - Provides the method of keeping RichEditor editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
  * Provides an interface for writing texts.

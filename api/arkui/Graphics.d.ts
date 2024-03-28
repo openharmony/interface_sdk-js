@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
 import { BorderStyle } from 'borderStyle'
@@ -565,6 +570,7 @@ export declare class ShapeMask {
    * The fill color of the ShapeMask.
    *
    * @type { number }
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -575,6 +581,7 @@ export declare class ShapeMask {
    * The stroke color of the ShapeMask.
    *
    * @type { number }
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -585,6 +592,7 @@ export declare class ShapeMask {
    * The stroke width of the ShapeMask.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 /// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
@@ -30,6 +35,8 @@ import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
+import window from '../@ohos.window';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions.d.ts';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -145,6 +152,18 @@ export default class UIAbilityContext extends Context {
    * @since 11
    */
   config: Configuration;
+
+  /**
+   * Indicates windowStage information.
+   * Exists from onWindowStageCreate lifecycle, does not exist from onWindowStageDestroy lifecycle.
+   *
+   * @type { window.WindowStage }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  windowStage: window.WindowStage;
 
   /**
    * Starts a new ability.
@@ -347,7 +366,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16300003 - The target application is not self application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -473,7 +492,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16300003 - The target application is not self application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -2683,28 +2702,7 @@ export default class UIAbilityContext extends Context {
    * Full-screen pop-us startup atomic service.
    *
    * @param { string } appId - The ID of the application to which this bundle belongs.
-   * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of openAtomicService.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000003 - The appId does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  openAtomicService(appId: string, callback: AsyncCallback<AbilityResult>): void;
-
-  /**
-   * Full-screen pop-us startup atomic service.
-   *
-   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -2721,7 +2719,7 @@ export default class UIAbilityContext extends Context {
    * @atomicservice
    * @since 12
    */
-  openAtomicService(appId: string): Promise<AbilityResult>;
+  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
   /**
    * Move current ability to background.

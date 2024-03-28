@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * function that returns item main size by index.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { ApplicationInfo } from './ApplicationInfo';
 import { ElementName } from './ElementName';
 

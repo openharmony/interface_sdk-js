@@ -972,7 +972,7 @@ export class UIObserver {
    * Registers a callback function to be called when the navigation destination is updated.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
+   * @param { object } options - Specify the id of observed navigation.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -984,7 +984,7 @@ export class UIObserver {
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
+   * @param { object } options - Specify the id of observed navigation.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
    *                                                             navigation ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1109,6 +1109,114 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+
+    /**
+   * Registers a callback function to be called when the draw command will be drawn.
+   *
+   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    on(type: 'willDraw', callback: Callback<void>): void;
+
+    /**
+     * Removes a callback function that was previously registered with `on()`.
+     *
+     * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+     * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+     *                                                        will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    off(type: 'willDraw', callback?: Callback<void>): void;
+
+      /**
+   * Registers a callback function to be called when the layout is done.
+   *
+   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didLayout', callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                        will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didLayout', callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(
+    type: 'navDestinationSwitch',
+    callback: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(
+    type: 'navDestinationSwitch',
+    callback?: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(
+    type: 'navDestinationSwitch',
+    observerOptions: observer.NavDestinationSwitchObserverOptions,
+    callback: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(
+    type: 'navDestinationSwitch',
+    observerOptions: observer.NavDestinationSwitchObserverOptions,
+    callback?: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
 }
 
 /**
@@ -1248,12 +1356,52 @@ export class DragController {
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**
-   * Get a drag preview object.
+   * Get a drag preview object, which provides the functions of setting color or updating animation and has no effect in OnDrop and OnDragEnd callback.
    * @returns { dragController.DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   getDragPreview(): dragController.DragPreview;
+
+  /**
+   * Enable drag event strict reporting for drag enter and leave notification in nested situation. 
+   * For example, the parent and child both register the onDragEnter/onDragLeave events, if this 
+   * flag is enabled, the parent will be notified with leave event, and the child will notified with 
+   * enter event at the same time, when user drag action is passing through the parent and enter the 
+   * scope of the child.
+   * Please be noted, the default value of the flag is false, it means, for the same situation, the 
+   * parent will not receive the leave notification, just the child can get the enter event, which is 
+   * not fully strict.
+   * @param { boolean } enable - Indicating enable drag event strict reporting or not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setDragEventStrictReportingEnabled(enable: boolean): void;
+}
+
+/**
+ * class FocusController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+export class FocusController {
+  /**
+   * clear focus to the root container.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  clearFocus(): void;
+
+  /**
+   * request focus to the specific component.
+   * @param { string } key - the inspector key of the component.
+   * @throws { BusinessError } 150001 - the component cannot be focused.
+   * @throws { BusinessError } 150002 - there are components in ancestor nodes cannot be focused.
+   * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  requestFocus(key: string): void;
 }
 
 /**
@@ -1418,8 +1566,8 @@ export class UIContext {
   /**
    * Defining animation function
    *
-   * @param { AnimateParam } value - animateTo parameters.
-   * @param { function } event
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1427,8 +1575,8 @@ export class UIContext {
   /**
    * Defining animation function
    *
-   * @param { AnimateParam } value - animateTo parameters.
-   * @param { function } event
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1551,7 +1699,7 @@ export class UIContext {
   runScopedTask(callback: () => void): void;
 
   /**
-   * set KeyboardAvoidMode.
+   * Set KeyboardAvoidMode. The default mode is KeyboardAvoidMode.OFFSET
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1562,7 +1710,7 @@ export class UIContext {
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
 
   /**
-   * get KeyboardAvoidMode.
+   * Get KeyboardAvoidMode.
    * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1610,6 +1758,14 @@ export class UIContext {
    * @since 12
    */
    getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getFocusController(): FocusController;
 }
 
 /**

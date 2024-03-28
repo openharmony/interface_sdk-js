@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Import the WindowMode type object for onHoverStatusChange.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The declare of selectOption.
  *
  * @interface SelectOption
@@ -714,6 +719,17 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
+
+  /**
+   * Sets the size for controls within Select Component.
+   *
+   * @param { ControlSize } value - control size
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  controlSize(value: ControlSize): SelectAttribute;
 }
 
 /**

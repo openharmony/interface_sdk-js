@@ -92,7 +92,7 @@ declare namespace accessibility {
    * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
    * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
    * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility'|
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' }
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -100,7 +100,7 @@ declare namespace accessibility {
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-  'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility'|
+  'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility';
 
   /**
@@ -599,6 +599,14 @@ declare namespace accessibility {
      * @since 7
      */
     readonly eventTypes: Array<EventType>;
+
+    /**
+     * Indicates whether the extended service needs to be hidden.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly needHide: boolean;
   }
 
   /**

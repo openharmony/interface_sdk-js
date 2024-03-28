@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges } from './Graphics';
 
 /**
@@ -105,7 +110,7 @@ export class RenderNode {
   getNextSibling(): RenderNode | null;
 
   /**
-   * Get the previous sibling node of the current RenderNode.
+   * Get the previous sibling node of the current RenderNode. If current RenderNode does not have previous sibling node, returns null.
    *
    * @returns { RenderNode | null } - Returns a RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -128,6 +133,7 @@ export class RenderNode {
    * Get the background color of the RenderNode.
    *
    * @returns { number } - Returns a background color. Colors are defined as ARGB format represented by number.
+   * @default 0X00000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -148,6 +154,7 @@ export class RenderNode {
    * Get whether the RenderNode clip to frame.
    *
    * @returns { boolean } - Returns whether the RenderNode clip to frame.
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -168,6 +175,7 @@ export class RenderNode {
    * Get opacity of the RenderNode.
    *
    * @returns { number } Returns the opacity of the RenderNode.
+   * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -188,6 +196,7 @@ export class RenderNode {
    * Get frame size of the RenderNode.
    *
    * @returns { Size } The size of the RenderNode frame.
+   * @default Size { width: 0, height: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -208,6 +217,7 @@ export class RenderNode {
    * Get frame position of the RenderNode.
    *
    * @returns { Position } - The position of the RenderNode frame.
+   * @default Position { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -228,6 +238,7 @@ export class RenderNode {
    * Get frame info of the RenderNode.
    *
    * @returns { Frame } - Returns frame info of the RenderNode.
+   * @default Frame { x: 0, y: 0, width: 0, height: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -248,6 +259,7 @@ export class RenderNode {
    * Get pivot vector of the RenderNode.
    *
    * @returns { Pivot } - Returns pivot vector of the RenderNode.
+   * @default Pivot { x: 0.5, y: 0.5 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -268,6 +280,7 @@ export class RenderNode {
    * Get scale vector of the RenderNode.
    *
    * @returns { Scale } - Returns scale vector of the RenderNode.
+   * @default Scale { x: 1, y: 1 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -288,6 +301,7 @@ export class RenderNode {
    * Get translation vector of the RenderNode.
    *
    * @returns { Translation } - Returns translation vector of the RenderNode.
+   * @default Translation { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -308,6 +322,7 @@ export class RenderNode {
    * Get rotation vector of the RenderNode.
    *
    * @returns { Rotation } - Returns rotation vector of the RenderNode.
+   * @default Rotation { x: 0, y: 0, z: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -328,6 +343,7 @@ export class RenderNode {
    * Get transform info of the RenderNode.
    *
    * @returns {Matrix4 } - Returns transform info of the RenderNode.
+   * @default Matrix4 [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -348,6 +364,7 @@ export class RenderNode {
    * Get shadow color of the RenderNode.
    *
    * @returns { number } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
+   * @default 0X00000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -368,6 +385,7 @@ export class RenderNode {
    * Get shadow offset of the RenderNode.
    *
    * @returns { Offset } - Returns the shadow offset of the RenderNode.
+   * @default Offset { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -388,6 +406,7 @@ export class RenderNode {
    * Get shadow alpha of the RenderNode.
    *
    * @returns { number } - Returns the shadow alpha of the RenderNode.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -408,6 +427,7 @@ export class RenderNode {
    * Get shadow elevation of the RenderNode.
    *
    * @returns { number } - Returns the shadow elevation of the RenderNode.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -418,6 +438,7 @@ export class RenderNode {
    * Set shadow radius of the RenderNode.
    *
    * @param { number } radius - the shadow radius of the RenderNode.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -468,6 +489,7 @@ export class RenderNode {
    * Get border width of the RenderNode.
    *
    * @returns { Edges<number> } - Returns the border width of the RenderNode.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -488,6 +510,7 @@ export class RenderNode {
    * Get border color of the RenderNode.
    *
    * @returns { Edges<number> } - Returns the border color of the RenderNode.
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -508,6 +531,7 @@ export class RenderNode {
    * Get border radius of the RenderNode.
    *
    * @returns { BorderRadiuses } - Returns the border radius of the RenderNode.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { Image, ImageData, ImageBitmap } from "./global";
 import image from "../../@ohos.multimedia.image";
 import { CanvasPattern } from './canvaspattern';
@@ -24,14 +29,6 @@ import { CanvasPattern } from './canvaspattern';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
-/**
- * Defines the focus param.
- *
- * @interface FocusParamObj
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface FocusParamObj {
   /**
    * Whether needs to focus.
@@ -39,14 +36,6 @@ export interface FocusParamObj {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Whether needs to focus.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   focus: boolean;
 }
@@ -58,25 +47,11 @@ export interface FocusParamObj {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * RectObj
- *
- * @interface RectObj
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface RectObj {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   width: number;
   /**
@@ -84,35 +59,17 @@ export interface RectObj {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   height: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   left: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   top: number;
 }
@@ -124,25 +81,11 @@ export interface RectObj {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * ContextAttrOptions
- *
- * @interface ContextAttrOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ContextAttrOptions {
   /**
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   antialias: boolean;
 }
@@ -154,14 +97,6 @@ export interface ContextAttrOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * AnimateStyle
- *
- * @interface AnimateStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface AnimateStyle {
   /**
    * Width value applied to the component after the animation is executed.
@@ -169,14 +104,6 @@ export interface AnimateStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Width value applied to the component after the animation is executed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   width: number;
   /**
@@ -186,14 +113,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Height value applied to the component after the animation is executed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   height: number;
   /**
    * left offset applied to the component after the animation is executed.
@@ -201,14 +120,6 @@ export interface AnimateStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * left offset applied to the component after the animation is executed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   left: number;
   /**
@@ -218,14 +129,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * top offset applied to the component after the animation is executed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   top: number;
   /**
    * right offset applied to the component after the animation is executed.
@@ -234,14 +137,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * right offset applied to the component after the animation is executed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   right: number;
   /**
    * bottom offset applied to the component after the animation is executed.
@@ -249,14 +144,6 @@ export interface AnimateStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * bottom offset applied to the component after the animation is executed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   bottom: number;
   /**
@@ -267,15 +154,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Background color applied to the component after the animation is executed.
-   * The default value is none.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   backgroundColor: string;
   /**
    * Opacity applied to the component. The value ranges from 0 to 1.
@@ -284,15 +162,6 @@ export interface AnimateStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Opacity applied to the component. The value ranges from 0 to 1.
-   * The default value is 1.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   opacity: number;
   /**
@@ -304,16 +173,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * The value format is "x y", in percentage or pixels.
-   * The first value indicates the horizontal position, and the second value indicates the vertical position.
-   * If only one value is specified, the other value is 50% by default.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   backgroundPosition: string;
   /**
    * Origin position of the transformed element.
@@ -324,16 +183,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Origin position of the transformed element.
-   * The first value indicates the x-axis position. The value can be left, center, right, a length, or percentage.
-   * The second value indicates the y-axis position. The value can be top, center, bottom, a length, or a percentage.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   transformOrigin: string;
   /**
    * Transformation type applied to an element.
@@ -341,14 +190,6 @@ export interface AnimateStyle {
    * @type { "none" | TransformObject }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Transformation type applied to an element.
-   *
-   * @type { "none" | TransformObject }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   transform: "none" | TransformObject;
   /**
@@ -360,16 +201,6 @@ export interface AnimateStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * The value of offset must be within (0.0,1.0] and sorted in ascending order if it is provided.
-   * If there are only two frames, offset can be left empty.
-   * If there are more than two frames, offset is mandatory.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   offset?: number;
 }
 
@@ -379,14 +210,6 @@ export interface AnimateStyle {
  * @interface TransformObject
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
- */
-/**
- * TransformObject
- *
- * @interface TransformObject
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export interface TransformObject {
   /**
@@ -400,19 +223,6 @@ export interface TransformObject {
    * @param { number } translateY - the translate value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Defines a 2D transformation, using a matrix of six values..
-   *
-   * @param { number } scaleX - the scale value for x-axis
-   * @param { number } skewX - the skew value for y-axis
-   * @param { number } skewY - the skew value for x-axis
-   * @param { number } scaleY - the scale value for y-axis
-   * @param { number } translateX - the translate value for x-axis
-   * @param { number } translateY - the translate value for y-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   matrix(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void;
   /**
@@ -436,29 +246,6 @@ export interface TransformObject {
    * @param { number } n33 - the value of the 3 row and 3 column of the 4x4 matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Defines a 3D transformation using a 4x4 matrix of 16 values.
-   *
-   * @param { number } n00 - the value of the 0 row and 0 column of the 4x4 matrix
-   * @param { number } n01 - the value of the 0 row and 1 column of the 4x4 matrix
-   * @param { number } n02 - the value of the 0 row and 2 column of the 4x4 matrix
-   * @param { number } n03 - the value of the 0 row and 3 column of the 4x4 matrix
-   * @param { number } n10 - the value of the 1 row and 0 column of the 4x4 matrix
-   * @param { number } n11 - the value of the 1 row and 1 column of the 4x4 matrix
-   * @param { number } n12 - the value of the 1 row and 2 column of the 4x4 matrix
-   * @param { number } n13 - the value of the 1 row and 3 column of the 4x4 matrix
-   * @param { number } n20 - the value of the 2 row and 0 column of the 4x4 matrix
-   * @param { number } n21 - the value of the 2 row and 1 column of the 4x4 matrix
-   * @param { number } n22 - the value of the 2 row and 2 column of the 4x4 matrix
-   * @param { number } n23 - the value of the 2 row and 3 column of the 4x4 matrix
-   * @param { number } n30 - the value of the 3 row and 0 column of the 4x4 matrix
-   * @param { number } n31 - the value of the 3 row and 1 column of the 4x4 matrix
-   * @param { number } n32 - the value of the 3 row and 2 column of the 4x4 matrix
-   * @param { number } n33 - the value of the 3 row and 3 column of the 4x4 matrix
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   matrix3d(
     n00: number,
@@ -486,15 +273,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Defines 2D transformations for translation of the X and Y axes
-   *
-   * @param { number } x - the translate value for x-axis
-   * @param { number } y - the translate value for y-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   translate(x: number, y: number): void;
   /**
    * Defines 3D transformations for translation of the X / Y / Z axes
@@ -505,16 +283,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Defines 3D transformations for translation of the X / Y / Z axes
-   *
-   * @param { number } x - the translate value for x-axis
-   * @param { number } y - the translate value for y-axis
-   * @param { number } z - the translate value for z-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   translate3d(x: number, y: number, z: number): void;
   /**
    * Defines 2D transformations for translation of the X axes
@@ -522,14 +290,6 @@ export interface TransformObject {
    * @param { number } x - the translate value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Defines 2D transformations for translation of the X axes
-   *
-   * @param { number } x - the translate value for x-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   translateX(x: number): void;
   /**
@@ -539,14 +299,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Defines 2D transformations for translation of the Y axes
-   *
-   * @param { number } y - the translate value for y-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   translateY(y: number): void;
   /**
    * Defines 3D transformations for translation of the Z axes
@@ -554,14 +306,6 @@ export interface TransformObject {
    * @param { number } z the translate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Defines 3D transformations for translation of the Z axes
-   *
-   * @param { number } z the translate value for z-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   translateZ(z: number): void;
   /**
@@ -571,15 +315,6 @@ export interface TransformObject {
    * @param { number } y - the scale value for y-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Defines 2D transformations for scaling of the X and Y axes
-   *
-   * @param { number } x - the scale value for x-axis
-   * @param { number } y - the scale value for y-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scale(x: number, y: number): void;
   /**
@@ -591,16 +326,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Defines 3D transformations for scaling of the X / Y / Z axes
-   *
-   * @param { number } x - the scale value for x-axis
-   * @param { number } y - the scale value for y-axis
-   * @param { number } z - the scale value for z-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scale3d(x: number, y: number, z: number): void;
   /**
    * Defines 2D transformations for scaling of the X axes
@@ -608,14 +333,6 @@ export interface TransformObject {
    * @param { number } x - the scale value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Defines 2D transformations for scaling of the X axes
-   *
-   * @param { number } x - the scale value for x-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scaleX(x: number): void;
   /**
@@ -625,14 +342,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Defines 2D transformations for scaling of the Y axes
-   *
-   * @param { number } y - the scale value for y-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scaleY(y: number): void;
   /**
    * Defines 3D transformations for scaling of the Z axes
@@ -641,14 +350,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Defines 3D transformations for scaling of the Z axes
-   *
-   * @param { number } z - the scale value for z-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scaleZ(z: number): void;
   /**
    * Define the 2D rotation and specify the angle in the parameters.
@@ -656,14 +357,6 @@ export interface TransformObject {
    * @param { number } angle - the rotate value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Define the 2D rotation and specify the angle in the parameters.
-   *
-   * @param { number } angle - the rotate value for z-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   rotate(angle: number): void;
   /**
@@ -676,17 +369,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Defines a 3D transformation for rotating the X / Y / Z axes.
-   *
-   * @param { number } x - the vector value of the x-axis
-   * @param { number } y - the vector value of the y-axis
-   * @param { number } z - the vector value of the z-axis
-   * @param { number } angle - the rotate value for x&y&z vector.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rotate3d(x: number, y: number, z: number, angle: number): void;
   /**
    * Defines 3D transformations for rotating of the X axes.
@@ -694,14 +376,6 @@ export interface TransformObject {
    * @param { number } angle - the scale value for x-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Defines 3D transformations for rotating of the X axes.
-   *
-   * @param { number } angle - the scale value for x-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   rotateX(angle: number): void;
   /**
@@ -711,14 +385,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Defines 3D transformations for rotating of the Y axes.
-   *
-   * @param { number } angle - the scale value for y-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rotateY(angle: number): void;
   /**
    * Defines 3D transformations for rotating of the Z axes.
@@ -726,14 +392,6 @@ export interface TransformObject {
    * @param { number } angle - the scale value for z-axis
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Defines 3D transformations for rotating of the Z axes.
-   *
-   * @param { number } angle - the scale value for z-axis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   rotateZ(angle: number): void;
   /**
@@ -744,15 +402,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Defines the 2D skew transition along the X and Y axes.
-   *
-   * @param { number } xAngle - the angle of inclination along the x axis.
-   * @param { number } yAngle - the angle of inclination along the y axis.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   skew(xAngle: number, yAngle: number): void;
   /**
    * Defines the 2D skew transition along the X axes.
@@ -760,14 +409,6 @@ export interface TransformObject {
    * @param { number } angle - the angle of inclination along the x axis.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Defines the 2D skew transition along the X axes.
-   *
-   * @param { number } angle - the angle of inclination along the x axis.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   skewX(angle: number): void;
   /**
@@ -777,14 +418,6 @@ export interface TransformObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Defines the 2D skew transition along the Y axes.
-   *
-   * @param { number } angle - the angle of inclination along the y axis.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   skewY(angle: number): void;
   /**
    * Defines a perspective view for the 3D transformation element.
@@ -792,14 +425,6 @@ export interface TransformObject {
    * @param { number } verticalDistance - the vertical distance from the observation point to the component plane.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Defines a perspective view for the 3D transformation element.
-   *
-   * @param { number } verticalDistance - the vertical distance from the observation point to the component plane.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   perspective(verticalDistance: number): void;
 }
@@ -811,14 +436,6 @@ export interface TransformObject {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * AnimateOptions
- *
- * @interface AnimateOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface AnimateOptions {
   /**
    * Duration of the animation, in milliseconds.
@@ -827,15 +444,6 @@ export interface AnimateOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Duration of the animation, in milliseconds.
-   * The default value is 0.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   duration: number;
 
@@ -863,31 +471,6 @@ export interface AnimateOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Time curve of the animation. For details about the supported types.
-   * linear The animation speed keeps unchanged.
-   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
-   * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
-   * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
-   * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
-   * fast-out-slow-in Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0).
-   * linear-out-slow-in Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0).
-   * fast-out-linear-in Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0).
-   * friction Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0).
-   * extreme-deceleration Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0).
-   * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
-   * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
-   * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-   * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function.
-   * The x and y values of each input parameter must be between 0 and 1.
-   * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
-   * The default value is ease.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   easing: string;
 
   /**
@@ -897,15 +480,6 @@ export interface AnimateOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Delay for the animation start. The default value indicates no delay.
-   * The default value is 0.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   delay: number;
 
@@ -918,16 +492,6 @@ export interface AnimateOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Number of times the animation will be played. number indicates a fixed number of playback operations,
-   * and Infinity indicates an unlimited number of playback operations.
-   * The default value is 1.
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   iterations: number | string;
 
   /**
@@ -937,15 +501,6 @@ export interface AnimateOptions {
    * @type { "normal" | "reverse" | "alternate" | "alternate-reverse" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * The animation playback mode.
-   * The default value is "normal".
-   *
-   * @type { "normal" | "reverse" | "alternate" | "alternate-reverse" }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
 
@@ -958,16 +513,6 @@ export interface AnimateOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Whether to resume to the initial state after the animation is executed.
-   * none: The initial state is restored after the animation is executed.
-   * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   *
-   * @type { "none" | "forwards" | "backwards" | "both" }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fill: "none" | "forwards" | "backwards" | "both";
 }
 
@@ -978,14 +523,6 @@ export interface AnimateOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * AnimationResult
- *
- * @interface AnimationResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface AnimationResult {
   /**
    * Read-only attribute, which indicates whether the animation playback is complete.
@@ -993,14 +530,6 @@ export interface AnimationResult {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Read-only attribute, which indicates whether the animation playback is complete.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   finished: boolean;
   /**
@@ -1010,15 +539,6 @@ export interface AnimationResult {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Read-only attribute, which indicates whether an animation is waiting for the completion of other asynchronous operations
-   * (for example, start an animation with a delay).
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   pending: boolean;
   /**
@@ -1032,18 +552,6 @@ export interface AnimationResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Animation running state:
-   * idle: The animation is not running (playback ended or not started).
-   * running: The animation is running.
-   * paused: The animation is paused.
-   * finished: Animation playback ends.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   playstate: string;
   /**
    * Animation start time. This attribute is similar to that of delay in the options parameters.
@@ -1052,27 +560,12 @@ export interface AnimationResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Animation start time. This attribute is similar to that of delay in the options parameters.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   startTime: number;
   /**
    * Starts the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Starts the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   play(): void;
   /**
@@ -1081,26 +574,12 @@ export interface AnimationResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Ends the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   finish(): void;
   /**
    * Pauses the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Pauses the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   pause(): void;
   /**
@@ -1109,26 +588,12 @@ export interface AnimationResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Cancels the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Plays the animation in reverse direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   reverse(): void;
   /**
@@ -1138,14 +603,6 @@ export interface AnimationResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * The animation is started.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onstart: () => void;
   /**
    * The animation is finished.
@@ -1153,14 +610,6 @@ export interface AnimationResult {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * The animation is finished.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onfinish: () => void;
   /**
@@ -1170,14 +619,6 @@ export interface AnimationResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * The animation is canceled.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   oncancel: () => void;
   /**
    * The animation is repeated.
@@ -1185,14 +626,6 @@ export interface AnimationResult {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * The animation is repeated.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onrepeat: () => void;
 }
@@ -1204,14 +637,6 @@ export interface AnimationResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * Element
- *
- * @interface Element
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface Element {
   /**
    * Requests or cancels the focus for a component.
@@ -1222,17 +647,6 @@ export interface Element {
    * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Requests or cancels the focus for a component.
-   * If focus is set to true, the focus is requested for the component.
-   * If focus is set to false, the focus is canceled for the component.
-   * This attribute can be defaulted to true.
-   *
-   * @param { FocusParamObj } [obj] - { focus: true | false }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   focus(obj?: FocusParamObj): void;
 
@@ -1246,17 +660,6 @@ export interface Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Requests or cancels the crown rotation focus for a component.
-   * If focus is set to true, the crown event focus is requested.
-   * If focus is set to false, the crown event focus is canceled.
-   * This attribute can be defaulted to true.
-   *
-   * @param { FocusParamObj } [obj] - { focus: true | false }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rotation(obj?: FocusParamObj): void;
 
   /**
@@ -1268,16 +671,6 @@ export interface Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates and runs an animation shortcut on the component. Specify the keyframes and options required for the animation.
-   *
-   * @param { Array<AnimateStyle> } keyframes - keyframes is used to describe key frame parameters of the animation.
-   * @param { AnimateOptions } options - Options. is used to describe animation parameters.
-   * @returns { AnimationResult } This method returns the animation object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   animate(keyframes: Array<AnimateStyle>, options: AnimateOptions): AnimationResult;
 
   /**
@@ -1286,14 +679,6 @@ export interface Element {
    * @returns { RectObj } RectObj the size position of the element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Obtains the size and position of the element.
-   *
-   * @returns { RectObj } RectObj the size position of the element.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   getBoundingClientRect(): RectObj;
 
@@ -1315,15 +700,6 @@ export interface Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * If 0.5 is returned, 50% of the current component is visible.
-   *
-   * @param { object } param - Scope of Monitoring components.
-   * @returns { observer }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createIntersectionObserver(param: { ratios: Array<number> }): observer;
 
   /**
@@ -1332,14 +708,6 @@ export interface Element {
    * @param { Element } child - Subnode object to be added
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Adds a node to the end of the child node list of the current node.
-   *
-   * @param { Element } child - Subnode object to be added
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   addChild(child: Element): void;
 
@@ -1350,15 +718,6 @@ export interface Element {
    * @param { string } value - attribute value¡¢
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Sets the value of an attribute on a specified element. If the attribute already exists, update the value. Otherwise, a new attribute is added with the specified name and value.
-   *
-   * @param { string } name - attribute name
-   * @param { string } value - attribute value¡¢
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   setAttribute(name: string, value: string): void;
 
@@ -1371,16 +730,6 @@ export interface Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * Sets a style value on a specified element. If the style exists and the style value is valid, the setting is successful. Otherwise, the setting is invalid.
-   *
-   * @param { string } name - style name
-   * @param { string } value - style value
-   * @returns { boolean } If the setting is successful, true is returned. If the setting fails, false is returned.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   setStyle(name: string, value: string): boolean;
 }
 
@@ -1391,14 +740,6 @@ export interface Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * Defines the observer interface.
- *
- * @interface observer
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface observer {
   /**
    * Turn on the listener.
@@ -1407,14 +748,6 @@ export interface observer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Turn on the listener.
-   *
-   * @param { string } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   observe(callback: string): void;
 
   /**
@@ -1422,13 +755,6 @@ export interface observer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Turn off the listener.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   unobserve(): void;
 }
@@ -1440,27 +766,12 @@ export interface observer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * animation element
- *
- * @interface AnimationElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface AnimationElement extends Element {
   /**
    * Starts the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Starts the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   play(): void;
   /**
@@ -1469,26 +780,12 @@ export interface AnimationElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Ends the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   finish(): void;
   /**
    * Pauses the animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Pauses the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   pause(): void;
   /**
@@ -1497,26 +794,12 @@ export interface AnimationElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Cancels the animation.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Plays the animation in reverse direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   reverse(): void;
 }
@@ -1528,14 +811,6 @@ export interface AnimationElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * ScrollParam
- *
- * @interface ScrollParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ScrollParam {
   /**
    * Offset for scrolling in the horizontal direction, in px.
@@ -1543,14 +818,6 @@ export interface ScrollParam {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Offset for scrolling in the horizontal direction, in px.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   dx?: number;
 
@@ -1561,14 +828,6 @@ export interface ScrollParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Offset for scrolling in the vertical direction, in px.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   dy?: number;
 
   /**
@@ -1577,14 +836,6 @@ export interface ScrollParam {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Whether a sliding animation is displayed when scroll position is changed.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   smooth?: boolean;
 }
@@ -1596,14 +847,6 @@ export interface ScrollParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * CurrentOffsetResultValue
- *
- * @interface CurrentOffsetResultValue
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface CurrentOffsetResultValue {
   /**
    * Scrolling offset in the x-axis, in px.
@@ -1611,14 +854,6 @@ export interface CurrentOffsetResultValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Scrolling offset in the x-axis, in px.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   x: number;
 
@@ -1628,14 +863,6 @@ export interface CurrentOffsetResultValue {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Scrolling offset in the y-axis, in px.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   y: number;
 }
@@ -1647,14 +874,6 @@ export interface CurrentOffsetResultValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * ListScrollToOptions
- *
- * @interface ListScrollToOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ListScrollToOptions {
   /**
    * specified position.
@@ -1662,14 +881,6 @@ export interface ListScrollToOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
-   */
-  /**
-   * specified position.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11
    */
   index: number;
 }
@@ -1681,14 +892,6 @@ export interface ListScrollToOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <list> component provides a list container.
- *
- * @interface ListElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ListElement extends Element {
   /**
    * Scrolls the list to the position of the item at the specified index.
@@ -1696,14 +899,6 @@ export interface ListElement extends Element {
    * @param { ListScrollToOptions } position
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
-   */
-  /**
-   * Scrolls the list to the position of the item at the specified index.
-   *
-   * @param { ListScrollToOptions } position
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11
    */
   scrollTo(position: ListScrollToOptions): void;
 
@@ -1715,15 +910,6 @@ export interface ListElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Scrolls the list for a certain distance.
-   * This method applies only to smart TVs.
-   *
-   * @param { ScrollParam } data
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scrollBy(data: ScrollParam): void;
 
   /**
@@ -1734,15 +920,6 @@ export interface ListElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * If smooth is set to false (default value), the list is directly scrolled to the top.
-   * If smooth is set to true, the list is smoothly scrolled to the top.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scrollTop(param: { smooth: boolean }): void;
 
   /**
@@ -1752,15 +929,6 @@ export interface ListElement extends Element {
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * If smooth is set to false (default value), the list is directly scrolled to the bottom.
-   * If smooth is set to true, the list is smoothly scrolled to the bottom.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scrollBottom(param: { smooth: boolean }): void;
 
@@ -1774,17 +942,6 @@ export interface ListElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * If reverse is set to false (default value), the next page is displayed. If there is no next page, the list scrolls to the bottom.
-   * If reverse is set to true, the previous page is displayed. If there is no previous page, the list scrolls to the top.
-   * If smooth is set to false (default value), the list is directly scrolled to another page.
-   * If smooth is set to true, the list is smoothly scrolled to another page.
-   *
-   * @param { object } params
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scrollPage(params: { reverse: boolean; smooth: boolean }): void;
 
   /**
@@ -1797,17 +954,6 @@ export interface ListElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * If reverse is set to false (default value), the list scrolls towards the bottom for a certain distance. If there is no sufficient distance, the list scrolls to the bottom.
-   * If reverse is set to true, the list scrolls towards the top for a certain distance. If there is no sufficient distance, the list scrolls to the top.
-   * If smooth is set to false (default value), the list is directly scrolled.
-   * If smooth is set to true, the list is smoothly scrolled.
-   *
-   * @param { object } params
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   scrollArrow(params: { reverse: boolean; smooth: boolean }): void;
 
   /**
@@ -1816,14 +962,6 @@ export interface ListElement extends Element {
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Collapses a group.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   collapseGroup(param: {
     /**
@@ -1834,15 +972,6 @@ export interface ListElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
-    /**
-     * groupid: ID of the group to collapse.
-     * All groups are collapsed when groupid is not specified.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
     groupid: string;
   }): void;
 
@@ -1852,14 +981,6 @@ export interface ListElement extends Element {
    * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Expands a group.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   expandGroup(param: {
     /**
@@ -1870,15 +991,6 @@ export interface ListElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
-    /**
-     * groupid: ID of the group to expand.
-     * All groups are expanded when groupid is not specified.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
     groupid: string;
   }): void;
 
@@ -1888,14 +1000,6 @@ export interface ListElement extends Element {
    * @returns { CurrentOffsetResultValue }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Returns the offset of the current scrolling. The return value type is Object.
-   *
-   * @returns { CurrentOffsetResultValue }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   currentOffset(): CurrentOffsetResultValue;
 }
@@ -1907,14 +1011,6 @@ export interface ListElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <swiper> component provides a swiper container.
- *
- * @interface SwiperElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface SwiperElement extends Element {
   /**
    * Scrolls the child component to the position at the specified index.
@@ -1923,14 +1019,6 @@ export interface SwiperElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Scrolls the child component to the position at the specified index.
-   *
-   * @param { object } position
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   swipeTo(position: {
     /**
      * specified position.
@@ -1938,14 +1026,6 @@ export interface SwiperElement extends Element {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
-     */
-    /**
-     * specified position.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
      */
     index: number;
   }): void;
@@ -1956,13 +1036,6 @@ export interface SwiperElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Shows the next child component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   showNext(): void;
 
   /**
@@ -1970,13 +1043,6 @@ export interface SwiperElement extends Element {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Shows the previous child component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   showPrevious(): void;
 }
@@ -1988,14 +1054,6 @@ export interface SwiperElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * CameraTakePhotoOptions
- *
- * @interface CameraTakePhotoOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface CameraTakePhotoOptions {
   /**
    * Picture quality.
@@ -2003,14 +1061,6 @@ export interface CameraTakePhotoOptions {
    * @type { "high" | "normal" | "low" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Picture quality.
-   *
-   * @type { "high" | "normal" | "low" }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   quality: "high" | "normal" | "low";
 
@@ -2021,14 +1071,6 @@ export interface CameraTakePhotoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Callback function for successful interface invocation.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   success?: (result: Object) => void;
 
   /**
@@ -2038,14 +1080,6 @@ export interface CameraTakePhotoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Callback function for interface invocation failure.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fail?: (result: Object) => void;
 
   /**
@@ -2054,14 +1088,6 @@ export interface CameraTakePhotoOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   complete?: (result: Object) => void;
 }
@@ -2073,14 +1099,6 @@ export interface CameraTakePhotoOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * The <camera> component provides preview and photographing functions.
- *
- * @interface CameraElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface CameraElement extends Element {
   /**
    * Take photos with specified parameters.
@@ -2088,14 +1106,6 @@ export interface CameraElement extends Element {
    * @param { CameraTakePhotoOptions } options - the parameters of camera.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Take photos with specified parameters.
-   *
-   * @param { CameraTakePhotoOptions } options - the parameters of camera.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   takePhoto(options: CameraTakePhotoOptions): void;
 }
@@ -2107,27 +1117,12 @@ export interface CameraElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * The <web> component is a container for displaying web page content.
- *
- * @interface WebElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface WebElement extends Element {
   /**
    * Reload the web page content
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Reload the web page content
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   reload(): void;
 }
@@ -2139,14 +1134,6 @@ export interface WebElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <dialog> component is a custom pop-up container.
- *
- * @interface DialogElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface DialogElement extends Element {
   /**
    * Shows a dialog box.
@@ -2154,26 +1141,12 @@ export interface DialogElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Shows a dialog box.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   show(): void;
   /**
    * Closes a dialog box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Closes a dialog box.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   close(): void;
 }
@@ -2185,27 +1158,12 @@ export interface DialogElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 4
  */
-/**
- * The <image-animator> component is used to provide an image frame animator.
- *
- * @interface ImageAnimatorElement
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @atomicservice
- * @since 11
- */
 export interface ImageAnimatorElement extends Element {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   start(): void;
   /**
@@ -2214,13 +1172,6 @@ export interface ImageAnimatorElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Pauses the frame animation playback of an image.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
@@ -2228,26 +1179,12 @@ export interface ImageAnimatorElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Stops the frame animation playback of an image.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Resumes the frame animation playback of an image.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   resume(): void;
   /**
@@ -2260,17 +1197,6 @@ export interface ImageAnimatorElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Obtains the playback state. Available values are as follows:
-   * Playing
-   * Paused
-   * Stopped
-   *
-   * @returns { "Playing" | "Paused" | "Stopped" }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   getState(): "Playing" | "Paused" | "Stopped";
 }
 
@@ -2282,28 +1208,12 @@ export interface ImageAnimatorElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <marquee> component inserts scrolling text, which is displayed in a single line by default.
- * When the text length exceeds the display area of the component, the marquee effect is displayed.
- *
- * @interface MarqueeElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface MarqueeElement extends Element {
   /**
    * Starts scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Starts scrolling.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   start(): void;
 
@@ -2312,13 +1222,6 @@ export interface MarqueeElement extends Element {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Stops scrolling.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   stop(): void;
 }
@@ -2329,14 +1232,6 @@ export interface MarqueeElement extends Element {
  * @interface MenuElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
- */
-/**
- * The <menu> component provides menus as temporary pop-up windows to display operations that can be performed by users.
- *
- * @interface MenuElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export interface MenuElement extends Element {
   /**
@@ -2352,20 +1247,6 @@ export interface MenuElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Displays the menu.
-   * x and y specify the position of the displayed menu.
-   * x indicates the X-axis coordinate from the left edge of the visible area, and does not include any scrolling offset.
-   * y indicates the Y-axis coordinate from the upper edge of the visible area, and does not include any scrolling offset or a status bar.
-   * The menu is preferentially displayed in the lower right corner.
-   * When the visible space on the right is insufficient, the menu is moved leftward.
-   * When the visible space in the lower part is insufficient, the menu is moved upward.
-   *
-   * @param { object } position
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   show(position: { x: number; y: number }): void;
 }
 
@@ -2375,14 +1256,6 @@ export interface MenuElement extends Element {
  * @interface ChartElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
- */
-/**
- * The <chart> component displays line charts, gauge charts, and bar charts.
- *
- * @interface ChartElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export interface ChartElement extends Element {
   /**
@@ -2395,17 +1268,6 @@ export interface ChartElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Data is dynamically added to an existing data sequence.
-   * The target sequence is specified based on serial, which is the subscript of the datasets array and starts from 0.
-   * datasets[index].data is not updated. Only line charts support this attribute.
-   * The value is incremented by 1 based on the horizontal coordinate and is related to the xAxis min/max setting.
-   *
-   * @param { object } params
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   append(params: {
     /**
      * Set the data subscript of the line chart to be updated.
@@ -2414,14 +1276,6 @@ export interface ChartElement extends Element {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
      */
-    /**
-     * Set the data subscript of the line chart to be updated.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
     serial: number;
     /**
      * Set the new data.
@@ -2429,14 +1283,6 @@ export interface ChartElement extends Element {
      * @type { Array<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 4
-     */
-    /**
-     * Set the new data.
-     *
-     * @type { Array<number> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
      */
     data: Array<number>;
   }): void;
@@ -2449,14 +1295,6 @@ export interface ChartElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <input> component provides an interactive interface to receive user input, which is displayed in a single line by default.
- *
- * @interface InputElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface InputElement extends Element {
   /**
    * Obtains or loses the focus of a component.
@@ -2465,15 +1303,6 @@ export interface InputElement extends Element {
    * @param { object } param - If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains or loses the focus of a component.
-   * When the component type is set to text, email, date, time, number, or password, the input method can be displayed or collapsed.
-   *
-   * @param { object } param - If focus is not passed, the default value true is used.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   focus(param: { focus: boolean }): void;
 
@@ -2485,15 +1314,6 @@ export interface InputElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Displays the error message.
-   * This attribute is available when the component type is set to text, email, date, time, number, or password.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   showError(param: { error: string }): void;
 
   /**
@@ -2501,13 +1321,6 @@ export interface InputElement extends Element {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Deletes the previous character at the cursor position.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   delete(): void;
 }
@@ -2518,14 +1331,6 @@ export interface InputElement extends Element {
  * @interface ButtonElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
- */
-/**
- * The <button> component includes capsule, circle, text, arc, and download buttons.
- *
- * @interface ButtonElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export interface ButtonElement extends Element {
   /**
@@ -2539,18 +1344,6 @@ export interface ButtonElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Progress bar of the download button.
-   * The value ranges from 0 to 100. The progress bar is displayed if the value is greater than 0.
-   * If the value is greater than or equal to 100, the progress bar is not displayed.
-   * NOTE
-   * The text displayed on the progress bar is changed based on the value.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   setProgress(param: { progress: number }): void;
 }
 
@@ -2561,14 +1354,6 @@ export interface ButtonElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <textarea> component provides an interactive interface to receive user input, which is displayed in multiple lines by default.
- *
- * @interface TextAreaElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface TextAreaElement extends Element {
   /**
    * Obtains or loses the focus of a component, which can display or collapse the input method.
@@ -2576,14 +1361,6 @@ export interface TextAreaElement extends Element {
    * @param { object } param - If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains or loses the focus of a component, which can display or collapse the input method.
-   *
-   * @param { object } param - If focus is not passed, the default value true is used.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   focus(param: { focus: boolean }): void;
 }
@@ -2595,27 +1372,12 @@ export interface TextAreaElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <picker> component supports common, date, time, and multi-column text selectors.
- *
- * @interface PickerElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface PickerElement extends Element {
   /**
    * Displays the picker.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Displays the picker.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   show(): void;
 }
@@ -2627,27 +1389,12 @@ export interface PickerElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * The <video> component provides a video player.
- *
- * @interface VideoElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface VideoElement extends Element {
   /**
    * Requests to start playing a video.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Requests to start playing a video.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   start(): void;
 
@@ -2656,13 +1403,6 @@ export interface VideoElement extends Element {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Requests to pause a video.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   pause(): void;
 
@@ -2673,14 +1413,6 @@ export interface VideoElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Specifies the video playing position.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   setCurrentTime(param: { currenttime: number }): void;
 
   /**
@@ -2690,14 +1422,6 @@ export interface VideoElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Requests to enter the full screen mode.
-   *
-   * @param { object } param
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   requestFullscreen(param: { screenOrientation: "default" }): void;
 
   /**
@@ -2706,13 +1430,6 @@ export interface VideoElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Requests to exit the full screen mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   exitFullscreen(): void;
 
   /**
@@ -2720,13 +1437,6 @@ export interface VideoElement extends Element {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Requests to stop playing a video.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   stop(): void;
 }
@@ -2738,37 +1448,17 @@ export interface VideoElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * TextMetrics
- *
- * @interface TextMetrics
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface TextMetrics {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   width: number;
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   height: number;
 }
@@ -2781,15 +1471,6 @@ export interface TextMetrics {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
-/**
- * Provides a 2D rendering context for the drawing surface of the < Canvas > element.
- * It is used to draw shapes, text, images and other objects.
- *
- * @interface OffscreenCanvasRenderingContext2D
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface OffscreenCanvasRenderingContext2D {
   /**
    * Gets the dotted spacing of a line.
@@ -2797,14 +1478,6 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Gets the dotted spacing of a line.
-   * Returns the current line segment style array containing an even number of non-negative numbers.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   getLineDash: Array<number>;
 
@@ -2818,17 +1491,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Fill style attribute.
-   * Paint color used to fill the area.
-   * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
-   * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
-   *
-   * @type { ?(string | CanvasGradient | CanvasPattern) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fillStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
@@ -2841,17 +1503,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Sets the stroke paint style.
-   * Color of the stroke paint.
-   * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
-   * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
-   *
-   * @type { ?(string | CanvasGradient | CanvasPattern) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
@@ -2860,14 +1511,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { Array<number> } segments - A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Sets the dotted spacing of a line.
-   *
-   * @param { Array<number> } segments - A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   setLineDash(segments: Array<number>): void;
 
@@ -2881,18 +1524,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draw an Image object.
-   *
-   * @param { Image } image - An element drawn to the context.
-   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw - Image The width drawn on the target canvas.
-   * @param { number } dh - Image The height drawn on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   drawImage(image: Image, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -2910,22 +1541,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draw an Image object.
-   *
-   * @param { Image } image - An element drawn to the context.
-   * @param { number } sx - The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sy - The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sw - The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } sh - The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw - Image The width drawn on the target canvas.
-   * @param { number } dh - Image The height drawn on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   drawImage(
     image: Image,
@@ -2950,18 +1565,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  /**
-   * Draw an Image object.
-   *
-   * @param { image.PixelMap } image - An element drawn to the context.
-   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw - Image The width drawn on the target canvas.
-   * @param { number } dh - Image The height drawn on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   drawImage(image: image.PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
@@ -2978,22 +1581,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dh - Image The height drawn on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  /**
-   * Draw an Image object.
-   *
-   * @param { image.PixelMap } image - An element drawn to the context.
-   * @param { number } sx - The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sy - The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
-   * @param { number } sw - The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } sh - The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @param { number } dx - The top left corner of the image is the X-axis coordinates on the target canvas.
-   * @param { number } dy - The top left corner of the image is the Y-axis coordinates on the target canvas.
-   * @param { number } dw - Image The width drawn on the target canvas.
-   * @param { number } dh - Image The height drawn on the target canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   drawImage(
     image: image.PixelMap,
@@ -3013,13 +1600,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Creates a drawing path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   beginPath(): void;
 
   /**
@@ -3028,13 +1608,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Crop the current canvas.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   clip(): void;
 
   /**
@@ -3042,13 +1615,6 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Fills the current canvas with color.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   fill(): void;
 
@@ -3060,16 +1626,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Check whether the specified coordinate point is on the Path.
-   *
-   * @param { number } x - The X coordinate of the detection point.
-   * @param { number } y - The Y coordinate of the detection point.
-   * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   isPointInPath(x: number, y: number): boolean;
 
@@ -3083,17 +1639,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Check whether the specified coordinate point is on the Path.
-   *
-   * @param { Path2D } path - The Path2D path that needs to be populated.
-   * @param { number } x - The X coordinate of the detection point.
-   * @param { number } y - The Y coordinate of the detection point.
-   * @returns { boolean } boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   isPointInPath(path: Path2D, x: number, y: number): boolean;
 
   /**
@@ -3104,16 +1649,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Checks whether the specified coordinate point is on the stroke edge.
-   *
-   * @param { number } x - The X coordinate of the detection point.
-   * @param { number } y - The Y coordinate of the detection point.
-   * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   isPointInStroke(x: number, y: number): boolean;
 
@@ -3127,17 +1662,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Checks whether the specified coordinate point is on the stroke edge.
-   *
-   * @param { Path2D } path - Path2D path.
-   * @param { number } x - The X coordinate of the detection point.
-   * @param { number } y - The Y coordinate of the detection point.
-   * @returns { boolean } boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   isPointInStroke(path: Path2D, x: number, y: number): boolean;
 
   /**
@@ -3145,13 +1669,6 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Stroke draws the current path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   stroke(): void;
 
@@ -3161,14 +1678,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { Path2D } path - The object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Stroke draws the current path.
-   *
-   * @param { Path2D } path - The object of Path2D.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   stroke(path: Path2D): void;
 
@@ -3185,20 +1694,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Create a radial tween object.
-   *
-   * @param { number } x0 - The x coordinate of the circle at the beginning.
-   * @param { number } y0 - The y coordinate of the circle at the beginning.
-   * @param { number } r0 - The radius of the starting circle.
-   * @param { number } x1 - X-coordinate of the end point.
-   * @param { number } y1 - Y-coordinate of the end point.
-   * @param { number } r1 - The radius of End Circle.
-   * @returns { CanvasGradient } RadialGradient object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
@@ -3209,16 +1704,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns { CanvasPattern } CanvasPattern An opaque object that describes a schema.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Create a drawing style template.
-   *
-   * @param { Image } image - The CanvasImageSource object that is the source of the duplicate image.
-   * @param { string } repetition - Specify how to repeat images.
-   * @returns { CanvasPattern } CanvasPattern An opaque object that describes a schema.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   createPattern(image: Image, repetition: string): CanvasPattern;
 
@@ -3233,18 +1718,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Creates a linear gradient color.
-   *
-   * @param { number } x0 - X-coordinate of the start point.
-   * @param { number } y0 - Y-coordinate of the start point.
-   * @param { number } x1 - X-coordinate of the end point.
-   * @param { number } y1 - Y-coordinate of the end point.
-   * @returns { CanvasGradient } LinearGradient object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
   /**
@@ -3255,16 +1728,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns { ImageData } ImageData New ImageData object with width and height specified.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Create an ImageData object.
-   *
-   * @param { number } sw - The width of the new object.
-   * @param { number } sh - The height of the new object.
-   * @returns { ImageData } ImageData New ImageData object with width and height specified.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   createImageData(sw: number, sh: number): ImageData;
 
@@ -3277,16 +1740,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Create an ImageData object.
-   *
-   * @param { ImageData } imagedata - Copy an object of the same width and height from an existing ImageData object
-   * The image itself is not allowed to be copied.
-   * @returns { ImageData } ImageData New ImageData object with width and height specified.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createImageData(imagedata: ImageData): ImageData;
 
   /**
@@ -3297,15 +1750,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Creates a path that is later used by the CanvasRenderingContext2D object.
-   *
-   * @param { Path2D } [path] - another created Path2D object.
-   * @returns { Path2D } the object of Path2D.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createPath2D(path?: Path2D): Path2D;
 
   /**
@@ -3315,15 +1759,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Creates a path that is later used by the CanvasRenderingContext2D object.
-   *
-   * @param { string } [cmds] - a string defined using the SVG path command.
-   * @returns { Path2D } the object of Path2D.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   createPath2D(cmds?: string): Path2D;
 
@@ -3338,18 +1773,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Get an ImageData object.
-   *
-   * @param { number } sx - The upper-left x-coordinate of the rectangular area of the image data to be extracted.
-   * @param { number } sy - The upper-left y coordinate of the rectangular region of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { ImageData } ImageData An ImageData object that contains the rectangular ImageData given by the canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
@@ -3363,18 +1786,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  /**
-   * Get an PixelMap object.
-   *
-   * @param { number } sx - The upper-left x-coordinate of the rectangular area of the image data to be extracted.
-   * @param { number } sy - The upper-left y coordinate of the rectangular region of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { image.PixelMap } PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
 
   /**
@@ -3385,16 +1796,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dy - The offset of the position of the source image data in the target canvas (the Y-axis offset).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draws the specified ImageData object to the canvas.
-   *
-   * @param { ImageData } imagedata - An array object containing pixel values.
-   * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
-   * @param { number } dy - The offset of the position of the source image data in the target canvas (the Y-axis offset).
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   putImageData(imagedata: ImageData, dx: number, dy: number): void;
 
@@ -3412,22 +1813,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } dirtyHeight - In the source image data, the height of a rectangular region. Default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draws the specified ImageData object to the canvas.
-   *
-   * @param { ImageData } imagedata - An array object containing pixel values.
-   * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
-   * @param { number } dy - he offset of the position of the source image data in the target canvas (the Y-axis offset).
-   * @param { number } dirtyX - In the source image data,
-   * the position of the upper left corner of the rectangular region Default is the upper left corner of the entire image data (x coordinate).
-   * @param { number } dirtyY - In the source image data,
-   * the position of the upper left corner of the rectangular region Default is the top left corner (y coordinate) of the entire image data.
-   * @param { number } dirtyWidth - In the source image data, the width of a rectangular region. Default is the width of the image data.
-   * @param { number } dirtyHeight - In the source image data, the height of a rectangular region. Default is the height of the image data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   putImageData(
     imagedata: ImageData,
@@ -3451,19 +1836,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Draw an arc.
-   *
-   * @param { number } radius - Radius of an arc.
-   * @param { number } x - The X-axis coordinates of the center of the circle.
-   * @param { number } y - The Y-axis coordinates of the center of an arc (center of a circle).
-   * @param { number } startAngle - The starting point of the arc, in the X-axis direction, is calculated in radians.
-   * @param { number } endAngle - The end point of an arc, expressed in radians.
-   * @param { boolean } [anticlockwise] - An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
 
   /**
@@ -3476,18 +1848,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } radius - Radius of an arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draws an arc from the beginning to the end.
-   *
-   * @param { number } x1 - The X-axis coordinates of the first control point.
-   * @param { number } x2 - The X-axis coordinates of the second control point.
-   * @param { number } y1 - The y-coordinate of the first control point.
-   * @param { number } y2 - The Y-axis coordinates of the second control point.
-   * @param { number } radius - Radius of an arc.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   arcTo(x1: number, x2: number, y1: number, y2: number, radius: number): void;
 
@@ -3503,19 +1863,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Draw a third order Bezier curve.
-   *
-   * @param { number } cp1x - The X-axis coordinates of the first control point.
-   * @param { number } cp1y - The y-coordinate of the first control point.
-   * @param { number } cp2x - The X-axis coordinates of the second control point.
-   * @param { number } cp2y - The Y-axis coordinates of the second control point.
-   * @param { number } x - The x-coordinate of the end point.
-   * @param { number } y - The y-coordinate of the end point
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
@@ -3523,13 +1870,6 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Closing the current path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   closePath(): void;
 
@@ -3540,15 +1880,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y-axis coordinates at the end of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draw a straight line.
-   *
-   * @param { number } x - The X-axis coordinates at the end of the line.
-   * @param { number } y - The Y-axis coordinates at the end of the line.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   lineTo(x: number, y: number): void;
 
@@ -3565,21 +1896,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { boolean } [anticlockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draw an ellipse.
-   *
-   * @param { number } x - The X-axis coordinates of the center of the ellipse.
-   * @param { number } y - The Y-axis coordinates of the center of the ellipse.
-   * @param { number } radiusX - The radius of the major axis of an ellipse.
-   * @param { number } radiusY - The radius of the short axis of an ellipse.
-   * @param { number } rotation - The Angle of rotation of an ellipse, expressed in radians.
-   * @param { number } startAngle - The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
-   * @param { number } endAngle - The Angle, expressed in radians, at which the ellipse will be drawn.
-   * @param { boolean } [anticlockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   ellipse(
     x: number,
@@ -3600,15 +1916,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Moves the current canvas to the specified coordinate point.
-   *
-   * @param { number } x - The x axis.
-   * @param { number } y - The y axis.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   moveTo(x: number, y: number): void;
 
   /**
@@ -3620,17 +1927,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y-axis of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draw a second order Bezier curve.
-   *
-   * @param { number } cpx - The X-axis coordinates of the control points.
-   * @param { number } cpy - The y-coordinate of the control point.
-   * @param { number } x - The X-axis of the end point.
-   * @param { number } y - The Y-axis of the end point.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -3644,17 +1940,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Draw a rectangle.
-   *
-   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w - The width of a rectangle.
-   * @param { number } h - The height of a rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rect(x: number, y: number, w: number, h: number): void;
 
   /**
@@ -3666,17 +1951,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } h - The height of a rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Clears the contents of the specified rectangular area.
-   *
-   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w - The width of a rectangle.
-   * @param { number } h - The height of a rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -3690,17 +1964,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Fills a rectangular area.
-   *
-   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w - The width of a rectangle.
-   * @param { number } h - The height of a rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fillRect(x: number, y: number, w: number, h: number): void;
 
   /**
@@ -3713,17 +1976,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Stroke a rectangular area.
-   *
-   * @param { number } x - The X-axis coordinates at the beginning of the rectangle.
-   * @param { number } y - The Y-axis coordinates at the beginning of the rectangle.
-   * @param { number } w - The width of the rectangle. Positive values on the right, negative values on the left.
-   * @param { number } h - The height of the rectangle. Positive values are down, negative values are up.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
@@ -3735,16 +1987,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Stroke a rectangular area.
-   *
-   * @param { string } text - Render text using the current values of font, textAlign, textBaseline, and direction.
-   * @param { number } y - The Y-axis coordinates of the starting point of the text.
-   * @param { number } x - The X-axis coordinates of the starting point of the text.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fillText(text: string, y: number, x: number /*, maxWidth?: number*/): void;
 
   /**
@@ -3754,15 +1996,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Returns a TextMetrics object used to obtain the width of specified text.
-   *
-   * @param { string } text - Text to be measured.
-   * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   measureText(text: string): TextMetrics;
 
@@ -3775,16 +2008,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Draws the stroke of a text string.
-   *
-   * @param { string } text - Text stroke to draw.
-   * @param { number } x - X-coordinate of the lower left corner of the text stroke.
-   * @param { number } y - Y-coordinate of the lower left corner of the text stroke.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   strokeText(text: string, x: number, y: number /*, maxWidth?: number*/): void;
 
   /**
@@ -3792,13 +2015,6 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Resets the current matrix transformation effect.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   resetTransform(): void;
 
@@ -3809,14 +2025,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Adds a rotation effect to the current canvas.
-   *
-   * @param { number } angle - The radian of clockwise rotation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rotate(angle: number): void;
 
   /**
@@ -3826,15 +2034,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The scaling factor in the vertical direction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Adds a zoom effect to the current canvas.
-   *
-   * @param { number } x - The horizontal scaling factor.
-   * @param { number } y - The scaling factor in the vertical direction.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scale(x: number, y: number): void;
 
@@ -3850,19 +2049,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Set the rotation, pan, and zoom effects.
-   *
-   * @param { number } a - The level of zoom.
-   * @param { number } b - Vertical tilt.
-   * @param { number } c - Horizontal tilt.
-   * @param { number } d - Vertical scaling.
-   * @param { number } e - The level of mobile.
-   * @param { number } f - Vertical movement.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
@@ -3877,19 +2063,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Set the rotation, pan, and zoom effects.
-   *
-   * @param { number } a - The level of zoom.
-   * @param { number } b - Vertical tilt.
-   * @param { number } c - Horizontal tilt.
-   * @param { number } d - Vertical scaling.
-   * @param { number } e - The level of mobile.
-   * @param { number } f - Vertical movement.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
@@ -3900,15 +2073,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Adds a pan effect to the current canvas.
-   *
-   * @param { number } x - Horizontal movement distance.
-   * @param { number } y - Vertical movement.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   translate(x: number, y: number): void;
 
   /**
@@ -3917,13 +2081,6 @@ export interface OffscreenCanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Restores the configuration information of the last saved canvas context.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   restore(): void;
 
   /**
@@ -3931,13 +2088,6 @@ export interface OffscreenCanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Saves configuration information for the current canvas context.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   save(): void;
 }
@@ -3950,15 +2100,6 @@ export interface OffscreenCanvasRenderingContext2D {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * CanvasRenderingContext2D allows you to draw rectangles, text, images, and other objects on a canvas.
- * You can call getContext('2d') on canvas to obtain a CanvasRenderingContext2D object.
- *
- * @interface CanvasRenderingContext2D
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface CanvasRenderingContext2D {
   /**
    * Fills a rectangle on the canvas.
@@ -3969,17 +2110,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Fills a rectangle on the canvas.
-   *
-   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width - Width of the rectangle.
-   * @param { number } height - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   fillRect(x: number, y: number, width: number, height: number): void;
 
@@ -3993,17 +2123,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the style of a paint to fill an area.
-   * Paint color used to fill the area.
-   * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
-   * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
-   *
-   * @type { ?(string | CanvasGradient | CanvasPattern) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fillStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
@@ -4015,17 +2134,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } height - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Clears the content in a rectangle on the canvas.
-   *
-   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width - Width of the rectangle.
-   * @param { number } height - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   clearRect(x: number, y: number, width: number, height: number): void;
 
@@ -4039,17 +2147,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws a rectangle stroke on the canvas.
-   *
-   * @param { number } x - X-coordinate of the upper left corner of the rectangle stroke.
-   * @param { number } y - Y-coordinate of the upper left corner of the rectangle stroke.
-   * @param { number } width - Width of the rectangle stroke.
-   * @param { number } height - Height of the rectangle stroke.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   strokeRect(x: number, y: number, width: number, height: number): void;
 
   /**
@@ -4060,16 +2157,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } y - Y-coordinate of the lower left corner of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws filled text on the canvas.
-   *
-   * @param { string } text - Text to draw.
-   * @param { number } x - X-coordinate of the lower left corner of the text.
-   * @param { number } y - Y-coordinate of the lower left corner of the text.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   fillText(text: string, x: number, y: number): void;
 
@@ -4082,16 +2169,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws a text stroke on the canvas.
-   *
-   * @param { string } text - Text stroke to draw.
-   * @param { number } x - X-coordinate of the lower left corner of the text stroke.
-   * @param { number } y - Y-coordinate of the lower left corner of the text stroke.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   strokeText(text: string, x: number, y: number): void;
 
   /**
@@ -4102,15 +2179,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Returns a TextMetrics object used to obtain the width of specified text.
-   *
-   * @param { string } text - Text to be measured.
-   * @returns { TextMetrics } Object that contains the text width. You can obtain the width by TextMetrics.width.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   measureText(text: string): TextMetrics;
 
   /**
@@ -4119,14 +2187,6 @@ export interface CanvasRenderingContext2D {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets the width of a line.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   lineWidth?: number;
 
@@ -4140,17 +2200,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the stroke paint style.
-   * Color of the stroke paint.
-   * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
-   * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
-   *
-   * @type { ?(string | CanvasGradient | CanvasPattern) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
@@ -4158,13 +2207,6 @@ export interface CanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws a border stroke.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   stroke(): void;
 
@@ -4175,14 +2217,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws a path stroke.
-   *
-   * @param { Path2D } path - The object of Path2D.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   stroke(path: Path2D): void;
 
   /**
@@ -4190,13 +2224,6 @@ export interface CanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Creates a drawing path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   beginPath(): void;
 
@@ -4208,15 +2235,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Moves a drawing path to a target position on the canvas.
-   *
-   * @param { number } x - X-coordinate of the target position.
-   * @param { number } y - Y-coordinate of the target position.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   moveTo(x: number, y: number): void;
 
   /**
@@ -4227,15 +2245,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Connects the current point to a target position using a straight line.
-   *
-   * @param { number } x - X-coordinate of the target position.
-   * @param { number } y - Y-coordinate of the target position.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   lineTo(x: number, y: number): void;
 
   /**
@@ -4243,13 +2252,6 @@ export interface CanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws a closed path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   closePath(): void;
 
@@ -4265,19 +2267,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the style of line endpoints.
-   * Style of line endpoints. Available values include:
-   * butt (default): The endpoints of the line are in square.
-   * round: The endpoints of the line are rounded.
-   * square: The endpoints of the line are in square,
-   * and each end of the line is added with a rectangle whose length is the same as the line thickness and whose width is half of the line thickness.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   lineCap: string;
 
   /**
@@ -4292,19 +2281,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the style for an intersection point where a line joins another.
-   * Style of the intersection point of lines. Available values include:
-   * round: The intersection part is a sector. The radius of a rounded corner is equal to the line width.
-   * bevel: The intersection part is a triangle. The rectangular corner of each line is independent.
-   * miter (default): The intersection part has a miter corner by extending the outside edges of the lines until they meet.
-   * You can view the effect of this attribute in miterLimit.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   lineJoin: string;
 
   /**
@@ -4314,15 +2290,6 @@ export interface CanvasRenderingContext2D {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets the maximum miter length. The miter length is the distance between the inner corner and the outer corner where two lines meet.
-   * Maximum miter length. The default value is 10.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   miterLimit: number;
 
@@ -4335,17 +2302,6 @@ export interface CanvasRenderingContext2D {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets the font style.
-   * Font style.
-   * The default value is 10px sans-serif in tv, phone, tablet, wearable.
-   * The default value is 30px SourceHanSansSC-Regular in smartVision.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   font: string;
 
@@ -4364,22 +2320,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the text alignment mode.
-   * Text alignment mode. Available values include:
-   * left (default): The text is left-aligned.
-   * right: The text is right-aligned.
-   * center: The text is center-aligned.
-   * start: The text is aligned with the start bound. Can't be supported by smartVision.
-   * end: The text is aligned with the end bound. Can't be supported by smartVision.
-   * NOTE
-   * In the ltr layout mode, the value start equals to left. In the rtl layout mode, the value start equals to right.
-   *
-   * @type { "left" | "right" | "center" | "start" | "end" }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   textAlign: "left" | "right" | "center" | "start" | "end";
 
   /**
@@ -4389,15 +2329,6 @@ export interface CanvasRenderingContext2D {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets whether an image is smooth.
-   * default value is true.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   imageSmoothingEnabled: boolean;
 
@@ -4417,23 +2348,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets a text baseline in the horizontal direction for text alignment.
-   * Text baseline. Available values include:
-   * alphabetic (default): The text baseline is the normal alphabetic baseline.
-   * top: The text baseline is on the top of the text bounding box.
-   * hanging: The text baseline is a hanging baseline over the text.
-   * middle: The text baseline is in the middle of the text bounding box.
-   * ideographic: The text baseline is the ideographic baseline. If a character exceeds the alphabetic baseline,
-   * the ideographic baseline is located at the bottom of the excessive character.
-   * bottom: The text baseline is at the bottom of the text bounding box.
-   * Its difference from the ideographic baseline is that the ideographic baseline does not consider letters in the next line.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   textBaseline: string;
 
   /**
@@ -4446,18 +2360,6 @@ export interface CanvasRenderingContext2D {
    * @returns { CanvasGradient } LinearGradient object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Creates a linear gradient color.
-   *
-   * @param { number } x0 - X-coordinate of the start point.
-   * @param { number } y0 - Y-coordinate of the start point.
-   * @param { number } x1 - X-coordinate of the end point.
-   * @param { number } y1 - Y-coordinate of the end point.
-   * @returns { CanvasGradient } LinearGradient object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
@@ -4474,20 +2376,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Creates a radial gradient color.
-   *
-   * @param { number } x0 - X-coordinate of the start point.
-   * @param { number } y0 - Y-coordinate of the start point.
-   * @param { number } r0 - The radius of the starting circle.
-   * @param { number } x1 - X-coordinate of the end point.
-   * @param { number } y1 - Y-coordinate of the end point.
-   * @param { number } r1 - The radius of End Circle.
-   * @returns { CanvasGradient } RadialGradient object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
@@ -4499,16 +2387,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates a pattern for image filling based on a specified source image and repetition mode.
-   *
-   * @param { Image } image - Source image.
-   * @param { string } repetition - Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
-   * @returns { object } Pattern of image filling.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createPattern(image: Image, repetition: string): object;
 
   /**
@@ -4519,15 +2397,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates a path that is later used by the CanvasRenderingContext2D object.
-   *
-   * @param { Path2D } [path] - another created Path2D object.
-   * @returns { Path2D } the object of Path2D.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createPath2D(path?: Path2D): Path2D;
 
   /**
@@ -4537,15 +2406,6 @@ export interface CanvasRenderingContext2D {
    * @returns { Path2D } the object of Path2D.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Creates a path that is later used by the CanvasRenderingContext2D object.
-   *
-   * @param { string } [cmds] - a string defined using the SVG path command.
-   * @returns { Path2D } the object of Path2D.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   createPath2D(cmds?: string): Path2D;
 
@@ -4561,19 +2421,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws a cubic bezier curve on the canvas.
-   *
-   * @param { number } cp1x - X-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp1y - Y-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp2x - X-coordinate of the second parameter of the bezier curve.
-   * @param { number } cp2y - Y-coordinate of the second parameter of the bezier curve.
-   * @param { number } x - End point x-coordinate of the bezier curve.
-   * @param { number } y - End point y-coordinate of the bezier curve.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
@@ -4585,17 +2432,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws a quadratic curve on the canvas.
-   *
-   * @param { number } cpx - X-coordinate of the bezier curve parameter.
-   * @param { number } cpy - Y-coordinate of the bezier curve parameter.
-   * @param { number } x - End point x-coordinate of the bezier curve.
-   * @param { number } y - End point y-coordinate of the bezier curve.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -4611,19 +2447,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws an arc on the canvas.
-   *
-   * @param { number } x - X-coordinate of the center point of the arc.
-   * @param { number } y - Y-coordinate of the center point of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start radian of the arc.
-   * @param { number } endAngel - End radian of the arc.
-   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
 
   /**
@@ -4636,18 +2459,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws an arc based on the radius and points on the arc.
-   *
-   * @param { number } x1 - X-coordinate of the first point on the arc.
-   * @param { number } y1 - Y-coordinate of the first point on the arc.
-   * @param { number } x2 - X-coordinate of the second point on the arc.
-   * @param { number } y2 - Y-coordinate of the second point on the arc.
-   * @param { number } radius - Radius of the arc.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -4665,22 +2476,6 @@ export interface CanvasRenderingContext2D {
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws an ellipse based on the coordinate and radius.
-   *
-   * @param { number } x - X-coordinate of the center point on the ellipse.
-   * @param { number } y - Y-coordinate of the center point on the ellipse.
-   * @param { number } radiusX - X-coordinate of the radius Length on the ellipse.
-   * @param { number } radiusY - Y-coordinate of the radius Length on the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians.
-   * @param { number } startAngle - Angle of the start point for ellipse drawing.
-   * @param { number } endAngle - End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
-   * 0: clockwise; 1: counterclockwise. The default value is 0.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   ellipse(
     x: number,
@@ -4703,17 +2498,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates a rectangular.
-   *
-   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width - Width of the rectangle.
-   * @param { number } height - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rect(x: number, y: number, width: number, height: number): void;
 
   /**
@@ -4722,13 +2506,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Fills the area inside a closed path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fill(): void;
 
   /**
@@ -4736,13 +2513,6 @@ export interface CanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets a path as the clipping path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   clip(): void;
 
@@ -4753,14 +2523,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Rotates a canvas clockwise around its coordinate axes.
-   *
-   * @param { number } rotate - Clockwise rotation angle. You can use Math.PI / 180 to convert the angle to radian.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rotate(rotate: number): void;
 
   /**
@@ -4770,15 +2532,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } y - Vertical scale factor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Scales a canvas based on scaling factors.
-   *
-   * @param { number } x - Horizontal scale factor.
-   * @param { number } y - Vertical scale factor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scale(x: number, y: number): void;
 
@@ -4797,22 +2550,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Defines a transformation matrix.
-   * To transform a graph, you only need to set parameters of the matrix.
-   * The coordinates of the corresponding graph are multiplied by the matrix values to obtain new coordinates of the transformed graph.
-   * You can use the matrix to implement multiple transform effects.
-   *
-   * @param { number } scaleX - X-axis scale.
-   * @param { number } skewX - X-axis skew.
-   * @param { number } skewY - Y-axis skew.
-   * @param { number } scaleY - Y-axis scale.
-   * @param { number } translateX - X-axis translation.
-   * @param { number } translateY - Y-axis translation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   transform(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void;
 
   /**
@@ -4826,19 +2563,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Uses same parameters as the transform() function to reset the existing transformation matrix and create a new transformation matrix.
-   *
-   * @param { number } scaleX - X-axis scale.
-   * @param { number } skewX - X-axis skew.
-   * @param { number } skewY - Y-axis skew.
-   * @param { number } scaleY - Y-axis scale.
-   * @param { number } translateX - X-axis translation.
-   * @param { number } translateY - Y-axis translation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   setTransform(
     scaleX: number,
@@ -4857,15 +2581,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Moves the origin of the coordinate system.
-   *
-   * @param { number } x - X-axis translation.
-   * @param { number } y - Y-axis translation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   translate(x: number, y: number): void;
 
   /**
@@ -4876,16 +2591,6 @@ export interface CanvasRenderingContext2D {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets the alpha value.
-   * Global alpha value to set.
-   * The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   globalAlpha: number;
 
@@ -4899,18 +2604,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws an image.
-   *
-   * @param { Image } image - Image resource.
-   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth - Width of the drawing area.
-   * @param { number } dHeight - Height of the drawing area.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
@@ -4928,22 +2621,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws an image.
-   *
-   * @param { Image } image - Image resource.
-   * @param { number } sx - X-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sy - Y-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sWidth - Target width of the image to crop.
-   * @param { number } sHeight - Target height of the image to crop.
-   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth - Width of the drawing area.
-   * @param { number } dHeight - Height of the drawing area.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   drawImage(
     image: Image,
@@ -4968,18 +2645,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  /**
-   * Draws an image.
-   *
-   * @param { image.PixelMap } image - Image resource.
-   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth - Width of the drawing area.
-   * @param { number } dHeight - Height of the drawing area.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   drawImage(image: image.PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
   /**
@@ -4996,22 +2661,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } dHeight - Height of the drawing area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  /**
-   * Draws an image.
-   *
-   * @param { image.PixelMap } image - Image resource.
-   * @param { number } sx - X-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sy - Y-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param { number } sWidth - Target width of the image to crop.
-   * @param { number } sHeight - Target height of the image to crop.
-   * @param { number } dx - X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param { number } dWidth - Width of the drawing area.
-   * @param { number } dHeight - Height of the drawing area.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   drawImage(
     image: image.PixelMap,
@@ -5031,13 +2680,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Restores the saved drawing context.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   restore: () => void;
 
   /**
@@ -5045,13 +2687,6 @@ export interface CanvasRenderingContext2D {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Saves the current drawing context.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   save: () => void;
 
@@ -5064,16 +2699,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates an ImageData object.
-   *
-   * @param { number } width - Width of the ImageData object.
-   * @param { number } height - Height of the ImageData object.
-   * @returns { ImageData } Returns the newly created FunctionCallable object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   createImageData(width: number, height: number): ImageData;
   /**
    * Creates an ImageData object.
@@ -5082,15 +2707,6 @@ export interface CanvasRenderingContext2D {
    * @returns { ImageData } Returns the newly created FunctionCallable object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Creates an ImageData object.
-   *
-   * @param { ImageData } imagedata - ImageData object with the same width and height copied from the original ImageData object.
-   * @returns { ImageData } Returns the newly created FunctionCallable object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -5105,18 +2721,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * ImageData object created with pixels in the specified area on the canvas.
-   *
-   * @param { number } sx - X-coordinate of the upper left corner of the output area.
-   * @param { number } sy - Y-coordinate of the upper left corner of the output area.
-   * @param { number } sw - Width of the output area.
-   * @param { number } sh - Height of the output area.
-   * @returns { ImageData } ImageData object that contains pixels in the specified area on the canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
@@ -5130,18 +2734,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  /**
-   * Get an PixelMap object.
-   *
-   * @param { number } sx - The upper-left x-coordinate of the rectangular area of the image data to be extracted.
-   * @param { number } sy - The upper-left y coordinate of the rectangular region of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
-   * @returns { image.PixelMap } PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
 
   /**
@@ -5152,16 +2744,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } dy - Y-axis offset of the rectangle area on the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Puts the ImageData onto a rectangular area on the canvas.
-   *
-   * @param { ImageData } imageData - ImageData object with pixels to put onto the canvas.
-   * @param { number } dx - X-axis offset of the rectangle area on the canvas.
-   * @param { number } dy - Y-axis offset of the rectangle area on the canvas.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   putImageData(imageData: ImageData, dx: number, dy: number): void;
 
@@ -5177,20 +2759,6 @@ export interface CanvasRenderingContext2D {
    * @param { number } dirtyHeight - Height of the rectangle area to cop the source image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Puts the ImageData onto a rectangular area on the canvas.
-   *
-   * @param { ImageData } imageData - ImageData object with pixels to put onto the canvas.
-   * @param { number } dx - X-axis offset of the rectangle area on the canvas.
-   * @param { number } dy - Y-axis offset of the rectangle area on the canvas.
-   * @param { number } dirtyX - X-axis offset of the upper left corner of the rectangle area relative to that of the source image.
-   * @param { number } dirtyY - Y-axis offset of the upper left corner of the rectangle area relative to that of the source image.
-   * @param { number } dirtyWidth - Width of the rectangle area to cop the source image.
-   * @param { number } dirtyHeight - Height of the rectangle area to cop the source image.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   putImageData(
     imageData: ImageData,
@@ -5209,14 +2777,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the dash line style.
-   *
-   * @param { Array<number> } segments - Interval of alternate line segments and the length of spacing.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   setLineDash(segments: Array<number>): void;
 
   /**
@@ -5225,14 +2785,6 @@ export interface CanvasRenderingContext2D {
    * @returns { Array<number> } Interval of alternate line segments and the length of spacing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains the dash line style.
-   *
-   * @returns { Array<number> } Interval of alternate line segments and the length of spacing.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   getLineDash(): Array<number>;
 
@@ -5243,15 +2795,6 @@ export interface CanvasRenderingContext2D {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets the dash line offset.
-   * Dash line offset. The value is a float number starting from 0.0.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   lineDashOffset: number;
 
@@ -5273,25 +2816,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the composite operation type.
-   * source-over Default value. Displays the new drawing above the existing drawing.
-   * source-atop Displays the new drawing on the top of the existing drawing.
-   * source-in Displays the new drawing inside the existing drawing.
-   * source-out Displays part of the new drawing that is outside of the existing drawing.
-   * destination-over Displays the existing drawing above the new drawing.
-   * destination-atop Displays the existing drawing above the new drawing.
-   * destination-in Displays the existing drawing inside the new drawing.
-   * destination-out Displays part of the existing drawing that is outside of the new drawing.
-   * lighter Displays both the new drawing and the existing drawing.
-   * copy Displays the new drawing and neglects the existing drawing.
-   * xor Combines the new drawing and existing drawing using the XOR operation.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   globalCompositeOperation: string;
 
   /**
@@ -5302,15 +2826,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the shadow blur degree.
-   * Shadow blur degree. A larger value indicates a more blurred shadow. The value is of the float type, and the default value is 0.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   shadowBlur: number;
 
   /**
@@ -5319,14 +2834,6 @@ export interface CanvasRenderingContext2D {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Sets the shadow color.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   shadowColor: string;
 
@@ -5338,15 +2845,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the x-axis shadow offset relative to the original object.
-   * X-axis shadow offset relative to the original object.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   shadowOffsetX: number;
 
   /**
@@ -5357,15 +2855,6 @@ export interface CanvasRenderingContext2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Sets the y-axis shadow offset relative to the original object.
-   * Y-axis shadow offset relative to the original object.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   shadowOffsetY: number;
 
   /**
@@ -5374,14 +2863,6 @@ export interface CanvasRenderingContext2D {
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Draws the Bitmap to the current canvas.
-   *
-   * @param { ImageBitmap } bitmap
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 }
@@ -5393,14 +2874,6 @@ export interface CanvasRenderingContext2D {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * You can create a gradient object on the canvas by calling CanvasRenderingContext2D.createLinearGradient().
- *
- * @interface CanvasGradient
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface CanvasGradient {
   /**
    * Adds a color stop for the CanvasGradient object based on the specified offset and gradient color.
@@ -5410,16 +2883,6 @@ export interface CanvasGradient {
    * @param { string } color - Sets the gradient color.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Adds a color stop for the CanvasGradient object based on the specified offset and gradient color.
-   *
-   * @param { number } offset - Proportion of the distance between the color stop and the start point to the total length.
-   * The value ranges from 0 to 1.
-   * @param { string } color - Sets the gradient color.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   addColorStop(offset: number, color: string): void;
 }
@@ -5431,14 +2894,6 @@ export interface CanvasGradient {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * Path2D
- *
- * @interface Path2D
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface Path2D {
   /**
    * Add another path to current path.
@@ -5446,14 +2901,6 @@ export interface Path2D {
    * @param { Path2D } path - another created Path2D object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Add another path to current path.
-   *
-   * @param { Path2D } path - another created Path2D object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   addPath(path: Path2D): void;
 
@@ -5468,19 +2915,6 @@ export interface Path2D {
    * @param { number } translateY - Y-axis translation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Uses same parameters as the transform() function to reset the existing transformation matrix and create a new transformation matrix.
-   *
-   * @param { number } scaleX - X-axis scale.
-   * @param { number } skewX - X-axis skew.
-   * @param { number } skewY - Y-axis skew.
-   * @param { number } scaleY - Y-axis scale.
-   * @param { number } translateX - X-axis translation.
-   * @param { number } translateY - Y-axis translation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   setTransform(
     scaleX: number,
@@ -5497,13 +2931,6 @@ export interface Path2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws a closed path.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   closePath(): void;
 
   /**
@@ -5514,15 +2941,6 @@ export interface Path2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Moves a drawing path to a target position on the canvas.
-   *
-   * @param { number } x - X-coordinate of the target position.
-   * @param { number } y - Y-coordinate of the target position.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   moveTo(x: number, y: number): void;
 
   /**
@@ -5532,15 +2950,6 @@ export interface Path2D {
    * @param { number } y - Y-coordinate of the target position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Connects the current point to a target position using a straight line.
-   *
-   * @param { number } x - X-coordinate of the target position.
-   * @param { number } y - Y-coordinate of the target position.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   lineTo(x: number, y: number): void;
 
@@ -5556,19 +2965,6 @@ export interface Path2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws a cubic bezier curve on the canvas.
-   *
-   * @param { number } cp1x - X-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp1y - Y-coordinate of the first parameter of the bezier curve.
-   * @param { number } cp2x - X-coordinate of the second parameter of the bezier curve.
-   * @param { number } cp2y - Y-coordinate of the second parameter of the bezier curve.
-   * @param { number } x - End point x-coordinate of the bezier curve.
-   * @param { number } y - End point y-coordinate of the bezier curve.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
@@ -5580,17 +2976,6 @@ export interface Path2D {
    * @param { number } y - End point y-coordinate of the bezier curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws a quadratic curve on the canvas.
-   *
-   * @param { number } cpx - X-coordinate of the bezier curve parameter.
-   * @param { number } cpy - Y-coordinate of the bezier curve parameter.
-   * @param { number } x - End point x-coordinate of the bezier curve.
-   * @param { number } y - End point y-coordinate of the bezier curve.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -5606,19 +2991,6 @@ export interface Path2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Draws an arc on the canvas.
-   *
-   * @param { number } x - X-coordinate of the center point of the arc.
-   * @param { number } y - Y-coordinate of the center point of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start radian of the arc.
-   * @param { number } endAngel - End radian of the arc.
-   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
 
   /**
@@ -5631,18 +3003,6 @@ export interface Path2D {
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws an arc based on the radius and points on the arc.
-   *
-   * @param { number } x1 - X-coordinate of the first point on the arc.
-   * @param { number } y1 - Y-coordinate of the first point on the arc.
-   * @param { number } x2 - X-coordinate of the second point on the arc.
-   * @param { number } y2 - Y-coordinate of the second point on the arc.
-   * @param { number } radius - Radius of the arc.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -5660,22 +3020,6 @@ export interface Path2D {
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Draws an ellipse based on the coordinate and radius.
-   *
-   * @param { number } x - X-coordinate of the center point on the ellipse.
-   * @param { number } y - Y-coordinate of the center point on the ellipse.
-   * @param { number } radiusX - X-coordinate of the radius Length on the ellipse.
-   * @param { number } radiusY - Y-coordinate of the radius Length on the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians.
-   * @param { number } startAngle - Angle of the start point for ellipse drawing.
-   * @param { number } endAngle - End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
-   * 0: clockwise; 1: counterclockwise. The default value is 0.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   ellipse(
     x: number,
@@ -5698,17 +3042,6 @@ export interface Path2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates a rectangular.
-   *
-   * @param { number } x - X-coordinate of the upper left corner of the rectangle.
-   * @param { number } y - Y-coordinate of the upper left corner of the rectangle.
-   * @param { number } width - Width of the rectangle.
-   * @param { number } height - Height of the rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   rect(x: number, y: number, width: number, height: number): void;
 }
 
@@ -5721,16 +3054,6 @@ export interface Path2D {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * <canvas> provides a rectangular canvas component for drawing graphics on the screen.
- * You can control each pixel to draw on the canvas.
- * <canvas> offers a variety of functions for drawing paths, rectangles, circles, text, and allows for adding images to it.
- *
- * @interface CanvasElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface CanvasElement extends Element {
   /**
    * Obtains the context of 2D canvas drawing.
@@ -5742,18 +3065,6 @@ export interface CanvasElement extends Element {
    * @returns { CanvasRenderingContext2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains the context of 2D canvas drawing.
-   * Only parameters related to 2D canvas drawing are supported.
-   * The return value is a 2D drawing object that provides specific 2D drawing operations.
-   *
-   * @param { "2d" } type - identifier defining the drawing context associated to the canvas.
-   * @param { ContextAttrOptions } [options] - use this context attributes to creating rendering context.
-   * @returns { CanvasRenderingContext2D }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   getContext(type: "2d", options?: ContextAttrOptions): CanvasRenderingContext2D;
 
@@ -5768,18 +3079,6 @@ export interface CanvasElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Obtains the context of webgl canvas drawing.
-   * Only parameters related to webgl canvas drawing are supported.
-   * The return value is a webgl drawing object that provides specific webgl drawing operations.
-   *
-   * @param { "webgl" } type - identifier defining the drawing context associated to the canvas.
-   * @param { WebGLContextAttributes } [options] - use this context attributes to creating rendering context.
-   * @returns { WebGLRenderingContext }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   getContext(type: "webgl", options?: WebGLContextAttributes): WebGLRenderingContext;
 
   /**
@@ -5792,18 +3091,6 @@ export interface CanvasElement extends Element {
    * @returns { WebGL2RenderingContext }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains the context of webgl2 canvas drawing.
-   * Only parameters related to webgl2 canvas drawing are supported.
-   * The return value is a webgl2 drawing object that provides specific webgl2 drawing operations.
-   *
-   * @param { "webgl2" } type - identifier defining the drawing context associated to the canvas.
-   * @param { WebGLContextAttributes } [options] - use this context attributes to creating rendering context.
-   * @returns { WebGL2RenderingContext }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   getContext(type: "webgl2", options?: WebGLContextAttributes): WebGL2RenderingContext;
 
@@ -5818,18 +3105,6 @@ export interface CanvasElement extends Element {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Creates a data URI that contains the image display.
-   *
-   * @param { string } type - A DOMString indicating the image format. The default type is image/png.
-   * @param { number } [quality] - A Number between 0 and 1 indicating image quality if the type option
-   * is image/jpeg or image/webp. If this argument is anything else,
-   * the default value for image quality is used. Other arguments are ignored.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   toDataURL(type?: string, quality?: number): string;
 }
 
@@ -5840,14 +3115,6 @@ export interface CanvasElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * ScrollOptions
- *
- * @interface ScrollOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ScrollOptions {
   /**
    * Scroll to the target position of the page. Unit: px
@@ -5855,14 +3122,6 @@ export interface ScrollOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Scroll to the target position of the page. Unit: px
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   position: number;
 
@@ -5873,14 +3132,6 @@ export interface ScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Duration of the scrolling animation, in ms.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   duration: number;
 
   /**
@@ -5889,14 +3140,6 @@ export interface ScrollOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * The selector for current scroll.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   id?: string;
 
@@ -5907,14 +3150,6 @@ export interface ScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * The timing function for current scroll animation.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   timingFunction?: string;
 
   /**
@@ -5923,14 +3158,6 @@ export interface ScrollOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Callback function for successful interface invocation.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   success?: (result: Object) => void;
 
@@ -5941,14 +3168,6 @@ export interface ScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Callback function for interface invocation failure.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fail?: (result: Object) => void;
 
   /**
@@ -5957,14 +3176,6 @@ export interface ScrollOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   complete?: (result: Object) => void;
 }
@@ -5976,14 +3187,6 @@ export interface ScrollOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * ScrollOffset
- *
- * @interface ScrollOffset
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ScrollOffset {
   /**
    * Scrolling offset in the x-axis, in px.
@@ -5991,14 +3194,6 @@ export interface ScrollOffset {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Scrolling offset in the x-axis, in px.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   x: number;
 
@@ -6008,14 +3203,6 @@ export interface ScrollOffset {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Scrolling offset in the y-axis, in px.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   y: number;
 }
@@ -6027,14 +3214,6 @@ export interface ScrollOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * The <div> component provides a div container.
- *
- * @interface DivElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface DivElement extends Element {
   /**
    * Scrolls the div for a certain distance.
@@ -6042,14 +3221,6 @@ export interface DivElement extends Element {
    * @param { ScrollParam } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Scrolls the div for a certain distance.
-   *
-   * @param { ScrollParam } data
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scrollBy(data: ScrollParam): void;
 
@@ -6059,14 +3230,6 @@ export interface DivElement extends Element {
    * @returns { ScrollOffset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Returns the offset of the current scrolling. The return value type is Object.
-   *
-   * @returns { ScrollOffset }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   getScrollOffset(): ScrollOffset;
 }
@@ -6078,14 +3241,6 @@ export interface DivElement extends Element {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * Application
- *
- * @interface Application
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface Application {
   /**
    * Object that is exposed in the app.js file and obtained by this.$app.$def.
@@ -6093,14 +3248,6 @@ export interface Application {
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Object that is exposed in the app.js file and obtained by this.$app.$def.
-   *
-   * @type { any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   $def: any;
 }
@@ -6112,14 +3259,6 @@ export interface Application {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * ViewModel
- *
- * @interface ViewModel
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ViewModel {
   /**
    * Object that is exposed in the app.js file and obtained by this.$app
@@ -6128,14 +3267,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Object that is exposed in the app.js file and obtained by this.$app
-   *
-   * @type  { Application }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */  
   $app: Application;
 
   /**
@@ -6150,19 +3281,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
-  /**
-   * Sets the parameters based on the system language, for example, this.$t('strings.hello').
-   *
-   * @param { string } path - Path of the language resource key.
-   * @param { object | Array<any> } [params] - Content used to replace placeholders during runtime.
-   * @returns { string } Content.
-   * There are two types of placeholders available:Named placeholder, for example, {name}.
-   * The actual content must be of the object type, for example, $t('strings.object', { name: 'Hello world' }).
-   * Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world'].
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11
-   */
   $t(path: string, params?: object | Array<any>): string;
 
   /**
@@ -6176,18 +3294,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Converse between singular and plural forms based on the system language, for example, this.$tc('strings.plurals').
-   * NOTE
-   * The resource content is distinguished by the following JSON keys: zero, one, two, few, many, and other.
-   *
-   * @param { string } path - Resource file path.
-   * @param { number } count - Value.
-   * @returns { string } Content.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   $tc(path: string, count: number): string;
 
   /**
@@ -6197,15 +3303,6 @@ export interface ViewModel {
    * @returns { string } Content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Replace the resource path based on the DPI of the current device: this.$r('image.tv').
-   *
-   * @param { string } path - Resource file path.
-   * @returns { string } Content.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   $r(path: string): string;
 
@@ -6218,16 +3315,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Adds an attribute or modifies an existing attribute.
-   * Usage: this.$set('key',value): Add an attribute.
-   *
-   * @param { string } key
-   * @param { any } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   $set(key: string, value: any): void;
 
   /**
@@ -6237,15 +3324,6 @@ export interface ViewModel {
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Deletes an attribute.
-   * Usage:this.$delete('key'): Delete an attribute.
-   *
-   * @param { string } key
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   $delete(key: string): void;
 
@@ -6264,23 +3342,6 @@ export interface ViewModel {
    * ButtonElement &TextAreaElement &PickerElement &VideoElement &DivElement}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains the component with a specified ID. If no ID is specified, the root component is returned.
-   * Usage:
-   * <div id='xxx'></div>
-   * this.$element('xxx'): Obtain the component whose ID is xxx.
-   * this.$element(): Obtain the root component.
-   *
-   * @param { string } [id] - Component ID.
-   * @returns {AnimationElement &CanvasElement &
-   * object &WebElement &CameraElement &ListElement &
-   * SwiperElement &DialogElement &ImageAnimatorElement &
-   * MarqueeElement &MenuElement &ChartElement &InputElement &
-   * ButtonElement &TextAreaElement &PickerElement &VideoElement &DivElement}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   $element(
     id?: string,
@@ -6310,14 +3371,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Obtains the root ViewModel instance.
-   *
-   * @returns { ViewModel & object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   $root(): ViewModel & object;
 
   /**
@@ -6326,14 +3379,6 @@ export interface ViewModel {
    * @returns { ViewModel & object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Obtains the parent ViewModel instance.
-   *
-   * @returns { ViewModel & object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   $parent(): ViewModel & object;
 
@@ -6346,16 +3391,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Obtains the ViewModel instance of a custom child component with a specified ID.
-   * Usage:this.$child('xxx'): Obtain the ViewModel instance of a custom child component whose ID is xxx.
-   *
-   * @param { string } id - Component ID.
-   * @returns { ViewModel & object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   $child(id: string): ViewModel & object;
 
   /**
@@ -6366,15 +3401,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Listens for attribute changes. If the value of the data attribute changes, the bound event is triggered.
-   *
-   * @param { string } data - Attribute.
-   * @param { string } callback - Function name.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   $watch(data: string, callback: string): void;
 
   /**
@@ -6383,14 +3409,6 @@ export interface ViewModel {
    * @type { ElementReferences }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
-   */
-  /**
-   * An object that holds all DOM elements and component instances that have been registered with the refs attribute.
-   *
-   * @type { ElementReferences }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11
    */
   $refs: ElementReferences;
 
@@ -6402,15 +3420,6 @@ export interface ViewModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Custom events.
-   *
-   * @param { string } event - The name of event.
-   * @param { object } [params] - The params of event.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   $emit(event: string, params?: object): void;
 
   /**
@@ -6419,14 +3428,6 @@ export interface ViewModel {
    * @param { ScrollOptions } options - The properties of event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Scroll the page to the destination.
-   *
-   * @param { ScrollOptions } options - The properties of event.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   scrollTo(options: ScrollOptions): void;
 }
@@ -6437,14 +3438,6 @@ export interface ViewModel {
  * @interface ElementReferences
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
- */
-/**
- * ElementReferences
- *
- * @interface ElementReferences
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export interface ElementReferences {
   [k: string]: AnimationElement &
@@ -6471,11 +3464,6 @@ export interface ElementReferences {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
-/**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export declare class Locate {
   /**
    * language, such as 'zh'.
@@ -6483,14 +3471,6 @@ export declare class Locate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * language, such as 'zh'.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   language: string;
 
@@ -6501,14 +3481,6 @@ export declare class Locate {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * country or region, such ass 'CN'.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   countryOrRegion: string;
 
   /**
@@ -6517,14 +3489,6 @@ export declare class Locate {
    * @type { "ltr" | "rtl" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * text layout direction, ltr or rtl.
-   *
-   * @type { "ltr" | "rtl" }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   dir: "ltr" | "rtl";
 
@@ -6535,25 +3499,12 @@ export declare class Locate {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    */
-  /**
-   * The Unicode locale key set defined by the locale. If this locale does not have a specific key set, an empty set is
-   * returned. For example: {"nu": "arab"}, which means that the numbers in the current environment use Arabic numbers.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   unicodeSetting: object;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
- */
-/**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export declare class Configuration {
   /**
@@ -6562,14 +3513,6 @@ export declare class Configuration {
    * @type { Locate }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Internationalization related information, such as language, country, text layout direction, etc.
-   *
-   * @type { Locate }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   locate: Locate;
 
@@ -6580,14 +3523,6 @@ export declare class Configuration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * The magnification of the current system font.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fontScale: number;
 }
 
@@ -6597,14 +3532,6 @@ export declare class Configuration {
  * @interface Options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
- */
-/**
- * Options
- *
- * @interface Options
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
  */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
@@ -6617,17 +3544,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
-  /**
-   * Data model of the page that can be converted into a JSON object.
-   * The attribute name cannot start with $ or an underscore (_) or contain the reserved words such as for, if, show, and tid.
-   * For a function, the return value must be an object.
-   * Set the value of data to the return value of the function during page initialization.
-   *
-   * @type { ?Data }
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11
-   */
   data?: Data;
 
   /**
@@ -6636,14 +3552,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Listens for page initialization.
-   * Called when page initialization is complete. This function is called only once in a lifecycle.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onInit?(): void;
 
@@ -6654,14 +3562,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Listens for page creation.
-   * Called when a page is created. This function is called only once in a lifecycle.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onReady?(): void;
 
   /**
@@ -6670,14 +3570,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Listens for page display.
-   * Called when the page is displayed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onShow?(): void;
 
@@ -6688,14 +3580,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Listens for page hiding.
-   * Called when the page disappears.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onHide?(): void;
 
   /**
@@ -6704,14 +3588,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Listens for page destruction.
-   * Called when the page is destroyed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onDestroy?(): void;
 
@@ -6725,17 +3601,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  /**
-   * Listens for the back button action.
-   * The back button is tapped:
-   *
-   * @returns { boolean } true means that the page processes the return logic.
-   * false means that the default return logic is used.
-   * If no value is returned, the default return logic is used.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onBackPress?(): boolean;
 
   /**
@@ -6744,14 +3609,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
-   */
-  /**
-   * Listens for page active.
-   * Called when the page is active.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onActive?(): void;
 
@@ -6762,14 +3619,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    */
-  /**
-   * Listens for page inactive.
-   * Called when the page is paused.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onInactive?(): void;
 
   /**
@@ -6777,13 +3626,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
-   */
-  /**
-   * This callback is triggered when a new request is received when the FA has started.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onNewRequest?(): void;
 
@@ -6795,15 +3637,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    */
-  /**
-   * Callback when FA initiates a migration, in this callback, the application can decide whether
-   * to migrate according to the current state.
-   *
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onStartContinuation?(): boolean;
 
   /**
@@ -6814,15 +3647,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    */
-  /**
-   * For the callback of saving state data, the developer needs to fill in the parameter object
-   * the data to be migrated to the target device.
-   *
-   * @param { object } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onSaveData?(value: object): void;
 
   /**
@@ -6831,14 +3655,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
-   */
-  /**
-   * The callback to restore the data saved by the onSaveData method when the migration was initiated.
-   *
-   * @param { object } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onRestoreData?(value: object): void;
 
@@ -6850,15 +3666,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    */
-  /**
-   * The callback for the completion of the migration, which is triggered on the calling side, indicates
-   * the result of the application migration to the target device.
-   *
-   * @param { number } code
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onCompleteContinuation?(code: number): void;
 
   /**
@@ -6869,15 +3676,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * This callback is triggered when the corresponding system configuration changes, such as system font size,
-   * language region, etc.
-   *
-   * @param { Configuration } configuration
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   onConfigurationUpdated?(configuration: Configuration): void;
 
   /**
@@ -6886,14 +3684,6 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
-   */
-  /**
-   * Listens for application creation.
-   * Called when the application is created.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   onCreate?(): void;
 }

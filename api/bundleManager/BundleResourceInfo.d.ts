@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Obtains resource information about a bundle
  *
  * @typedef BundleResourceInfo

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
 import type { AsyncCallback } from '../@ohos.base';
 import resmgr from '../@ohos.resourceManager';

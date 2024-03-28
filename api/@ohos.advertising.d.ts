@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Provides the capability to load and display advertisements
  * @kit AdsKit
  */
 

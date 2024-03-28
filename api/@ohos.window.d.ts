@@ -3130,6 +3130,18 @@ declare namespace window {
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
+     * Get the properties of system bar
+     *
+     * @returns { SystemBarProperties } Return system bar properties.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+    getWindowSystemBarProperties(): SystemBarProperties;
+
+    /**
      * Set the preferred orientation config of the window
      *
      * @param { Orientation } orientation - The orientation config of the window
@@ -4901,6 +4913,20 @@ declare namespace window {
     minimize(): Promise<void>;
 
     /**
+     * Maximize app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    maximize(): Promise<void>;
+
+    /**
      * Set whether to enable a window to resize by drag.
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
@@ -5061,6 +5087,20 @@ declare namespace window {
     setWindowDecorVisible(isVisible: boolean): void;
 	
     /**
+     * Set the modality of the window.
+     *
+     * @param { boolean } - Enable the window modal if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    setSubWindowModal(isModal: boolean): Promise<void>;
+
+    /**
      * Set the height of the window decor.
      *
      * @param { number } - The height of window decor.
@@ -5082,6 +5122,23 @@ declare namespace window {
      * @since 11
      */
     getWindowDecorHeight(): number;
+    
+    /**
+     * Set touchable areas. By default, the entire window area is touchable.
+     * If touchable areas are set in the window, touch events outside the areas will be transparent transmitted.
+     * If the window area changes, you need to reset it.
+     *
+     * @param { Array<Rect> } rects - Touchable areas. The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    setTouchableAreas(rects: Array<Rect>): void;
 	
     /**
      * Get the area of window title buttons.
@@ -5093,7 +5150,48 @@ declare namespace window {
      * @since 11
      */
     getTitleButtonRect(): TitleButtonRect;
-	
+
+    /**
+     * Set whether to display the maximize, minimize, split buttons of main window.
+     *
+     * @param { boolean } isMaximizeVisible - Display maximize button if true, or hide maximize button if false.
+     * @param { boolean } isMinimizeVisible - Display minimize button if true, or hide minimize button if false.
+     * @param { boolean } isSplitVisible - Display split button if true, or hide split button if false.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
+    
+    /**
+     * Enable landscape multiWindow
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    enableLandscapeMultiWindow(): Promise<void>;
+
+    /**
+     * Disable landscape multiWindow
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    disableLandscapeMultiWindow(): Promise<void>;
+
     /**
      * Register the callback of title buttons area change.
      *
@@ -5119,6 +5217,20 @@ declare namespace window {
      * @since 11
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
+    
+    /**
+     *  Set the window mask of window
+     *
+     * @param { Array<Array<number>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+     setWindowMask(windowMask: Array<Array<number>>): Promise<void>;
   }
   /**
    * Window stage callback event type
@@ -5293,6 +5405,14 @@ declare namespace window {
      * @since 11
      */
     decorEnabled: boolean;
+    /**
+     * Indicates modality of subwindow
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    isModal?: boolean;
   }
   /**
    * WindowStage
