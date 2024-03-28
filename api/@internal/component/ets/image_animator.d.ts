@@ -134,7 +134,17 @@ interface ImageFrameInfo {
    * @since 11
    * @form
    */
-  src: string | Resource;
+  /**
+   * Image path
+   *
+   * @type { string | Resource | PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  src: string | Resource | PixelMap;
   /**
    * Image width
    *
