@@ -4419,6 +4419,16 @@ declare namespace webview {
     * @since 12
     */
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
+
+    /**
+     * Warmup the registered serviceworker associated the url.
+     * @param { string } url - The url.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static warmupServiceWorker(url: string): void;
   }
 
   /**
