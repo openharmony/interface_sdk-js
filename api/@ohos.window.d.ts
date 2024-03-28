@@ -245,7 +245,16 @@ declare namespace window {
      * @StageModelOnly
      * @since 11
      */
-    TYPE_GLOBAL_SEARCH
+    TYPE_GLOBAL_SEARCH,
+    /**
+     * Handwrite.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @StageModelOnly
+     * @since 12
+     */
+    TYPE_HANDWRITE
   }
 
   /**
@@ -4623,6 +4632,22 @@ declare namespace window {
      * @since 9
      */
     setWindowTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set handwrite flag on the window. This flag means only response handwrite event.
+     *
+     * @param { boolean } enable - Add handwrite flag to window if true, or remove flag if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    setHandwritingFlag(enable: boolean): Promise<void>;
 
     /**
      * Sets the flag of the window is forbidden to move in split screen mode
