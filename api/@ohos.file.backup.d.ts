@@ -503,6 +503,22 @@ declare namespace backup {
     constructor(callbacks: GeneralCallbacks);
 
     /**
+     * Append new bundles to be restore up during the restore.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
+     *     You can use the getLocalCapabilities method to obtain the value.
+     * @param { string[] } bundlesToBackup Bundles to restore.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 10
+     * /
+    /**
      * Append new bundles and restoreInfos to be restore up during the restore.
      *
      * @permission ohos.permission.BACKUP
