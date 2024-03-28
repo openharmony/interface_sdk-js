@@ -1201,7 +1201,7 @@ declare namespace image {
     SUBJECT_AREA = 'SubjectArea',
 
     /**
-     * A tag for manufacturers of Exif/DCF writers to record any desired infomation.
+     * A tag for manufacturers of Exif/DCF writers to record any desired information.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
