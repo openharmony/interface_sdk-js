@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import ExtensionContext from './ExtensionContext';
 /**
  * The context of vpn extension. It allows access to
