@@ -421,7 +421,7 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
 function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?: string): void {
   sheet.name = 'api差异';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统'];
+  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
     const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
     sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
@@ -430,6 +430,8 @@ function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?:
       joinNewMessage(diffInfo),
       dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
+      SyscapProcessorHelper.getSingleKitInfo(diffInfo)
+      
     ];
   });
 

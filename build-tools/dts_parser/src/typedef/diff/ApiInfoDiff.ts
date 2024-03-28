@@ -58,6 +58,9 @@ export class BasicDiffInfo {
   //syscap中用于区分子系统的字段
   oldSyscapField: string = '';
   newSyscapField: string = '';
+  //kit信息
+  oldKitInfo: string = '';
+  newKitInfo:string = '';
 
   setApiType(apiType: string): BasicDiffInfo {
     if (apiType) {
@@ -262,6 +265,24 @@ export class BasicDiffInfo {
 
   getNewSyscapField(): string {
     return this.newSyscapField;
+  }
+
+  setOldKitInfo(kitInfo: string) {
+    this.oldKitInfo = kitInfo;
+    return this;
+  }
+
+  getOldKitInfo(): string {
+    return this.oldKitInfo;
+  }
+
+  setNewKitInfo(kitInfo: string) {
+    this.newKitInfo = kitInfo;
+    return this;
+  }
+
+  getNewKitInfo(): string {
+    return this.newKitInfo;
   }
 }
 
