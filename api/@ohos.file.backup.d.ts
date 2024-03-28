@@ -528,7 +528,7 @@ declare namespace backup {
      * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
      *     You can use the getLocalCapabilities method to obtain the value.
      * @param { string[] } bundlesToBackup Bundles to restore.
-     * @param { ?string[] } infos infos to restore
+     * @param { string[] } [infos] infos to restore
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
