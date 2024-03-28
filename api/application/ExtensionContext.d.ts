@@ -34,7 +34,7 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @StageModelOnly
  * @atomicservice
  * @since 11
-*/
+ */
 export default class ExtensionContext extends Context {
   /**
    * Indicates configuration information about an module.
