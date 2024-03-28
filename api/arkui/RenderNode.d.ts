@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges } from './Graphics';
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges, LengthMetricsUnit } from './Graphics';
 
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
@@ -971,4 +971,25 @@ export class RenderNode {
    * @since 12
    */
   dispose(): void;
+
+  /**
+   * Set the length metrics unit of RenderNode.
+   *
+   * @param { LengthMetricsUnit } unit - The length metrics unit of RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set lengthMetricsUnit(unit: LengthMetricsUnit);
+
+  /**
+   * Get the length metrics unit of RenderNode.
+   *
+   * @returns { LengthMetricsUnit } - Return the length metrics unit of RenderNode.
+   * @default LengthMetricsUnit.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get lengthMetricsUnit(): LengthMetricsUnit;
 }
