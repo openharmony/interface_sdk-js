@@ -565,6 +565,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 12
    */
   divider(value: DividerOptions | null): TextPickerAttribute;
+
+  /**
+   * Called when set the height of gradient
+   *
+   * @param { Dimension } value - The value the gradient height
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  gradientHeight(value: Dimension): TextPickerAttribute;
 }
 
 /**
