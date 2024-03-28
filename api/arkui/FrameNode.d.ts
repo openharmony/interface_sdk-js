@@ -20,6 +20,7 @@
 
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
+import { Size, Position, Edges, LengthMetric, SizeT } from './Graphics';
 import { UICommonEvent } from 'commonEvent';
 import { CommonAttribute } from 'commonAttribute';
 
@@ -195,6 +196,137 @@ export class FrameNode {
    * @since 12
    */
   getPositionToParent(): Position;
+
+  /**
+   * Get the size of the FrameNode after measure, with unit PX.
+   *
+   * @returns { Size } - Returns the size of the FrameNode after measure, with unit PX.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getMeasuredSize(): Size;
+
+  /**
+   * Get the offset to the parent of the FrameNode after layout, with unit PX.
+   *
+   * @returns { Position } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getLayoutPosition(): Position;
+
+  /**
+   * Get the user config border width of the FrameNode.
+   *
+   * @returns { Edges<LengthMetric> } - Returns the user config border width of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUserConfigBorderWidth(): Edges<LengthMetric>;
+
+  /**
+   * Get the user config padding of the FrameNode.
+   *
+   * @returns { Edges<LengthMetric> } - Returns the user config padding of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUserConfigPadding(): Edges<LengthMetric>;
+
+  /**
+   * Get the user config margin of the FrameNode.
+   *
+   * @returns { Edges<LengthMetric> } - Returns the user config margin of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUserConfigMargin(): Edges<LengthMetric>;
+
+  /**
+   * Get the user config size of the FrameNode.
+   *
+   * @returns { SizeT<LengthMetric> } - Returns the user config size of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUserConfigSize(): SizeT<LengthMetric>;
+
+  /**
+   * Get the id of the FrameNode.
+   *
+   * @returns { string } - Returns the id of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getId(): string;
+
+  /**
+   * Get the type of the FrameNode. The type is the name of component, for example, the nodeType of Button is "Button",
+   * and the nodeType of custom  component is "__Common__".
+   *
+   * @returns { string } - Returns the type of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getNodeType(): string;
+
+  /**
+   * Get the opacity of the FrameNode.
+   *
+   * @returns { number } - Returns the opacity of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getOpacity(): number;
+
+  /**
+   * Get if the FrameNode is visible.
+   *
+   * @returns { boolean } - Returns if the FrameNode is visible.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isVisible(): boolean;
+
+  /**
+   * Get if the FrameNode is clip to frame.
+   *
+   * @returns { boolean } - Returns if the FrameNode is clip to frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isClipToFrame(): boolean;
+
+  /**
+   * Get if the FrameNode is attached.
+   *
+   * @returns { boolean } - Returns if the FrameNode is attached.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isAttached(): boolean;
+
+  /**
+   * Get the inspector information of the FrameNode.
+   *
+   * @returns { Object } - Returns the inspector information of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getInspectorInfo(): Object;
 
   /**
    * Set commonEvent response to the current FrameNode.

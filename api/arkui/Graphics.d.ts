@@ -17,7 +17,6 @@
  * @file
  * @kit ArkUI
  */
-
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
 import { BorderStyle } from 'borderStyle'
@@ -330,6 +329,196 @@ export interface Edges<T> {
    * @since 12
    */
   bottom: T
+}
+
+/**
+ * Defines the Length Unit.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LengthUnit {
+  /**
+   * Logical pixel used in Ace1.0. It's based on frontend design width.
+   * For example, when a frontend with 750px design width running on a
+   * device with 1080 pixels width, 1px represents 1.44 pixels.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PX = 0,
+
+  /**
+   * Density independent pixels, one vp is one pixel on a 160 dpi screen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  VP = 1,
+
+  /**
+   * Scale independent pixels. This is like VP but will be scaled by
+   * user's font size preference.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FP = 2,
+
+  /**
+   * The percentage of either a value from the element's parent or from
+   * another property of the element itself.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PERCENT = 3,
+
+  /**
+   * Logic pixels used in ACE2.0 instead of PX, and PX is the physical pixels in ACE2.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  LPX = 4,
+}
+
+/**
+ * Defines the Size property.
+ *
+ * @interface SizeT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface SizeT<T> {
+  /**
+   * Width property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width: T;
+
+  /**
+   * Height property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  height: T;
+}
+
+/**
+ * Defines the Length Metric.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class LengthMetric {
+  /**
+   * Constructor.
+   *
+   * @param { number } value - The value of length.
+   * @param { LengthUnit } unit - The length unit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(value: number, unit?:LengthUnit);
+
+  /**
+   * Init a lengthMetric with px unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit px.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static px(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with vp unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } - Returns the lengthMetric object with unit vp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static vp(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with fp unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit fp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static fp(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with percent unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit percent.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static percent(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with lpx unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit lpx.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static lpx(value: number): LengthMetric;
+  
+  /**
+   * The unit of the LengthMetric. The default value is VP.
+   *
+   * @type { LengthUnit }
+   * @default VP
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public unit: LengthUnit;
+
+  /**
+   * The value of the LengthMetric.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public value: number;
 }
 
 /**
