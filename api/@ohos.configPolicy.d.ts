@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit MDMKit
+ * @kit BasicServicesKit
  */
 
 import { AsyncCallback } from './@ohos.base';

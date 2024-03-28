@@ -72,3 +72,12 @@ export { RenderNode } from './arkui/RenderNode';
  * @since 11
  */
 export { XComponentNode } from './arkui/XComponentNode';
+
+/**
+ * Export ComponentContent.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { ComponentContent } from './arkui/ComponentContent';

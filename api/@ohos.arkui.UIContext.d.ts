@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
+import { ComponentContent } from './@ohos.arkui.node'
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -1254,6 +1255,73 @@ export class ComponentUtils {
 }
 
 /**
+ * class OverlayManager
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class OverlayManager {
+  /**
+   * Add the ComponentContent to the OverlayManager.
+   *
+   * @param { ComponentContent } content - The content will be added to the OverlayManager.
+   * @param { number } [ index ] - The index at which to add the ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addComponentContent(content: ComponentContent, index?: number): void;
+
+  /**
+   * Remove the ComponentContent from the OverlayManager.
+   *
+   * @param { ComponentContent } content - The content will be removed from the OverlayManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  removeComponentContent(content: ComponentContent): void;
+
+  /**
+   * Show the ComponentContent.
+   *
+   * @param { ComponentContent } content - The content will be shown.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showComponentContent(content: ComponentContent): void;
+
+  /**
+   * Hide the ComponentContent.
+   *
+   * @param { ComponentContent } content - The content will be hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hideComponentContent(content: ComponentContent): void;
+
+  /**
+   * Show all ComponentContents on the OverlayManager.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showAllComponentContents(): void;
+
+  /**
+   * Hide all ComponentContents on the OverlayManager.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hideAllComponentContents(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1539,6 +1607,16 @@ export class UIContext {
    * @since 11
    */
   getUIObserver(): UIObserver;
+
+  /**
+   * Get object OverlayManager.
+   *
+   * @returns { OverlayManager } object OverlayManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getOverlayManager(): OverlayManager;
 
   /**
    * Create an animator object for custom animation.

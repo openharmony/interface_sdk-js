@@ -30,6 +30,15 @@ import { BorderStyle } from 'borderStyle'
  * @crossplatform
  * @since 11
  */
+/**
+ * Size info.
+ *
+ * @interface Size
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export interface Size {
   /**
    * Get the width of the Size.
@@ -38,6 +47,15 @@ export interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get the width of the Size.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   width: number;
 
@@ -49,6 +67,15 @@ export interface Size {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Get the height of the Size.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   height: number;
 }
 
@@ -58,6 +85,14 @@ export interface Size {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines DrawContext.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export class DrawContext {
 
@@ -69,6 +104,15 @@ export class DrawContext {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Get size of the DrawContext.
+   *
+   * @returns { Size } The size of the DrawContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   get size(): Size;
 
   /**
@@ -78,6 +122,15 @@ export class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get canvas of the DrawContext.
+   *
+   * @returns { drawing.Canvas } The canvas of the DrawContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   get canvas(): drawing.Canvas;
 }
@@ -90,6 +143,15 @@ export class DrawContext {
   * @crossplatform
   * @since 11
   */
+ /**
+  * Defined a vector with two values.
+  *
+  * @interface Vector2
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
 interface Vector2 {
   /**
    * Value for x-axis of the vector.
@@ -98,6 +160,15 @@ interface Vector2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   x: number
 
@@ -108,6 +179,15 @@ interface Vector2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   y: number
 }
@@ -129,6 +209,15 @@ interface Vector3 {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   x: number;
 
   /**
@@ -138,6 +227,15 @@ interface Vector3 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   y: number;
 
@@ -149,6 +247,15 @@ interface Vector3 {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Value for z-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   z: number;
 }
 
@@ -158,6 +265,14 @@ interface Vector3 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * It's a 4x4 matrix, represent by number[].
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export type Matrix4 = [
   number,
@@ -185,6 +300,14 @@ export type Matrix4 = [
  * @crossplatform
  * @since 11
  */
+/**
+ * Offset info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Offset = Vector2;
 
 /**
@@ -203,6 +326,14 @@ export type Position = Vector2;
  * @crossplatform
  * @since 11
  */
+/**
+ * Pivot info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Pivot = Vector2;
 
 /**
@@ -211,6 +342,14 @@ export type Pivot = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Scale info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export type Scale = Vector2;
 
@@ -221,6 +360,14 @@ export type Scale = Vector2;
  * @crossplatform
  * @since 11
  */
+/**
+ * Translation info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Translation = Vector2;
 
 /**
@@ -229,6 +376,14 @@ export type Translation = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Rotation info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export type Rotation = Vector3;
 
@@ -240,6 +395,15 @@ export type Rotation = Vector3;
  * @crossplatform
  * @since 11
  */
+/**
+ * Frame info, include the position info and size info.
+ *
+ * @interface Frame
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export declare interface Frame {
   /**
    * Position value for x-axis of the frame info.
@@ -248,6 +412,15 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Position value for x-axis of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   x: number;
 
@@ -259,6 +432,15 @@ export declare interface Frame {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Position value for y-axis of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   y: number;
 
   /**
@@ -269,6 +451,15 @@ export declare interface Frame {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Size value for width of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   width: number;
 
   /**
@@ -278,6 +469,15 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Size value for height of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   height: number;
 }
@@ -570,6 +770,7 @@ export declare class ShapeMask {
    * The fill color of the ShapeMask.
    *
    * @type { number }
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -580,6 +781,7 @@ export declare class ShapeMask {
    * The stroke color of the ShapeMask.
    *
    * @type { number }
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -590,6 +792,7 @@ export declare class ShapeMask {
    * The stroke width of the ShapeMask.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12

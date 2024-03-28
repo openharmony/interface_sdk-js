@@ -214,6 +214,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
     }
 
     private void runApiDiffTool() {
+        BufferedReader bufferedReader = null;
         try {
             LOGGER.info(LOG_TAG, "Start run api diff tool");
             // is it cached
@@ -236,7 +237,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             builder.directory(new File(FileUtils.getLastDir().split(":")[0] + ":\\updateCheck\\api-diff"));
             builder.command("cmd.exe", "/c", orders);
             Process start = builder.start();
-            BufferedReader bufferedReader = new BufferedReader(
+            bufferedReader = new BufferedReader(
                     new InputStreamReader(start.getInputStream(), Charset.forName("GBK")));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -245,10 +246,19 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             LOGGER.info(LOG_TAG, "Run api diff tool end");
         } catch (IOException e) {
             LOGGER.error(LOG_TAG, "Run api diff tool error! " + e.getMessage());
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+                LOGGER.error(LOG_TAG, "Run api diff tool IO flow shutdown exception. " + e.getMessage());
+            }
         }
     }
 
     private void runApiCollectTool() {
+        BufferedReader bufferedReader = null;
         try {
             LOGGER.info(LOG_TAG, "Start run api collect tool");
             File updateCheck = new File(this.project.getBasePath(), "updateCheck");
@@ -262,7 +272,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             LOGGER.info(LOG_TAG, "application order:" + orders);
             builder.command("cmd.exe", "/c", orders);
             Process start = builder.start();
-            BufferedReader bufferedReader = new BufferedReader(
+            bufferedReader = new BufferedReader(
                     new InputStreamReader(start.getInputStream(), Charset.forName("GBK")));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -271,6 +281,14 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             LOGGER.info(LOG_TAG, "Run api collect tool end");
         } catch (IOException e) {
             LOGGER.error(LOG_TAG, "Run api collect tool error! " + e.getMessage());
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+                LOGGER.error(LOG_TAG, "Run api collect tool IO flow shutdown exception. " + e.getMessage());
+            }
         }
     }
 
