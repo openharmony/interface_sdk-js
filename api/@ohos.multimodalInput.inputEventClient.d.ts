@@ -183,16 +183,16 @@ declare namespace inputEventClient {
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
   /**
-   * 注入事件授权
+   * Authorize event injection permission.
    *
-   * @param { boolean } result - 授权结果
+   * @param { boolean } result - Authorization result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12
    */
-    function acceptInjection(result: boolean): void;
+    function allowInjection(result: boolean): void;
 }
 
 export default inputEventClient;
