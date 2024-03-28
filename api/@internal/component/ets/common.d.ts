@@ -1583,8 +1583,8 @@ declare function $rawfile(value: string): Resource;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @form
  * @since 12
+ * @form
  */
 declare enum FinishCallbackType {
   /**
@@ -1601,8 +1601,8 @@ declare enum FinishCallbackType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @form
    * @since 12
+   * @form
    */
   REMOVED = 0,
   /**
@@ -1619,8 +1619,8 @@ declare enum FinishCallbackType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @form
    * @since 12
+   * @form
   */
   LOGICALLY = 1,
 }
@@ -12535,7 +12535,8 @@ declare interface AttributeModifier<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   *//**
+   */
+  /**
    * Defines the focused update attribute function.
    * 
    * @param { T } instance
@@ -15120,8 +15121,8 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @form
    * @since 12
+   * @form
    */
   useShadowBatching(value: boolean): T;
 
@@ -16447,7 +16448,6 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 12
    */
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;
