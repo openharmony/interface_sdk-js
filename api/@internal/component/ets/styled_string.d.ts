@@ -244,13 +244,189 @@ declare interface TextStyleInterface {
 }
 
 /**
+ * Defines ParagraphStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ParagraphStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { ParagraphStyleInterface } [value] - paragraph property object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value?: ParagraphStyleInterface);
+
+    /**
+     * Get the text alignment of the StyledString.
+     *
+     * @type { ?TextAlign } - the set text alignment of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly textAlign?: TextAlign;
+
+    /**
+     * Get the first line indentation of the StyledString.
+     *
+     * @type { ?Length } - the set first line indentation of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly textIndent?: Length;
+
+    /**
+     * Get the line height of the StyledString.
+     *
+     * @type { ?Dimension } - the set line height of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly lineHeight?: Dimension;
+
+    /**
+     * Get the maximum number of lines of the StyledString.
+     *
+     * @type { ?number } - the set maximum number of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly maxLines?: number;
+
+    /**
+     * Get the overflow mode of the StyledString.
+     *
+     * @type { ?TextOverflow } - the set overflow mode of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly overflow?: TextOverflow;
+
+    /**
+     * Get the wordBreak mode of the StyledString.
+     *
+     * @type { ?WordBreak } - the set wordBreak mode of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly wordBreak?: WordBreak;
+
+    /**
+     * Get the leading margin of the StyledString.
+     *
+     * @type { ?(Dimension | LeadingMarginPlaceholder) } - the set leading margin of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly leadingMargin?: Dimension | LeadingMarginPlaceholder;
+}
+
+/**
+ * ParagraphStyleInterface
+ *
+ * @interface ParagraphStyleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ParagraphStyleInterface {
+    /**
+     * Alignment of text.
+     *
+     * @type { ?TextAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    textAlign?: TextAlign;
+
+    /**
+     * Set the first line indentation.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    textIndent?: Length;
+
+    /**
+     * Set the line height.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    lineHeight?: Dimension;
+
+    /**
+     * The maximum number of lines of content.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    maxLines?: number;
+
+    /**
+     * The overflow mode of the content.
+     *
+     * @type { ?TextOverflow }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    overflow?: TextOverflow;
+
+    /**
+     * Set word break type.
+     *
+     * @type { ?WordBreak }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    wordBreak?: WordBreak;
+
+    /**
+     * Leading margin.
+     *
+     * @type { ?(Dimension | LeadingMarginPlaceholder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    leadingMargin?: Dimension | LeadingMarginPlaceholder;
+}
+/**
  * Defines the Span Type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle ;
+declare type StyledStringValue = TextStyle | ParagraphStyle;
 
 /**
  * MutableStyledString
@@ -408,5 +584,14 @@ declare enum StyledStringKey {
      * @since 12
      */
     FONT = 0,
+
+    /**
+     * The key of ParagraphStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    PARAGRAPH_STYLE = 100,
 
 }
