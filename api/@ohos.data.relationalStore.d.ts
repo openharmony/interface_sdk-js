@@ -202,12 +202,12 @@ declare namespace relationalStore {
   /**
    * Indicates possible value types
    *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array }
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array;
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
   /**
    * Values in buckets are stored in key-value pairs
