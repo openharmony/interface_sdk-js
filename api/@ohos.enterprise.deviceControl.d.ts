@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace deviceControl
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 10
  */
 declare namespace deviceControl {
@@ -121,6 +120,24 @@ declare namespace deviceControl {
    * @since 11
    */
   function lockScreen(admin: Want): void;
+
+  /**
+   * Allows the administrator to operate device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } operate - the operation to perform.
+   * @param { string } [addition] - addition indicates the specify additional parameters when performing the operation.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function operateDevice(admin: Want, operate: string, addition?: string): void;
 }
 
 export default deviceControl;
