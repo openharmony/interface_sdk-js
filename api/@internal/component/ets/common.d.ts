@@ -14018,8 +14018,8 @@ declare class CommonMethod<T> {
    * @form
    */
   /**
-   * Opacity
-   * width:Outline width;color:Outline color;radius:Outline radius;
+   * Outline
+   * width:Outline width;color:Outline color;radius:Outline radius;style:Outline style;
    *
    * @param { OutlineOptions } value
    * @returns { T }
@@ -16500,6 +16500,7 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;

@@ -2883,6 +2883,7 @@ declare class RichEditorController {
    * @param { SelectionOptions } [options] - Indicates the options of selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
