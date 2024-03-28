@@ -392,7 +392,7 @@ declare namespace backup {
      * Callback called when the backup service return result information.
      * The first return string parameter indicates the result of the bundle.
      *
-     * @returns { Promise<string> } Return restore result.
+     * @returns { string } Return restore result.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - The input parameter is invalid.
      * @throws { BusinessError } 13600001 - IPC error
@@ -404,7 +404,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport(): Promise<string>;
+    onResultReport(): AsyncCallback<string>;
   }
 
   /**
