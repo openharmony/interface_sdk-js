@@ -513,10 +513,14 @@ declare namespace backup {
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 10
-     * /
+     */
     /**
      * Append new bundles and restoreInfos to be restore up during the restore.
      *
