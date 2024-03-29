@@ -121,6 +121,7 @@ cft
 channeldown
 channelup
 checkboxgroup
+checksum
 chload
 chromaticities
 chrominance
