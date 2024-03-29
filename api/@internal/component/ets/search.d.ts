@@ -1260,7 +1260,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of Search
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of Search
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
