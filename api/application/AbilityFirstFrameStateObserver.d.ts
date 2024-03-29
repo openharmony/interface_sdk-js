@@ -16,18 +16,26 @@
 import AbilityFirstFrameStateData from './AbilityFirstFrameStateData';
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The ability first frame state observer.
  * 
+ * @interface AbilityFirstFrameStateObserver
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
  * @since 12
  */
-export default class AbilityFirstFrameStateObserver {
+export interface AbilityFirstFrameStateObserver {
 
     /**
      * Will be called when an ability first frame drawing completed.
      * 
-     * @param { AbilityFirstFrameStateData } data The ability first frame state data.
+     * @param { AbilityFirstFrameStateData } data - The ability first frame state data.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
      * @since 12
      */
     onAbilityFirstFrameDrawingCompleted(data: AbilityFirstFrameStateData): void;

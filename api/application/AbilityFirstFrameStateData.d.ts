@@ -14,17 +14,25 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The ability first frame state data.
  *
+ * @typedef AbilityFirstFrameStateData
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
  * @since 12
  */
-export default class AbilityFirstFrameStateData {
+export interface AbilityFirstFrameStateData {
   /**
    * The bundle name.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   bundleName: string;
@@ -34,6 +42,7 @@ export default class AbilityFirstFrameStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   moduleName: string;
@@ -43,6 +52,7 @@ export default class AbilityFirstFrameStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   abilityName: string;
@@ -51,16 +61,20 @@ export default class AbilityFirstFrameStateData {
    * The index of DLP sandbox.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   appIndex: number;
-  
+
   /**
    * Is the ability cold start.
    *
    * @type { boolean }
+   * @default false
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   isColdStart: boolean;

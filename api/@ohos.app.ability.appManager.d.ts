@@ -243,19 +243,21 @@ declare namespace appManager {
   function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
 
   /**
-   * Register an observer to observe the ability first frame state.
-   * If the caller want to observe other application, you need to apply for permission:ohos.permission.FIRST_FRAME_OBSERVER.
+   * Register ability first frame state observe.
    *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'abilityFirstFrameState' } type - The ability first frame drawing state.
    * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
-   * @param { string } bundleName - The target bundle name.
+   * @param { string } [bundleName] - The target bundle name.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
-  function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName: string): void;
+  function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
   
   /**
    * Unregister application state observer.
@@ -308,14 +310,17 @@ declare namespace appManager {
   function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
 
   /**
-   * Unregister the ability first frame state observer.
+   * Unregister ability first frame state observer.
    *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'abilityFirstFrameState' } type - The ability first frame drawing state.
-   * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
+   * @param { AbilityFirstFrameStateObserver } [observer] - The ability first frame state observer.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
@@ -829,6 +834,7 @@ declare namespace appManager {
    * The ability first frame state observer.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver.default;
@@ -837,6 +843,7 @@ declare namespace appManager {
    * The class of an ability first frame state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @since 12
    */
   export type AbilityFirstFrameStateData = _AbilityStateData.default;
