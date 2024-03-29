@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,12 +13,31 @@
  * limitations under the License.
  */
 
-import path from 'path';
+/**
+ * @file
+ * @kit ArkTS
+ */
 
-//开发及本地运行环境变量
-export default {
-  NODE_ENV: 'development',
-  EVN_CONFIG: 'dev',
-  DIR_NAME: path.resolve(__dirname, '../..'), //项目根目录地址
-  NEED_DETECTION: '',
-};
+/**
+ * ArkTS lang.
+ *
+ * @namespace lang
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare namespace lang {
+  /**
+   * Base interface for all Sendable classes/interfaces
+   * 
+   * @interface ISendable
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface ISendable {}
+}
+
+export default lang;

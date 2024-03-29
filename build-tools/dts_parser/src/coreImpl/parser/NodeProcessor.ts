@@ -614,8 +614,10 @@ export class NodeProcessorHelper {
       const returnValues: string[] = NodeProcessorHelper.processDataType(methodNode.type);
       methodInfo.setReturnValue(returnValues);
       methodInfo.setReturnValueType(methodNode.type.kind);
-      NodeProcessorHelper.processFunctionTypeReference(methodNode.type, methodInfo, new ParamInfo(ApiType
-        .PARAM), false)
+      if (Boolean(process.env.NEED_DETECTION)) {
+        NodeProcessorHelper.processFunctionTypeReference(methodNode.type, methodInfo, new ParamInfo(ApiType
+          .PARAM), false)
+      }
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
       const param: ts.ParameterDeclaration = methodNode.parameters[i];
@@ -676,11 +678,6 @@ export class NodeProcessorHelper {
     if (!ts.isTypeReferenceNode(typeNode)) {
       return;
     }
-    const myfile: string = typeNode.getSourceFile().fileName;
-    const paramStr: string = typeNode.getFullText();
-    const paramTypeStr: string = typeNode.getText();
-    let currentFile: string = "";
-    let hasTypeInfo: string = "无type节点";
     try {
       const tsProgram: ts.Program = parserParam.getTsProgram();
       const typeChecker: ts.TypeChecker = tsProgram.getTypeChecker();
@@ -689,10 +686,7 @@ export class NodeProcessorHelper {
       if (!declarations) {
         return;
       }
-      hasTypeInfo = "有type节点";
       const declaration: ts.Declaration = declarations[0]
-      const curr = declaration.getSourceFile()
-      currentFile = curr.fileName;
       const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(declaration, ApiType.TYPE_ALIAS, methodInfo.getKitInfoFromParent(methodInfo));
       if (jsDocInfos.length === 0) {
         return;
@@ -705,8 +699,6 @@ export class NodeProcessorHelper {
         methodInfo.addTypeLocations(jsDoc)
       }
     } catch (error) {
-      console.log("error");
-
     } finally {
     }
   }

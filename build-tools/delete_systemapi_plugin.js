@@ -41,10 +41,13 @@ function collectDeclaration(url) {
   // 入口
   try {
     const utPath = path.resolve(__dirname, url);
+    const arktsPath = path.resolve(url, '../arkts');
+    const kitPath = path.resolve(url, '../kits');
     const utFiles = [];
     readFile(utPath, utFiles); // 读取文件
+    readFile(arktsPath, utFiles); // 读取文件
     tsTransform(utFiles, deleteSystemApi);
-    tsTransformKitFile(utPath);
+    tsTransformKitFile(kitPath);
   } catch (error) {
     console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
   }
@@ -52,23 +55,18 @@ function collectDeclaration(url) {
 
 /**
  * 解析url目录下方的kit文件，删除对应systemapi
- * @param { string } url api文件路径
+ * @param { string } kitPath kit文件路径
  */
-function tsTransformKitFile(url) {
+function tsTransformKitFile(kitPath) {
   kitFileNeedDeleteMap.delete('');
   if (kitFileNeedDeleteMap.length === 0) {
     return;
   }
-  const kitPath = path.resolve(url, '../kits');
   const kitFiles = [];
   readFile(kitPath, kitFiles); // 读取文件
   kitFiles.forEach((kitFile) => {
     const kitName = processFileNameWithoutExt(kitFile).replace('@kit.', '');
     const content = fs.readFileSync(kitFile, 'utf-8');
-    if (!kitFileNeedDeleteMap.has(kitName)) {
-      writeFile(kitFile, content);
-      return;
-    }
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
     const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
@@ -134,8 +132,9 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
     return statement;
   }
   const importPath = statement.moduleSpecifier.text.replace('../', '');
-  if (!needDeleteMap.has(importPath)) {
-    return statement;
+  if (needDeleteMap === undefined || !needDeleteMap.has(importPath)) {
+    const hasFilePath = hasFileByImportPath(importPath);
+    return hasFilePath ? statement : undefined;
   }
   const currImportInfo = needDeleteMap.get(importPath);
   let defaultName = '';
@@ -179,9 +178,26 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
 }
 
 /**
+ * 判断文件路径对应的文件是否存在
+ * @param {string} importPath kit文件import
+ * @returns {boolean} importPath是否存在
+ */
+function hasFileByImportPath(importPath) {
+  let fileDir = path.resolve(apiSourcePath);
+  if (importPath.startsWith("@arkts")) {
+    fileDir = path.resolve(apiSourcePath, '../arkts');
+  }
+  const flag = ['.d.ts', '.d.ets'].some(ext => {
+    const filePath = path.resolve(fileDir, `${importPath}${ext}`);
+    return fs.existsSync(filePath);
+  });
+  return flag;
+}
+
+/**
  * 统一处理文件名称，修改后缀等
  * @param {string} filePath 文件路径
- * @param {path} filename 文件名称
+ * @returns {string} filename 文件名称
  */
 function processFileName(filePath) {
   return path
@@ -195,7 +211,8 @@ function processFileNameWithoutExt(filePath) {
     .basename(filePath)
     .replace(/\.d\.ts$/g, '')
     .replace(/\.d\.ets$/g, '')
-    .replace(/\.ts$/g, '');
+    .replace(/\.ts$/g, '')
+    .replace(/\.ets$/g, '');
 }
 
 /**
@@ -206,7 +223,7 @@ function processFileNameWithoutExt(filePath) {
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
-    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || apiBaseName === 'common.d.ts') {
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);

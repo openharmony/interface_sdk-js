@@ -435,6 +435,17 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
      * @since 11
      */
     lifetime?: number;
+
+    /**
+     * Particle lifetimeRange,value range [0, ∞).
+     * when lifetimeRange>lifetime,minimum lifetime is 0.
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    lifetimeRange?: number;
   };
 
   /**
@@ -860,6 +871,7 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Curve of the particle animation.
    * @type { ?(Curve | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -867,6 +879,7 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Curve of the particle animation.
    * @type { ?(Curve | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
