@@ -623,7 +623,7 @@ export interface PreinstalledApplicationInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the name of entry module
+   * Indicates the name of module
    *
    * @type { string }
    * @readonly
@@ -631,7 +631,7 @@ export interface PreinstalledApplicationInfo {
    * @systemapi
    * @since 12
    */
-  readonly entryModuleName: string;
+  readonly moduleName: string;
 
   /**
    * Indicates the icon id of the application
