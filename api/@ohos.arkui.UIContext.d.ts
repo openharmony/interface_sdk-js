@@ -2065,6 +2065,18 @@ export class UIContext {
    * @since 12
    */
   getHostContext(): Context | undefined;
+
+  /**
+   * Dynamic dimming.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @param { number } value - Compared to the original level of dimming.value range [0,1],
+   * set values less than 0 to 0 and values greater than 1 to 1.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  setDynamicDimming(id: string, value: number): void;
 }
 
 /**
