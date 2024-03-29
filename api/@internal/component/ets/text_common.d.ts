@@ -25,12 +25,27 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
+/**
+ * Defines the text data detector type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 declare enum TextDataDetectorType {
   /**
    * Detector type phone number.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */  
+  /**
+   * Detector type phone number.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */   
   PHONE_NUMBER = 0,
 
@@ -40,6 +55,13 @@ declare enum TextDataDetectorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */ 
+  /**
+   * Detector type URL.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   URL = 1,
 
   /**
@@ -48,6 +70,13 @@ declare enum TextDataDetectorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */ 
+  /**
+   * Detector type email.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */ 
   EMAIL = 2,
 
   /**
@@ -55,6 +84,13 @@ declare enum TextDataDetectorType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Detector type address.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   ADDRESS = 3,
 }
@@ -66,6 +102,14 @@ declare enum TextDataDetectorType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
+/**
+ * Text data detector config.
+ *
+ * @interface TextDataDetectorConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 declare interface TextDataDetectorConfig {
   /**
    * Text data detector types.
@@ -73,6 +117,14 @@ declare interface TextDataDetectorConfig {
    * @type { TextDataDetectorType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Text data detector types.
+   *
+   * @type { TextDataDetectorType[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   types: TextDataDetectorType[]
 
@@ -82,6 +134,14 @@ declare interface TextDataDetectorConfig {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Text data detect result callback.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   onDetectResultUpdate?: (result: string) => void
 }

@@ -412,6 +412,7 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   }
 }
 function detectionApi(options: OptionObjType): ToolNameValueType {
+  process.env.NEED_DETECTION = "true";
   options.format = formatType.NULL
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';

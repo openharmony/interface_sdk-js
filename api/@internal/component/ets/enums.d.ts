@@ -27,6 +27,16 @@
  * @since 11
  * @form
  */
+/**
+ * common enum of the checkbox shape
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare enum CheckBoxShape {
   /**
    * Circle.
@@ -34,6 +44,15 @@ declare enum CheckBoxShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Circle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   CIRCLE = 0,
@@ -44,6 +63,15 @@ declare enum CheckBoxShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Rounded Square.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   ROUNDED_SQUARE = 1,
@@ -505,6 +533,14 @@ declare enum ColoringStrategy {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Use the average color strategy. Get the average color of the background. Only applies to shadow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   AVERAGE = 'average',
 
   /**
@@ -513,6 +549,14 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Use the primary color strategy. Get the color that dominate the background color. Only applies to shadow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   PRIMARY = 'primary',
 }
@@ -7343,6 +7387,15 @@ declare enum Placement {
  * @crossplatform
  * @since 11
  */
+/**
+ * ArrowPointPosition enumeration description
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum ArrowPointPosition {
   /**
    * Target start position
@@ -7350,6 +7403,14 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Target start position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   START = 'Start',
 
@@ -7360,6 +7421,14 @@ declare enum ArrowPointPosition {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Target center position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   CENTER = 'Center',
 
   /**
@@ -7368,6 +7437,14 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Target end position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   END = 'End',
 }
@@ -7484,6 +7561,15 @@ declare enum CopyOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Share in cross Device
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   CROSS_DEVICE = 3,
@@ -8820,6 +8906,15 @@ declare enum WordBreak {
  * @crossplatform
  * @since 11
  */
+/**
+ * Enum of ellipsisMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum EllipsisMode {
   /**
    * The ellipsis is in the head.
@@ -8827,6 +8922,14 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The ellipsis is in the head.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   START = 0,
 
@@ -8837,6 +8940,14 @@ declare enum EllipsisMode {
    * @crossplatform
    * @since 11
    */
+  /**
+   * The ellipsis is in the middle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   CENTER = 1,
 
   /**
@@ -8845,6 +8956,14 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The ellipsis is at the end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   END = 2,
 }
@@ -8855,6 +8974,14 @@ declare enum EllipsisMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * A type which can be undefined
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare type Nullable<T> = T | undefined;
 
@@ -8873,6 +9000,15 @@ declare module 'CommonEnums' {
  * @crossplatform
  * @since 11
  */
+/**
+ * Decide whether the width of select menu fit the trigger or content 
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum OptionWidthMode {
   /**
    * The menu width fit the content.
@@ -8880,6 +9016,14 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The menu width fit the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   FIT_CONTENT = 'fit_content',
 
@@ -8889,6 +9033,14 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The menu width fit the trigger.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   FIT_TRIGGER = 'fit_trigger',
 }
@@ -8960,6 +9112,15 @@ declare enum IlluminatedType {
  * @crossplatform
  * @since 11
  */
+/**
+ * Enumerates the fold status.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum FoldStatus {
   /**
    * Fold Status Unknown.
@@ -8967,6 +9128,14 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Fold Status Unknown.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   FOLD_STATUS_UNKNOWN = 0,
   /**
@@ -8976,6 +9145,14 @@ declare enum FoldStatus {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Fold Status Expanded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   FOLD_STATUS_EXPANDED = 1,
   /**
    * Fold Status Folded.
@@ -8984,6 +9161,14 @@ declare enum FoldStatus {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Fold Status Folded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   FOLD_STATUS_FOLDED = 2,
   /**
    * Fold Status Half Folded.
@@ -8991,6 +9176,14 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Fold Status Half Folded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   FOLD_STATUS_HALF_FOLDED = 3,
 }

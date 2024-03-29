@@ -200,6 +200,15 @@ declare enum CancelButtonStyle {
  * @crossplatform
  * @since 11
  */
+/**
+ * Declare the type of search input box
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum SearchType {
   /**
    * Basic input mode.
@@ -207,6 +216,14 @@ declare enum SearchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Basic input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NORMAL = 0,
 
@@ -217,6 +234,14 @@ declare enum SearchType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Pure digital input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   NUMBER = 2,
 
   /**
@@ -226,6 +251,14 @@ declare enum SearchType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Phone number entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   PHONE_NUMBER = 3,
 
   /**
@@ -234,6 +267,14 @@ declare enum SearchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * E-mail address input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   EMAIL = 5,
 }
@@ -679,6 +720,73 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): SearchAttribute;
 
   /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { TextOverflow } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textOverflow(value: TextOverflow): SearchAttribute;
+
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { Dimension } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  baselineOffset(value: Dimension): SearchAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @param { Dimension } value - The length of text indent.
+   * @returns { SearchAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textIndent(value: Dimension): SearchAttribute;
+
+  /**
+   * Called when the inputFilter of text is set.
+   *
+   * @param { ResourceStr } value
+   * @param { Callback<string> } error
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  inputFilter(value: ResourceStr, error?: Callback<string>): SearchAttribute;
+
+  /**
+   * Called when judging whether the text editing change finished.
+   *
+   * @param { Callback<boolean> } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onEditChange(callback: Callback<boolean>): SearchAttribute;
+
+  /**
+   * Define the text selected background color of the text input.
+   *
+   * @param { ResourceColor } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): SearchAttribute;
+
+  /**
    * Set the cursor style
    *
    * @param { CaretStyle } value - indicates the style of the cursor.
@@ -1025,6 +1133,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * crossplatform
    * @since 11
    */
+  /**
+   * Called when the input of maximum text length is set.
+   *
+   * @param { number } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * crossplatform
+   * @atomicservice
+   * @since 12
+   */
   maxLength(value: number): SearchAttribute;
 
   /**
@@ -1191,6 +1309,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the search type is set.
+   *
+   * @param { SearchType } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   type(value: SearchType): SearchAttribute;
 

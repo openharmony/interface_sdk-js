@@ -25,7 +25,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace securityManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @stagemodelonly
  * @since 11
  */
@@ -88,6 +87,24 @@ declare namespace securityManager {
    * @since 11
    */
   function getDeviceEncryptionStatus(admin: Want): DeviceEncryptionStatus;
+
+  /**
+   * Gets device security policy of the specific type.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } item - item indicates the specific type of security policy.
+   * @returns { string } security policy of the specific type.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getSecurityStatus(admin: Want, item: string): string;
 }
 
 export default securityManager;

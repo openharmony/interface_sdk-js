@@ -2424,6 +2424,35 @@ declare namespace webview {
   }
 
   /**
+   * Defines the render process mode.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum RenderProcessMode {
+    /**
+     * Indicates the ArkWeb operates in single render process mode, which is the default value for
+     * mobile devices.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    SINGLE = 0,
+
+    /**
+     * Indicates the ArkWeb operates in multiple render process mode.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MULTIPLE,
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4419,6 +4448,27 @@ declare namespace webview {
     * @since 12
     */
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
+
+    /**
+     * Set render process mode of the ArkWeb.
+     *
+     * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setRenderProcessMode(mode: RenderProcessMode): void;
+
+    /**
+     * Get render process mode of the ArkWeb.
+     *
+     * @returns { RenderProcessMode } mode - The render process mode of the ArkWeb.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static getRenderProcessMode(): RenderProcessMode;
   }
 
   /**

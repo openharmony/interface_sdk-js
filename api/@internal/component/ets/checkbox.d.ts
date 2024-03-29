@@ -341,6 +341,17 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @since 11
    * @form
    */
+   /**
+   * setting the shape of checkbox.
+   *
+   * @param { CheckBoxShape } value - The configuration of checkbox shape.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   shape(value: CheckBoxShape): CheckboxAttribute;
 
   /**
