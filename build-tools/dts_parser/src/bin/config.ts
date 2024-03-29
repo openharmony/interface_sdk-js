@@ -15,7 +15,7 @@
 import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
-import { execSync } from "child_process";
+import { execSync } from 'child_process';
 import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
@@ -263,26 +263,10 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
   const subsystemMap: Map<string, string> = FunctionUtils.readSubsystemFile().subsystemMap;
   sheet.name = 'JsApi';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = [
-    '模块名',
-    '类名',
-    '方法名',
-    '函数',
-    '类型',
-    '起始版本',
-    '废弃版本',
-    'syscap',
-    '错误码',
-    '是否为系统API',
-    '模型限制',
-    '权限',
-    '是否支持跨平台',
-    '是否支持卡片应用',
-    '是否为高阶API',
-    '装饰器',
-    'kit',
-    '文件路径',
-    '子系统',
+  sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '类型',
+    '起始版本', '废弃版本', 'syscap', '错误码', '是否为系统API',
+    '模型限制', '权限', '是否支持跨平台', '是否支持卡片应用', '是否为高阶API',
+    '装饰器', 'kit', '文件路径', '子系统',
   ];
   let lineNumber = 2;
   apiData.forEach((apiInfo: ApiStatisticsInfo) => {
@@ -290,7 +274,6 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
     if (apiRelationsSet.has(apiRelations)) {
       return;
     }
-
     sheet.getRow(lineNumber).values = [
       apiInfo.getPackageName(),
       apiInfo.getParentModuleName(),
@@ -328,7 +311,7 @@ function checkApi(options: OptionObjType): ToolNameValueType {
     let fileContent: ApiResultMessage[] = [];
     if (process.env.NODE_ENV === 'development') {
 
-      fileContent = LocalEntry.checkEntryLocal([], [], "", 'false');
+      fileContent = LocalEntry.checkEntryLocal([], [], '', 'false');
     } else if (process.env.NODE_ENV === 'production') {
     }
     let finalData: (string | ApiResultMessage)[] = [];
@@ -355,7 +338,7 @@ function checkApi(options: OptionObjType): ToolNameValueType {
  * @return { ToolNameValueType }
  */
 function checkOnline(options: OptionObjType): ToolNameValueType {
-  options.format = formatType.NULL
+  options.format = formatType.NULL;
   try {
     LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
     return {
@@ -365,10 +348,10 @@ function checkOnline(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e('error check', error.stack ? error.stack : error.message);
   } finally {
-    return {
-      data: [],
-    };
   }
+  return {
+    data: [],
+  };
 }
 
 /**
@@ -412,8 +395,8 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   }
 }
 function detectionApi(options: OptionObjType): ToolNameValueType {
-  process.env.NEED_DETECTION = "true";
-  options.format = formatType.NULL
+  process.env.NEED_DETECTION = 'true';
+  options.format = formatType.NULL;
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
   if (options.collectFile !== '') {
@@ -447,11 +430,10 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
   } finally {
-    return {
-      data: []
-    }
-
   }
+  return {
+    data: [],
+  };
 
 }
 

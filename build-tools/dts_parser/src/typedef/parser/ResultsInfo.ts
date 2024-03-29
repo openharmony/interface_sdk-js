@@ -48,7 +48,6 @@ export class ApiInfo extends BasicApiInfo {
     this.isCrossPlatForm = jsDocInfo.getIsCrossPlatForm();
     this.isSystemApi = jsDocInfo.getIsSystemApi();
     this.isStageModelOnly = jsDocInfo.getModelLimitation().toLowerCase() === StringConstant.STAGE_MODEL_ONLY;
-    // jsDocInfo.getIsStageModelOnly();
     this.isFaModelOnly = jsDocInfo.getModelLimitation().toLowerCase() === StringConstant.FA_MODEL_ONLY;
     this.deprecatedVersion = jsDocInfo.getDeprecatedVersion();
     this.useinstead = jsDocInfo.getUseinstead();

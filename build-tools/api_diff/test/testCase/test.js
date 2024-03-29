@@ -45,7 +45,6 @@ describe('diffSingleFile', function () {
       const expectContent = fs.readFileSync(expectFilePath, 'utf-8').replace(/\n|\r|\s/g, '');
       expect(resultFileContent).to.be.equal(expectContent);
 
-    })
-  })
-
-})
+    });
+  });
+});

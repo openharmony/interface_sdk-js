@@ -197,8 +197,8 @@ export class ApiResultSimpleInfo {
   filePath: string = '';
   location: string = '';
   message: string = '';
-  type:string='';
-  apiText:string='';
+  type: string = '';
+  apiText: string = '';
 
   setID(id: number): ApiResultSimpleInfo {
     this.id = id;

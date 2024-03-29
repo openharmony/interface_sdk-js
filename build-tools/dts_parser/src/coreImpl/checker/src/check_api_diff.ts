@@ -54,7 +54,6 @@ export class ApiChangeCheck {
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
       diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, true);
     }
-
     diffInfos.forEach((diffInfo: BasicDiffInfo) => {
       if (diffInfo.getIsCompatible() !== false) {
         return;
