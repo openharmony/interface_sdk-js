@@ -612,7 +612,7 @@ declare namespace zlib {
     adler32(adler: number, buf: ArrayBuffer): Promise<number>;
 
     /**
-     * Combine two Adler-32 checksums into one.
+     * Combine two Adler-32 checksum into one.
      *
      * @param { number } adler1 - The first Adler32 checksum.
      * @param { number } adler2 - The second Adler32 checksum.
