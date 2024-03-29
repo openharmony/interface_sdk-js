@@ -6073,6 +6073,27 @@ declare interface BackgroundEffectOptions {
 }
 
 /**
+ * Defines the options of BackgroundEffect
+ *
+ * @interface ForegroundEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ForegroundEffectOptions {
+ 
+  /**
+   * Define the radius size of ForegroundEffect.The range of this value is [0, ∞)
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+ radius: number;
+}
+
+/**
  * Provide an interface for the text style of picker
  *
  * @interface PickerTextStyle
@@ -13934,6 +13955,17 @@ declare class CommonMethod<T> {
    * @since 12
    */
   backgroundImageResizable(value: ResizableOptions): T;
+  
+  /**
+   * options:foreground effect options.
+   *
+   * @param { ForegroundEffectOptions } options - options indicates the effect options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  foregroundEffect(options: ForegroundEffectOptions): T;
 
   /**
    * Foreground blur style.
