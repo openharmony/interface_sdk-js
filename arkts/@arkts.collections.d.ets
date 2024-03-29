@@ -109,32 +109,21 @@ declare namespace collections {
   @Sendable
   class Array<T> {
     /**
-     * A constructor used to create an ArkTS Array.
-     *
-     * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
+     * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
+     * 
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    constructor();
-    /**
-     * A constructor used to create an ArkTS Array.
-     *
-     * @param { T } first - First element when initializing an ArkTS Array.
-     * @param { T[] } left - Left elements when initializing an ArkTS Array.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    constructor(first: T, ...left: T[]);
+    readonly length: number;
     /**
      * Creates an ArkTS Array with arrayLength elements initialized to initialValue.
      *
      * @param { number } arrayLength - The length of the array.
+     * @returns { Array<T> } A new Array instance
      * @param { T } initialValue - Element initial value that will be filled into the Array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -160,16 +149,28 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
     /**
-     * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
-     * 
-     * @type { number }
-     * @readonly
+     * A constructor used to create an ArkTS Array.
+     *
+     * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    constructor();
+    /**
+     * A constructor used to create an ArkTS Array.
+     *
+     * @param { T } first - First element when initializing an ArkTS Array.
+     * @param { T[] } left - Left elements when initializing an ArkTS Array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(first: T, ...left: T[]);
     /**
      * Removes the last element from an ArkTS array and returns it.
      * If the array is empty, undefined is returned and the array is not modified.
@@ -200,7 +201,8 @@ declare namespace collections {
     /**
      * Adds all the elements of an ArkTS Array into a string, separated by the specified separator string.
      * 
-     * @param { string } [separator] - A string used to separate one element of the array from the next in the resulting string. If omitted, the array elements are separated with a comma.
+     * @param { string } [separator] - A string used to separate one element of the array from
+     * the next in the resulting string. If omitted, the array elements are separated with a comma.
      * @returns { string } A string with all array elements joined. If Array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
@@ -245,7 +247,8 @@ declare namespace collections {
      *
      * @param { number } [start] - The beginning index of the specified portion of the array.
      * If start is undefined, then the slice begins at index 0.
-     * @param { number } [end] - The end index of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end index of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * If end is undefined, then the slice extends to the end of the array.
      * @returns { Array<T> } A new array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
@@ -277,7 +280,8 @@ declare namespace collections {
      * Returns the index of the first occurrence of a value in an ArkTS Array, or -1 if it is not present.
      * 
      * @param { T } searchElement - The value to locate in the array.
-     * @param { number } [fromIndex] - The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
+     * @param { number } [fromIndex] - The array index at which to begin the search.
+     * If fromIndex is omitted, the search starts at index 0.
      * @returns { number } The first index of searchElement in the array; -1 if not found.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
@@ -303,9 +307,11 @@ declare namespace collections {
      */
     forEach(callbackFn: (value: T, index: number, array: Array<T>) => void): void;
     /**
-     * Calls a defined callback function on each element of an ArkTS Array, and returns an array that contains the results.
+     * Calls a defined callback function on each element of an ArkTS Array,
+     * and returns an array that contains the results.
      * 
-     * @param { function } callbackFn - A function that accepts up to three arguments. The map method calls the callbackFn function one time for each element in the array.
+     * @param { function } callbackFn - A function that accepts up to three arguments.
+     * The map method calls the callbackFn function one time for each element in the array.
      * @returns { Array<U> } A new array with each element being the result of the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -319,8 +325,10 @@ declare namespace collections {
     /**
      * Returns the elements of an ArkTS Array that meet the condition specified in a callback function.
      * 
-     * @param { function } predicate - A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
-     * @returns { Array<T> } A shallow copy of the given containing just the elements that pass the test. If no elements pass the test, an empty array is returned.
+     * @param { function } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
+     * @returns { Array<T> } A shallow copy of the given containing just the elements that pass the test.
+     * If no elements pass the test, an empty array is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -331,10 +339,14 @@ declare namespace collections {
      */
     filter(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<T>;
     /**
-     * Calls the specified callback function for all the elements in an ArkTS Array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+     * Calls the specified callback function for all the elements in an ArkTS Array.
+     * The return value of the callback function is the accumulated result,
+     * and is provided as an argument in the next call to the callback function.
      * 
-     * @param { function } callbackFn - A function that accepts up to four arguments. The reduce method calls the callbackFn function one time for each element in the array.
-     * @returns { T } The value that results from running the "reducer" callback function to completion over the entire array.
+     * @param { function } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackFn function one time for each element in the array.
+     * @returns { T } The value that results from running the "reducer" callback function to
+     * completion over the entire array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -345,11 +357,17 @@ declare namespace collections {
      */
     reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T;
     /**
-     * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+     * Calls the specified callback function for all the elements in an array.
+     * The return value of the callback function is the accumulated result,
+     * and is provided as an argument in the next call to the callback function.
      * 
-     * @param { function } callbackFn - A function that accepts up to four arguments. The reduce method calls the callbackFn function one time for each element in the array.
-     * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackFn function provides this value as an argument instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire array.
+     * @param { function } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackFn function one time for each element in the array.
+     * @param { U } initialValue - If initialValue is specified,
+     * it is used as the initial value to start the accumulation.
+     * The first call to the callbackFn function provides this value as an argument instead of an array value.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -358,7 +376,10 @@ declare namespace collections {
      * @atomicservice
      * @since 12
     */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U, initialValue: U): U;
+    reduce<U>(
+      callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
+      initialValue: U
+    ): U;
     /**
      * Returns the item located at the specified index.
      *
@@ -416,7 +437,8 @@ declare namespace collections {
      * @param { function } predicate - Find calls predicate once for each element of the array, in ascending
      * order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { T | undefined } The first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { T | undefined } The first element in the array that satisfies the provided testing function.
+     * Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -431,7 +453,8 @@ declare namespace collections {
      *
      * @param { T } searchElement - The element to search for.
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
-     * @returns { boolean } A boolean value which is true if the value searchElement is found within the array (or the part of the array indicated by the index fromIndex, if specified).
+     * @returns { boolean } A boolean value which is true if the value searchElement is found within
+     * the array (or the part of the array indicated by the index fromIndex, if specified).
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The includes method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -538,9 +561,21 @@ declare namespace collections {
   @Sendable
   class Map<K, V> {
     /**
+     * Returns the number of elements in the Map.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly size: number;
+    /**
      * A constructor used to create a Map.
      *
-     * @param { readonly (readonly [K, V])[] | null } [entries] - An Array or other iterable object whose elements are key-value pairs.
+     * @param { readonly (readonly [K, V])[] | null } [entries] - An Array or other iterable object
+     * whose elements are key-value pairs.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -600,7 +635,8 @@ declare namespace collections {
      * Returns true if an element in the Map existed and has been removed, or false if the element does not exist.
      *
      * @param { K } key - The key of the element to remove from the Map object.
-     * @returns { boolean } True if an element in the Map Object existed and has been removed, or false if the element does not exist.
+     * @returns { boolean } True if an element in the Map Object existed and has been removed,
+     * or false if the element does not exist.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The delete method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -625,10 +661,14 @@ declare namespace collections {
      */
     forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void;
     /**
-     * Returns a specified element from the Map object. If the value that is associated to the provided key is an object, then you will get a reference to that object and any change made to that object will effectively modify it inside the Map.
+     * Returns a specified element from the Map object.
+     * If the value that is associated to the provided key is an object,
+     * then you will get a reference to that object and any change made to that object
+     * will effectively modify it inside the Map.
      *
      * @param { K } key - The key of the element to return from the Map object
-     * @returns { V | undefined } The element associated with the specified key, or undefined if the key can''t be found in the Map object.
+     * @returns { V | undefined } The element associated with the specified key,
+     * or undefined if the key can''t be found in the Map object.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The get method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -653,7 +693,8 @@ declare namespace collections {
      */
     has(key: K): boolean;
     /**
-     * Adds a new element with a specified key and value to the Map. If an element with the same key already exists, the element will be updated.
+     * Adds a new element with a specified key and value to the Map.
+     * If an element with the same key already exists, the element will be updated.
      *
      * @param { K } key - The key of the element to add to the Map object.
      * @param { V } value - The value of the element to add to the object.
@@ -667,17 +708,6 @@ declare namespace collections {
      * @since 12
      */
     set(key: K, value: V): Map<K, V>;
-    /**
-     * Returns the number of elements in the Map.
-     *
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    readonly size: number;
   }
   
   /**
@@ -694,9 +724,21 @@ declare namespace collections {
   @Sendable
   class Set<T> {
     /**
+     * Returns the number of elements in the Set.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly size: number;
+    /**
      * A constructor used to create a Set.
      *
-     * @param { readonly T[] | null } [values] - If an iterable object is passed, all of its elements will be added to the new Set.
+     * @param { readonly T[] | null } [values] - If an iterable object is passed,
+     * all of its elements will be added to the new Set.
      * If you don't specify this parameter, or its value is null, the new Set is empty.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Set's constructor cannot be directly invoked.
@@ -797,7 +839,8 @@ declare namespace collections {
      * A boolean indicating whether an element with the specified value exists in the Set or not.
      *
      * @param { T } value -  The value to test for presence in the Object.
-     * @returns { boolean } Returns true if an element with the specified value exists in the Set object; otherwise false.
+     * @returns { boolean } Returns true if an element with the specified value exists in the Set object;
+     * otherwise false.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The has method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -807,17 +850,6 @@ declare namespace collections {
      * @since 12
      */
     has(value: T): boolean;
-    /**
-     * Returns the number of elements in the Set.
-     *
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    readonly size: number;
   }
   /**
    * Represents a raw buffer of binary data, which is used to store data for the
