@@ -45,6 +45,8 @@ import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type dragController from './@ohos.arkui.dragController';
+import { LocalStorage } from 'StateManagement';
+import type common from './@ohos.app.ability.common';
 
 /**
  * class Font
@@ -1633,6 +1635,17 @@ export class FocusController {
 }
 
 /**
+ * The base context of an ability or an application. It allows access to
+ * application-specific resources.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 12
+ */
+export type Context = common.Context;
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2030,6 +2043,28 @@ export class UIContext {
    * @since 12
    */
   getFocusController(): FocusController;
+
+  /**
+   * Get current LocalStorage shared from stage.
+   *
+   * @returns { LocalStorage | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 12
+   */
+  getSharedLocalStorage(): LocalStorage | undefined;
+
+  /**
+   * Obtains context of the ability.
+   *
+   * @returns { Context | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 12
+   */
+  getHostContext(): Context | undefined;
 }
 
 /**
