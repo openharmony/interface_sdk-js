@@ -3015,7 +3015,7 @@ declare interface AlignRuleOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare enum ChainStyle {
   /**
@@ -3024,7 +3024,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   SPREAD,
 
@@ -3034,7 +3034,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   SPREAD_INSIDE,
 
@@ -3044,7 +3044,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   PACKED,
 }
@@ -16242,7 +16242,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   chainMode(direction: Axis, style: ChainStyle): T;
 
