@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file The subscriber of common event
+ * @kit BasicServicesKit
+ */
+
 import { AsyncCallback } from './../@ohos.base';
 import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
 

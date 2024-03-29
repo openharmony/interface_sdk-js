@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Provides AdsKit APIs
  * @kit AdsKit
  */
 

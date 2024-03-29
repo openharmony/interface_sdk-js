@@ -74,6 +74,11 @@ export class FileUtils {
     return stats.isDirectory();
   }
 
+  static isFile(path: string): boolean {
+    const stats: fs.Stats = fs.lstatSync(path);
+    return stats.isFile();
+  }
+
   static isExists(pathName: string | undefined): boolean {
     if (!pathName) {
       return false;

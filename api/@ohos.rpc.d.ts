@@ -20,6 +20,13 @@
 
 import type { AsyncCallback } from './@ohos.base';
 
+/**
+ * This module provides inter process communication capability.
+ *
+ * @namespace rpc
+ * @syscap SystemCapability.Communication.IPC.Core
+ * @since 7
+ */
 declare namespace rpc {
   /**
    * The error code of rpc.
@@ -1933,8 +1940,22 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - write data to message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.rpc.MessageSequence#writeRawDataBuffer
      */
     writeRawData(rawData: number[], size: number): void;
+
+    /**
+     * Writes raw data to this {@link MessageSequence} object.
+     *
+     * @param { ArrayBuffer } rawData - Raw data to wrote.
+     * @param { number } size - Size of the raw data, in bytes.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 11
+     */
+    writeRawDataBuffer(rawData: ArrayBuffer, size: number): void;
 
     /**
      * Reads raw data from this {@link MessageSequence} object.
@@ -1945,8 +1966,22 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - read data from message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.rpc.MessageSequence#readRawDataBuffer
      */
     readRawData(size: number): number[];
+
+    /**
+     * Reads raw data from this {@link MessageSequence} object.
+     *
+     * @param { number } size - Size of the raw data to read.
+     * @returns { ArrayBuffer } Return the raw data obtained, in bytes.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900010 - read data from message sequence failed
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 11
+     */
+    readRawDataBuffer(size: number): ArrayBuffer;
   }
 
   /**
@@ -3488,8 +3523,24 @@ declare namespace rpc {
      * @throws { BusinessError } 1900003 - write to ashmem failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.rpc.Ashmem#writeDataToAshmem
      */
     writeAshmem(buf: number[], size: number, offset: number): void;
+
+    /**
+     * Writes data to the shared file associated with this Ashmem object.
+     *
+     * @param { ArrayBuffer } buf - Data to write
+     * @param { number } size - Size of the data to write
+     * @param { number } offset - Start position of the data to write in the memory region associated
+     *                   with this Ashmem object.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900003 - write to ashmem failed
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 11
+     */
+    writeDataToAshmem(buf: ArrayBuffer, size: number, offset: number): void;
 
     /**
      * Reads data from the shared file associated with this Ashmem object.
@@ -3516,8 +3567,24 @@ declare namespace rpc {
      * @throws { BusinessError } 1900004 - read from ashmem failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
+     * @deprecated since 11
+     * @useinstead ohos.rpc.Ashmem#readDataFromAshmem
      */
     readAshmem(size: number, offset: number): number[];
+
+    /**
+     * Reads data from the shared file associated with this Ashmem object.
+     *
+     * @param { number } size - Size of the data to read.
+     * @param { number } offset - Start position of the data to read in the memory region associated
+     *                   with this Ashmem object.
+     * @returns { ArrayBuffer } Data read.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900004 - read from ashmem failed
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 11
+     */
+    readDataFromAshmem(size: number, offset: number): ArrayBuffer;
   }
 }
 

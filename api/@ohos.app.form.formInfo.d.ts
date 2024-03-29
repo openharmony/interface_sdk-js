@@ -943,6 +943,19 @@ declare namespace formInfo {
     PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize',
 
     /**
+     * Indicates the key specifying the form location, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_LOCATION_KEY: FormLocation.DESKTOP
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 12
+     */
+    FORM_LOCATION_KEY = 'ohos.extra.param.key.form_location',
+
+    /**
      * Indicates the key specifying the form rendering mode, which is represented as
      * want: {
      *   "parameters": {
@@ -953,7 +966,33 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 11
      */
-    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode'
+    /**
+     * Indicates the key specifying the form rendering mode, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_RENDERING_MODE_KEY: FormRenderingMode.SINGLE_COLOR
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode',
+
+    /**
+     * Indicates the key specifying the inverse of the host background color, which is represented as
+     * want: {
+     *   "parameters": {
+     *       HOST_BG_INVERSE_COLOR_KEY: "#FF000000"
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    HOST_BG_INVERSE_COLOR_KEY = 'ohos.extra.param.key.host_bg_inverse_color',
   }
 
   /**
@@ -975,6 +1014,17 @@ declare namespace formInfo {
    */
   interface FormInfoFilter {
     /**
+     * optional bundleName that used to ask getFormsInfo to return
+     * form infos with the same bundleName.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    bundleName?: string;
+
+    /**
      * optional moduleName that used to ask getFormsInfo to return
      * form infos with the same moduleName.
      *
@@ -992,6 +1042,38 @@ declare namespace formInfo {
      * @since 11
      */
     moduleName?: string;
+
+    /**
+     * optional supportedDimensions that used to ask getFormsInfo to return
+     * form infos with the same supportedDimensions.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    supportedDimensions?: Array<number>;
+  }
+
+  /**
+   * Configuration update flags.
+   *
+   * @typedef ConfigurationUpdateFlags
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 12
+   */
+  interface ConfigurationUpdateFlags {
+    /**
+     * Indicates whether font update enabled.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    fontEnabled?: boolean;
   }
 
   /**
@@ -1093,6 +1175,15 @@ declare namespace formInfo {
      * @since 11
      */
     DIMENSION_1_1,
+
+    /**
+     * 6 x 4 form
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    DIMENSION_6_4,
   }
   /**
    * The visibility of a form.
@@ -1322,6 +1413,17 @@ declare namespace formInfo {
     readonly hostBundleName: string;
 
     /**
+     * The location of this form.
+     *
+     * @type { FormLocation }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    readonly formLocation: FormLocation;
+
+    /**
      * Obtains the visibility of this form.
      *
      * @type { VisibilityType }
@@ -1425,6 +1527,97 @@ declare namespace formInfo {
      * @since 11
      */
     UNUSED = 1,
+  }
+
+  /**
+   * Defines the FormLocation enum.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
+  enum FormLocation {
+    /**
+     * Form is on the other location.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    OTHER = -1,
+  
+    /**
+     * Form is on the desktop
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    DESKTOP = 0,
+  
+    /**
+     * Form is on the form center.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_CENTER = 1,
+  
+    /**
+     * Form is on the form manager.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_MANAGER = 2,
+  
+    /**
+     * Form is on the negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    NEGATIVE_SCREEN = 3,
+  
+    /**
+     * Form is on the form center of negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_CENTER_NEGATIVE_SCREEN = 4,
+  
+    /**
+     * Form is on the form manager of negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    FORM_MANAGER_NEGATIVE_SCREEN = 5,
+  
+    /**
+     * Form is on the screen lock.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    SCREEN_LOCK = 6,
+  
+    /**
+     * Form is on the ai suggestion.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    AI_SUGGESTION = 7,
   }
 }
 export default formInfo;

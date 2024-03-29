@@ -2893,6 +2893,21 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
+      /**
+       * The path to save the downloaded file, the default is "./".
+       * Currently support:
+       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+       * 2: internal protocol path, "internal://cache/" is mandatory, like "internal://cache/path/to/file.txt".
+       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
+       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
+       *
+       * @type { ?string }
+       * @default ./
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
       saveas?: string;
       /**
        * The network.
@@ -2990,6 +3005,16 @@ declare namespace request {
        * @since 11
        */
       redirect?: boolean;
+      /**
+       * The proxy url for the task.
+       * Only this format is supported: http://<domain or IP-address>:<port>
+       * Username and password are not supported.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      proxy?: string;
       /**
        * The index of paths for a task.
        * Usually used for a continuous job.
@@ -4034,6 +4059,52 @@ declare namespace request {
     }
 
     /**
+     * The HTTP response.
+     *
+     * @interface HttpResponse
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 12
+     */
+    interface HttpResponse {
+      /**
+       * The version of the HTTP response.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly version: string,
+      /**
+       * The status code of the HTTP response.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly statusCode: number,
+      /**
+       * The reason of the HTTP response.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly reason: string,
+      /**
+       * The headers of the HTTP response.
+       *
+       * @type { Map<string, Array<string>> }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      readonly headers: Map<string, Array<string>>,
+    }
+
+    /**
      * The task entry.
      * New task' status is "initialized" and enqueue.
      * Can `start` a initialized task.
@@ -4290,6 +4361,24 @@ declare namespace request {
        * @since 11
        */
       off(event: 'remove', callback?: (progress: Progress) => void): void;
+      /**
+       * Enables the response callback.
+       *
+       * @param { 'response' } event - event types.
+       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      on(event: 'response', callback: Callback<HttpResponse>): void;
+      /**
+       * Disables the response callback.
+       *
+       * @param { 'response' } event - event types.
+       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
        * Starts the task.
        *

@@ -196,6 +196,31 @@ declare namespace formHost {
   function requestForm(formId: string): Promise<void>;
 
   /**
+   * Requests for form update.
+   * <p>This method must be called when the application has detected that a system setting item (such as the language,
+   * resolution, or screen orientation) being listened for has changed. Upon receiving the update request, the form
+   * provider automatically updates the form data (if there is any update) through the form framework, with the update
+   * process being unperceivable by the application.</p>
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the ID of the form to update.
+   * @param { Record<string, Object> } [wantParams] - Indicates want params of the form to update.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
+  function requestFormWithParams(formId: string, wantParams?: Record<string, Object>): Promise<void>;
+
+  /**
    * Converts a specified temporary form that has been obtained by the application into a normal form.
    *
    * @permission ohos.permission.REQUIRE_FORM
@@ -521,6 +546,25 @@ declare namespace formHost {
    * @since 9
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Obtains the FormInfo objects provided by all application with filter on the device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.FormInfoFilter } filter - Indicates the requirements the forms that the formInfos belong to have to meet.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
+  function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
   /**
    * Deletes invalid forms of the application in the Form Manager Service based on the list of.
@@ -996,6 +1040,25 @@ declare namespace formHost {
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
+   * Recycle permanent dynamic ArkTS forms.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be recycled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function recycleForms(formIds: Array<string>): Promise<void>;
+
+  /**
    * Recover recycled permanent dynamic ArkTS forms.
    *
    * @permission ohos.permission.REQUIRE_FORM
@@ -1032,5 +1095,26 @@ declare namespace formHost {
    * @since 11
    */
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Update location of the form.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form id.
+   * @param { formInfo.FormLocation } location - The location of the form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
 }
 export default formHost;

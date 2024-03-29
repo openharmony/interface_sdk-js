@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { Metadata } from './Metadata';
 import { Resource } from '../global/resource';
 import bundleManager from './../@ohos.bundle.bundleManager';
@@ -529,6 +534,16 @@ export interface ApplicationInfo {
    * @since 11
    */
   readonly dataUnclearable: boolean;
+
+  /**
+   * Indicates native library path.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly nativeLibraryPath: string;
 }
 
 /**

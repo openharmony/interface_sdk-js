@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the hyperlink interface.
  *
  * @interface HyperlinkInterface

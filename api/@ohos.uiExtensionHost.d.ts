@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -121,6 +121,37 @@ declare namespace uiExtensionHost {
      * @since 11
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
+
+    /**
+     * Create sub window.
+     *
+     * @param { string } name - window name of sub window
+     * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
+     * @returns { Promise<window.Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window proxy is abnormal.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
+     */
+     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+
+     /**
+     * Set the watermark flag on the UIExtension window
+     *
+     * @param { boolean } enable - Add water mark flag to the UIExtension window if true, or remove flag if false
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws { BusinessError } 1300002 - The UIExtension window proxy is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 12
+     */
+    setWaterMarkFlag(enable: boolean): Promise<void>;
   }
 
   /**

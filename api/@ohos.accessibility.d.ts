@@ -55,24 +55,53 @@ declare namespace accessibility {
 
   /**
    * The action that the ability can execute.
+   * value range: { 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
+   * 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
+   * 'scrollForward' | 'scrollBackward' | 'setSelection' }
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
+  /**
+   * The action that the ability can execute.
+   * value range: { 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
+   * 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
+   * 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
+   * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' }
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
   'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
-  'scrollForward' | 'scrollBackward' | 'setSelection';
+  'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
+  'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common';
 
   /**
    * The type of the accessibility event.
    * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
+   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
+   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' }
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
+  /**
+   * The type of the accessibility event.
+   * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
+   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
+   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+   * 'announceForAccessibility' }
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-  'textUpdate' | 'textSelectionUpdate' | 'scroll';
+  'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+  'announceForAccessibility';
 
   /**
    * The change type of the windowsChange event.
@@ -570,6 +599,14 @@ declare namespace accessibility {
      * @since 7
      */
     readonly eventTypes: Array<EventType>;
+
+    /**
+     * Indicates whether the extended service needs to be hidden.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly needHide: boolean;
   }
 
   /**
@@ -708,6 +745,22 @@ declare namespace accessibility {
      * @since 7
      */
     itemCount?: number;
+
+    /**
+     * The id of element.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    elementId?: number;
+
+    /**
+     * The content of announce accessibility text.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    textAnnouncedForAccessibility?: string;
   }
 }
 export default accessibility;

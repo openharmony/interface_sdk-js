@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Contains basic Ability information, which uniquely identifies an launcher StatusCallback.
  * You can use this class to obtain values of the fields set in an callback function,
  * such as the add, update, remove.

@@ -13,8 +13,14 @@
     "useinstead": "",
     "childApis": [],
     "parentClasses": [
-      "Parent1",
-      "Parent2"
+      {
+        "extendClass": "Parent1",
+        "implementClass": ""
+      },
+      {
+        "extendClass": "Parent2",
+        "implementClass": ""
+      }
     ]
   }
 ]

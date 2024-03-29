@@ -5,7 +5,7 @@
       "apiType": "Import",
       "definedText": "import { ValueType } from 'exceljs';",
       "pos": {
-        "line": 1,
+        "line": 16,
         "character": 1
       },
       "isExport": false,
@@ -16,6 +16,10 @@
       ],
       "isStruct": false,
       "syscap": "",
+      "currentVersion": "-1",
+      "jsDocText": "",
+      "isJoinType": false,
+      "genericInfo": [],
       "importValues": [
         {
           "key": "ValueType",
@@ -29,7 +33,7 @@
       "apiType": "Namespace",
       "definedText": " declare namespace test",
       "pos": {
-        "line": 3,
+        "line": 18,
         "character": 1
       },
       "isExport": false,
@@ -40,6 +44,10 @@
       ],
       "isStruct": false,
       "syscap": "",
+      "currentVersion": "-1",
+      "jsDocText": "\r\n\r\n",
+      "isJoinType": false,
+      "genericInfo": [],
       "jsDocInfos": [],
       "childApis": [
         {
@@ -47,7 +55,7 @@
           "apiType": "TypeAlias",
           "definedText": "type TextOneType = { [key: string]: ValueType | Uint8Array | null };",
           "pos": {
-            "line": 4,
+            "line": 19,
             "character": 3
           },
           "isExport": false,
@@ -59,6 +67,10 @@
           ],
           "isStruct": false,
           "syscap": "",
+          "currentVersion": "-1",
+          "jsDocText": "\r\n  ",
+          "isJoinType": false,
+          "genericInfo": [],
           "jsDocInfos": [],
           "type": [
             "{ [key: string]: ValueType | Uint8Array | null }"

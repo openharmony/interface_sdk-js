@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1325,6 +1330,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   enableAnalyzer(enable: boolean): ImageAttribute;
 
   /**
@@ -1346,6 +1360,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set image resizable options.
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   resizable(value: ResizableOptions): ImageAttribute;
 }
@@ -1546,6 +1570,15 @@ declare interface ImageError {
  * @crossplatform
  * @since 11
  */
+/**
+ * Image resizable options
+ * 
+ * @interface ResizableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface ResizableOptions {
   /**
    * Image slice widths.
@@ -1554,6 +1587,15 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Image slice widths.
+   *
+   * @type { ?EdgeWidths }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   slice?: EdgeWidths;
 }
