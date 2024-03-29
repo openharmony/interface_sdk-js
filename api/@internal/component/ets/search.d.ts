@@ -200,6 +200,15 @@ declare enum CancelButtonStyle {
  * @crossplatform
  * @since 11
  */
+/**
+ * Declare the type of search input box
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum SearchType {
   /**
    * Basic input mode.
@@ -207,6 +216,14 @@ declare enum SearchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Basic input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NORMAL = 0,
 
@@ -217,6 +234,14 @@ declare enum SearchType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Pure digital input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   NUMBER = 2,
 
   /**
@@ -226,6 +251,14 @@ declare enum SearchType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Phone number entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   PHONE_NUMBER = 3,
 
   /**
@@ -234,6 +267,14 @@ declare enum SearchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * E-mail address input mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   EMAIL = 5,
 }
@@ -1092,6 +1133,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * crossplatform
    * @since 11
    */
+  /**
+   * Called when the input of maximum text length is set.
+   *
+   * @param { number } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * crossplatform
+   * @atomicservice
+   * @since 12
+   */
   maxLength(value: number): SearchAttribute;
 
   /**
@@ -1258,6 +1309,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when the search type is set.
+   *
+   * @param { SearchType } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   type(value: SearchType): SearchAttribute;
 
