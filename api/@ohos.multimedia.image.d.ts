@@ -4214,6 +4214,21 @@ declare namespace image {
     getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
 
     /**
+     * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
+     *
+     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid image source mime type.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    getDisposalTypeList(): Promise<Array<number>>;
+
+    /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
@@ -4361,6 +4376,24 @@ declare namespace image {
     getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
 
     /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
+     * property values. If the operation fails, the null is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
+
+    /**
      * Modify the value of a property in an image with the specified key. This method uses a
      * promise to return the property value in a string.
      *
@@ -4431,6 +4464,24 @@ declare namespace image {
      * @useinstead image.ImageSource#modifyImageProperty
      */
     modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<PropertyKey, string|null> } records - Array of the property Records whose values are to
+     * be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.

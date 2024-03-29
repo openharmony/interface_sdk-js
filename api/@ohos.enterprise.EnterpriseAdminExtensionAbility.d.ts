@@ -24,7 +24,7 @@ import type systemManager from './@ohos.enterprise.systemManager';
  * Class of the enterprise admin extension ability.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @StageModelOnly
+ * @stagemodelonly
  * @since 12
  */
 export default class EnterpriseAdminExtensionAbility {
@@ -32,7 +32,7 @@ export default class EnterpriseAdminExtensionAbility {
    * Called back when an application is enabled.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onAdminEnabled(): void;
@@ -41,7 +41,7 @@ export default class EnterpriseAdminExtensionAbility {
    * Called back when an application is disabled.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onAdminDisabled(): void;
@@ -51,7 +51,7 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle installed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onBundleAdded(bundleName: string): void;
@@ -61,7 +61,7 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onBundleRemoved(bundleName: string): void;
@@ -71,7 +71,7 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the app started.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onAppStart(bundleName: string): void;
@@ -81,7 +81,7 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the app stopped.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   onAppStop(bundleName: string): void;

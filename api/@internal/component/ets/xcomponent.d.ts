@@ -134,6 +134,34 @@ declare class XComponentController {
    * @since 12
    */
   getXComponentSurfaceRect(): SurfaceRect;
+
+  /**
+   * Called after the surface is first created.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceCreated(surfaceId: string): void;
+
+  /**
+   * Called after the surface rectangle information is changed.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
+
+  /**
+   * Called when the surface is about to be destroyed.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceDestroyed(surfaceId: string): void;
 }
 
 /**

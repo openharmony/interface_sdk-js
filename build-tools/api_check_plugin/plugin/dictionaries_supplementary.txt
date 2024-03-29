@@ -571,6 +571,7 @@ opname
 option
 originating
 osd
+ota
 ott
 ounted
 overheated
@@ -886,6 +887,7 @@ unapply
 unassigned
 unauth
 unbinding
+unblock
 unblocking
 uncalibrated
 uncategorized
@@ -1032,3 +1034,4 @@ beidou
 qzss
 glonass
 sbas
+gbk

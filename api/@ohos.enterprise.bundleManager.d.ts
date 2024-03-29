@@ -207,7 +207,6 @@ declare namespace bundleManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Promise<void> } the promise returned by the removeAllowedInstallBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
