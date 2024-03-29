@@ -101,15 +101,15 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
- * The configuration of native video player.
+ * The configuration of native media player.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
  */
-type NativeVideoPlayerConfig = {
+type NativeMediaPlayerConfig = {
   /**
-   * Should playing web video by native application instead of web player.
+   * Should playing web media by native application instead of web player.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -118,7 +118,7 @@ type NativeVideoPlayerConfig = {
   enable: boolean,
 
   /**
-   * The contents painted by native video player should overlay web page.
+   * The contents painted by native media player should overlay web page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6971,16 +6971,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native video player to play web page video source.
+   * Enable app creates native media player to play web page media source.
    *
-   * @param { NativeVideoPlayerConfig } config - The configuration of native video player.
+   * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  enableNativeVideoPlayer(config: NativeVideoPlayerConfig): WebAttribute;
-  
+  enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
+
   /**
    * Sets the enable window drag smooth for web.
    *
