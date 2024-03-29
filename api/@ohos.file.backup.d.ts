@@ -404,7 +404,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport(): AsyncCallback<string>;
+    onResultReport: AsyncCallback<string>;
   }
 
   /**
