@@ -21,7 +21,8 @@
 import userAuth from '@ohos.userIAM.userAuth';
 
 /**
- * Declare Component UserAuthIcon.
+ * Declare UserAuthIcon, use for user authentication.
+ *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @since 12
  */
@@ -29,7 +30,8 @@ import userAuth from '@ohos.userIAM.userAuth';
 export default struct UserAuthIcon {
     /**
      * Set user auth parameter.
-     * @type { userAuth.AuthParam }.
+     *
+     * @type { userAuth.AuthParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 12
      */
@@ -37,6 +39,7 @@ export default struct UserAuthIcon {
 
     /**
      * Set auth widget parameter.
+     *
      * @type { userAuth.WidgetParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 12
@@ -44,7 +47,8 @@ export default struct UserAuthIcon {
     widgetParam: userAuth.WidgetParam;
 
     /**
-     * Set the height of the icon with a 1:1 aspect ratio.
+     * Set the height of the icon, width and height ratio 1:1.
+     *
      * @type { ?Dimension }
      * @default 64
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -54,6 +58,7 @@ export default struct UserAuthIcon {
 
     /**
      * Set the color of the icon.
+     *
      * @type { ?ResourceColor }
      * @default $r('sys.color.ohos_id_color_activated')
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -62,15 +67,19 @@ export default struct UserAuthIcon {
     iconColor?: ResourceColor;
 
     /**
-     * The user auth result callback.
-     * @param { userAuth.UserAuthResult } result - Auth result info.
+     * The authentication result code is returned through the callback.
+     * If the authentication is passed, the authentication token and auth type will be returned.
+     * You need to apply for permission:ohos.permission.ACCESS_BIOMETRIC to use user authentication ability.
+     *
+     * @param { userAuth.UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 12
      */
     onAuthResult: (result: userAuth.UserAuthResult) => void;
 
     /**
-     * The icon click event callback.
+     * When user click the icon, it will be returned through this callback.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 12
      */
