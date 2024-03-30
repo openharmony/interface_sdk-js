@@ -83,7 +83,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11
      */
-    CM_ERROR_INCORRECT_FORMAT = 17500003
+    CM_ERROR_INCORRECT_FORMAT = 17500003,
+
+    /**
+     * Indicates that the application is not authorized by user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 12
+     */
+    CM_ERROR_NO_AUTHORIZATION = 17500005
   }
 
   /**
@@ -720,6 +728,21 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
+  /**
+   * Init operation for signing and verifying etc.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
+   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification..
+   * @param { AsyncCallback<CMHandle> } callback - the callback of init.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist .
+   * @throws { BusinessError } 17500005 - the application is not authorized by user .
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
   /**
@@ -735,6 +758,21 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - the certificate do not exist .
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
+   */
+  /**
+   * Init operation for signing and verifying etc.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } authUri - Indicates the authorization relationship between application and application certificate.
+   * @param { CMSignatureSpec } spec - Indicates the properties of the signature and verification.
+   * @returns { Promise<CMHandle> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist .
+   * @throws { BusinessError } 17500005 - the application is not authorized by user .
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
    */
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
@@ -839,6 +877,36 @@ declare namespace certificateManager {
    * @since 11
    */
   function abort(handle: Uint8Array): Promise<void>;
+ 
+  /**
+   * Get the detail of public application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the key's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @throws { BusinessError } 17500002 - the certificate do not exist .
+   * @throws { BusinessError } 17500005 - the application is not authorized by user .
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getPublicCertificate(keyUri: string): Promise<CMResult>;
+
+  /**:
+   * Whether the current application is authorized by the specified public application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the key's name.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function isAuthorizedApp(keyUri: string): Promise<boolean>;
 }
 
 export default certificateManager;
