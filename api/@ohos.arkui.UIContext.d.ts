@@ -45,7 +45,6 @@ import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type dragController from './@ohos.arkui.dragController';
-import type { ComponentContent } from './arkui/ComponentContent';
 import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
 
