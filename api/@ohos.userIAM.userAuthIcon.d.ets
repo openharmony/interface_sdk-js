@@ -27,7 +27,6 @@ import userAuth from '@ohos.userIAM.userAuth';
  */
 @Component
 export default struct UserAuthIcon {
-
     /**
      * Set user auth parameter.
      * @type { userAuth.AuthParam }.
