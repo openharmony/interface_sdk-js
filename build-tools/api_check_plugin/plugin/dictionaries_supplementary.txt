@@ -18,6 +18,7 @@ adts
 advertisements
 affinities
 agrees
+aiding
 aifc
 alerting
 algrithom
@@ -117,6 +118,7 @@ ccm
 cdma
 ce
 certsign
+cfa
 cft
 channeldown
 channelup
@@ -124,6 +126,7 @@ checkboxgroup
 checksum
 chload
 chromaticities
+chromaticity
 chrominance
 circled
 clamped
@@ -209,6 +212,7 @@ dfx
 dialling
 differed
 digidesign
+digitized
 dimbehind
 dirent
 dirxml
@@ -227,8 +231,10 @@ dispatches
 displacement
 dlp
 dnd
+dng
 dnses
 donot
+dop
 downlink
 downmix
 dpad
@@ -251,6 +257,7 @@ edr
 efuse
 efx
 egid
+enhancing
 ehrpd
 ejectclosecd
 emption
@@ -447,6 +454,7 @@ lchown
 lclampf
 ldpi
 lenum
+leye
 lfloat
 libraryname
 lifted
@@ -570,6 +578,7 @@ opkey
 opl
 opname
 option
+opto
 originating
 osd
 ott
@@ -703,6 +712,7 @@ retried
 revocation
 revoked
 rewinding
+reye
 rfcomm
 rfid
 rfkill
@@ -809,6 +819,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subsec
 substate
 subtitles
 subtypes
