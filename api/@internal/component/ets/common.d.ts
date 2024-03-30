@@ -11946,6 +11946,16 @@ declare class ProgressMask {
    * @since 11
    */
   updateColor(value: ResourceColor): void;
+  
+  /**
+   * Enable the breathe animation of mask.
+   *
+   * @param { boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enableBreathingAnimation(value: boolean): void;
 }
 
 /**
