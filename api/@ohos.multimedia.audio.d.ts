@@ -1072,7 +1072,7 @@ declare namespace audio {
     rendererFlags: number;
   }
 
-  /** 
+  /**
    * Describes audio renderer filter.
    * @typedef AudioRendererFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4018,7 +4018,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
-    
+
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param { AudioRendererRate } rate - Audio render rate.
@@ -4049,7 +4049,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
-    
+
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
      * @returns { Promise<AudioRendererRate> } Promise used to return the audio render rate.
@@ -4722,6 +4722,22 @@ declare namespace audio {
      * @since 11
      */
     getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
+
+    /**
+     * Gets overflow count.
+     * @returns { Promise<number> } - Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 12
+     */
+    getOverflowCount(): Promise<number>
+
+    /**
+     * Gets overflow count.
+     * @returns { number } Overflow count number.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 12
+     */
+    getOverflowCountSync(): number;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
