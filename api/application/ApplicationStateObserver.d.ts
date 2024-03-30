@@ -79,6 +79,26 @@ export default class ApplicationStateObserver {
    * @since 9
    */
   onProcessStateChanged(processData: ProcessData): void;
+
+  /**
+   * Called when application is started.
+   *
+   * @param { AppStateData } appStateData - State changed Application info.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  onAppStarted(appStateData: AppStateData): void;
+
+  /**
+   * Called when application is stopped.
+   *
+   * @param { AppStateData } appStateData - State changed Application info.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  onAppStopped(appStateData: AppStateData): void;
 }
 
 /**
