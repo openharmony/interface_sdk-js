@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -368,6 +368,14 @@ declare namespace inputMethodEngine {
   function createKeyboardDelegate(): KeyboardDelegate;
 
   /**
+   * Indicates the possible data types of the command.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  type CommandDataType = number | string | boolean;
+
+  /**
    * @interface KeyboardController
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
@@ -617,6 +625,28 @@ declare namespace inputMethodEngine {
      */
     off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
 
+    /**
+     * Subscribe 'privateCommand'.This function can only be called by default input method configured by system.
+     *
+     * @param { 'privateCommand' } type - indicates the type of subscribe event.
+     * @param { Callback<Record<string, CommandDataType>> } callback - indicates the callback of on('privateCommand').
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
+
+    /**
+     * Unsubscribe 'privateCommand'.This function can only be called by default input method configured by system.
+     *
+     * @param { 'privateCommand' } type - indicates the type of subscribe event.
+     * @param { Callback<Record<string, CommandDataType>> } [callback] - optional,
+     * indicates the callback of off('privateCommand').
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
      * Get input method's security mode.
@@ -1245,6 +1275,19 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     sendExtendAction(action: ExtendAction): Promise<void>;
+
+    /**
+     * Send private command.This function can only be called by default input method configured by system.
+     *
+     * @param { Record<string, CommandDataType> } commandData - command data which will be send.Max size 32KB.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>;
   }
 
   /**
