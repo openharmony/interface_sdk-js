@@ -151,7 +151,16 @@ declare namespace cloudSync {
      * @systemapi
      * @since 10
      */
-    LOCAL_STORAGE_FULL
+    LOCAL_STORAGE_FULL,
+    /**
+     * Synchronization aborted due to device temperature is too high.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TEMPERATURE_TOO_HIGH,
+    
   }
 
   /**
@@ -878,7 +887,31 @@ declare namespace cloudSync {
      * @systemapi
      * @since 11
      */
-    STOPPED
+    STOPPED,
+    /**
+     * Indicates that the file is waiting for upload.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    TO_BE_UPLOADED,
+    /**
+     * Indicates that the file has been already uploaded successfully.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    UPLOAD_SUCCESS,
+    /**
+     * Indicates that the file upload failure.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    UPLOAD_FAILURE,
   }
 
   /**
@@ -915,6 +948,138 @@ declare namespace cloudSync {
    * @since 11
    */
   function getFileSyncState(uri: Array<string>, callback: AsyncCallback<Array<FileSyncState>>): void;
+  /**
+   * Get the sync state of file.
+   *
+   * @param { string } uri - uri of file.
+   * @returns { FileSyncState } - return the sync state of given files.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900031 - Function not implemented
+   * @throws { BusinessError } 13900042 - Unknown error 
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  function getFileSyncState(uri: string): FileSyncState;
+  /**
+   * Register change notify for the specified uri.
+   *
+   * @param { string } uri - uri of file.
+   * @param { boolean } recursion - Whether to monitor the child files.
+   * @param { Callback<ChangeData> } callback - Returns the changed data.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  function registerChange(uri: string, recursion: boolean, callback: Callback<ChangeData>): void;
+  /**
+   * Unregister change notify fir the specified uri.
+   *
+   * @param { string } uri - uri of file.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  function unregisterChange(uri: string): void;
+
+  /**
+   * Enumeration types of data change.
+   *
+   * @enum { number } NotifyType
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  enum NotifyType {
+    /**
+     * File has been newly created
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_ADDED,
+    /**
+     * File has been modified.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_MODIFIED,
+    /**
+     * File has been deleted.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_DELETED,
+    /**
+     * File has been renamed or moved.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    NOTIFY_RENAMED
+  }
+
+  /** 
+   * Defines the change data
+   * 
+   * @interface ChangeData
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 12
+   */
+  interface ChangeData {
+    /**
+     * The notify type of the change.
+     * 
+     * @type {NotifyType}
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    type: NotifyType;
+    /**
+     * Indicates whether the changed uri is directory.
+     * 
+     * @type {Array<boolean>}
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    isDirectory: Array<boolean>;
+    /**
+     * The changed uris.
+     * 
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    uris: Array<string>;
+  }
 }
 
 export default cloudSync;
