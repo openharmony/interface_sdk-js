@@ -584,6 +584,17 @@ declare namespace cloudSync {
      */
     constructor();
     /**
+     * A constructor used to create a FileSync object.
+     *
+     * @param { string } bundleName - Name of the bundle that need to synchronize and subscribe the sync progress event.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    constructor(bundleName: string);
+    /**
      * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
@@ -782,7 +793,20 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
-    stop(uri: string): Promise<void>;
+    /**
+     * Stop the cloud file cache download task.
+     *
+     * @param { string } uri - uri of file.
+     * @param { boolean } [needClean] - whether to delete the file that already downloaded.
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 12
+     */
+    stop(uri: string, needClean?: boolean): Promise<void>;
     /**
      * Stop the cloud file cache download task with callback.
      *
