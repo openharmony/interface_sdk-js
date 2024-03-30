@@ -95,4 +95,14 @@ export default class AbilityStateData {
    * @since 8
    */
   abilityType: number;
+
+  /**
+   * Indicates whether the application is atomic service.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  isAtomicService: boolean;
 }
