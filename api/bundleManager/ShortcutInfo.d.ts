@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Provides information about a shortcut, including the shortcut ID and label.
  *
  * @typedef ShortcutInfo

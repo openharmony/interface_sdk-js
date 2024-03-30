@@ -45,30 +45,30 @@ import { TagInheritCheck } from './tag_inherit_check';
 export class Check {
   /**
    * checker tool main entrance
-   * @param { string } url -File path for storing file information.
+   * @param { string[] } files -File path for storing file information.
    */
-  static scanEntry(url: string): void {
-    if (fs.existsSync(url)) {
-      const files: Array<string> = Check.getMdFiles(url);
-      ApiChangeCheck.checkApiChange();
-      files.forEach((filePath: string, index: number) => {
-        console.log(`scaning file in no ${++index}!`);
-        const fileParseResult: FilesMap = Check.parseAPICodeStyle(filePath);
-        const baseInfos: BasicApiInfo[] = Parser.getAllBasicApi(fileParseResult);
-        Check.checkNodeInfos(baseInfos as ClassInfo[]);
-        const currFileInfo = fileParseResult.get(filePath);
-        if (currFileInfo) {
-          CheckHump.checkAPIFileName(currFileInfo);
-        }
-        CheckHump.checkAllAPINameOfHump(baseInfos);
-        //words check
-        WordsCheck.wordCheckResultsProcessing(baseInfos);
-        // event check
-        const eventMethodChecker: EventMethodChecker = new EventMethodChecker(fileParseResult);
-        const eventMethodDataMap: Map<string, EventMethodData> = eventMethodChecker.getAllEventMethod();
-        eventMethodChecker.checkEventMethod(eventMethodDataMap);
-      });
-    }
+  static scanEntry(files: string[]): void {
+    ApiChangeCheck.checkApiChange();
+    files.forEach((filePath: string, index: number) => {
+      if (filePath.indexOf('build-tools') !== -1) {
+        return;
+      }
+      console.log(`scaning file in no ${++index}!`);
+      const fileParseResult: FilesMap = Check.parseAPICodeStyle(filePath);
+      const baseInfos: BasicApiInfo[] = Parser.getAllBasicApi(fileParseResult);
+      Check.checkNodeInfos(baseInfos as ClassInfo[]);
+      const currFileInfo = fileParseResult.get(filePath);
+      if (currFileInfo) {
+        CheckHump.checkAPIFileName(currFileInfo);
+      }
+      CheckHump.checkAllAPINameOfHump(baseInfos);
+      //words check
+      WordsCheck.wordCheckResultsProcessing(baseInfos);
+      // event check
+      const eventMethodChecker: EventMethodChecker = new EventMethodChecker(fileParseResult);
+      const eventMethodDataMap: Map<string, EventMethodData> = eventMethodChecker.getAllEventMethod();
+      eventMethodChecker.checkEventMethod(eventMethodDataMap);
+    });
   }
 
   /**
@@ -114,7 +114,7 @@ export class Check {
           LogType.LOG_JSDOC,
           -1,
           singleApi.getApiName(),
-          singleApi.getDefinedText(),
+          singleApi.getJsDocText() + singleApi.getDefinedText(),
           ErrorMessage.ERROR_NO_JSDOC,
           compositiveResult,
           compositiveLocalResult
@@ -123,7 +123,7 @@ export class Check {
         // legality check
         const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
         // order check
-        const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(apiJsdoc);
+        const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
         // api naming check
         const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
         // tags name check
@@ -169,6 +169,8 @@ export class Check {
           );
         }
         if (!forbiddenWorsCheckResult.state) {
+          const isTsFile: boolean = /\.d\.ts/.test(singleApi.getFilePath());
+          const isAnyError: boolean = /any/.test(forbiddenWorsCheckResult.errorInfo);
           AddErrorLogs.addAPICheckErrorLogs(
             ErrorID.FORBIDDEN_WORDS_ID,
             ErrorLevel.MIDDLE,
@@ -237,11 +239,11 @@ export class Check {
         tagValueCheckResult.forEach((valueResult) => {
           if (valueResult.state === false) {
             AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
+              ErrorID.WRONG_VALUE_ID,
               ErrorLevel.MIDDLE,
               singleApi.getFilePath(),
               singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
+              ErrorType.WRONG_VALUE,
               LogType.LOG_JSDOC,
               toNumber(apiJsdoc.since),
               singleApi.getApiName(),

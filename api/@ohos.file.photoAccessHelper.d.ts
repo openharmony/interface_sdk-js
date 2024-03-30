@@ -3060,6 +3060,36 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     recommendationType?: RecommendationType;
+
+    /**
+     * The textContextInfo to recommend images.
+     *
+     * @type { ?TextContextInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    textContextInfo?: TextContextInfo;
+  }
+
+  /**
+   * Defines the text context info.
+   *
+   * @interface TextContextInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface TextContextInfo {
+    /**
+     * The Simplified Chinese(UTF-8) text within 250 to recommend images.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    text?: string;
   }
 
   /**

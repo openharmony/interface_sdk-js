@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';

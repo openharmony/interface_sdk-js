@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { ElementName } from '../bundle/elementName';
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
+import { ElementName } from '../bundleManager/ElementName';
 import image from '../@ohos.multimedia.image';
 
 /**
@@ -32,6 +37,14 @@ export interface MissionSnapshot {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
+   */
+  /**
+   * Indicates the ability elementName of the mission. The elementName is an ohos.bundleManager.ElementName object.
+   *
+   * @type { ElementName }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 12
    */
   ability: ElementName;
 

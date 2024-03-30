@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * ContinueCallback registered for notify continue result.
  *
  * @interface ContinueCallback

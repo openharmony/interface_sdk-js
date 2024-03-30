@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The application state data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

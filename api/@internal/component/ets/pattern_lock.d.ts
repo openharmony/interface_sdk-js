@@ -14,6 +14,11 @@
   */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The challenge result based on input pattern for control pattern lock component.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

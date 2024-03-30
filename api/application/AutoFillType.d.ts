@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
   * Type of auto fill.
   *
   * @enum { number }
@@ -25,7 +30,7 @@
 export enum AutoFillType {
   /**
    * Indicates the type of unspecified.
-   * 
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
@@ -35,7 +40,7 @@ export enum AutoFillType {
 
   /**
    * Indicates the type of password.
-   * 
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
@@ -45,7 +50,7 @@ export enum AutoFillType {
 
   /**
    * Indicates the type of user name.
-   * 
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
@@ -55,7 +60,7 @@ export enum AutoFillType {
 
   /**
    * Indicates the type of new password.
-   * 
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
