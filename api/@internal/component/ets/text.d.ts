@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides an interface for writing texts.
  *
  * @interface TextInterface
@@ -911,6 +916,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } value - The ellipsis mode.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   ellipsisMode(value: EllipsisMode): TextAttribute;
 
   /**
@@ -921,6 +936,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - Enable data detector.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   enableDataDetector(enable: boolean): TextAttribute;
 
   /**
@@ -930,6 +954,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   dataDetectorConfig(config: TextDataDetectorConfig): TextAttribute;
 
@@ -945,6 +978,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Bind to the selection menu.
+   *
+   * @param { TextSpanType } spanType - Indicates the type of selection menu.
+   * @param { CustomBuilder } content - Indicates the content of selection menu.
+   * @param { TextResponseType } responseType - Indicates response type of selection menu.
+   * @param { SelectionMenuOptions } [options] - Indicates the options of selection menu.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   bindSelectionMenu(spanType: TextSpanType, content: CustomBuilder, responseType: TextResponseType,
     options?: SelectionMenuOptions): TextAttribute;
 
@@ -957,7 +1003,32 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Called when the text selection changes.
+   *
+   * @param { function } callback - callback of the listened event.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAttribute;
+
+  /**
+   * Set font feature.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of text component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature(value: string): TextAttribute;
 }
 
 /**
@@ -1032,6 +1103,15 @@ declare const Text: TextInterface;
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines span type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum TextSpanType {
   /**
    * Only contains text.
@@ -1039,6 +1119,14 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Only contains text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   TEXT = 0,
 
@@ -1049,6 +1137,14 @@ declare enum TextSpanType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Only contains image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   IMAGE = 1,
 
   /**
@@ -1057,6 +1153,14 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Contains both text and image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   MIXED = 2,
 }
@@ -1069,6 +1173,15 @@ declare enum TextSpanType {
  * @crossplatform
  * @since 11
  */
+/**
+ * ResponseType for contextMenu
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum TextResponseType {
   /**
    * Right click.
@@ -1076,6 +1189,14 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Right click.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   RIGHT_CLICK = 0,
 
@@ -1086,6 +1207,14 @@ declare enum TextResponseType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Long press.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   LONG_PRESS = 1,
 
   /**
@@ -1094,6 +1223,14 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Selected by mouse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   SELECT = 2,
 }
@@ -1106,6 +1243,15 @@ declare enum TextResponseType {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the options of Text.
+ *
+ * @interface TextOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface TextOptions {
   /**
    * Text controller.
@@ -1114,6 +1260,15 @@ declare interface TextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Text controller.
+   *
+   * @type { TextController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   controller: TextController;
 }
@@ -1125,6 +1280,14 @@ declare interface TextOptions {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the controller of Text.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare class TextController {
   /**
    * Close the select menu when menu is on.
@@ -1132,6 +1295,14 @@ declare class TextController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Close the select menu when menu is on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   closeSelectionMenu(): void;
 }

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The type of alignment between entry and calendar.
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -312,6 +317,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the calendarPickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   backgroundColor?: ResourceColor;
 
   /**
@@ -322,6 +337,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Defines the calendarPickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 

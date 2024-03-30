@@ -639,6 +639,22 @@ declare namespace connection {
   function disconnectAllowedProfiles(deviceId: string): Promise<void>;
 
   /**
+   * Modify remote device name.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { string } name - New device name. Max length is 64 bytes.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+    function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -666,6 +682,37 @@ declare namespace connection {
    * @since 10
    */
   function off(type: 'bluetoothDeviceFind', callback?: Callback<Array<string>>): void;
+
+  /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
+   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
+
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
+   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  function off(type: 'discoveryResult', callback?: Callback<Array<DiscoveryResult>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
@@ -995,6 +1042,48 @@ declare namespace connection {
      */
     PIN_TYPE_PIN_16_DIGITS = 7
   }
-}
 
+  /**
+   * Describes the contents of the discovery results
+   *
+   * @typedef DiscoveryResult
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  interface DiscoveryResult {
+    /**
+     * Identify of the discovery device
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    deviceId: string;
+    /**
+     * RSSI of the remote device
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    rssi: number;
+    /**
+     * The local name of the device
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    deviceName: string;
+    /**
+     * The class of the device
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    deviceClass: DeviceClass;
+  }
+}
 export default connection;

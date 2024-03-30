@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * PluginComponentTemplate
  *
  * @interface PluginComponentTemplate

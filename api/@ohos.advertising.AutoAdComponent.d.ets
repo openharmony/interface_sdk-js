@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines the auto ad component
  * @kit AdsKit
  */
 

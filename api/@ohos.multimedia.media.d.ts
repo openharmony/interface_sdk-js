@@ -108,6 +108,18 @@ declare namespace media {
   function createAudioRecorder(): AudioRecorder;
 
   /**
+   * Create MediaSource from url.
+   * @param { string } url : The location for the media source.
+   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 5400101 - No memory.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
+
+  /**
    * Creates an VideoPlayer instance.
    * @param { AsyncCallback<VideoPlayer> } callback - used to return AudioPlayer instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -1182,6 +1194,18 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
+     * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
+     * @param { PlaybackStrategy } strategy : Play strategy of the media source.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaSource completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1826,6 +1850,52 @@ declare namespace media {
   }
 
   /**
+   * Media source descriptor. User can set media data information
+
+   * @typedef MediaSource
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface MediaSource {
+  }
+
+  /**
+   * Provides preferred playback settings for player.
+   *
+   * @typedef PlaybackStrategy
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface PlaybackStrategy {
+    /**
+     * Choose a stream with width close to it.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredWidth?: number;
+    /**
+     * Choose a stream with height close to it.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredHeight?: number;
+    /**
+     * Choose a preferred buffer duration.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredBufferDuration?: number;
+
+    /**
+     * If true, the player should choose HDR stream if exist.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredHdr?: boolean;
+
+  }
+
+  /**
    * Media file descriptor. The caller needs to ensure that the fd is valid and
    * the offset and length are correct.
    *
@@ -2261,6 +2331,19 @@ declare namespace media {
      * @since 9
      */
     getInputSurface(): Promise<string>;
+
+    /**
+     * Update the video orientation before recorder start.
+     * @param { number } rotation: Rotation angle, should be [0, 90, 180, 270]. 
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    updateRotation(rotation: number): Promise<void>;
 
     /**
      * Start AVRecorder, it will to started state.
@@ -3121,6 +3204,18 @@ declare namespace media {
      * @since 8
      */
     SPEED_FORWARD_2_00_X = 4,
+    /**
+     * playback at 0.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_0_50_X = 5,
+    /**
+     * playback at 1.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_1_50_X = 6,
   }
 
   /**
@@ -4253,6 +4348,13 @@ declare namespace media {
      * @since 11
      */
     SEEK_PREV_SYNC = 1,
+    /**
+     * Seek to the closest frame of the given timestamp.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    SEEK_CLOSEST = 2,
   }
 
   /**

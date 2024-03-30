@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file Sets filter criteria of publishers for subscribing to desired notifications
+ * @kit NotificationKit
+ */
+
+/**
  * Sets filter criteria of publishers for subscribing to desired notifications.
  *
  * @typedef NotificationSubscribeInfo

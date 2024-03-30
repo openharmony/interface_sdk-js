@@ -154,6 +154,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
+    /**
+     * Determine the show mode of the toast.
+     *
+     * @type { ?ToastShowMode }
+     * @default ToastShowMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     showMode?: ToastShowMode;
     /**
      * Defines the toast alignment of the screen.
@@ -182,12 +191,27 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Enum for the toast showMode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   export enum ToastShowMode {
     /**
      * Toast shows in app.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Toast shows in app.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     DEFAULT = 0,
 
@@ -196,6 +220,13 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Toast shows at the top.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     TOP_MOST = 1
   }
@@ -491,6 +522,16 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Whether to display in the sub window.
+     * 
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     showInSubWindow?: boolean;
     
     /**
@@ -500,6 +541,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Whether it is a modal dialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     isModal?: boolean;
   }
@@ -512,6 +562,15 @@ declare namespace promptAction {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Dialog base options
+   *
+   * @typedef BaseDialogOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface BaseDialogOptions {
     /**
      * Mask Region of dialog. The size can't exceed the main window.
@@ -520,6 +579,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Mask Region of dialog. The size can't exceed the main window.
+     *
+     * @type { ?Rectangle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     maskRect?: Rectangle;
 
@@ -531,6 +599,15 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Defines the dialog alignment of the screen.
+     *
+     * @type { ?DialogAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     alignment?: DialogAlignment;
 
     /**
@@ -540,6 +617,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Defines the dialog offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     offset?: Offset;
 
@@ -552,6 +638,16 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Whether to display in the sub window.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     showInSubWindow?: boolean;
 
     /**
@@ -561,6 +657,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Whether it is a modal dialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     isModal?: boolean;
 
@@ -654,6 +759,15 @@ declare namespace promptAction {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Dialog's custom content options
+   *
+   * @interface CustomDialogOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface CustomDialogOptions extends BaseDialogOptions {
     /**
      * Allow developer custom dialog's content.
@@ -662,6 +776,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Allow developer custom dialog's content.
+     *
+     * @type { CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     builder: CustomBuilder;
 
@@ -1001,6 +1124,18 @@ declare namespace promptAction {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Open the custom dialog.
+   *
+   * @param { CustomDialogOptions } options - Options.
+   * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function openCustomDialog(options: CustomDialogOptions): Promise<number>;
 
   /**
@@ -1012,6 +1147,17 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Close the custom dialog.
+   *
+   * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function closeCustomDialog(dialogId: number): void;
 

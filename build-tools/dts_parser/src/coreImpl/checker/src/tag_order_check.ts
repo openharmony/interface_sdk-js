@@ -15,6 +15,7 @@
 import { ErrorMessage, ErrorTagFormat } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
 import { tagsArrayOfOrder, CommonFunctions } from '../../../utils/checkUtils';
+import { ApiInfo } from '../../../typedef/parser/ApiInfoDefination';
 
 export class OrderCheck {
   /**
@@ -22,7 +23,7 @@ export class OrderCheck {
    * @param { Comment.JsDocInfo } apiJsdoc -api jsdoc all infomation
    * @returns { boolean }
    */
-  static orderCheck(apiJsdoc: Comment.JsDocInfo): ErrorTagFormat {
+  static orderCheck(singleApi: ApiInfo, apiJsdoc: Comment.JsDocInfo): ErrorTagFormat {
     const orderCheckResult: ErrorTagFormat = {
       state: true,
       errorInfo: '',
@@ -41,7 +42,7 @@ export class OrderCheck {
         // 非自定义标签在前或数组降序时报错
         if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
           orderCheckResult.state = false;
-          orderCheckResult.errorInfo = ErrorMessage.ERROR_ORDER;
+          orderCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_ORDER, [tagsOrder[tagIndex].tag]);
           break;
         }
       }

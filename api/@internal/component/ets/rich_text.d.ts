@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides an interface for RichText component.
  *
  * @interface RichTextInterface

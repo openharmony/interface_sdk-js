@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines Close contextMenu.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full

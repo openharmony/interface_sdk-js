@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Ellipse drawing.
  *
  * @interface EllipseInterface
