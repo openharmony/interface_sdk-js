@@ -392,7 +392,6 @@ declare namespace backup {
      * Callback called when the backup service return result information.
      * The first return string parameter indicates the result of the bundle.
      *
-     * @returns { string } Return restore result.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - The input parameter is invalid.
      * @throws { BusinessError } 13600001 - IPC error
@@ -404,7 +403,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport(): AsyncCallback<string>;
+    onResultReport: AsyncCallback<string>;
   }
 
   /**
@@ -529,6 +528,7 @@ declare namespace backup {
      *     You can use the getLocalCapabilities method to obtain the value.
      * @param { string[] } bundlesToBackup Bundles to restore.
      * @param { string[] } [infos] infos to restore
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
