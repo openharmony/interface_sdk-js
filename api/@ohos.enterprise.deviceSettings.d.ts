@@ -357,13 +357,13 @@ declare namespace deviceSettings {
   function getPowerPolicy(admin: Want, powerScene: PowerScene): PowerPolicy;
 
   /**
-   * Sets the specific device settings policy.
+   * Sets the device settings value.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - the specific item of the device settings for which the policy is to be configured.
-   * @param { string } value - the value of specific device settings policy.
+   * @param { string } item - the scene to execute power policy.
+   * @param { string } value - device power policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -372,16 +372,16 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 12
    */
-  function setValue(admin: Want, item: string, value: string): void;
+  function setValue(admin: Want, item: string, value: string): void
 
   /**
-   * Gets the specific device settings policy.
+   * Gets the device settings value.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - the specific item of the device settings for which the policy is to be queried.
-   * @returns { string } the value of specific device settings policy.
+   * @param { string } item - the scene to execute power policy.
+   * @returns { string } device power policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -390,7 +390,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 12
    */
-  function getValue(admin: Want, item: string): string;
+  function getValue(admin: Want, item: string): string
 }
 
 export default deviceSettings;
