@@ -64,6 +64,25 @@ declare namespace effectKit {
     grayscale(): Filter;
 
     /**
+    * A invert effect is added to the image.
+    * @returns { Filter } Filters for the current effect have been added.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @since 12
+    */
+    invert(): Filter;
+
+    /**
+     * A custom effect is added to the image.
+     *
+     * @param { Array<number> } colorMatrix - A matrix of 5x4 size for create effect filter.
+     * @returns { Filter } Filters for the current effect have been added.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setColorMatrix(colorMatrix: Array<number>): Filter;
+
+    /**
     * Gets the PixelMap where all filter effects have been added to the image.
     * @returns { image.PixelMap } image.PixelMap.
     * @syscap SystemCapability.Multimedia.Image.Core
