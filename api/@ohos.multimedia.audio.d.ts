@@ -4989,6 +4989,7 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 12
@@ -4999,6 +5000,7 @@ declare namespace audio {
      * Get ASR AEC mode.
      * @returns { ASRAECMode } ASR AEC Mode.
      * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 12
@@ -5012,26 +5014,29 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 12
      */
-    setNoiseSuppressionMode(mode: ASRNoiseSuppressionMode): boolean;
+    setASRNoiseSuppressionMode(mode: ASRNoiseSuppressionMode): boolean;
 
     /**
      * Get ASR noise suppression mode.
      * @returns { ASRNoiseSuppressionMode } ASR noise suppression mode.
      * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 12
      */
-    getNoiseSuppressionMode(): ASRNoiseSuppressionMode;
+    getASRNoiseSuppressionMode(): ASRNoiseSuppressionMode;
 
     /**
      * Query whether is whispering.
      * @returns { boolean } whether is whispering.
      * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 12
@@ -5048,12 +5053,13 @@ declare namespace audio {
    * @throws { BusinessError } 401 - Input parameter type or number mismatch.
    * @throws { BusinessError } 6800101 - Input parameter value error.
    * @throws { BusinessError } 6800104 - Operation not allowed. e.g. the source type of the input audio capturer is not
-   * {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}, or this audio capturer is already released.
+   * {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION} or {@link SourceType#SOURCE_TYPE_WAKEUP}, or this audio capturer
+   * is already released.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
    * @since 12
    */
-  function createASRProcessingController(audioCapture: AudioCapturer): ASRProcessingController;
+  function createASRProcessingController(audioCapturer: AudioCapturer): ASRProcessingController;
 
   /**
    * Enumerates tone types for player.
