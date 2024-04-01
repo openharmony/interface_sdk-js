@@ -464,4 +464,19 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   restartApp(want: Want): void;
+
+  /**
+   * Set the state about whether the application supports process cache or not.
+   *
+   * @param { isSupport } boolean - Indicates the process cache support state.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000068 - The support process cache state cannot be set more than once.
+   * @systemapi
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  SetSupportProcessCache(isSupport : boolean): void;
 }

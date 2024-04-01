@@ -200,18 +200,4 @@ export default class AbilityStage {
    * @since 12
    */
   onDestroy(): void;
-
-  /**
-   * Called back when the system needs to confirm whether the application supports process cache.
-   *
-   * @returns { boolean } Indicates that whether process cache is supported or not.
-   *          When process caching is supported, the system does not destroy the process when the application exits
-   *          and reuses the cached process when the application starts next time.
-   *          If process cache is not supported, the process will be destroyed normally when the application exits,
-   *          and the process will be re-created when the application starts next time.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 12
-   */
-  onCheckProcessCache(): boolean;
 }
