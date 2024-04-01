@@ -31,6 +31,13 @@ label_name_dist = {
 }
 
 
+label_comparison_dist = {
+    'atomicservice': 'isAtomicService',
+    'form': 'isForm',
+    'crossplatform': 'isCrossPlatForm'
+}
+
+
 contrast_function = {
     'add': 'remove',
     'increase': 'decrease',
