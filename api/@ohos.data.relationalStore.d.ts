@@ -1739,6 +1739,34 @@ declare namespace relationalStore {
      * @since 10
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
+
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * does not contain the specified value.
+     * This method is similar to "Not like %value%" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value that is not contained.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    notContains(field: string, value: string): RdbPredicates;
+
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * is not like the specified value.
+     * This method is similar to "Not like" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to compare against.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    notLike(field: string, value: string): RdbPredicates;
   }
 
   /**
