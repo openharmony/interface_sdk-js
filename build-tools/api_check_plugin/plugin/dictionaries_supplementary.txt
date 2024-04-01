@@ -1044,4 +1044,6 @@ beidou
 qzss
 glonass
 sbas
+uncertainty
+geofences
 gbk
