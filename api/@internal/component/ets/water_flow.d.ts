@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * function that returns item main size by index.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -577,6 +582,15 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * @param { number } value - number of flow items to be preloaded (cached).
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   cachedCount(value: number): WaterFlowAttribute;
 

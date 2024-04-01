@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Customize spring properties.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

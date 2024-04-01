@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the FormDimension enum.
  *
  * @enum { number }
@@ -117,6 +122,106 @@ declare enum FormRenderingMode {
 }
 
 /**
+ * Defines the FormInfo.
+ *
+ * @interface FormInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+declare interface FormInfo {
+  /**
+   * The id the form.
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  id: number | string;
+
+  /**
+   * The name of the form.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  name: string;
+
+  /**
+   * The bundle of the form.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  bundle: string;
+
+  /**
+   * The ability of the form.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  ability: string;
+
+  /**
+   * The module of the form.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  module: string;
+
+  /**
+   * The dimension of the form.
+   *
+   * @type { ?FormDimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  dimension?: FormDimension;
+
+  /**
+   * Whether the form is temporary.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  temporary?: boolean;
+
+  /**
+   * The want of the form.
+   *
+   * @type { ?import('../api/@ohos.app.ability.Want').default }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  want?: import('../api/@ohos.app.ability.Want').default;
+
+  /**
+   * The renderingMode of the form.
+   *
+   * @type { ?FormRenderingMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  renderingMode?: FormRenderingMode;
+}
+
+/**
  * Defines the FormComponent.
  *
  * @interface FormComponentInterface
@@ -161,17 +266,46 @@ interface FormComponentInterface {
    * @systemapi
    * @since 11
    */
-  (value: {
-    id: number;
-    name: string;
-    bundle: string;
-    ability: string;
-    module: string;
-    dimension?: FormDimension;
-    temporary?: boolean;
-    want?: import('../api/@ohos.app.ability.Want').default;
-    renderingMode?: FormRenderingMode;
-  }): FormComponentAttribute;
+  /**
+   * Set a new value of form info.
+   *
+   * @param { FormInfo } value
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  (value: FormInfo): FormComponentAttribute;
+}
+
+/**
+ * Defines the FormCallbackInfo.
+ *
+ * @interface FormCallbackInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+interface FormCallbackInfo {
+  /**
+   * The id of the form.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  id: number;
+
+  /**
+   * The string id of the form.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  idString: string;
 }
 
 /**
@@ -246,7 +380,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onAcquired(callback: (info: { id: number }) => void): FormComponentAttribute;
+  /**
+   * This function is triggered after card information is obtained.
+   * For details about the form information, see the definition of the original capability subsystem.
+   *
+   * @param { Callback<FormCallbackInfo> } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  onAcquired(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 
   /**
    * Card loading error.
@@ -279,7 +423,16 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
+  /**
+   * Uninstall Card.
+   *
+   * @param { Callback<FormCallbackInfo> } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  onUninstall(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 
   /**
    * Card to be loaded.

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides an Effect Component, which is invisible, but setting properties on this component defines an effect template
  * that child components can apply by setting useEffect(true).
  *

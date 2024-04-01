@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the resource which can use ASTC.
  *
  * @interface ASTCResource

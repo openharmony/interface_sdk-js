@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,7 @@
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';
-import type { FillRequest, SaveRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
 
 /**
  * The class of auto fill extension ability.
@@ -79,6 +79,17 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @since 11
    */
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
+
+  /**
+   * Called back when an update request is coming.
+   *
+   * @param { UpdateRequest } request - Indicates the update request.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  onUpdateRequest(request: UpdateRequest): void;
 
   /**
    * Called back when an auto fill extension session is destroyed.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -52,6 +52,17 @@ export interface FillRequest {
    * @since 11
    */
   viewData: ViewData;
+
+  /**
+   * Whether the UI extension window type is popup window.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  isPopup: boolean;
 }
 
 /**
@@ -72,6 +83,28 @@ export interface SaveRequest {
    * @systemapi
    * @StageModelOnly
    * @since 11
+   */
+  viewData: ViewData;
+}
+
+/**
+ * Update request for automatic filling.
+ *
+ * @interface UpdateRequest
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi
+ * @StageModelOnly
+ * @since 12
+ */
+export interface UpdateRequest {
+  /**
+   * The view data. Indicates the basic page information for the update request.
+   *
+   * @type { ViewData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
    */
   viewData: ViewData;
 }

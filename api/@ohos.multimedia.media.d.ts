@@ -85,6 +85,14 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 9
    */
+  /**
+   * Creates an AVRecorder instance.
+   * @returns { Promise<AVRecorder> } A Promise instance used to return AVRecorder instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @since 12
+   */
   function createAVRecorder(): Promise<AVRecorder>;
 
   /**
@@ -106,6 +114,18 @@ declare namespace media {
    * @useinstead ohos.multimedia.media/media#createAVRecorder
    */
   function createAudioRecorder(): AudioRecorder;
+
+  /**
+   * Create MediaSource from url.
+   * @param { string } url : The location for the media source.
+   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 5400101 - No memory.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
   /**
    * Creates an VideoPlayer instance.
@@ -176,6 +196,30 @@ declare namespace media {
    * @since 10
    */
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
+
+  /**
+   * Creates an AVScreenCaptureRecorder instance.
+   * @returns { Promise<AVScreenCaptureRecorder> } A Promise instance used to return AVScreenCaptureRecorder instance if the operation is successful;
+   * returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>;
+
+  /**
+   * Report user choice back to AVScreenCapture server
+   *
+   * @param {number} sessionId The AVScreenCapture server session ID.
+   * @param {string} choice Content chosen by user.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Input parameter invalid. Return by promise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 12
+   */
+  function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
   /**
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
@@ -1158,6 +1202,18 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
+     * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
+     * @param { PlaybackStrategy } strategy : Play strategy of the media source.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaSource completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -1802,6 +1858,52 @@ declare namespace media {
   }
 
   /**
+   * Media source descriptor. User can set media data information
+
+   * @typedef MediaSource
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface MediaSource {
+  }
+
+  /**
+   * Provides preferred playback settings for player.
+   *
+   * @typedef PlaybackStrategy
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface PlaybackStrategy {
+    /**
+     * Choose a stream with width close to it.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredWidth?: number;
+    /**
+     * Choose a stream with height close to it.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredHeight?: number;
+    /**
+     * Choose a preferred buffer duration.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredBufferDuration?: number;
+
+    /**
+     * If true, the player should choose HDR stream if exist.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredHdr?: boolean;
+
+  }
+
+  /**
    * Media file descriptor. The caller needs to ensure that the fd is valid and
    * the offset and length are correct.
    *
@@ -2155,6 +2257,12 @@ declare namespace media {
   * @syscap SystemCapability.Multimedia.Media.AVRecorder
   * @since 9
   */
+  /**
+  * Describes media recorder states.
+  * @syscap SystemCapability.Multimedia.Media.AVRecorder
+  * @atomicservice
+  * @since 12
+  */
   type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error';
 
   /**
@@ -2164,6 +2272,15 @@ declare namespace media {
    * @typedef AVRecorder
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 9
+   */
+  /**
+   * Manages and record audio/video. Before calling an AVRecorder method, you must use createAVRecorder()
+   * to create an AVRecorder instance.
+   *
+   * @typedef AVRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @since 12
    */
   interface AVRecorder {
     /**
@@ -2191,6 +2308,19 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Prepares for recording.
+     * @permission ohos.permission.MICROPHONE
+     * @param { AVRecorderConfig } config - Recording parameters.
+     * @returns { Promise<void> } A Promise instance used to return when prepare completed.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     prepare(config: AVRecorderConfig): Promise<void>;
 
@@ -2239,6 +2369,19 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
+     * Update the video orientation before recorder start.
+     * @param { number } rotation: Rotation angle, should be [0, 90, 180, 270]. 
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    updateRotation(rotation: number): Promise<void>;
+
+    /**
      * Start AVRecorder, it will to started state.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when start completed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -2257,6 +2400,16 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Start AVRecorder, it will to started state.
+     * @returns { Promise<void> } A Promise instance used to return when start completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     start(): Promise<void>;
 
@@ -2280,6 +2433,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Start AVRecorder, it will to paused state.
+     * @returns { Promise<void> } A Promise instance used to return when pause completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     pause(): Promise<void>;
 
     /**
@@ -2302,6 +2465,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Resume AVRecorder, it will to started state.
+     * @returns { Promise<void> } A Promise instance used to return when resume completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     resume(): Promise<void>;
 
     /**
@@ -2323,6 +2496,16 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Stop AVRecorder, it will to stopped state.
+     * @returns { Promise<void> } A Promise instance used to return when stop completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     stop(): Promise<void>;
 
@@ -2361,6 +2544,14 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Releases resources used for AVRecorder, it will to released state.
+     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     release(): Promise<void>;
 
@@ -2431,6 +2622,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Recorder state.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     readonly state: AVRecorderState;
 
     /**
@@ -2451,6 +2648,16 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Listens for recording stateChange events.
+     * @param { 'stateChange' } type - Type of the recording event to listen for.
+     * @param { function } callback - Callback used to listen for the recorder stateChange event.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     on(type: 'stateChange', callback: (state: AVRecorderState, reason: StateChangeReason) => void): void;
 
@@ -2487,6 +2694,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
+    /**
+     * Listens for recording error events.
+     * @param { 'error' } type - Type of the recording error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400107 - Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -2495,6 +2720,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Cancel Listens for recording stateChange events.
+     * @param { 'stateChange' } type - Type of the recording stateChange event to listen for.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     off(type: 'stateChange'): void;
 
     /**
@@ -2502,6 +2734,13 @@ declare namespace media {
      * @param { 'error' } type - Type of the recording error event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Cancel Listens for recording error events.
+     * @param { 'error' } type - Type of the recording error event to listen for.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     off(type: 'error'): void;
 
@@ -3097,6 +3336,18 @@ declare namespace media {
      * @since 8
      */
     SPEED_FORWARD_2_00_X = 4,
+    /**
+     * playback at 0.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_0_50_X = 5,
+    /**
+     * playback at 1.5x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @since 12
+     */
+    SPEED_FORWARD_1_50_X = 6,
   }
 
   /**
@@ -3531,6 +3782,14 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
    */
+  /**
+   * Enumerates container format type(The abbreviation for 'container format type' is CFT).
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 12
+   */
   enum ContainerFormatType {
     /**
      * A video container format type mp4.
@@ -3543,6 +3802,12 @@ declare namespace media {
      * A audio container format type m4a.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
+     */
+    /**
+     * A audio container format type m4a.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
      */
     CFT_MPEG_4A = 'm4a',
   }
@@ -3831,7 +4096,15 @@ declare namespace media {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @since 9
+   * @since 9
+   */
+  /**
+   * Enumerates audio source type for recorder.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @since 12
    */
   enum AudioSourceType {
     /**
@@ -3844,6 +4117,12 @@ declare namespace media {
      * Source type mic.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Source type mic.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     AUDIO_SOURCE_TYPE_MIC = 1,
   }
@@ -4031,11 +4310,25 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 9
    */
+  /**
+   * Provides the media recorder profile definitions.
+   *
+   * @typedef AVRecorderProfile
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @since 12
+   */
   interface AVRecorderProfile {
     /**
      * Indicates the audio bitrate.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Indicates the audio bitrate.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     audioBitrate?: number;
 
@@ -4044,12 +4337,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Indicates the number of audio channels.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     audioChannels?: number;
 
     /**
      * Indicates the audio encoding format.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Indicates the audio encoding format.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     audioCodec?: CodecMimeType;
 
@@ -4058,12 +4363,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Indicates the audio sampling rate.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     audioSampleRate?: number;
 
     /**
      * Indicates the output file format.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Indicates the output file format.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     fileFormat: ContainerFormatType;
 
@@ -4118,11 +4435,25 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @since 9
    */
+  /**
+   * Provides the media recorder configuration definitions.
+   *
+   * @typedef AVRecorderConfig
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @since 12
+   */
   interface AVRecorderConfig {
     /**
      * Audio source type, details see @AudioSourceType .
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * Audio source type, details see @AudioSourceType .
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     audioSourceType?: AudioSourceType;
     /**
@@ -4136,12 +4467,25 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
+    /**
+     * Video recorder profile, details see @AVRecorderProfile .
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
+     */
     profile: AVRecorderProfile;
     /**
      * File output uri, support a kind of uri now.
      * format like: "fd://" + "context".
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
+     */
+    /**
+     * File output uri, support a kind of uri now.
+     * format like: "fd://" + "context".
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 12
      */
     url: string;
     /**
@@ -4229,6 +4573,13 @@ declare namespace media {
      * @since 11
      */
     SEEK_PREV_SYNC = 1,
+    /**
+     * Seek to the closest frame of the given timestamp.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    SEEK_CLOSEST = 2,
   }
 
   /**
@@ -4237,6 +4588,14 @@ declare namespace media {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 8
+   */
+  /**
+   * Enumerates Codec MIME types.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 12
    */
   enum CodecMimeType {
     /**
@@ -4276,6 +4635,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
+    /**
+     * AAC codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
     AUDIO_AAC = 'audio/mp4a-latm',
 
     /**
@@ -4298,6 +4663,257 @@ declare namespace media {
      * @since 11
      */
     VIDEO_HEVC = 'video/hevc',
+  }
+
+  /**
+   *  Enumerates AVScreenCaptureRecord preset types.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  enum AVScreenCaptureRecordPreset {
+    /**
+     * Screen record normal type, h264/aac mp4
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREEN_RECORD_PRESET_H264_AAC_MP4 = 0,
+    /**
+     * Screen record high efficient type, h265/aac mp4
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREEN_RECORD_PRESET_H265_AAC_MP4 = 1,
+  }
+
+  /**
+   *  Enumerates AVScreenCapture callback state type.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  enum AVScreenCaptureStateCode {
+    /**
+     * Screen capture started
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STARTED = 0,
+    /**
+     * Screen capture canceled
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_CANCELED = 1,
+    /**
+     * Screen capture stopped by user
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
+    /**
+     * Screen capture stopped by interrupt
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_INTERRUPTED_BY_OTHER = 3,
+    /**
+     * Screen capture stopped by phone call
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_STOPPED_BY_CALL = 4,
+    /**
+     * Screen capture microphone not available
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
+    /**
+     * Screen capture microphone is muted by user
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
+    /**
+     * Screen capture microphone is unmuted by user
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
+    /**
+     * Screen capture enter private scene
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
+    /**
+     * Screen capture exit private scene
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
+  }
+
+  /**
+   * Provides the media AVScreenCaptureRecord config definition.
+   *
+   * @typedef AVScreenCaptureRecordConfig
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  interface AVScreenCaptureRecordConfig {
+    /**
+     * Indicates record file descriptor.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    fd: number;
+    /**
+     * Indicates video frame width.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    frameWidth?: number;
+    /**
+     * Indicates video frame height.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    frameHeight?: number;
+    /**
+     * Indicates video bitrate.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    videoBitrate?: number;
+    /**
+     * Indicates audio sample rate.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    audioSampleRate?: number;
+    /**
+     * Indicates audio channel count.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    audioChannelCount?: number;
+    /**
+     * Indicates audio bitrate.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    audioBitrate?: number;
+    /**
+     * Indicates AVScreenCaptureRecordPreset, details see @AVScreenCaptureRecordPreset
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    preset?: AVScreenCaptureRecordPreset;
+  }
+
+  /**
+   * Provides screen capture record. Before calling an AVScreenCaptureRecorder method, you must use createAVScreenCaptureRecorder()
+   * to create an AVScreenCaptureRecorder instance.
+   *
+   * @typedef AVScreenCaptureRecorder
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 12
+   */
+  interface AVScreenCaptureRecorder {
+    /**
+     * Init AVScreenCaptureRecorder.
+     * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
+     * @returns { Promise<void> } A Promise instance used to return when init completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    init(config: AVScreenCaptureRecordConfig): Promise<void>;
+
+    /**
+     * Start screen capture recording.
+     * @returns { Promise<void> } A Promise instance used to return when startRecording completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    startRecording(): Promise<void>;
+
+    /**
+     * Stop screen capture recording.
+     * @returns { Promise<void> } A Promise instance used to return when stopRecording completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    stopRecording(): Promise<void>;
+
+    /**
+     * Set microphone enable or disable.
+     * @param { boolean } enable - Set microphone enable or disable during recording.
+     * @returns { Promise<void> } A Promise instance used to return when setMicEnabled completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    setMicEnabled(enable: boolean): Promise<void>;
+
+    /**
+     * Release screen capture recording.
+     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    release(): Promise<void>;
+
+    /**
+     * Listens for AVScreenCaptureRecord info callback.
+     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void;
+
+    /**
+     * Listens for AVScreenCaptureRecord info callback.
+     * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @throws { BusinessError } 5400103 - IO error. Return by ErrorCallback.
+     * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listens for AVScreenCaptureRecord info callback.
+     * @param { 'stateChange' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback used to listen for the AVScreenCaptureRecord info return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void;
+
+    /**
+     * Unregister listens for AVScreenCaptureRecord error callback.
+     * @param { 'error' } type - Type of the AVScreenCaptureRecord event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the AVScreenCaptureRecord error return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 export default media;

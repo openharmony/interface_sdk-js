@@ -560,6 +560,18 @@ declare namespace taskpool {
   }
 
   /**
+   * The LongTask class provides an interface to create a task that has no upper limit on execution time.
+   *
+   * @extends Task
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  class LongTask extends Task {
+  }
+
+  /**
    * The State defines the task state.
    *
    * @enum { number } State
@@ -1054,6 +1066,18 @@ declare namespace taskpool {
    * @since 11
    */
   function getTaskPoolInfo(): TaskPoolInfo;
+
+  /**
+   * Terminate a long task.
+   *
+   * @param { LongTask } longTask - The long task want to terminate.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function terminateTask(longTask: LongTask): void;
 }
 
 export default taskpool;

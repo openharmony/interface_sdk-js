@@ -14,12 +14,26 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Span container interface.
  *
  * @interface ContainerSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Span container interface.
+ *
+ * @interface ContainerSpanInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 interface ContainerSpanInterface {
   /**
@@ -29,6 +43,15 @@ interface ContainerSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called when container is entered in span.
+   *
+   * @returns { ContainerSpanAttribute } The attribute of the container span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   (): ContainerSpanAttribute;
 }
@@ -40,6 +63,14 @@ interface ContainerSpanInterface {
  * @crossplatform
  * @since 11
  */
+/**
+ * Define the ContainerSpan attribute functions.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare class ContainerSpanAttribute {
   /**
    * Span background style.
@@ -49,6 +80,16 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Span background style.
+   *
+   * @param { TextBackgroundStyle } style - The background style of span.
+   * @returns { ContainerSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
 }
@@ -60,6 +101,14 @@ declare class ContainerSpanAttribute {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines ContainerSpan Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare const ContainerSpan: ContainerSpanInterface;
 
 /**
@@ -68,5 +117,13 @@ declare const ContainerSpan: ContainerSpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines ContainerSpan Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

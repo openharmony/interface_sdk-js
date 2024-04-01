@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the option of MenuItemGroup.
  *
  * @interface MenuItemGroupOptions

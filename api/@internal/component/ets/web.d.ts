@@ -46,6 +46,16 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
+ * The callback of ssl error event.
+ *
+ * @typedef OnSslErrorEventCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
+
+/**
  * The callback of largestContentfulPaint.
  *
  * @typedef OnLargestContentfulPaintCallback
@@ -3541,6 +3551,34 @@ declare class WebCookie {
 }
 
 /**
+ * Defines the touch event result.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare class EventResult {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set whether the event is consumed.
+   * 
+   * @param { boolean } result - True if the event is consumed.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  setGestureEventResult(result: boolean): void;
+}
+
+/**
  * Defines the Web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -4084,7 +4122,7 @@ declare interface NativeEmbedInfo {
    */
   src?: string;
   /**
-   * The coordinate position of embed element relative to the webcomponent.
+   * The coordinate position of embed element relative to the webComponent.
    *
    * @type { ?Position }
    * @syscap SystemCapability.Web.Webview.Core
@@ -4213,6 +4251,15 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   touchEvent?: TouchEvent;
+  /**
+   * Handle the user's touch result.
+   *
+   * @type { ?EventResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  result?: EventResult;
 }
 
   /**
@@ -5985,6 +6032,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   }) => void): WebAttribute;
 
   /**
+   * Triggered when the Web page receives an ssl Error.
+   *
+   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
+
+  /**
    * Triggered when the Web page needs ssl client certificate from the user.
    *
    * @param { function } callback The triggered callback when needs ssl client certificate from the user.
@@ -6957,3 +7015,70 @@ declare const Web: WebInterface;
  * @since 11
  */
 declare const WebInstance: WebAttribute;
+
+/**
+ * Defines the ssl error event.
+ *
+ * @interface SslErrorEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface SslErrorEvent {
+  /**
+   * Notifies the user of the operation behavior of the web component.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  handler: SslErrorHandler,
+  /**
+   * Error codes.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  error: SslError
+  /**
+   * Request url.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  url: string;
+  /**
+   * Original url.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  originalUrl: string;
+  /**
+   * Referrer.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  referrer: string;
+  /**
+   * Whether the error is fatal.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  isFatalError: boolean;
+  /**
+   * Whether the request is main frame.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  isMainFrame: boolean;
+}

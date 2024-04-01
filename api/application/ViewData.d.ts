@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
  */
 
 import type PageNodeInfo from './PageNodeInfo';
+import type AutoFillRect from './AutoFillRect';
 
 /**
  * View data for automatic filling.
@@ -84,4 +85,15 @@ export default interface ViewData {
    * @since 11
    */
   pageNodeInfos: Array<PageNodeInfo>;
+
+  /**
+   * The page rect infos.
+   *
+   * @type { AutoFillRect }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  pageRect: AutoFillRect;
 }

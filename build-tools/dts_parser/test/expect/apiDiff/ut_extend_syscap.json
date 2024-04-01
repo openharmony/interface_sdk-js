@@ -26,11 +26,11 @@
       "requestPermissionsFromUser"
     ],
     "oldPos": {
-      "line": 15,
+      "line": 30,
       "character": 5
     },
     "newPos": {
-      "line": 15,
+      "line": 30,
       "character": 5
     },
     "oldDescription": "permissionList: Array<Permissions>",

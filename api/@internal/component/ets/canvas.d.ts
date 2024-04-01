@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
  *    two configurations are supported:
  * "evenodd": odd and even round rule

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * indexer align property.
  *
  * @enum { number }
@@ -752,6 +757,16 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Automatically collapses the characters when the indexer bar not high enough to display all characters.
+   *
+   * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   autoCollapse(value: boolean): AlphabetIndexerAttribute;
 

@@ -68,7 +68,6 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16500101 - The application is not a system application.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -102,7 +101,6 @@ export default class FormExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16500101 - The application is not a system application.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi

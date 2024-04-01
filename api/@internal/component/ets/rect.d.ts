@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides an interface for drawing rectangles.
  *
  * @interface RectInterface

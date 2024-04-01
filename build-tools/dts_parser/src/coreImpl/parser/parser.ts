@@ -18,7 +18,7 @@ import path from 'path';
 import ts from 'typescript';
 import _ from 'lodash';
 
-import { NodeProcessorHelper } from './NodeProcessor';
+import { NodeProcessorHelper, parserParam } from './NodeProcessor';
 import { ResultsProcessHelper } from './ResultsProcess';
 import { ApiType, BasicApiInfo, ApiInfo } from '../../typedef/parser/ApiInfoDefination';
 import { StringConstant } from '../../utils/Constant';
@@ -34,14 +34,29 @@ export class Parser {
    * 并将其整合到一个map对象中
    *
    * @param { string } fileDir 传入的文件目录
+   * @param { string } [collectFile = ''] 统计的文件或目录
    * @returns { FilesMap } 返回解析后的map对象
    */
-  static parseDir(fileDir: string): FilesMap {
+  static parseDir(fileDir: string, collectFile: string = ''): FilesMap {
     const files: Array<string> = FileUtils.readFilesInDir(fileDir, (name) => {
       return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
     });
+    if (Boolean(process.env.NEED_DETECTION)) {
+      parserParam.setFileDir(fileDir);
+      parserParam.setRootNames(files);
+    }
     const apiMap: FilesMap = new Map();
-    files.forEach((filePath: string) => {
+    let collectFiles: Array<string> = []
+    if (collectFile == '') {
+      collectFiles = files;
+    } else if (FileUtils.isDirectory(collectFile)) {
+      collectFiles = FileUtils.readFilesInDir(collectFile, (name) => {
+        return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
+      });
+    } else if (FileUtils.isFile(collectFile)) {
+      collectFiles = [collectFile]
+    }
+    collectFiles.forEach((filePath: string) => {
       Parser.parseFile(fileDir, filePath, apiMap);
     });
     return apiMap;
@@ -59,6 +74,9 @@ export class Parser {
     if (!fs.existsSync(filePath)) {
       return new Map();
     }
+    if (Boolean(process.env.NEED_DETECTION)) {
+      parserParam.setFilePath(filePath);
+    }
     const fileContent: string = fs.readFileSync(filePath, StringConstant.UTF8);
     let relFilePath: string = '';
     relFilePath = path.relative(fileDir, filePath);
@@ -67,6 +85,15 @@ export class Parser {
       .replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), StringConstant.TS_EXTENSION)
       .replace(new RegExp(StringConstant.DETS_EXTENSION, 'g'), StringConstant.ETS_EXTENSION);
     const sourceFile: ts.SourceFile = ts.createSourceFile(fileName, fileContent, ts.ScriptTarget.ES2017, true);
+    const fileArr: Array<string> = [filePath];
+    sourceFile.statements.forEach((statement: ts.Statement) => {
+      if (ts.isImportDeclaration(statement) && statement.moduleSpecifier.getText().startsWith('./', 1)) {
+        fileArr.push(path.resolve(filePath, '..', statement.moduleSpecifier.getText().replace(/'|"/g, '')))
+      }
+    })
+    if (Boolean(process.env.NEED_DETECTION)) {
+      parserParam.setProgram(fileArr);
+    }
     const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
     sourceFileInfo.setApiName(relFilePath);
@@ -143,7 +170,7 @@ export class Parser {
     }
     return '';
   }
-  
+
   /**
    * 获取解析结果的所有api
    *
