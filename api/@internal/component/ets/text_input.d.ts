@@ -2133,7 +2133,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextInput
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

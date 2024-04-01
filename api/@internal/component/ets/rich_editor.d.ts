@@ -1887,7 +1887,7 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
- * Defines the Keyboard options of RichEditor.
+ * Defines the custom keyboard options of RichEditor.
  *
  * @interface KeyboardOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1896,7 +1896,7 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface KeyboardOptions {
   /**
-   * Indicates whether to support keyboard avoidance.
+   * Indicates whether to support custom keyboard avoidance.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3148,7 +3148,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of RichEditor
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of RichEditor
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of RichEditor
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
