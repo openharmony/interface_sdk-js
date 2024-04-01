@@ -4426,6 +4426,14 @@ declare namespace media {
      * @since 11
      */
     isHdr?: boolean;
+
+    /**
+     * Whether to encode the video in temporal scale mode.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    enableTemporalScale?: boolean;
   }
 
   /**
