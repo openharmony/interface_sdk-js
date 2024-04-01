@@ -3256,6 +3256,16 @@ declare namespace call {
      * @since 11
      */
     voipBundleName: string;
+
+    /**
+     * Indicates whether the VoIP incoming call default show live call banner. Default value is true.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    showBannerForIncomingCall?: boolean;
   }
 
   /**
