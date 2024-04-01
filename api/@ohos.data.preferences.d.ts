@@ -223,6 +223,7 @@ declare namespace preferences {
    * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
    *        preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -258,6 +259,7 @@ declare namespace preferences {
    *        preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -301,6 +303,7 @@ declare namespace preferences {
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -334,6 +337,7 @@ declare namespace preferences {
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -371,6 +375,7 @@ declare namespace preferences {
    * @returns { Preferences } The {@link Preferences} instance matching the specified preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -425,6 +430,7 @@ declare namespace preferences {
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -466,6 +472,7 @@ declare namespace preferences {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
@@ -488,6 +495,7 @@ declare namespace preferences {
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
@@ -521,6 +529,7 @@ declare namespace preferences {
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
@@ -562,6 +571,7 @@ declare namespace preferences {
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
@@ -612,6 +622,7 @@ declare namespace preferences {
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -649,6 +660,7 @@ declare namespace preferences {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -698,6 +710,7 @@ declare namespace preferences {
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -735,6 +748,7 @@ declare namespace preferences {
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -768,6 +782,7 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -803,6 +818,7 @@ declare namespace preferences {
    * @param { Options } options - Indicates the {@link Options} option of preferences file position.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - Only supported in stage mode.
    * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -886,6 +902,7 @@ declare namespace preferences {
      * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
      *        returns the default value otherwise.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -930,6 +947,7 @@ declare namespace preferences {
      * @returns { Promise<ValueType> } The value matching the specified key if it is found;
      *          returns the default value otherwise.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -961,6 +979,7 @@ declare namespace preferences {
      * @returns { ValueType } The value matching the specified key if it is found;
      *          returns the default value otherwise.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -990,6 +1009,7 @@ declare namespace preferences {
      *
      * @param { AsyncCallback<Object> } callback - The values and keys in an object.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1019,6 +1039,7 @@ declare namespace preferences {
      *
      * @returns { Promise<Object> } The values and keys in an object.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1042,6 +1063,7 @@ declare namespace preferences {
      *
      * @returns { Object } The values and keys in an object.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1080,6 +1102,7 @@ declare namespace preferences {
      * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
      *         with the specified key;returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1118,6 +1141,7 @@ declare namespace preferences {
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1147,6 +1171,7 @@ declare namespace preferences {
      * @returns { boolean } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1194,6 +1219,7 @@ declare namespace preferences {
      *        <tt>MAX_VALUE_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1241,6 +1267,7 @@ declare namespace preferences {
      *        <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1272,6 +1299,7 @@ declare namespace preferences {
      * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_VALUE_LENGTH</tt>.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1313,6 +1341,7 @@ declare namespace preferences {
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1354,6 +1383,7 @@ declare namespace preferences {
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<void> } A promise object.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1381,6 +1411,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1410,6 +1441,7 @@ declare namespace preferences {
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1439,6 +1471,7 @@ declare namespace preferences {
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1484,6 +1517,7 @@ declare namespace preferences {
      * Asynchronously saves the {@link Preferences} object to the file.
      *
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1510,6 +1544,7 @@ declare namespace preferences {
      * Asynchronously saves the {@link Preferences} object to the file.
      *
      * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1542,6 +1577,7 @@ declare namespace preferences {
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1565,6 +1601,7 @@ declare namespace preferences {
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -1579,6 +1616,7 @@ declare namespace preferences {
      * @param { Array<string> } keys - Indicates one or more keys to listen for.
      * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -1610,6 +1648,7 @@ declare namespace preferences {
      * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
@@ -1632,6 +1671,7 @@ declare namespace preferences {
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Callback<string> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11
@@ -1645,6 +1685,7 @@ declare namespace preferences {
      * @param { Array<string> } keys - Indicates the data whose changes are not observed.
      * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12

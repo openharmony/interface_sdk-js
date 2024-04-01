@@ -40,8 +40,7 @@ class ErrorMessage(enum.Enum):
     METHOD_HAVE_PARENT_NO = '[$]does not have [&] label，but the methods below it has [&] label'
     METHOD_HAVE_INPUT_PARAM_NO = 'functions have [&] label, but the param do not have [&] label'
     METHOD_HAVE_OUTPUT_PARAM_NO = 'functions have [&] label, but the return value do not have [&] label'
-    METHOD_HAVE_PARAM_OBJ_NO = 'functions have [&] label, but the argument anonymous object do not have [&] label'
-    METHOD_HAVE_RETURN_OBJ_NO = 'functions have [&] label, but the return anonymous objects do not have [&] label'
+    METHOD_HAVE_OBJ_NO = 'functions have [&] label, but anonymous objects do not have [&] label'
 
 
 class ErrorType(enum.Enum):
@@ -52,6 +51,5 @@ class ErrorType(enum.Enum):
     CHILD_NO_TAG = 'method_missing_label'
     PARAM_NO_TAG = 'param_missing_label'
     RETURN_NO_TAG = 'return_missing_label'
-    PARAM_OBJ_NO_TAG = 'param_anonymous_object_missing_label'
-    RETURN_OBJ_NO_TAG = 'return_anonymous_object_missing_label'
+    OBJ_NO_TAG = 'anonymous_object_missing_label'
 
