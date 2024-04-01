@@ -2972,6 +2972,31 @@ declare namespace audio {
      * @since 10
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
+
+    /**
+     * Gets the max amplitude value for a specific input device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } inputDevice - the target device.
+     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    getMaxAmplitudeForInputDevice(inputDevice: AudioDeviceDescriptor): Promise<number>;
+    /**
+     * Gets the max amplitude value for a specific output device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } outputDevice - the target device.
+     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    getMaxAmplitudeForOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<number>;
   }
 
   /**
