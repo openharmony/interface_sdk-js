@@ -939,6 +939,7 @@ unmuted
 unmutes
 unobserve
 unperceivable
+unpremultiplied
 unpressed
 unregistered
 unregistering
@@ -1046,4 +1047,6 @@ beidou
 qzss
 glonass
 sbas
+uncertainty
+geofences
 gbk

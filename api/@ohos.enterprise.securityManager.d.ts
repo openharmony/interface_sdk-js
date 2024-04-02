@@ -173,6 +173,78 @@ declare namespace securityManager {
    * @since 12
    */
   function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
+
+  /**
+   * Sets the password policy of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { PasswordPolicy } policy - password policy to be set.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setPasswordPolicy(admin: Want, policy: PasswordPolicy): void;
+
+  /**
+   * Gets the password policy of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { PasswordPolicy } policy - the password policy of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getPasswordPolicy(admin: Want): PasswordPolicy;
+
+  /**
+   * Password policy.
+   * 
+   * @typedef PasswordPolicy
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export interface PasswordPolicy {
+    /**
+     * The regex of complexity
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    complexityRegex?: string;
+
+    /**
+     * Period of validity
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    validityPeriod?: number;
+
+    /**
+     * Other supplementary description
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    additionalDescription?: string;
+  }
 }
 
 export default securityManager;

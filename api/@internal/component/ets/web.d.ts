@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkWeb
+ */
+
+/**
  * Provides methods for controlling the web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core

@@ -411,7 +411,7 @@ declare namespace abilityManager {
    * Querying whether to allow embedded startup of atomic service.
    *
    * @param { Context } context - The context that initiates the query request.
-   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @returns { Promise<boolean> } Returns the result in the form of callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
