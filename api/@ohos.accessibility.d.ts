@@ -602,11 +602,23 @@ declare namespace accessibility {
 
     /**
      * Indicates whether the extended service needs to be hidden.
-     *
+     * 
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
     readonly needHide: boolean;
+
+    /**
+     * The label of the ability.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly label: string;
   }
 
   /**
@@ -761,6 +773,14 @@ declare namespace accessibility {
      * @since 12
      */
     textAnnouncedForAccessibility?: string;
+
+    /**
+     * The customized element id.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    customId?: string;
   }
 }
 export default accessibility;
