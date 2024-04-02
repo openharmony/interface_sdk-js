@@ -3138,19 +3138,13 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * PhotoSelectOptions Object
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 10
-   */
-  /**
-   * PhotoSelectOptions Object
+   * BaseSelectOptions Object
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 11
+   * @since 12
    */
-  class PhotoSelectOptions {
+  class BaseSelectOptions {
     /**
      * The Type of the file in the picker window.
      *
@@ -3165,6 +3159,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The Type of the file in the picker window.
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     MIMEType?: PhotoViewMIMETypes;
 
@@ -3183,6 +3185,14 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Maximum number of images for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     maxSelectNumber?: number;
 
     /**
@@ -3192,6 +3202,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Support search.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     isSearchSupported?: boolean;
 
@@ -3203,17 +3221,15 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
-    isPhotoTakingSupported?: boolean;
-
     /**
-     * Support editing photos.
+     * Support taking photos.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 11
+     * @since 12
      */
-    isEditSupported?: boolean;
+    isPhotoTakingSupported?: boolean;
 
     /**
     * The recommendation options when use recommendation photo function.
@@ -3223,6 +3239,14 @@ declare namespace photoAccessHelper {
     * @atomicservice
     * @since 11
     */
+    /**
+     * The recommendation options when use recommendation photo function.
+     *
+     * @type { ?RecommendationOptions }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     recommendationOptions?: RecommendationOptions;
 
     /**
@@ -3233,7 +3257,55 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The uri for the preselected files.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     preselectedUris?: Array<string>;
+  }
+
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  class PhotoSelectOptions extends BaseSelectOptions {
+    /**
+     * Support editing photos.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Support editing photos.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    isEditSupported?: boolean;
   }
 
   /**
