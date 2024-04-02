@@ -12936,6 +12936,46 @@ declare interface InvertOptions {
 }
 
 /**
+ * Import the CircleShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
+
+/**
+ * Import the EllipseShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
+
+/**
+ * Import the PathShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
+
+/**
+ * Import the RectShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16917,6 +16957,17 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
+   * The parameter specifies whether to crop based on the edge contour.
+   *
+   * @param { boolean } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  clip(value: boolean): T;
+
+  /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    *
@@ -16956,9 +17007,33 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead common[CommonMethod]#clipShape
    * @form
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+
+  /**
+  * The current component is cropped according to the specified shape.
+  *
+  * @param { CircleShape | EllipseShape | PathShape | RectShape } value - indicates the shape of the clip.
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
+
+  /**
+   * Sets the mask of the current component.
+   *
+   * @param { ProgressMask } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mask(value: ProgressMask): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
@@ -16996,9 +17071,22 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead common[CommonMethod]#maskShape
    * @form
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
+
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   *
+   * @param { CircleShape | EllipseShape | PathShape | RectShape } value - indicates the shape of the mask.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
   /**
    * Key. User can set an key to the component to identify it.
