@@ -938,6 +938,7 @@ unmutes
 unobserve
 unperceivable
 unpressed
+unpremultiplied
 unregistered
 unregistering
 unregisters
