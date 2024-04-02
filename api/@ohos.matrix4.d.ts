@@ -485,6 +485,112 @@ declare namespace matrix4 {
     angle?: number;
   }
 
+
+  /**
+   * Set poly to poly point.
+   *
+   * @interface Point
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface Point {
+
+    /**
+     * Point x.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    x: number;
+
+    /**
+     * Point y.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    y: number;
+  }
+
+  /**
+   * Set poly to poly point options.
+   *
+   * @interface PolyToPolyOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export interface PolyToPolyOptions {
+
+    /**
+     * Array of point coordinates for the source polygon.
+     *
+     * @type { Array<Point> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    src: Array<Point>;
+
+    /**
+     * Start point index of the source polygon, which defaults to 0.
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    srcIndex?: number;
+
+    /**
+     * Array of point coordinates for the target polygon.
+     *
+     * @type { Array<Point> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    dst:Array<Point>;
+
+    /**
+     * Start index of the target polygon, which defaults to 0.
+     *
+     * @type { ?number }
+     * @default src.Length/2
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    dstIndex?: number;
+
+    /**
+     * The number of points to be used.
+     * If it is 0, it returns the identity matrix.
+     * If it is 1, it returns a translation matrix that changed before two points.
+     * If it is 2-4, it returns a transformation matrix.
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    pointCount?:number;
+
+  }
   /**
    * Matrix4Transit.
    *
@@ -720,6 +826,18 @@ declare namespace matrix4 {
      * @since 11
      */
     transformPoint(options: [number, number]): [number, number];
+
+    /**
+     * Sets matrix to map src to dst.
+     *
+     * @param { PolyToPolyOptions } options - polyToPoly options
+     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit
+
   }
 
   /**
