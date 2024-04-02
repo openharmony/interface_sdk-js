@@ -2314,6 +2314,28 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextInputAttribute;  
+
+  /**
+   * Define the password visible mode of the text input.
+   *
+   * @param { boolean } visible - Indicates the password visible mode. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showPassword(visible: boolean): TextInputAttribute;
+
+  /**
+   * Called when changing the password visible mode of the text input.
+   *
+   * @param { Callback<boolean> } callback - callback of the password visible mode change event.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onSecurityStateChange(callback: Callback<boolean>): TextInputAttribute;
 }
 
 /**
