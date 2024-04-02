@@ -3015,7 +3015,7 @@ declare interface AlignRuleOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare enum ChainStyle {
   /**
@@ -3024,7 +3024,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   SPREAD,
 
@@ -3034,7 +3034,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   SPREAD_INSIDE,
 
@@ -3044,7 +3044,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   PACKED,
 }
@@ -9560,6 +9560,34 @@ declare enum SheetType {
 }
 
 /**
+ * Define the display mode of the sheet.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum SheetMode {
+  /**
+   * Sheet displays above all page levels.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  OVERLAY = 0,
+
+  /**
+   * Sheet displays within the current page.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  EMBEDDED = 1,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -9874,6 +9902,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onHeightDidChange?: Callback<number>;
+
+  /**
+   * Determine the level sheet shows, whether sheet should be displayed within the page
+   *
+   * @type { ?SheetMode }
+   * @default SheetMode.OVERLAY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mode?: SheetMode;
 }
 
 /**
@@ -11907,6 +11946,16 @@ declare class ProgressMask {
    * @since 11
    */
   updateColor(value: ResourceColor): void;
+  
+  /**
+   * Enable the breathe animation of mask.
+   *
+   * @param { boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enableBreathingAnimation(value: boolean): void;
 }
 
 /**
@@ -16203,7 +16252,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   chainMode(direction: Axis, style: ChainStyle): T;
 
@@ -19050,6 +19099,16 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
  * @since 12
  */
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
+ * ComponentContent.
+ *
+ * @typedef {import('../api/arkui/ComponentContent').ComponentContent} ComponentContent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
 
 /**
  * Custom Component

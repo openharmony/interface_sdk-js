@@ -668,6 +668,37 @@ declare namespace promptAction {
      * @since 12
      */
     isModal?: boolean;
+
+    /**
+     * Allows users to click the mask layer to exit.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    autoCancel?: boolean;
+
+    /**
+     * Transition parameters of opening/closing custom dialog.
+     *
+     * @type { ?TransitionEffect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    transition?: TransitionEffect;
+
+    /**
+     * Defines custom dialog maskColor
+     * 
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    maskColor?: ResourceColor;
     
     /**
     * Callback function when the CustomDialog interactive dismiss.
@@ -678,6 +709,46 @@ declare namespace promptAction {
     * @since 12
     */
     onWillDismiss?: Callback<DismissDialogAction>;
+
+    /**
+     * Callback function when the dialog appears.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onDidAppear?: () => void;
+
+    /**
+     * Callback function when the dialog disappears.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onDidDisappear?: () => void;
+
+    /**
+     * Callback function before the dialog openAnimation starts.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onWillAppear?: () => void;
+
+    /**
+     * Callback function before the dialog closeAnimation starts.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onWillDisappear?: () => void;
   }
 
   /**

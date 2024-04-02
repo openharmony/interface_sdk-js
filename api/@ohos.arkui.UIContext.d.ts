@@ -961,6 +961,50 @@ export class PromptAction {
    * @since 11
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
+
+  /**
+   * Open the custom dialog with frameNode.
+   *
+   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - the ComponentContent has already been opened.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    openCustomDialog(dialogContent: ComponentContent, options?: promptAction.BaseDialogOptions): Promise<void>;
+
+  /**
+   * Update the custom dialog with frameNode.
+   *
+   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    updateCustomDialog(dialogContent: ComponentContent, options: promptAction.BaseDialogOptions): Promise<void>;
+
+    /**
+     * Close the custom dialog with frameNode.
+     *
+     * @param { ComponentContent } dialogContent - the content of custom dialog.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+     * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+     * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    closeCustomDialog(dialogContent: ComponentContent): Promise<void>;
 }
 
 /**
@@ -2065,6 +2109,18 @@ export class UIContext {
    * @since 12
    */
   getHostContext(): Context | undefined;
+
+  /**
+   * Dynamic dimming.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @param { number } value - Compared to the original level of dimming.value range [0,1],
+   * set values less than 0 to 0 and values greater than 1 to 1.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  setDynamicDimming(id: string, value: number): void;
 }
 
 /**

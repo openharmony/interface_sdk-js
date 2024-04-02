@@ -3826,6 +3826,34 @@ declare namespace window {
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
     /**
+     * Register the callback function that has no interaction for a long time.
+     *
+     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
+     * @param { number } timeout - The timeout(in seconds) of no interaction detection.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
+
+    /**
+     * Unregister the callback function that has no interaction for a long time.
+     *
+     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    off(type: 'noInteractionDetected', callback?: Callback<void>): void;
+
+    /**
      * Register the callback of screenshot, only the focused window called back
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
@@ -4235,6 +4263,23 @@ declare namespace window {
      * @useinstead ohos.window.Window#setWindowBrightness
      */
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether the main window is topmost.
+     *
+     * @param { boolean } isTopmost - Main window is topmost if true.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    setTopmost(isTopmost: boolean): Promise<void>;
 
     /**
      * Sets the brightness of window.
@@ -6157,6 +6202,20 @@ declare namespace window {
      * @since 9
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
+
+    /**
+     * Set whether to use default density.
+     *
+     * @param { boolean } enabled - Use default density if true, or follow system density change if false
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @since 12
+     */
+    setDefaultDensityEnabled(enabled: boolean): void;
   }
 }
 

@@ -1882,6 +1882,17 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 12
    */
   onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
+
+  /**
+   * Setting whether the indicator is interactive.
+   *
+   * @param { boolean } value - Whether the indicator is interactive.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  indicatorInteractive(value: boolean): SwiperAttribute;
 }
 
 /**

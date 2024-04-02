@@ -458,6 +458,21 @@ declare interface RichEditorTextStyle {
    * @since 12
    */
   lineHeight?: number | string | Resource;
+
+  /**
+   * Set font feature, advanced text styles and effects as designed by the font author.
+   * The format is the like the CSS font-feature-settings attribute.
+   *
+   * @type { ?string }
+   * normal | <feature-tag-value>,
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of RichEditor component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 
@@ -1076,6 +1091,21 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   lineHeight?: number;
+
+  /**
+   * Set font feature, advanced text styles and effects as designed by the font author.
+   * The format is the like the CSS font-feature-settings attribute.
+   *
+   * @type { ?string }
+   * normal | <feature-tag-value>,
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of RichEditor component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 /**
@@ -1857,7 +1887,7 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
- * Defines the Keyboard options of RichEditor.
+ * Defines the custom keyboard options of RichEditor.
  *
  * @interface KeyboardOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1866,7 +1896,7 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface KeyboardOptions {
   /**
-   * Indicates whether to support keyboard avoidance.
+   * Indicates whether to support custom keyboard avoidance.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3118,7 +3148,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of RichEditor
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of RichEditor
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of RichEditor
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3261,7 +3291,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
 /**
  * callback of the listened enter key event.
  *
- * @typedef { Function } SubmitCallback
+ * @typedef { function } SubmitCallback
  * @param { EnterKeyType } enterKey - the enter key type of soft keyboard.
  * @param { SubmitEvent } event - Provides the method of keeping RichEditor editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full

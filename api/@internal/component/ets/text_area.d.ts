@@ -385,6 +385,15 @@ declare enum TextAreaType {
    * @since 12
    */
   EMAIL = 5,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
@@ -1223,7 +1232,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Define custom keyboard of the text area.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of TextArea
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextArea
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
