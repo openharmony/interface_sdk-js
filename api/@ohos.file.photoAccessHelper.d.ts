@@ -3134,7 +3134,16 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
-    IMAGE_VIDEO_TYPE = '*/*'
+    IMAGE_VIDEO_TYPE = '*/*',
+
+    /**
+     * MOVINGPHOTO_IMAGE_TYPE indicates that the selected media resources are moving photos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    MOVINGPHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
   /**
