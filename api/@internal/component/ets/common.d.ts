@@ -9913,6 +9913,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   mode?: SheetMode;
+
+  /**
+   * Called when detents of the sheet changed
+   *
+   * @type { ?Callback<number> }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDetentsDidChange?: Callback<number>;
 }
 
 /**
