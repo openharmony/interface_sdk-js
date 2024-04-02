@@ -68,7 +68,7 @@ import { NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, 
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import {
-  AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, PromptAction, Router,
+  AtomicServiceBar, ComponentUtils, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
   UIContext, UIInspector, UIObserver
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
@@ -112,7 +112,7 @@ export {
   GridObjectSortComponentType, IconCommonOptions, IconType, ItemState, KeyboardAvoidMode, LabelMarginOptions,
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
-  OperateItem, OperationOption, OperationType, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
+  OperateItem, OperationOption, OperationType, OverlayManager, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
   PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RenderNode, RenderOptions, 
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,

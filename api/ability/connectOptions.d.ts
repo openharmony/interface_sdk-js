@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import { ElementName } from '../bundle/elementName';
+import { ElementName } from '../bundleManager/ElementName';
 import rpc from './../@ohos.rpc';
 
 /**
@@ -38,6 +38,14 @@ export interface ConnectOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
+  /**
+   * The callback interface was connect successfully.
+   *
+   * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+   * @param { rpc.IRemoteObject } remote - The remote object instance
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 12
+   */
   onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
 
   /**
@@ -46,6 +54,13 @@ export interface ConnectOptions {
    * @param { ElementName } elementName - The element name of the service ability
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * The callback interface was disconnect successfully.
+   *
+   * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 12
    */
   onDisconnect(elementName: ElementName): void;
 

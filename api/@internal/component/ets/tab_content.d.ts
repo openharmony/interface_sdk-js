@@ -534,6 +534,16 @@ declare class SubTabBarStyle {
    * @since 11
    */
   constructor(content: ResourceStr);
+  /**
+   * constructor.
+   *
+   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(content: ResourceStr | ComponentContent);
 
   /**
    * constructor
@@ -557,6 +567,18 @@ declare class SubTabBarStyle {
    * @since 11
    */
   static of(content: ResourceStr): SubTabBarStyle;
+  /**
+   * Create a content object of the sub tab bar 
+   *
+   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
 
   /**
    * Set the style of the indicator when selected
@@ -671,6 +693,16 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set an id to the sub tab bar to identify it
+   *
+   * @param { string } value - id of the sub tab bar to identify it
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   id(value: string): SubTabBarStyle;
 }
@@ -864,6 +896,16 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set an id to the bottom tab bar to identify it
+   *
+   * @param { string } value - id of the bottom tab bar to identify it
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   id(value: string): BottomTabBarStyle;
 

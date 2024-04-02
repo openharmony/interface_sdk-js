@@ -75,7 +75,16 @@ declare namespace bundleResourceManager {
      * @systemapi
      * @since 11
      */
-    GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008
+    GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
+
+    /**
+     * Used to obtain bundle icon drawable descriptor.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+     * @systemapi
+     * @since 12
+     */
+    GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010
   }
 
   /**

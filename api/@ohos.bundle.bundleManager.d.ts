@@ -584,6 +584,14 @@ declare namespace bundleManager {
      * @since 12
      */
     EMBEDDED_UI = 21,
+	
+    /**
+     * Indicates extension info with type of insight intent UI
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 12
+     */
+    INSIGHT_INTENT_UI = 22,
 
     /**
      * Indicates extension info with type of unspecified

@@ -34,6 +34,17 @@
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
+ * Import the DrawingColorFilter type object for image color filter setting.
+ * 
+ * @typedef DrawingColorFilter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
+
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -854,7 +865,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  colorFilter(value: ColorFilter): ImageAttribute;
+  /**
+   * Sets the color filter effect on the image.
+   *
+   * @param { ColorFilter | DrawingColorFilter } value ColorFilter object.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
   /**
    * Allow replication.
@@ -1330,6 +1352,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   enableAnalyzer(enable: boolean): ImageAttribute;
 
   /**
@@ -1351,6 +1382,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set image resizable options.
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   resizable(value: ResizableOptions): ImageAttribute;
 }
@@ -1551,6 +1592,15 @@ declare interface ImageError {
  * @crossplatform
  * @since 11
  */
+/**
+ * Image resizable options
+ * 
+ * @interface ResizableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface ResizableOptions {
   /**
    * Image slice widths.
@@ -1559,6 +1609,15 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Image slice widths.
+   *
+   * @type { ?EdgeWidths }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   slice?: EdgeWidths;
 }

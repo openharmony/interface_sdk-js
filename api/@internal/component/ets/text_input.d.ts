@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -165,6 +165,14 @@ declare enum InputType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Number Password entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   NUMBER_PASSWORD = 8,
 
   /**
@@ -182,6 +190,13 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * UserName entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   USER_NAME = 10,
 
   /**
@@ -189,6 +204,13 @@ declare enum InputType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * NewPassword entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   NEW_PASSWORD = 11,
 
@@ -201,6 +223,178 @@ declare enum InputType {
    * @since 11
    */
   NUMBER_DECIMAL = 12,
+}
+
+/**
+ * Declare the type of input content
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare enum ContentType {
+  /**
+   * User name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  USER_NAME = 0,
+
+  /**
+   * Password content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PASSWORD = 1,
+
+  /**
+   * New password content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  NEW_PASSWORD = 2,
+
+  /**
+   * Full street address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  FULL_STREET_ADDRESS = 3,
+
+  /**
+   * House number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  HOUSE_NUMBER = 4,
+
+  /**
+   * District address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  DISTRICT_ADDRESS = 5,
+
+  /**
+   * City address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  CITY_ADDRESS = 6,
+
+  /**
+   * Province address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PROVINCE_ADDRESS = 7,
+
+  /**
+   * Country address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  COUNTRY_ADDRESS = 8,
+
+  /**
+   * Person full name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PERSON_FULL_NAME = 9,
+
+  /**
+   * Person last name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PERSON_LAST_NAME = 10,
+
+  /**
+   * Person first name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PERSON_FIRST_NAME = 11,
+
+  /**
+   * Phone number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PHONE_NUMBER = 12,
+
+  /**
+   * Phone country code content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PHONE_COUNTRY_CODE = 13,
+
+  /**
+   * Full phone number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  FULL_PHONE_NUMBER = 14,
+
+  /**
+   * Email address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  EMAIL_ADDRESS = 15,
+
+  /**
+   * Bank card number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  BANK_CARD_NUMBER = 16,
+
+  /**
+   * ID card number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  ID_CARD_NUMBER = 17
 }
 
 /**
@@ -350,6 +544,14 @@ declare enum EnterKeyType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Showed as 'previous' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   PREVIOUS = 7,
 
   /**
@@ -358,6 +560,14 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Showed as 'new line' pattern.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   NEW_LINE = 8,
 }
@@ -942,6 +1152,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   type(value: InputType): TextInputAttribute;
 
   /**
+   * Called when the content type is set.
+   *
+   * @param { ContentType } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  contentType(value: ContentType): TextInputAttribute;
+
+  /**
    * Called when the color of the placeholder is set.
    *
    * @param { ResourceColor } value
@@ -969,6 +1190,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   placeholderColor(value: ResourceColor): TextInputAttribute;
+
+  /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { TextOverflow } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textOverflow(value: TextOverflow): TextInputAttribute;
+
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { Dimension } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  baselineOffset(value: Dimension): TextInputAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @param { Dimension } value - The length of text indent.
+   * @returns { TextInputAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  textIndent(value: Dimension): TextInputAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
@@ -1879,7 +2133,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextInput
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1909,6 +2163,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Set the cancel button style
+   *
+   * @param { object } value - indicates the style of the cancel button.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): TextInputAttribute;
 
   /**
@@ -1919,6 +2183,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Sets selection when on focus.
+   *
+   * @param { boolean } value - Sets selection or not.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   selectAll(value: boolean): TextInputAttribute;
 
@@ -1963,6 +2237,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Sets whether enable auto fill or not.
+   *
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   enableAutoFill(value: boolean): TextInputAttribute;
 
   /**
@@ -2005,6 +2288,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Define the password rules of the text input.
+   *
+   * @param { string } value - Indicates the password rules. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   passwordRules(value: string): TextInputAttribute;
 

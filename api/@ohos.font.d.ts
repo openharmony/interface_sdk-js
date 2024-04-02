@@ -281,12 +281,25 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * @typedef UIFontConfig
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   interface UIFontConfig {
     /**
      * The paths of system font files.
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * The paths of system font files.
+     * @type { Array<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     fontDir: Array<string>;
 
@@ -296,6 +309,13 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
+    /**
+     * The generic font info.
+     * @type { Array<UIFontGenericInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     generic: Array<UIFontGenericInfo>;
 
     /**
@@ -303,6 +323,13 @@ declare namespace font {
      * @type { Array<UIFontFallbackGroupInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * The fallback font info.
+     * @type { Array<UIFontFallbackGroupInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     fallbackGroups: Array<UIFontFallbackGroupInfo>;
   }
@@ -312,12 +339,25 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * @typedef UIFontGenericInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   interface UIFontGenericInfo {
     /**
      * Name of the font set.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Name of the font set.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     family: string;
 
@@ -327,6 +367,13 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
+    /**
+     * Alias info of the font set.
+     * @type { Array<UIFontAliasInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     alias: Array<UIFontAliasInfo>;
 
     /**
@@ -334,6 +381,13 @@ declare namespace font {
      * @type { Array<UIFontAdjustInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Adjust info of the font set.
+     * @type { Array<UIFontAdjustInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     adjust: Array<UIFontAdjustInfo>;
   }
@@ -343,12 +397,25 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * @typedef UIFontAliasInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   interface UIFontAliasInfo {
     /**
      * Font set name.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Font set name.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     name: string;
 
@@ -359,6 +426,14 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
+    /**
+     * Weight the font set contains only fonts with, if weight = 0,
+     * this font set can contain fonts with any weight.
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     weight: number;
   }
 
@@ -367,6 +442,12 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * @typedef UIFontAdjustInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   interface UIFontAdjustInfo {
     /**
      * Original weight of the font
@@ -374,12 +455,26 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
+    /**
+     * Original weight of the font
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     weight: number;
     /**
      * Font weight displayed in the app
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Font weight displayed in the app
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     to: number;
   }
@@ -389,6 +484,12 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * @typedef UIFontFallbackGroupInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   interface UIFontFallbackGroupInfo {
     /**
      * Indicates which font set uses following list for fallback font
@@ -396,6 +497,14 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Indicates which font set uses following list for fallback font
+     * if the font set name is "", it means that the following list can be fallback font for all font sets.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     fontSetName: string;
 
@@ -405,6 +514,13 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
+    /**
+     * Fallback font list related.
+     * @type { Array<UIFontFallbackInfo> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
     fallback: Array<UIFontFallbackInfo>;
   }
   
@@ -413,12 +529,25 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * @typedef UIFontFallbackInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   interface UIFontFallbackInfo {
     /**
      * Language that font set support.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Language that font set support.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     language: string;
 
@@ -427,6 +556,13 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
+     */
+    /**
+     * Font name related.
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
      */
     family: string;
   }
@@ -490,6 +626,14 @@ declare namespace font {
    * @returns { UIFontConfig } Returns the ui font config
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Get font details according to the font name.
+   *
+   * @returns { UIFontConfig } Returns the ui font config
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   function getUIFontConfig(): UIFontConfig;
 }

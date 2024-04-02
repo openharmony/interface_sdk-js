@@ -30,6 +30,14 @@ import { CommonAttribute } from 'commonAttribute';
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines FrameNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export class FrameNode {
   /**
    * Constructor.
@@ -38,6 +46,15 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Constructor.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the FrameNode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   constructor(uiContext: UIContext);
 
@@ -48,6 +65,15 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get the RenderNode in FrameNode.
+   *
+   * @returns { RenderNode | null } - Returns a RenderNode inside the FrameNode, or null if not contained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   getRenderNode(): RenderNode | null;
 

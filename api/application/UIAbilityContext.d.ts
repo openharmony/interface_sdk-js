@@ -36,7 +36,7 @@ import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 import window from '../@ohos.window';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions.d.ts';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
