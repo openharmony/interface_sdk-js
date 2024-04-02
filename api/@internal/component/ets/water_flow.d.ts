@@ -431,6 +431,18 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   rowsTemplate(value: string): WaterFlowAttribute;
 
   /**
+   * Enable or disable the layout method that optimizes dynamic template changes.
+   *
+   * @param { bool } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fastTemplateSwitching(value: boolean): WaterFlowAttribute;
+
+  /**
    * Set the spacing between columns.
    *
    * @param { Length } value
