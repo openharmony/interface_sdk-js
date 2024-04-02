@@ -3137,13 +3137,13 @@ declare namespace photoAccessHelper {
     IMAGE_VIDEO_TYPE = '*/*',
 
     /**
-     * MOVINGPHOTO_IMAGE_TYPE indicates that the selected media resources are moving photos.
+     * MOVING_PHOTO_IMAGE_TYPE indicates that the selected media resources are moving photos.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12
      */
-    MOVINGPHOTO_IMAGE_TYPE = 'image/movingPhoto'
+    MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
   /**
@@ -3292,7 +3292,7 @@ declare namespace photoAccessHelper {
    */
   /**
    * PhotoSelectOptions Object
-   *
+   * @extends BaseSelectOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
