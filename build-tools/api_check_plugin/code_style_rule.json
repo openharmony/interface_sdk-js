@@ -188,6 +188,7 @@
       "SystemCapability.Multimedia.AVSession.Core",
       "SystemCapability.Multimedia.AVSession.Manager",
       "SystemCapability.Multimedia.AVSession.AVCast",
+      "SystemCapability.Multimedia.AVSession.ExtendedDisplayCast",
       "SystemCapability.Multimedia.Audio.Core",
       "SystemCapability.Multimedia.Audio.Tone",
       "SystemCapability.Multimedia.Audio.Interrupt",
