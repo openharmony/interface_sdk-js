@@ -438,7 +438,6 @@ export class RenderNode {
    * Set shadow radius of the RenderNode.
    *
    * @param { number } radius - the shadow radius of the RenderNode.
-   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -449,6 +448,7 @@ export class RenderNode {
    * Get shadow radius of the RenderNode.
    *
    * @returns { number } - Returns the shadow radius of the RenderNode.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
