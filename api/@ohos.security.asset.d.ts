@@ -76,7 +76,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000014 - File operation failed.
    * @throws { BusinessError } 24000015 - Get system time failed.
    * @syscap SystemCapability.Security.Asset
-   * @systemapi this method can be used only by system applications.
+   * @systemapi
    * @since 12
    */
   function addAsUser(userId: number, attributes: AssetMap): Promise<void>;
@@ -129,7 +129,7 @@ declare namespace asset {
    * Remove one or more Assets that match a search query from a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to remove an Asset.
+   * @param { number } userId - the user identifier to remove one or more Assets.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -144,7 +144,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @syscap SystemCapability.Security.Asset
-   * @systemapi this method can be used only by system applications.
+   * @systemapi
    * @since 12
    */
   function removeAsUser(userId: number, query: AssetMap): Promise<void>;
@@ -215,7 +215,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @throws { BusinessError } 24000015 - Get system time failed.
    * @syscap SystemCapability.Security.Asset
-   * @systemapi this method can be used only by system applications.
+   * @systemapi
    * @since 12
    */
   function updateAsUser(userId: number, query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
@@ -290,7 +290,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000016 - Capacity exceeds the limit.
    * @throws { BusinessError } 24000017 - Capability not supported.
    * @syscap SystemCapability.Security.Asset
-   * @systemapi this method can be used only by system applications.
+   * @systemapi
    * @since 12
    */
   function preQueryAsUser(userId: number, query: AssetMap): Promise<Uint8Array>;
@@ -366,7 +366,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @throws { BusinessError } 24000017 - Capability not supported.
    * @syscap SystemCapability.Security.Asset
-   * @systemapi this method can be used only by system applications.
+   * @systemapi
    * @since 12
    */
   function queryAsUser(userId: number, query: AssetMap): Promise<Array<AssetMap>>;
@@ -428,7 +428,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @syscap SystemCapability.Security.Asset
-   * @systemapi this method can be used only by system applications.
+   * @systemapi
    * @since 12
    */
   function postQueryAsUser(userId:number, handle: AssetMap): Promise<void>;
@@ -818,6 +818,13 @@ declare namespace asset {
      * @since 11
      */
     PERMISSION_DENIED = 201,
+    /**
+     * The error code indicates that the caller is not a system application.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    NON_SYSTEM_APPLICATION = 202,
     /**
      * The error code indicates that the argument is invalid.
      *
