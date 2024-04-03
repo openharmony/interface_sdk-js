@@ -268,7 +268,8 @@ declare namespace asset {
   function preQuery(query: AssetMap): Promise<Uint8Array>;
 
   /**
-   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication in a specific user space.
+   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication in a specific 
+   * user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to pre-query one or more Assets.
@@ -413,7 +414,8 @@ declare namespace asset {
   function postQuery(handle: AssetMap): Promise<void>;
 
   /**
-   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication in a specific user space.
+   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication in a 
+   * specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to post-query one or more Assets.
@@ -824,7 +826,7 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 12
      */
-    NON_SYSTEM_APPLICATION = 202,
+    NOT_SYSTEM_APPLICATION = 202,
     /**
      * The error code indicates that the argument is invalid.
      *
