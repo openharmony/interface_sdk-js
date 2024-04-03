@@ -15365,11 +15365,9 @@ declare class CommonMethod<T> {
    * @form
    */
   /**
-   * Sets the translation effect during page transition.
-   * The value is the start point of entry and end point of exit.
-   * When this parameter is set together with slide, slide takes effect by default.
+   * Set component translation.
    *
-   * @param { TranslateOptions } value
+   * @param { TranslateOptions } value default:{x:0,y:0,z:0}
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15407,9 +15405,9 @@ declare class CommonMethod<T> {
    * @form
    */
   /**
-   * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
+   * Set component scaling.
    *
-   * @param { ScaleOptions } value
+   * @param { ScaleOptions } value default:{x:1,y:1,z:1,centerX:'50%',centerY:'50%'}
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15511,10 +15509,9 @@ declare class CommonMethod<T> {
    * @form
    */
   /**
-   * Sets the rotation effect during assembly transition.
-   * The values are the start point during insertion and the end point during deletion.
+   * Set component rotation.
    *
-   * @param { RotateOptions } value
+   * @param { RotateOptions } value default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
