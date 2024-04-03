@@ -470,6 +470,14 @@ declare namespace avSession {
      * @since 11
      */
     TYPE_CAST_PLUS_STREAM = 2,
+
+    /**
+     * The DLNA type indicates the device supports DLNA protocol,
+     * the application needs to get an AVCastController to control remote playback.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 12
+     */
+    TYPE_DLNA = 4,
   }
 
   /**
@@ -501,7 +509,19 @@ declare namespace avSession {
    * @systemapi
    * @since 10
    */
-  function startCastDeviceDiscovery(filter?: number): Promise<void>;
+  /**
+   * Start device discovery.
+   * @param { number } [filter] - device filter when discovering, can be an union of {@link ProtocolType}
+   * @param { Array<string> } [drmSchemes] - filter drm-enabled devices which are represented by uuid.
+   * It is effective when protocol type is TYPE_CAST_PLUS_STREAM.
+   * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - parameter check failed
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 12
+   */
+  function startCastDeviceDiscovery(filter?: number, drmSchemes?: Array<string>): Promise<void>;
 
   /**
    * Stop device discovery.
@@ -1005,6 +1025,16 @@ declare namespace avSession {
      * @since 10
      */
     getOutputDeviceSync(): OutputDeviceInfo;
+
+    /**
+     * Get all the current virtual display information for extended display.
+     * @returns { Promise<Array<CastDisplayInfo>> } Promise for the CastDisplayInfo
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    getAllCastDisplays(): Promise<Array<CastDisplayInfo>>;
 
     /**
      * Register play command callback.
@@ -1524,6 +1554,30 @@ declare namespace avSession {
     off(type: 'toggleCallMute', callback?: Callback<void>): void;
 
     /**
+     * Register listener for cast display information changed.
+     * @param { 'castDisplayChange' } type - Type of the 'castDisplayChange' to listen for.
+     * @param { Callback<CastDisplayInfo> } callback - Callback used to return cast display information.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    on(type: 'castDisplayChange', callback: Callback<CastDisplayInfo>): void;
+
+    /**
+     * Unregister listener for cast display information changed.
+     * @param { 'castDisplayChange' } type - Type of the 'castDisplayChange' to listen for.
+     * @param { Callback<CastDisplayInfo> } callback - Callback used to return cast display information.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    off(type: 'castDisplayChange', callback?: Callback<CastDisplayInfo>): void;
+
+    /**
      * Stop current cast and disconnect device connection.
      * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -1798,6 +1852,18 @@ declare namespace avSession {
     getValidCommands(): Promise<Array<AVCastControlCommandType>>;
 
     /**
+     * Process the response corresponding to the media key request obtained by the application.
+     * @param { string } assetId - The assetId of resource which provides the response.
+     * @param { Uint8Array } response - Response corresponding to the request.
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 12
+     */
+    processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>;
+
+    /**
      * Destroy the controller
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2055,6 +2121,115 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'error'): void;
+
+    /**
+     * Register listener for drm key request.
+     * @param { 'keyRequest' } type - Type of the 'keyRequest' to listen for.
+     * @param { KeyRequestCallback } callback - Callback used to request drm key.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'keyRequest', callback: KeyRequestCallback): void;
+
+    /**
+     * Unregister listener for drm key request.
+     * @param { 'keyRequest' } type - Type of the 'keyRequest' to listen for.
+     * @param { KeyRequestCallback } callback - Callback used to request drm key.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'keyRequest', callback?: KeyRequestCallback): void;
+  }
+
+  /**
+   * The callback of key request.
+   *
+   * @typedef { Function } KeyRequestCallback
+   * @param { string } assetId - request key for current assetId
+   * @param { Uint8Array } requestData - media key request data sent to media key server
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @since 12
+   */
+  type KeyRequestCallback = (assetId: string, requestData: Uint8Array) => void;
+
+  /**
+   * Enumerates the cast display states.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+   * @since 12
+   */
+  enum CastDisplayState {
+    /**
+     * Screen off.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    STATE_OFF = 1,
+
+    /**
+     * Screen on.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    STATE_ON,
+  }
+
+  /**
+   * Define the information for extended display screen.
+   * @typedef CastDisplayInfo
+   * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+   * @since 12
+   */
+  interface CastDisplayInfo {
+    /**
+     * Display ID.
+     * The application can get more display information based on the same id from display interface.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    id: number;
+
+    /**
+     * Display name.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    name: string;
+
+    /**
+     * The state of display.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    state: CastDisplayState;
+
+    /**
+     * Display width, in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    width: number;
+
+    /**
+     * Display height, in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
+     * @since 12
+     */
+    height: number;
   }
 
   /**
@@ -2318,6 +2493,14 @@ declare namespace avSession {
     filter?: number;
 
     /**
+     * The drm schemes supported by this session which are represented by uuid.
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 12
+     */
+    drmSchemes?: Array<string>;
+
+    /**
      * The supported skipIntervals when doing fast forward and rewind operation, the default is {@link SECONDS_15}.
      * See {@link SkipIntervals}
      * @type { ?SkipIntervals }
@@ -2457,6 +2640,22 @@ declare namespace avSession {
      * @since 10
      */
     fdSrc?: media.AVFileDescriptor;
+
+    /**
+     * DataSource descriptor. The caller ensures the fileSize and callback are valid.
+     * @type { ?media.AVDataSrcDescriptor }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 12
+     */
+    dataSrc?: media.AVDataSrcDescriptor;
+
+    /**
+     * The drm scheme supported by this resource which is represented by uuid.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 12
+     */
+    drmScheme?: string;
 
     /**
      * The duration of this media
@@ -2894,6 +3093,14 @@ declare namespace avSession {
      * @since 11
      */
     supportedProtocols?: number;
+
+    /**
+     * The drm capability supported by current device, each drm is represented by uuid.
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 12
+     */
+    supportedDrmCapabilities?: Array<string>;
 
     /**
      * Define different authentication status.
