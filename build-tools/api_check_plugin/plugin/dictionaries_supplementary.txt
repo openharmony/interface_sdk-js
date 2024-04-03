@@ -229,6 +229,7 @@ dismissal
 dismissing
 dispatches
 displacement
+dlna
 dlp
 dnd
 dng
@@ -937,6 +938,7 @@ unmuted
 unmutes
 unobserve
 unperceivable
+unpremultiplied
 unpressed
 unregistered
 unregistering
