@@ -53,12 +53,14 @@ declare namespace asset {
   function add(attributes: AssetMap): Promise<void>;
 
   /**
-   * Add an Asset as a user.
+   * Add an Asset to a specific user space.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to add an Asset.
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Invalid UserID (not system app).
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000003 - Data already exists.
@@ -73,9 +75,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @throws { BusinessError } 24000014 - File operation failed.
    * @throws { BusinessError } 24000015 - Get system time failed.
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @systemapi this method can be used only by system app.
    * @syscap SystemCapability.Security.Asset
+   * @systemapi this method can be used only by system applications.
    * @since 12
    */
   function addAsUser(userId: number, attributes: AssetMap): Promise<void>;
@@ -125,11 +126,13 @@ declare namespace asset {
   function remove(query: AssetMap): Promise<void>;
 
   /**
-   * Remove one or more Assets that match a search query as a user.
+   * Remove one or more Assets that match a search query from a specific user space.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to remove an Asset.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 202 - Invalid UserID (not system app).
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
@@ -140,9 +143,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @systemapi this method can be used only by system app.
    * @syscap SystemCapability.Security.Asset
+   * @systemapi this method can be used only by system applications.
    * @since 12
    */
   function removeAsUser(userId: number, query: AssetMap): Promise<void>;
@@ -191,12 +193,14 @@ declare namespace asset {
   function update(query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
 
   /**
-   * Update an Asset that matches a search query as a user.
+   * Update an Asset that matches a search query in a specific user space.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to update an Asset.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 202 - Invalid UserID (not system app).
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
@@ -210,9 +214,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @throws { BusinessError } 24000015 - Get system time failed.
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @systemapi this method can be used only by system app.
    * @syscap SystemCapability.Security.Asset
+   * @systemapi this method can be used only by system applications.
    * @since 12
    */
   function updateAsUser(userId: number, query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
@@ -265,11 +268,13 @@ declare namespace asset {
   function preQuery(query: AssetMap): Promise<Uint8Array>;
 
   /**
-   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication as a user.
+   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication in a specific user space.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to pre-query one or more Assets.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
-   * @throws { BusinessError } 202 - Invalid UserID (not system app).
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
@@ -284,9 +289,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @throws { BusinessError } 24000016 - Capacity exceeds the limit.
    * @throws { BusinessError } 24000017 - Capability not supported.
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @systemapi this method can be used only by system app.
    * @syscap SystemCapability.Security.Asset
+   * @systemapi this method can be used only by system applications.
    * @since 12
    */
   function preQueryAsUser(userId: number, query: AssetMap): Promise<Uint8Array>;
@@ -340,11 +344,13 @@ declare namespace asset {
   function query(query: AssetMap): Promise<Array<AssetMap>>;
 
   /**
-   * Query one or more Assets that match a search query as a user.
+   * Query one or more Assets that match a search query in a specific user space.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to query one or more Assets.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
-   * @throws { BusinessError } 202 - Invalid UserID (not system app).
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000002 - Data not found.
@@ -359,9 +365,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
    * @throws { BusinessError } 24000017 - Capability not supported.
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @systemapi this method can be used only by system app.
    * @syscap SystemCapability.Security.Asset
+   * @systemapi this method can be used only by system applications.
    * @since 12
    */
   function queryAsUser(userId: number, query: AssetMap): Promise<Array<AssetMap>>;
@@ -408,11 +413,13 @@ declare namespace asset {
   function postQuery(handle: AssetMap): Promise<void>;
 
   /**
-   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication as a user.
+   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication in a specific user space.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to post-query one or more Assets.
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQueryAsUser}.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 202 - Invalid UserID (not system app).
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
    * @throws { BusinessError } 24000006 - Out of memory.
@@ -420,9 +427,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
    * @throws { BusinessError } 24000012 - Account manager is abnormal.
    * @throws { BusinessError } 24000013 - Access token manager is abnormal.
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @systemapi this method can be used only by system app.
    * @syscap SystemCapability.Security.Asset
+   * @systemapi this method can be used only by system applications.
    * @since 12
    */
   function postQueryAsUser(userId:number, handle: AssetMap): Promise<void>;
