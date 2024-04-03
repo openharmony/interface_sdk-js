@@ -61,6 +61,20 @@ declare namespace wifiManager {
   function disableWifi(): void;
 
   /**
+   * Enable semi - Wifi.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501004 - Failed for wifi is opening.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function enableSemiWifi(): void;
+
+  /**
    * Query the Wi-Fi status
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
@@ -136,6 +150,19 @@ declare namespace wifiManager {
    */
   function getScanResults(): Promise<Array<WifiScanInfo>>;
 
+  /**
+   * Obtains information about a Wi-Fi detail state.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @returns { WifiDetailState } Returns information about wifi state.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getWifiDetailState(): WifiDetailState;
 
   /**
    * Obtain the scanned sta list.
@@ -2106,6 +2133,71 @@ declare namespace wifiManager {
      * @since 10
      */
     DISC_REASON_CONNECTION_FULL = 2
+  }
+
+  /**
+   * Wi-Fi detail state.
+   * @enum { number } WifiDetailState
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  enum WifiDetailState {
+    /**
+     * state is unknown
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    UNKNOWN = -1,
+
+    /**
+     * wifi is closed
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    INACTIVE = 0,
+
+    /**
+     * wifi is opened
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ACTIVATED = 1,
+
+    /**
+     * wifi is opening
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ACTIVATING = 2,
+
+    /**
+     * wifi is closing
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    DEACTIVATING = 3,
+
+    /**
+     * wifi sta is entering semi active
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    SEMI_ACTIVATING = 4,
+
+    /**
+     * wifi sta is semi active
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    SEMI_ACTIVE = 5,
   }
 
   /**
