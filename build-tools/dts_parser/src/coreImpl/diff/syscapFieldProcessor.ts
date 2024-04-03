@@ -39,4 +39,11 @@ export class SyscapProcessorHelper {
     }
     return '';
   }
+
+  static getSingleKitInfo(data: BasicDiffInfo): string {
+    if (data.getNewKitInfo() !== '') {
+      return data.getNewKitInfo();
+    }
+    return data.getOldKitInfo();
+  }
 }

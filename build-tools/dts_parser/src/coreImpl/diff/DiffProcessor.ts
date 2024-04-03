@@ -1084,6 +1084,12 @@ export namespace DiffProcessorHelper {
    * @param {BasicDiffInfo} diffInfo 需要填充的diff对象
    */
   function processOldApiDiff(oldApiInfo: BasicApiInfo, diffInfo: BasicDiffInfo): void {
+    const clonedOldApiInfo: ApiInfo = oldApiInfo as ApiInfo;
+    const kitInfo: string | undefined = clonedOldApiInfo.getLastJsDocInfo()?.getKit();
+    if (kitInfo) {
+      diffInfo.setOldKitInfo(kitInfo);
+    }
+
     diffInfo
       .setOldApiDefinedText(oldApiInfo.getDefinedText())
       .setApiType(oldApiInfo.getApiType())
@@ -1101,6 +1107,11 @@ export namespace DiffProcessorHelper {
    * @param {BasicDiffInfo} diffInfo 需要填充的diff对象
    */
   function processNewApiDiff(newApiInfo: BasicApiInfo, diffInfo: BasicDiffInfo): void {
+    const clonedOldApiInfo: ApiInfo = newApiInfo as ApiInfo;
+    const kitInfo: string | undefined = clonedOldApiInfo.getLastJsDocInfo()?.getKit();
+    if (kitInfo) {
+      diffInfo.setNewKitInfo(kitInfo);
+    }
     diffInfo
       .setNewApiDefinedText(newApiInfo.getDefinedText())
       .setApiType(newApiInfo.getApiType())
