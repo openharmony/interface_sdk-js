@@ -40,7 +40,7 @@ export declare struct PhotoPickerComponent {
   pickerOptions?: PickerOptions;
 
   /**
-   * Select photos function
+   * Callback when select photos or videos
    *
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -50,7 +50,7 @@ export declare struct PhotoPickerComponent {
   onSelect?: (uri: string) => void;
 
   /**
-   * UnSelect photos function
+   * Callback when UnSelect photos or videos
    *
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -141,7 +141,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
  */
 export declare enum DataType {
   /**
-   * Set selected uris data type
+   * DataType: set selected uris to picker component, the data should be a array of uri
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
