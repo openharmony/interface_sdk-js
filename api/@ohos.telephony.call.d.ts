@@ -3262,6 +3262,7 @@ declare namespace call {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 12
      */
     showBannerForIncomingCall?: boolean;
