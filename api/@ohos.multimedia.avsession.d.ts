@@ -707,11 +707,17 @@ declare namespace avSession {
    * @since 10
    */
   /**
-   * Session type, support voice_call
+   * Session type, support audio & video, voice_call
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 11
    */
-  type AVSessionType = 'audio' | 'video' | 'voice_call';
+  /**
+   * Session type supports audio & video, voice_call, video_call
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
+  type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call';
 
   /**
    * AVSession object.
