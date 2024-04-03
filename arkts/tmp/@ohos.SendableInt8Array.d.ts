@@ -136,7 +136,17 @@ declare namespace collections {
      /**
       * A constructor used to create a Int8Array.
       *
-      * @param { number } [length] - The length of the array
+      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
+      * @syscap SystemCapability.Utils.Lang
+      * @crossplatform
+      * @atomicservice
+      * @since 12
+      */
+     constructor();
+     /**
+      * A constructor used to create a Int8Array.
+      *
+      * @param { number } length - The length of the array
       * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
       * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Utils.Lang
@@ -144,7 +154,7 @@ declare namespace collections {
       * @atomicservice
       * @since 12
       */
-     constructor(length?: number);
+     constructor(length: number);
      /**
       * A constructor used to create a Int8Array.
       *
@@ -185,9 +195,9 @@ declare namespace collections {
       */
      static from(arrayLike: ArrayLike<number>): Int8Array;
      /**
-      * Creates an ArkTS Array from an iterable object.
+      * Creates an ArkTS Array from an array-like object.
       *
-      * @param { Iterable<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
       * @param { function} mapFn - A mapping function to call on every element of the array.
       * @returns { Int8Array } A new Int8Array instance
       * @throws { BusinessError } 401 - Parameter error.
@@ -197,7 +207,21 @@ declare namespace collections {
       * @atomicservice
       * @since 12
       */
-     static from<T>(arrayLike: Iterable<T>, mapFn: (v: T, k: number) => number): Int8Array;
+     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int8Array;
+     /**
+      * Creates an ArkTS Array from an iterable object.
+      *
+      * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
+      * @param { function} mapFn - A mapping function to call on every element of the array.
+      * @returns { Int8Array } A new Int8Array instance
+      * @throws { BusinessError } 401 - Parameter error.
+      * @static
+      * @syscap SystemCapability.Utils.Lang
+      * @crossplatform
+      * @atomicservice
+      * @since 12
+      */
+     static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Int8Array;
      /**
       * Returns the this object after copying a section of the array identified by start and end
       * to the same array starting at position target.
@@ -367,7 +391,24 @@ declare namespace collections {
       *
       * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
       * callbackfn function one time for each element in the array.
-      * @param { number } [initialValue] - If initialValue is specified, it is used as the initial value to start
+      * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+      * @throws { BusinessError } 401 - Parameter error.
+      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
+      * @throws { BusinessError } 10200201 - Concurrent modification error.
+      * @syscap SystemCapability.Utils.Lang
+      * @crossplatform
+      * @atomicservice
+      * @since 12
+      */
+     reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int8Array) => number): number;
+     /**
+      * Calls the specified callback function for all the elements in an array. The return value of
+      * the callback function is the accumulated result, and is provided as an argument in the next
+      * call to the callback function.
+      *
+      * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
+      * callbackfn function one time for each element in the array.
+      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
       * the accumulation. The first call to the callbackfn function provides this value as an argument
       * instead of an array value.
       * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
@@ -379,7 +420,7 @@ declare namespace collections {
       * @atomicservice
       * @since 12
       */
-     reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int8Array) => number, initialValue?: number): number;
+     reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int8Array) => number, initialValue: number): number;
      /**
       * Calls the specified callback function for all the elements in an array. The return value of
       * the callback function is the accumulated result, and is provided as an argument in the next
