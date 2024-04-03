@@ -68,7 +68,16 @@ export declare struct PhotoPickerComponent {
    * @since 12
    */
   @ObjectLink
-  pickController?: PickerController;
+  pickController: PickerController;
+
+  /**
+   * Build function of PhotoPickerComponent
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  build(): void;
 }
 
 /**
