@@ -20332,6 +20332,15 @@ declare interface LightSource {
    * @since 11
    */
   intensity: number;
+  /**
+   * Defines the PointLight light color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+    color?: ResourceColor;
 }
 
 /**
