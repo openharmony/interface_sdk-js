@@ -2453,6 +2453,23 @@ declare namespace webview {
   }
 
   /**
+   * Options of generating code cache
+   * @interface CacheOptions
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  interface CacheOptions {
+    /**
+     * Response headers used to configure the validation key of code cache.
+     * Currently only support E-Tag and Last-Modified.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    responseHeaders: Array<WebHeader>;
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4469,6 +4486,21 @@ declare namespace webview {
      * @since 12
      */
     static getRenderProcessMode(): RenderProcessMode;
+
+    /**
+     * Compile javascript and generate code cache.
+     * @param { string } url - Url of the javascript.
+     * @param { string | Uint8Array } script - javascript source code.
+     * @param { CacheOptions } cacheOptions - generate code cache option.
+     * @returns { Promise<number> } - the promise returned by the function.
+     *                                0 means generate code cache successfully, -1 means internal error.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
   }
 
   /**
