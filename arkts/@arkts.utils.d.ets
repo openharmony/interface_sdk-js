@@ -108,7 +108,7 @@ declare namespace utils {
        * The method acquires the lock first, then calls the callback, and then releases the lock.
        * The callback is called asynchronously in the same thread where lockAsync was called.
        *
-       * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+       * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed.
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - No such lock.
@@ -124,7 +124,7 @@ declare namespace utils {
        * The method acquires the lock first, then calls the callback, and then releases the lock.
        * The callback is called asynchronously in the same thread where lockAsync was called.
        *
-       * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+       * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed or rejected.
        * @throws { BusinessError } 401 - The input parameters are invalid.
@@ -144,7 +144,7 @@ declare namespace utils {
        * resulting promise with a BusinessError instance if the lock is not acquired before timeout exceeds.
        * The error message, in this case, will contain the held and waited locks information and possible deadlock warnings.
        *
-       * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+       * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @param { AsyncLockOptions<U> } options - lock operation options.
        * @returns { Promise<T|U> } Promise that will be resolved after the callback gets executed or rejected in case timeout
