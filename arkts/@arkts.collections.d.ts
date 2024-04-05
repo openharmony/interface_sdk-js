@@ -154,7 +154,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create a Int8Array.
+     * A constructor used to create an Int8Array.
      *
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -164,7 +164,7 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create a Int8Array.
+     * A constructor used to create an Int8Array.
      *
      * @param { number } length - The length of the array
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
@@ -176,9 +176,9 @@ declare namespace collections {
      */
     constructor(length: number);
     /**
-     * A constructor used to create a Int8Array.
+     * A constructor used to create an Int8Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An ArkTS array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -188,9 +188,9 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create a Int8Array.
+     * A constructor used to create an Int8Array.
      *
-     * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
      * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
      * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
@@ -202,9 +202,9 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Int8Array from an array-like object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Int8Array.
      * @returns { Int8Array } A new Int8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -215,9 +215,9 @@ declare namespace collections {
      */
     static from(arrayLike: ArrayLike<number>): Int8Array;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Int8Array from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int8Array.
      * @param { function} mapFn - A mapping function to call on every element of the array.
      * @returns { Int8Array } A new Int8Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -229,10 +229,10 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int8Array;
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an Int8Array from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int8Array.
+     * @param { function} [mapFn] - A mapping function to call on every element of the array.
      * @returns { Int8Array } A new Int8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -241,7 +241,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Int8Array;
+    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int8Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -700,7 +700,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create a Uint8Array.
+     * A constructor used to create an Uint8Array.
      *
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -710,7 +710,7 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create a ArkTS Uint8Array.
+     * A constructor used to create an Uint8Array.
      *
      * @param { number } length - The length of the array
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
@@ -722,7 +722,7 @@ declare namespace collections {
      */
     constructor(length: number);
     /**
-     * A constructor used to create a ArkTS Uint8Array.
+     * A constructor used to create an Uint8Array.
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
@@ -734,9 +734,9 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create a Uint8Array.
+     * A constructor used to create an Uint8Array.
      *
-     * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
      * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
      * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
@@ -748,9 +748,9 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Uint8Array from an array-like object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Uint8Array.
      * @returns { Uint8Array } A new Uint8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -761,9 +761,9 @@ declare namespace collections {
      */
     static from(arrayLike: ArrayLike<number>): Uint8Array;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Uint8Array from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint8Array.
      * @param { function} mapFn - A mapping function to call on every element of the array.
      * @returns { Uint8Array } A new Uint8Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -775,10 +775,10 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Uint8Array;
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an Uint8Array from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint8Array.
+     * @param { function} [mapFn] - A mapping function to call on every element of the array.
      * @returns { Uint8Array } A new Uint8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -787,7 +787,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Uint8Array;
+    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Uint8Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -1246,7 +1246,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create a Int16Array.
+     * A constructor used to create an Int16Array.
      *
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -1256,7 +1256,7 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create a Int16Array.
+     * A constructor used to create an Int16Array.
      *
      * @param { number } length - The length of the array
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
@@ -1268,9 +1268,9 @@ declare namespace collections {
      */
     constructor(length: number);
     /**
-     * A constructor used to create a Int16Array.
+     * A constructor used to create an Int16Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An ArkTS array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -1280,9 +1280,9 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create a Int16Array.
+     * A constructor used to create an Int16Array.
      *
-     * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
      * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
      * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
@@ -1294,9 +1294,9 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Int16Array from an array-like object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Int16Array.
      * @returns { Int16Array } A new Int16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -1307,9 +1307,9 @@ declare namespace collections {
      */
     static from(arrayLike: ArrayLike<number>): Int16Array;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Int16Array from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int16Array.
      * @param { function} mapFn - A mapping function to call on every element of the array.
      * @returns { Int16Array } A new Int16Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -1321,10 +1321,10 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int16Array;
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an Int16Array from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int16Array.
+     * @param { function} [mapFn] - A mapping function to call on every element of the array.
      * @returns { Int16Array } A new Int16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -1333,7 +1333,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Int16Array;
+    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int16Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -1792,7 +1792,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create a Uint16Array.
+     * A constructor used to create an Uint16Array.
      *
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -1802,7 +1802,7 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create a Uint16Array.
+     * A constructor used to create an Uint16Array.
      *
      * @param { number } length - The length of the array
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
@@ -1814,9 +1814,9 @@ declare namespace collections {
      */
     constructor(length: number);
     /**
-     * A constructor used to create a Uint16Array.
+     * A constructor used to create an Uint16Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An ArkTS array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -1826,9 +1826,9 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create a Uint16Array.
+     * A constructor used to create an Uint16Array.
      *
-     * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
      * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
      * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
@@ -1840,9 +1840,9 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Uint16Array from an array-like object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Uint16Array.
      * @returns { Uint16Array } A new Uint16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -1853,9 +1853,9 @@ declare namespace collections {
      */
     static from(arrayLike: ArrayLike<number>): Uint16Array;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Uint16Array from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint16Array.
      * @param { function} mapFn - A mapping function to call on every element of the array.
      * @returns { Uint16Array } A new Uint16Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -1867,10 +1867,10 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Uint16Array;
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an Uint16Array from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint16Array.
+     * @param { function} [mapFn] - A mapping function to call on every element of the array.
      * @returns { Uint16Array } A new Uint16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -1879,7 +1879,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Uint16Array;
+    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Uint16Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -2338,7 +2338,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create a Int32Array.
+     * A constructor used to create an Int32Array.
      *
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -2348,7 +2348,7 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create a Int32Array.
+     * A constructor used to create an Int32Array.
      *
      * @param { number } length - The length of the array
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
@@ -2360,9 +2360,9 @@ declare namespace collections {
      */
     constructor(length: number);
     /**
-     * A constructor used to create a Int32Array.
+     * A constructor used to create an Int32Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An ArkTS array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -2372,9 +2372,9 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create a Int32Array.
+     * A constructor used to create an Int32Array.
      *
-     * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
      * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
      * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
@@ -2386,9 +2386,9 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Int32Array from an array-like object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Int32Array.
      * @returns { Int32Array } A new Int32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2399,9 +2399,9 @@ declare namespace collections {
      */
     static from(arrayLike: ArrayLike<number>): Int32Array;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Int32Array from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int32Array.
      * @param { function} mapFn - A mapping function to call on every element of the array.
      * @returns { Int32Array } A new Int32Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -2413,10 +2413,10 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int32Array;
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an Int32Array from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int32Array.
+     * @param { function} [mapFn] - A mapping function to call on every element of the array.
      * @returns { Int32Array } A new Int32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2425,7 +2425,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Int32Array;
+    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int32Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -2884,7 +2884,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create a Uint32Array.
+     * A constructor used to create an Uint32Array.
      *
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -2894,7 +2894,7 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create a Uint32Array.
+     * A constructor used to create an Uint32Array.
      *
      * @param { number } length - The length of the array
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
@@ -2906,9 +2906,9 @@ declare namespace collections {
      */
     constructor(length: number);
     /**
-     * A constructor used to create a Uint32Array.
+     * A constructor used to create an Uint32Array.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An ArkTS array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -2918,9 +2918,9 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create a Uint32Array.
+     * A constructor used to create an Uint32Array.
      *
-     * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
      * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
      * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
@@ -2932,9 +2932,9 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Uint32Array from an array-like object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Uint32Array.
      * @returns { Uint32Array } A new Uint32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2945,9 +2945,9 @@ declare namespace collections {
      */
     static from(arrayLike: ArrayLike<number>): Uint32Array;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an Uint32Array from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint32Array.
      * @param { function} mapFn - A mapping function to call on every element of the array.
      * @returns { Uint32Array } A new Uint32Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -2959,10 +2959,10 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Uint32Array;
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an Uint32Array from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint32Array.
+     * @param { function} [mapFn] - A mapping function to call on every element of the array.
      * @returns { Uint32Array } A new Uint32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2971,7 +2971,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Uint32Array;
+    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Uint32Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.

@@ -134,7 +134,7 @@ declare namespace collections {
       */
      readonly length: number;
      /**
-      * A constructor used to create a Int8Array.
+      * A constructor used to create an Int8Array.
       *
       * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
       * @syscap SystemCapability.Utils.Lang
@@ -144,7 +144,7 @@ declare namespace collections {
       */
      constructor();
      /**
-      * A constructor used to create a Int8Array.
+      * A constructor used to create an Int8Array.
       *
       * @param { number } length - The length of the array
       * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
@@ -156,9 +156,9 @@ declare namespace collections {
       */
      constructor(length: number);
      /**
-      * A constructor used to create a Int8Array.
+      * A constructor used to create an Int8Array.
       *
-      * @param { ArrayLike<number> | ArrayBuffer } array - An ArkTS array is initialized with the given elements
+      * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
       * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
       * @throws { BusinessError } 401 - Parameter error.
       * @syscap SystemCapability.Utils.Lang
@@ -168,9 +168,9 @@ declare namespace collections {
       */
      constructor(array: ArrayLike<number> | ArrayBuffer);
      /**
-      * A constructor used to create a Int8Array.
+      * A constructor used to create an Int8Array.
       *
-      * @param { ArrayBuffer } buffer - An ArkTS array is initialized with the given elements
+      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
       * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
       * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
       * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
@@ -182,9 +182,9 @@ declare namespace collections {
       */
      constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
      /**
-      * Creates an ArkTS Array from an array-like object.
+      * Creates an Int8Array from an array-like object.
       *
-      * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an ArkTS Array.
+      * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Int8Array.
       * @returns { Int8Array } A new Int8Array instance
       * @throws { BusinessError } 401 - Parameter error.
       * @static
@@ -195,9 +195,9 @@ declare namespace collections {
       */
      static from(arrayLike: ArrayLike<number>): Int8Array;
      /**
-      * Creates an ArkTS Array from an array-like object.
+      * Creates an Int8Array from an array-like object.
       *
-      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int8Array.
       * @param { function} mapFn - A mapping function to call on every element of the array.
       * @returns { Int8Array } A new Int8Array instance
       * @throws { BusinessError } 401 - Parameter error.
@@ -209,10 +209,10 @@ declare namespace collections {
       */
      static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int8Array;
      /**
-      * Creates an ArkTS Array from an iterable object.
+      * Creates an Int8Array from an iterable object.
       *
-      * @param { Iterable<number> } arrayLike - An iterable object to convert to an ArkTS Array.
-      * @param { function} mapFn - A mapping function to call on every element of the array.
+      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int8Array.
+      * @param { function} [mapFn] - A mapping function to call on every element of the array.
       * @returns { Int8Array } A new Int8Array instance
       * @throws { BusinessError } 401 - Parameter error.
       * @static
@@ -221,7 +221,7 @@ declare namespace collections {
       * @atomicservice
       * @since 12
       */
-     static from(arrayLike: Iterable<number>, mapFn: (v: number, k: number) => number): Int8Array;
+     static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int8Array;
      /**
       * Returns the this object after copying a section of the array identified by start and end
       * to the same array starting at position target.
