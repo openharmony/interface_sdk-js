@@ -1093,6 +1093,23 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
 
   /**
+   * Send a message to the host thread from the worker thread.
+   * If there're sendable objects included in the message, they will be passed through references.
+   * Non-sendable objects are passed through serialization.
+   *
+   * @param { Object } message - Data to be sent to the worker thread.
+   * @param { ArrayBuffer[] } [transfer] - ArrayBuffer instance that can be transferred.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void;
+
+  /**
    * Send a global call on registered globalCallObject on host side and return the result synchronously
    *
    * @param { string } instanceName - the exact key used in registration
@@ -1428,6 +1445,24 @@ declare namespace worker {
      * @since 11
      */
     postMessage(message: Object, options?: PostMessageOptions): void;
+
+    /**
+     * Sends a message to the worker thread from the host thread.
+     * If there're sendable objects included in the message, they will be passed through references.
+     * Non-sendable objects are passed through serialization.
+     *
+     * @param { Object } message - Data to be sent to the worker thread.
+     * @param { ArrayBuffer[] } [transfer] - ArrayBuffer instance that can be transferred.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void;
+
     /**
      * Adds an event listener to the worker.
      *

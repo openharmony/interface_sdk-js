@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -211,6 +211,16 @@ declare namespace wantConstant {
     SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit',
 
     /**
+     * Indicates the session ID of AssertFault.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    ASSERT_FAULT_SESSION_ID = 'ohos.ability.params.asssertFaultSessionId',
+
+    /**
      * Indicates the param of show mode key.
      *
      * @syscap SystemCapability.Ability.AbilityBase
@@ -267,19 +277,9 @@ declare namespace wantConstant {
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
-     * Indicates the grant for possible persisting on the URI.
-     * The flag only valid in PC scenarios.
-     * When sharing user file URI,
-     * if the application has PERMISSION_PROXY_AUTHORIZATION_URI permission or persistable permission to the URI,
-     * it can share persistable URI permission by using this flag.
-     * To grant persistable read permissions to URI,
-     * you can set flag = FLAG_AUTH_READ_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
-     * To grant persistable write permissions to URI,
-     * you can set flag = FLAG_AUTH_WRITE_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
-     *
+     * Indicates that the URI can be persisted by the callee.
      * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 

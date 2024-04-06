@@ -14,6 +14,13 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
+
+/**
  * Obtains resource information about a launcher ability
  *
  * @typedef LauncherAbilityResourceInfo
@@ -76,4 +83,15 @@ export interface LauncherAbilityResourceInfo {
    * @since 11
    */
   readonly label: string;
+
+  /**
+   * Indicates the drawable descriptor of this ability icon
+   *
+   * @type { DrawableDescriptor }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 12
+   */
+  readonly drawableDescriptor: DrawableDescriptor;
 }

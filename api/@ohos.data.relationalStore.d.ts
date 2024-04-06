@@ -197,7 +197,15 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  /**
+   * Indicates possible value types
+   *
+   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
+   */
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -334,6 +342,16 @@ declare namespace relationalStore {
      * @since 11
      */
     isSearchable?: boolean;
+
+    /**
+     * Specifies whether the vector type is supported.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    vector?: boolean;
   }
 
   /**
@@ -497,7 +515,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    NO_SPACE_FOR_ASSET
+    NO_SPACE_FOR_ASSET,
+
+    /**
+     * BLOCKED_BY_NETWORK_STRATEGY: means the sync blocked by network strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_NETWORK_STRATEGY
   }
 
   /**
@@ -2201,6 +2227,23 @@ declare namespace relationalStore {
     getAssets(columnIndex: number): Assets;
 
     /**
+     * Obtains the value of the specified column in the current row as a float array.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the float array type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { Float32Array } The value of the specified column as a float array.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.  
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    getFloat32Array(columnIndex: number): Float32Array;
+
+    /**
      * Obtains the values of all columns in the specified row.
      *
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
@@ -3117,6 +3160,22 @@ declare namespace relationalStore {
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
     /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans or 0.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<ValueType> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    execute(sql: string, txId: number, args?: Array<ValueType>): Promise<ValueType>;
+
+    /**
      * BeginTransaction before execute your sql.
      *
      * @throws { BusinessError } 401 - Parameter error.
@@ -3137,6 +3196,19 @@ declare namespace relationalStore {
     beginTransaction(): void;
 
     /**
+     * Begins a transaction before executing the SQL statement.
+     *
+     * @returns { Promise<number> } Returns the transaction ID.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    beginTrans(): Promise<number>;
+
+    /**
      * Commit the the sql you have executed.
      *
      * @throws { BusinessError } 401 - Parameter error.
@@ -3154,6 +3226,18 @@ declare namespace relationalStore {
     commit(): void;
 
     /**
+     * Commits the SQL statement executed.
+     *
+     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    commit(txId : number): Promise<void>;
+
+    /**
      * Roll back the sql you have already executed.
      *
      * @throws { BusinessError } 401 - Parameter error.
@@ -3169,6 +3253,18 @@ declare namespace relationalStore {
      * @since 10
      */
     rollBack(): void;
+
+    /**
+     * Rolls back the SQL statement executed.
+     *
+     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    rollback(txId : number): Promise<void>;
 
     /**
      * Backs up a database in a specified name.
@@ -3688,6 +3784,62 @@ declare namespace relationalStore {
      * @since 10
      */
     emit(event: string): void;
+
+    /**
+     * Attaches a database file to the currently linked database.
+     *
+     * @param { string } fullPath - Indicates the path of the database file to attach.
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
+     * @returns { Promise<number> } Promise used to return the number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    attach(fullPath: string, attachName: string, waitTime?: number) : Promise<number>;
+
+    /**
+     * Attaches a database file to the currently linked database.
+     *
+     * @param { Context } context - Indicates the context of an application or ability.
+     * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
+     * @returns { Promise<number> } Promise used to return the number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @throws { BusinessError } 14801001 - Only supported in stage mode.
+     * @throws { BusinessError } 14801002 - The data group id is not valid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    attach(context: Context, config: StoreConfig, attachName: string, waitTime?: number) : Promise<number>;
+
+    /**
+     * Detaches a database from this database.
+     *
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for detaching the database.
+     * @returns { Promise<number> } Return the current number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    detach(attachName: string, waitTime?: number) : Promise<number>;
   }
 
   /**
@@ -3833,6 +3985,20 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } name - Indicates the database name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
 

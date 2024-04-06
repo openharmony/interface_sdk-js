@@ -161,7 +161,7 @@ declare namespace photoAccessHelper {
      */
     CLOUD = 1 << 1
   }
- 
+
   /**
    * Analysis type
    *
@@ -250,7 +250,31 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    ANALYSIS_DETAIL_ADDRESS
+    ANALYSIS_DETAIL_ADDRESS,
+    /**
+     * Analysis of human face tag
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HUMAN_FACE_TAG,
+    /**
+     * Analysis of head position
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HEAD_POSITION,
+    /**
+     * Analysis of bone pose
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_BONE_POSE
   }
 
   /**
@@ -1073,7 +1097,7 @@ declare namespace photoAccessHelper {
      * Request thumbnails of the asset.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels 
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels
      * @returns { string } Returns request photo task id.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -1089,7 +1113,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { RequestPhotoOptions } options - Request photo options
-     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels 
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels
      * @returns { string } Returns request photo task id.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -3034,7 +3058,7 @@ declare namespace photoAccessHelper {
 
     /**
      * The uri for the preselected files.
-     * 
+     *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
@@ -3060,6 +3084,36 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     recommendationType?: RecommendationType;
+
+    /**
+     * The textContextInfo to recommend images.
+     *
+     * @type { ?TextContextInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    textContextInfo?: TextContextInfo;
+  }
+
+  /**
+   * Defines the text context info.
+   *
+   * @interface TextContextInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface TextContextInfo {
+    /**
+     * The Simplified Chinese(UTF-8) text within 250 to recommend images.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    text?: string;
   }
 
   /**

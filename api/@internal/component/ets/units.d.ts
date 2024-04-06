@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the data type of the interface restriction.
  *
  * @interface Resource
@@ -1789,6 +1794,67 @@ declare interface Position {
    */
   y?: Length;
 }
+
+/**
+ * Defines the Edges.
+ *
+ * @interface Edges
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare interface Edges {
+  /**
+   * top property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  top?: Dimension;
+
+  /**
+   * left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  left?: Dimension;
+
+   /**
+   * bottom property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  bottom?: Dimension;
+
+  /**
+   * right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  right?: Dimension;
+}
+
 /**
  * Defines the Bias.
  *
@@ -1809,6 +1875,17 @@ declare interface Bias {
    * @since 11
    * @form
    */
+  /**
+   * Horizontal ratio of the Bias, it must be >= 0.
+   *
+   * @type { ?number }
+   * @default 0.5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   horizontal?: number;
 
   /**
@@ -1819,6 +1896,17 @@ declare interface Bias {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Vertical ratio of the Bias, it must be >= 0.
+   *
+   * @type { ?number }
+   * @default 0.5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   vertical?: number;
@@ -2301,6 +2389,16 @@ declare interface BorderOptions {
  * @since 11
  * @form
  */
+/**
+ * Defines the options of border.
+ *
+ * @interface OutlineOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare interface OutlineOptions {
   /**
    * Defines the outline width.
@@ -2309,6 +2407,16 @@ declare interface OutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Defines the outline width.
+   *
+   * @type { ?(EdgeOutlineWidths | Dimension) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   width?: EdgeOutlineWidths | Dimension;
@@ -2322,6 +2430,16 @@ declare interface OutlineOptions {
    * @since 11
    * @form
    */
+  /**
+   * Defines the outline color.
+   *
+   * @type { ?(EdgeColors | ResourceColor) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   color?: EdgeColors | ResourceColor;
 
   /**
@@ -2333,6 +2451,16 @@ declare interface OutlineOptions {
    * @since 11
    * @form
    */
+  /**
+   * Defines the outline radius.
+   *
+   * @type { ?(OutlineRadiuses | Dimension) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   radius?: OutlineRadiuses | Dimension;
 
   /**
@@ -2342,6 +2470,16 @@ declare interface OutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Defines the outline style.
+   *
+   * @type { ?(EdgeOutlineStyles | OutlineStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   style?: EdgeOutlineStyles | OutlineStyle;
@@ -2485,6 +2623,14 @@ declare class ColorFilter {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
+/**
+ * Defines TouchPoint
+ *
+ * @interface TouchPoint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
 declare interface TouchPoint {
   /**
    * Define the touch point x coordinate.
@@ -2492,6 +2638,14 @@ declare interface TouchPoint {
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Define the touch point x coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   x: Dimension;
 
@@ -2501,6 +2655,14 @@ declare interface TouchPoint {
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Define the touch point y coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   y: Dimension;
 }

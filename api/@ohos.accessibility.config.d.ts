@@ -281,6 +281,20 @@ declare namespace config {
   function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
 
   /**
+   * Register the listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { 'installedAccessibilityListChange' } type Indicates the type of event.
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Input parameter error.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 12
+   */
+  function on(type: 'installedAccessibilityListChange', callback: Callback<void>): void;
+
+  /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
@@ -293,6 +307,20 @@ declare namespace config {
    * @since 9
    */
   function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { 'installedAccessibilityListChange' } type Indicates the type of event.
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 401 - Input parameter error.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 12
+   */
+  function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
 
   /**
    * Indicates setting, getting, and listening to changes in configuration.

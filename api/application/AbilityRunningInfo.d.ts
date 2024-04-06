@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { ElementName } from '../bundle/elementName';
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
+import { ElementName } from '../bundleManager/ElementName';
 import abilityManager from '../@ohos.app.ability.abilityManager';
 
 /**
@@ -33,6 +38,15 @@ export interface AbilityRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
+   */
+  /**
+   * Ability matching information.
+   *
+   * @type { ElementName }
+   * @default the ohos.bundleManager.ElementName object of the ability.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
    */
   ability: ElementName;
 

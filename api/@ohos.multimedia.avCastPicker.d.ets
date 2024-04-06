@@ -19,6 +19,8 @@
  */
 
 import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
+import { AVCastPickerStyle } from './@ohos.multimedia.avCastPickerParam';
+import { AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 
 /**
  * A picker view to show availale streaming device list.
@@ -68,6 +70,37 @@ declare struct AVCastPicker {
    */
   @Prop
   activeColor?: Color | number | string;
+
+  /**
+   * Set the picker style.
+   * @type { ? AVCastPickerStyle }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
+  @Prop
+  pickerStyle?: AVCastPickerStyle;
+
+  /**
+   * Set the picker color mode.
+   * @type { ? AVCastPickerColorMode }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
+  @Prop
+  colorMode?: AVCastPickerColorMode;
+
+  /**
+   * Set the session type used by current picker component which can refer to AVSessionType in avSession.
+   * If not set, default value is 'audio'.
+   * @type { ? string }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
+  @Prop
+  sessionType?: string;
 
   /**
    * Picker state change callback.

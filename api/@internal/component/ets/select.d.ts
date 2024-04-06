@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The declare of selectOption.
  *
  * @interface SelectOption
@@ -680,6 +685,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 11
    */
+  /** 
+   * Set the width of each option and set whether the option width fit the trigger.
+   *
+   * @param { Dimension | OptionWidthMode } value - The length of option width and decide option width to fit trigger or content.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
 
   /** 
@@ -690,6 +705,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /** 
+   * Set the height of each option.
+   * 
+   * @param { Dimension } value - The length of option height.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   optionHeight(value: Dimension): SelectAttribute;
 
@@ -714,6 +739,17 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
+
+  /**
+   * Sets the size for controls within Select Component.
+   *
+   * @param { ControlSize } value - control size
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  controlSize(value: ControlSize): SelectAttribute;
 }
 
 /**

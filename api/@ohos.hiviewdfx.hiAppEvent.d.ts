@@ -1230,6 +1230,26 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
+
+    /**
+     * The processor config id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    configId?: number;
+
+    /**
+     * The processor set custom config data.
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    customConfigs?: Record<string, string>;
   }
 
   /**

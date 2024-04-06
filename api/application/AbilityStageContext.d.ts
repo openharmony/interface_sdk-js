@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import Context from './Context';
