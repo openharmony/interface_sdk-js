@@ -1887,6 +1887,30 @@ export class UIContext {
   getUIInspector(): UIInspector;
 
   /**
+   * get the filtered attributes of the component tree.
+   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
+   * @returns { string } the specified attributes of the component tree in json string.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFilteredInspectorTree(filters?: Array<string>): string;
+
+  /**
+   * get the filtered attributes of the component tree with the specified id and depth
+   * @param { string } id - ID of the specified component tree to be obtained.
+   * @param { number } depth - depth of the component tree to be obtained.
+   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
+   * @returns { string } the specified attributes of the component tree in json string.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
+
+  /**
    * get object router.
    *
    * @returns { Router } object Router.
