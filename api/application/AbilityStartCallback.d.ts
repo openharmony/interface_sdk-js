@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type { AbilityResult } from '../ability/abilityResult';
+
 /**
  * @file
  * @kit AbilityKit
@@ -21,7 +23,7 @@
 /**
  * The callback of UIAbility or UIExtensionAbility.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -34,9 +36,20 @@ export default class AbilityStartCallback {
    * @param { string } name - The name returned if the UIAbility or UIExtensionAbility failed to start.
    * @param { string } message - The message returned if the UIAbility or UIExtensionAbility failed to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
   onError(code: number, name: string, message: string): void;
+  
+  /**
+   * Called when UIExtensionAbility call TerminateSelfWithResult.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onResult?: (parameter: AbilityResult) => void;
 }
