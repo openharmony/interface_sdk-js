@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace restrictions
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 10
  */
 declare namespace restrictions {
@@ -257,6 +256,40 @@ declare namespace restrictions {
    * @since 11
    */
   function isFingerprintAuthDisabled(admin: Want): boolean;
+
+  /**
+   * Disallows the specific feature of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed or allowed.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void;
+
+  /**
+   * Queries whether the specific feature of the device is disallowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be queried.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getDisallowedPolicy(admin: Want, feature: string): boolean;
 }
 
 export default restrictions;

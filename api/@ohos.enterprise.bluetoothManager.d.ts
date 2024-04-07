@@ -36,9 +36,8 @@ declare namespace bluetoothManager {
    *
    * @typedef BluetoothInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export interface BluetoothInfo {
     /**
@@ -46,9 +45,8 @@ declare namespace bluetoothManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     name: string;
 
@@ -57,9 +55,8 @@ declare namespace bluetoothManager {
      *
      * @type { access.BluetoothState }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     state: access.BluetoothState;
 
@@ -68,9 +65,8 @@ declare namespace bluetoothManager {
      *
      * @type { constant.ProfileConnectionState }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     connectionState: constant.ProfileConnectionState;
   }
@@ -85,12 +81,10 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getBluetoothInfo(admin: Want): BluetoothInfo;
 
