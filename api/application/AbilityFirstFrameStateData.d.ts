@@ -69,7 +69,7 @@ export interface AbilityFirstFrameStateData {
   appIndex: number;
 
   /**
-   * Is the ability cold start.
+   * The entry ability of application is cold-start return true, others false.
    *
    * @type { boolean }
    * @default false
