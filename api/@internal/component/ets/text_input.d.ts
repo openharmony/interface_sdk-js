@@ -1203,17 +1203,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   textOverflow(value: TextOverflow): TextInputAttribute;
 
   /**
-   * Called when the baseline offset is set.
-   *
-   * @param { Dimension } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  baselineOffset(value: Dimension): TextInputAttribute;
-
-  /**
    * Specify the indentation of the first line in a text-block.
    *
    * @param { Dimension } value - The length of text indent.
