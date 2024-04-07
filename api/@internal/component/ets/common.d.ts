@@ -16037,6 +16037,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * This callback is triggered when the size or position of this component change finished.
+   *
+   * @param { function } event - event callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
   /**
