@@ -1078,6 +1078,19 @@ declare namespace taskpool {
    * @since 12
    */
   function terminateTask(longTask: LongTask): void;
+
+    /**
+   * Check if the function is a concurrent function.
+   *
+   * @param { Function } func - The function name to check.
+   * @returns { boolean } Returns {@code true} if it is a concurrent function; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    function isConcurrent(func: Function): boolean;
 }
 
 export default taskpool;
