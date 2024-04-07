@@ -99,11 +99,11 @@ function checkMarkError(node, errorMessage, baseFileName) {
 
 function getParentkind(node, parentkindArr) {
   if (ts.isSourceFile(node)) {
-    return parentkindArr;
+    return;
   }
   if (ts.isSourceFile(node.parent)) {
     parentkindArr.push(Object.keys(ts.SyntaxKind).find(k => ts.SyntaxKind[k] === node.parent.kind));
-    return parentkindArr;
+    return;
   }
   if (!ts.isModuleBlock(node.parent)) {
     parentkindArr.push(Object.keys(ts.SyntaxKind).find(k => ts.SyntaxKind[k] === node.parent.kind));
@@ -116,39 +116,41 @@ exports.getParentkind = getParentkind;
 
 function parseUnicodeConfig() {
   let maskInfos = '';
-  if (fs.existsSync(path.resolve(__dirname, '../config/errorMaskWhiteList.txt'))) {
-    const maskInformations = fs.readFileSync(path.resolve(__dirname, '../config/errorMaskWhiteList.txt'), 'utf-8');
-    let maskInfoString = '';
-    if (maskInformations && maskInformations.indexOf("\\u") !== -1) {
-      let valArr = maskInformations.split("\\u");
-      for (var j = 0; j < valArr.length; j++) {
-        if (valArr[j] === '') {
-          continue;
-        }
-        maskInfoString += String.fromCharCode(parseInt(valArr[j], 16));
-      }
-    }
-    maskInfos = JSON.parse(maskInfoString);
+  if (!fs.existsSync(path.resolve(__dirname, '../config/errorMaskWhiteList.txt'))) {
+    return maskInfos;
   }
+  const maskInformations = fs.readFileSync(path.resolve(__dirname, '../config/errorMaskWhiteList.txt'), 'utf-8');
+  let maskInfoString = '';
+  if (maskInformations && maskInformations.indexOf('\\u') === -1) {
+    return JSON.parse(maskInfoString);
+  }
+  let valArr = maskInformations.split('\\u');
+  for (let j = 0; j < valArr.length; j++) {
+    if (valArr[j] === '') {
+      continue;
+    }
+    maskInfoString += String.fromCharCode(parseInt(valArr[j], 16));
+  }
+  maskInfos = JSON.parse(maskInfoString);
   return maskInfos;
 }
 
 function string2unicode() {
   const str = fs.readFileSync('../test/errorlist.json', 'utf-8');
-  var ret = "";
-  var ustr = "";
+  let ret = '';
+  let ustr = '';
 
-  for (var i = 0; i < str.length; i++) {
-    var code = str.charCodeAt(i);
-    var code16 = code.toString(16);
+  for (let i = 0; i < str.length; i++) {
+    let code = str.charCodeAt(i);
+    let code16 = code.toString(16);
     if (code < 0xf) {
-      ustr = "\\u" + "000" + code16;
+      ustr = '\\u' + '000' + code16;
     } else if (code < 0xff) {
-      ustr = "\\u" + "00" + code16;
+      ustr = '\\u' + '00' + code16;
     } else if (code < 0xfff) {
-      ustr = "\\u" + "0" + code16;
+      ustr = '\\u' + '0' + code16;
     } else {
-      ustr = "\\u" + code16;
+      ustr = '\\u' + code16;
     }
     ret += ustr;
   }
