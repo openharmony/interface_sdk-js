@@ -20823,3 +20823,10 @@ declare module 'commonAttribute'{
     export { CommonAttribute };
   }
 }
+
+declare module "ClickEventModule" {
+  module "ClickEventModule" {
+    // @ts-ignore
+    export { ClickEvent };
+  }
+}
