@@ -12823,6 +12823,15 @@ declare interface DragPreviewOptions {
   * @since 12
   */
   modifier?: ImageModifier;
+
+  /**
+  * The flag for number showing.
+  *
+  * @type { ?(boolean | number) }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  numberBadge?: boolean | number;
 }
 
 /**
