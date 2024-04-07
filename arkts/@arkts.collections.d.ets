@@ -29,6 +29,73 @@
  */
 declare namespace collections {
   /**
+   * Callback function used in the typed Array's 'from' function.
+   * 
+   * @param { FromElementType } value - The value in the original array.
+   * @param { number } index - The index in the original array.
+   * @returns { ToElementType } The transformed value.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type TypedArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType;
+  /**
+   * Callback function used in typed Array functions which needs to determine
+   * whether some element satisfies the specified predicate test
+   * 
+   * @param { ElementType } value - The value of the element.
+   * @param { number } index - The index of the element.
+   * @param { ArrayType } array - The array that the element belongs to.
+   * @returns { boolean } True if the value meets the predicate, otherwise false.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type TypedArrayPredicateFn<ElementType, ArrayType> =
+    (value: ElementType, index: number, array: ArrayType) => boolean;
+  /**
+   * Callback function used in typed Array functions that perform specific action for each element.
+   * 
+   * @param { ElementType } value - The value of the element.
+   * @param { number } index - The index of the element.
+   * @param { ArrayType } array - The array that the element belongs to.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type TypedArrayForEachCallback<ElementType, ArrayType> =
+    (value: ElementType, index: number, array: ArrayType) => void;
+  /**
+   * Callback function used in typed Array functions that require a reduction.
+   * 
+   * @param { AccType } previousValue - The accumulator value.
+   * @param { ElementType } currentValue - The current element being processed in the array.
+   * @param { number } currentIndex - The index of the current element being processed in the array.
+   * @param { ArrayType } array - The array that the element belongs to.
+   * @returns { AccType } The result of the reduction.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type TypedArrayReduceCallBack<AccType, ElementType, ArrayType> =
+    (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType;
+  /**
+   * Callback function used in the typed Array's 'sort' function.
+   * 
+   * @param { ElementType } first - The first element of the comparison.
+   * @param { ElementType } second - The second element of the comparison.
+   * @returns { number } The result of the comparison.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number;
+  /**
    * Array is a data structure that is implemented based on array. 
    * If multiple threads access a Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
@@ -752,7 +819,6 @@ declare namespace collections {
      */
     readonly size: number;
   }
-
   /**
    * Represents a raw buffer of binary data, which is used to store data for the
    * different typed arrays. ArrayBuffers cannot be read from or written to directly,
@@ -796,7 +862,8 @@ declare namespace collections {
      * Returns a section of an ArrayBuffer.
      *
      * @param { number } begin - Zero-based index at which to start extraction, converted to an integer.
-     * @param { number } [end] - Zero-based index at which to end extraction, converted to an integer. Default is buffer.length
+     * @param { number } [end] - Zero-based index at which to end extraction, converted to an integer.
+     * Default is buffer.length
      * @returns { ArrayBuffer } A new ArrayBuffer containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
@@ -916,8 +983,10 @@ declare namespace collections {
      * A constructor used to create an Int8Array.
      *
      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     * that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     * that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -939,11 +1008,12 @@ declare namespace collections {
      * @since 12
      */
     static from(arrayLike: ArrayLike<number>): Int8Array;
+    
     /**
      * Creates an Int8Array from an array-like object.
      *
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int8Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Int8Array } A new Int8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -952,12 +1022,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int8Array;
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int8Array;
     /**
      * Creates an Int8Array from an iterable object.
      *
      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int8Array.
-     * @param { function} [mapFn] - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     * call on every element of the array.
      * @returns { Int8Array } A new Int8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -966,7 +1037,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int8Array;
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -989,10 +1060,11 @@ declare namespace collections {
     /**
      * Determines whether all the members of an array satisfy the specified test.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The every method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - A function that accepts up to three arguments.
+     * The every method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element, in which case false is immediately returned.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     * in which case false is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1001,7 +1073,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    every(predicate: (value: number, index: number, array: Int8Array) => boolean): boolean;
+    every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean;
     /**
      * Returns the this object after filling the section identified by start and end with value.
      *
@@ -1023,8 +1095,8 @@ declare namespace collections {
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The filter method calls
-     * the predicate function one time for each element in the array.
+     * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
      * @returns { Int8Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -1034,15 +1106,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    filter(predicate: (value: number, index: number, array: Int8Array) => boolean): Int8Array;
+    filter(predicate: TypedArrayPredicateFn<number, Int8Array>): Int8Array;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
+     * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { number | undefined } The first element in the typed array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { number | undefined } The first element in the typed array
+     * that satisfies the provided testing function. Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1051,13 +1124,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    find(predicate: (value: number, index: number, obj: Int8Array) => boolean): number | undefined;
+    find(predicate: TypedArrayPredicateFn<number, Int8Array>): number | undefined;
     /**
      * Returns the index of the first element in the array where predicate is true, and -1
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found,
+     * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found,
      * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
      * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1068,12 +1141,12 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: (value: number, index: number, obj: Int8Array) => boolean): number;
+    findIndex(predicate: TypedArrayPredicateFn<number, Int8Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { function} callbackFn -  A function that accepts up to three arguments. forEach calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn -  A function that accepts up to three arguments.
+     * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1082,7 +1155,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    forEach(callbackFn: (value: number, index: number, array: Int8Array) => void): void;
+    forEach(callbackFn: TypedArrayForEachCallback<number, Int8Array>): void;
     /**
      * Returns the index of the first occurrence of a value in an array.
      *
@@ -1103,7 +1176,8 @@ declare namespace collections {
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      * resulting String. If omitted, the array elements are separated with a comma.
-     * @returns { string } A string with all typed array elements joined. if array.length is 0, the empty string is returned.
+     * @returns { string } A string with all typed array elements joined.
+     * If array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1117,8 +1191,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { function} callbackFn - A function that accepts up to three arguments. The map method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Int8Array> } callbackFn - A function that accepts up to three arguments.
+     * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int8Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -1128,15 +1202,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: (value: number, index: number, array: Int8Array) => number): Int8Array;
+    map(callbackFn: TypedArrayForEachCallback<number, Int8Array>): Int8Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @param { TypedArrayReduceCallBack<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1145,18 +1220,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int8Array) => number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int8Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1165,18 +1241,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int8Array) => number, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int8Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<U, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1185,7 +1262,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: number, currentIndex: number, array: Int8Array) => U, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Int8Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -1217,7 +1294,8 @@ declare namespace collections {
      * Returns a section of an array.
      *
      * @param { number } [start] - The beginning of the specified portion of the array.
-     * @param { number } [end] - The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * @returns { Int8Array } A new typed array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -1231,10 +1309,11 @@ declare namespace collections {
     /**
      * Determines whether the specified callback function returns true for any element of an array.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The some method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Int8Array> } predicate - A function that accepts up to three arguments.
+     * The some method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value true, or until the end of the array.
-     * @returns { boolean } false unless predicate returns a truthy value for a typed array element, in which case true is immediately returned.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     * in which case true is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1243,14 +1322,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    some(predicate: (value: number, index: number, array: Int8Array) => boolean): boolean;
+    some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean;
     /**
      * Sorts an array.
      *
-     * @param { function} [compareFn] - Function used to determine the order of the elements. It is expected to return
-     * a negative value if first argument is less than second argument, zero if they're equal and a positive
-     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
-     * @returns { Int8Array } The reference to the original typed array, now sorted. Note that the typed array is sorted in place and no copy is made.
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     * It is expected to return a negative value if first argument is less than second argument,
+     * zero if they're equal and a positive value otherwise.
+     * If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Int8Array } The reference to the original typed array, now sorted.
+     * Note that the typed array is sorted in place and no copy is made.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1259,7 +1340,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    sort(compareFn?: (a: number, b: number) => number): Int8Array;
+    sort(compareFn?: TypedArrayCompareFn<number>): Int8Array;
     /**
      * Gets a new Int8Array view of the ArrayBuffer store for this array, referencing the elements
      * at begin, inclusive, up to end, exclusive.
@@ -1282,7 +1363,8 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      * A negative index will count back from the last item.
      * @returns { number | undefined } The element in the array matching the given index.<br/>
-     * Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * Always returns undefined if index < -array.length or
+     * index >= array.length without attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1462,8 +1544,10 @@ declare namespace collections {
      * A constructor used to create an Uint8Array.
      *
      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     * that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     * that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -1489,7 +1573,7 @@ declare namespace collections {
      * Creates an Uint8Array from an array-like object.
      *
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint8Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint8Array } A new Uint8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -1498,12 +1582,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Uint8Array;
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8Array;
     /**
      * Creates an Uint8Array from an iterable object.
      *
      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint8Array.
-     * @param { function} [mapFn] - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     * call on every element of the array.
      * @returns { Uint8Array } A new Uint8Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -1512,7 +1597,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Uint8Array;
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -1535,10 +1620,11 @@ declare namespace collections {
     /**
      * Determines whether all the members of an array satisfy the specified test.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The every method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - A function that accepts up to three arguments.
+     * The every method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element, in which case false is immediately returned.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     * in which case false is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1547,7 +1633,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    every(predicate: (value: number, index: number, array: Uint8Array) => boolean): boolean;
+    every(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean;
     /**
      * Returns the this object after filling the section identified by start and end with value.
      *
@@ -1569,8 +1655,8 @@ declare namespace collections {
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The filter method calls
-     * the predicate function one time for each element in the array.
+     * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
      * @returns { Uint8Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -1580,15 +1666,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    filter(predicate: (value: number, index: number, array: Uint8Array) => boolean): Uint8Array;
+    filter(predicate: TypedArrayPredicateFn<number, Uint8Array>): Uint8Array;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
+     * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { number | undefined } The first element in the typed array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { number | undefined } The first element in the typed array
+     *  that satisfies the provided testing function. Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1597,13 +1684,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    find(predicate: (value: number, index: number, obj: Uint8Array) => boolean): number | undefined;
+    find(predicate: TypedArrayPredicateFn<number, Uint8Array>): number | undefined;
     /**
      * Returns the index of the first element in the array where predicate is true, and -1
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found,
+     * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found,
      * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
      * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1614,12 +1701,12 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: (value: number, index: number, obj: Uint8Array) => boolean): number;
+    findIndex(predicate: TypedArrayPredicateFn<number, Uint8Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { function} callbackFn -  A function that accepts up to three arguments. forEach calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn -  A function that accepts up to three arguments.
+     * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1628,7 +1715,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    forEach(callbackFn: (value: number, index: number, array: Uint8Array) => void): void;
+    forEach(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): void;
     /**
      * Returns the index of the first occurrence of a value in an array.
      *
@@ -1649,7 +1736,8 @@ declare namespace collections {
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      * resulting String. If omitted, the array elements are separated with a comma.
-     * @returns { string } A string with all typed array elements joined. if array.length is 0, the empty string is returned.
+     * @returns { string } A string with all typed array elements joined.
+     * If array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1663,8 +1751,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { function} callbackFn - A function that accepts up to three arguments. The map method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Uint8Array> } callbackFn - A function that accepts up to three arguments.
+     * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint8Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -1674,15 +1762,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: (value: number, index: number, array: Uint8Array) => number): Uint8Array;
+    map(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): Uint8Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @param { TypedArrayReduceCallBack<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1691,18 +1780,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint8Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1711,18 +1801,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint8Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<U, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1731,7 +1822,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Uint8Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -1763,7 +1854,8 @@ declare namespace collections {
      * Returns a section of an array.
      *
      * @param { number } [start] - The beginning of the specified portion of the array.
-     * @param { number } [end] - The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * @returns { Uint8Array } A new typed array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -1777,10 +1869,11 @@ declare namespace collections {
     /**
      * Determines whether the specified callback function returns true for any element of an array.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The some method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Uint8Array> } predicate - A function that accepts up to three arguments.
+     * The some method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value true, or until the end of the array.
-     * @returns { boolean } false unless predicate returns a truthy value for a typed array element, in which case true is immediately returned.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     * in which case true is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1789,14 +1882,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    some(predicate: (value: number, index: number, array: Uint8Array) => boolean): boolean;
+    some(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean;
     /**
      * Sorts an array.
      *
-     * @param { function} [compareFn] - Function used to determine the order of the elements. It is expected to return
-     * a negative value if first argument is less than second argument, zero if they're equal and a positive
-     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
-     * @returns { Uint8Array } The reference to the original typed array, now sorted. Note that the typed array is sorted in place and no copy is made.
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     * It is expected to return a negative value if first argument is less than second argument,
+     * zero if they're equal and a positive value otherwise.
+     * If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Uint8Array } The reference to the original typed array, now sorted.
+     * Note that the typed array is sorted in place and no copy is made.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1805,7 +1900,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    sort(compareFn?: (a: number, b: number) => number): Uint8Array;
+    sort(compareFn?: TypedArrayCompareFn<number>): Uint8Array;
     /**
      * Gets a new Uint8Array view of the ArrayBuffer store for this array, referencing the elements
      * at begin, inclusive, up to end, exclusive.
@@ -1828,7 +1923,8 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      * A negative index will count back from the last item.
      * @returns { number | undefined } The element in the array matching the given index.<br/>
-     * Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * Always returns undefined if index < -array.length or
+     * index >= array.length without attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2008,8 +2104,10 @@ declare namespace collections {
      * A constructor used to create an Int16Array.
      *
      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     * that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     * that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -2035,7 +2133,7 @@ declare namespace collections {
      * Creates an Int16Array from an array-like object.
      *
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int16Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Int16Array } A new Int16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2044,12 +2142,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int16Array;
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int16Array;
     /**
      * Creates an Int16Array from an iterable object.
      *
      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int16Array.
-     * @param { function} [mapFn] - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     * call on every element of the array.
      * @returns { Int16Array } A new Int16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2058,7 +2157,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int16Array;
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -2081,10 +2180,11 @@ declare namespace collections {
     /**
      * Determines whether all the members of an array satisfy the specified test.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The every method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - A function that accepts up to three arguments.
+     * The every method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element, in which case false is immediately returned.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     * in which case false is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2093,7 +2193,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    every(predicate: (value: number, index: number, array: Int16Array) => boolean): boolean;
+    every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean;
     /**
      * Returns the this object after filling the section identified by start and end with value.
      *
@@ -2115,8 +2215,8 @@ declare namespace collections {
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The filter method calls
-     * the predicate function one time for each element in the array.
+     * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
      * @returns { Int16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -2126,15 +2226,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    filter(predicate: (value: number, index: number, array: Int16Array) => boolean): Int16Array;
+    filter(predicate: TypedArrayPredicateFn<number, Int16Array>): Int16Array;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
+     * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { number | undefined } The first element in the typed array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { number | undefined } The first element in the typed array
+     * that satisfies the provided testing function. Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2143,13 +2244,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    find(predicate: (value: number, index: number, obj: Int16Array) => boolean): number | undefined;
+    find(predicate: TypedArrayPredicateFn<number, Int16Array>): number | undefined;
     /**
      * Returns the index of the first element in the array where predicate is true, and -1
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found,
+     * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found,
      * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
      * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2160,12 +2261,12 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: (value: number, index: number, obj: Int16Array) => boolean): number;
+    findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { function} callbackFn -  A function that accepts up to three arguments. forEach calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn -  A function that accepts up to three arguments.
+     * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2174,7 +2275,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    forEach(callbackFn: (value: number, index: number, array: Int16Array) => void): void;
+    forEach(callbackFn: TypedArrayForEachCallback<number, Int16Array>): void;
     /**
      * Returns the index of the first occurrence of a value in an array.
      *
@@ -2195,7 +2296,8 @@ declare namespace collections {
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      * resulting String. If omitted, the array elements are separated with a comma.
-     * @returns { string } A string with all typed array elements joined. if array.length is 0, the empty string is returned.
+     * @returns { string } A string with all typed array elements joined.
+     * If array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2209,8 +2311,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { function} callbackFn - A function that accepts up to three arguments. The map method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Int16Array> } callbackFn - A function that accepts up to three arguments.
+     * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -2220,15 +2322,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: (value: number, index: number, array: Int16Array) => number): Int16Array;
+    map(callbackFn: TypedArrayForEachCallback<number, Int16Array>): Int16Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @param { TypedArrayReduceCallBack<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2237,18 +2340,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int16Array) => number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int16Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2257,18 +2361,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int16Array) => number, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int16Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<U, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2277,7 +2382,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: number, currentIndex: number, array: Int16Array) => U, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Int16Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -2309,7 +2414,8 @@ declare namespace collections {
      * Returns a section of an array.
      *
      * @param { number } [start] - The beginning of the specified portion of the array.
-     * @param { number } [end] - The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * @returns { Int16Array } A new typed array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -2323,10 +2429,11 @@ declare namespace collections {
     /**
      * Determines whether the specified callback function returns true for any element of an array.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The some method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Int16Array> } predicate - A function that accepts up to three arguments.
+     * The some method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value true, or until the end of the array.
-     * @returns { boolean } false unless predicate returns a truthy value for a typed array element, in which case true is immediately returned.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     * in which case true is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2335,14 +2442,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    some(predicate: (value: number, index: number, array: Int16Array) => boolean): boolean;
+    some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean;
     /**
      * Sorts an array.
      *
-     * @param { function} [compareFn] - Function used to determine the order of the elements. It is expected to return
-     * a negative value if first argument is less than second argument, zero if they're equal and a positive
-     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
-     * @returns { Int16Array } The reference to the original typed array, now sorted. Note that the typed array is sorted in place and no copy is made.
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     * It is expected to return a negative value if first argument is less than second argument,
+     * zero if they're equal and a positive value otherwise.
+     * If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Int16Array } The reference to the original typed array, now sorted.
+     * Note that the typed array is sorted in place and no copy is made.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2351,7 +2460,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    sort(compareFn?: (a: number, b: number) => number): Int16Array;
+    sort(compareFn?: TypedArrayCompareFn<number>): Int16Array;
     /**
      * Gets a new Int16Array view of the ArrayBuffer store for this array, referencing the elements
      * at begin, inclusive, up to end, exclusive.
@@ -2374,7 +2483,8 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      * A negative index will count back from the last item.
      * @returns { number | undefined } The element in the array matching the given index.<br/>
-     * Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * Always returns undefined if index < -array.length or
+     * index >= array.length without attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2554,8 +2664,10 @@ declare namespace collections {
      * A constructor used to create an Uint16Array.
      *
      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     * that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     * that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -2581,7 +2693,7 @@ declare namespace collections {
      * Creates an Uint16Array from an array-like object.
      *
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint16Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint16Array } A new Uint16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2590,12 +2702,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Uint16Array;
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint16Array;
     /**
      * Creates an Uint16Array from an iterable object.
      *
      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint16Array.
-     * @param { function} [mapFn] - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     * call on every element of the array.
      * @returns { Uint16Array } A new Uint16Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -2604,7 +2717,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Uint16Array;
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint16Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -2627,10 +2740,11 @@ declare namespace collections {
     /**
      * Determines whether all the members of an array satisfy the specified test.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The every method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - A function that accepts up to three arguments.
+     * The every method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element, in which case false is immediately returned.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     * in which case false is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2639,7 +2753,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    every(predicate: (value: number, index: number, array: Uint16Array) => boolean): boolean;
+    every(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean;
     /**
      * Returns the this object after filling the section identified by start and end with value.
      *
@@ -2661,8 +2775,8 @@ declare namespace collections {
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The filter method calls
-     * the predicate function one time for each element in the array.
+     * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
      * @returns { Uint16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -2672,15 +2786,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    filter(predicate: (value: number, index: number, array: Uint16Array) => boolean): Uint16Array;
+    filter(predicate: TypedArrayPredicateFn<number, Uint16Array>): Uint16Array;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
+     * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { number | undefined } The first element in the typed array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { number | undefined } The first element in the typed array
+     * that satisfies the provided testing function. Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2689,13 +2804,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    find(predicate: (value: number, index: number, obj: Uint16Array) => boolean): number | undefined;
+    find(predicate: TypedArrayPredicateFn<number, Uint16Array>): number | undefined;
     /**
      * Returns the index of the first element in the array where predicate is true, and -1
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found,
+     * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found,
      * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
      * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2706,12 +2821,12 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: (value: number, index: number, obj: Uint16Array) => boolean): number;
+    findIndex(predicate: TypedArrayPredicateFn<number, Uint16Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { function} callbackFn -  A function that accepts up to three arguments. forEach calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn -  A function that accepts up to three arguments.
+     * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2720,7 +2835,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    forEach(callbackFn: (value: number, index: number, array: Uint16Array) => void): void;
+    forEach(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): void;
     /**
      * Returns the index of the first occurrence of a value in an array.
      *
@@ -2741,7 +2856,8 @@ declare namespace collections {
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      * resulting String. If omitted, the array elements are separated with a comma.
-     * @returns { string } A string with all typed array elements joined. if array.length is 0, the empty string is returned.
+     * @returns { string } A string with all typed array elements joined.
+     * If array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2755,8 +2871,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { function} callbackFn - A function that accepts up to three arguments. The map method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Uint16Array> } callbackFn - A function that accepts up to
+     * three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint16Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -2766,15 +2882,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: (value: number, index: number, array: Uint16Array) => number): Uint16Array;
+    map(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): Uint16Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @param { TypedArrayReduceCallBack<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2783,18 +2900,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint16Array) => number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint16Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2803,18 +2921,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint16Array) => number, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint16Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<U, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2823,7 +2942,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint16Array) => U, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Uint16Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -2855,7 +2974,8 @@ declare namespace collections {
      * Returns a section of an array.
      *
      * @param { number } [start] - The beginning of the specified portion of the array.
-     * @param { number } [end] - The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * @returns { Uint16Array } A new typed array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -2869,10 +2989,11 @@ declare namespace collections {
     /**
      * Determines whether the specified callback function returns true for any element of an array.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The some method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Uint16Array> } predicate - A function that accepts up to three arguments.
+     * The some method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value true, or until the end of the array.
-     * @returns { boolean } false unless predicate returns a truthy value for a typed array element, in which case true is immediately returned.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     * in which case true is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2881,14 +3002,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    some(predicate: (value: number, index: number, array: Uint16Array) => boolean): boolean;
+    some(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean;
     /**
      * Sorts an array.
      *
-     * @param { function} [compareFn] - Function used to determine the order of the elements. It is expected to return
-     * a negative value if first argument is less than second argument, zero if they're equal and a positive
-     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
-     * @returns { Uint16Array } The reference to the original typed array, now sorted. Note that the typed array is sorted in place and no copy is made.
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     * It is expected to return a negative value if first argument is less than second argument,
+     * zero if they're equal and a positive value otherwise.
+     * If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Uint16Array } The reference to the original typed array, now sorted.
+     * Note that the typed array is sorted in place and no copy is made.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2897,7 +3020,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    sort(compareFn?: (a: number, b: number) => number): Uint16Array;
+    sort(compareFn?: TypedArrayCompareFn<number>): Uint16Array;
     /**
      * Gets a new Uint16Array view of the ArrayBuffer store for this array, referencing the elements
      * at begin, inclusive, up to end, exclusive.
@@ -2920,7 +3043,8 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      * A negative index will count back from the last item.
      * @returns { number | undefined } The element in the array matching the given index.<br/>
-     * Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * Always returns undefined if index < -array.length or
+     * index >= array.length without attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3100,8 +3224,10 @@ declare namespace collections {
      * A constructor used to create an Int32Array.
      *
      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     * that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     * that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Int32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3127,7 +3253,7 @@ declare namespace collections {
      * Creates an Int32Array from an array-like object.
      *
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Int32Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Int32Array } A new Int32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -3136,12 +3262,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Int32Array;
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int32Array;
     /**
      * Creates an Int32Array from an iterable object.
      *
      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Int32Array.
-     * @param { function} [mapFn] - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     * call on every element of the array.
      * @returns { Int32Array } A new Int32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -3150,7 +3277,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Int32Array;
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int32Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -3173,10 +3300,11 @@ declare namespace collections {
     /**
      * Determines whether all the members of an array satisfy the specified test.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The every method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - A function that accepts up to three arguments.
+     * The every method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element, in which case false is immediately returned.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     * in which case false is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3185,7 +3313,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    every(predicate: (value: number, index: number, array: Int32Array) => boolean): boolean;
+    every(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean;
     /**
      * Returns the this object after filling the section identified by start and end with value.
      *
@@ -3207,8 +3335,8 @@ declare namespace collections {
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The filter method calls
-     * the predicate function one time for each element in the array.
+     * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
      * @returns { Int32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -3218,15 +3346,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    filter(predicate: (value: number, index: number, array: Int32Array) => boolean): Int32Array;
+    filter(predicate: TypedArrayPredicateFn<number, Int32Array>): Int32Array;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
+     * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { number | undefined } The first element in the typed array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { number | undefined } The first element in the typed array
+     * that satisfies the provided testing function. Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3235,13 +3364,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    find(predicate: (value: number, index: number, obj: Int32Array) => boolean): number | undefined;
+    find(predicate: TypedArrayPredicateFn<number, Int32Array>): number | undefined;
     /**
      * Returns the index of the first element in the array where predicate is true, and -1
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found,
+     * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found,
      * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
      * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3252,12 +3381,12 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: (value: number, index: number, obj: Int32Array) => boolean): number;
+    findIndex(predicate: TypedArrayPredicateFn<number, Int32Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { function} callbackFn -  A function that accepts up to three arguments. forEach calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn -  A function that accepts up to three arguments.
+     * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3266,7 +3395,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    forEach(callbackFn: (value: number, index: number, array: Int32Array) => void): void;
+    forEach(callbackFn: TypedArrayForEachCallback<number, Int32Array>): void;
     /**
      * Returns the index of the first occurrence of a value in an array.
      *
@@ -3287,7 +3416,8 @@ declare namespace collections {
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      * resulting String. If omitted, the array elements are separated with a comma.
-     * @returns { string } A string with all typed array elements joined. if array.length is 0, the empty string is returned.
+     * @returns { string } A string with all typed array elements joined.
+     * If array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3301,8 +3431,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { function} callbackFn - A function that accepts up to three arguments. The map method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Int32Array> } callbackFn - A function that accepts up to three arguments.
+     * The map method calls the callbackfn function one time for each element in the array.
      * @returns { Int32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -3312,15 +3442,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: (value: number, index: number, array: Int32Array) => number): Int32Array;
+    map(callbackFn: TypedArrayForEachCallback<number, Int32Array>): Int32Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @param { TypedArrayReduceCallBack<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3329,18 +3460,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int32Array) => number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int32Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3349,18 +3481,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Int32Array) => number, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int32Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<U, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3369,7 +3502,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: number, currentIndex: number, array: Int32Array) => U, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Int32Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -3401,7 +3534,8 @@ declare namespace collections {
      * Returns a section of an array.
      *
      * @param { number } [start] - The beginning of the specified portion of the array.
-     * @param { number } [end] - The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * @returns { Int32Array } A new typed array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -3415,10 +3549,11 @@ declare namespace collections {
     /**
      * Determines whether the specified callback function returns true for any element of an array.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The some method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Int32Array> } predicate - A function that accepts up to three arguments.
+     * The some method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value true, or until the end of the array.
-     * @returns { boolean } false unless predicate returns a truthy value for a typed array element, in which case true is immediately returned.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     * in which case true is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3427,14 +3562,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    some(predicate: (value: number, index: number, array: Int32Array) => boolean): boolean;
+    some(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean;
     /**
      * Sorts an array.
      *
-     * @param { function} [compareFn] - Function used to determine the order of the elements. It is expected to return
-     * a negative value if first argument is less than second argument, zero if they're equal and a positive
-     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
-     * @returns { Int32Array } The reference to the original typed array, now sorted. Note that the typed array is sorted in place and no copy is made.
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     * It is expected to return a negative value if first argument is less than second argument,
+     * zero if they're equal and a positive value otherwise.
+     * If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Int32Array } The reference to the original typed array, now sorted.
+     * Note that the typed array is sorted in place and no copy is made.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3443,7 +3580,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    sort(compareFn?: (a: number, b: number) => number): Int32Array;
+    sort(compareFn?: TypedArrayCompareFn<number>): Int32Array;
     /**
      * Gets a new Int32Array view of the ArrayBuffer store for this array, referencing the elements
      * at begin, inclusive, up to end, exclusive.
@@ -3466,7 +3603,8 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      * A negative index will count back from the last item.
      * @returns { number | undefined } The element in the array matching the given index.<br/>
-     * Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * Always returns undefined if index < -array.length or
+     * index >= array.length without attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3646,8 +3784,10 @@ declare namespace collections {
      * A constructor used to create an Uint32Array.
      *
      * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range that will be exposed by the typed array view.
+     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
+     * that will be exposed by the typed array view.
+     * @param { number } [length] - The length parameter specifies the memory range
+     * that will be exposed by the typed array view.
      * @throws { BusinessError } 10200012 - The Uint32Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3673,7 +3813,7 @@ declare namespace collections {
      * Creates an Uint32Array from an array-like object.
      *
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint32Array.
-     * @param { function} mapFn - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
      * @returns { Uint32Array } A new Uint32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -3682,12 +3822,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from<T>(arrayLike: ArrayLike<T>, mapFn: (v: T, k: number) => number): Uint32Array;
+    static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint32Array;
     /**
      * Creates an Uint32Array from an iterable object.
      *
      * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint32Array.
-     * @param { function} [mapFn] - A mapping function to call on every element of the array.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
+     * call on every element of the array.
      * @returns { Uint32Array } A new Uint32Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -3696,7 +3837,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static from(arrayLike: Iterable<number>, mapFn?: (v: number, k: number) => number): Uint32Array;
+    static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint32Array;
     /**
      * Returns the this object after copying a section of the array identified by start and end
      * to the same array starting at position target.
@@ -3719,10 +3860,11 @@ declare namespace collections {
     /**
      * Determines whether all the members of an array satisfy the specified test.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The every method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - A function that accepts up to three arguments.
+     * The every method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element, in which case false is immediately returned.
+     * @returns { boolean } true unless predicate returns a false value for a typed array element,
+     * in which case false is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3731,7 +3873,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    every(predicate: (value: number, index: number, array: Uint32Array) => boolean): boolean;
+    every(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean;
     /**
      * Returns the this object after filling the section identified by start and end with value.
      *
@@ -3753,8 +3895,8 @@ declare namespace collections {
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The filter method calls
-     * the predicate function one time for each element in the array.
+     * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - A function that accepts up to three arguments.
+     * The filter method calls the predicate function one time for each element in the array.
      * @returns { Uint32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The filter method cannot be bound.
@@ -3764,15 +3906,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    filter(predicate: (value: number, index: number, array: Uint32Array) => boolean): Uint32Array;
+    filter(predicate: TypedArrayPredicateFn<number, Uint32Array>): Uint32Array;
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found, find
+     * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find
      * immediately returns that element value. Otherwise, find returns undefined.
-     * @returns { number | undefined } The first element in the typed array that satisfies the provided testing function. Otherwise, undefined is returned.
+     * @returns { number | undefined } The first element in the typed array
+     * that satisfies the provided testing function. Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The find method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3781,13 +3924,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    find(predicate: (value: number, index: number, obj: Uint32Array) => boolean): number | undefined;
+    find(predicate: TypedArrayPredicateFn<number, Uint32Array>): number | undefined;
     /**
      * Returns the index of the first element in the array where predicate is true, and -1
      * otherwise.
      *
-     * @param { function} predicate - find calls predicate once for each element of the array, in ascending
-     * order, until it finds one where predicate returns true. If such an element is found,
+     * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - find calls predicate once for each element of
+     * the array, in ascending order, until it finds one where predicate returns true. If such an element is found,
      * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
      * @returns { number } The index of the first element in the typed array that passes the test. Otherwise, -1.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3798,12 +3941,12 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: (value: number, index: number, obj: Uint32Array) => boolean): number;
+    findIndex(predicate: TypedArrayPredicateFn<number, Uint32Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
-     * @param { function} callbackFn -  A function that accepts up to three arguments. forEach calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn -  A function that accepts up to three arguments.
+     * forEach calls the callbackfn function one time for each element in the array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3812,7 +3955,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    forEach(callbackFn: (value: number, index: number, array: Uint32Array) => void): void;
+    forEach(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): void;
     /**
      * Returns the index of the first occurrence of a value in an array.
      *
@@ -3833,7 +3976,8 @@ declare namespace collections {
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      * resulting String. If omitted, the array elements are separated with a comma.
-     * @returns { string } A string with all typed array elements joined. if array.length is 0, the empty string is returned.
+     * @returns { string } A string with all typed array elements joined.
+     * If array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3847,8 +3991,8 @@ declare namespace collections {
      * Calls a defined callback function on each element of an array, and returns an array that
      * contains the results.
      *
-     * @param { function} callbackFn - A function that accepts up to three arguments. The map method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayForEachCallback<number, Uint32Array> } callbackFn - A function that accepts up to
+     * three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @returns { Uint32Array } The array itself.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -3858,15 +4002,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    map(callbackFn: (value: number, index: number, array: Uint32Array) => number): Uint32Array;
+    map(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): Uint32Array;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @param { TypedArrayReduceCallBack<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3875,18 +4020,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint32Array) => number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint32Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { number } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3895,18 +4041,19 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint32Array) => number, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint32Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { function} callbackFn - A function that accepts up to four arguments. The reduce method calls the
-     * callbackfn function one time for each element in the array.
+     * @param { TypedArrayReduceCallBack<U, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
      * instead of an array value.
-     * @returns { U } The value that results from running the "reducer" callback function to completion over the entire typed array.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     * completion over the entire typed array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The reduce method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3915,7 +4062,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint32Array) => U, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Uint32Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -3947,7 +4094,8 @@ declare namespace collections {
      * Returns a section of an array.
      *
      * @param { number } [start] - The beginning of the specified portion of the array.
-     * @param { number } [end] - The end of the specified portion of the array. This is exclusive of the element at the index 'end'.
+     * @param { number } [end] - The end of the specified portion of the array.
+     * This is exclusive of the element at the index 'end'.
      * @returns { Uint32Array } A new typed array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -3961,10 +4109,11 @@ declare namespace collections {
     /**
      * Determines whether the specified callback function returns true for any element of an array.
      *
-     * @param { function} predicate - A function that accepts up to three arguments. The some method calls
-     * the predicate function for each element in the array until the predicate returns a value
+     * @param { TypedArrayPredicateFn<number, Uint32Array> } predicate - A function that accepts up to three arguments.
+     * The some method calls the predicate function for each element in the array until the predicate returns a value
      * which is coercible to the Boolean value true, or until the end of the array.
-     * @returns { boolean } false unless predicate returns a truthy value for a typed array element, in which case true is immediately returned.
+     * @returns { boolean } false unless predicate returns a truthy value for a typed array element,
+     * in which case true is immediately returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3973,14 +4122,16 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    some(predicate: (value: number, index: number, array: Uint32Array) => boolean): boolean;
+    some(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean;
     /**
      * Sorts an array.
      *
-     * @param { function} [compareFn] - Function used to determine the order of the elements. It is expected to return
-     * a negative value if first argument is less than second argument, zero if they're equal and a positive
-     * value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
-     * @returns { Uint32Array } The reference to the original typed array, now sorted. Note that the typed array is sorted in place and no copy is made.
+     * @param { TypedArrayCompareFn<number> } [compareFn] - Function used to determine the order of the elements.
+     * It is expected to return a negative value if first argument is less than second argument,
+     * zero if they're equal and a positive value otherwise.
+     * If omitted, the elements are sorted in ascending, ASCII character order.
+     * @returns { Uint32Array } The reference to the original typed array, now sorted.
+     * Note that the typed array is sorted in place and no copy is made.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The sort method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3989,7 +4140,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    sort(compareFn?: (a: number, b: number) => number): Uint32Array;
+    sort(compareFn?: TypedArrayCompareFn<number>): Uint32Array;
     /**
      * Gets a new Uint32Array view of the ArrayBuffer store for this array, referencing the elements
      * at begin, inclusive, up to end, exclusive.
@@ -4012,7 +4163,8 @@ declare namespace collections {
      * @param { number } index - The zero-based index of the desired code unit.<br/>
      * A negative index will count back from the last item.
      * @returns { number | undefined } The element in the array matching the given index.<br/>
-     * Always returns undefined if index < -array.length or index >= array.length without attempting to access the corresponding property.
+     * Always returns undefined if index < -array.length or
+     * index >= array.length without attempting to access the corresponding property.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The at method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
