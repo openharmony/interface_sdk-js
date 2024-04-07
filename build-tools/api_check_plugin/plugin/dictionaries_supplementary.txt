@@ -1049,3 +1049,5 @@ sbas
 uncertainty
 geofences
 gbk
+ocsp
+encipherment
