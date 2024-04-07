@@ -472,6 +472,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 12
    */
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;
+  /**
+   * Sets if mark to privacy sensitive.
+   *
+   * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+    privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
 }
 
 /**
