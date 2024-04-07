@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,9 +25,8 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace systemManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 12
  */
 declare namespace systemManager {
   /**
@@ -35,9 +34,8 @@ declare namespace systemManager {
    *
    * @typedef SystemUpdateInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export interface SystemUpdateInfo {
     /**
@@ -45,9 +43,8 @@ declare namespace systemManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     versionName: string;
 
@@ -56,9 +53,8 @@ declare namespace systemManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     firstReceivedTime: number;
 
@@ -67,11 +63,144 @@ declare namespace systemManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     packageType: string;
+  }
+
+  /**
+   * System update policy type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  enum PolicyType {
+    /**
+     * Default update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Prohibit update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    PROHIBIT = 1,
+
+    /**
+     * Update to specific software version policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    UPDATE_TO_SPECIFIC_VERSION = 2,
+
+    /**
+     * Force immediate update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    FORCE_IMMEDIATE_UPDATE = 3,
+
+    /**
+     * Update within a specified time window
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    WINDOWS = 4,
+
+    /**
+     * Delay the update for a period of time
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    POSTPONE = 5
+  }
+
+  /**
+   * OTA update policy.
+   *
+   * @typedef OtaUpdatePolicy
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export interface OtaUpdatePolicy {
+    /**
+     * Software update type.
+     *
+     * @type { PolicyType }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    policyType: PolicyType;
+
+    /**
+     * Software version.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    version: string;
+
+    /**
+     * The latest time of update.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    latestUpdateTime?: number;
+
+    /**
+     * The time of delay update.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    delayUpdateTime?: number;
+
+    /**
+     * The start time of installation window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installStartTime?: number;
+
+    /**
+     * The end time of installation window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installEndTime?: number;
   }
 
   /**
@@ -84,12 +213,10 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setNTPServer(admin: Want, server: string): void;
 
@@ -103,14 +230,46 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getNTPServer(admin: Want): string;
+
+  /**
+   * Sets device OTA update policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { OtaUpdatePolicy } policy - OTA update policy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void;
+
+  /**
+   * Gets device OTA update policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { OtaUpdatePolicy } OTA update policy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getOtaUpdatePolicy(admin: Want): OtaUpdatePolicy;
 }
 
 export default systemManager;

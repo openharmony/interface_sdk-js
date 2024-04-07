@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Define the contents of each selector item.
  *
  * @interface TextPickerRangeContent
@@ -288,6 +293,56 @@ interface TextPickerInterface {
 }
 
 /**
+ * Defines the struct of DividerOptions.
+ *
+ * @interface DividerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DividerOptions {
+  /**
+   * The strokeWidth of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth?: Dimension;
+
+  /**
+   * The color of Divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+
+  /**
+   * The startMargin of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  startMargin?: Dimension;
+
+  /**
+   * The endMargin of Divider.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  endMargin?: Dimension;
+}
+
+/**
  * Style the text selector.
  *
  * @extends CommonMethod<TextPickerAttribute>
@@ -499,6 +554,28 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 11
    */
   selectedIndex(value: number | number[]): TextPickerAttribute;
+
+  /**
+   * Set the divider of TextPicker
+   *
+   * @param { DividerOptions | null } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  divider(value: DividerOptions | null): TextPickerAttribute;
+
+  /**
+   * Called when set the height of gradient
+   *
+   * @param { Dimension } value - The value the gradient height
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  gradientHeight(value: Dimension): TextPickerAttribute;
 }
 
 /**
@@ -690,6 +767,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   textStyle?: PickerTextStyle;
 
   /**
+   * Text style of button items
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: PickerDialogButtonStyle;
+
+  /**
    * Text style of selected items
    *
    * @type { ?PickerTextStyle }
@@ -851,6 +938,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the textPickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   backgroundColor?: ResourceColor;
 
   /**
@@ -861,6 +958,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Defines the textPickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 

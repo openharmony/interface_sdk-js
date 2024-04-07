@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 import { TouchEvent } from 'touchEvent';
@@ -28,6 +33,16 @@ import { Size } from './Graphics';
  * @crossplatform
  * @since 11
  */
+/**
+ * Render type of the node using for indicating that
+ * if the node will be shown on the display or rendered to a texture
+ *
+ * @enum { number } Render type
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
@@ -36,6 +51,14 @@ declare enum NodeRenderType {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Display type.The node will be shown on the display.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   RENDER_TYPE_DISPLAY = 0,
 
   /**
@@ -43,6 +66,13 @@ declare enum NodeRenderType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Exporting texture type.The node will be render to a  texture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   RENDER_TYPE_TEXTURE = 1,
 }
@@ -55,6 +85,15 @@ declare enum NodeRenderType {
  * @crossplatform
  * @since 11
  */
+/**
+ * RenderOptions info.
+ *
+ * @interface RenderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export interface RenderOptions {
   /**
    * The ideal size of the node.
@@ -62,6 +101,14 @@ export interface RenderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * The ideal size of the node.
+   * @type { ?Size } selfIdealSize - The ideal size of the node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   selfIdealSize?: Size;
 
@@ -71,6 +118,13 @@ export interface RenderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Render type of the node.
+   * @type { ?NodeRenderType } type - Render type of the node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   type?: NodeRenderType;
 
   /**
@@ -78,6 +132,13 @@ export interface RenderOptions {
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * The surfaceId of a texture consumer
+   * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   surfaceId?: string;
 }
@@ -89,6 +150,14 @@ export interface RenderOptions {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines BuilderNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export class BuilderNode<Args extends Object[]> {
   /**
    * Constructor.
@@ -98,6 +167,16 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Constructor.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the BuilderNode
+   * @param { RenderOptions } options - Render options of the Builder Node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
 
@@ -110,6 +189,16 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Build the BuilderNode with the builder.
+   *
+   * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
+   * @param { Object } arg - Defined the args will be used in the builder.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
 
   /**
@@ -120,6 +209,15 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Update the BuilderNode based on the provided parameters.
+   *
+   * @param { Object } arg - Parameters used to update the BuilderNode, which must match the types required by the builder bound to the BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   update(arg: Object): void;
 
   /**
@@ -129,6 +227,15 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get the FrameNode in BuilderNode.
+   *
+   * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   getFrameNode(): FrameNode | null;
 
@@ -141,6 +248,16 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Dispatch touchEvent to targetNode.
+   *
+   * @param { TouchEvent } event - The touchEvent which will be sent to the targetNode.
+   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   postTouchEvent(event: TouchEvent): boolean;
 
   /**
@@ -150,5 +267,5 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @since 12
    */
-    dispose(): void;
+  dispose(): void;
 }

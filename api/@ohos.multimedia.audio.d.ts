@@ -740,11 +740,29 @@ declare namespace audio {
      */
     SAMPLE_RATE_64000 = 64000,
     /**
+     * 88.2kHz sample rate.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SAMPLE_RATE_88200 = 88200,
+    /**
      * 96kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    SAMPLE_RATE_96000 = 96000
+    SAMPLE_RATE_96000 = 96000,
+    /**
+     * 176.4kHz sample rate.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SAMPLE_RATE_176400 = 176400,
+    /**
+     * 192kHz sample rate.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SAMPLE_RATE_192000 = 192000
   }
 
   /**
@@ -959,6 +977,12 @@ declare namespace audio {
      * @since 10
      */
     STREAM_USAGE_ULTRASONIC = 16,
+    /**
+     * Video call usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    STREAM_USAGE_VIDEO_COMMUNICATION = 17,
   }
 
   /**
@@ -1054,7 +1078,7 @@ declare namespace audio {
     rendererFlags: number;
   }
 
-  /** 
+  /**
    * Describes audio renderer filter.
    * @typedef AudioRendererFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2948,6 +2972,31 @@ declare namespace audio {
      * @since 10
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
+
+    /**
+     * Gets the max amplitude value for a specific input device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } inputDevice - the target device.
+     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    getMaxAmplitudeForInputDevice(inputDevice: AudioDeviceDescriptor): Promise<number>;
+    /**
+     * Gets the max amplitude value for a specific output device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } outputDevice - the target device.
+     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
+     */
+    getMaxAmplitudeForOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<number>;
   }
 
   /**
@@ -3147,6 +3196,30 @@ declare namespace audio {
      * @since 11
      */
     updateSpatialDeviceState(spatialDeviceState: AudioSpatialDeviceState): void;
+
+    /**
+     * Set spatialization rendering scene type.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioSpatializationSceneType } spatializationSceneType - Spatialization scene type.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    setSpatializationSceneType(spatializationSceneType: AudioSpatializationSceneType): void;
+
+    /**
+     * Get spatialization rendering scene type.
+     * @returns { AudioSpatializationSceneType } Current spatialization rendering scene type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    getSpatializationSceneType(): AudioSpatializationSceneType;
   }
 
   /**
@@ -3976,7 +4049,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.AudioRenderer#setSpeed
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
-    
+
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param { AudioRendererRate } rate - Audio render rate.
@@ -4007,7 +4080,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.AudioRenderer#getSpeed
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
-    
+
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
      * @returns { Promise<AudioRendererRate> } Promise used to return the audio render rate.
@@ -4078,6 +4151,14 @@ declare namespace audio {
      * @since 9
      */
     setVolume(volume: number): Promise<void>;
+
+    /**
+     * Gets volume of this stream.
+     * @returns { number } Returns one float value.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    getVolume(): number;
 
     /**
      * Changes the volume with ramp for a duration.
@@ -4674,6 +4755,22 @@ declare namespace audio {
     getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
 
     /**
+     * Gets overflow count.
+     * @returns { Promise<number> } - Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 12
+     */
+    getOverflowCount(): Promise<number>
+
+    /**
+     * Gets overflow count.
+     * @returns { number } Overflow count number.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 12
+     */
+    getOverflowCountSync(): number;
+
+    /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -5209,6 +5306,44 @@ declare namespace audio {
      * @since 11
      */
     SPATIAL_DEVICE_TYPE_OTHERS = 5,
+  }
+
+  /**
+   * Describes a spatialization scene type group.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
+   * @systemapi
+   * @since 12
+   */
+  enum AudioSpatializationSceneType {
+    /**
+     * Audio Spatialization Scene Type Default.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    DEFAULT = 0,
+    /**
+     * Audio Spatialization Scene Type Music.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    MUSIC = 1,
+    /**
+     * Audio Spatialization Scene Type Movie.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    MOVIE = 2,
+    /**
+     * Audio Spatialization Scene Type Audio Book.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 12
+     */
+    AUDIOBOOK = 3,
   }
 
   /**

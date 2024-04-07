@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * @typedef SubscribeMessageResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5

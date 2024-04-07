@@ -1596,6 +1596,13 @@ declare namespace connection {
      * @since 11
      */
     NET_CAPABILITY_VALIDATED = 16,
+    /**
+     * Indicates that the network is portal.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    NET_CAPABILITY_PORTAL = 17
   }
 
   /**
@@ -1672,6 +1679,13 @@ declare namespace connection {
      * @since 11
      */
     BEARER_ETHERNET = 3,
+
+    /**
+     * Indicates that the network is based on a VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    BEARER_VPN = 4,
   }
 
   /**

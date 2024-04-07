@@ -408,6 +408,106 @@ declare namespace dataShare {
   }
 
   /**
+  * Enumerates the data change types.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+  * @systemapi
+  * @stagemodelonly
+  * @since 12
+  */
+  enum ChangeType {
+    /**
+     * Data inserted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    INSERT = 0,
+
+    /**
+    * Data deleted.
+    *
+    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+    * @systemapi
+    * @stagemodelonly
+    * @since 12
+    */
+    DELETE,
+    /**
+    * Data updated.
+    *
+    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+    * @systemapi
+    * @stagemodelonly
+    * @since 12
+    */
+    UPDATE
+  }
+  /**
+   * Enumerates the subscription types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  enum SubscriptionType {
+      /**
+       * Subscribe to the change of the data with the specified URI.
+       *
+       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+       * @systemapi
+       * @stagemodelonly
+       * @since 12
+       */
+      SUBSCRIPTION_TYPE_EXACT_URI = 0,
+  }
+
+  /**
+   * Struct for the data change.
+   *
+   * @interface ChangeInfo
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  interface ChangeInfo {
+      /**
+       * Type of the data change.
+       *
+       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+       * @systemapi
+       * @stagemodelonly
+       * @since 12
+       */
+      type: ChangeType;
+
+      /**
+       * URI of the data changed.
+       *
+       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+       * @systemapi
+       * @stagemodelonly
+       * @since 12
+       */
+      uri: string;
+      /**
+        * Data changed.
+        *
+        * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+        * @systemapi
+        * @stagemodelonly
+        * @since 12
+        */
+      values: Array<ValuesBucket>;
+  }
+
+  /**
    * DataShareHelper
    *
    * @interface DataShareHelper
@@ -442,6 +542,35 @@ declare namespace dataShare {
      * @since 9
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
+    /**
+     * Subscribes to the change of the data specified by the given URI.
+     *
+     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
+     * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
+     * @param { string } uri - Indicates the path of the data to subscribe.
+     * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    on(event: 'dataChange', type:SubscriptionType, uri: string, callback: AsyncCallback<ChangeInfo>): void;
+
+    /**
+     * Unsubscribes from the change of the data specified by the given URI.
+     *
+     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
+     * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
+     * @param { string } uri - Indicates the path of the data to unsubscribe.
+     * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback to unsubscribe.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    off(event: 'dataChange', type:SubscriptionType, uri: string, callback?: AsyncCallback<ChangeInfo>): void;
 
     /**
      * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
@@ -909,6 +1038,31 @@ declare namespace dataShare {
      * @since 9
      */
     notifyChange(uri: string): Promise<void>;
+
+    /**
+    * Notifies the registered observers of the data change.
+    *
+    * @param { ChangeInfo } data - Indicates the data change information.
+    * @returns { Promise<void> } Promise that returns no value.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+    * @systemapi
+    * @stagemodelonly
+    * @since 12
+    */
+    notifyChange(data: ChangeInfo): Promise<void>;
+
+    /**
+     * Close the connection between datashare and extension.
+     * 
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 15700000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    close(): Promise<void>;
   }
 }
 

@@ -24,7 +24,7 @@ import type { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions.d.ts';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.
@@ -373,7 +373,7 @@ export default class UIExtensionContext extends ExtensionContext {
   /**
    * Full-screen pop-us startup atomic service.
    *
-   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

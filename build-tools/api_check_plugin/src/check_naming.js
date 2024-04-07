@@ -48,7 +48,7 @@ function checkApiNaming(node, sourcefile, fileName) {
   const lowIdentifier = node.getText().toLowerCase();
   const apiParentKind = [];
   getParentkind(node, apiParentKind);
-  if (node.parent.kind === ts.SyntaxKind.TypeReference|| apiParentKind.includes('JSDoc')) {
+  if (node.parent.kind === ts.SyntaxKind.TypeReference || apiParentKind.includes('JSDoc')) {
     return;
   }
   checkApiNamingWords(node, sourcefile, fileName, lowIdentifier);

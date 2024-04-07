@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
+import { ComponentContent } from './@ohos.arkui.node'
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -44,6 +45,8 @@ import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type dragController from './@ohos.arkui.dragController';
+import { LocalStorage } from 'StateManagement';
+import type common from './@ohos.app.ability.common';
 
 /**
  * class Font
@@ -958,6 +961,50 @@ export class PromptAction {
    * @since 11
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
+
+  /**
+   * Open the custom dialog with frameNode.
+   *
+   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - the ComponentContent has already been opened.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    openCustomDialog(dialogContent: ComponentContent, options?: promptAction.BaseDialogOptions): Promise<void>;
+
+  /**
+   * Update the custom dialog with frameNode.
+   *
+   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    updateCustomDialog(dialogContent: ComponentContent, options: promptAction.BaseDialogOptions): Promise<void>;
+
+    /**
+     * Close the custom dialog with frameNode.
+     *
+     * @param { ComponentContent } dialogContent - the content of custom dialog.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
+     * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+     * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    closeCustomDialog(dialogContent: ComponentContent): Promise<void>;
 }
 
 /**
@@ -967,7 +1014,25 @@ export class PromptAction {
  * @crossplatform
  * @since 11
  */
+/**
+ * Register callbacks to observe ArkUI behavior.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export class UIObserver {
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { object } options - Specify the id of observed navigation.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
@@ -976,10 +1041,22 @@ export class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @atomicservice
+   * @since 12
    */
   on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void;
 
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { object } options - Specify the id of observed navigation.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                             navigation ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
@@ -989,7 +1066,8 @@ export class UIObserver {
    *                                                             navigation ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @atomicservice
+   * @since 12
    */
   off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void;
 
@@ -1002,6 +1080,16 @@ export class UIObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
@@ -1013,6 +1101,17 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
   
@@ -1073,6 +1172,16 @@ export class UIObserver {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Registers a callback function to be called when the router page in a ui context is updated.
+   *
+   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
+   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void;
 
   /**
@@ -1084,6 +1193,17 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
+   * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
 
@@ -1109,6 +1229,114 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+
+    /**
+   * Registers a callback function to be called when the draw command will be drawn.
+   *
+   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    on(type: 'willDraw', callback: Callback<void>): void;
+
+    /**
+     * Removes a callback function that was previously registered with `on()`.
+     *
+     * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+     * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+     *                                                        will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    off(type: 'willDraw', callback?: Callback<void>): void;
+
+      /**
+   * Registers a callback function to be called when the layout is done.
+   *
+   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didLayout', callback: Callback<void>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                        will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didLayout', callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(
+    type: 'navDestinationSwitch',
+    callback: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(
+    type: 'navDestinationSwitch',
+    callback?: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Registers a callback function to be called when the navigation switched to a new navDestination.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+   * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(
+    type: 'navDestinationSwitch',
+    observerOptions: observer.NavDestinationSwitchObserverOptions,
+    callback: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+   * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(
+    type: 'navDestinationSwitch',
+    observerOptions: observer.NavDestinationSwitchObserverOptions,
+    callback?: Callback<observer.NavDestinationSwitchInfo>
+  ): void;
 }
 
 /**
@@ -1146,11 +1374,86 @@ export class ComponentUtils {
 }
 
 /**
+ * class OverlayManager
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class OverlayManager {
+  /**
+   * Add the ComponentContent to the OverlayManager.
+   *
+   * @param { ComponentContent } content - The content will be added to the OverlayManager.
+   * @param { number } [ index ] - The index at which to add the ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addComponentContent(content: ComponentContent, index?: number): void;
+
+  /**
+   * Remove the ComponentContent from the OverlayManager.
+   *
+   * @param { ComponentContent } content - The content will be removed from the OverlayManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  removeComponentContent(content: ComponentContent): void;
+
+  /**
+   * Show the ComponentContent.
+   *
+   * @param { ComponentContent } content - The content will be shown.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showComponentContent(content: ComponentContent): void;
+
+  /**
+   * Hide the ComponentContent.
+   *
+   * @param { ComponentContent } content - The content will be hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hideComponentContent(content: ComponentContent): void;
+
+  /**
+   * Show all ComponentContents on the OverlayManager.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  showAllComponentContents(): void;
+
+  /**
+   * Hide all ComponentContents on the OverlayManager.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hideAllComponentContents(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * interface AtomicServiceBar
+ * @interface AtomicServiceBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export interface AtomicServiceBar {
   /**
@@ -1170,6 +1473,14 @@ export interface AtomicServiceBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Set the background color of the bar.
+   *
+   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   setBackgroundColor(color: Nullable< Color | number | string>): void;
 
   /**
@@ -1178,6 +1489,14 @@ export interface AtomicServiceBar {
    * @param { string } content - the content of the bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Set the title of the bar.
+   *
+   * @param { string } content - the content of the bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   setTitleContent(content: string): void;
 
@@ -1188,6 +1507,14 @@ export interface AtomicServiceBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Set the font style of the bar's title.
+   *
+   * @param { FontStyle } font - the font style of the bar's title.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   setTitleFontStyle(font: FontStyle): void;
 
   /**
@@ -1197,6 +1524,14 @@ export interface AtomicServiceBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Set the color of the icon on the bar.
+   *
+   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   setIconColor(color: Nullable< Color | number | string>): void;
 }
 
@@ -1204,6 +1539,12 @@ export interface AtomicServiceBar {
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
+ */
+/**
+ * class DragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
  */
 export class DragController {
   /**
@@ -1216,6 +1557,18 @@ export class DragController {
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
     event: DragEvent, extraParams: string
@@ -1231,6 +1584,17 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo): Promise<{
     event: DragEvent, extraParams: string
   }>;
@@ -1245,13 +1609,31 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { dragController.DragAction } one drag action object
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
+  /**
+   * Get a drag preview object, which provides the functions of setting color or updating animation and has no effect in OnDrop and OnDragEnd callback.
+   * @returns { dragController.DragPreview } A drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   /**
    * Get a drag preview object.
    * @returns { dragController.DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @atomicservice
+   * @since 12
    */
   getDragPreview(): dragController.DragPreview;
 
@@ -1283,7 +1665,29 @@ export class FocusController {
    * @since 12
    */
   clearFocus(): void;
+
+  /**
+   * request focus to the specific component.
+   * @param { string } key - the inspector key of the component.
+   * @throws { BusinessError } 150001 - the component cannot be focused.
+   * @throws { BusinessError } 150002 - there are components in ancestor nodes cannot be focused.
+   * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  requestFocus(key: string): void;
 }
+
+/**
+ * The base context of an ability or an application. It allows access to
+ * application-specific resources.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 12
+ */
+export type Context = common.Context;
 
 /**
  * class UIContext
@@ -1419,7 +1823,26 @@ export class UIContext {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Get the UI observer.
+   *
+   * @returns { UIObserver } The UI observer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   getUIObserver(): UIObserver;
+
+  /**
+   * Get object OverlayManager.
+   *
+   * @returns { OverlayManager } object OverlayManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getOverlayManager(): OverlayManager;
 
   /**
    * Create an animator object for custom animation.
@@ -1447,8 +1870,8 @@ export class UIContext {
   /**
    * Defining animation function
    *
-   * @param { AnimateParam } value - animateTo parameters.
-   * @param { function } event
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1456,8 +1879,8 @@ export class UIContext {
   /**
    * Defining animation function
    *
-   * @param { AnimateParam } value - animateTo parameters.
-   * @param { function } event
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1580,7 +2003,7 @@ export class UIContext {
   runScopedTask(callback: () => void): void;
 
   /**
-   * set KeyboardAvoidMode.
+   * Set KeyboardAvoidMode. The default mode is KeyboardAvoidMode.OFFSET
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1591,7 +2014,7 @@ export class UIContext {
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
 
   /**
-   * get KeyboardAvoidMode.
+   * Get KeyboardAvoidMode.
    * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1616,6 +2039,13 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   getDragController(): DragController;
 
   /**
@@ -1626,6 +2056,16 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Defining keyframe animation function.
+   *
+   * @param { KeyframeAnimateParam } param - overall animation parameters
+   * @param { Array<KeyframeState> } keyframes - all keyframe states
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
@@ -1647,6 +2087,40 @@ export class UIContext {
    * @since 12
    */
   getFocusController(): FocusController;
+
+  /**
+   * Get current LocalStorage shared from stage.
+   *
+   * @returns { LocalStorage | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 12
+   */
+  getSharedLocalStorage(): LocalStorage | undefined;
+
+  /**
+   * Obtains context of the ability.
+   *
+   * @returns { Context | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 12
+   */
+  getHostContext(): Context | undefined;
+
+  /**
+   * Dynamic dimming.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @param { number } value - Compared to the original level of dimming.value range [0,1],
+   * set values less than 0 to 0 and values greater than 1 to 1.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  setDynamicDimming(id: string, value: number): void;
 }
 
 /**

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The refresh status of the drop-down refresh.
  *
  * @enum { number }

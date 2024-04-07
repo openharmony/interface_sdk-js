@@ -36,7 +36,7 @@ import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 import window from '../@ohos.window';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions.d.ts';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -2701,7 +2701,7 @@ export default class UIAbilityContext extends Context {
   /**
    * Full-screen pop-us startup atomic service.
    *
-   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

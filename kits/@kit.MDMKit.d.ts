@@ -18,7 +18,6 @@
  * @kit MDMKit
  */
 
-import configPolicy from '@ohos.configPolicy';
 import accountManager from '@ohos.enterprise.accountManager';
 import adminManager from '@ohos.enterprise.adminManager';
 import applicationManager from '@ohos.enterprise.applicationManager';
@@ -40,6 +39,6 @@ import wifiManager from '@ohos.enterprise.wifiManager';
 
 export {
   EnterpriseAdminExtensionAbility, accountManager, adminManager, applicationManager, bluetoothManager, browser,
-  bundleManager, configPolicy, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
+  bundleManager, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
   networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager
 };

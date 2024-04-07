@@ -24,11 +24,11 @@
       "VALUE_ONE"
     ],
     "oldPos": {
-      "line": 5,
+      "line": 20,
       "character": 3
     },
     "newPos": {
-      "line": 5,
+      "line": 20,
       "character": 3
     },
     "oldDescription": "0",
@@ -61,11 +61,11 @@
       "VALUE_TWO"
     ],
     "oldPos": {
-      "line": 7,
+      "line": 22,
       "character": 3
     },
     "newPos": {
-      "line": 7,
+      "line": 22,
       "character": 3
     },
     "oldDescription": "1",
@@ -98,11 +98,11 @@
       "VALUE_THREE"
     ],
     "oldPos": {
-      "line": 9,
+      "line": 24,
       "character": 3
     },
     "newPos": {
-      "line": 9,
+      "line": 24,
       "character": 3
     },
     "oldDescription": "2",

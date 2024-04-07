@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
