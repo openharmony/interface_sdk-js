@@ -4935,6 +4935,15 @@ declare class CanvasRenderer extends CanvasPath {
    * @since 12
    */
   restoreLayer(): void;
+
+  /**
+     * Clear the backing buffer, drawing state stack, any defined paths, and styles.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+  reset(): void;
 }
 
 /**
