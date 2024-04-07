@@ -38,5 +38,5 @@ export interface AbilityFirstFrameStateObserver {
      * @systemapi
      * @since 12
      */
-    onAbilityFirstFrameDrawingCompleted(data: AbilityFirstFrameStateData): void;
+    onAbilityFirstFrameDrawn(data: AbilityFirstFrameStateData): void;
 }
