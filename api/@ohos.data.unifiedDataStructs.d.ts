@@ -29,24 +29,6 @@ import Want from "./@ohos.app.ability.Want";
  * @since 12
  */
 declare namespace unifiedDataStructs {
-  class UnifiedDataStruct {
-    /**
-     * Indicates the data type of unified data.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    utdType: string;
-    /**
-     * Indicates the data of unified data struct
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    details: Record<string, number | string | Uint8Array | Object | Array<number> | Array<string> | Array<Object>>;
-  }
-
   /**
    * Describe the unified plain text struct
    *
@@ -56,6 +38,13 @@ declare namespace unifiedDataStructs {
    * @since 12
    */
   class PlainText {
+    /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
     /**
      * Indicates the content of text
      *
@@ -85,6 +74,13 @@ declare namespace unifiedDataStructs {
    */
   class Hyperlink {
     /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
+    /**
      * Indicates the url of a link
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -112,6 +108,13 @@ declare namespace unifiedDataStructs {
    * @since 12
    */
   class HTML {
+    /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
 
     /**
      * Indicates the content of html, with html tags
@@ -141,6 +144,13 @@ declare namespace unifiedDataStructs {
    */
   class File {
     /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
+    /**
      * Indicates the details of unified File
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -167,7 +177,13 @@ declare namespace unifiedDataStructs {
    * @since 12
    */
   class Folder {
-
+    /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
     /**
      * Indicates the uri of folder
      *
@@ -188,6 +204,13 @@ declare namespace unifiedDataStructs {
    * @since 12
    */
   class OpenHarmonyForm {
+    /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
     /**
      * Indicates the id of form
      *
@@ -241,6 +264,13 @@ declare namespace unifiedDataStructs {
    * @since 12
    */
   class OpenHarmonyAppItem {
+    /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
     /**
      * Indicates the app id
      *
@@ -300,6 +330,13 @@ declare namespace unifiedDataStructs {
    * @since 12
    */
   class OpenHarmonyWant {
+    /**
+     * Indicates the data type of unified data.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+     utdType: string;
     /**
      * Indicates the content of want
      *
