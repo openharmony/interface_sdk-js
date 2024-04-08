@@ -574,7 +574,7 @@ declare namespace i18n {
     /**
      * Get a three-letter abbreviation of the specified language.
      *
-     * @param { string } locale - the origin locale.
+     * @param { string } locale - the origin locale or language code.
      * @returns { string } 3 letter language code. 
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
@@ -587,7 +587,7 @@ declare namespace i18n {
     /**
      * Get a three-letter abbreviation of the specified region.
      *
-     * @param { string } locale - the origin locale.
+     * @param { string } locale - the origin locale or region code.
      * @returns { string } 3 letter region code. 
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
