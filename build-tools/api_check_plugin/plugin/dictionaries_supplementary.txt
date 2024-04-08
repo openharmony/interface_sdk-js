@@ -119,6 +119,7 @@ cdma
 ce
 certsign
 cfa
+cfb
 cft
 channeldown
 channelup
