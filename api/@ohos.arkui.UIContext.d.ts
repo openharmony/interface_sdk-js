@@ -44,6 +44,7 @@ import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
+import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
 import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
@@ -1780,6 +1781,36 @@ export class DragController {
 }
 
 /**
+ * class MeasureUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class MeasureUtils {
+  /**
+   * Obtains the width of the specified text in a single line layout.
+   *
+   * @param { MeasureOptions } options - Options.
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  measureText(options: MeasureOptions): number;
+
+  /**
+   * Obtains the width and height of the specified text in a single line layout.
+   *
+   * @param { MeasureOptions } options - Options of measure area occupied by text.
+   * @returns { SizeOptions } width and height for text to display
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  measureTextSize(options: MeasureOptions): SizeOptions;
+}
+
+/**
  * class FocusController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
@@ -2173,6 +2204,15 @@ export class UIContext {
    * @since 12
    */
   getDragController(): DragController;
+
+  /**
+    * Get MeasureUtils.
+    * @returns { MeasureUtils } the MeasureUtils
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  getMeasureUtils(): MeasureUtils;
 
   /**
    * Defining keyframe animation function.
