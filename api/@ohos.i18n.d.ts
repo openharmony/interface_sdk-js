@@ -582,7 +582,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
-    static get3LetterLanguage(locale: string): string;
+    static getThreeLetterLanguage(locale: string): string;
 
     /**
      * Get a three-letter abbreviation of the specified region.
@@ -595,7 +595,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
-    static get3LetterRegion(locale: string): string;
+    static getThreeLetterRegion(locale: string): string;
   }
 
   /**
