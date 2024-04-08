@@ -6120,6 +6120,116 @@ declare interface PickerTextStyle {
 }
 
 /**
+ * Provide an interface for the button style of picker
+ *
+ * @interface PickerDialogButtonStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface PickerDialogButtonStyle {
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type?: ButtonType;
+
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonStyleMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  style?: ButtonStyleMode;
+
+  /**
+   * Describes the button role.
+   *
+   * @type { ?ButtonRole }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  role?: ButtonRole;
+
+  /**
+   * Describes the button text size.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontSize?: Length;
+
+  /**
+   * Describes the button text color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontColor?: ResourceColor;
+
+  /**
+   * Describes the button font weight.
+   *
+   * @type { ?(FontWeight | number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontWeight?: FontWeight | number | string;
+
+  /**
+   * Describes the button font style.
+   *
+   * @type { ?FontStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontStyle?: FontStyle;
+
+  /**
+   * Describes the button font family.
+   *
+   * @type { ?(Resource | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFamily?: Resource | string;
+
+  /**
+   * Describes the button background color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Describes the button border radius.
+   *
+   * @type { ?(Length | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderRadius?: Length | BorderRadiuses;
+}
+
+/**
  * Define the type of shadow
  *
  * @enum { number }
