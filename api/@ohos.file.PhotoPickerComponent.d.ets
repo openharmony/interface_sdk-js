@@ -57,7 +57,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 12
    */
-  onUnSelect?: (uri: string) => void;
+  onDeSelect?: (uri: string) => void;
 
   /**
    * PickerController
@@ -137,7 +137,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @atomicservice
    * @since 12
    */
-  isSupportRepeatSelect?: boolean;
+  isRepeatSelectSupported?: boolean;
 }
 
 /**

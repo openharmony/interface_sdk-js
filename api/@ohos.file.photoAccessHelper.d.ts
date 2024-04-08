@@ -3147,7 +3147,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * BaseSelectOptions Object
+   * Extract base class from class PhotoSelectOptions, named class BaseSelectOptions
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
@@ -3171,6 +3171,7 @@ declare namespace photoAccessHelper {
      */
     /**
      * The Type of the file in the picker window.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3196,6 +3197,7 @@ declare namespace photoAccessHelper {
      */
     /**
      * Maximum number of images for a single selection.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3214,6 +3216,7 @@ declare namespace photoAccessHelper {
      */
     /**
      * Support search.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3232,6 +3235,7 @@ declare namespace photoAccessHelper {
      */
     /**
      * Support taking photos.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3250,6 +3254,7 @@ declare namespace photoAccessHelper {
     */
     /**
      * The recommendation options when use recommendation photo function.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?RecommendationOptions }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3268,6 +3273,7 @@ declare namespace photoAccessHelper {
      */
     /**
      * The uri for the preselected files.
+     * Move from class PhotoSelectOptions to it's base class BaseSelectOptions
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3292,6 +3298,8 @@ declare namespace photoAccessHelper {
    */
   /**
    * PhotoSelectOptions Object
+   * Extends base class BaseSelectOptions, some public properties has moved to class BaseSelectOptions
+   *
    * @extends BaseSelectOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
@@ -3305,14 +3313,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
-     */
-    /**
-     * Support editing photos.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 12
      */
     isEditSupported?: boolean;
   }
