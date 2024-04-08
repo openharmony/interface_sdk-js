@@ -469,7 +469,7 @@ export default class ApplicationContext extends Context {
    * Set the state about whether the application supports process cache or not.
    *
    * @permission ohos.permission.SET_PROCESS_CACHE_STATE
-   * @param { isSupport } boolean - Indicates the process cache support state.
+   * @param { boolean } isSupport - Indicates the process cache support state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
