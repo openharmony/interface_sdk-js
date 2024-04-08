@@ -39,7 +39,7 @@ def judgement_dict_data(result, result_key):
         if dict_data['apiType'] == 'Enum':
             enum_label_detection(dict_data)
         elif 'apiType' in dict_data and dict_data['apiType'] in judgment_node_type:
-            message_list = process_tag_dict(dict_data)
+            message_list = process_tag_dict(dict_data, check_label_list)
             if message_list:
                 result_list.extend(message_list)
         my_dict[dict_data['definedText']] = dict_data
