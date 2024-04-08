@@ -618,6 +618,7 @@ pfa
 pfb
 pgo
 photographing
+phonemes
 phy
 pickers
 pixelmap
