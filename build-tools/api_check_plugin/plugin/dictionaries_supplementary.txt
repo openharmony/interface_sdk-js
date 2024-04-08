@@ -986,6 +986,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1039,6 +1040,7 @@ unprepare
 unchained
 sandboxes
 sar
+serviceworker
 adapts
 followx
 precomposited

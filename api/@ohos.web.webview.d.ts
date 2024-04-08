@@ -4503,6 +4503,30 @@ declare namespace webview {
     precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
 
     /**
+     * Set IP address for host name.
+     *
+     * @param { string } hostName - Which host name to be resolved.
+     * @param { string } address - Resolved IP address.
+     * @param { number } aliveTime - The validity seconds for resolve cache.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setHostIP(hostName: string, address: string, aliveTime: number): void;
+
+    /**
+     * Clear the host name IP address.
+     *
+     * @param { string } hostName - Which host name to be cleared.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearHostIP(hostName: string): void;
+
+    /**
      * Warmup the registered serviceworker associated the url.
      * @param { string } url - The url.
      * @throws { BusinessError } 17100002 - Invalid url.
