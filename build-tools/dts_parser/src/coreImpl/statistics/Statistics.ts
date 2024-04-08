@@ -42,7 +42,7 @@ export class ApiStatisticsHelper {
    * @param { FilesMap } apiMap 根据接口定义文件处理得到的map结果
    * @returns { ApiStatisticsInfo[] } 返回需要统计的api列表
    */
-  static getApiStatisticsInfos(apiMap: FilesMap): StatisticsInfoValueType {
+  static getApiStatisticsInfos(apiMap: FilesMap): StatisticsInfoValueType {   
     const apiStatisticsInfos: ApiStatisticsInfo[] = [];
     const allApiStatisticsInfos: ApiStatisticsInfo[] = [];
     // map的第一层key均为文件路径名
