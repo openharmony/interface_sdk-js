@@ -4502,7 +4502,7 @@ declare namespace webview {
      */
     precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
 
-    /*
+    /**
      * Warmup the registered serviceworker associated the url.
      * @param { string } url - The url.
      * @throws { BusinessError } 17100002 - Invalid url.
