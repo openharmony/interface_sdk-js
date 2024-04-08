@@ -1472,4 +1472,14 @@ declare class TextController {
    * @since 12
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Update the styles of StyledString by setStyledString.
+   *
+   * @param { StyledString } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setStyledString(value: StyledString): void;
 }
