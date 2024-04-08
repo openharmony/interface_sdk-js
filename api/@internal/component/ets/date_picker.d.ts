@@ -833,6 +833,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
