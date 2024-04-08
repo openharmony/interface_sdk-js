@@ -19,6 +19,15 @@
  */
 
 /**
+ * Import the drawing canvas type object for Canvas.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
+
+/**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
  *    two configurations are supported:
  * "evenodd": odd and even round rule
@@ -4908,6 +4917,33 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
+
+  /**
+   * Allocate a layer for subsequent drawing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  saveLayer(): void;
+
+  /**
+   * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  restoreLayer(): void;
+
+  /**
+     * Clear the backing buffer, drawing state stack, any defined paths, and styles.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+  reset(): void;
 }
 
 /**
@@ -5494,6 +5530,66 @@ declare class OffscreenCanvas {
 }
 
 /**
+ * Size info.
+ *
+ * @interface Size
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface Size {
+  /**
+   * Defines the width property.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width: number;
+
+  /**
+   * Defines the height property.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  height: number;
+}
+
+/**
+ * Defines DrawingRenderingContext.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DrawingRenderingContext {
+
+  /**
+   * Get size of the DrawingRenderingContext.
+   *
+   * @returns { Size } The size of the DrawingRenderingContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get size(): Size;
+
+  /**
+   * Get canvas of the DrawingRenderingContext.
+   *
+   * @returns { DrawingCanvas } The canvas of the DrawingRenderingContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get canvas(): DrawingCanvas;
+}
+
+/**
  *TextTimer component, which provides the text timer capability.
  *
  * @interface CanvasInterface
@@ -5566,7 +5662,18 @@ interface CanvasInterface {
    * @since 11
    * @form
    */
-  (context?: CanvasRenderingContext2D): CanvasAttribute;
+  /**
+   * Construct a canvas component.
+   *
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - Canvas context object.
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 }
 
 /**

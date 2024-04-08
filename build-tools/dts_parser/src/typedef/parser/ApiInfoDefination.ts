@@ -91,7 +91,7 @@ export class BasicApiInfo {
     return this.node;
   }
 
-  removeNode() {
+  removeNode(): void {
     this.node = undefined;
   }
 
@@ -214,7 +214,7 @@ export class BasicApiInfo {
     return this.jsDocText;
   }
 
-  setIsJoinType(jsJoinType: boolean) {
+  setIsJoinType(jsJoinType: boolean): void {
     this.isJoinType = jsJoinType;
   }
 
@@ -597,7 +597,7 @@ export class MethodInfo extends ApiInfo {
   }
 
   addTypeLocations(typeLocation: Comment.JsDocInfo): void {
-    this.typeLocations.push(typeLocation)
+    this.typeLocations.push(typeLocation);
   }
 
   getTypeLocations(): Comment.JsDocInfo[] {
@@ -605,7 +605,7 @@ export class MethodInfo extends ApiInfo {
   }
 
   addObjLocations(ObjLocation: Comment.JsDocInfo): void {
-    this.objLocations.push(ObjLocation)
+    this.objLocations.push(ObjLocation);
   }
 
   getObjLocations(): Comment.JsDocInfo[] {
@@ -639,7 +639,7 @@ export class ParamInfo {
     return this.apiType;
   }
 
-  setApiName(apiName: string) {
+  setApiName(apiName: string): void {
     this.apiName = apiName;
   }
 
@@ -680,7 +680,7 @@ export class ParamInfo {
   }
 
   addTypeLocations(typeLocation: Comment.JsDocInfo): void {
-    this.typeLocations.push(typeLocation)
+    this.typeLocations.push(typeLocation);
   }
 
   getTypeLocations(): Comment.JsDocInfo[] {
@@ -688,7 +688,7 @@ export class ParamInfo {
   }
 
   addObjLocations(ObjLocation: Comment.JsDocInfo): void {
-    this.objLocations.push(ObjLocation)
+    this.objLocations.push(ObjLocation);
   }
 
   getObjLocations(): Comment.JsDocInfo[] {
@@ -700,18 +700,18 @@ export class GenericInfo {
   isGenericity: boolean = false;
   genericContent: string = '';
 
-  setIsGenericity(isGenericity: boolean) {
+  setIsGenericity(isGenericity: boolean): void {
     this.isGenericity = isGenericity;
   }
-  getIsGenericity() {
+  getIsGenericity(): boolean {
     return this.isGenericity;
   }
 
-  setGenericContent(genericContent: string) {
+  setGenericContent(genericContent: string): void {
     this.genericContent = genericContent;
   }
 
-  getGenericContent() {
+  getGenericContent(): string {
     return this.genericContent;
   }
 }
@@ -752,7 +752,7 @@ export class ParserParam {
     return this.fileDir;
   }
 
-  setFileDir(fileDir: string) {
+  setFileDir(fileDir: string): void {
     this.fileDir = fileDir;
   }
 
@@ -760,7 +760,7 @@ export class ParserParam {
     return this.filePath;
   }
 
-  setFilePath(filePath: string) {
+  setFilePath(filePath: string): void {
     this.filePath = filePath;
   }
 
@@ -768,7 +768,7 @@ export class ParserParam {
     return this.sdkPath;
   }
 
-  setSdkPath(sdkPath: string) {
+  setSdkPath(sdkPath: string): void {
     this.sdkPath = sdkPath;
   }
 
@@ -776,7 +776,7 @@ export class ParserParam {
     return this.rootNames;
   }
 
-  setRootNames(rootNames: string[]) {
+  setRootNames(rootNames: string[]): void {
     this.rootNames = rootNames;
   }
 
@@ -784,14 +784,14 @@ export class ParserParam {
     return this.tsProgram;
   }
 
-  getETSOptions(componentLibs: Array<string>) {
+  getETSOptions(componentLibs: Array<string>): any {
     const tsconfig = require('../../config/tsconfig.json');
     const etsConfig = tsconfig.compilerOptions.ets;
     etsConfig.libs = [...componentLibs];
     return etsConfig;
   }
 
-  setProgram(apiLibs: Array<string>) {
+  setProgram(apiLibs: Array<string>): void {
     const compilerOption = {
       target: ts.ScriptTarget.ES2017,
       ets: this.getETSOptions([]),
@@ -802,7 +802,7 @@ export class ParserParam {
     this.tsProgram = ts.createProgram({
       rootNames: [...apiLibs, ...this.rootNames],
       options: compilerOption
-    })
+    });
   };
 
 }

@@ -176,16 +176,13 @@ function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
     checkJSDocChange('permission', currentJSDoc, lastJSDoc, (newTagValue, oldTagValue, addTags) => {
       let checkResult = true;
       // 从无到有新增权限
-      if (newTagValue.length === 1 && oldTagValue.length === 0) {
-        checkResult = false;
-      }
+      checkResult = !(newTagValue.length === 1 && oldTagValue.length === 0);
       // 权限值变更
       if (newTagValue.length === 1 && oldTagValue.length === 1) {
         const newPermission = newTagValue[0];
         const oldPermission = oldTagValue[0];
-        if (newPermission !== oldPermission && checkPermissionChange(newPermission, oldPermission)) {
-          checkResult = false;
-        }
+        checkResult = checkResult && 
+          !(newPermission !== oldPermission && checkPermissionChange(newPermission, oldPermission));
       }
 
       if (!checkResult) {
@@ -305,15 +302,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
       });
       // 变更后参数范围大于等于变更前
     } else if (currentParamType.length >= historyParamType.length) {
-      for (let j = 0; j < historyParamType.length; j++) {
-        if (!new Set(currentParamType).has(historyParamType[j])) {
-          changeErrors.push({
-            node: change.newNode,
-            errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_TYPE_CHANGE,
-            LogType: LogType.LOG_API,
-          });
-        }
-      }
+      checkHistoryParametersType(historyParamType, currentParamType, changeErrors, change);
       // 变更后参数范围小于变更前
     } else {
       changeErrors.push({
@@ -337,6 +326,18 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
           LogType: LogType.LOG_API,
         });
       }
+    }
+  }
+}
+
+function checkHistoryParametersType(historyParamType, currentParamType, changeErrors, change) {
+  for (let j = 0; j < historyParamType.length; j++) {
+    if (!new Set(currentParamType).has(historyParamType[j])) {
+      changeErrors.push({
+        node: change.newNode,
+        errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_TYPE_CHANGE,
+        LogType: LogType.LOG_API,
+      });
     }
   }
 }

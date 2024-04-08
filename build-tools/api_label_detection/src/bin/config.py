@@ -41,7 +41,7 @@ format_set = [
 def run_tools(options):
     tool_name = options.tool_name
     if tool_name == ToolNameType["DETECTION"].value:
-        detection_label.detection_label(options.result_json_path, options.output_path)
+        detection_label.detection_label(options.check_labels, options.result_json_path, options.output_path)
 
 
 class Config(object):
@@ -57,6 +57,13 @@ class Config(object):
             "type": str,
             "default": ToolNameType["DETECTION"],
             "help": "工具名称"
+        },
+        {
+            "name": "--check-labels",
+            "abbr": "-L",
+            "required": True,
+            "type": str,
+            "help": "需要校验的标签"
         },
         {
             "name": "--result-json-path",

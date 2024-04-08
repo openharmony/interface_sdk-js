@@ -3593,6 +3593,15 @@ declare namespace image {
     size: Size;
 
     /**
+     * PixelMap source format.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    srcPixelFormat?: PixelMapFormat;
+
+    /**
      * PixelMap expected format.
      *
      * @type { ?PixelMapFormat }
@@ -3935,6 +3944,86 @@ declare namespace image {
    * @since 12
    */
   function createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap;
+
+  /**
+   * Create an empty pixelmap.
+   *
+   * @param { InitializationOptions } options Initialization options for pixelmap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+function createPixelMapSync(options: InitializationOptions): PixelMap;
+
+  /**
+   * Transforms pixelmap from unpremultiplied alpha format to premultiplied alpha format.
+   *
+   * @param { PixelMap } src The source pixelmap.
+   * @param { PixelMap } dst The destination pixelmap.
+   * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+   * If the operation fails, an error message is returned.
+   * @throws { BusinessError } 62980103 - The image data is not supported.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
+   * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: AsyncCallback<void>): void;
+
+  /**
+   * Transforms pixelmap from premultiplied alpha format to unpremultiplied alpha format.
+   *
+   * @param { PixelMap } src The source pixelMap.
+   * @param { PixelMap } dst The destination pixelmap.
+   * @returns { Promise<void> } A Promise instance used to return the operation result.
+   * If the operation fails, an error message is returned.
+   * @throws { BusinessError } 62980103 - The image data is not supported.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
+   * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<void>;
+
+  /**
+   * Transforms pixelmap from premultiplied alpha format to unpremultiplied alpha format.
+   *
+   * @param { PixelMap } src The source pixelmap.
+   * @param { PixelMap } dst The destination pixelmap.
+   * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+   * If the operation fails, an error message is returned.
+   * @throws { BusinessError } 62980103 - The image data is not supported.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
+   * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: AsyncCallback<void>): void;
+
+  /**
+   * Transforms pixelmap from premultiplied alpha format to unpremultiplied alpha format.
+   *
+   * @param { PixelMap } src The source pixelmap.
+   * @param { PixelMap } dst The destination pixelmap.
+   * @returns { Promise<void> } A Promise instance used to return the operation result.
+   * If the operation fails, an error message is returned.
+   * @throws { BusinessError } 62980103 - The image data is not supported.
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @throws { BusinessError } 62980246 - Failed to read the pixelMap.
+   * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<void>;
 
   /**
    * Creates a PixelMap object based on MessageSequence parameter.

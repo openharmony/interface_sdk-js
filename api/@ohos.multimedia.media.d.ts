@@ -3999,6 +3999,14 @@ declare namespace media {
      * @since 11
      */
     MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
+
+    /**
+     * key for audio bit depth, value type is number
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 12
+     */
+    MD_KEY_AUD_SAMPLE_DEPTH = 'sample_depth',
   }
 
   /**
@@ -4426,6 +4434,14 @@ declare namespace media {
      * @since 11
      */
     isHdr?: boolean;
+
+    /**
+     * Whether to encode the video in temporal scale mode.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 12
+     */
+    enableTemporalScale?: boolean;
   }
 
   /**

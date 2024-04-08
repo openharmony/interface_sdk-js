@@ -27,8 +27,8 @@ import { tagsArrayOfOrder, officialTagArr, CommonFunctions } from '../../../util
 import { AddErrorLogs } from './compile_info';
 import { compositiveResult, compositiveLocalResult, punctuationMarkSet } from '../../../utils/checkUtils';
 import { Set } from 'typescript';
-import {dictionariesArr} from '../config/dictionaries.json';
-import {dictionariesSupplementaryArr} from '../config/dictionaries_supplementary.json';
+import { dictionariesArr } from '../config/dictionaries.json';
+import { dictionariesSupplementaryArr } from '../config/dictionaries_supplementary.json';
 const dictionariesSet: Set<string> = new Set([
   ...dictionariesArr,
   ...dictionariesSupplementaryArr,
@@ -43,18 +43,19 @@ export class WordsCheck {
    */
   static wordCheckResultsProcessing(baseInfos: BasicApiInfo[]): void {
     baseInfos.forEach((baseInfo) => {
-      if (baseInfo.getApiType() !== ApiType.SOURCE_FILE) {
-        let apiText: string = baseInfo.getJsDocText() + baseInfo.getDefinedText();
-        if (baseInfo.getApiType() === ApiType.IMPORT) {
-          const importText: Array<ExportImportValue> = (baseInfo as ImportInfo).getImportValues();
-          const importValueArr: string[] = [];
-          importText.forEach(importValue => {
-            importValueArr.push(importValue.key);
-          });
-          apiText = importValueArr.join('|');
-        }
-        WordsCheck.wordsCheck(apiText, baseInfo);
+      if (baseInfo.getApiType() === ApiType.SOURCE_FILE) {
+        return;
       }
+      let apiText: string = baseInfo.getJsDocText() + baseInfo.getDefinedText();
+      if (baseInfo.getApiType() === ApiType.IMPORT) {
+        const importText: Array<ExportImportValue> = (baseInfo as ImportInfo).getImportValues();
+        const importValueArr: string[] = [];
+        importText.forEach(importValue => {
+          importValueArr.push(importValue.key);
+        });
+        apiText = importValueArr.join('|');
+      }
+      WordsCheck.wordsCheck(apiText, baseInfo);
     });
   }
 

@@ -408,7 +408,7 @@ export class NodeProcessorHelper {
     return interfaceInfo;
   }
 
-  static processGenericity(typeParameter: ts.TypeParameterDeclaration) {
+  static processGenericity(typeParameter: ts.TypeParameterDeclaration): GenericInfo {
     const genericInfo: GenericInfo = new GenericInfo();
     genericInfo.setIsGenericity(true);
     genericInfo.setGenericContent(typeParameter.getText());
@@ -616,7 +616,7 @@ export class NodeProcessorHelper {
       methodInfo.setReturnValueType(methodNode.type.kind);
       if (Boolean(process.env.NEED_DETECTION)) {
         NodeProcessorHelper.processFunctionTypeReference(methodNode.type, methodInfo, new ParamInfo(ApiType
-          .PARAM), false)
+          .PARAM), false);
       }
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
@@ -647,7 +647,9 @@ export class NodeProcessorHelper {
       return paramInfo;
     }
     let typeMapValue: string | undefined = undefined;
-    NodeProcessorHelper.processFunctionTypeReference(param.type, methodInfo, paramInfo, true)
+    if (Boolean(process.env.NEED_DETECTION)) {
+      NodeProcessorHelper.processFunctionTypeReference(param.type, methodInfo, paramInfo, true);
+    }
     if (ts.isLiteralTypeNode(param.type)) {
       typeMapValue = typeMap.get(param.type.literal.kind);
     }
@@ -669,11 +671,11 @@ export class NodeProcessorHelper {
    */
   static processFunctionTypeReference(typeNode: ts.TypeNode, methodInfo: MethodInfo, paramInfo: ParamInfo, isParam: boolean = true): void {
     if (ts.isTypeLiteralNode(typeNode)) {
-      NodeProcessorHelper.processFunctionTypeObject(typeNode, methodInfo, paramInfo, isParam)
+      NodeProcessorHelper.processFunctionTypeObject(typeNode, methodInfo, paramInfo, isParam);
     } else if (ts.isUnionTypeNode(typeNode)) {
       typeNode.types.forEach((type: ts.TypeNode) => {
-        NodeProcessorHelper.processFunctionTypeReference(type, methodInfo, paramInfo, isParam)
-      })
+        NodeProcessorHelper.processFunctionTypeReference(type, methodInfo, paramInfo, isParam);
+      });
     }
     if (!ts.isTypeReferenceNode(typeNode)) {
       return;
@@ -686,17 +688,18 @@ export class NodeProcessorHelper {
       if (!declarations) {
         return;
       }
-      const declaration: ts.Declaration = declarations[0]
-      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(declaration, ApiType.TYPE_ALIAS, methodInfo.getKitInfoFromParent(methodInfo));
+      const declaration: ts.Declaration = declarations[0];
+      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(declaration, ApiType.TYPE_ALIAS,
+        methodInfo.getKitInfoFromParent(methodInfo));
       if (jsDocInfos.length === 0) {
         return;
       }
       const jsDoc: Comment.JsDocInfo = jsDocInfos[jsDocInfos.length - 1];
-      jsDoc.removeTags()
+      jsDoc.removeTags();
       if (isParam) {
-        paramInfo.addTypeLocations(jsDoc)
+        paramInfo.addTypeLocations(jsDoc);
       } else {
-        methodInfo.addTypeLocations(jsDoc)
+        methodInfo.addTypeLocations(jsDoc);
       }
     } catch (error) {
     } finally {
@@ -713,20 +716,22 @@ export class NodeProcessorHelper {
    * true：类型为参数（入参）的数据
    * false：类型为返回值（出参）的数据
    */
-  static processFunctionTypeObject(typeObject: ts.TypeLiteralNode, methodInfo: MethodInfo, paramInfo: ParamInfo, isParam: boolean = true) {
-    typeObject.members.forEach(((member: ts.TypeElement) => {
-      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(member, ApiType.TYPE_ALIAS, methodInfo.getKitInfoFromParent(methodInfo));
+  static processFunctionTypeObject(typeObject: ts.TypeLiteralNode, methodInfo: MethodInfo, paramInfo: ParamInfo,
+    isParam: boolean = true): void {
+    typeObject.members.forEach((member: ts.TypeElement) => {
+      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(member, ApiType.TYPE_ALIAS,
+        methodInfo.getKitInfoFromParent(methodInfo));
       if (jsDocInfos.length === 0) {
         return;
       }
       const jsDoc: Comment.JsDocInfo = jsDocInfos[jsDocInfos.length - 1];
-      jsDoc.removeTags()
+      jsDoc.removeTags();
       if (isParam) {
-        paramInfo.addObjLocations(jsDoc)
+        paramInfo.addObjLocations(jsDoc);
       } else {
-        methodInfo.addObjLocations(jsDoc)
+        methodInfo.addObjLocations(jsDoc);
       }
-    }))
+    });
   }
 
   /**

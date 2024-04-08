@@ -2267,7 +2267,47 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    LOCKED = 11
+    LOCKED = 11,
+
+    /**
+     * Follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    AUTO_ROTATION_UNSPECIFIED = 12,
+
+    /**
+     * Display in portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_PORTRAIT = 13,
+
+    /**
+     * Display in landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_LANDSCAPE = 14,
+
+    /**
+     * Display in inverted portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_PORTRAIT_INVERTED = 15,
+
+    /**
+     * Display in inverted landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_LANDSCAPE_INVERTED = 16
   }
 
   /**
@@ -3330,6 +3370,17 @@ declare namespace window {
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
     /**
+     * Get the preferred orientation config of the window
+     *
+     * @returns { Orientation } orientation - The orientation config of the window
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    getPreferredOrientation(): Orientation;
+
+    /**
      * Loads content
      *
      * @param { string } path - Path of the page to which the content will be loaded
@@ -4263,6 +4314,23 @@ declare namespace window {
      * @useinstead ohos.window.Window#setWindowBrightness
      */
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether the main window is topmost.
+     *
+     * @param { boolean } isTopmost - Main window is topmost if true.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    setTopmost(isTopmost: boolean): Promise<void>;
 
     /**
      * Sets the brightness of window.
@@ -6185,6 +6253,20 @@ declare namespace window {
      * @since 9
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
+
+    /**
+     * Set whether to use default density.
+     *
+     * @param { boolean } enabled - Use default density if true, or follow system density change if false
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @since 12
+     */
+    setDefaultDensityEnabled(enabled: boolean): void;
   }
 }
 

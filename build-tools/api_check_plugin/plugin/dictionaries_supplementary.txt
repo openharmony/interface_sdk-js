@@ -229,6 +229,7 @@ dismissal
 dismissing
 dispatches
 displacement
+dlna
 dlp
 dnd
 dng
@@ -581,6 +582,7 @@ option
 opto
 originating
 osd
+ota
 ott
 ounted
 overheated
@@ -898,6 +900,7 @@ unapply
 unassigned
 unauth
 unbinding
+unblock
 unblocking
 uncalibrated
 uncategorized
@@ -937,6 +940,7 @@ unmuted
 unmutes
 unobserve
 unperceivable
+unpremultiplied
 unpressed
 unregistered
 unregistering
@@ -1044,4 +1048,6 @@ beidou
 qzss
 glonass
 sbas
+uncertainty
+geofences
 gbk

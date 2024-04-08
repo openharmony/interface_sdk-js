@@ -235,7 +235,7 @@ class Sdk {
   listDtsFiles(dir, dest) {
     const sdkRoot = this.getPath();
     if (!sdkRoot) {
-      return new Set();
+      return;
     }
     const subDir = path.resolve(sdkRoot, dir);
     FileSystem.listFiles(subDir, (filePath) => path.basename(filePath).endsWith('.d.ts'), dest);

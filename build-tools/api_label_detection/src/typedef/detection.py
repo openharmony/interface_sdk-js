@@ -34,8 +34,10 @@ class Output:
 class ErrorMessage(enum.Enum):
     MUTEX_LABEL = 'In the same API, [$] tag and [&] tag are mutually exclusive'
     RELATIVE_LABEL = 'Functions that appear in pairs,[$] function missing [&] tag'
-    ENUM_LABEL = ('The enumeration type [$] is labeled with [&], but none of the enumeration '
-                  'values are labeled with this label')
+    ENUM_VALUE_LABEL = ('The enumeration type [$] is labeled with [&], but none of the enumeration '
+                        'values are labeled with this label')
+    ENUM_LABEL = ('The enumeration type [$] is not marked with [&], '
+                  'but the enumeration value is marked with this label')
     PARENT_HAVE_METHOD_NO = '[$] has a [&] label, but none of its methods have a [&] label'
     METHOD_HAVE_PARENT_NO = '[$]does not have [&] label，but the methods below it has [&] label'
     METHOD_HAVE_INPUT_PARAM_NO = 'functions have [&] label, but the param do not have [&] label'
@@ -46,7 +48,8 @@ class ErrorMessage(enum.Enum):
 
 class ErrorType(enum.Enum):
     MUTEX_LABEL = 'mutex_label'
-    ENUM_LABEL = 'enum_value_missing_label'
+    ENUM_LABEL = 'enum_missing_label'
+    ENUM_VALUE_LABEL = 'enum_value_missing_label'
     RELATIVE_LABEL = 'paired_function_omission_label'
     PARENT_NO_TAG = '$_missing_label'
     CHILD_NO_TAG = 'method_missing_label'

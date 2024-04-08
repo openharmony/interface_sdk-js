@@ -51,20 +51,43 @@ export namespace WriterHelper {
 
   export class MarkdownReporter {
     static writeInMarkdown(data: BasicDiffInfo[], dest: string | undefined): void {
-      const fileNameMap: Map<string, string> = FunctionUtils.readSubsystemFile().fileNameMap;
-      fileNameMap.forEach((fileName: string, syscap: string) => {
-        let diffsInSameSystem: BasicDiffInfo[] = [];
-        data.forEach((diffInfo: BasicDiffInfo) => {
-          if (SyscapProcessorHelper.getSyscapField(diffInfo) === syscap) {
-            diffsInSameSystem.push(diffInfo);
+      const kitInfoSet: Set<string> = MarkdownReporter.getAllKitInfo(data);
+      kitInfoSet.forEach((kitInfo: string)=>{
+        let diffsInSameKit: BasicDiffInfo[] = [];
+        data.forEach((diffInfo: BasicDiffInfo)=>{
+          if (SyscapProcessorHelper.getSingleKitInfo(diffInfo) === kitInfo) {
+            diffsInSameKit.push(diffInfo);
           }
-        });
-        if (diffsInSameSystem.length === 0) {
+        })
+
+        if (diffsInSameKit.length === 0) {
           return;
         }
 
-        MarkdownReporter.sortDiffInfoByStatus(diffsInSameSystem, fileName, dest);
+        MarkdownReporter.sortDiffInfoByStatus(diffsInSameKit, kitInfo, dest);
+      })
+    }
+
+    /**
+     * 获取所有的kit信息
+     * 
+     * @param {BasicDiffInfo[]} data 
+     * @returns 
+     */
+    static getAllKitInfo(data: BasicDiffInfo[]): Set<string> {
+      const kitInfoSet: Set<string> = new Set();
+      data.forEach((diffInfo) => {
+        kitInfoSet.add(diffInfo.getOldKitInfo());
+        kitInfoSet.add(diffInfo.getNewKitInfo());
       });
+      return kitInfoSet;
+    }
+
+    static getSingleKitInfo(data: BasicDiffInfo): string {
+      if (data.getNewKitInfo() !== '') {
+        return data.getNewKitInfo();
+      }
+      return data.getOldKitInfo();
     }
 
     static sortDiffInfoByStatus(diffsInSameSystem: BasicDiffInfo[], fileName: string, dest: string | undefined): void {

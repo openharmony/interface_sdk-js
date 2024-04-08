@@ -1887,7 +1887,7 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
- * Defines the Keyboard options of RichEditor.
+ * Defines the custom keyboard options of RichEditor.
  *
  * @interface KeyboardOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1896,7 +1896,7 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface KeyboardOptions {
   /**
-   * Indicates whether to support keyboard avoidance.
+   * Indicates whether to support custom keyboard avoidance.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2480,6 +2480,37 @@ declare interface RichEditorDeleteValue {
    */
   richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
+
+/**
+ * Provides an interface for changes in the text.
+ *
+ * @interface RichEditorChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface RichEditorChangeValue {
+  /**
+   * Spans to be replaced.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  originalSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * Spans to replace.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacedSpans: Array<RichEditorTextSpanResult>;
+}
+
 /**
  * Defines the options of RichEditor.
  *
@@ -3148,7 +3179,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of RichEditor
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of RichEditor
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of RichEditor
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3286,6 +3317,88 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   onSubmit(callback: SubmitCallback): RichEditorAttribute;
+
+  /**
+   * Called before text changed.
+   *
+   * @param { Callback<RichEditorChangeValue, boolean> } callback - The triggered function before text content is about to change.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillChange(callback: Callback<RichEditorChangeValue, boolean>) : RichEditorAttribute;
+
+  /**
+   * Called after text changed.
+   *
+   * @param { Callback<Array<RichEditorTextSpanResult>> } callback - The triggered function after text content is about to change.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidChange(callback: Callback<Array<RichEditorTextSpanResult>>) : RichEditorAttribute;
+
+  /**
+    * Called before the cut event.
+    *
+    * @param { Callback<CutEvent> } callback - Called before the cut event.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  onCut(callback: Callback<CutEvent>): RichEditorAttribute;
+
+  /**
+    * Called before the copy event.
+    *
+    * @param { Callback<CopyEvent> } callback - Called before the copy event.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+}
+
+/**
+ * the callback of cut event.
+ * @interface CutEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CutEvent {
+  /**
+   * Prevent system cut event.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  preventDefault?: Callback<void>;
+}
+
+/**
+ * the callback of copy event.
+ * @interface CopyEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CopyEvent {
+  /**
+   * Prevent system cut event.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  preventDefault?: Callback<void>;
 }
 
 /**
