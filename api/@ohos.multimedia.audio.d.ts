@@ -4453,7 +4453,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    SOURCE_TYPE_VOICE_COMMUNICATION = 7
+    SOURCE_TYPE_VOICE_COMMUNICATION = 7,
+
+    /**
+     * Voice message source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SOURCE_TYPE_VOICE_MESSAGE = 10,
   }
 
   /**
