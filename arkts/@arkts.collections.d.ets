@@ -81,7 +81,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  type TypedArrayReduceCallBack<AccType, ElementType, ArrayType> =
+  type TypedArrayReduceCallback<AccType, ElementType, ArrayType> =
     (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType;
   /**
    * Callback function used in the typed Array's 'sort' function.
@@ -1208,7 +1208,7 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -1220,13 +1220,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int8Array>): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1241,13 +1241,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int8Array>, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<U, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Int8Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1262,7 +1262,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Int8Array>, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -1768,7 +1768,7 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -1780,13 +1780,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint8Array>): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1801,13 +1801,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint8Array>, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<U, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Uint8Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -1822,7 +1822,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Uint8Array>, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -2328,7 +2328,7 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -2340,13 +2340,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int16Array>): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2361,13 +2361,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int16Array>, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<U, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Int16Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2382,7 +2382,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Int16Array>, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -2888,7 +2888,7 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -2900,13 +2900,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint16Array>): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2921,13 +2921,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint16Array>, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<U, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Uint16Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -2942,7 +2942,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Uint16Array>, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -3448,7 +3448,7 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -3460,13 +3460,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int32Array>): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -3481,13 +3481,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Int32Array>, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<U, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Int32Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -3502,7 +3502,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Int32Array>, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
@@ -4008,7 +4008,7 @@ declare namespace collections {
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @returns { number } The value that results from running the "reducer" callback function to
      * completion over the entire typed array.
@@ -4020,13 +4020,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint32Array>): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { number } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -4041,13 +4041,13 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce(callbackFn: TypedArrayReduceCallBack<number, number, Uint32Array>, initialValue: number): number;
+    reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>, initialValue: number): number;
     /**
      * Calls the specified callback function for all the elements in an array. The return value of
      * the callback function is the accumulated result, and is provided as an argument in the next
      * call to the callback function.
      *
-     * @param { TypedArrayReduceCallBack<U, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
+     * @param { TypedArrayReduceCallback<U, number, Uint32Array> } callbackFn - A function that accepts up to four arguments.
      * The reduce method calls the callbackfn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
      * the accumulation. The first call to the callbackfn function provides this value as an argument
@@ -4062,7 +4062,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    reduce<U>(callbackFn: TypedArrayReduceCallBack<U, number, Uint32Array>, initialValue: U): U;
+    reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U;
     /**
      * Reverses the elements in an Array.
      *
