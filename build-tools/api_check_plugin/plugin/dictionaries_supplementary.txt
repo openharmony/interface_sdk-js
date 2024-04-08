@@ -1030,6 +1030,8 @@ zfail
 zoffset
 zoomin
 zoomout
+asr
+aec
 zoomreset
 zooms
 zpass
