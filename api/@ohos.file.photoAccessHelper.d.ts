@@ -274,7 +274,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    ANALYSIS_BONE_POSE
+    ANALYSIS_BONE_POSE,
+    /**
+     * Analysis of video label
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_VIDEO_LABEL
   }
 
   /**
