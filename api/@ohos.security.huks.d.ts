@@ -2654,6 +2654,14 @@ declare namespace huks {
      */
     HUKS_MODE_OFB = 4,
     /**
+     * Cipher Feedback (CFB) mode
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 12
+     */
+    HUKS_MODE_CFB = 5,
+    /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
