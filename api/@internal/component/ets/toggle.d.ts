@@ -205,6 +205,47 @@ declare interface SwitchStyle {
 }
 
 /**
+ * ToggleConfiguration used by toggle Modifier
+ *
+ * @interface ToggleConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
+
+  /**
+   * Indicates whether the Toggle is on.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isOn: boolean;
+
+  /**
+   * Indicates whether the Toggle is enabled.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enabled: boolean;
+
+  /**
+   * Trigger toggle select change
+   *
+   * @type { Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerChange: Callback<boolean>;
+}
+
+/**
  * Defines the toggle interface.
  *
  * @interface ToggleInterface
@@ -354,6 +395,17 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @form
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
+
+  /**
+   * Set the content modifier of toggle.
+   *
+   * @param { ContentModifier<ToggleConfiguration> } modifier - The content modifier of toggle.
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<ToggleConfiguration>): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
