@@ -527,6 +527,22 @@ declare namespace window {
      * @since 8
      */
     navigationBarContentColor?: string;
+
+    /**
+     * Enable the animation of the status bar.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    enableStatusBarAnimation?: boolean;
+
+    /**
+     * Enable the animation of the navigation bar.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    enableNavigationBarAnimation?: boolean;
   }
 
   /**
@@ -3233,7 +3249,22 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
+    /**
+     * Set specific system bar to have visible.
+     *
+     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
+     * @param {boolean} enableAnimation - Whether using animation during this setting, using animation if true or not using animation if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise<void>;
 
     /**
      * Set the properties of system bar
