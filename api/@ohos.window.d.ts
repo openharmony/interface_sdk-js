@@ -5842,15 +5842,15 @@ declare namespace window {
   /**
    * The attribute of a windowStage.
    *
-   * @enum {number}
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
   enum WindowStageAttribute {
     /**
      * System windowStage.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     SYSTEM_WINDOW_STAGE,
@@ -5858,7 +5858,7 @@ declare namespace window {
     /**
      * Sub windowStage.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     SUB_WINDOW_STAGE
@@ -5868,15 +5868,15 @@ declare namespace window {
    * Configuration of windowStage.
    *
    * @interface WindowStageConfig
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @since 12
    */
   interface WindowStageConfig {
     /**
      * The attribute of windowStage.
      *
-     * @type {WindowStageAttribute}
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @type { WindowStageAttribute }
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     windowStageAttribute: WindowStageAttribute;
@@ -5884,8 +5884,8 @@ declare namespace window {
     /**
      * The position and size of windowStage.
      *
-     * @type {Rect}
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     windowStageRect: Rect;
@@ -5893,8 +5893,8 @@ declare namespace window {
     /**
      * The options of sub windowStage creation.
      *
-     * @type {SubWindowOptions}
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @type { SubWindowOptions }
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
     subWindowOptions?: SubWindowOptions;
