@@ -1354,7 +1354,29 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    PENDING = 'pending'
+    PENDING = 'pending',
+    /**
+     * Creation time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DATE_ADDED_MS = 'date_added_ms',
+    /**
+     * Modified time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DATE_MODIFIED_MS = 'date_modified_ms',
+    /**
+     * Trashed time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    DATE_TRASHED_MS = 'date_trashed_ms'
   }
 
   /**
