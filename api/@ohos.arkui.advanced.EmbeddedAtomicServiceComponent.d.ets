@@ -41,12 +41,12 @@ export declare struct EmbeddedAtomicServiceComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  @Prop appId: string;
+  appId: string;
   /**
    * Indicates the atomic service start options.
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
    */
-  @Prop options?: AtomicServiceOptions;
+  options?: AtomicServiceOptions;
 }
