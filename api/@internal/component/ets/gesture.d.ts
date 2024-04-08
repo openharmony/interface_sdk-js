@@ -3006,3 +3006,622 @@ declare const RotationGesture: RotationGestureInterface;
  * @since 11
  */
 declare const GestureGroup: GestureGroupInterface;
+
+/**
+ * Defines the gesture handler.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class GestureHandler<T> implements GestureInterface<T> {
+  /**
+   * Set the GestureHandler's tag.
+   *
+   * @param { string } tag
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  tag(tag: string): T;
+}
+
+/**
+ * Defines the TapGestureHandler options.
+ *
+ * @interface TapGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface TapGestureHandlerOptions {
+  /**
+   * Indicates the number of consecutive clicks recognized. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  count?: number;
+  /**
+   * Indicates the hand index that triggers the click. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fingers?: number;
+}
+
+/**
+ * Defines the TapGesture handler.
+ *
+ * @extends GestureHandler<TapGestureHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { TapGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: TapGestureHandlerOptions);
+  /**
+   * Tap gesture recognition success callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { TapGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onAction(event: Callback<GestureEvent>): TapGestureHandler;
+}
+
+/**
+ * Defines the LongPressGestureHandler options.
+ *
+ * @interface LongPressGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface LongPressGestureHandlerOptions {
+  /**
+   * Indicates the hand index that triggers the long press. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fingers?: number;
+  /**
+   * Indicates whether an event is triggered repeatedly.
+   * The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  repeat?: boolean;
+  /**
+   * Indicates minimum press and hold time, in milliseconds.
+   * The default value is 500ms.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  duration?: number;
+}
+
+/**
+ * Defines the LongPressGesture handler.
+ *
+ * @extends GestureHandler<LongPressGestureHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { LongPressGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: LongPressGestureHandlerOptions);
+  /**
+   * LongPress gesture recognition success callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { LongPressGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onAction(event: Callback<GestureEvent>): LongPressGestureHandler;
+  /**
+   * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { LongPressGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionEnd(event: Callback<GestureEvent>): LongPressGestureHandler;
+  /**
+   * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { Callback<void> } event
+   * @returns { LongPressGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionCancel(event: Callback<void>): LongPressGestureHandler;
+}
+
+/**
+ * Defines the PanGestureHandler options.
+ *
+ * @interface PanGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface PanGestureHandlerOptions {
+  /**
+   * Indicates the hand index that triggers the pan. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fingers?: number;
+  /**
+   * Indicates the move direction of the pan gesture.
+   * The default value is PanDirection.All.
+   *
+   * @type { ?PanDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction?: PanDirection;
+  /**
+   * Indicates minimum move distance.
+   * The default value is 5vp.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  distance?: number;
+}
+
+/**
+ * Defines the PanGesture handler.
+ *
+ * @extends GestureHandler<PanGestureHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { PanGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: PanGestureHandlerOptions);
+  /**
+   * Pan gesture recognition success callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PanGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionStart(event: Callback<GestureEvent>): PanGestureHandler;
+  /**
+   * Callback when the Pan gesture is moving.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PanGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionUpdate(event: Callback<GestureEvent>): PanGestureHandler;
+  /**
+   * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PanGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionEnd(event: Callback<GestureEvent>): PanGestureHandler;
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { Callback<void> } event
+   * @returns { PanGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionCancel(event: Callback<void>): PanGestureHandler;
+}
+
+/**
+ * Defines the SwipeGestureHandler options.
+ *
+ * @interface SwipeGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface SwipeGestureHandlerOptions {
+  /**
+   * Indicates the hand index that triggers the swipe. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fingers?: number;
+  /**
+   * Indicates the move direction of the swipe gesture.
+   * The default value is SwipeDirection.All.
+   *
+   * @type { ?SwipeDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction?: SwipeDirection;
+  /**
+   * Indicates minimum move speed.
+   * The default value is 100vp/s.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  speed?: number;
+}
+
+/**
+ * Defines the SwipeGesture handler.
+ *
+ * @extends GestureHandler<SwipeGestureHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { SwipeGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: SwipeGestureHandlerOptions);
+  /**
+   * Swipe gesture recognition success callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { SwipeGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onAction(event: Callback<GestureEvent>): SwipeGestureHandler;
+}
+
+/**
+ * Defines the PinchGestureHandler options.
+ *
+ * @interface PinchGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface PinchGestureHandlerOptions {
+  /**
+   * Indicates the hand index that triggers the pinch. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fingers?: number;
+  /**
+   * Indicates minimum pinch move distance.
+   * The default value is 5vp.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  distance?: number;
+}
+
+/**
+ * Defines the PinchGesture handler.
+ *
+ * @extends GestureHandler<PinchGestureHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { PinchGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: PinchGestureHandlerOptions);
+  /**
+   * Pinch gesture recognition success callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PinchGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionStart(event: Callback<GestureEvent>): PinchGestureHandler;
+  /**
+   * Callback when the Pinch gesture is moving.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PinchGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionUpdate(event: Callback<GestureEvent>): PinchGestureHandler;
+  /**
+   * The Pinch gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PinchGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionEnd(event: Callback<GestureEvent>): PinchGestureHandler;
+  /**
+   * The Pinch gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { Callback<void> } event
+   * @returns { PinchGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionCancel(event: Callback<void>): PinchGestureHandler;
+}
+
+/**
+ * Defines the RotationGestureHandler options.
+ *
+ * @interface RotationGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface RotationGestureHandlerOptions {
+  /**
+   * Indicates the hand index that triggers the rotation. If the value is less than 1, the default value is used.
+   * The default value is 1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fingers?: number;
+  /**
+   * Indicates minimum rotate angle.
+   * The default value is 1deg.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  angle?: number;
+}
+
+/**
+ * Defines the RotationGesture handler.
+ *
+ * @extends GestureHandler<RotationGestureHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class RotationGestureHandler extends GestureHandler<RotationGestureHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { RotationGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: RotationGestureHandlerOptions);
+  /**
+   * Rotation gesture recognition success callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { RotationGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionStart(event: Callback<GestureEvent>): RotationGestureHandler;
+  /**
+   * Callback when the Rotation gesture is moving.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { RotationGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionUpdate(event: Callback<GestureEvent>): RotationGestureHandler;
+  /**
+   * The Rotation gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { RotationGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionEnd(event: Callback<GestureEvent>): RotationGestureHandler;
+  /**
+   * The Rotation gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { Callback<void> } event
+   * @returns { RotationGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onActionCancel(event: Callback<void>): RotationGestureHandler;
+}
+
+/**
+ * Defines the GestureGroupGestureHandler options.
+ *
+ * @interface GestureGroupGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface GestureGroupGestureHandlerOptions {
+  /**
+   * Indicates the mode of gesture group.
+   *
+   * @type { GestureMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mode: GestureMode;
+  /**
+   * Indicates the gestures included in the gesture group.
+   *
+   * @type { GestureHandler<TapGestureHandler | LongPressGestureHandler | PanGestureHandler | SwipeGestureHandler | PinchGestureHandler | RotationGestureHandler | GestureGroupHandler>[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  gestures: GestureHandler<TapGestureHandler | LongPressGestureHandler | PanGestureHandler | SwipeGestureHandler | PinchGestureHandler | RotationGestureHandler | GestureGroupHandler>[];
+}
+
+/**
+ * Defines the GestureGroup handler.
+ *
+ * @extends GestureHandler<GestureGroupHandler>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
+  /**
+   * Constructor parameters.
+   *
+   * @param { GestureGroupGestureHandlerOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(options?: GestureGroupGestureHandlerOptions);
+  /**
+   * The GestureGroup gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { Callback<void> } event
+   * @returns { GestureGroupHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onCancel(event: Callback<void>): GestureGroupHandler;
+}
+
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum GesturePriority {
+  /**
+   * The normal gesture priority.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NORMAL = 0,
+  /**
+   * The high gesture priority.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PRIORITY = 1,
+}
+
+declare module "GestureEventModule" {
+  module "GestureEventModule" {
+    // @ts-ignore
+    export { GestureEvent };
+  }
+}

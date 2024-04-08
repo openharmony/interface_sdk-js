@@ -273,6 +273,16 @@ declare namespace hiAppEvent {
      * @since 12
      */
     const RESOURCE_OVERLIMIT: string;
+
+    /**
+     * address sanitizer event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const ADDRESS_SANITIZER: string;
   }
 
   /**

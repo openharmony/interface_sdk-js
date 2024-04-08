@@ -98,13 +98,17 @@ function collectAllApiDiffs(newApiMap, oldApiMap, diffReporter, oldDir, newDir) 
     });
   });
   newApiMap.forEach((newPackageMap, _) => {
-    newPackageMap.forEach((newClassMap, _) => {
-      newClassMap.children.forEach((apisMap, _) => {
-        apisMap.forEach((apis, _) => {
-          diffReporter.addNewApi(apis[0], getSycap(apis[0]));
-          const diffInfo = formatDiffInfo(apis[0], StatusCode.NEW_API, '', apis[0].getRawText(), '', apis[0].node, getSycap(apis[0]));
-          diffReporter.addDiffInfo(diffInfo);
-        });
+    collectAllApiDiffFromPackageMap(newPackageMap, diffReporter);
+  });
+}
+
+function collectAllApiDiffFromPackageMap(newPackageMap, diffReporter) {
+  newPackageMap.forEach((newClassMap, _) => {
+    newClassMap.children.forEach((apisMap, _) => {
+      apisMap.forEach((apis, _) => {
+        diffReporter.addNewApi(apis[0], getSyscap(apis[0]));
+        const diffInfo = formatDiffInfo(apis[0], StatusCode.NEW_API, '', apis[0].getRawText(), '', apis[0].node, getSyscap(apis[0]));
+        diffReporter.addDiffInfo(diffInfo);
       });
     });
   });
@@ -123,14 +127,7 @@ function collectApiDiffFromPackageMap(oldPackageMap, packageName, newApiMap, ext
     // dts文件删除
     let dtsPath;
     oldPackageMap.forEach((classNameMap, _) => {
-      classNameMap.children.forEach((apisMap, _) => {
-        apisMap.forEach((apis, _) => {
-          ext.diffReporter.addDeletedApi(apis[0], getSycap(apis[0]));
-          const diffInfo = formatDiffInfo(apis[0], StatusCode.DELETE, apis[0].getRawText(), '',
-            apis[0].node, '', getSycap(apis[0]));
-          ext.diffReporter.addDiffInfo(diffInfo);
-        });
-      });
+      collectApiDiffFromPackageMapClass(classNameMap, ext);
       dtsPath = classNameMap.type.path;
     });
     ext.diffReporter.addDeletedPackage(packageName, dtsPath);
@@ -143,7 +140,18 @@ function collectApiDiffFromPackageMap(oldPackageMap, packageName, newApiMap, ext
   }
 }
 
-function getSycap(api) {
+function collectApiDiffFromPackageMapClass(classNameMap, ext) {
+  classNameMap.children.forEach((apisMap, _) => {
+    apisMap.forEach((apis, _) => {
+      ext.diffReporter.addDeletedApi(apis[0], getSyscap(apis[0]));
+      const diffInfo = formatDiffInfo(apis[0], StatusCode.DELETE, apis[0].getRawText(), '',
+        apis[0].node, '', getSyscap(apis[0]));
+      ext.diffReporter.addDiffInfo(diffInfo);
+    });
+  });
+}
+
+function getSyscap(api) {
   let curApi = api;
   let syscap = '';
   if (api.packageName === 'ArkUI') {
@@ -175,10 +183,10 @@ function getSycap(api) {
     if (/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(fileContent)) {
       fileContent.replace(/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         syscap = sysCapInfo.replace(/\@syscap/g, '').trim();
-      })
+      });
     }
-    return syscap;
   }
+  return syscap;
 }
 
 /**
@@ -201,13 +209,13 @@ function collectApiDiffFromClassMap(oldClassApi, className, newPackageMap, ext) 
       newMessage: '',
       oldNode: '',
       newNode: '',
-      syscap: getSycap(oldClassApi.type),
+      syscap: getSyscap(oldClassApi.type),
     });
     oldClassApi.children.forEach((apisMap, _) => {
       apisMap.forEach((apis, _) => {
-        ext.diffReporter.addDeletedApi(apis[0], getSycap(apis[0]));
+        ext.diffReporter.addDeletedApi(apis[0], getSyscap(apis[0]));
         const diffInfo = formatDiffInfo(apis[0], StatusCode.DELETE, apis[0].getRawText(), '',
-          apis[0].node, '', getSycap(apis[0]));
+          apis[0].node, '', getSyscap(apis[0]));
         ext.diffReporter.addDiffInfo(diffInfo);
       });
     });
@@ -232,7 +240,7 @@ function collectApiDiffFromApiNameMap(oldSignatureMap, apiName, newClassMap, ext
   if (!newClassMap.has(apiName)) {
     // 方法被删除
     oldSignatureMap.forEach((oldApis, _) => {
-      ext.diffReporter.addDeletedApi(oldApis[0], getSycap(oldApis[0]));
+      ext.diffReporter.addDeletedApi(oldApis[0], getSyscap(oldApis[0]));
     });
   } else {
     const newSignatureMap = newClassMap.get(apiName);
@@ -244,12 +252,12 @@ function collectApiDiffFromApiNameMap(oldSignatureMap, apiName, newClassMap, ext
 
     sameSignatureSet.forEach(sameSignature => {
       oldSignatureMap.delete(sameSignature);
-    })
+    });
 
     oldSignatureMap.forEach((oldApis, _) => {
       if (newSignatureMap.size === 0) {
         // 同名函数，方法被删除
-        ext.diffReporter.addDeletedApi(oldApis[0], getSycap(oldApis[0]));
+        ext.diffReporter.addDeletedApi(oldApis[0], getSyscap(oldApis[0]));
       } else {
         getFunctionDiff(oldApis, newSignatureMap, ext, sameApiNameNumber);
       }
@@ -306,7 +314,7 @@ function getFunctionDiff(oldApis, newClassMap, ext, sameApiNameNumber) {
   if (sameApiNameNumber === 1) {
     newClassMap.forEach((apiDigestInfo, apiSignautre) => {
       const diffInfo = formatDiffInfo(oldApis[0], StatusCode.FUNCTION_CHANGES, oldApis[0].getRawText(), apiDigestInfo[0].getRawText(),
-        oldApis[0].node, apiDigestInfo[0].node, getSycap(apiDigestInfo[0]));
+        oldApis[0].node, apiDigestInfo[0].node, getSyscap(apiDigestInfo[0]));
       ext.diffReporter.addChangedApi(diffInfo);
       ext.diffReporter.addDiffInfo(diffInfo);
       collectJSDocDiffs(oldApis[0], apiDigestInfo[0], ext.diffReporter);
@@ -317,16 +325,16 @@ function getFunctionDiff(oldApis, newClassMap, ext, sameApiNameNumber) {
     let newApiTypeMap = new Map();
     getEveryNewApiType(newClassMap, newApiTypeMap);
     if (newApiTypeMap.get(oldApiType) !== undefined && newApiTypeMap.get(oldApiType).size > 1) {
-      ext.diffReporter.addDeletedApi(oldApis[0], getSycap(oldApis[0]));
+      ext.diffReporter.addDeletedApi(oldApis[0], getSyscap(oldApis[0]));
       const diffInfo = formatDiffInfo(oldApis[0], StatusCode.DELETE, oldApis[0].getRawText(), '',
-        oldApis[0].node, '', getSycap(oldApis[0]));
+        oldApis[0].node, '', getSyscap(oldApis[0]));
       ext.diffReporter.addDiffInfo(diffInfo);
     } else if (newApiTypeMap.get(oldApiType) !== undefined && newApiTypeMap.get(oldApiType).size === 1) {
       const oldMessage = oldApis[0].getRawText();
       const newApi = newClassMap.get(...newApiTypeMap.get(oldApiType))[0];
       const newMessage = newApi.getRawText();
       const newNode = newApi.node;
-      const syscap = getSycap(newClassMap.get(...newApiTypeMap.get(oldApiType))[0]);
+      const syscap = getSyscap(newClassMap.get(...newApiTypeMap.get(oldApiType))[0]);
       const diffInfo = formatDiffInfo(oldApis[0], StatusCode.FUNCTION_CHANGES, oldMessage, newMessage, oldApis[0].node, newNode, syscap);
       ext.diffReporter.addChangedApi(diffInfo);
       ext.diffReporter.addDiffInfo(diffInfo);

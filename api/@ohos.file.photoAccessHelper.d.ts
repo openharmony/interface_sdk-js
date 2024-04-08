@@ -328,7 +328,43 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
-    PROFILE_PICTURE = 5
+    PROFILE_PICTURE = 5,
+
+    /**
+     * PASSPORT indicates that passport photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    PASSPORT = 6,
+
+    /**
+     * BANK_CARD indicates that bank card photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    BANK_CARD = 7,
+
+    /**
+     * DRIVER_LICENSE indicates that driver license photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    DRIVER_LICENSE = 8,
+
+    /**
+     * DRIVING_LICENSE indicates that driving license photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    DRIVING_LICENSE = 9
   }
 
   /**

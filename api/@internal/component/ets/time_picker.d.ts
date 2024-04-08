@@ -281,6 +281,15 @@ interface TimePickerInterface {
    */
   (options?: TimePickerOptions): TimePickerAttribute;
 }
+/**
+ * Define the internationalization parameter format.
+ *
+ * @typedef { import('../api/@ohos.intl').default.DateTimeOptions } DateTimeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
 
 /**
  * Defines the TimePicker attribute functions.
@@ -419,6 +428,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
+   * Set time format
+   *
+   * @param { DateTimeOptions } value - indicates the format of the time display.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
+
+  /**
    * This event is triggered when a TimePicker time is selected.
    *
    * @param { function } callback
@@ -536,6 +556,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 11
    */
   textStyle?: PickerTextStyle;
+
+  /**
+   * Text style of button items
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: PickerDialogButtonStyle;
 
   /**
    * Text style of selected items
@@ -774,6 +804,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+ 
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**

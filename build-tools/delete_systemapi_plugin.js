@@ -184,7 +184,7 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
  */
 function hasFileByImportPath(importPath) {
   let fileDir = path.resolve(apiSourcePath);
-  if (importPath.startsWith("@arkts")) {
+  if (importPath.startsWith('@arkts')) {
     fileDir = path.resolve(apiSourcePath, '../arkts');
   }
   const flag = ['.d.ts', '.d.ets'].some(ext => {

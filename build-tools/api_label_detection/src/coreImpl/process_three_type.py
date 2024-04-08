@@ -17,6 +17,7 @@
 from typedef.detection import Output, ErrorMessage, ErrorType
 from utils.util import get_position_information, get_js_doc_info
 from typedef.process_three_type import get_three_label_value
+from utils.constants import label_comparison_dist
 
 
 def process_class_type(dict_data: dict, label='default') -> list:
@@ -40,13 +41,18 @@ def process_method_type(dict_data: dict, label='default') -> list:
 
 
 def judgment_is_default(dict_data: dict, label) -> list:
+    result_data = []
     if 'default' == label:
         result_data = default_processing_label(dict_data)
     else:
         if 'Method' == dict_data['apiType']:
-            result_data = process_method_tag(dict_data, label)
+            for label_element in label:
+                change_label = label_comparison_dist[label_element]
+                result_data = process_method_tag(dict_data, change_label)
         else:
-            result_data = process_tag(dict_data, label)
+            for label_element in label:
+                change_label = label_comparison_dist[label_element]
+                result_data = process_tag(dict_data, change_label)
 
     return result_data
 
@@ -119,8 +125,9 @@ def process_param_or_return(dict_data: dict, key_info: str, parent_info: dict,
             error_message = message_of_error[1].replace('&', new_label)
             error_result.setdefault('error_type', error_type)
             error_result.setdefault('error_message', error_message)
-            message_obj = get_message_obj(dict_data, error_result)
+            message_obj = get_message_obj(dict_data, error_result, process_data)
             missing_tag_message_list.append(message_obj)
+            break
 
     return missing_tag_message_list
 
@@ -129,12 +136,14 @@ def diff_of_param_obj(key, in_out=0):
     diff_data = {
         'typeLocations': '{}#{}'.format(ErrorType.PARAM_NO_TAG.value,
                                         ErrorMessage.METHOD_HAVE_INPUT_PARAM_NO.value),
-        'objLocations': '{}#{}'.format(ErrorType.OBJ_NO_TAG.value,
-                                       ErrorMessage.METHOD_HAVE_OBJ_NO.value)
+        'objLocations': '{}#{}'.format(ErrorType.PARAM_OBJ_NO_TAG.value,
+                                       ErrorMessage.METHOD_HAVE_PARAM_OBJ_NO.value)
     }
     if 1 == in_out:
         diff_data['typeLocations'] = '{}#{}'.format(ErrorType.RETURN_NO_TAG.value,
                                                     ErrorMessage.METHOD_HAVE_OUTPUT_PARAM_NO.value)
+        diff_data['objLocations'] = '{}#{}'.format(ErrorType.RETURN_OBJ_NO_TAG.value,
+                                                   ErrorMessage.METHOD_HAVE_RETURN_OBJ_NO.value)
     error_info = ''
     if key in diff_data:
         error_info = diff_data[key]
@@ -162,7 +171,7 @@ def process_no_js_info(dict_data: dict, label):
     error_result = {}
     new_label = label.replace('is', '')
     for child_data in dict_data['childApis']:
-        if 'Method' != child_data['apiType'] or 'jsDocInfos' not in child_data:
+        if 'jsDocInfos' not in child_data:
             continue
         data_tag_info = get_js_doc_info(child_data['jsDocInfos'])
         if 'label' in data_tag_info and data_tag_info['label']:
@@ -188,9 +197,6 @@ def process_js_info(dict_data: dict, label):
     count_label = 0
     len_of_dict_data = len(dict_data['childApis'])
     for child_data in dict_data['childApis']:
-        if 'Method' != child_data['apiType']:
-            len_of_dict_data -= 1
-            continue
         if 'jsDocInfos' not in child_data and parent_information[label]:
             count_label += 1
         else:
@@ -220,8 +226,14 @@ def process_js_info(dict_data: dict, label):
     return error_result
 
 
-def get_message_obj(dict_data: dict, error_result: dict) -> Output:
-    message_obj = Output(dict_data['filePath'], error_result['error_type'], dict_data['definedText'],
+def get_message_obj(dict_data: dict, error_result: dict, in_or_out=None) -> Output:
+    if not in_or_out:
+        defined_text = dict_data['definedText']
+    elif in_or_out != dict_data:
+        defined_text = in_or_out['definedText']
+    else:
+        defined_text = dict_data['definedText']
+    message_obj = Output(dict_data['filePath'], error_result['error_type'], defined_text,
                          get_position_information(dict_data['pos']),
                          error_result['error_message'])
     return message_obj
@@ -240,7 +252,7 @@ def default_processing_label(dict_data: dict):
     return missing_tag_total_list
 
 
-def process_tag_dict(dict_data: dict):
+def process_tag_dict(dict_data: dict, label: list):
     # 绑定特定的节点对应标签处理函数
     process_result_list = []
     process_special_tag = {
@@ -251,7 +263,7 @@ def process_tag_dict(dict_data: dict):
     }
     api_type = dict_data['apiType']
     if api_type in process_special_tag:
-        process_result = process_special_tag[api_type](dict_data)
+        process_result = process_special_tag[api_type](dict_data, label)
         process_result_list.extend(process_result)
 
     return process_result_list

@@ -5478,6 +5478,15 @@ declare enum ImageSize {
    * @form
    */
   Contain,
+
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FILL = 3,
 }
 
 /**
@@ -8085,6 +8094,51 @@ declare enum FunctionKey {
    * @since 11
    */
   F12,
+    
+  /**
+   * Tab key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  TAB,
+
+  /**
+   * Up arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_UP,
+
+  /**
+   * Down arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_DOWN,
+
+  /**
+   * Left arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_LEFT,
+
+  /**
+   * Right arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_RIGHT,
 }
 
 /**

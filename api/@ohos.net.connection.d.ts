@@ -1596,6 +1596,13 @@ declare namespace connection {
      * @since 11
      */
     NET_CAPABILITY_VALIDATED = 16,
+    /**
+     * Indicates that the network is portal.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    NET_CAPABILITY_PORTAL = 17
   }
 
   /**

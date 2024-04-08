@@ -842,6 +842,100 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
 /**
+ * Define Monitor MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Monitor: MonitorDecorator;
+
+/**
+ * Define Monitor Decorator type
+ *
+ * @typedef { function } MonitorDecorator
+ * @param { string } value - Monitored path input by the user
+ * @param { string[] } args - Monitored path(s) input by the user
+ * @returns { MethodDecorator } Monitor decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
+
+/**
+ * Define IMonitor interface
+ *
+ * @interface IMonitor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface IMonitor {
+  /**
+   * Array of changed paths(keys)
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dirty: Array<string>;
+
+  /**
+   * Return the pair of the value before the most recent change and current value for given path.
+   * If path does not exist, return undefined; If path is not specified, return the value pair corresponding to the first path in dirty.
+   *
+   * @param { string } [path]
+   * @returns { IMonitorValue<T> | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value<T>(path?: string): IMonitorValue<T> | undefined;
+}
+
+/**
+ * Define IMonitorValue interface
+ *
+ * @interface IMonitorValue<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface IMonitorValue<T> {
+  /**
+   * Get the previous value.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  before: T;
+
+  /**
+   * Get current value.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  now: T;
+
+  /**
+   * Monitored path input by the user.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  path: string;
+}
+
+/**
  * Define AnimatableArithmetic interface
  *
  * @interface AnimatableArithmetic
@@ -12823,6 +12917,15 @@ declare interface DragPreviewOptions {
   * @since 12
   */
   modifier?: ImageModifier;
+
+  /**
+  * The flag for number showing.
+  *
+  * @type { ?(boolean | number) }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  numberBadge?: boolean | number;
 }
 
 /**
@@ -13755,6 +13858,17 @@ declare class CommonMethod<T> {
    */
   backgroundEffect(options: BackgroundEffectOptions): T;
 
+  /**
+   * Background image resizable.
+   * value:resizable options
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundImageResizable(value: ResizableOptions): T;
 
   /**
    * Foreground blur style.
@@ -14069,8 +14183,8 @@ declare class CommonMethod<T> {
    * @form
    */
   /**
-   * Opacity
-   * width:Outline width;color:Outline color;radius:Outline radius;
+   * Outline
+   * width:Outline width;color:Outline color;radius:Outline radius;style:Outline style;
    *
    * @param { OutlineOptions } value
    * @returns { T }
@@ -16548,6 +16662,7 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;
@@ -17737,6 +17852,17 @@ declare class CommonMethod<T> {
    * @since 12
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
+
+  /**
+   * Sets the gesture modifier.
+   *
+   * @param { GestureModifier } modifier
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  gestureModifier(modifier: GestureModifier): T;
 
   /**
    * Adds a background dynamic light up effect to the current component.
@@ -20716,6 +20842,78 @@ declare interface UICommonEvent {
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
 }
 
+/**
+ * Defines a UIGestureEvent which is used to set different gestures to target component.
+ *
+ * @interface UIGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface UIGestureEvent {
+  /**
+   * Add a gesture bound to the component.
+   *
+   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GesturePriority } priority - priority indicates the gesture's priority.
+   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
+
+  /**
+   * Add a parallel gesture bound to the component.
+   *
+   * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
+   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
+
+  /**
+   * Remove the gesture that is bound to the component and marked as tag.
+   *
+   * @param { string } tag - tag indicates the gesture's tag.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  removeGestureByTag(tag: string): void;
+
+  /**
+   * Clear gestures bound to the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  clearGestures(): void;
+}
+
+/**
+ * Defines the gesture modifier.
+ * 
+ * @interface GestureModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface GestureModifier {
+  /**
+   * Defines the gesture update function.
+   * 
+   * @param { UIGestureEvent } event
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  applyGesture(event: UIGestureEvent): void;
+}
+
 declare module 'commonEvent' {
   module 'commonEvent' {
     // @ts-ignore
@@ -20727,5 +20925,12 @@ declare module 'commonAttribute'{
   module 'commonAttribute' {
     // @ts-ignore
     export { CommonAttribute };
+  }
+}
+
+declare module "ClickEventModule" {
+  module "ClickEventModule" {
+    // @ts-ignore
+    export { ClickEvent };
   }
 }
