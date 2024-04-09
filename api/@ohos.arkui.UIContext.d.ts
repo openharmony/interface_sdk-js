@@ -33,7 +33,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent } from './@ohos.arkui.node'
+import { ComponentContent } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
@@ -2256,7 +2256,18 @@ export class UIContext {
    * @crossplatform
    * @since 12
    */
-   getFrameNodeById(id: string): FrameNode | null;
+  getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FrameNode by uniqueId.
+   *
+   * @param { number } id - The uniqueId of the FrameNode.
+   * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFrameNodeByUniqueId(id: number): FrameNode | null;
 
   /**
    * Get FocusController.

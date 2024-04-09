@@ -19773,6 +19773,16 @@ declare class CustomComponent extends CommonAttribute {
   getUIContext(): UIContext;
 
   /**
+   * Get uniqueId of the custom component.
+   *
+   * @returns { number } - The uniqueId of the custom component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getUniqueId(): number;
+
+  /**
    * Queries the navigation destination information.
    *
    * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
