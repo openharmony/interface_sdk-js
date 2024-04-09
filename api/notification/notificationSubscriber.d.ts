@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
+ * @kit NotificationKit
+ */
+
 import { NotificationRequest } from './notificationRequest';
 import { NotificationSortingMap } from './notificationSortingMap';
 import notification from '../@ohos.notification';
@@ -292,6 +297,17 @@ export interface BadgeNumberCallbackData {
    * @since 10
    */
   readonly badgeNumber: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly instanceKey?: number;
 }
 
 /**

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * CheckboxGroup SelectStatus
  *
  * @enum { number }
@@ -594,6 +599,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @form
    */
   onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
+
+  /**
+   * Setting the shape of checkbox group.
+   *
+   * @param { CheckBoxShape } value - The configuration of checkbox group shape.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  checkboxShape(value: CheckBoxShape): CheckboxGroupAttribute;
 }
 
 /**

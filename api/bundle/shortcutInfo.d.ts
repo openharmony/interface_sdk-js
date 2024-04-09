@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Provides methods for obtaining information about the ability that a shortcut will start, including the target
  * bundle name, target module name and ability class name.
  *

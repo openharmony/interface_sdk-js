@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import type { ApplicationInfo } from '../bundleManager/ApplicationInfo';
 import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
 

@@ -146,3 +146,53 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    */
   static getMaskClipPath(): string;
 }
+
+/**
+ * Animation control options
+ *
+ * @interface AnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface AnimationOptions {
+  /**
+   * The duration of animation playback once.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  duration?: number;
+  /**
+   * Animation playback times.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  iterations?: number;
+}
+
+/**
+ * Define the data structure for PixelMap animations.
+ *
+ * @extends DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class AnimatedDrawableDescriptor extends DrawableDescriptor {
+  /**
+   * Creates a new AnimatedDrawableDescriptor.
+   *
+   * @param { Array<image.PixelMap> } pixelMaps - PixelMap List.
+   * @param { AnimationOptions } [options] - Animation control options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
+}

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the options of Checkbox.
  *
  * @interface CheckboxOptions
@@ -119,6 +124,16 @@ declare interface CheckboxOptions {
    * @form
    */
   group?: string;
+
+  /**
+   * Custom builder function.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  indicatorBuilder?: CustomBuilder;
 }
 
 /**
@@ -324,6 +339,17 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+   /**
+   * setting the shape of checkbox.
+   *
+   * @param { CheckBoxShape } value - The configuration of checkbox shape.
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   shape(value: CheckBoxShape): CheckboxAttribute;

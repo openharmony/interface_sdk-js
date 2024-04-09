@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Sets the initial state of the slidable panel.
  *
  * @enum { number }

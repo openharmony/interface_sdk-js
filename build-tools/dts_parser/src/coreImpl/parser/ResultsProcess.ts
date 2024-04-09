@@ -251,7 +251,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.PropertyInfo[] = [];
     const propertyInfo: PropertyInfo = apiInfo as PropertyInfo;
     const jsDocInfos: Comment.JsDocInfo[] = propertyInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.PropertyInfo = new ResultsInfo.PropertyInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -281,7 +281,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.ClassInterfaceInfo[] = [];
     const classInfo: ClassInfo = apiInfo as ClassInfo;
     const jsDocInfos: Comment.JsDocInfo[] = classInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.ClassInterfaceInfo = new ResultsInfo.ClassInterfaceInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -306,7 +306,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.ClassInterfaceInfo[] = [];
     const interfaceInfo: InterfaceInfo = apiInfo as InterfaceInfo;
     const jsDocInfos: Comment.JsDocInfo[] = interfaceInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.ClassInterfaceInfo = new ResultsInfo.ClassInterfaceInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -331,7 +331,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.NamespaceEnumInfo[] = [];
     const interfaceInfo: NamespaceInfo = apiInfo as NamespaceInfo;
     const jsDocInfos: Comment.JsDocInfo[] = interfaceInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.NamespaceEnumInfo = new ResultsInfo.NamespaceEnumInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -351,7 +351,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.MethodInfo[] = [];
     const methodInfo: MethodInfo = apiInfo as MethodInfo;
     const jsDocInfos: Comment.JsDocInfo[] = methodInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.MethodInfo = new ResultsInfo.MethodInfo(apiInfo.getApiType(), new Comment.JsDocInfo());
       newInfo.setName(apiInfo.getApiName());
       newInfo.setCallForm(methodInfo.getCallForm());
@@ -407,7 +407,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.ConstantInfo[] = [];
     const constantInfo: ConstantInfo = apiInfo as ConstantInfo;
     const jsDocInfos: Comment.JsDocInfo[] = constantInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.ConstantInfo = new ResultsInfo.ConstantInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -443,7 +443,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.DeclareConstInfo[] = [];
     const constantInfo: ConstantInfo = apiInfo as ConstantInfo;
     const jsDocInfos: Comment.JsDocInfo[] = constantInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.DeclareConstInfo = new ResultsInfo.DeclareConstInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -475,7 +475,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.NamespaceEnumInfo[] = [];
     const enumInfo: EnumInfo = apiInfo as EnumInfo;
     const jsDocInfos: Comment.JsDocInfo[] = enumInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.NamespaceEnumInfo = new ResultsInfo.NamespaceEnumInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -495,7 +495,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.EnumValueInfo[] = [];
     const enumValueInfo: EnumValueInfo = apiInfo as EnumValueInfo;
     const jsDocInfos: Comment.JsDocInfo[] = enumValueInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.EnumValueInfo = new ResultsInfo.EnumValueInfo(
         apiInfo.getApiType(),
         new Comment.JsDocInfo()
@@ -517,7 +517,7 @@ export class ResultsProcessHelper {
     const infos: ResultsInfo.BasicApiInfo[] = [];
     const typeAliasInfo: TypeAliasInfo = apiInfo as TypeAliasInfo;
     const jsDocInfos: Comment.JsDocInfo[] = typeAliasInfo.getJsDocInfos();
-    if (jsDocInfos.length == 0) {
+    if (jsDocInfos.length === 0) {
       const newInfo: ResultsInfo.BasicApiInfo = ResultsProcessHelper.processTypeAliasGetNewInfo(
         typeAliasInfo,
         new Comment.JsDocInfo()

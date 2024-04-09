@@ -14,12 +14,11 @@
  */
 
 import ts from 'typescript';
-import { ApiInfo, ApiType, ClassInfo, MethodInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType, MethodInfo } from '../../../typedef/parser/ApiInfoDefination';
 import {
   tagsArrayOfOrder,
   optionalTags,
-  apiLegalityCheckTypeMap,
-  permissionOptionalTags,
+  apiLegalityCheckTypeMap
 } from '../../../utils/checkUtils';
 import { Comment } from '../../../typedef/parser/Comment';
 import { ErrorTagFormat, ErrorMessage } from '../../../typedef/checker/result_type';
@@ -36,70 +35,80 @@ export class LegalityCheck {
     const apiLegalityCheckResult: ErrorTagFormat[] = [];
     const nodeInfo: ts.Node = singleApi.getNode() as ts.Node;
     const apiLegalityTagsArray: string[] = apiLegalityCheckTypeMap.get(nodeInfo.kind) as string[];
+    const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
+    const illegalTagsArray: string[] = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
+    let extendsApiValue = '';
+    let implementsApiValue = '';
+    if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
+      extendsApiValue = CommonFunctions.getExtendsApiValue(singleApi);
+      implementsApiValue = CommonFunctions.getImplementsApiValue(singleApi);
+    }
+    if (extendsApiValue === '') {
+      apiLegalityTagsSet.delete('extends');
+      illegalTagsArray.push('extends');
+    }
+    if (implementsApiValue === '') {
+      apiLegalityTagsSet.delete('implements');
+      illegalTagsArray.push('implements');
+    }
 
     // 判断api的jsdoc中是否存在非法标签，是否缺失必选标签
-    if (Array.isArray(apiLegalityTagsArray)) {
-      const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
-      const illegalTagsArray = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
-      const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
-      if (apiTags === undefined) {
-        return apiLegalityCheckResult;
-      }
-
-      let paramTagNumber: number = 0;
-      let paramApiNumber: number =
-        singleApi.getApiType() === ApiType.METHOD ? (singleApi as MethodInfo).getParams().length : 0;
-      apiTags.forEach((apiTag) => {
-        paramTagNumber = apiTag.tag === 'param' ? paramTagNumber + 1 : paramTagNumber;
-        const isUseinsteadLegalSituation: boolean = apiTag.tag === 'useinstead' && apiJsdoc.deprecatedVersion !== '-1';
-        if (illegalTagsArray.includes(apiTag.tag)) {
-          if (apiTag.tag !== 'useinstead' || !isUseinsteadLegalSituation) {
-            const apiRedundantResultFormat: ErrorTagFormat = {
-              state: false,
-              errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, [apiTag.tag]),
-            };
-            apiLegalityCheckResult.push(apiRedundantResultFormat);
-          }
-        }
-        apiLegalityTagsSet.delete('param');
-        if (apiLegalityTagsSet.has(apiTag.tag)) {
-          apiLegalityTagsSet.delete(apiTag.tag);
-        }
-        if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
-          apiLegalityTagsSet.delete('typedef');
-          apiLegalityTagsSet.delete('interface');
-        }
-        if (singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) {
-          apiLegalityTagsSet.delete('returns');
-        }
-        if (apiLegalityTagsSet.has('extends') && (singleApi as ClassInfo).getParentClasses().length === 0) {
-          apiLegalityTagsSet.delete('extends');
-        }
-      });
-      // param合法性单独进行校验
-      LegalityCheck.paramLegalityCheck(paramTagNumber, paramApiNumber, apiLegalityCheckResult);
-      // 缺失标签set合集
-      apiLegalityTagsSet.forEach((apiLegalityTag) => {
-        const isSyacapOptionalSituation: boolean =
-          apiLegalityTag === 'syscap' &&
-          (nodeInfo.kind === ts.SyntaxKind.ClassDeclaration || nodeInfo.kind === ts.SyntaxKind.ModuleDeclaration);
-        const isPermissionOptionalSituation: boolean =
-          apiLegalityTag === 'permission' && permissionOptionalTags.includes(nodeInfo.kind);
-        const isExtendsRequireSituation: boolean =
-          apiLegalityTag === 'extends' && (singleApi as ClassInfo).getParentClasses().length > 0;
-
-        if (
-          !conditionalOptionalTags.includes(apiLegalityTag) &&
-          (!isSyacapOptionalSituation || !isPermissionOptionalSituation || isExtendsRequireSituation)
-        ) {
-          const apiLostResultFormat: ErrorTagFormat = {
-            state: false,
-            errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [apiLegalityTag]),
-          };
-          apiLegalityCheckResult.push(apiLostResultFormat);
-        }
-      });
+    if (!Array.isArray(apiLegalityTagsArray)) {
+      return apiLegalityCheckResult;
     }
+    const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
+    if (apiTags === undefined) {
+      const sinceLost: ErrorTagFormat = {
+        state: false,
+        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['since']),
+      };
+      const syscapLost: ErrorTagFormat = {
+        state: false,
+        errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['syscap']),
+      };
+      apiLegalityCheckResult.push(sinceLost, syscapLost);
+      return apiLegalityCheckResult;
+    }
+
+    let paramTagNumber: number = 0;
+    let paramApiNumber: number =
+      singleApi.getApiType() === ApiType.METHOD ? (singleApi as MethodInfo).getParams().length : 0;
+    apiTags.forEach((apiTag) => {
+      paramTagNumber = apiTag.tag === 'param' ? paramTagNumber + 1 : paramTagNumber;
+      const isUseinsteadLegalSituation: boolean = apiTag.tag === 'useinstead' && apiJsdoc.deprecatedVersion !== '-1';
+
+      if (illegalTagsArray.includes(apiTag.tag) && (apiTag.tag !== 'useinstead' || !isUseinsteadLegalSituation)) {
+        const apiRedundantResultFormat: ErrorTagFormat = {
+          state: false,
+          errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, [apiTag.tag]),
+        };
+        apiLegalityCheckResult.push(apiRedundantResultFormat);
+      }
+      apiLegalityTagsSet.delete('param');
+      if (apiLegalityTagsSet.has(apiTag.tag)) {
+        apiLegalityTagsSet.delete(apiTag.tag);
+      }
+      if (singleApi.getApiType() === ApiType.INTERFACE && (apiTag.tag === 'typedef' || apiTag.tag === 'interface')) {
+        apiLegalityTagsSet.delete('typedef');
+        apiLegalityTagsSet.delete('interface');
+      }
+      if (singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) {
+        apiLegalityTagsSet.delete('returns');
+      }
+    });
+    // param合法性单独进行校验
+    LegalityCheck.paramLegalityCheck(paramTagNumber, paramApiNumber, apiLegalityCheckResult);
+    // 缺失标签set合集
+    apiLegalityTagsSet.forEach((apiLegalityTag) => {
+      if (!conditionalOptionalTags.includes(apiLegalityTag)) {
+        const apiLostResultFormat: ErrorTagFormat = {
+          state: false,
+          errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [apiLegalityTag]),
+        };
+        apiLegalityCheckResult.push(apiLostResultFormat);
+      }
+    });
+
     return apiLegalityCheckResult;
   }
 
@@ -139,8 +148,11 @@ export class LegalityCheck {
    */
   static getIllegalTagsArray(requiredTagsArray: string[]): string[] {
     const illegalTagsArray: string[] = [];
+
     tagsArrayOfOrder.forEach((tag) => {
-      if (!optionalTags.includes(tag) && !requiredTagsArray.includes(tag)) {
+      if (!optionalTags.includes(tag) && !Array.isArray(requiredTagsArray)) {
+        illegalTagsArray.push(tag);
+      } else if (!optionalTags.includes(tag) && !requiredTagsArray.includes(tag)) {
         illegalTagsArray.push(tag);
       }
     });

@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-# coding=utf-8
-##############################################
-# Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+# -*- coding: utf-8 -*-
+# Copyright (c) 2024 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,11 +12,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-##############################################
 
 import json
 import re
 import openpyxl as op
+from utils.constants import label_comparison_dist
 
 
 def get_start_characters(target_character):
@@ -30,7 +29,7 @@ def get_start_characters(target_character):
         return ''
 
 
-#剩余字符
+# 剩余字符
 def get_remaining_characters(start_character, target_character):
     return target_character[target_character.index(start_character) + len(start_character):]
 
@@ -53,10 +52,12 @@ def label_type_conversion(tagged_value):
     return True
 
 
-def get_check_labels(doc_info: dict):
+def get_check_labels(doc_info: dict, label_list):
     if len(doc_info) > 0:
-        return {'isAtomicService': doc_info['isAtomicService'], 'isForm': doc_info['isForm'],
-                'isCrossPlatForm': doc_info['isCrossPlatForm']}
+        result = {}
+        for label in label_list:
+            result[label_comparison_dist.get(label)] = doc_info[label_comparison_dist.get(label)]
+        return result
     else:
         return {}
 
@@ -82,3 +83,10 @@ def get_position_information(pos: dict):
 
 def set_label_to_result(message, label, mutex_label):
     return message.replace('$', label).replace('&', mutex_label)
+
+
+def get_js_doc_info(js_doc_info_list: list):
+    if len(js_doc_info_list) > 0:
+        return js_doc_info_list[len(js_doc_info_list) - 1]
+    return None
+

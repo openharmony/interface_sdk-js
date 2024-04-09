@@ -135,7 +135,37 @@ declare namespace deviceManager {
   function unbindDevice(deviceId: number): Promise<number>;
 
   /**
-   * Enumerates bus type of device.
+   * Queries external device information.
+   *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
+   * @param { number } deviceId - ID of device to query.
+   * @returns { Array<Readonly<DeviceInfo>> } Device information obtained.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  function queryDeviceInfo(deviceId?: number): Array<Readonly<DeviceInfo>>;
+
+  /**
+   * Queries driver information.
+   *
+   * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
+   * @param { string } driverUid - Unique identifier of driver query.
+   * @returns { Array<Readonly<DriverInfo>> } Driver information obtained.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  function queryDriverInfo(driverUid?: string): Array<Readonly<DriverInfo>>;
+
+  /**
+   * Enumerates the bus types.
    *
    * @enum { number }
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -232,6 +262,219 @@ declare namespace deviceManager {
      * @since 11
      */
     remote: rpc.IRemoteObject;
+  }
+
+  /**
+   * Represents information about a device interface descriptor.
+   *
+   * @typedef USBInterfaceDesc
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  interface USBInterfaceDesc {
+    /**
+     * Interface number.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    bInterfaceNumber: number;
+
+    /**
+     * Interface class code.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    bClass: number;
+
+    /**
+     * Interface subclass code.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    bSubClass: number;
+
+    /**
+     * Interface protocol.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    bProtocol: number;
+  }
+
+
+  /**
+   * Represents the device information.
+   *
+   * @typedef DeviceInfo
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  interface DeviceInfo {
+    /**
+     * Device ID.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    deviceId: number;
+
+    /**
+     * Whether the device has a matched driver.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    isDriverMatched: boolean;
+
+    /**
+     * Unique identifier of the driver.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    driverUid?: string;
+  }
+
+  /**
+   * Represents the USB device information.
+   *
+   * @typedef USBDeviceInfo
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  interface USBDeviceInfo extends DeviceInfo {
+    /**
+     * Vendor ID.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    vendorId: number;
+
+    /**
+     * Product ID.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    productId: number;
+
+    /**
+     * List of USB interface descriptors.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    interfaceDescList: Array<Readonly<USBInterfaceDesc>>;
+  }
+
+  /**
+   * Represents the driver information.
+   *
+   * @typedef DriverInfo
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  interface DriverInfo {
+    /**
+     * Bus type of the device.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    busType: BusType;
+
+    /**
+     * Unique identifier of the driver.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    driverUid: string;
+
+    /**
+     * Driver name.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    driverName: string;
+
+    /**
+     * Driver version.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    driverVersion: string;
+
+    /**
+     * Driver size.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    driverSize: string;
+
+    /**
+     * Driver description.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    description: string;
+  }
+
+  /**
+   * Represents the USB driver information.
+   *
+   * @typedef USBDriverInfo
+   * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
+   * @since 12
+   */
+  interface USBDriverInfo extends DriverInfo {
+    /**
+     * IDs of supported products.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    productIdList: Array<number>;
+
+    /**
+     * IDs of supported vendors.
+     *
+     * @syscap SystemCapability.Driver.ExternalDevice
+     * @systemapi
+     * @since 12
+     */
+    vendorIdList: Array<number>;
   }
 }
 

@@ -560,6 +560,18 @@ declare namespace taskpool {
   }
 
   /**
+   * The LongTask class provides an interface to create a task that has no upper limit on execution time.
+   *
+   * @extends Task
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  class LongTask extends Task {
+  }
+
+  /**
    * The State defines the task state.
    *
    * @enum { number } State
@@ -705,6 +717,17 @@ declare namespace taskpool {
      * @since 11
      */
     duration?: number;
+
+    /**
+     * Task name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    name: string;
   }
 
   /**
@@ -1043,6 +1066,31 @@ declare namespace taskpool {
    * @since 11
    */
   function getTaskPoolInfo(): TaskPoolInfo;
+
+  /**
+   * Terminate a long task.
+   *
+   * @param { LongTask } longTask - The long task want to terminate.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function terminateTask(longTask: LongTask): void;
+
+    /**
+   * Check if the function is a concurrent function.
+   *
+   * @param { Function } func - The function name to check.
+   * @returns { boolean } Returns {@code true} if it is a concurrent function; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    function isConcurrent(func: Function): boolean;
 }
 
 export default taskpool;

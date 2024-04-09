@@ -12,6 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../../../../api/@internal/component/ets/common.d.ts" />
 /// <reference path="../../../../api/@internal/component/ets/enums.d.ts" />
 

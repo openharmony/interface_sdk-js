@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The observer will be called by system when application main thread loop
  * execute timeout
  * @interface LoopObserver

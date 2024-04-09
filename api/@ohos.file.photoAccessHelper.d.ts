@@ -161,7 +161,7 @@ declare namespace photoAccessHelper {
      */
     CLOUD = 1 << 1
   }
- 
+
   /**
    * Analysis type
    *
@@ -250,7 +250,39 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    ANALYSIS_DETAIL_ADDRESS
+    ANALYSIS_DETAIL_ADDRESS,
+    /**
+     * Analysis of human face tag
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HUMAN_FACE_TAG,
+    /**
+     * Analysis of head position
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HEAD_POSITION,
+    /**
+     * Analysis of bone pose
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_BONE_POSE,
+    /**
+     * Analysis of video label
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_VIDEO_LABEL
   }
 
   /**
@@ -304,7 +336,43 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
-    PROFILE_PICTURE = 5
+    PROFILE_PICTURE = 5,
+
+    /**
+     * PASSPORT indicates that passport photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    PASSPORT = 6,
+
+    /**
+     * BANK_CARD indicates that bank card photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    BANK_CARD = 7,
+
+    /**
+     * DRIVER_LICENSE indicates that driver license photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    DRIVER_LICENSE = 8,
+
+    /**
+     * DRIVING_LICENSE indicates that driving license photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    DRIVING_LICENSE = 9
   }
 
   /**
@@ -1073,7 +1141,7 @@ declare namespace photoAccessHelper {
      * Request thumbnails of the asset.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels 
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels
      * @returns { string } Returns request photo task id.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -1089,7 +1157,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { RequestPhotoOptions } options - Request photo options
-     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels 
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the required pixels
      * @returns { string } Returns request photo task id.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -1286,7 +1354,29 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    PENDING = 'pending'
+    PENDING = 'pending',
+    /**
+     * Creation time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DATE_ADDED_MS = 'date_added_ms',
+    /**
+     * Modified time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DATE_MODIFIED_MS = 'date_modified_ms',
+    /**
+     * Trashed time of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    DATE_TRASHED_MS = 'date_trashed_ms'
   }
 
   /**
@@ -3034,7 +3124,7 @@ declare namespace photoAccessHelper {
 
     /**
      * The uri for the preselected files.
-     * 
+     *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
@@ -3060,6 +3150,36 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     recommendationType?: RecommendationType;
+
+    /**
+     * The textContextInfo to recommend images.
+     *
+     * @type { ?TextContextInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    textContextInfo?: TextContextInfo;
+  }
+
+  /**
+   * Defines the text context info.
+   *
+   * @interface TextContextInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface TextContextInfo {
+    /**
+     * The Simplified Chinese(UTF-8) text within 250 to recommend images.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    text?: string;
   }
 
   /**

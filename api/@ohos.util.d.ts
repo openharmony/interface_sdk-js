@@ -360,6 +360,21 @@ declare namespace util {
    */
   class TextDecoder {
     /**
+     * The textDecoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @since 9
+     */
+    /**
+     * The textDecoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    constructor();
+
+    /**
      * The source encoding's name, lowercased.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -415,21 +430,6 @@ declare namespace util {
      * @useinstead ohos.util.TextDecoder.create
      */
     constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean });
-
-    /**
-     * The textDecoder constructor.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * The textDecoder constructor.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    constructor();
 
     /**
      * Replaces the original constructor to process arguments and return a textDecoder object.
@@ -642,6 +642,19 @@ declare namespace util {
      * @since 11
      */
     constructor(encoding?: string);
+
+    /**
+     * Create a TextEncoder object.
+     *
+     * @param { string } [encoding] - The string for encoding format.
+     * @returns { TextEncoder }
+     * @throws { BusinessError } 401 - The type of encoding must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    static create(encoding?: string): TextEncoder;
 
     /**
      * Returns the result of encoder.
@@ -3433,6 +3446,51 @@ declare namespace util {
      * @since 11
      */
     static replace(targetClass: Object, methodName: string, isStatic: boolean, instead: Function) : void;
+  }
+  /**
+   * Provide the ability to decode binary streams into strings. The supported encoding types include: utf-8, iso-8859-2,
+   * koi8-r, macintosh, windows-1250, windows-1251, gbk, gb18030, big5, utf-16be, utf-16 le, etc.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  class StringDecoder {
+    /**
+     * The StringDecoder constructor.
+     *
+     * @param { string } [encoding] - Encoding type of the input data.Default: utf8.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    constructor(encoding?: string);
+    /**
+     * Returns a decoded string, ensuring that any incomplete multiple byte characters at the end of the Uint8Array are
+     * omitted from the returned string and stored in an internal buffer.
+     *
+     * @param { string | Uint8Array } chunk - The bytes to decode.
+     * @returns { string } Returns a decoded string.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    write(chunk: string | Uint8Array): string;
+    /**
+     * Returns any remaining input stored in the internal buffer as a string. After end() is called,
+     * this object can be reused for new input.
+     *
+     * @param { string | Uint8Array } [chunk] - The bytes to decode.
+     * @returns { string } Returns any remaining input stored in the internal buffer as a string.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 12
+     */
+    end(chunk?: string | Uint8Array): string;
   }
 }
 export default util;

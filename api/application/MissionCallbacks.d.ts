@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * MissionCallback registered by app.
  *
  * @interface MissionCallback

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,6 +11,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit ArkUI
  */
 
 /**
@@ -111,6 +116,15 @@ declare enum SliderStyle {
    * @form
    */
   InSet,
+  /**
+   * No slider.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  NONE,
 }
 
 /**
@@ -275,6 +289,34 @@ declare enum SliderChangeMode {
    * @form
    */
   Click,
+}
+
+/**
+ * Declare SliderInteraction
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum SliderInteraction {
+  /**
+   * Allow user to slide the block and click track to move the block
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDE_AND_CLICK,
+
+  /**
+   * Only allow user to slide the block
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SLIDE_ONLY
 }
 
 /**
@@ -900,7 +942,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  trackColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the track color of the slider is set.
+   *
+   * @param { ResourceColor | LinearGradient } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  trackColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
   /**
    * Called when the slider of the slider bar is set to slide over the area color.
@@ -1217,6 +1269,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   trackBorderRadius(value: Length): SliderAttribute;
 
   /**
+   * Called when the radius of selected part is set.
+   *
+   * @param { Dimension } value - the radius of selected part.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    selectedBorderRadius(value: Dimension): SliderAttribute;
+  
+  /**
    * Called when the size of block is set.
    *
    * @param { SizeOptions } value - the size of block.
@@ -1278,6 +1341,28 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    */
   stepSize(value: Length): SliderAttribute;
+
+  /**
+   * Sets the interaction mode of the slider.
+   *
+   * @param { SliderInteraction } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  sliderInteractionMode(value: SliderInteraction): SliderAttribute;
+
+  /**
+   * Sets the min value when Slider response to drag event.
+   *
+   * @param { number } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  minResponsiveDistance(value: number): SliderAttribute;
 }
 
 /**

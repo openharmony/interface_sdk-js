@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { Metadata } from './Metadata';
 import { Resource } from '../global/resource';
 import bundleManager from './../@ohos.bundle.bundleManager';
