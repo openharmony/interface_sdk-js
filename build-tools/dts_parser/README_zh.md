@@ -100,8 +100,6 @@ node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查�
 node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/文件（sdk/windows/ets） --new 新版本目录/文件（sdk/windows/ets) --old-version 旧版本号 --new-version 新版本号 --output 报告输出目录 --format excel
 ```
 
-
-
 ### api统计工具
 
 [代码](src/coreImpl/statistics/ApiStatistics.ts)
@@ -117,9 +115,21 @@ node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/�
 node --nolazy -r ts-node/register ./src/main.ts -N collect -C 目录路径/文件路径 --output 报告输出目录 --format excel
 ```
 
+### 元服务API集标签检测工具
 
+[代码](..\api_label_detection\src\main.py)
 
-## 工具调用
+对于元服务标签@atomicservice的漏标误标场景做出识别，辅助API标签排查，将不符合规定标签详情信息汇总至Excel表格中输出.也可根据需求对@form、@crossplatform标签进行校验
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N detection -L 验证标签 -C api全文件 -F 统计目录/文件 -O 报告输出目录
+```
+
+详细内容见[元服务API集标签检测工具](..\api_label_detection\README_zh.md)
+
+## 工具xiangx调用
 
 通过commander调用相关工具，[调用入口](src/main.ts)只有（src/main.ts），到当前目录下，执行命令 ts-node ./src/main.ts 后接相关参数。
 

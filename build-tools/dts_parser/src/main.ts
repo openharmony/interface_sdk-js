@@ -22,7 +22,7 @@ import { FileUtils } from './utils/FileUtils';
 
 class ToolBoxCommander {
   program: commander.Command = new commander.Command();
-  constructor() {}
+  constructor() { }
   addPluginCommand(plugin: PluginType): void {
     const pluginOption: PluginOptionsType = plugin.pluginOptions;
     if (!pluginOption) {
@@ -60,11 +60,16 @@ class ToolBoxCommander {
     }
     switch (toolName) {
       case toolNameType.COLLECT:
-        const collectPath = opts.collectPath;
+        const collectPath: string = opts.collectPath;
         if (collectPath === '' || !FileUtils.isExists(collectPath)) {
           this.stopRun(`error collectPath "${collectPath}",collectPath need a exist file path`);
         }
         break;
+      case toolNameType.LABELDETECTION:
+        const checkLabels: string = opts.checkLabels;
+        if (checkLabels === '') {
+          this.stopRun(`error checkLabels "${checkLabels}",detection tools need checkLabels`);
+        }
     }
   }
   /**
