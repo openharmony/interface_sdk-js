@@ -236,7 +236,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  renderHeight(with: import('../api/@ohos.arkui.node').LengthMetric,
+  renderResolution(with: import('../api/@ohos.arkui.node').LengthMetric,
     height: import('../api/@ohos.arkui.node').LengthMetric): Component3DAttribute;
 }
 
