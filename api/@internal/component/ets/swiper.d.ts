@@ -1729,7 +1729,8 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * When the previous item is empty, do not display blank space.
    *
-   * @param { boolean } ignoreBlank - Ignoring blank space at the end of the page.
+   * @param { Length } value - The length of previous margin.
+   * @param { boolean } [ignoreBlank] - Ignoring blank space at the end of the page.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1759,7 +1760,8 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * When the next item is empty, do not display blank space.
    *
-   * @param { boolean } ignoreBlank - Ignoring blank space on homepage.
+   * @param { Length } value - The length of next margin.
+   * @param { boolean } [ignoreBlank] - Ignoring blank space on homepage.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
