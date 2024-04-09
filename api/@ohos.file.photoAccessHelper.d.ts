@@ -3298,7 +3298,6 @@ declare namespace photoAccessHelper {
    */
   /**
    * PhotoSelectOptions extends base class BaseSelectOptions
-   * some public properties has moved to class BaseSelectOptions
    *
    * @extends BaseSelectOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
