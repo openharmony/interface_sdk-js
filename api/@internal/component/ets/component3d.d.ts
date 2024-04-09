@@ -226,7 +226,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   renderHeight(value: Dimension): Component3DAttribute;
 
   /**
-   * Set render height resolution. 
+   * Set render resolution. 
    *
    * @param { import('../api/@ohos.arkui.node').LengthMetric } width - Width of gpu render target,
    *   target would upscale or downscale to view's width.
