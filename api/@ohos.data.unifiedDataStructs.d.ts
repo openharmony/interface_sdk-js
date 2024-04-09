@@ -23,31 +23,26 @@
  *
  * @namespace unifiedDataStructs
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @atomicservice
  * @since 12
  */
 declare namespace unifiedDataStructs {
   /**
    * Describe the unified plain text struct
    *
-   * @extends Text
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @atomicservice
    * @since 12
    */
   class PlainText {
     /**
-     * Indicates the data type of unified data.
+     * Indicates the data type of unified data is general.plain-text.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
-    utdType: 'general.plain-text';
+    uniformDataType: 'general.plain-text';
     /**
      * Indicates the content of text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     textContent: string;
@@ -56,7 +51,6 @@ declare namespace unifiedDataStructs {
      * Indicates the abstract of text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     abstract?: string;
@@ -65,24 +59,20 @@ declare namespace unifiedDataStructs {
   /**
    * Describe the unified link struct
    *
-   * @extends UnifiedDataStruct
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @atomicservice
    * @since 12
    */
   class Hyperlink {
     /**
-     * Indicates the data type of unified data.
+     * Indicates the data type of unified data is general.hyperlink.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
-     utdType: 'general.hyperlink';
+    uniformDataType: 'general.hyperlink';
     /**
      * Indicates the url of a link
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     url: string;
@@ -91,7 +81,6 @@ declare namespace unifiedDataStructs {
      * Indicates the description of a link
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     description?: string;
@@ -100,25 +89,21 @@ declare namespace unifiedDataStructs {
   /**
    * Describe the unified html struct
    *
-   * @extends UnifiedDataStruct
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @atomicservice
    * @since 12
    */
   class HTML {
     /**
-     * Indicates the data type of unified data.
+     * Indicates the data type of unified data is general.html.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
-     utdType: 'general.html';
+    uniformDataType: 'general.html';
 
     /**
      * Indicates the content of html, with html tags
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     htmlContent: string;
@@ -126,94 +111,28 @@ declare namespace unifiedDataStructs {
      * Indicates the plain content of html
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     plainContent?: string;
   }
 
   /**
-   * Describe system defined form struct(this kind of struct is provided and bound to OpenHarmony,
-   * also can be parsed by system provided API)
+   * Describe system defined app item struct(this kind of struct is provided and bound to OpenHarmony).
    *
-   * @extends UnifiedDataStruct
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @atomicservice
-   * @since 12
-   */
-  class OpenHarmonyForm {
-    /**
-     * Indicates the data type of unified data.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-     utdType: 'openharmony.form';
-    /**
-     * Indicates the id of form
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    formId: number;
-    /**
-     * Indicates the name of form
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    formName: string;
-    /**
-     * Indicates the bundle name of form
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    bundleName: string;
-    /**
-     * Indicates the ability name of form
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    abilityName: string;
-
-    /**
-     * Indicates the module of form
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    module: string;
-  }
-
-  /**
-   * Describe system defined app item struct(this kind of struct is provided and bound to OpenHarmony,
-   * also can be parsed by system provided API)
-   *
-   * @extends UnifiedDataStruct
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @atomicservice
    * @since 12
    */
   class OpenHarmonyAppItem {
     /**
-     * Indicates the data type of unified data.
+     * Indicates the data type of unified data is openharmony.app-item.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
-     utdType: 'openharmony.app-item';
+    uniformDataType: 'openharmony.app-item';
     /**
      * Indicates the app id
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     appId: string;
@@ -221,7 +140,6 @@ declare namespace unifiedDataStructs {
      * Indicates the app name
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     appName: string;
@@ -229,7 +147,6 @@ declare namespace unifiedDataStructs {
      * Indicates the id of app icon
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     appIconId: string;
@@ -237,7 +154,6 @@ declare namespace unifiedDataStructs {
      * Indicates the id of app label
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     appLabelId: string;
@@ -245,7 +161,6 @@ declare namespace unifiedDataStructs {
      * Indicates the bundle name of app
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     bundleName: string;
@@ -253,9 +168,10 @@ declare namespace unifiedDataStructs {
      * Indicates the ability name of app
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 12
      */
     abilityName: string;
   }
 }
+
+export default unifiedDataStructs;
