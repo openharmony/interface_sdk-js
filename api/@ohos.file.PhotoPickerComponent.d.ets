@@ -50,7 +50,7 @@ export declare struct PhotoPickerComponent {
   onSelect?: (uri: string) => void;
 
   /**
-   * Callback when UnSelect photos or videos
+   * Callback when DeSelect photos or videos
    *
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
