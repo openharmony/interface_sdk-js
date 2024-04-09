@@ -3147,7 +3147,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Extract base class from class PhotoSelectOptions, named class BaseSelectOptions
+   * Class BaseSelectOptions, which is extracted from class PhotoSelectOptions
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
