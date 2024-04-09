@@ -15,8 +15,16 @@
 
 /**
  * @file
- * @kit ArkUI
+ * @kit ArkGraphics3D
  */
+
+/**
+ * Provides methods for controlling the 3d scene 
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12 
+ */
+declare type Scene = import('../api/@ohos.graphics.Scene').Scene
 
 /**
  * The enum of model type
@@ -53,6 +61,13 @@ declare enum ModelType {
  * @systemapi
  * @since 11
  */
+/**
+ * Scene options used by 3D scene control 
+ *
+ * @interface SceneOptions
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12
+ */
 declare interface SceneOptions {
   /**
    * Scene resource when 3D rendering 
@@ -62,7 +77,14 @@ declare interface SceneOptions {
    * @systemapi
    * @since 11
    */
-  scene?: Resource;
+  /**
+   * Resource type for 3D rendering, Scene type for 3d scene controlling
+   *
+   * @type { ?(Resource | Scene) }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  scene?: Resource | Scene;
 
   /**
    * Scene type when 3D rendering
@@ -85,6 +107,13 @@ declare interface SceneOptions {
  * @systemapi
  * @since 11
  */
+/**
+ * Defines Component3D. 
+ *
+ * @interface Component3DInterface
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12
+ */
 interface Component3DInterface {
   /**
    * SceneOptions used by constructor 
@@ -95,6 +124,14 @@ interface Component3DInterface {
    * @systemapi
    * @since 11
    */
+   /**
+   * SceneOptions used by constructor 
+   *
+   * @param { SceneOptions } sceneOptions - The 3D scene controller
+   * @returns { Component3DAttribute }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
   (sceneOptions?: SceneOptions): Component3DAttribute;
 }
 
@@ -103,6 +140,11 @@ interface Component3DInterface {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
  * @since 11
+ */
+/**
+ * @extends CommonMethod<Component3DAttribute>
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12
  */
 declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   /**
@@ -182,6 +224,20 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @since 11
    */
   renderHeight(value: Dimension): Component3DAttribute;
+
+  /**
+   * Set render height resolution. 
+   *
+   * @param { import('../api/@ohos.arkui.node').LengthMetric } width - Width of gpu render target,
+   *   target would upscale or downscale to view's width.
+   * @param { import('../api/@ohos.arkui.node').LengthMetric } height - Height of gpu render target,
+   *   target would upscale or downscale to view's height.
+   * @returns { Component3DAttribute } The attribute of the component3D
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  renderHeight(with: import('../api/@ohos.arkui.node').LengthMetric,
+    height: import('../api/@ohos.arkui.node').LengthMetric): Component3DAttribute;
 }
 
 /**
@@ -191,6 +247,12 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
  * @systemapi
  * @since 11
  */
+/**
+ * Defines Component3D component. 
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12
+ */
 declare const Component3D: Component3DInterface;
 
 /**
@@ -199,5 +261,11 @@ declare const Component3D: Component3DInterface;
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
  * @since 11
+ */
+/**
+ * Defines Component3D instance.
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 12
  */
 declare const Component3DInstance: Component3DAttribute;
