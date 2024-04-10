@@ -2993,7 +2993,24 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDeveloperIds(appDistributionType?: number): Array<String>;
-
+  
+  /**
+   * Switch uninstall state of a specified application.
+   *
+   * @permission ohos.permission.CHANGE_BUNDLE_UNINSTALL_STATE
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { boolean } state - Indicates whether the specified application can be uninstalled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700060 - The specified application can not be uninstalled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function switchUninstallState(bundleName: string, state: boolean): void;
+  
   /**
    * Obtains configuration information about an application.
    *
