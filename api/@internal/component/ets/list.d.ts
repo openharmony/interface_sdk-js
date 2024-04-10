@@ -1433,6 +1433,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   friction(value: number | Resource): ListAttribute;
 
   /**
+   * Set children main size for List.
+   *
+   * @param { ChildrenMainSize } value - children main size for List
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  childrenMainSize(value: ChildrenMainSize): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    *
    * @param { function } event
