@@ -24,7 +24,7 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 
  */
-declare type Scene = import('../api/@ohos.graphics.Scene').Scene
+declare type Scene = import('../api/@ohos.graphics.scene').Scene
 
 /**
  * The enum of model type
