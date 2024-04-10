@@ -29,10 +29,11 @@ declare namespace unifiedDataStruct {
   /**
    * Describe the plain text unified data struct.
    *
+   * @interface PlainText
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
-  class PlainText {
+  interface PlainText {
     /**
      * Indicates the uniform data type of this data struct.
      * 
@@ -67,10 +68,11 @@ declare namespace unifiedDataStruct {
   /**
    * Describe the hyperlink unified data struct.
    *
+   * @interface Hyperlink
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
-  class Hyperlink {
+  interface Hyperlink {
     /**
      * Indicates the uniform data type of this data struct.
      * 
@@ -104,10 +106,11 @@ declare namespace unifiedDataStruct {
   /**
    * Describe the html unified data struct.
    *
+   * @interface HTML
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
-  class HTML {
+  interface HTML {
     /**
      * Indicates the uniform data type of this data struct.
      * 
@@ -142,10 +145,11 @@ declare namespace unifiedDataStruct {
   /**
    * Describe system defined app item unified data struct(this kind of struct is provided and bound to OpenHarmony).
    *
+   * @interface OpenHarmonyAppItem
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
-  class OpenHarmonyAppItem {
+  interface OpenHarmonyAppItem {
     /**
      * Indicates the uniform data type of this data struct.
      * 
