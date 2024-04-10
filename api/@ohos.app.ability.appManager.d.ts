@@ -248,7 +248,7 @@ declare namespace appManager {
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'abilityFirstFrameState' } type - The ability first frame drawing state.
    * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
-   * @param { string } bundleName - The target bundle name.
+   * @param { string } [bundleName] - The target bundle name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -257,7 +257,7 @@ declare namespace appManager {
    * @systemapi
    * @since 12
    */
-  function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName: string): void;
+  function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
   
   /**
    * Unregister application state observer.
