@@ -5141,6 +5141,56 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Specifies the HKDF parameters.
+   *
+   * @typedef HKDFSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 12
+   */
+  interface HKDFSpec extends KdfSpec {
+    /**
+     * Indicates the key parameter of HKDF.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    key: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of HKDF.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the info about the context of HKDF.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    info: Uint8Array;
+
+    /**
+     * Indicates the byte length of output key of HKDF.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    keySize: number;
+  }
+
+  /**
    * The key derivation function object provides the ability to derive key with its associated parameters.
    *
    * @typedef Kdf
