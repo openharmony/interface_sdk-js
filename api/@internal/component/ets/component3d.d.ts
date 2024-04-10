@@ -86,7 +86,7 @@ declare interface SceneOptions {
  * @since 12
  */
 interface Component3DInterface {
-   /**
+  /*
    * SceneOptions used by constructor 
    *
    * @param { SceneOptions } sceneOptions - The 3D scene controller
