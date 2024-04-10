@@ -19,6 +19,7 @@
  */
 
 import collections from './@arkts.collections';
+import lang from './@arkts.lang';
 
 /**
  * @namespace utils
@@ -367,38 +368,203 @@ declare namespace utils {
     }
   }
 
+  /**
+   * json utils.
+   *
+   * @namespace json
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 12
+   */
   namespace json {
     /**
-     * Define JSONObject
+     * Redefines ISendable for convenience.
      *
+     * @typedef { lang.ISendable } ISendable
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    type JSONObject = collections.Map<string, JSONValue>;
+    type ISendable = lang.ISendable;
     /**
-     * Define JSONArray
+     * Defines value type for JSONArray.
      *
+     * @typedef { collections.Array<JSONValue> } JSONArrayType
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    type JSONArray = collections.Array<JSONValue>;
+    type JSONArrayType = collections.Array<JSONValue>;
     /**
-     * Represents a JSON value.
+     * Defines value type for JSONObject.
      *
+     * @typedef { collections.Map<string, JSONValue> } JSONObjectType
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type JSONObjectType = collections.Map<string, JSONValue>;
+    /**
+     * Defines JSONValue
+     *
+     * @extends ISendable
+     * @interface JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    interface JSONValue extends ISendable {
+    }
+    /**
+     * Defines JSONObject
+     *
+     * @implements JSONValue
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
      */
     @Sendable
-    class JSONValue {
+    class JSONObject implements JSONValue {
       /**
-       * Default constructor. Create a JSONValue to represent null.
-       *
+       * Creates an instance of JSONObject.
+       * @param { JSONObjectType } value - The object of JSONObject.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 10200012 - The JSONObject's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: JSONObjectType);
+      /**
+       * Gets the JSONObject.
+       * @returns { JSONObjectType } The JSONObject.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): JSONObjectType;
+    }
+    /**
+     * Defines JSONArray
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONArray implements JSONValue {
+      /**
+       * Creates an instance of JSONArray.
+       * @param { JSONArrayType } value - The array of JSONArray.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 10200012 - The JSONArray's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: JSONArrayType);
+      /**
+       * Gets the JSONArray.
+       * @returns { JSONArrayType } The JSONArray.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): JSONArrayType;
+    }
+    /**
+     * Defines JSONString
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONString implements JSONValue {
+      /**
+       * Creates an instance of JSONString.
+       * @param { string } value - The text of JSONString.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 10200012 - The JSONString's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: string);
+      /**
+       * Gets the JSONString.
+       * @returns { string } The JSONString.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): string;
+    }
+    /**
+     * Defines JSONNumber
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONNumber implements JSONValue {
+      /**
+       * Creates an instance of JSONNumber.
+       * @param { number } value - The text of JSONNumber.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 10200012 - The JSONNumber's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: number);
+      /**
+       * Gets the JSONNumber.
+       * @returns { number } The JSONNumber.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): number;
+    }
+    /**
+     * Defines JSONNull
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONNull implements JSONValue {
+      /**
+       * Creates an instance of JSONNull.
+       * @throws { BusinessError } 10200012 - The JSONNull's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
@@ -406,131 +572,77 @@ declare namespace utils {
        */
       constructor();
       /**
-       * Converts the JSON value to a JSONObject.
-       * @returns { JSONObject } The JSONObject representation of the JSON value.
-       * @throws { BusinessError } 10200011 - The toJSONObject method cannot be bound.
-       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not JSONObject.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */    
-      toJSONObject(): JSONObject;
-      /**
-       * Checks whether the JSON value is a JSONObject.
-       * @returns { boolean } True if the JSON value is a JSONObject, otherwise false.
-       * @throws { BusinessError } 10200011 - The isJSONObject method cannot be bound.
+       * Gets the JSONNull.
+       * @returns { null } The JSONNull.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      isJSONObject(): boolean;
+      get(): null;
+    }
+    /**
+     * Defines JSONTrue
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONTrue implements JSONValue {
       /**
-       * Converts the JSON value to a JSONArray.
-       * @returns { JSONArray } The JSONArray representation of the JSON value.
-       * @throws { BusinessError } 10200011 - The toJSONArray method cannot be bound.
-       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not JSONArray.
+       * Creates an instance of JSONTrue.
+       * @throws { BusinessError } 10200012 - The JSONTrue's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      toJSONArray(): JSONArray;
+      constructor();
       /**
-       * Checks whether the JSON value is a JSONArray.
-       * @returns { boolean } True if the JSON value is a JSONArray, otherwise false.
-       * @throws { BusinessError } 10200011 - The isJSONArray method cannot be bound.
+       * Gets the JSONTrue.
+       * @returns { boolean } The JSONTrue, always true.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      isJSONArray(): boolean;
+      get(): boolean;
+    }
+    /**
+     * Defines JSONFalse
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONFalse implements JSONValue {
       /**
-       * Converts the JSON value to a string.
-       * @returns { string } The string representation of the JSON value.
-       * @throws { BusinessError } 10200011 - The toString method cannot be bound.
-       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not string.
+       * Creates an instance of JSONFalse.
+       * @throws { BusinessError } 10200012 - The JSONFalse's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      toString(): string;
+      constructor();
       /**
-       * Checks whether the JSON value is a string.
-       * @returns { boolean } True if the JSON value is a string, otherwise false.
-       * @throws { BusinessError } 10200011 - The isString method cannot be bound.
+       * Gets the JSONFalse.
+       * @returns { boolean } The JSONFalse, always false.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      isString(): boolean;
-      /**
-       * Converts the JSON value to a number.
-       * @returns { number } The number representation of the JSON value.
-       * @throws { BusinessError } 10200011 - The toNumber method cannot be bound.
-       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not number.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */
-      toNumber(): number;
-      /**
-       * Checks whether the JSON value is a number.
-       * @returns { boolean } True if the JSON value is a number, otherwise false.
-       * @throws { BusinessError } 10200011 - The isNumber method cannot be bound.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */
-      isNumber(): boolean;
-      /**
-       * Converts the JSON value to a boolean.
-       * @returns {boolean} The boolean representation of the JSON value.
-       * @throws { BusinessError } 10200011 - The toBoolean method cannot be bound.
-       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not boolean.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */
-      toBoolean(): boolean;
-      /**
-       * Checks whether the JSON value is a boolean.
-       * @returns { boolean } True if the JSON value is a boolean, otherwise false.
-       * @throws { BusinessError } 10200011 - The isBoolean method cannot be bound.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */
-      isBoolean(): boolean;
-      /**
-       * Converts the JSON value to null.
-       * @returns { null } The null representation of the JSON value.
-       * @throws { BusinessError } 10200011 - The toNull method cannot be bound. 
-       * @throws { BusinessError } 10200101 - TypeError. JSONValue is not null.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */
-      toNull(): null;
-      /**
-       * Checks whether the JSON value is null.
-       * @returns { boolean } True if the JSON value is null, otherwise false.
-       * @throws { BusinessError } 10200011 - The isNull method cannot be bound.
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 12
-       */
-      isNull(): boolean;
+      get(): boolean;
     }
     /**
      * Converts a JavaScript Object Notation (JSON) string into a JSONValue.
@@ -547,7 +659,7 @@ declare namespace utils {
     /**
      * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
      *
-     * @param { JSONValue } value - The JSONValue to stringify.
+     * @param { ISendable | null | undefined } value - The value to stringify.
      * @returns { string } The JSON string representation of the value.
      * @throws { BusinessError } 401 - Parameter error. Invalid JSONValue.
      * @syscap SystemCapability.Utils.Lang
@@ -555,7 +667,7 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
-    function stringify(value: JSONValue): string;
+    function stringify(value: ISendable | null | undefined): string;
   }
 }
 export default utils;
