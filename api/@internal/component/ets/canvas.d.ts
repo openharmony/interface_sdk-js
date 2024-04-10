@@ -5587,6 +5587,15 @@ declare class DrawingRenderingContext {
    * @since 12
    */
   get canvas(): DrawingCanvas;
+
+  /**
+   * Invalidate the component, which will cause a re-render of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
 }
 
 /**
