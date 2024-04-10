@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics3D
+ * @kit ArkUI
  */
 
 /**
