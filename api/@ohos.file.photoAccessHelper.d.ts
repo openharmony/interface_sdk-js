@@ -606,6 +606,31 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     static cancelRequest(context: Context, requestId: string): Promise<void>;
+
+    /**
+     * Request video file
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the photo asset requested
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { string } fileUri - the destination file uri to save the video data
+     * @param { MediaAssetDataHandler<boolean> } dataHandler - data handler used to notify the client that data has been written to the application sandbox
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    static requestVideoFile(
+      context: Context,
+      asset: PhotoAsset,
+      requestOptions: RequestOptions,
+      fileUri: string,
+      dataHandler: MediaAssetDataHandler<boolean>
+    ): Promise<string>;
   }
 
   /**
