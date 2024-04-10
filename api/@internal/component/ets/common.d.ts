@@ -1876,6 +1876,7 @@ declare interface AnimateParam {
    * animation playback. The value 0 means that there is no animation.
    *
    * @type { ?number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1884,6 +1885,7 @@ declare interface AnimateParam {
    * animation playback. The value 0 means that there is no animation.
    *
    * @type { ?number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1893,6 +1895,7 @@ declare interface AnimateParam {
    * animation playback. The value 0 means that there is no animation.
    *
    * @type { ?number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1903,6 +1906,7 @@ declare interface AnimateParam {
    * Animation curve.
    *
    * @type { ?(Curve | string) }
+   * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1910,6 +1914,7 @@ declare interface AnimateParam {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -1918,6 +1923,7 @@ declare interface AnimateParam {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1927,6 +1933,7 @@ declare interface AnimateParam {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1973,7 +1980,7 @@ declare interface AnimateParam {
    * @since 7
    */
   /**
-   * Animation iterations.
+   * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
    *
    * @type { ?number }
    * @default 1
@@ -1982,7 +1989,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Animation iterations.
+   * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
    *
    * @type { ?number }
    * @default 1
@@ -2219,6 +2226,7 @@ declare interface MotionPathOptions {
    * The origin point info in range [0,1).
    *
    * @type { ?number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2226,6 +2234,7 @@ declare interface MotionPathOptions {
    * The origin point info in range [0,1).
    *
    * @type { ?number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2246,6 +2255,7 @@ declare interface MotionPathOptions {
    * he distance point info in range (0,1].
    *
    * @type { ?number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2253,6 +2263,7 @@ declare interface MotionPathOptions {
    * he distance point info in range (0,1].
    *
    * @type { ?number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2261,6 +2272,7 @@ declare interface MotionPathOptions {
    * The distance point info in range (0,1].
    *
    * @type { ?number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -20662,6 +20674,7 @@ declare interface KeyframeAnimateParam {
    * Animation delay time, in ms.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -20679,9 +20692,10 @@ declare interface KeyframeAnimateParam {
    * @since 11
    */
   /**
-   * Animation iterations.
+   * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
    *
    * @type { ?number }
+   * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
