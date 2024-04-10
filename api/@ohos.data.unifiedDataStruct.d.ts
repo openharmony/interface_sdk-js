@@ -19,28 +19,29 @@
  */
 
 /**
- * Provide unified data structure definition.
+ * Provide unified data struct definition.
  *
- * @namespace unifiedDataStructs
+ * @namespace unifiedDataStruct
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 12
  */
-declare namespace unifiedDataStructs {
+declare namespace unifiedDataStruct {
   /**
-   * Describe the unified plain text struct
+   * Describe the plain text unified data struct.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
   class PlainText {
     /**
-     * Indicates the data type of unified data is general.plain-text.
+     * Indicates the uniform data type of this data struct.
+     * 
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     uniformDataType: 'general.plain-text';
     /**
-     * Indicates the content of text
+     * Indicates the content of the PlainText.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
@@ -48,130 +49,160 @@ declare namespace unifiedDataStructs {
     textContent: string;
 
     /**
-     * Indicates the abstract of text
+     * Indicates the abstract of the PlainText.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     abstract?: string;
+    /**
+     * Indicates the details of the PlainText.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     details?: Record<string, string>;
   }
 
   /**
-   * Describe the unified link struct
+   * Describe the hyperlink unified data struct.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
   class Hyperlink {
     /**
-     * Indicates the data type of unified data is general.hyperlink.
+     * Indicates the uniform data type of this data struct.
+     * 
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     uniformDataType: 'general.hyperlink';
     /**
-     * Indicates the url of a link
+     * Indicates the url of of the Hyperlink.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     url: string;
-
     /**
-     * Indicates the description of a link
+     * Indicates the description of the Hyperlink.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     description?: string;
+    /**
+     * Indicates the details of the Hyperlink.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     details?: Record<string, string>;
   }
 
   /**
-   * Describe the unified html struct
+   * Describe the html unified data struct.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
   class HTML {
     /**
-     * Indicates the data type of unified data is general.html.
+     * Indicates the uniform data type of this data struct.
+     * 
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     uniformDataType: 'general.html';
 
     /**
-     * Indicates the content of html, with html tags
+     * Indicates the content of html, with html tags.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     htmlContent: string;
     /**
-     * Indicates the plain content of html
+     * Indicates the plain content of html.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     plainContent?: string;
+    /**
+     * Indicates the details of html.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     details?: Record<string, string>;
   }
 
   /**
-   * Describe system defined app item struct(this kind of struct is provided and bound to OpenHarmony).
+   * Describe system defined app item unified data struct(this kind of struct is provided and bound to OpenHarmony).
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12
    */
   class OpenHarmonyAppItem {
     /**
-     * Indicates the data type of unified data is openharmony.app-item.
+     * Indicates the uniform data type of this data struct.
+     * 
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     uniformDataType: 'openharmony.app-item';
     /**
-     * Indicates the app id
+     * Indicates the app id.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     appId: string;
     /**
-     * Indicates the app name
+     * Indicates the app name.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     appName: string;
     /**
-     * Indicates the id of app icon
+     * Indicates the id of app icon.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     appIconId: string;
     /**
-     * Indicates the id of app label
+     * Indicates the id of app label.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     appLabelId: string;
     /**
-     * Indicates the bundle name of app
+     * Indicates the bundle name of app.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     bundleName: string;
     /**
-     * Indicates the ability name of app
+     * Indicates the ability name of app.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     abilityName: string;
+    /**
+     * Indicates the details of app.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     details?: Record<string, number | string | Uint8Array>;
   }
 }
 
-export default unifiedDataStructs;
+export default unifiedDataStruct;
