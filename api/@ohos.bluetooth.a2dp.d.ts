@@ -307,7 +307,7 @@ declare namespace a2dp {
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-     * @param { number } duration - Restricted duration <milliseconds>.
+     * @param { number } duration - Restricted duration <milliseconds>. Valid range is from 3000ms to 20000ms.
      * @returns { Promise<void> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
