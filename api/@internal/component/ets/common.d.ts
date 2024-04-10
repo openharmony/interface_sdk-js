@@ -12756,6 +12756,59 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Defines the content modifier.
+ * 
+ * @interface ContentModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ContentModifier<T> {
+
+  /**
+   * Defining applyContent function.
+   * 
+   * @returns { WrappedBuilder<[T]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  applyContent(): WrappedBuilder<[T]>
+}
+
+/**
+ * Defines the common configuration.
+ * 
+ * @interface CommonConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CommonConfiguration<T> {
+  
+  /**
+   * If the value is true, the contentModifier is available and can respond to operations such as triggerChange.
+   *  If it is set to false, triggerChange operations are not responded.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enabled: boolean,
+
+  /**
+   * Obtains the contentModifier instance object
+   * 
+   * @type { ContentModifier<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier: ContentModifier<T>
+}
+
+/**
  * Outline Style
  *
  * @enum { number }
