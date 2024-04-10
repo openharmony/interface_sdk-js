@@ -308,7 +308,7 @@ function getDeclareValue(declareValue) {
 exports.getDeclareValue = getDeclareValue;
 
 const systemPermissionFile = path.resolve(__dirname, '../../../../../',
-  'base/global/system_resources/systemres/main/config.json');
+  'base/global/system_resources/systemres/main/module.json');
 
 exports.systemPermissionFile = systemPermissionFile;
 
