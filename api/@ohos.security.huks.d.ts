@@ -1580,6 +1580,21 @@ declare namespace huks {
   function getSdkVersion(options: HuksOptions): string;
 
   /**
+   * get the key alias list.
+   *
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<HuksListAliasesReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+  * @since 12
+   */
+  function listAliases(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
+
+  /**
    * Interface of huks param.
    *
    * @typedef HuksParam
@@ -1800,6 +1815,22 @@ declare namespace huks {
      * @since 9
      */
     certChains?: Array<string>;
+  }
+
+    /**
+   * Interface of huks ListAliases result.
+   *
+   * @typedef HuksListAliasesReturnResult
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 12
+   */
+  export interface HuksListAliasesReturnResult {
+
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 12
+     */
+    keyAliases?: Array<string>;
   }
 
   /**
