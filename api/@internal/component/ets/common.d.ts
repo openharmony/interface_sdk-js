@@ -6073,7 +6073,7 @@ declare interface BackgroundEffectOptions {
 }
 
 /**
- * Defines the options of BackgroundEffect
+ * Defines the options of ForegroundEffect
  *
  * @interface ForegroundEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13955,7 +13955,7 @@ declare class CommonMethod<T> {
    * @since 12
    */
   backgroundImageResizable(value: ResizableOptions): T;
-  
+
   /**
    * options:foreground effect options.
    *
