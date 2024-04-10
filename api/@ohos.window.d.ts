@@ -582,6 +582,7 @@ declare namespace window {
      * Enable the animation of the status bar.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     enableStatusBarAnimation?: boolean;
@@ -590,6 +591,7 @@ declare namespace window {
      * Enable the animation of the navigation bar.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 12
      */
     enableNavigationBarAnimation?: boolean;
