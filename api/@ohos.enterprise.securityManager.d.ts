@@ -207,6 +207,40 @@ declare namespace securityManager {
   function getPasswordPolicy(admin: Want): PasswordPolicy;
 
   /**
+   * Sets the application's clipboard policy of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } tokenId - tokenId indicates the token id of the application.
+   * @param { ClipboardPolicy } policy - clipboard policy to be set.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setAppClipboardPolicy(admin: Want, tokenId: number, policy: ClipboardPolicy): void;
+
+  /**
+   * Gets the application's clipboard policy of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } [tokenId] - tokenId indicates the token id of the application.
+   * @returns { string } the json string of clipboard policy for each application of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
@@ -244,6 +278,52 @@ declare namespace securityManager {
      * @since 12
      */
     additionalDescription?: string;
+  }
+
+  /**
+   * Clipboard policy.
+   * 
+   * @enum { number } ClipboardPolicy
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export enum ClipboardPolicy {
+    /**
+     * Policy default
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Policy indicates that the clipboard can be used on the same application
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    IN_APP = 1,
+
+    /**
+     * Policy indicates that the clipboard can be used on the same device
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    LOCAL_DEVICE = 2,
+
+    /**
+     * Policy indicates that the clipboard can be used across device
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    CROSS_DEVICE = 3,
   }
 }
 
