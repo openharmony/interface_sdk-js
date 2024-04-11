@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file A component which support other applications to select photos or videos
  * @kit MediaLibraryKit
  */
 

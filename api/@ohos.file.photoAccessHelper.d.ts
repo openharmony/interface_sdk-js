@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Helper functions to access image and video assets
  * @kit MediaLibraryKit
  */
 
