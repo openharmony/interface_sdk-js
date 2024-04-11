@@ -25,6 +25,7 @@ import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
+import window from './@ohos.window';
 
 /**
  * Input method engine
@@ -1288,6 +1289,18 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>;
+
+    /**
+     * Get info of the calling window.
+     *
+     * @returns { Promise<WindowInfo> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800012 - input method panel doesn't exist.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowInfo(): Promise<WindowInfo>;
   }
 
   /**
@@ -1919,6 +1932,33 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
+  }
+
+  /**
+   * Window info.
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export interface WindowInfo {
+    /**
+     * Rectangle.
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    rect: window.Rect;
+
+    /**
+     * Window status.
+     *
+     * @type { window.WindowStatusType }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    status: window.WindowStatusType;
   }
 }
 
