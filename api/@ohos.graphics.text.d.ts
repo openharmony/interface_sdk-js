@@ -1164,18 +1164,18 @@ declare namespace text {
     /**
      * Gets the font position offset.
      * @syscap SystemCapability.Graphics.Drawing
-     * @returns { Array<Point> } The position of the font in the layout.
+     * @returns { Array<common2D.Point> } The position of the font in the layout.
      * @since 12
      */
-    getPositions(): Array<Point>;
+    getPositions(): Array<common2D.Point>;
 
-	/**
+	  /**
      * Gets the font position offset array.
      * @syscap SystemCapability.Graphics.Drawing
-     * @returns { Array<Point> } The position offset of the font in the layout.
+     * @returns { Array<common2D.Point> } The position offset of the font in the layout.
      * @since 12
      */
-    getOffsets(): Array<Point>;
+    getOffsets(): Array<common2D.Point>;
 
     /**
      * Gets the font object instance.
