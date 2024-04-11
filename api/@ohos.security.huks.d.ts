@@ -1590,7 +1590,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
-  * @since 12
+   * @since 12
    */
   function listAliases(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
 
@@ -1817,7 +1817,7 @@ declare namespace huks {
     certChains?: Array<string>;
   }
 
-  /**
+    /**
    * Interface of huks ListAliases result.
    *
    * @typedef HuksListAliasesReturnResult
