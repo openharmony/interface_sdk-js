@@ -441,6 +441,23 @@ declare namespace abilityManager {
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
   /**
+   * Set the enable status for starting and stopping resident processes.
+   * The caller application can only set the resident status of the configured process.
+   *
+   * @param { string } bundleName - The bundle name of the resident process.
+   * @param { boolean } enable - Set resident process enable status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denien. the caller application can only set the resident status of the configured process.
+   * @throws { BusinessError } 202 - Not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
+
+  /**
    * The class of an ability running information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
