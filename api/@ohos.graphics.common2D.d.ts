@@ -98,6 +98,30 @@ declare namespace common2D {
      */
     bottom: number;
   }
+
+  /**
+   * Coordinates in the font layout.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface Point {
+    /**
+     * X-axis coordinate.
+     * @param { ?number } x X-axis coordinate.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    x: number;
+
+    /**
+     * Y-axis coordinate.
+     * @param { ?number } y Y-axis coordinate.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    y: number;
+  }
 }
 
 export default common2D;
