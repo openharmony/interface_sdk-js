@@ -23,49 +23,49 @@ import type common2D from './@ohos.graphics.common2D';
 declare namespace text {
 
   /**
-   * Text Alignment refers to how to align the horizontal position of text when displaying text.
+   * Refers to how to align the horizontal position of text when displaying text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum TextAlign {
     /**
-     * Align the left edge of the text.
+     * Use the left side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     LEFT = 0,
 
     /**
-     * Align the right edge of the text.
+     * Use the right side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     RIGHT = 1,
 
     /**
-     * Align left and right edges of the text so that the left and right edges of the text are symmetrical.
+     * Use the midpoint line the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     CENTER = 2,
 
     /**
-     * Align left and right edges of the text so that the left and right edges of the text are aligned.
+     * Align the text at the start and end of the line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     JUSTIFY = 3,
 
     /**
-     * Text start points are aligned.
+     * Align text from start, based on the direction of text, such as left-to-right or right-to-left.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     START = 4,
 
     /**
-     * The end points of the text are aligned.
+     * Align text from end, based on the direction of text, such as left-to-right or right-to-left, opposite to START.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -160,32 +160,32 @@ declare namespace text {
    */
   interface Decoration {
     /**
-     * Setting text decoration by line.
-     * @type { ?TextDecorationType } It has four choice.
+     * Decorates text by line.
+     * @type { ?TextDecorationType }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     textDecoration?: TextDecorationType;
 
     /**
-     * Setting text color.
-     * @type { ?common2D.Color } Rect object.
+     * Text color.
+     * @type { ?common2D.Color }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     color?: common2D.Color;
 
     /**
-     * Setting decorationStyle Style.
-     * @type { ?TextDecorationStyle } DecorationStyle style.
+     * Text decoration style.
+     * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     decorationStyle?: TextDecorationStyle;
 
     /**
-     * Setting decoration line of thicknessScale.
-     * @type { ?number } It is double type data.
+     * The thickness scale of decoration line.
+     * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -193,7 +193,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates decoration for text.
+   * Enumerates decoration line for text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -221,7 +221,7 @@ declare namespace text {
     OVERLINE,
 
     /**
-     * There is a decorative line running through the middle of the text.
+     * There is a decoration line through the middle of the text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -229,42 +229,42 @@ declare namespace text {
   }
 
   /**
-   * Enumerates decoration style.
+   * Enumerates decoration line style.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum TextDecorationStyle {
     /**
-     * Solid style.
+     * Decoration line is solid line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     SOLID,
 
     /**
-     * Double style.
+     * Decoration line is double line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     DOUBLE,
 
     /**
-     * Dotted style.
+     * Decoration line is dotted line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     DOTTED,
 
     /**
-     * Dashed style.
+     * Decoration line is dshed line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     DASHED,
 
     /**
-     * Wavy style.
+     * Decoration line is wavy line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -372,21 +372,23 @@ declare namespace text {
   }
 
   /**
-   * Enumeration of text base line.
+   * Enumeration the type of text baseline.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum TextBaseline {
     /**
-     * The vertical direction of the text is directed by alphabetical order.
+     * The alphabetic baseline, typically used for Latin-based scripts where the baseline aligns
+     * with the base of lowercase letters.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ALPHABETIC,
 
     /**
-     * The vertical direction of the text is directed by the meaning of the text.
+     * The ideographic baseline, commonly used for ideographic scripts such as Chinese, Japanese, and Korean,
+     * where the baseline aligns with the center of characters.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -394,28 +396,28 @@ declare namespace text {
   }
 
   /**
-   * Enumerates of ellipsis modal.
+   * Enumerates of ellipsis mode.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum EllipsisMode {
     /**
-     * The ellipsis is shown in the start.
+     * The ellipsis is shown in the start of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     START,
 
     /**
-     * The ellipsis is shown in the middle.
+     * The ellipsis is shown in the middle of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     MIDDLE,
 
     /**
-     * The ellipsis is shown in the end.
+     * The ellipsis is shown in the end of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -423,7 +425,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a textstyle object.
+   * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -431,7 +433,7 @@ declare namespace text {
   interface TextStyle {
 
     /**
-     * Setting text decoration of textstyle.
+     * Decoration of text.
      * @type { ?Decoration } decoration for text
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -439,7 +441,7 @@ declare namespace text {
     decoration?: Decoration;
 
     /**
-     * Setting color of textstyle.
+     * Color of text.
      * @type { ?common2D.Color } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -447,7 +449,7 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * Setting font Weight of textstyle.
+     * Font weight of text.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -455,7 +457,7 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
-     * Setting base line of textstyle.
+     * Base line of text.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -463,7 +465,7 @@ declare namespace text {
     baseline?: TextBaseline;
 
     /**
-     * Setting font Families of textstyle.
+     * Font Families of text.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -471,7 +473,7 @@ declare namespace text {
     fontFamilies?: Array<string>;
 
     /**
-     * Setting font size of textstyle.
+     * Font size of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -479,7 +481,7 @@ declare namespace text {
     fontSize?: number;
 
     /**
-     * Setting letter spacing of textstyle.
+     * Letter spacing of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -487,7 +489,7 @@ declare namespace text {
     letterSpacing?: number;
 
     /**
-     * Setting word spacing of textstyle.
+     * Word spacing of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -495,7 +497,7 @@ declare namespace text {
     wordSpacing?: number;
 
     /**
-     * Setting height scale of textstyle.
+     * Height scale of text.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -503,7 +505,7 @@ declare namespace text {
     heightScale?: number;
 
     /**
-     * Setting half leading of textstyle.
+     * Half leading of text.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -511,7 +513,8 @@ declare namespace text {
     halfLeading?: boolean;
 
     /**
-     * Setting height of textstyle only.
+     * Control the height calculation method of font blob, true means calculate the height of the blob by
+     * the font size, false means by the line height and leading.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -519,7 +522,7 @@ declare namespace text {
     heightOnly?: boolean;
 
     /**
-     * Setting text ellipsis.
+     * Text ellipsis.
      * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -527,7 +530,7 @@ declare namespace text {
     ellipsis?: string;
 
     /**
-     * Setting text ellipsis mode.
+     * Text ellipsis mode.
      * @type { ?EllipsisMode } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -535,7 +538,7 @@ declare namespace text {
     ellipsisMode?: EllipsisMode;
 
     /**
-     * Setting the text locale.
+     * Text locale.
      * @type { ?string } it is string type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -544,7 +547,7 @@ declare namespace text {
   }
 
   /**
-   * The structure of font collection that provides the basis for graphics.
+   * Provides the basis for graphics.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
@@ -567,7 +570,7 @@ declare namespace text {
    */
   interface ParagraphStyle {
     /**
-     * The text style of paragraph.
+     * Text style of paragraph.
      * @type { ?TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -575,7 +578,7 @@ declare namespace text {
     textStyle?: TextStyle;
 
     /**
-     * The text runs direction.
+     * Text runs direction.
      * @type { ?TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -583,7 +586,7 @@ declare namespace text {
     textDirection?: TextDirection;
 
     /**
-     * Text alignment refers to how to align the horizontal position of text when displaying text.
+     * Refers to how to align the horizontal position of text when displaying text.
      * @type { ?TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -591,7 +594,7 @@ declare namespace text {
     align?: TextAlign;
 
     /**
-     * The word break strategy.
+     * Word break strategy.
      * @type { ?WordBreak }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -607,7 +610,7 @@ declare namespace text {
     maxLines?: number;
 
     /**
-     * The text segmentation strategy.
+     * text segmentation strategy.
      * @type { ?BreakStrategy }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -616,49 +619,54 @@ declare namespace text {
   }
 
   /**
-   * Enumeration of positional placeholders aligned vertically relative to surrounding text.
+   * Where to vertically align the placeholder relative to the surrounding text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   enum PlaceholderAlignment {
     /**
-     * Match the baseline of the placeholder with the base line.
+     * Match the baseline of the placeholder with the baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     OFFSET_AT_BASELINE,
 
     /**
-     * Align the bottom edge of the placeholder with the base line.
+     * Align the bottom edge of the placeholder with the baseline such that the placeholder
+     * sits on top of the baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ABOVE_BASELINE,
 
     /**
-     * Align the top edge of the placeholder with the base line specified.
+     * Align the top edge of the placeholder with the baseline specified in such that the placeholder
+     * hangs below the baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     BELOW_BASELINE,
 
     /**
-     * Align the top edge of the place holder with the top edge of the text.
+     * Align the top edge of the placeholder with the top edge of the font. When the placeholder is very tall,
+     * the extra space will hang from the top and extend through the bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     TOP_OF_ROW_BOX,
 
     /**
-     * Align the bottom edge of the place holder with the bottom edge of the text.
+     * Align the bottom edge of the placeholder with the bottom edge of the text. When the placeholder is very tall,
+     * the extra space will rise from the bottom and extend through the top of the line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     BOTTOM_OF_ROW_BOX,
 
     /**
-     * Align the middle of the place holder with the middle of the text.
+     * Align the middle of the placeholder with the middle of the text.When the placeholder is very tall,
+     * the extra space will grow equally from the top and bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -666,47 +674,47 @@ declare namespace text {
   }
 
   /**
-   * Provide a description of place holder scope in creating typography.
+   * Provide a description of placeholder scope in creating typography.
    * @typedef PlaceholderSpan
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface PlaceholderSpan {
     /**
-     * Setting the width of the place holder.
-     * @type { number } it is double type data
+     * The width of the placeholder.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     width: number;
 
     /**
-     * Setting the height of the place holder.
-     * @type { number } it is double type data
+     * The height of the placeholder.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     height: number;
 
     /**
-     * Setting alignment mode of place holder.
-     * @type { PlaceholderAlignment } Custom PlaceholderAlignment
+     * Alignment mode of placeholder.
+     * @type { PlaceholderAlignment }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     align: PlaceholderAlignment;
 
     /**
-     * Setting base line of place holder.
-     * @type { TextBaseline } Custom TextBaseline
+     * Baseline of placeholder.
+     * @type { TextBaseline }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     baseline: TextBaseline;
 
     /**
-     * Setting base line offset of place holder.
-     * @type { number } it is double type data
+     * Baseline offset of placeholder.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -744,7 +752,7 @@ declare namespace text {
    */
   class Paragraph {
     /**
-     * layoutSync calculates the positioning of all the glyphs.
+     * Calculates the positioning of all the glyphs.
      * @param { number } width - Control how wide the text is allowed to be.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -762,7 +770,7 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
     /**
-     * Get max width of horizontal space this paragraph occupies.
+     * Get max width of horizontal space this paragraph occupied.
      * @returns { number } Max width of horizontal space.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -794,7 +802,7 @@ declare namespace text {
     getMinIntrinsicWidth(): number;
 
     /**
-     * Gets the max intrinsic width.
+     * Get the max intrinsic width.
      * @returns { number } Intrinsic Width.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -802,7 +810,7 @@ declare namespace text {
     getMaxIntrinsicWidth(): number;
 
     /**
-     * Gets the alphabetic baseline.
+     * Get the alphabetic baseline.
      * @returns { number } Alphabetic Baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -810,7 +818,7 @@ declare namespace text {
     getAlphabeticBaseline(): number;
 
     /**
-     * Gets the ideographic baseline.
+     * Get the ideographic baseline.
      * @returns { number } Ideographic Baseline.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -818,7 +826,7 @@ declare namespace text {
     getIdeographicBaseline(): number;
 
     /**
-     * Gets the rects for range.
+     * Get the rects for range.
      * @param { Range } range - The range to set.
      * @param { RectWidthStyle } widthStyle - Width style to set.
      * @param { RectHeightStyle } heightStyle - Height style to set.
@@ -829,7 +837,7 @@ declare namespace text {
     getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 
     /**
-     * Gets the rects for placeholders.
+     * Get the rects for placeholders.
      * @returns { Array<TextBox> } The rects for placeholders.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -837,7 +845,7 @@ declare namespace text {
     getRectsForPlaceholders(): Array<TextBox>;
 
     /**
-     * Gets the glyph position at coordinate.
+     * Get the glyph position at coordinate.
      * @param { number } x - the positionX of typography to set.
      * @param { number } y - the positionY of typography to set.
      * @returns { PositionWithAffinity } TextBlob object.
@@ -847,7 +855,7 @@ declare namespace text {
     getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
 
     /**
-     * Finds the start and end position of the word containing the glyphs of the given offset.
+     * Find the start and end position of the word containing the glyphs of the given offset.
      * @param { number } offset - offset value
      * @returns { Range } The range value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
@@ -864,7 +872,7 @@ declare namespace text {
     getLineCount(): number;
 
     /**
-     * Gets the line height of the specified line.
+     * Get the line height of the specified line.
      * @param { number } line - line number
      * @returns { number } The line height value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
@@ -873,7 +881,7 @@ declare namespace text {
     getLineHeight(line: number): number;
 
     /**
-     * Gets the line width of the specified line.
+     * Get the line width of the specified line.
      * @param { number } line - line number
      * @returns { number } The line width value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
@@ -882,7 +890,7 @@ declare namespace text {
     getLineWidth(line: number): number;
 
     /**
-     * Whether it exceed the maximum lines of typography.
+     * Return whether it exceed the maximum lines of typography.
      * @returns { boolean } The true indicates exceeding, the false indicates not exceeding.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -954,14 +962,14 @@ declare namespace text {
    */
   enum RectWidthStyle {
     /**
-     * Tight style.
+     * Tight width.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     TIGHT,
 
     /**
-     * Max style.
+     * Max width.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -976,50 +984,53 @@ declare namespace text {
    */
   enum RectHeightStyle {
     /**
-     * Tight style.
+     * Provide tight bounding boxes that fit heights per run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     TIGHT,
 
     /**
-     * Max style.
+     * The height of the boxes will be the maximum height of all runs in the line. All rects in the same
+     * line will be the same height.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     MAX,
 
     /**
-     * Style including middle line space.
+     * The top and bottom of each rect will cover half of the space above and half of the space below the line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     INCLUDELINESPACEMIDDLE,
 
     /**
-     * Style including top line space.
+     * The line spacing will be added to the top of the rect.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     INCLUDELINESPACETOP,
 
     /**
-     * Style including bottom line space.
+     * The line spacing will be added to the bottom of the rect.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     INCLUDELINESPACEBOTTOM,
 
     /**
-     * Struct style.
+     * The height of the boxes will be calculated by text strut.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    STRUCT,
+    STRUT,
   }
 
   /**
-   * Enumerates text affinity.
+   * Enumerates text affinity.When a selection range involves line breaks or other special characters, the
+   * affinity determines which side of the characters the start and end of the selection range should be
+   * closer to.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1102,7 +1113,7 @@ declare namespace text {
    */
   class TextLine {
     /**
-     * Getting the count of glyphs.
+     * Get the count of glyphs.
      * @returns { number } The counts of glyphs.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1110,7 +1121,7 @@ declare namespace text {
     getGlyphCount(): number;
 
     /**
-     * Getting the range of text line.
+     * Get the range of text line.
      * @returns { Range } The range of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1118,7 +1129,7 @@ declare namespace text {
     getTextRange(): Range;
 
     /**
-     * Getting the glyph runs of text line.
+     * Get the glyph runs of text line.
      * @returns { Array<Run> } The tuple of glyph runs of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1126,7 +1137,7 @@ declare namespace text {
     getGlyphRuns(): Array<Run>;
 
     /**
-     * Painting the range of text line.
+     * Paint the range of text line.
      * @param { drawing.Canvas } canvas - Canvas.
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
