@@ -169,7 +169,7 @@ declare namespace text {
 
     /**
      * Setting text color.
-     * @type { common2D.color } Rect object.
+     * @type { ?common2D.Color } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -200,7 +200,7 @@ declare namespace text {
    */
   enum TextDecoration {
     /**
-     * There are no text decorations.
+     * There are no text decoration.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -424,7 +424,7 @@ declare namespace text {
 
   /**
    * Describes a textstyle object.
-   *
+   * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
@@ -519,7 +519,7 @@ declare namespace text {
     heightOnly?: boolean;
 
     /**
-     * Setting text ellipsis
+     * Setting text ellipsis.
      * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -527,8 +527,8 @@ declare namespace text {
     ellipsis?: string;
 
     /**
-     * Setting text ellipses mode.
-     * @type { ?EllipsisModal } Ellipses mode.
+     * Setting text ellipsis mode.
+     * @type { ?EllipsisModal } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -544,8 +544,7 @@ declare namespace text {
   }
 
   /**
-   * The structure of fontcollection that provides the basis for graphics.
-   * @namespace text
+   * The structure of font collection that provides the basis for graphics.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
@@ -553,7 +552,7 @@ declare namespace text {
     /**
      * Load font.
      * @param { string } name - the font name.
-     * @param { string } path - the path of the font file.
+     * @param { string | Resource } path - the path of the font file.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -562,15 +561,14 @@ declare namespace text {
 
   /**
    * Determines the configuration used by ParagraphBuilder to position lines within a Paragraph of text.
-   *
-   * class ParagraphStyle
+   * @typedef ParagraphStyle
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface ParagraphStyle {
     /**
      * The text style of paragraph.
-     * @type { TextStyle }
+     * @type { ?TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -578,7 +576,7 @@ declare namespace text {
 
     /**
      * The text runs direction.
-     * @type { TextDirection }
+     * @type { ?TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -586,7 +584,7 @@ declare namespace text {
 
     /**
      * Text alignment refers to how to align the horizontal position of text when displaying text.
-     * @type { TextAlign }
+     * @type { ?TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -594,7 +592,7 @@ declare namespace text {
 
     /**
      * The word break strategy.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -602,7 +600,7 @@ declare namespace text {
 
     /**
      * Maximum number of lines.
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -610,7 +608,7 @@ declare namespace text {
 
     /**
      * The text segmentation strategy.
-     * @type { BreakStrategy }
+     * @type { ?BreakStrategy }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -676,7 +674,7 @@ declare namespace text {
   interface PlaceholderSpan {
     /**
      * Setting the width of the place holder.
-     * @type { ?number } it is double type data
+     * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -684,7 +682,7 @@ declare namespace text {
 
     /**
      * Setting the height of the place holder.
-     * @type { ?number } it is double type data
+     * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -692,7 +690,7 @@ declare namespace text {
 
     /**
      * Setting alignment mode of place holder.
-     * @type { ?PlaceholderAlignment } Custom PlaceholderAlignment
+     * @type { PlaceholderAlignment } Custom PlaceholderAlignment
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -700,7 +698,7 @@ declare namespace text {
 
     /**
      * Setting base line of place holder.
-     * @param { ?TextBaseline } Custom TextBaseline
+     * @type { TextBaseline } Custom TextBaseline
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -708,7 +706,7 @@ declare namespace text {
 
     /**
      * Setting base line offset of place holder.
-     * @type { ?number } it is double type data
+     * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -754,11 +752,11 @@ declare namespace text {
     layout(width: number): void;
 
     /**
-     * Paints the laid out text onto the supplied canvas at (x, y).
-     * @param { Canvas } canvas - Object
+     * Paint the laid out text onto the supplied canvas at (x, y).
+     * @param { drawing.Canvas } canvas - Object
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
-     * @syscap SystemCapability.Graphics.text
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
@@ -822,13 +820,13 @@ declare namespace text {
     /**
      * Gets the rects for range.
      * @param { Range } range - The range to set.
-     * @param { RectWidthStyle } wstyle - Width style to set.
-     * @param { RectHeightStyle } hstyle - Height style to set.
+     * @param { RectWidthStyle } widthStyle - Width style to set.
+     * @param { RectHeightStyle } heightStyle - Height style to set.
      * @returns { Array<TextBox> } The rects for range.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    getRectsForRange(range: Range, wstyle: RectWidthStyle, hstyle: RectHeightStyle): Array<TextBox>;
+    getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 
     /**
      * Gets the rects for placeholders.
@@ -839,7 +837,7 @@ declare namespace text {
     getRectsForPlaceholders(): Array<TextBox>;
 
     /**
-     * Gets the glyphposition at coordinate.
+     * Gets the glyph position at coordinate.
      * @param { number } x - the positionX of typography to set.
      * @param { number } y - the positionY of typography to set.
      * @returns { PositionWithAffinity } TextBlob object.
@@ -877,7 +875,7 @@ declare namespace text {
     /**
      * Gets the line width of the specified line.
      * @param { number } line - line number
-     * @returns { number } The line wifth value returned to the caller.
+     * @returns { number } The line width value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -992,21 +990,21 @@ declare namespace text {
     MAX,
 
     /**
-     * Includelinespacemiddle style.
+     * Style including middle line space.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     INCLUDELINESPACEMIDDLE,
 
     /**
-     * Includelinespacetop style.
+     * Style including top line space.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     INCLUDELINESPACETOP,
 
     /**
-     * Includelinespacebottom style.
+     * Style including bottom line space.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1044,7 +1042,6 @@ declare namespace text {
 
   /**
    * Builds a Paragraph containing text with the given styling information.
-   * @namespace text
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
@@ -1052,7 +1049,7 @@ declare namespace text {
     /**
      * Constructor ParagraphBuilder.
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
-     * @param { FontCollection } fontCollection - Font Clollection {@link FontCollection}
+     * @param { FontCollection } fontCollection - Font collection {@link FontCollection}
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -1099,7 +1096,7 @@ declare namespace text {
   }
 
   /**
-   * The structure of textline that provides the basis of paragraph for graphics.
+   * The structure of text line that provides the basis of paragraph for graphics.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
@@ -1122,14 +1119,14 @@ declare namespace text {
 
     /**
      * Getting the glyph runs of text line.
-     * @returns { Run } The tuple of glyph runs of text.
+     * @returns { Array<Run> } The tuple of glyph runs of text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphRuns(): Array<Run>;
 
     /**
-     * painting the range of text line.
+     * Painting the range of text line.
      * @param { drawing.Canvas } canvas - Canvas.
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
@@ -1147,47 +1144,47 @@ declare namespace text {
   class Run {
     /**
      * Gets the number of glyph.
-     * @syscap SystemCapability.Graphics.Drawing
      * @returns { number } The number of glyph.
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphCount(): number;
 
     /**
      * Gets the glyph identifier for each character.
-     * @syscap SystemCapability.Graphics.Drawing
      * @returns { Array<number> } Glyph identifier.
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getGlyphs(): Array<number>;
 
     /**
      * Gets the font position offset.
-     * @syscap SystemCapability.Graphics.Drawing
      * @returns { Array<common2D.Point> } The position of the font in the layout.
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getPositions(): Array<common2D.Point>;
 
 	  /**
      * Gets the font position offset array.
-     * @syscap SystemCapability.Graphics.Drawing
      * @returns { Array<common2D.Point> } The position offset of the font in the layout.
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getOffsets(): Array<common2D.Point>;
 
     /**
      * Gets the font object instance.
+     * @returns { drawing.Font } The font object instance.
      * @syscap SystemCapability.Graphics.Drawing
-     * @returns { Font } The font object instance.
      * @since 12
      */
     getFont(): drawing.Font;
 
     /**
-     * Paints the laid out text onto the supplied canvas at (x, y).
-     * @param { Canvas } canvas - Object.
+     * Paint the laid out text onto the supplied canvas at (x, y).
+     * @param { drawing.Canvas } canvas - Object.
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
      * @syscap SystemCapability.Graphics.Drawing
