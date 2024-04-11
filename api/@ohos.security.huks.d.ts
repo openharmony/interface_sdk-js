@@ -1817,7 +1817,7 @@ declare namespace huks {
     certChains?: Array<string>;
   }
 
-    /**
+  /**
    * Interface of huks ListAliases result.
    *
    * @typedef HuksListAliasesReturnResult
