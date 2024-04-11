@@ -362,7 +362,7 @@ export declare struct ChipGroup {
     onChange?: Callback<Array<number>>;
 
     /**
-     * Suffix operation callback.
+     * The builder function which will be rendered in the suffix of ChipGroup.
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
