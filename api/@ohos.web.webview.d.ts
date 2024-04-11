@@ -5083,7 +5083,7 @@ declare namespace webview {
      * Initialize data stream.
      * 
      * @returns { Promise<void> } The promise of data stream is initialized.
-     * @throws { BusinessError } 17100022 - Data stream init failed.
+     * @throws { BusinessError } 17100022 - The http body stream init failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5389,7 +5389,7 @@ declare namespace webview {
      * 
      * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5400,7 +5400,7 @@ declare namespace webview {
      * 
      * @param { ArrayBuffer } data - Set response body to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5409,7 +5409,7 @@ declare namespace webview {
     /**
      * Notify that this request should be finished and there is no more data available.
      * 
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -5420,7 +5420,7 @@ declare namespace webview {
      * 
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @throws { BusinessError } 17100021 - Resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
