@@ -379,14 +379,14 @@ declare namespace text {
    */
   enum TextBaseline {
     /**
-     * The vertical direction of the text is dominated by alphabetical order.
+     * The vertical direction of the text is directed by alphabetical order.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     ALPHABETIC,
 
     /**
-     * The vertical direction of the text is dominated by the meaning of the text.
+     * The vertical direction of the text is directed by the meaning of the text.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -592,7 +592,7 @@ declare namespace text {
 
     /**
      * The word break strategy.
-     * @type { ?number }
+     * @type { ?WordBreakType }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */

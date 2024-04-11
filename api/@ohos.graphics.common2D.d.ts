@@ -101,14 +101,14 @@ declare namespace common2D {
 
   /**
    * Coordinates in the font layout.
-   *
+   * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   interface Point {
     /**
      * X-axis coordinate.
-     * @param { ?number } x X-axis coordinate.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -116,7 +116,7 @@ declare namespace common2D {
 
     /**
      * Y-axis coordinate.
-     * @param { ?number } y Y-axis coordinate.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
