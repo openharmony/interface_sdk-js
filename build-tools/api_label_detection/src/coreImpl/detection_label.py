@@ -42,7 +42,9 @@ def judgement_dict_data(result, result_key):
             message_list = process_tag_dict(dict_data)
             if message_list:
                 result_list.extend(message_list)
-        my_dict[dict_data['definedText']] = dict_data
+        if 'jsDocInfos' in dict_data:
+            if not get_js_doc_info(dict_data['jsDocInfos'])['deprecatedVersion']:
+                my_dict[dict_data['definedText']] = dict_data
         dict_keys = dict_data.keys()
         if 'childApis' in dict_keys:  # 递归处理child
             judgement_dict_data(dict_data, 'childApis')
@@ -130,7 +132,7 @@ def dismantle_one_to_many(my_dict: dict, start, function_name, api_name_list):
         api_name = my_dict[defined_text]['apiName']
         if get_start_characters(api_name) in one_to_many_function:
             if (get_remaining_characters(get_start_characters(api_name), api_name)
-                    == get_remaining_characters(start, function_name)):
+                    == get_remaining_characters(start, function_name) and function_name != api_name):
                 api_name_list.append(defined_text)
 
 
