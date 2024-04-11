@@ -601,6 +601,21 @@ declare namespace connection {
   function disconnectAllowedProfiles(deviceId: string, callback: AsyncCallback<void>): void;
 
   /**
+   * Get remote device battery information.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @returns { Promise<BatteryInfo> } Returns battery info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  function getRemoteDeviceBatteryInfo(deviceId: string): Promise<BatteryInfo>;
+
+  /**
    * Obtains the product ID of a remote device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
@@ -806,6 +821,32 @@ declare namespace connection {
    * @since 10
    */
   function off(type: 'pinRequired', callback?: Callback<PinRequiredParam>): void;
+
+  /**
+   * Subscribe the event of battery state changed from a remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'batteryChange' } type - Type of the battery event to listen for.
+   * @param { Callback<BatteryInfo> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  function on(type: 'batteryChange', callback: Callback<BatteryInfo>): void;
+
+  /**
+   * Unsubscribe the event of battery state changed from a remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'batteryChange' } type - Type of the battery event to listen for.
+   * @param { Callback<BatteryInfo> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  function off(type: 'batteryChange', callback?: Callback<BatteryInfo>): void;
 
   /**
    * Describes the class of a bluetooth device.
@@ -1124,6 +1165,118 @@ declare namespace connection {
      * @since 12
      */
     deviceClass: DeviceClass;
+  }
+
+  /**
+   * Describes the contents of the battery information.
+   *
+   * @typedef BatteryInfo
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  interface BatteryInfo {
+    /**
+     * Identify of the discovery device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    deviceId: string;
+    /**
+     * Electricity value of the general device. {@code -1} means no power information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    batteryLevel: number;
+    /**
+     * Electricity value of the left ear. {@code -1} means no power information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    leftEarBatteryLevel: number;
+    /**
+     * The charge state of the left ear.
+     *
+     * @type { DeviceChargeState }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    leftEarChargeState: DeviceChargeState;
+    /**
+     * Electricity value of the right ear. {@code -1} means no power information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    rightEarBatteryLevel: number;
+    /**
+     * The charge state of the right ear.
+     *
+     * @type { DeviceChargeState }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    rightEarChargeState: DeviceChargeState;
+    /**
+     * Electricity value of the box. {@code -1} means no power information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    boxBatteryLevel: number;
+    /**
+     * The charge state of the box.
+     *
+     * @type { DeviceChargeState }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    boxChargeState: DeviceChargeState;
+  }
+
+  /**
+   * Enum for the charge state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  enum DeviceChargeState {
+    /**
+     * Not support super charge, and not charged.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    DEVICE_NORMAL_CHARGE_NOT_CHARGED = 0,
+    /**
+     * Not support super charge, and in charging.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    DEVICE_NORMAL_CHARGE_IN_CHARGING = 1,
+    /**
+     * Support super charge, and not charged.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    DEVICE_SUPER_CHARGE_NOT_CHARGED = 2,
+    /**
+     * Support super charge, and in charging.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    DEVICE_SUPER_CHARGE_IN_CHARGING = 3
   }
 
   /**
