@@ -129,7 +129,7 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum WordBreakType {
+  enum WordBreak {
     /**
      * Normal word break strategy.
      * @syscap SystemCapability.Graphics.Drawing
@@ -161,11 +161,11 @@ declare namespace text {
   interface Decoration {
     /**
      * Setting text decoration by line.
-     * @type { ?TextDecoration } It has four choice.
+     * @type { ?TextDecorationType } It has four choice.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    textDecoration?: TextDecoration;
+    textDecoration?: TextDecorationType;
 
     /**
      * Setting text color.
@@ -198,7 +198,7 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum TextDecoration {
+  enum TextDecorationType {
     /**
      * There are no text decoration.
      * @syscap SystemCapability.Graphics.Drawing
@@ -399,13 +399,13 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum EllipsisModal {
+  enum EllipsisMode {
     /**
-     * The ellipsis is shown in the head.
+     * The ellipsis is shown in the start.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    HEAD,
+    START,
 
     /**
      * The ellipsis is shown in the middle.
@@ -415,11 +415,11 @@ declare namespace text {
     MIDDLE,
 
     /**
-     * The ellipsis is shown in the tail.
+     * The ellipsis is shown in the end.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    TAIL,
+    END,
   }
 
   /**
@@ -528,11 +528,11 @@ declare namespace text {
 
     /**
      * Setting text ellipsis mode.
-     * @type { ?EllipsisModal } Ellipsis mode.
+     * @type { ?EllipsisMode } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    ellipsisModal?: EllipsisModal;
+    ellipsisMode?: EllipsisMode;
 
     /**
      * Setting the text locale.
@@ -556,7 +556,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    loadFont(name: string, path: string | Resource): void;
+    loadFontSync(name: string, path: string | Resource): void;
   }
 
   /**
@@ -592,11 +592,11 @@ declare namespace text {
 
     /**
      * The word break strategy.
-     * @type { ?WordBreakType }
+     * @type { ?WordBreak }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    wordBreak?: WordBreakType;
+    wordBreak?: WordBreak;
 
     /**
      * Maximum number of lines.
@@ -744,12 +744,12 @@ declare namespace text {
    */
   class Paragraph {
     /**
-     * Layout calculates the positioning of all the glyphs.
+     * layoutSync calculates the positioning of all the glyphs.
      * @param { number } width - Control how wide the text is allowed to be.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    layout(width: number): void;
+    layoutSync(width: number): void;
 
     /**
      * Paint the laid out text onto the supplied canvas at (x, y).
