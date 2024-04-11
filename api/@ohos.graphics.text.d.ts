@@ -257,7 +257,7 @@ declare namespace text {
     DOTTED,
 
     /**
-     * Decoration line is dshed line.
+     * Decoration line is dashed line.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
