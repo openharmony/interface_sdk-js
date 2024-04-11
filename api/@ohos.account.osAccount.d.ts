@@ -69,6 +69,29 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * Activates a specified OS account.
+     * <p>
+     * If multiple OS accounts are available, you can call this method to enable a specific OS account
+     * to run in the foreground. Then, the OS account originally running in the foreground will be
+     * switched to the background.
+     * </p>
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localId.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     activateOsAccount(localId: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -93,6 +116,29 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * Activates a specified OS account.
+     * <p>
+     * If multiple OS accounts are available, you can call this method to enable a specific OS account
+     * to run in the foreground. Then, the OS account originally running in the foreground will be
+     * switched to the background.
+     * </p>
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localId.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     activateOsAccount(localId: number): Promise<void>;
 
@@ -917,6 +963,18 @@ declare namespace osAccount {
      * @since 7
      */
     queryMaxOsAccountNumber(): Promise<number>;
+
+    /**
+     * Queries the maximum number of OS accounts that can be logged in.
+     *
+     * @returns { Promise<number> } Returns the maximum number of OS accounts that can be logged in.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    queryMaxLoggedInOsAccountNumber(): Promise<number>;
 
     /**
      * Obtains all constraints of an OS account based on its local ID.
@@ -2022,6 +2080,16 @@ declare namespace osAccount {
      * @since 11
      */
     isActivated: boolean;
+
+    /**
+     * Indicates whether the OS account is logged in.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isLoggedIn?: boolean;
 
     /**
      * Os account create completed or not.
