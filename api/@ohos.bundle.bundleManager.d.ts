@@ -47,6 +47,15 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
  * @atomicservice
  * @since 11
  */
+/**
+ * This module is used to obtain package information of various applications installed on the current device.
+ *
+ * @namespace bundleManager
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace bundleManager {
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
