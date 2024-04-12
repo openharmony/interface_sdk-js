@@ -46,6 +46,8 @@ import {
   GenericInfo,
   ParentClass,
   ParserParam,
+  FileTag,
+  TypeParamInfo,
 } from '../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../typedef/parser/Comment';
 import { StringUtils } from '../../utils/StringUtils';
@@ -196,6 +198,7 @@ export class NodeProcessorHelper {
       apiInfo.setIsJoinType(true);
     } else {
       apiInfo.setApiName(`${apiInfo.getApiName()}_${type.getText()}`);
+      apiInfo.setIsJoinType(true);
     }
     if (apiInfos.length === 0) {
       apiInfos.push(apiInfo);
@@ -305,7 +308,7 @@ export class NodeProcessorHelper {
       //export * from 'test';
       exportDeclareInfo.setApiName(
         StringConstant.EXPORT +
-        (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
+          (exportDeclarationNode.moduleSpecifier ? exportDeclarationNode.moduleSpecifier.getText() : '')
       );
     } else if (ts.isNamespaceExport(exportClause)) {
       //export * as myTest from 'test';
@@ -615,8 +618,12 @@ export class NodeProcessorHelper {
       methodInfo.setReturnValue(returnValues);
       methodInfo.setReturnValueType(methodNode.type.kind);
       if (Boolean(process.env.NEED_DETECTION)) {
-        NodeProcessorHelper.processFunctionTypeReference(methodNode.type, methodInfo, new ParamInfo(ApiType
-          .PARAM), false);
+        NodeProcessorHelper.processFunctionTypeReference(
+          methodNode.type,
+          methodInfo,
+          new ParamInfo(ApiType.PARAM),
+          false
+        );
       }
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
@@ -665,11 +672,16 @@ export class NodeProcessorHelper {
    * @param { ts.TypeNode } typeNode 参数类型
    * @param { MethodInfo } methodInfo MethodInfo对象
    * @param { ParamInfo } paramInfo ParamInfo对象
-   * @param { boolean } [isParam = true] 是否是参数的type， 
+   * @param { boolean } [isParam = true] 是否是参数的type，
    * true：类型为参数（入参）的数据
    * false：类型为返回值（出参）的数据
    */
-  static processFunctionTypeReference(typeNode: ts.TypeNode, methodInfo: MethodInfo, paramInfo: ParamInfo, isParam: boolean = true): void {
+  static processFunctionTypeReference(
+    typeNode: ts.TypeNode,
+    methodInfo: MethodInfo,
+    paramInfo: ParamInfo,
+    isParam: boolean = true
+  ): void {
     if (ts.isTypeLiteralNode(typeNode)) {
       NodeProcessorHelper.processFunctionTypeObject(typeNode, methodInfo, paramInfo, isParam);
     } else if (ts.isUnionTypeNode(typeNode)) {
@@ -689,8 +701,13 @@ export class NodeProcessorHelper {
         return;
       }
       const declaration: ts.Declaration = declarations[0];
-      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(declaration, ApiType.TYPE_ALIAS,
-        methodInfo.getKitInfoFromParent(methodInfo));
+      const fileTags: FileTag = methodInfo.getKitInfoFromParent(methodInfo);
+      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(
+        declaration,
+        ApiType.TYPE_ALIAS,
+        fileTags.kitInfo,
+        fileTags.isFile
+      );
       if (jsDocInfos.length === 0) {
         return;
       }
@@ -712,15 +729,24 @@ export class NodeProcessorHelper {
    * @param {ts.TypeLiteralNode} typeObject 匿名对象
    * @param {MethodInfo} methodInfo MethodInfo对象
    * @param {ParamInfo} paramInfo ParamInfo对象
-   * @param { boolean } [isParam = true] 是否是参数的type， 
+   * @param { boolean } [isParam = true] 是否是参数的type，
    * true：类型为参数（入参）的数据
    * false：类型为返回值（出参）的数据
    */
-  static processFunctionTypeObject(typeObject: ts.TypeLiteralNode, methodInfo: MethodInfo, paramInfo: ParamInfo,
-    isParam: boolean = true): void {
+  static processFunctionTypeObject(
+    typeObject: ts.TypeLiteralNode,
+    methodInfo: MethodInfo,
+    paramInfo: ParamInfo,
+    isParam: boolean = true
+  ): void {
+    const fileTags: FileTag = methodInfo.getKitInfoFromParent(methodInfo);
     typeObject.members.forEach((member: ts.TypeElement) => {
-      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(member, ApiType.TYPE_ALIAS,
-        methodInfo.getKitInfoFromParent(methodInfo));
+      const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(
+        member,
+        ApiType.TYPE_ALIAS,
+        fileTags.kitInfo,
+        fileTags.isFile
+      );
       if (jsDocInfos.length === 0) {
         return;
       }
@@ -804,6 +830,19 @@ export class NodeProcessorHelper {
     if (typeName) {
       typeAliasInfo.setTypeName(typeName);
     }
+    let nodeType: ts.TypeNode = node.type;
+    if (ts.isFunctionTypeNode(nodeType)) {
+      const typeParameters = nodeType.parameters;
+      typeParameters.forEach((typeParameter: ts.ParameterDeclaration) => {
+        const typeParamInfo: TypeParamInfo = new TypeParamInfo();
+        typeParamInfo.setParamName(typeParameter.name.getText());
+        typeParamInfo.setParamType(typeParameter.type?.getText());
+        typeAliasInfo.setParamInfos(typeParamInfo);
+      });
+      typeAliasInfo.setReturnType(nodeType.type.getText());
+      typeAliasInfo.setTypeIsFunction(true);
+    }
+
     typeAliasInfo.setDefinedText(node.getText());
     ModifierHelper.processModifiers(node.modifiers, typeAliasInfo);
     typeAliasInfo.addType(NodeProcessorHelper.processDataType(node.type));
