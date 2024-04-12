@@ -1204,3 +1204,5 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: number, y: number): void;
   }
 }
+
+export default text;
