@@ -14,6 +14,20 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
+ * LengthMetric.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type LengthMetric = import("../api/arkui/Graphics").LengthMetric;
+
+/**
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -221,6 +235,51 @@ declare class TextStyle {
      * @since 12
      */
     readonly fontColor?: ResourceColor;
+
+    /**
+     * Get the fontFamily of the StyledString.
+     *
+     * @type { ?string } - the fontFamily of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly fontFamily?: string;
+
+    /**
+     * Get the fontSize of the StyledString.
+     * If not undefined, the unit is vp.
+     *
+     * @type { ?number } - the fontSize of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly fontSize?: number;
+
+    /**
+     * Get the fontWeight of the StyledString.
+     *
+     * @type { ?number } - the fontWeight of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly fontWeight?: number;
+
+    /**
+     * Get the fontStyle of the StyledString.
+     *
+     * @type { ?FontStyle  } - the fontStyle of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly fontStyle?: FontStyle;
 }
 
 /**
@@ -241,6 +300,263 @@ declare interface TextStyleInterface {
      * @since 12
      */
     fontColor?: ResourceColor;
+
+    /**
+     * The fontFamily value of the font property object.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    fontFamily?: ResourceStr;
+
+    /**
+     * The fontSize value of the font property object.
+     *
+     * @type { ?LengthMetric }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    fontSize?: LengthMetric;
+
+    /**
+     * The fontWeight value of the font property object.
+     *
+     * @type { ?(number | FontWeight | string) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    fontWeight?: number | FontWeight | string;
+
+    /**
+     * The fontStyle value of the font property object.
+     *
+     * @type { ?FontStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    fontStyle?: FontStyle;
+}
+
+/**
+ * Defines DecorationStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DecorationStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { DecorationStyleInterface } value - text decoration value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: DecorationStyleInterface);
+
+    /**
+     * Get the text decoration type of the StyledString.
+     *
+     * @type { TextDecorationType } - the decoration type of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly type: TextDecorationType;
+
+    /**
+     * Get the decorationColor of the StyledString.
+     *
+     * @type { ?ResourceColor } - the decorationColor of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly color?: ResourceColor;
+}
+
+/**
+ * DecorationStyleInterface
+ *
+ * @interface DecorationStyleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DecorationStyleInterface {
+    /**
+     * The type value of the decoration property object.
+     *
+     * @type { TextDecorationType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    type: TextDecorationType;
+
+    /**
+     * The color value of the decoration property object.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    color?: ResourceColor;
+}
+
+/**
+ * Defines BaselineOffsetStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class BaselineOffsetStyle {
+    
+    /**
+     * constructor.
+     *
+     * @param { LengthMetric } value - baseline offset value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: LengthMetric);
+
+    /**
+     * Get the baselineOffset value of the StyledString.
+     * The unit is vp.
+     *
+     * @type { number } - the baselineOffset value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly baselineOffset: number;
+}
+
+/**
+ * Defines LetterSpacingStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class LetterSpacingStyle {
+   
+    /**
+     * constructor.
+     *
+     * @param { LengthMetric } value - letter space value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: LengthMetric);
+
+    /**
+     * Get the letterSpacing value of the StyledString.
+     * The unit is vp.
+     * 
+     * @type { number } - the letterSpacing value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly letterSpacing: number;
+}
+
+/**
+ * Defines TextShadowStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class TextShadowStyle {
+   
+    /**
+     * constructor.
+     *
+     * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: ShadowOptions | Array<ShadowOptions>);
+
+    /**
+     * Get the textShadow value of the StyledString.
+     *
+     * @type { Array<ShadowOptions> } - the textShadow value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly textShadow: Array<ShadowOptions>;
+}
+
+/**
+ * Defines GestureStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class GestureStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { GestureStyleInterface } [value] - gesture event object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value?: GestureStyleInterface);
+}
+
+/**
+ * Defines the Gesture Events.
+ *
+ * @interface GestureStyleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface GestureStyleInterface {
+    /**
+     * Trigger a click event when a click is clicked.
+     *
+     * @type { ?Callback<ClickEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onClick?: Callback<ClickEvent>;
+
+    /**
+     * Trigger a gesture event when long press event is complete.
+     *
+     * @type { ?Callback<GestureEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onLongPress?: Callback<GestureEvent>;
 }
 
 /**
@@ -250,7 +566,7 @@ declare interface TextStyleInterface {
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle ;
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle;
 
 /**
  * MutableStyledString
@@ -401,7 +717,7 @@ declare class MutableStyledString extends StyledString {
  */
 declare enum StyledStringKey {
     /**
-     * Font property settings-fontColor/fontSize/fontWeight/fontFamily/fontStyle included.
+     * The key of TextStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -409,4 +725,48 @@ declare enum StyledStringKey {
      */
     FONT = 0,
 
+     /**
+     * The key of DecorationStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+     DECORATION = 1,
+
+     /**
+      * The key of BaselineOffsetStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+     BASELINE_OFFSET = 2,
+ 
+     /**
+      * The key of LetterSpacingStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+     LETTER_SPACING = 3,
+ 
+     /**
+      * The key of TextShadowStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+     TEXT_SHADOW = 4,
+
+    /**
+     * The key of GestureStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    GESTURE = 100,
 }
