@@ -34,6 +34,13 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @atomicservice
  * @since 11
  */
+/**
+ * @namespace abilityAccessCtrl
+ * @syscap SystemCapability.Security.AccessToken
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace abilityAccessCtrl {
   /**
    * Obtains the AtManager instance.
