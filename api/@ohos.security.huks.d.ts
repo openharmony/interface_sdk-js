@@ -1829,6 +1829,8 @@ declare namespace huks {
   export interface HuksListAliasesReturnResult {
 
     /**
+     * the returned list of key aliases
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
