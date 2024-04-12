@@ -22,14 +22,14 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import Callback from '@ohos.base';
 
 /**
- * Declare component EmbeddedAtomicServiceComponent
+ * Declare component FullScreenLaunchComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 12
  */
 @Component
-export declare struct EmbeddedAtomicServiceComponent {
+export declare struct FullScreenLaunchComponent {
   /**
-   * Sets the embedded entry component content.
+   * Sets the component content.
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
