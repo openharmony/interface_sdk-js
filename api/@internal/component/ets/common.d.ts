@@ -13957,7 +13957,7 @@ declare class CommonMethod<T> {
   backgroundImageResizable(value: ResizableOptions): T;
 
   /**
-   * options:foreground effect options.
+   * Foreground effect.
    *
    * @param { ForegroundEffectOptions } options - options indicates the effect options.
    * @returns { T }
