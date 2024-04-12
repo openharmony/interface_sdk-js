@@ -916,7 +916,7 @@ declare namespace dataShare {
      * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15700000 - Inner error.
-     * @throws { BusinessError } 15700010 - The dataShareHelper has been closed.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
