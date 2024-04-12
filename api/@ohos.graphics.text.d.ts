@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics 2D
+ * @kit ArkGraphics2D
  */
 import type drawing from './@ohos.graphics.drawing';
 import type common2D from './@ohos.graphics.common2D';
@@ -943,7 +943,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    pos: number;
+    position: number;
 
     /**
      * Affinity of text.
@@ -1003,21 +1003,21 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    INCLUDELINESPACEMIDDLE,
+    INCLUDE_LINE_SPACE_MIDDLE,
 
     /**
      * The line spacing will be added to the top of the rect.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    INCLUDELINESPACETOP,
+    INCLUDE_LINE_SPACE_TOP,
 
     /**
      * The line spacing will be added to the bottom of the rect.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    INCLUDELINESPACEBOTTOM,
+    INCLUDE_LINE_SPACE_BOTTOM,
 
     /**
      * The height of the boxes will be calculated by text strut.
