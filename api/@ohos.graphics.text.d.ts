@@ -20,6 +20,13 @@
 import type drawing from './@ohos.graphics.drawing';
 import type common2D from './@ohos.graphics.common2D';
 
+/**
+ * Provides functions such as 2D graphics text paragraphs, text styles.
+ *
+ * @namespace text
+ * @syscap SystemCapability.Graphics.Drawing
+ * @since 12
+ */
 declare namespace text {
 
   /**
