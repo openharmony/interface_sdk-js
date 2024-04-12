@@ -19,15 +19,15 @@
  */
 
 /**
- * Provide unified data struct definition.
+ * Provide uniform data struct definition.
  *
- * @namespace unifiedDataStruct
+ * @namespace uniformDataStruct
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 12
  */
-declare namespace unifiedDataStruct {
+declare namespace uniformDataStruct {
   /**
-   * Describe the plain text unified data struct.
+   * Describe the plain text uniform data struct.
    *
    * @interface PlainText
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -66,7 +66,7 @@ declare namespace unifiedDataStruct {
   }
 
   /**
-   * Describe the hyperlink unified data struct.
+   * Describe the hyperlink uniform data struct.
    *
    * @interface Hyperlink
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -104,7 +104,7 @@ declare namespace unifiedDataStruct {
   }
 
   /**
-   * Describe the html unified data struct.
+   * Describe the html uniform data struct.
    *
    * @interface HTML
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -143,7 +143,7 @@ declare namespace unifiedDataStruct {
   }
 
   /**
-   * Describe system defined app item unified data struct(this kind of struct is provided and bound to OpenHarmony).
+   * Describe system defined app item uniform data struct(this kind of struct is provided and bound to OpenHarmony).
    *
    * @interface OpenHarmonyAppItem
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -209,4 +209,4 @@ declare namespace unifiedDataStruct {
   }
 }
 
-export default unifiedDataStruct;
+export default uniformDataStruct;
