@@ -388,6 +388,18 @@ declare namespace utils {
      */
     type ISendable = lang.ISendable;
     /**
+     * Defines JSONValue
+     *
+     * @extends ISendable
+     * @interface JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    interface JSONValue extends ISendable {
+    }
+    /**
      * Defines value type for JSONArray.
      *
      * @typedef { collections.Array<JSONValue> } JSONArrayType
@@ -408,18 +420,6 @@ declare namespace utils {
      */
     type JSONObjectType = collections.Map<string, JSONValue>;
     /**
-     * Defines JSONValue
-     *
-     * @extends ISendable
-     * @interface JSONValue
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    interface JSONValue extends ISendable {
-    }
-    /**
      * Defines JSONObject
      *
      * @implements JSONValue
@@ -433,7 +433,7 @@ declare namespace utils {
       /**
        * Creates an instance of JSONObject.
        * @param { JSONObjectType } value - The object of JSONObject.
-       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
        * @throws { BusinessError } 10200012 - The JSONObject's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
@@ -466,7 +466,7 @@ declare namespace utils {
       /**
        * Creates an instance of JSONArray.
        * @param { JSONArrayType } value - The array of JSONArray.
-       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
        * @throws { BusinessError } 10200012 - The JSONArray's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
@@ -499,7 +499,7 @@ declare namespace utils {
       /**
        * Creates an instance of JSONString.
        * @param { string } value - The text of JSONString.
-       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
        * @throws { BusinessError } 10200012 - The JSONString's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
@@ -532,7 +532,7 @@ declare namespace utils {
       /**
        * Creates an instance of JSONNumber.
        * @param { number } value - The text of JSONNumber.
-       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
        * @throws { BusinessError } 10200012 - The JSONNumber's constructor cannot be directly invoked.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
