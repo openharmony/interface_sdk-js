@@ -1040,7 +1040,6 @@ unprepare
 unchained
 sandboxes
 sar
-serviceworker
 adapts
 followx
 precomposited
