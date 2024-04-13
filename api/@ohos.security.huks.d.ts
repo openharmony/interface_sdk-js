@@ -1580,7 +1580,7 @@ declare namespace huks {
   function getSdkVersion(options: HuksOptions): string;
 
   /**
-   * get the key alias list.
+   * list the key aliases.
    *
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<HuksListAliasesReturnResult> } the promise returned by the function.
