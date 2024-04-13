@@ -12951,6 +12951,20 @@ declare enum DragPreviewMode {
    * @since 12
    */
   DISABLE_SCALE = 2,
+  /**
+   * Enable the default shadow effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ENABLE_DEFAULT_SHADOW = 3,
+  /**
+   * Enable the default radius effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ENABLE_DEFAULT_RADIUS = 4,
 }
 
 /**
@@ -12988,12 +13002,12 @@ declare interface DragPreviewOptions {
  /**
   * Drag preview mode.
   *
-  * @type { ?DragPreviewMode }
+  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
   */
-  mode?: DragPreviewMode;
+  mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
   * Drag preview modifier.
