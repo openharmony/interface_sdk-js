@@ -37,6 +37,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the uniform data type of this data struct.
      * 
+     * @type { 'general.plain-text' }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -44,6 +45,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the content of the PlainText.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -51,7 +53,7 @@ declare namespace uniformDataStruct {
 
     /**
      * Indicates the abstract of the PlainText.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -59,6 +61,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of the PlainText.
      *
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -76,6 +79,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the uniform data type of this data struct.
      * 
+     * @type { 'general.hyperlink' }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -83,13 +87,14 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the url of of the Hyperlink.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
     url: string;
     /**
      * Indicates the description of the Hyperlink.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -97,6 +102,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of the Hyperlink.
      *
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -114,6 +120,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the uniform data type of this data struct.
      * 
+     * @type { 'general.html' }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -122,6 +129,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the content of html, with html tags.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -129,6 +137,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the plain content of html.
      *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -136,6 +145,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of html.
      *
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -153,6 +163,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the uniform data type of this data struct.
      * 
+     * @type { 'openharmony.app-item' }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -160,6 +171,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the app id.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -167,6 +179,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the app name.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -174,6 +187,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the id of app icon.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -181,6 +195,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the id of app label.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -188,6 +203,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the bundle name of app.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -195,6 +211,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the ability name of app.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
@@ -202,6 +219,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of app.
      *
+     * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
