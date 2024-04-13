@@ -26,6 +26,9 @@ import {
   SuffixIconOptions
 } from '@ohos.arkui.advanced.Chip';
 import {
+  IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
+} from '@ohos.arkui.advanced.ChipGroup';
+import {
   ComposeListItem, ContentItem, IconType, OperateButton, OperateCheck, OperateIcon, OperateItem
 } from '@ohos.arkui.advanced.ComposeListItem';
 import { ComposeTitleBar, ComposeTitleBarMenuItem } from '@ohos.arkui.advanced.ComposeTitleBar';
@@ -124,5 +127,6 @@ export {
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility,
   WindowExtensionContext, XComponentNode, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
-  screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog
+  screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
+  IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
 };

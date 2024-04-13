@@ -347,7 +347,15 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
-    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010
+    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
+    /**
+     * Used to obtain the abilityInfo with domain verification.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
   }
 
   /**

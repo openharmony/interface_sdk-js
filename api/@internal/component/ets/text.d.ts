@@ -92,19 +92,7 @@ interface TextInterface {
    * @since 11
    * @form
    */
-   /**
-   * Called when writing text.
-   *
-   * @param { string | Resource | StyledString } content
-   * @param { TextOptions } value
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   * @form
-   */
-   (content?: string | Resource | StyledString, value?: TextOptions): TextAttribute;
+   (content?: string | Resource, value?: TextOptions): TextAttribute;
   }
 
 /**
@@ -1472,4 +1460,14 @@ declare class TextController {
    * @since 12
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Update the styles of StyledString by setStyledString.
+   *
+   * @param { StyledString } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setStyledString(value: StyledString): void;
 }

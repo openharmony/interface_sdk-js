@@ -346,6 +346,15 @@ declare namespace relationalStore {
     isSearchable?: boolean;
 
     /**
+     * Specifies whether database allows rebuild.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    allowRebuild?: boolean;
+
+    /**
      * Specifies whether the vector type is supported.
      *
      * @type { ?boolean }
@@ -1031,6 +1040,31 @@ declare namespace relationalStore {
      * @since 11
      */
     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
+  }
+
+  /**
+   * Enumerates the type of rebuild.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 12
+   */
+  enum RebuildType {
+    /**
+     * The database is not rebuilt.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    NONE,
+
+    /**
+     * The database is rebuilt.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    REBUILT
   }
 
   /**
@@ -1741,6 +1775,34 @@ declare namespace relationalStore {
      * @since 10
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
+
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * does not contain the specified value.
+     * This method is similar to "Not like %value%" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value that is not contained.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    notContains(field: string, value: string): RdbPredicates;
+
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * is not like the specified value.
+     * This method is similar to "Not like" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to compare against.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    notLike(field: string, value: string): RdbPredicates;
   }
 
   /**
@@ -2115,6 +2177,21 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the value of the specified column in the current row as a byte array.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Blob type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { Uint8Array } The value of the specified column as a byte array.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     getBlob(columnIndex: number): Uint8Array;
 
     /**
@@ -2141,6 +2218,21 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the value of the specified column in the current row as string.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the string type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { string } The value of the specified column as a string.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     getString(columnIndex: number): string;
 
@@ -2169,6 +2261,21 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the value of the specified column in the current row as long.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null, the specified column is not of the integer type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { number } The value of the specified column as a long.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     getLong(columnIndex: number): number;
 
     /**
@@ -2196,6 +2303,21 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the value of the specified column in the current row as double.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null, the specified column is not of the double type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { number } The value of the specified column as a double.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     getDouble(columnIndex: number): number;
 
     /**
@@ -2211,6 +2333,21 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the value of the specified column in the current row as an asset.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Asset type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { Asset } The value of the specified column as an asset.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     getAsset(columnIndex: number): Asset;
 
     /**
@@ -2225,6 +2362,21 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the value of the specified column in the current row as assets.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { Assets } The value of the specified column as assets.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     getAssets(columnIndex: number): Assets;
 
@@ -2269,6 +2421,17 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Obtains the values of all columns in the specified row.
+     *
+     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     getRow(): ValuesBucket;
 
     /**
@@ -2293,6 +2456,20 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Checks whether the value of the specified column in the current row is null.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { boolean } True if the value of the specified column in the current row is null;
+     *                    Returns false otherwise.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -2354,6 +2531,16 @@ declare namespace relationalStore {
     version: number;
 
     /**
+     * Set whether the database is rebuilt.
+     *
+     * @type {RebuildType}
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    rebuilt: RebuildType;
+
+    /**
      * Inserts a row of data into the target table.
      *
      * @param { string } table - Indicates the target table.
@@ -2377,6 +2564,20 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Inserts a row of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
@@ -2392,6 +2593,21 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Inserts a row of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
 
@@ -2419,6 +2635,20 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Inserts a row of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     insert(table: string, values: ValuesBucket): Promise<number>;
 
     /**
@@ -2434,6 +2664,21 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Inserts a row of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<number>;
 
@@ -2461,6 +2706,20 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { AsyncCallback<number> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
     /**
@@ -2486,6 +2745,20 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -2515,6 +2788,21 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
     /**
@@ -2531,6 +2819,22 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     update(
       values: ValuesBucket,
@@ -2565,6 +2869,21 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @returns { Promise<number> } The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
     /**
@@ -2581,6 +2900,22 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<number> } The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): Promise<number>;
 
@@ -2618,6 +2953,25 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 10
+     */
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
+     *                                                    the instance object of {@link dataSharePredicates.DataSharePredicates}.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
      */
     update(
       table: string,
@@ -2661,6 +3015,25 @@ declare namespace relationalStore {
      * @StageModelOnly
      * @since 10
      */
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
+     *                                                    the instance object of {@link dataSharePredicates.DataSharePredicates}.
+     * @returns { Promise<number> } The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
+     */
     update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
     /**
@@ -2685,6 +3058,19 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
     delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
     /**
@@ -2708,6 +3094,19 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<number> } return the number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
      */
     delete(predicates: RdbPredicates): Promise<number>;
 
@@ -2742,6 +3141,23 @@ declare namespace relationalStore {
      * @StageModelOnly
      * @since 10
      */
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - The specified delete condition by the instance object
+     *                                                    of {@link dataSharePredicates.DataSharePredicates}.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
+     */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
     /**
@@ -2774,6 +3190,23 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 10
+     */
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - The specified delete condition by the instance object
+     *                                                    of {@link dataSharePredicates.DataSharePredicates}.
+     * @returns { Promise<number> } The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -2979,6 +3412,21 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
+    /**
+     * Obtains the modify time of rows corresponding to the primary keys.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { string } columnName - Indicates the name of the column to check.
+     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @returns { Promise<ModifyTime> } -The promise returned by the function. ModifyTime indicates the modify time of current row.
+     * If this table does not support cloud, the {@link ModifyTime} will be empty.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
     getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): Promise<ModifyTime>;
 
     /**
@@ -2994,6 +3442,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
+     */
+    /**
+     * Obtains the modify time of rows corresponding to the primary keys.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { string } columnName - Indicates the name of the column to check.
+     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @param { AsyncCallback<ModifyTime> } callback - The callback of getModifyTime. ModifyTime indicates the modify time of current row.
+     * If this table does not support cloud, the {@link ModifyTime} will be empty.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
      */
     getModifyTime(
       table: string,
@@ -3016,6 +3479,21 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
+    /**
+     * Cleans the dirty data, which is the data deleted in the cloud.
+     *
+     * Data with a cursor smaller than the specified cursor will be cleaned up.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } cursor - Indicates the position of the data to be cleaned up.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
     cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -3028,6 +3506,18 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
+     */
+    /**
+     * Cleans all dirty data deleted in the cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
      */
     cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
 
@@ -3045,6 +3535,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
+     */
+    /**
+     * Cleans dirty data deleted in the cloud.
+     *
+     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
+     * otherwise clean all.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } [cursor] - Indicates the cursor.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
      */
     cleanDirtyData(table: string, cursor?: number): Promise<void>;
 
@@ -3801,6 +4307,17 @@ declare namespace relationalStore {
      * @since 10
      */
     emit(event: string): void;
+
+    /**
+     * Close the RdbStore and all resultSets.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    close(): Promise<void>;
 
     /**
      * Attaches a database file to the currently linked database.

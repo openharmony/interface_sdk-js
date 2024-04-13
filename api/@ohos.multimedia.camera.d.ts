@@ -881,12 +881,27 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
+  /**
+   * Enum for camera position.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 12
+   */
   enum CameraPosition {
     /**
      * Unspecified position.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Unspecified position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 12
      */
     CAMERA_POSITION_UNSPECIFIED = 0,
 
@@ -896,6 +911,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Back position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 12
+     */
     CAMERA_POSITION_BACK = 1,
 
     /**
@@ -904,6 +926,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Front position.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 12
+     */
     CAMERA_POSITION_FRONT = 2,
 
     /**
@@ -911,6 +940,13 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
+     */
+    /**
+     * Camera that is inner position when the device is folded.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 12
      */
     CAMERA_POSITION_FOLD_INNER = 3
   }

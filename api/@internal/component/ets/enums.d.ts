@@ -8160,38 +8160,21 @@ declare enum FunctionKey {
  */
 declare enum ImageSpanAlignment {
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  BASELINE,
-
-  /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  BOTTOM,
+  TOP = 1,
 
   /**
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
@@ -8208,24 +8191,41 @@ declare enum ImageSpanAlignment {
    * @atomicservice
    * @since 11
    */
-  CENTER,
+  CENTER = 2,
 
   /**
-   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  TOP,
+  BOTTOM = 3,
+
+  /**
+   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  BASELINE = 4,
 }
 
 /**
@@ -8950,6 +8950,46 @@ declare enum WordBreak {
    * @since 11
    */
   BREAK_WORD = 2,
+}
+
+/**
+ * Enum of line break strategy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LineBreakStrategy  {
+  /**
+   * By default. Display as many characters as possible on each line until no more characters
+   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  GREEDY = 0,
+
+  /**
+   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
+   * add hyphens if necessary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  HIGH_QUALITY  = 1,
+
+  /**
+   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
+   * is the same, and if necessary, we will add conjunction
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BALANCED  = 2,
 }
 
 /**
