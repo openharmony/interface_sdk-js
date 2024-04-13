@@ -268,6 +268,32 @@ declare class Indicator<T> {
    * @form
    */
   bottom(value: Length): T;
+  
+  /**
+   * Set the indicator to the left in LTR
+   * Set the indicator to the right in RTL
+   *
+   * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  start(value: LengthMetrics): T;
+
+  /**
+   * Set the indicator to the left in RTL 
+   * Set the indicator to the right in LTR
+   *
+   * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  end(value: LengthMetrics): T;   
 
   /**
    * DotIndicator class object.
