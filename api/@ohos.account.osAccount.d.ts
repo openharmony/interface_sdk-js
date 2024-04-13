@@ -3073,6 +3073,25 @@ declare namespace osAccount {
      * @since 11
      */
     static getAccessToken(businessParams: Record<string, Object>): Promise<Uint8Array>;
+
+    /**
+     * Checks whether the authentication of the target domain account is expired.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static isAuthenticationExpired(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
   }
 
   /**
