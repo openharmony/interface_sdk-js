@@ -88,6 +88,24 @@ declare enum IndexerAlign {
    * @since 11
    */
   Right,
+
+  /**
+   * A dialog box is displayed on the start of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  START,
+
+  /**
+   * A dialog box is displayed on the end of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  END,
 }
 
 /**
