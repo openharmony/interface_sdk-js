@@ -285,6 +285,37 @@ export interface LabelMarginOptions {
 }
 
 /**
+ * Defines localized label margin.
+ *
+ * @interface LocalizedLabelMarginOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface LocalizedLabelMarginOptions {
+
+   /**
+   * start localized label margin length.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   start?: LengthMetrics;
+
+   /**
+   * end localized label margin length.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  end?: LengthMetrics;
+}
+
+/**
  * Defines label option.
  *
  * @interface LabelOptions
@@ -407,6 +438,16 @@ export interface LabelOptions {
    * @since 12
    */
   labelMargin?: LabelMarginOptions;
+
+   /**
+   * Localized label margin.
+   *
+   * @type { ?LocalizedLabelMarginOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedLabelMargin?: LocalizedLabelMarginOptions;
 }
 
 /**
@@ -627,6 +668,16 @@ export interface ChipOptions {
    * @since 12
    */
   onClicked?: Callback<void>;
+
+  /**
+   * Indicates the attribute of the current chip direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   direction?: Direction;
 }
 
 /**

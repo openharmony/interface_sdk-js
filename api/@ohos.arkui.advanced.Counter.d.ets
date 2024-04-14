@@ -731,6 +731,16 @@ declare class CounterOptions {
      * @since 12
      */
     dateOptions?: DateStyleOptions;
+
+    /**
+     * Indicates the attribute of the current counter direction.
+     *
+     * @type { ?Direction }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    direction?: Direction;
 }
 
 /**
