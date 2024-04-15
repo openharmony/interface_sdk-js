@@ -68,7 +68,7 @@ export declare struct PhotoPickerComponent {
    * @since 12
    */
   @ObjectLink
-  pickController: PickerController;
+  pickerController: PickerController;
 
   /**
    * Build function of PhotoPickerComponent
