@@ -151,6 +151,7 @@ declare namespace baseProfile {
     /**
      * Cause of disconnect
      *
+     * @type { DisconnectCause }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
