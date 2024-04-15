@@ -23,6 +23,7 @@ import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { UICommonEvent } from 'commonEvent';
 import { CommonAttribute } from 'commonAttribute';
+import { DrawContext } from './Graphics';
 
 /**
  * Defines FrameNode.
@@ -373,4 +374,23 @@ export class FrameNode {
    * @since 12
    */
   get commonAttribute(): CommonAttribute;
+
+  /**
+   * Draw Method. Executed when the associated RenderNode in the current FrameNode is onDraw.
+   *
+   * @param { DrawContext } context - The DrawContext will be used when executed draw method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDraw?(context: DrawContext): void;
+
+  /**
+   * Invalidate the RenderNode in the FrameNode, which will cause a re-render of the RenderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
 }
