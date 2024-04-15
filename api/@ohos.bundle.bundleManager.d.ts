@@ -903,6 +903,21 @@ declare namespace bundleManager {
     PORTRAIT,
 
     /**
+     * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    /**
+     * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 11
+     */
+    FOLLOW_RECENT,
+
+    /**
      * Indicates the inverted landscape orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1044,16 +1059,7 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 12
      */
-    AUTO_ROTATION_UNSPECIFIED,
-
-    /**
-     * Indicates the window orientation is the same as that of the behind window
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    FOLLOW_BEHIND
+    AUTO_ROTATION_UNSPECIFIED
   }
 
   /**
