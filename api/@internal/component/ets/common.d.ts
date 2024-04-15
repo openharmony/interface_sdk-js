@@ -2339,6 +2339,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2346,6 +2347,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2354,6 +2356,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2365,6 +2368,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2372,6 +2376,7 @@ declare interface sharedTransitionOptions {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2380,6 +2385,7 @@ declare interface sharedTransitionOptions {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2391,6 +2397,7 @@ declare interface sharedTransitionOptions {
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2398,6 +2405,7 @@ declare interface sharedTransitionOptions {
    * Animation delay time, in ms.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2406,6 +2414,7 @@ declare interface sharedTransitionOptions {
    * Animation delay time, in ms.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2469,6 +2478,7 @@ declare interface sharedTransitionOptions {
    * the animate type.
    *
    * @type { ?SharedTransitionEffectType }
+   * @default SharedTransitionEffectType.Exchange
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2476,6 +2486,7 @@ declare interface sharedTransitionOptions {
    * the animate type.
    *
    * @type { ?SharedTransitionEffectType }
+   * @default SharedTransitionEffectType.Exchange
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2484,6 +2495,7 @@ declare interface sharedTransitionOptions {
    * the animate type.
    *
    * @type { ?SharedTransitionEffectType }
+   * @default SharedTransitionEffectType.Exchange
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2514,6 +2526,7 @@ declare interface GeometryTransitionOptions {
    * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -2522,6 +2535,7 @@ declare interface GeometryTransitionOptions {
    * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
