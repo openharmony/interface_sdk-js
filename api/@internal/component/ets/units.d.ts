@@ -3126,6 +3126,56 @@ declare interface DirectionalEdgesT<T> {
   bottom: T;
 }
 
+/**
+ * Defines the struct of DividerStyleOptions.
+ *
+ * @interface DividerStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DividerStyleOptions {
+  /**
+   * The strokeWidth of Divider.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth?: LengthMetrics;
+
+  /**
+   * The color of Divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+
+  /**
+   * The startMargin of Divider.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  startMargin?: LengthMetrics;
+
+  /**
+   * The endMargin of Divider.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  endMargin?: LengthMetrics;
+}
+
 declare module "GlobalResource" {
   module "GlobalResource" {
     // @ts-ignore
