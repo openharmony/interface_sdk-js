@@ -132,6 +132,7 @@ declare namespace asset {
    * @param { number } userId - the user identifier to remove one or more Assets.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
@@ -200,6 +201,7 @@ declare namespace asset {
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
@@ -275,6 +277,7 @@ declare namespace asset {
    * @param { number } userId - the user identifier to pre-query one or more Assets.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
@@ -351,6 +354,7 @@ declare namespace asset {
    * @param { number } userId - the user identifier to query one or more Assets.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
@@ -421,6 +425,7 @@ declare namespace asset {
    * @param { number } userId - the user identifier to post-query one or more Assets.
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQueryAsUser}.
    * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Invalid argument.
    * @throws { BusinessError } 24000001 - Service unavailable.
