@@ -73,6 +73,58 @@ declare namespace baseProfile {
   }
 
   /**
+   * Enum for cause of disconnect.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  enum DisconnectCause {
+    /**
+     * User disconnect device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    USER_DISCONNECT = 0,
+    /**
+     * The connection needs to be initiated from the keyboard side.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    CONNECT_FROM_KEYBOARD = 1,
+    /**
+     * The connection needs to be initiated from the mouse side.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    CONNECT_FROM_MOUSE = 2,
+    /**
+     * The connection needs to be initiated from the car side.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    CONNECT_FROM_CAR = 3,
+    /**
+     * Too many devices are currently connected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    TOO_MANY_CONNECTED_DEVICES = 4,
+    /**
+     * Connection failed due to an internal error.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    CONNECT_FAIL_INTERNAL = 5
+  }
+
+  /**
    * Profile state change parameters.
    *
    * @typedef StateChangeParam
@@ -95,6 +147,14 @@ declare namespace baseProfile {
      * @since 10
      */
     state: ProfileConnectionState;
+
+    /**
+     * Cause of disconnect
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    cause: DisconnectCause;
   }
 
   /**
