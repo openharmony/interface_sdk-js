@@ -1003,6 +1003,24 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates volume related operations.
+   * Flags should be powers of 2!
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 12
+   */
+  enum VolumeFlag {
+    /**
+     * Show system volume bar.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    FLAG_SHOW_SYSTEM_UI = 1,
+  }
+
+  /**
    * Describes audio stream information.
    * @typedef AudioStreamInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2597,6 +2615,21 @@ declare namespace audio {
      * @since 9
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
+
+    /**
+     * Sets the volume for a stream. This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { number } flags - volume flags used to enable different operations, can be union of {@link VolumeFlag}
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    setVolumeWithFlag(volumeType: AudioVolumeType, volume: number, flags: number): Promise<void>;
 
     /**
      * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
