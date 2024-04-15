@@ -199,6 +199,318 @@ declare enum SymbolEffectStrategy {
 }
 
 /**
+ * The common subtype effect of symbol
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum CommonSubType {
+  /**
+   * The scale down animation of symbol 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOWN = 0,
+  /**
+   * The scale up animation of symbol
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  UP = 1,
+}
+
+/**
+ * Declare type scope type of the symbol
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum ScopeType {
+  /**
+   * The layered animation of symbol
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  LAYER = 0,
+  /**
+   * The whole animation of symbol
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  WHOLE = 1,
+}
+
+/**
+ * Declare fill style of symbol
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum FillStyle {
+  /**
+   * The cumulative fill style of symbol
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  CUMULATIVE = 0,
+
+  /**
+   * The iterative fill style of symbol
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ITERATIVE = 1,
+}
+
+/**
+ * Declare the effect options of symbols
+ * 
+ * @interface EffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface EffectOptions {
+  /**
+   * The active state of the effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isActive?: boolean,
+}
+
+/**
+ * Defines SymbolEffect class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class SymbolEffect {
+}
+
+/**
+ * Defines NoneSymbolEffect class.
+ * 
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class NoneSymbolEffect extends SymbolEffect {
+}
+
+/**
+ * Defines ScaleSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ScaleSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { ScopeType } [scope] -  The scope type of symbol effect.
+   * @param { CommonSubType } [subType] - The common subtype of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(scope?: ScopeType, subType?: CommonSubType);
+
+  /**
+   * The scope type of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  scope?: ScopeType;
+  
+  /**
+   * The common subtype of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  subType?: CommonSubType;
+}
+
+/**
+ * Defines HierarchicalSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class HierarchicalSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { FillStyle } [fillStyle] -  The fill style of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(fillStyle?: FillStyle);
+  
+  /**
+   * The fill style of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fillStyle?: FillStyle;
+}
+
+/**
+ * Defines AppearSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class AppearSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { ScopeType } [scope] -  The scope type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(scope?: ScopeType);
+  
+  /**
+   * The scope type of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  scope?: ScopeType;
+}
+
+/**
+ * Defines DisappearSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DisappearSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { ScopeType } [scope] -  The scope type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(scope?: ScopeType);
+  
+  /**
+   * The scope type of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  scope?: ScopeType;
+}
+
+/**
+ * Defines BounceSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class BounceSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { ScopeType } [scope] -  The scope type of symbol effect.
+   * @param { CommonSubType } [subType] - The common subtype of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(scope?: ScopeType, subType?: CommonSubType);
+  
+  /**
+   * The scope type of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  scope?: ScopeType;
+  
+  /**
+   * The common subtype of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  subType?: CommonSubType;
+}
+
+/**
+ * Defines ReplaceSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ReplaceSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { ScopeType } [scope] -  The scope type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(scope?: ScopeType);
+  
+  /**
+   * The scope type of symbol effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  scope?: ScopeType;
+}
+
+/**
+ * Defines PulseSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class PulseSymbolEffect extends SymbolEffect {
+}
+
+/**
  * Provides attribute for SymbolGlyph.
  * 
  * @extends CommonMethod<SymbolGlyphAttribute>
@@ -320,6 +632,18 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 12
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
+
+  /**
+   * Called when the symbolGlyph effect is set.
+   *
+   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
+   * @param { EffectOptions } [effectOptions] - The symbol effect options
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  symbolEffect(symbolEffect: SymbolEffect, effectOptions?: EffectOptions): SymbolGlyphAttribute;
 }
 
 /**
