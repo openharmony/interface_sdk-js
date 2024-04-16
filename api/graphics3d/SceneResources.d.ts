@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Vec2, Vec3, Vec4, Aabb } from './sceneTypes';
+import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
 import { Resource } from 'GlobalResource';
 
 /**

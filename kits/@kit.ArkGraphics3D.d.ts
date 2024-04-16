@@ -22,12 +22,12 @@ import { TonemapType, TonemapSettings, PostProcessSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
   SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image,
-  Layermask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
+  LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene } from '@ohos.graphics.scene';
 
 export { TonemapType, TonemapSettings, PostProcessSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
   SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image,
-  Layermask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
+  LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene };

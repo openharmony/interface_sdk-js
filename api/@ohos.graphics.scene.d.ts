@@ -23,14 +23,14 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { TonemapType, TonemapSettings, PostProcessSettings } from './graphics3d/scenePostProcessSettings';
+export { TonemapType, TonemapSettings, PostProcessSettings } from './graphics3d/ScenePostProcessSettings';
 
 /**
  * Export scene types
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3 } from './graphics3d/sceneTypes';
+export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3 } from './graphics3d/SceneTypes';
 
 /**
  * Export scene resources
@@ -38,19 +38,19 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
  * @since 12
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image } from './graphics3d/sceneResources';
+  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { Layermask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
-  Camera } from './graphics3d/sceneNodes';
+export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
+  Camera } from './graphics3d/SceneNodes';
 
 /**
  * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene } from './graphics3d/scene';
+export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene } from './graphics3d/Scene';

@@ -18,9 +18,9 @@
  * @kit ArkGraphics3D
  */
 
-import { SceneResource, Mesh } from './sceneResources';
-import { Position3, Quaternion, Scale3, Color } from './sceneTypes';
-import { PostProcessSettings } from './scenePostProcessSettings';
+import { SceneResource, Mesh } from './SceneResources';
+import { Position3, Quaternion, Scale3, Color } from './SceneTypes';
+import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
  * Defines the layer mask of the node.

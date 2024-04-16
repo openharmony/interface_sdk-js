@@ -18,8 +18,8 @@
  * @kit ArkGraphics3D
  */
 
-import { Shader, MaterialType, Material, Animation, Environment, Image } from './sceneResources'
-import { Camera, LightType, Light, Node, NodeType } from './sceneNodes'
+import { Shader, MaterialType, Material, Animation, Environment, Image } from './SceneResources'
+import { Camera, LightType, Light, Node, NodeType } from './SceneNodes'
 import { Resource } from 'GlobalResource';
 
 /**
@@ -167,7 +167,7 @@ export class Scene {
   /**
    * Create a new scene from a Resource.
    *
-   * @param { ?Resource } uri - the resource of creating a scene
+   * @param { Resource } uri - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -208,7 +208,7 @@ export class Scene {
    * Get a node by path.
    *
    * @param { string } path - the path of the node
-   * @param { ?NodeType } type - verify the type of node, if it does not match, return null
+   * @param { NodeType } type - verify the type of node, if it does not match, return null
    * @returns { Node | null } if the node is found by it's path
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
