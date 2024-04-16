@@ -502,7 +502,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
-    onDataPrepared(data: T): void;
+    /**
+     * Indicates required media asset data is prepared
+     *
+     * @param { T } data - the returned data of media asset
+     * @param { Map<string, string> } [map] - additional information for the data
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    onDataPrepared(data: T, map?: Map<string, string>): void;
   }
 
   /**
