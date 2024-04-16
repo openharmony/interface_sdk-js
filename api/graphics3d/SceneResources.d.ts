@@ -145,7 +145,6 @@ export interface SceneResource {
  * Shader resource.
  *
  * @interface Shader
- * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -182,7 +181,6 @@ export enum MaterialType {
  * Material resource.
  *
  * @interface Material
- * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -202,7 +200,6 @@ export interface Material extends SceneResource {
  * Shader material resource.
  *
  * @interface ShaderMaterial
- * @extends Material
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -258,7 +255,6 @@ export interface SubMesh {
  * Mesh resource.
  *
  * @interface Mesh
- * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -297,7 +293,6 @@ export interface Mesh extends SceneResource {
  * Animation resource.
  *
  * @interface Animation
- * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -453,7 +448,6 @@ export enum EnvironmentBackgroundType {
  * Environment resource.
  *
  * @interface Environment
- * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -526,7 +520,6 @@ export interface Environment extends SceneResource {
  * Image resource.
  *
  * @interface Image
- * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
