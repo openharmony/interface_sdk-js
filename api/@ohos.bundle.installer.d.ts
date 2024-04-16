@@ -155,7 +155,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -371,7 +371,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -557,7 +557,7 @@ declare namespace installer {
      * @param { AsyncCallback<void> } callback - Indicates the callback used to return the HAP installation result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
@@ -623,7 +623,7 @@ declare namespace installer {
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
