@@ -20,4 +20,5 @@ export default {
   NODE_ENV: 'development',
   EVN_CONFIG: 'dev',
   DIR_NAME: path.resolve(__dirname, '../..'), //项目根目录地址
+  NEED_DETECTION: '',
 };

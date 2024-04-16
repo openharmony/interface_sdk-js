@@ -4447,6 +4447,20 @@ declare namespace resourceManager {
      * @since 11
      */
     getSymbolByName(resName: string) : number;
+
+    /**
+     * Whether the rawfile resource is a directory or not.
+     *
+     * @param { string } path - Indicates the rawfile resource relative path.
+     * @returns { boolean } True means the file path is directory, else false.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    isRawDir(path: string): boolean;
   }
 
   /**

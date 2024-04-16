@@ -44,12 +44,13 @@ function checkAllUppercaseHump(word) {
 }
 
 function getName(node) {
+  let str = '';
   if (node.name.escapedText) {
-    return node.name.escapedText.toString();
+    str = node.name.escapedText.toString();
   } else if (node.name.text) {
-    return node.name.text.toString();
+    str = node.name.text.toString();
   }
-  return;
+  return str;
 }
 
 function isConstantDecorator(node, name) {

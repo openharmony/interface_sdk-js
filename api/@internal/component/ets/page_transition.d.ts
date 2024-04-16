@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Declare the jump method.
  *
  * @enum { number }
@@ -460,12 +465,14 @@ declare interface PageTransitionOptions {
   /**
    * PageTransition animation curve.
    * @type { ?(Curve | string) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * PageTransition animation curve.
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -473,6 +480,7 @@ declare interface PageTransitionOptions {
   /**
    * PageTransition animation curve.
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -481,6 +489,7 @@ declare interface PageTransitionOptions {
   curve?: Curve | string | ICurve;
   /**
    * PageTransition animation delay time, in ms.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @type { ?number }
    * @since 7
@@ -488,6 +497,7 @@ declare interface PageTransitionOptions {
   /**
    * PageTransition animation delay time, in ms.
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -495,6 +505,7 @@ declare interface PageTransitionOptions {
   /**
    * PageTransition animation delay time, in ms.
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

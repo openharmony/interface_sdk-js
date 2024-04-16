@@ -120,6 +120,20 @@ declare namespace uiExtension {
      * @since 12
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+
+    /**
+     * Set the watermark flag on the UIExtension window
+     *
+     * @param { boolean } enable - Add water mark flag to the UIExtension window if true, or remove flag if false
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws { BusinessError } 1300002 - The UIExtension window proxy is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 12
+     */
+     setWaterMarkFlag(enable: boolean): Promise<void>;
   }
 
   /**

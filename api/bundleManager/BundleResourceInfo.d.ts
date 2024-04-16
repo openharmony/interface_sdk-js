@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
+
 /**
  * Obtains resource information about a bundle
  *
@@ -59,4 +61,15 @@ export interface BundleResourceInfo {
    * @since 11
    */
   readonly label: string;
+
+  /**
+   * Indicates the drawable descriptor of this bundle icon
+   *
+   * @type { DrawableDescriptor }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 12
+   */
+  readonly drawableDescriptor: DrawableDescriptor;
 }

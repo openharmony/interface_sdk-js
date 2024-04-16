@@ -69,20 +69,20 @@ declare namespace curves {
    */
   enum Curve {
     /**
-     * Linear.
+     * Linear. Indicates that the animation has the same velocity from start to finish.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Linear.
+     * Linear. Indicates that the animation has the same velocity from start to finish.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * Linear.
+     * Linear. Indicates that the animation has the same velocity from start to finish.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -91,20 +91,23 @@ declare namespace curves {
      */
     Linear,
     /**
-     * Ease.
+     * Ease. Indicates that the animation starts at a low speed, then speeds up, and slows down before the end,
+     * CubicBezier(0.25, 0.1, 0.25, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Ease.
+     * Ease. Indicates that the animation starts at a low speed, then speeds up, and slows down before the end,
+     * CubicBezier(0.25, 0.1, 0.25, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * Ease.
+     * Ease. Indicates that the animation starts at a low speed, then speeds up, and slows down before the end,
+     * CubicBezier(0.25, 0.1, 0.25, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -113,20 +116,20 @@ declare namespace curves {
      */
     Ease,
     /**
-     * EaseIn.
+     * EaseIn. Indicates that the animation starts at a low speed, Cubic Bezier (0.42, 0.0, 1.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * EaseIn.
+     * EaseIn. Indicates that the animation starts at a low speed, Cubic Bezier (0.42, 0.0, 1.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * EaseIn.
+     * EaseIn. Indicates that the animation starts at a low speed, Cubic Bezier (0.42, 0.0, 1.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -135,20 +138,20 @@ declare namespace curves {
      */
     EaseIn,
     /**
-     * EaseOut.
+     * EaseOut. Indicates that the animation ends at low speed, CubicBezier (0.0, 0.0, 0.58, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * EaseOut.
+     * EaseOut. Indicates that the animation ends at low speed, CubicBezier (0.0, 0.0, 0.58, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * EaseOut.
+     * EaseOut. Indicates that the animation ends at low speed, CubicBezier (0.0, 0.0, 0.58, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -157,20 +160,20 @@ declare namespace curves {
      */
     EaseOut,
     /**
-     * EaseInOut.
+     * EaseInOut. Indicates that the animation starts and ends at low speed, CubicBezier (0.42, 0.0, 0.58, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * EaseInOut.
+     * EaseInOut. Indicates that the animation starts and ends at low speed, CubicBezier (0.42, 0.0, 0.58, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * EaseInOut.
+     * EaseInOut. Indicates that the animation starts and ends at low speed, CubicBezier (0.42, 0.0, 0.58, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -179,20 +182,20 @@ declare namespace curves {
      */
     EaseInOut,
     /**
-     * FastOutSlowIn.
+     * FastOutSlowIn. Standard curve, cubic-bezier (0.4, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * FastOutSlowIn.
+     * FastOutSlowIn. Standard curve, cubic-bezier (0.4, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * FastOutSlowIn.
+     * FastOutSlowIn. Standard curve, cubic-bezier (0.4, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -201,20 +204,20 @@ declare namespace curves {
      */
     FastOutSlowIn,
     /**
-     * LinearOutSlowIn.
+     * LinearOutSlowIn. Deceleration curve, cubic-bezier (0.0, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * LinearOutSlowIn.
+     * LinearOutSlowIn. Deceleration curve, cubic-bezier (0.0, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * LinearOutSlowIn.
+     * LinearOutSlowIn. Deceleration curve, cubic-bezier (0.0, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -223,20 +226,20 @@ declare namespace curves {
      */
     LinearOutSlowIn,
     /**
-     * FastOutLinearIn.
+     * FastOutLinearIn. Acceleration curve, cubic-bezier (0.4, 0.0, 1.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * FastOutLinearIn.
+     * FastOutLinearIn. Acceleration curve, cubic-bezier (0.4, 0.0, 1.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * FastOutLinearIn.
+     * FastOutLinearIn. Acceleration curve, cubic-bezier (0.4, 0.0, 1.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -245,20 +248,20 @@ declare namespace curves {
      */
     FastOutLinearIn,
     /**
-     * ExtremeDeceleration.
+     * ExtremeDeceleration. Abrupt curve, cubic-bezier (0.0, 0.0, 0.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * ExtremeDeceleration.
+     * ExtremeDeceleration. Abrupt curve, cubic-bezier (0.0, 0.0, 0.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * ExtremeDeceleration.
+     * ExtremeDeceleration. Abrupt curve, cubic-bezier (0.0, 0.0, 0.0, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -267,20 +270,20 @@ declare namespace curves {
      */
     ExtremeDeceleration,
     /**
-     * Sharp.
+     * Sharp. Sharp curves, cubic-bezier (0.33, 0.0, 0.67, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Sharp.
+     * Sharp. Sharp curves, cubic-bezier (0.33, 0.0, 0.67, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * Sharp.
+     * Sharp. Sharp curves, cubic-bezier (0.33, 0.0, 0.67, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -289,20 +292,20 @@ declare namespace curves {
      */
     Sharp,
     /**
-     * Rhythm.
+     * Rhythm. Rhythmic curve, cubic-bezier (0.7, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Rhythm.
+     * Rhythm. Rhythmic curve, cubic-bezier (0.7, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * Rhythm.
+     * Rhythm. Rhythmic curve, cubic-bezier (0.7, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -311,20 +314,20 @@ declare namespace curves {
      */
     Rhythm,
     /**
-     * Smooth.
+     * Smooth. Smooth curves, cubic-bezier (0.4, 0.0, 0.4, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Smooth.
+     * Smooth. Smooth curves, cubic-bezier (0.4, 0.0, 0.4, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * Smooth.
+     * Smooth. Smooth curves, cubic-bezier (0.4, 0.0, 0.4, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -333,20 +336,20 @@ declare namespace curves {
      */
     Smooth,
     /**
-     * Friction.
+     * Friction. Damping curves, CubicBezier (0.2, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Friction.
+     * Friction. Damping curves, CubicBezier (0.2, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
     /**
-     * Friction.
+     * Friction. Damping curves, CubicBezier (0.2, 0.0, 0.2, 1.0).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -384,7 +387,8 @@ declare namespace curves {
     /**
      * Get curve value by fraction.
      *
-     * @param { number } fraction
+     * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+     * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
      * @returns { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
@@ -392,7 +396,8 @@ declare namespace curves {
     /**
      * Get curve value by fraction.
      *
-     * @param { number } fraction
+     * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+     * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
      * @returns { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -401,7 +406,8 @@ declare namespace curves {
     /**
      * Get curve value by fraction.
      *
-     * @param { number } fraction
+     * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+     * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
      * @returns { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -414,7 +420,7 @@ declare namespace curves {
   /**
    * Initializes the interpolator curve when called.
    *
-   * @param { Curve } [curve]
+   * @param { Curve } [curve] The default value is Curve.Linear
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -422,7 +428,7 @@ declare namespace curves {
   /**
    * Initializes the interpolator curve when called.
    *
-   * @param { Curve } [curve]
+   * @param { Curve } [curve] The default value is Curve.Linear
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -431,7 +437,7 @@ declare namespace curves {
   /**
    * Initializes the interpolator curve when called.
    *
-   * @param { Curve } [curve]
+   * @param { Curve } [curve] The default value is Curve.Linear
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -455,8 +461,8 @@ declare namespace curves {
   /**
    * Constructs a step curve when called.
    *
-   * @param { number } count
-   * @param { boolean } end
+   * @param { number } count -The number of steps. The range of this value is [1, +∞).
+   * @param { boolean } end -A step change occurs at the start or end of each interval.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -464,8 +470,8 @@ declare namespace curves {
   /**
    * Constructs a step curve when called.
    *
-   * @param { number } count
-   * @param { boolean } end
+   * @param { number } count -The number of steps. The range of this value is [1, +∞).
+   * @param { boolean } end -A step change occurs at the start or end of each interval.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -474,8 +480,8 @@ declare namespace curves {
   /**
    * Constructs a step curve when called.
    *
-   * @param { number } count
-   * @param { boolean } end
+   * @param { number } count -The number of steps. The range of this value is [1, +∞).
+   * @param { boolean } end -A step change occurs at the start or end of each interval.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -520,11 +526,12 @@ declare namespace curves {
 
   /**
    * Constructs a third-order Bezier curve when called.
-   *
-   * @param { number } x1
-   * @param { number } y1
-   * @param { number } x2
-   * @param { number } y2
+   * @param { number } x1 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y1 -Value range (-∞, +∞).
+   * @param { number } x2 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y2 -Value range (-∞, +∞).
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -532,10 +539,12 @@ declare namespace curves {
   /**
    * Constructs a third-order Bezier curve when called.
    *
-   * @param { number } x1
-   * @param { number } y1
-   * @param { number } x2
-   * @param { number } y2
+   * @param { number } x1 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y1 -Value range (-∞, +∞).
+   * @param { number } x2 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y2 -Value range (-∞, +∞).
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -544,10 +553,12 @@ declare namespace curves {
   /**
    * Constructs a third-order Bezier curve when called.
    *
-   * @param { number } x1
-   * @param { number } y1
-   * @param { number } x2
-   * @param { number } y2
+   * @param { number } x1 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y1 -Value range (-∞, +∞).
+   * @param { number } x2 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y2 -Value range (-∞, +∞).
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -559,10 +570,12 @@ declare namespace curves {
   /**
    * Constructs a third-order Bezier curve when called.
    *
-   * @param { number } x1
-   * @param { number } y1
-   * @param { number } x2
-   * @param { number } y2
+   * @param { number } x1 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y1 -Value range (-∞, +∞).
+   * @param { number } x2 -Value range [0, 1].
+   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
+   * @param { number } y2 -Value range (-∞, +∞).
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -572,12 +585,12 @@ declare namespace curves {
   function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
 
   /**
-   * Constructs a spring curve when called.
+   * Constructs a spring curve when called. For more information about the meaning of the parameter, see spring().
    *
-   * @param { number } velocity
-   * @param { number } mass
-   * @param { number } stiffness
-   * @param { number } damping
+   * @param { number } velocity -Value range (-∞, +∞).
+   * @param { number } mass -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
+   * @param { number } stiffness -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
+   * @param { number } damping -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -585,10 +598,10 @@ declare namespace curves {
   /**
    * Constructs a spring curve when called.
    *
-   * @param { number } velocity
-   * @param { number } mass
-   * @param { number } stiffness
-   * @param { number } damping
+   * @param { number } velocity -Value range (-∞, +∞).
+   * @param { number } mass -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
+   * @param { number } stiffness -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
+   * @param { number } damping -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -597,10 +610,10 @@ declare namespace curves {
   /**
    * Constructs a spring curve when called.
    *
-   * @param { number } velocity
-   * @param { number } mass
-   * @param { number } stiffness
-   * @param { number } damping
+   * @param { number } velocity -Value range (-∞, +∞).
+   * @param { number } mass -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
+   * @param { number } stiffness -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
+   * @param { number } damping -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -612,10 +625,12 @@ declare namespace curves {
   /**
    * Constructs a spring curve when called.
    *
-   * @param { number } velocity
-   * @param { number } mass
-   * @param { number } stiffness
-   * @param { number } damping
+   * @param { number } velocity -Initial velocity. An influence parameter of external factors on elastic dynamics,
+   * purpose is to ensure a smooth transition of the object from the previous state of motion to the elastic dynamics.
+   * @param { number } mass -Quality. The force object of the elastic system will have an inertial effect on elastic
+   * system. The greater the mass, the greater the amplitude of the oscillation.
+   * @param { number } stiffness -The degree to which an object is deformed by resisting the applied force.
+   * @param { number } damping -Pure number, Used to describe oscillation and decay of a system after being disturbed.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -627,9 +642,12 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    *
-   * @param { number } [response]
-   * @param { number } [dampingFraction]
-   * @param { number } [overlapDuration]
+   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
+   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
+   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -637,9 +655,12 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    *
-   * @param { number } [response]
-   * @param { number } [dampingFraction]
-   * @param { number } [overlapDuration]
+   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
+   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
+   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -648,9 +669,12 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    *
-   * @param { number } [response]
-   * @param { number } [dampingFraction]
-   * @param { number } [overlapDuration]
+   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
+   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
+   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -662,9 +686,12 @@ declare namespace curves {
   /**
    * Constructs a responsive spring motion when called.
    *
-   * @param { number } [response]
-   * @param { number } [dampingFraction]
-   * @param { number } [overlapDuration]
+   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
+   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
+   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -672,9 +699,12 @@ declare namespace curves {
   /**
    * Constructs a responsive spring motion when called.
    *
-   * @param { number } [response]
-   * @param { number } [dampingFraction]
-   * @param { number } [overlapDuration]
+   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
+   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
+   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -682,10 +712,14 @@ declare namespace curves {
    */
   /**
    * Constructs a responsive spring motion when called.
+   * The parameters are interpreted as in springMotion.
    *
-   * @param { number } [response]
-   * @param { number } [dampingFraction]
-   * @param { number } [overlapDuration]
+   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
+   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
+   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -699,10 +733,14 @@ declare namespace curves {
    * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
    * to calculate the actual animation values.
    *
-   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
-   * @param { number } mass - the mass of object in the mass-damper-spring system
-   * @param { number } stiffness - the stiffness of spring
-   * @param { number } damping - the damping value of spring
+   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the
+   * value changes from 0 to 1,specific value range (-∞, ∞).
+   * @param { number } mass - the mass of object in the mass-damper-spring system, value range (0, +∞).
+   * Note: If the value is less than or equal to 0, the value 1 is used.
+   * @param { number } stiffness - the stiffness of spring, value range (0, +∞).
+   * Note: If the value is less than or equal to 0, the value 1 is used.
+   * @param { number } damping - the damping value of spring, value range (0, +∞).
+   * Note: If the value is less than or equal to 0, the value 1 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -713,10 +751,14 @@ declare namespace curves {
    * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
    * to calculate the actual animation values.
    *
-   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
-   * @param { number } mass - the mass of object in the mass-damper-spring system
-   * @param { number } stiffness - the stiffness of spring
-   * @param { number } damping - the damping value of spring
+   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the
+   * value changes from 0 to 1,specific value range (-∞, ∞).
+   * @param { number } mass - the mass of object in the mass-damper-spring system, value range (0, +∞).
+   * Note: If the value is less than or equal to 0, the value 1 is used.
+   * @param { number } stiffness - the stiffness of spring, value range (0, +∞).
+   * Note: If the value is less than or equal to 0, the value 1 is used.
+   * @param { number } damping - the damping value of spring, value range (0, +∞).
+   * Note: If the value is less than or equal to 0, the value 1 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provide an interface for the ability component.
  *
  * @interface AbilityComponentInterface

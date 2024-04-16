@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides a way to control the textclock status.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -448,6 +453,17 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    * @form
    */
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
 
   /**
@@ -461,6 +477,20 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Called when the text fontFeature is set.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   fontFeature(value: string): TextClockAttribute;

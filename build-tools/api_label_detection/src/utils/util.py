@@ -16,6 +16,7 @@
 import json
 import re
 import openpyxl as op
+from utils.constants import label_comparison_dist
 
 
 def get_start_characters(target_character):
@@ -28,7 +29,7 @@ def get_start_characters(target_character):
         return ''
 
 
-#剩余字符
+# 剩余字符
 def get_remaining_characters(start_character, target_character):
     return target_character[target_character.index(start_character) + len(start_character):]
 
@@ -51,10 +52,12 @@ def label_type_conversion(tagged_value):
     return True
 
 
-def get_check_labels(doc_info: dict):
+def get_check_labels(doc_info: dict, label_list):
     if len(doc_info) > 0:
-        return {'isAtomicService': doc_info['isAtomicService'], 'isForm': doc_info['isForm'],
-                'isCrossPlatForm': doc_info['isCrossPlatForm']}
+        result = {}
+        for label in label_list:
+            result[label_comparison_dist.get(label)] = doc_info[label_comparison_dist.get(label)]
+        return result
     else:
         return {}
 

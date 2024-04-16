@@ -3,6 +3,7 @@
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
+    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
@@ -125,6 +126,7 @@
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
@@ -211,6 +213,7 @@
     "SystemCapability.Graphic.Graphic2D.NativeImage",
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Vulkan",
-    "SystemCapability.Multimedia.Image.ImageCreator"
+    "SystemCapability.Multimedia.Image.ImageCreator",
+    "SystemCapability.Ability.AppStartup"
   ]
 }

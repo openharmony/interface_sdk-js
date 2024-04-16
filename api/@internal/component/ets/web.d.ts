@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkWeb
+ */
+
+/**
  * Provides methods for controlling the web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -44,6 +49,16 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
  * @since 11
  */
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
+
+/**
+ * The callback of ssl error event.
+ *
+ * @typedef OnSslErrorEventCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
  * The callback of largestContentfulPaint.
@@ -86,15 +101,15 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
- * The configuration of native video player.
+ * The configuration of native media player.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
  */
-type NativeVideoPlayerConfig = {
+type NativeMediaPlayerConfig = {
   /**
-   * Should playing web video by native application instead of web player.
+   * Should playing web media by native application instead of web player.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -103,7 +118,7 @@ type NativeVideoPlayerConfig = {
   enable: boolean,
 
   /**
-   * The contents painted by native video player should overlay web page.
+   * The contents painted by native media player should overlay web page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6022,6 +6037,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   }) => void): WebAttribute;
 
   /**
+   * Triggered when the Web page receives an ssl Error.
+   *
+   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
+
+  /**
    * Triggered when the Web page needs ssl client certificate from the user.
    *
    * @param { function } callback The triggered callback when needs ssl client certificate from the user.
@@ -6945,15 +6971,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native video player to play web page video source.
+   * Enable app creates native media player to play web page media source.
    *
-   * @param { NativeVideoPlayerConfig } config - The configuration of native video player.
+   * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
-  enableNativeVideoPlayer(config: NativeVideoPlayerConfig): WebAttribute;
+  enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
+
+  /**
+   * Sets the enable window drag smooth for web.
+   *
+   * @param { boolean } mode - True if it needs to enable window drag smooth.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+   enableSmoothDragResize(mode: boolean): WebAttribute;
 }
 
 /**
@@ -6994,3 +7031,70 @@ declare const Web: WebInterface;
  * @since 11
  */
 declare const WebInstance: WebAttribute;
+
+/**
+ * Defines the ssl error event.
+ *
+ * @interface SslErrorEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface SslErrorEvent {
+  /**
+   * Notifies the user of the operation behavior of the web component.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  handler: SslErrorHandler,
+  /**
+   * Error codes.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  error: SslError
+  /**
+   * Request url.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  url: string;
+  /**
+   * Original url.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  originalUrl: string;
+  /**
+   * Referrer.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  referrer: string;
+  /**
+   * Whether the error is fatal.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  isFatalError: boolean;
+  /**
+   * Whether the request is main frame.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  isMainFrame: boolean;
+}

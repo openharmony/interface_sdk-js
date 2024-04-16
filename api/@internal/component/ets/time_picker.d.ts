@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the struct of TimePickerResult.
  *
  * @interface TimePickerResult
@@ -109,12 +114,27 @@ declare interface TimePickerResult {
  * @crossplatform
  * @since 11
  */
+/**
+ * Type of the TimePicker that need to be displayed.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum TimePickerFormat {
   /**
    * Hour and minute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Hour and minute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   HOUR_MINUTE,
 
@@ -123,6 +143,13 @@ declare enum TimePickerFormat {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Hour and minute and second
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   HOUR_MINUTE_SECOND,
 }
@@ -187,6 +214,16 @@ declare interface TimePickerOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the format of the TimePicker that need to be displayed.
+   * 
+   * @type { ?TimePickerFormat }
+   * @default HOUR_MINUTE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   format?: TimePickerFormat;
 }
 
@@ -244,6 +281,15 @@ interface TimePickerInterface {
    */
   (options?: TimePickerOptions): TimePickerAttribute;
 }
+/**
+ * Define the internationalization parameter format.
+ *
+ * @typedef { import('../api/@ohos.intl').default.DateTimeOptions } DateTimeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
 
 /**
  * Defines the TimePicker attribute functions.
@@ -306,6 +352,15 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Sets whether to enable the wheel mode.
+   * @param { boolean } value - indicates whether to enable the wheel mode.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   loop(value: boolean): TimePickerAttribute;
 
@@ -371,6 +426,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 11
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
+
+  /**
+   * Set time format
+   *
+   * @param { DateTimeOptions } value - indicates the format of the time display.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.
@@ -490,6 +556,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 11
    */
   textStyle?: PickerTextStyle;
+
+  /**
+   * Text style of button items
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: PickerDialogButtonStyle;
 
   /**
    * Text style of selected items
@@ -654,6 +730,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Defines the timePickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   backgroundColor?: ResourceColor;
 
   /**
@@ -664,6 +750,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Defines the timePickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -708,6 +804,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+ 
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**

@@ -34,6 +34,13 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @atomicservice
  * @since 11
  */
+/**
+ * @namespace abilityAccessCtrl
+ * @syscap SystemCapability.Security.AccessToken
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace abilityAccessCtrl {
   /**
    * Obtains the AtManager instance.
@@ -208,6 +215,20 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Requests certain permissions from the user.
+     *
+     * @param { Context } context - The context that initiates the permission request.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @syscap SystemCapability.Security.AccessToken
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     requestPermissionsFromUser(
       context: Context,
       permissionList: Array<Permissions>,
@@ -381,6 +402,44 @@ declare namespace abilityAccessCtrl {
      * @since 8
      */
     getPermissionFlags(tokenID: number, permissionName: Permissions): Promise<number>;
+
+    /**
+     * Set the toggle status of one permission flag.
+     *
+     * @permission ohos.permission.DISABLE_PERMISSION_DIALOG
+     * @param { Permissions } permissionName - Name of the permission associated with the toggle status to be set.
+     * @param { PermissionRequestToggleStatus } status - The toggle status to be set.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The string size of permissionName is larger than 256,
+     * or the status value is invalid.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 12
+     */
+    setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus): Promise<void>;
+
+    /**
+     * Get the toggle status of one permission flag.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Permissions } permissionName - Name of the permission associated with the toggle status to be get.
+     * @returns { Promise<PermissionRequestToggleStatus> } Return the toggle status.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 12
+     */
+    getPermissionRequestToggleStatus(permissionName: Permissions): Promise<PermissionRequestToggleStatus>;
 
     /**
      * Queries permission management version.
@@ -578,6 +637,33 @@ declare namespace abilityAccessCtrl {
      * @since 9
      */
     PERMISSION_GRANTED_OPER = 1
+  }
+
+  /**
+   * Enum for permission request toggle status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 12
+   */
+  export enum PermissionRequestToggleStatus {
+    /**
+     * The toggle status of one permission flag is closed.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 12
+     */
+    CLOSED = 0,
+    /**
+     * The toggle status of one permission flag is open.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 12
+     */
+    OPEN = 1,
   }
 
   /**

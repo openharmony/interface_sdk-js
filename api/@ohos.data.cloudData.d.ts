@@ -659,6 +659,15 @@ declare namespace cloudData {
        * @since 11
        */
       STATE_SUSPENDED = 3,
+
+      /**
+       * STATE_UNAVAILABLE: The sharing process unavailable.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @systemapi
+       * @since 12
+       */
+      STATE_UNAVAILABLE = 4,
     }
 
     /**

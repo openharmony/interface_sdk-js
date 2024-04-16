@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The refresh status of the drop-down refresh.
  *
  * @enum { number }
@@ -445,6 +450,18 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @since 12
    */
   pullToRefresh(value: boolean): RefreshAttribute;
+  
+  /**
+   * Called when the refresh offset changed.
+   * The unit is vp.
+   *
+   * @param { Callback<number> } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onOffsetChange(callback: Callback<number>): RefreshAttribute;
 }
 
 /**
