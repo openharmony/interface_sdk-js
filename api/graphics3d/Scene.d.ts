@@ -24,10 +24,12 @@ import { Resource } from 'GlobalResource';
 
 /**
  * The scene resource parameters type.
+ *
+ * @typedef SceneResourceParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export type SceneResourceParameters = {
+export interface SceneResourceParameters {
   /**
    * The name of the scene resource parameters.
    *
@@ -54,7 +56,7 @@ export type SceneResourceParameters = {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export interface SceneNodeParameters = {
+export interface SceneNodeParameters {
   /**
    * The name of the scene node parameters.
    *
@@ -121,7 +123,7 @@ export interface SceneResourceFactory {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  createMaterial(params: SceneResourceParametersm materialType: MaterialType): Promise<Material>;
+  createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise<Material>;
 
   /**
    * Create a shader.
@@ -155,7 +157,7 @@ export interface SceneResourceFactory {
 }
 
 /**
- * Define the 3d scene.
+ * Defines the 3d scene.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12

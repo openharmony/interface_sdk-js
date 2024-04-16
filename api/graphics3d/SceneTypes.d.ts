@@ -133,7 +133,7 @@ export interface Vec4 {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export interface Quternion {
+export interface Quaternion {
   /**
    * X component of the quaternion.
    *
@@ -245,6 +245,7 @@ export interface Color {
 
 /**
  * Defines rectangle.
+ *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12

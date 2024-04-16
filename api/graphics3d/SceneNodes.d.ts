@@ -23,7 +23,7 @@ import { Position3, Quaterion, Scale3, Color } from './sceneTypes';
 import { PostProcessSettings } from './scenePostProcessSettings';
 
 /**
- * Define the layer mask of the node.
+ * Defines the layer mask of the node.
  *
  * @interface LayerMask
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -48,7 +48,7 @@ export interface LayerMask {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  setEnabled(indx: number, enabled: boolean): void;
+  setEnabled(index: number, enabled: boolean): void;
 }
 
 /**
@@ -93,7 +93,7 @@ export enum NodeType {
 }
 
 /**
- * Define a scene object container.
+ * Defines a scene object container.
  *
  * @interface Container
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -156,7 +156,7 @@ export interface Container<T> {
 }
 
 /**
- * Define Node interface.
+ * Defines Node interface.
  *
  * @interface Node
  * @extends SceneResource
@@ -224,6 +224,7 @@ export interface Node extends SceneResource {
    * Path of the node.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -261,7 +262,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * Define Geometry interface.
+ * Defines Geometry interface.
  *
  * @interface Geometry
  * @extends Node
@@ -282,6 +283,7 @@ export interface Geometry extends Node {
 
 /**
  * The enum of light type.
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -305,7 +307,8 @@ export enum LightType {
 }
 
 /**
- * Define light interface.
+ * Defines light interface.
+ *
  * @interface Light
  * @extends Node
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -360,7 +363,7 @@ export interface Light extends Node {
 }
 
 /**
- * Define spot light.
+ * Defines spot light.
  *
  * @interface SpotLight
  * @extends Light
@@ -371,7 +374,7 @@ export interface SpotLight extends Light {
 }
 
 /**
- * Define directional light.
+ * Defines directional light.
  *
  * @interface DirectionalLight
  * @extends Light
@@ -390,7 +393,8 @@ export interface DirectionalLight extends Light {
 }
 
 /**
- * Define camera.
+ * Defines camera.
+ *
  * @interface Camera
  * @extends node
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -442,5 +446,3 @@ export interface Camera extends Node {
    */
   postProcess: PostProcessSettings | null;
 }
-
-

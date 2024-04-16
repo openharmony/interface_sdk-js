@@ -52,17 +52,17 @@ export enum TonemapType {
 }
 
 /**
- * Define tone mapping parameters.
+ * Defines tone mapping parameters.
  *
  * @typedef TonemapSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export type TonemapSettings = {
+export interface TonemapSettings {
   /**
    * Type of the tone mapping.
    *
-   * @type { TonemapType }
+   * @type { ?TonemapType }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -79,13 +79,13 @@ export type TonemapSettings = {
 }
 
 /**
- * Define post processing settings.
+ * Defines post processing settings.
  *
- * @typedef PostProcessingSettings 
+ * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export type PostProcessSettings = {
+export interface PostProcessSettings {
   /**
    * Tone mapping settings of the post processing settings.
    *

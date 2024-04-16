@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { Vec2, Vec3, Vec4, Aabb } from './sceneTypes'
-import { Resource } from './GlobalResource';
+import { Vec2, Vec3, Vec4, Aabb } from './sceneTypes';
+import { Resource } from 'GlobalResource';
 
 /**
  * @file
- * @kit ArkGraphic3D
+ * @kit ArkGraphics3D
  */
 
 /**
@@ -151,12 +151,13 @@ export interface SceneResource {
 export interface Shader extends SceneResource {
   /**
    * Shader inputs.
-   *
+   * 
    * @type { Record<string, number | Vec2 | Vec3 | Vec4 | Image> }
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  inputs: Record<string, number | Vec2 | Vec3 | Vec4 | Image>;
+  readonly inputs: Record<string, number | Vec2 | Vec3 | Vec4 | Image>;
 }
 
 /**
@@ -208,7 +209,7 @@ export interface ShaderMaterial extends Material {
   /**
    * Color shader of material.
    *
-   * @type { Shader }
+   * @type { ?Shader }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
