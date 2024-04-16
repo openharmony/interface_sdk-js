@@ -368,6 +368,36 @@ declare namespace uiObserver {
   }
 
   /**
+   * Navigation info.
+   * 
+   * @interface NavigationInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  export interface NavigationInfo {
+    /**
+     * Navigation id.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    navigationId: string;
+    
+    /**
+     * Navigation path stack.
+     * 
+     * @type { NavPathStack }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    pathStack: NavPathStack;
+  }
+
+  /**
    * ScrollEvent info.
    *
    * @interface ScrollEventInfo
