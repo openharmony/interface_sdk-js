@@ -69,7 +69,7 @@ export interface SceneNodeParameters {
   /**
    * The path of the scene node parameters.
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -79,6 +79,7 @@ export interface SceneNodeParameters {
 /**
  * The scene resource factory.
  *
+ * @interface SceneResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -208,7 +209,7 @@ export class Scene {
    *
    * @param { string } path - the path of the node
    * @param { ?NodeType } type - verify the type of node, if it does not match, return null
-   * @returns { Node | null} if the node is found by it's path
+   * @returns { Node | null } if the node is found by it's path
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */

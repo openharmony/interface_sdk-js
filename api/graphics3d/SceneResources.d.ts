@@ -114,7 +114,7 @@ export interface SceneResource {
   /**
    * Scene resource type.
    *
-   * @type { string }
+   * @type { SceneResourceType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
@@ -266,7 +266,7 @@ export interface Mesh extends SceneResource {
   /**
    * The sub meshes of the mesh.
    *
-   * @type { SubMesh }
+   * @type { SubMesh[] }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
@@ -314,7 +314,7 @@ export interface Animation extends SceneResource {
   /**
    * The duration of the animation.
    *
-   * @type { boolean }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
@@ -344,7 +344,7 @@ export interface Animation extends SceneResource {
   /**
    * Register a callback when animation finished.
    *
-   * @param { () => void } callback - the callback invoked when animation finished
+   * @param { function } callback - the callback invoked when animation finished
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -353,7 +353,7 @@ export interface Animation extends SceneResource {
   /**
    * Register a callback when animation started.
    *
-   * @param { () => void } callback - the callback invoked when animation started
+   * @param { function } callback - the callback invoked when animation started
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -497,7 +497,7 @@ export interface Environment extends SceneResource {
   /**
    * The environment image of the environment.
    *
-   * @type { ?Image | null }
+   * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -506,7 +506,7 @@ export interface Environment extends SceneResource {
   /**
    * The radiance image of the environment.
    *
-   * @type { ?Image | null }
+   * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */

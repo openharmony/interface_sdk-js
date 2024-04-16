@@ -44,7 +44,7 @@ export interface LayerMask {
    * Set whether the layer mask is enabled.
    *
    * @param { number } index - the layer mask
-   * @param { boolean } whether layer mask is enabled 
+   * @param { boolean } enabled - whether layer mask is enabled
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -113,7 +113,7 @@ export interface Container<T> {
    * Insert a item.
    *
    * @param { T } item - the item insert to the container
-   * @param { T } sibling - insert after this item, insert to the head if sibling is null
+   * @param { T | null } sibling - insert after this item, insert to the head if sibling is null
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -131,7 +131,8 @@ export interface Container<T> {
   /**
    * Returns a child at given index from this Container's child list.
    *
-   * @param { T } index - the index of the child to return
+   * @param { number } index - the index of the child to return
+   * @returns { T | null } return the item specified by the index
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -396,7 +397,7 @@ export interface DirectionalLight extends Light {
  * Defines camera.
  *
  * @interface Camera
- * @extends node
+ * @extends Node
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
