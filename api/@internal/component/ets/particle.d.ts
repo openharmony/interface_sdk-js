@@ -633,16 +633,6 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   range: [TYPE, TYPE];
 
   /**
-   * Distribution of particle color.
-   * @type { ?DistributionType }
-   * @default DistributionType.UNIFORM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  distribution?: DistributionType;
-
-  /**
    * Particle property updater.
    * @type { ?object }
    * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
@@ -770,6 +760,16 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @since 11
    */
   range: [ResourceColor, ResourceColor];
+
+  /**
+   * Distribution type of particle color.
+   * @type { ?DistributionType }
+   * @default DistributionType.UNIFORM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  distributionType?: DistributionType;
 
   /**
    * Particle color property updater.
@@ -1067,7 +1067,8 @@ declare enum ParticleEmitterShape {
 
 /**
  * Enumerates the color distribution types of a particle.
- * @enum { string }
+ * 
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
@@ -1075,19 +1076,21 @@ declare enum ParticleEmitterShape {
 declare enum DistributionType {
   /**
    * Uniform distribution.
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  UNIFORM = 'uniform',
+  UNIFORM = 0,
 
   /**
    * Gaussian distribution.
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  GAUSSIAN = 'gaussian',
+  GAUSSIAN = 1,
 }
 
 /**
