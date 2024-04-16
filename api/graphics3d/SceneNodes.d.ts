@@ -440,4 +440,14 @@ export interface Camera extends Node {
    * @since 12
    */
   postProcess: PostProcessSettings | null;
+
+  /**
+   * Background clear color (environment background overrides this color,
+   * BACKGROUND_NONE is needed for this to actually take effect).
+   *
+   * @type { Color | null }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  clearColor: Color | null;
 }
