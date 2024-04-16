@@ -103,6 +103,17 @@ declare struct AVCastPicker {
   sessionType?: string;
 
   /**
+   * Set the custom builder for the picker appearance.
+   * If not set, system will show the default appearance for different device type.
+   * @type { ? CustomBuilder }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12
+   */
+  @Prop
+  customPicker?: CustomBuilder;
+
+  /**
    * Picker state change callback.
    * @type { ?function }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
