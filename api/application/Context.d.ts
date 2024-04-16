@@ -321,6 +321,17 @@ export default class Context extends BaseContext {
   resourceDir: string;
 
   /**
+   * Indicates app cloud storage files dir.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  cloudFileDir: string;
+
+  /**
    * Indicates event hub.
    *
    * @type { EventHub }
