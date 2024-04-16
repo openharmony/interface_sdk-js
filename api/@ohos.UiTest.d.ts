@@ -3048,7 +3048,7 @@ declare class Driver {
    * Find the first matched {@link Component} on current UI during the time given.
    *
    * @param { On } on - the attribute requirements of the target {@link Component}.
-   * @param { number } time - duration of finding in milliseconds, ranges greater than 0.
+   * @param { number } time - duration of finding in milliseconds, not less than 0.
    * @returns { Promise<Component> } the first matched {@link Component} or undefined.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
