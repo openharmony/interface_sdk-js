@@ -50,6 +50,7 @@ import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
 import { GestureEvent } from 'GestureEventModule';
 import { ClickEvent } from 'ClickEventModule';
+import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
  * class Font
@@ -1836,6 +1837,60 @@ export class FocusController {
 }
 
 /**
+ * Pointer style.
+ *
+ * @typedef {pointer.PointerStyle} PointerStyle
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @since 12
+ */
+export type PointerStyle = pointer.PointerStyle;
+
+/**
+ * class CursorController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class CursorController {
+  /**
+   * Restore default cursor.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  restoreDefault(): void;
+  /**
+   * Set cursor style.
+   * 
+   * @param { PointerStyle } value - cursor style enum.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCursor(value: PointerStyle): void;
+}
+
+/**
+ * class ContextMenuController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export class ContextMenuController {
+  /**
+   * Close context menu.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  close(): void;
+}
+
+/**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
@@ -2300,6 +2355,26 @@ export class UIContext {
    * @since 12
    */
   getFocusController(): FocusController;
+
+  /**
+   * Get object cursor controller.
+   *
+   * @returns { CursorController } object cursor controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCursorController(): CursorController;
+
+  /**
+   * Get object context menu controller.
+   *
+   * @returns { ContextMenuController } object context menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getContextMenuController(): ContextMenuController;
 
   /**
    * Get current LocalStorage shared from stage.
