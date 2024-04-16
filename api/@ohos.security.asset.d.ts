@@ -270,8 +270,8 @@ declare namespace asset {
   function preQuery(query: AssetMap): Promise<Uint8Array>;
 
   /**
-   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication in a specific 
-   * user space.
+   * Preprocessing (e.g. get challenge) for querying one or more Assets 
+   * that require user authentication in a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - the user identifier to pre-query one or more Assets.
