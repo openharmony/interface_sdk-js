@@ -185,6 +185,15 @@ declare interface TextDecorationOptions {
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
+ * Defining ComponentV2 ClassDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const ComponentV2: ClassDecorator
+
+/**
  * Defines the options of Entry ClassDecorator.
  *
  * @interface EntryOptions
@@ -403,6 +412,42 @@ declare const Require: PropertyDecorator;
  * @form
  */
 declare const BuilderParam: PropertyDecorator;
+
+/**
+ * Defining Local PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Local: PropertyDecorator;
+
+/**
+ * Defining Param PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Param: PropertyDecorator;
+
+/**
+ * Defining Once PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Once: PropertyDecorator;
+
+/**
+ * Defining Event PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Event: PropertyDecorator;
 
 /**
  * Defining State PropertyDecorator.
