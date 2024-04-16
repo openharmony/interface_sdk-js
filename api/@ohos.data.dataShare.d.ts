@@ -576,6 +576,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -591,6 +593,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to unsubscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback to unsubscribe.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1481,6 +1485,8 @@ declare namespace dataShare {
     * @param { ChangeInfo } data - Indicates the data change information.
     * @returns { Promise<void> } Promise that returns no value.
     * @throws { BusinessError } 401 - Parameter error.
+    * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+    * @throws { BusinessError } 202 - Not System Application.
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @systemapi
     * @stagemodelonly
