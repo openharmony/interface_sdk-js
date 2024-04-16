@@ -14,7 +14,7 @@
  */
 
  /**
- * @file
+ * @file Defines the fullScreen launch component
  * @kit ArkUI
  */
 
