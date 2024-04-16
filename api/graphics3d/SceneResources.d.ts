@@ -185,16 +185,16 @@ export enum MaterialType {
  * @since 12
  */
 export interface Material extends SceneResource {
-    /**
-     * Material resource type.
-     *
-     * @type { MaterialType }
-     * @readonly
-     * @syscap SystemCapability.ArkUi.Graphics3D
-     * @since 12
-     */
-     readonly materialType: MaterialType;
- }
+  /**
+   * Material resource type.
+   *
+   * @type { MaterialType }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  readonly materialType: MaterialType;
+}
 
 /**
  * Shader material resource.
@@ -229,7 +229,7 @@ export interface SubMesh {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-   name: string;
+  name: string;
 
   /**
    * The material of the sub mesh.
@@ -238,7 +238,7 @@ export interface SubMesh {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-   material: Material;
+  material: Material;
 
   /**
    * The axis aligned bounding box of the sub mesh.
@@ -524,23 +524,23 @@ export interface Environment extends SceneResource {
  * @since 12
  */
 export interface Image extends SceneResource {
-    /**
-     * The width of the image.
-     *
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.ArkUi.Graphics3D
-     * @since 12
-     */
-     readonly width: number;
-    
-    /**
-     * The height of the image.
-     *
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.ArkUi.Graphics3D
-     * @since 12
-     */
-     readonly height: number;
+  /**
+   * The width of the image.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  readonly width: number;
+
+  /**
+   * The height of the image.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  readonly height: number;
 }

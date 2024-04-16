@@ -32,7 +32,7 @@ export enum TonemapType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-   ACES = 0,
+  ACES = 0,
 
   /**
    * The tone mapping type is ACES_2020.
@@ -40,7 +40,7 @@ export enum TonemapType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-   ACES_2020 = 1,
+  ACES_2020 = 1,
 
   /**
    * The tone mapping type is FILMIC.
@@ -48,7 +48,7 @@ export enum TonemapType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-   FILMIC = 2,
+  FILMIC = 2,
 }
 
 /**
