@@ -19,7 +19,7 @@
  */
 
 import { SceneResource, Mesh } from './sceneResources';
-import { Position3, Quaterion, Scale3, Color } from './sceneTypes';
+import { Position3, Quaternion, Scale3, Color } from './sceneTypes';
 import { PostProcessSettings } from './scenePostProcessSettings';
 
 /**
@@ -41,7 +41,7 @@ export interface LayerMask {
   getEnabled(index: number): boolean;
 
   /**
-   * Set whether layer mask is enabled.
+   * Set whether the layer mask is enabled.
    *
    * @param { number } index - the layer mask
    * @param { boolean } whether layer mask is enabled 
@@ -129,7 +129,7 @@ export interface Container<T> {
   remove(item: T): void;
 
   /**
-   * Return a child at given index from this Container's child list.
+   * Returns a child at given index from this Container's child list.
    *
    * @param { T } index - the index of the child to return
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -146,7 +146,7 @@ export interface Container<T> {
   clear(): void;
 
   /**
-   * Return the number of items in the container.
+   * Returns the number of items in the container.
    *
    * @returns { number } the number of the container
    * @syscap SystemCapability.ArkUi.Graphics3D

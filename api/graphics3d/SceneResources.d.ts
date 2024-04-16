@@ -143,6 +143,7 @@ export interface SceneResource {
 
 /**
  * Shader resource.
+ *
  * @interface Shader
  * @extends SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
