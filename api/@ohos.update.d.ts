@@ -129,7 +129,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -149,7 +149,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -193,7 +193,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -211,7 +211,7 @@ declare namespace update {
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
      * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -255,7 +255,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -276,7 +276,7 @@ declare namespace update {
      * @param { DownloadOptions } downloadOptions - Download options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -294,7 +294,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -315,7 +315,7 @@ declare namespace update {
      * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -333,7 +333,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -354,7 +354,7 @@ declare namespace update {
      * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -372,7 +372,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -389,7 +389,7 @@ declare namespace update {
      * @param { UpgradeOptions } upgradeOptions - Update options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -406,7 +406,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -422,7 +422,7 @@ declare namespace update {
      * @param { ClearOptions } clearOptions - Clear options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -588,7 +588,7 @@ declare namespace update {
      * @param { string } certsFile - Path of the certificate file.
      * @param { AsyncCallback<void> } callback - Callback used to return the verify upgrade package result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -604,7 +604,7 @@ declare namespace update {
      * @param { string } certsFile - Path of the certificate file.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -620,7 +620,7 @@ declare namespace update {
      * @param { Array<UpgradeFile> } upgradeFiles - Update files.
      * @param { AsyncCallback<void> } callback - Callback used to return the apply new version result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -636,7 +636,7 @@ declare namespace update {
      * @param { Array<UpgradeFile> } upgradeFiles - Update files.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter is possible null.
+     * @throws { BusinessError } 401 - Parameter is possibly null.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
