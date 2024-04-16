@@ -17,7 +17,7 @@ import ts from 'typescript';
 import { EventConstant } from '../../../utils/Constant';
 import { EventMethodData, CollectParamStatus } from '../../../typedef/checker/event_method_check_interface';
 import { ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from '../../../typedef/checker/result_type';
-import { ApiType, BasicApiInfo, MethodInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, ApiType, BasicApiInfo, MethodInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
 import { FilesMap, Parser } from '../../parser/parser';
 import { AddErrorLogs } from './compile_info';
@@ -34,7 +34,9 @@ export class EventMethodChecker {
     const allBasicApi: BasicApiInfo[] = Parser.getAllBasicApi(this.apiData);
     const eventMethodInfo: BasicApiInfo[] = [];
     allBasicApi.forEach((basicApi: BasicApiInfo) => {
-      if (basicApi.apiType === ApiType.METHOD && this.isEventMethod(basicApi.apiName)) {
+      const lastSince: string | undefined = basicApi.jsDocText.length > 0 ? (basicApi as ApiInfo).getLastJsDocInfo()?.since : '-1';
+      if (basicApi.apiType === ApiType.METHOD && this.isEventMethod(basicApi.apiName) &&
+        lastSince === CommonFunctions.getCheckApiVersion()) {
         eventMethodInfo.push(basicApi);
       }
     });
@@ -197,7 +199,7 @@ export class EventMethodChecker {
     const lastParam: ParamInfo = offEvent.getParams().slice(-1)[0];
     if (lastParam.paramType) {
       const basicTypes = new Set([ts.SyntaxKind.NumberKeyword, ts.SyntaxKind.StringKeyword,
-        ts.SyntaxKind.BooleanKeyword, ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
+      ts.SyntaxKind.BooleanKeyword, ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
       if (!basicTypes.has(lastParam.paramType)) {
         callbackNumber++;
         if (lastParam.getIsRequired()) {

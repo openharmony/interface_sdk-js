@@ -84,50 +84,52 @@ export enum ErrorLevel {
  * @enum { string }
  */
 export enum ErrorMessage {
-  ERROR_INFO_VALUE_EXTENDS = 'the [extends] tag value is incorrect. Please check if the tag value matches the inherited class name.',
-  ERROR_INFO_VALUE_ENUM = 'the [enum] tag type is incorrect. Please check if the tag type is { string } or { number }',
-  ERROR_INFO_VALUE_SINCE = 'the [since] tag value is incorrect. Please check if the tag value is a numerical value',
-  ERROR_INFO_RETURNS = 'the [returns] tag was used incorrectly. The returns tag should not be used when the return type is void',
-  ERROR_INFO_VALUE_RETURNS = 'the [returns] tag type is incorrect. Please check if the tag type is consistent with the return type',
-  ERROR_INFO_VALUE_USEINSTEAD = 'the [useinstead] tag value is incorrect. Please check the usage method',
-  ERROR_INFO_VALUE_TYPE = 'the [type] tag type is incorrect. Please check if the type matches the attribute type',
-  ERROR_INFO_VALUE_DEFAULT = 'the [default] tag value is incorrect. Please supplement the default value',
-  ERROR_INFO_VALUE_PERMISSION = 'the [permission] tag value is incorrect. Please check if the permission field has been configured or update the configuration file',
-  ERROR_INFO_VALUE_DEPRECATED = 'the [deprecated] tag value is incorrect. Please check the usage method.',
-  ERROR_INFO_VALUE_SYSCAP = 'the [syscap] tag value is incorrect. Please check if the syscap field is configured.',
-  ERROR_INFO_VALUE_NAMESPACE = 'the [namespace] tag value is incorrect. Please check if it matches the namespace name.',
-  ERROR_INFO_VALUE_INTERFACE = 'the [interface] label value is incorrect. Please check if it matches the interface name.',
-  ERROR_INFO_VALUE_TYPEDEF = 'the [typedef] tag value is incorrect. Please check if it matches the interface name.',
-  ERROR_INFO_TYPE_PARAM = 'the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter.',
-  ERROR_INFO_VALUE_PARAM = 'the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name.',
-  ERROR_INFO_VALUE1_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
-  ERROR_INFO_VALUE2_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value',
-  ERROR_INFO_INHERIT = 'it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
-  ERROR_ORDER = 'JSDoc label order error, please make adjustments',
-  ERROR_LABELNAME = 'the [$$] tag does not exist. Please use a valid JSDoc tag',
-  ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
+  ERROR_INFO_VALUE_EXTENDS = 'The [extends] tag value is incorrect. Please check if the tag value matches the inherited class name.',
+  ERROR_INFO_VALUE_IMPLEMENTS = 'The [implements] tag value is incorrect. Please check if the tag value matches the inherited class name.',
+  ERROR_INFO_VALUE_ENUM = 'The [enum] tag type is incorrect. Please check if the tag type is { string } or { number }.',
+  ERROR_INFO_VALUE_SINCE = 'The [since] tag value is incorrect. Please check if the tag value is a numerical value.',
+  ERROR_INFO_RETURNS = 'The [returns] tag was used incorrectly. The returns tag should not be used when the return type is void.',
+  ERROR_INFO_VALUE_RETURNS = 'The [returns] tag type is incorrect. Please check if the tag type is consistent with the return type.',
+  ERROR_INFO_VALUE_USEINSTEAD = 'The [useinstead] tag value is incorrect. Please check the usage method.',
+  ERROR_INFO_VALUE_TYPE = 'The [type] tag type is incorrect. Please check if the type matches the attribute type.',
+  ERROR_INFO_VALUE_DEFAULT = 'The [default] tag value is incorrect. Please supplement the default value.',
+  ERROR_INFO_VALUE_PERMISSION = 'The [permission] tag value is incorrect. Please check if the permission field has been configured or update the configuration file.',
+  ERROR_INFO_VALUE_DEPRECATED = 'The [deprecated] tag value is incorrect. Please check the usage method.',
+  ERROR_INFO_VALUE_SYSCAP = 'The [syscap] tag value is incorrect. Please check if the syscap field is configured.',
+  ERROR_INFO_VALUE_NAMESPACE = 'The [namespace] tag value is incorrect. Please check if it matches the namespace name.',
+  ERROR_INFO_VALUE_INTERFACE = 'The [interface] label value is incorrect. Please check if it matches the interface name.',
+  ERROR_INFO_VALUE_TYPEDEF = 'The [typedef] tag value is incorrect. Please check if it matches the interface name or type content.',
+  ERROR_INFO_VALUE_STRUCT = 'The [struct] tag value is incorrect. Please check if it matches the struct name.',
+  ERROR_INFO_TYPE_PARAM = 'The type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter.',
+  ERROR_INFO_VALUE_PARAM = 'The value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name.',
+  ERROR_INFO_VALUE1_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
+  ERROR_INFO_VALUE2_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value.',
+  ERROR_INFO_INHERIT = 'It was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label.',
+  ERROR_ORDER = 'JSDoc label order error, please adjust the order of [$$] labels.',
+  ERROR_LABELNAME = 'The [$$] tag does not exist. Please use a valid JSDoc tag.',
+  ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing.',
   ERROR_USE = 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
   ERROR_MORELABEL = 'JSDoc tag validity verification failed.There are [$$] redundant [$$]. Please check if the tag should be deleted.',
-  ERROR_REPEATLABEL = 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
-  ERROR_USE_INTERFACE = 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
+  ERROR_REPEATLABEL = 'The validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags.',
+  ERROR_USE_INTERFACE = 'The validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
   ERROR_EVENT_NAME_STRING = 'The event name should be string.',
   ERROR_EVENT_NAME_NULL = 'The event name cannot be Null value.',
-  ERROR_EVENT_NAME_SMALL_HUMP = "The event name should be named by small hump. (Received ['$$'])",
+  ERROR_EVENT_NAME_SMALL_HUMP = "The event name should be named by small hump. (Received ['$$']).",
   ERROR_EVENT_CALLBACK_OPTIONAL = 'The callback parameter of off function should be optional.',
   ERROR_EVENT_CALLBACK_MISSING = 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR = 'The on and off event subscription methods do not appear in pair.',
   ERROR_EVENT_WITHOUT_PARAMETER = 'The event subscription methods should has at least one parameter.',
-  ILLEGAL_USE_ANY = 'Illegal [$$] keyword used in the API',
+  ILLEGAL_USE_ANY = 'Illegal [$$] keyword used in the API.',
   ERROR_CHANGES_VERSION = 'Please check if the changed API version number is 10.',
-  ERROR_WORD = 'The current word [$$] is incompatible with the regulaion, please confirm whether it needs to be corrected to a common word.',
-  ERROR_NAMING = 'Prohibited word in [$$]:{$$}.The word allowed is [$$]',
-  ERROR_SCENARIO = 'Prohibited word in [$$]:{$$} in the [$$] file',
+  ERROR_WORD = 'Error words in [$$]: {$$}. please confirm whether it needs to be corrected to a common word.',
+  ERROR_NAMING = 'Prohibited word in [$$]:{$$}.The word allowed is [$$].',
+  ERROR_SCENARIO = 'Prohibited word in [$$]:{$$} in the [$$] file.',
   ERROR_UPPERCASE_NAME = 'This name [$$] should be named by all uppercase.',
   ERROR_LARGE_HUMP_NAME = 'This name [$$] should be named by large hump.',
   ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
   ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
   ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
-  ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: API level change to system.',
+  ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: API defectLevel change to system.',
   ERROR_CHANGES_JSDOC_MODEL = 'Forbid changes: API mode change.',
   ERROR_CHANGES_JSDOC_CARD = 'Forbid changes: API card delete.',
   ERROR_CHANGES_JSDOC_CROSS_PLATFORM = 'Forbid changes: API crossplatform delete.',
@@ -143,7 +145,8 @@ export enum ErrorMessage {
   ERROR_CHANGES_API = 'Forbid changes: API cannot be deleted.',
   ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Historical JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
-  ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.'
+  ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.',
+  ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc.'
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map([
@@ -194,6 +197,8 @@ export class ApiResultSimpleInfo {
   filePath: string = '';
   location: string = '';
   message: string = '';
+  type:string='';
+  apiText:string='';
 
   setID(id: number): ApiResultSimpleInfo {
     this.id = id;
@@ -238,6 +243,24 @@ export class ApiResultSimpleInfo {
 
   getMessage(): string {
     return this.message;
+  }
+
+  setType(type: string): ApiResultSimpleInfo {
+    this.type = type;
+    return this;
+  }
+
+  getType(): string {
+    return this.type;
+  }
+
+  setApiText(apiText: string): ApiResultSimpleInfo {
+    this.apiText = apiText;
+    return this;
+  }
+
+  getApiText(): string {
+    return this.apiText;
   }
 }
 
@@ -373,4 +396,81 @@ export interface NameDictionaryType {
 export interface NameScenarioType {
   word: string;
   files: string[];
+}
+
+/**
+ * error message format
+ */
+export class ApiResultMessage {
+  analyzerName: string = 'apiengine';
+  buggyFilePath: string = '';
+  codeContextStaerLine: string = '';
+  defectLevel: number = -1;
+  defectType: string = '';
+  description: string = '';
+  language: string = 'ts';
+  mainBuggyCode: string = '';
+  mainBuggyLine: string = '';
+
+  setLocation(codeContextStaerLine: string): ApiResultMessage {
+    this.codeContextStaerLine = codeContextStaerLine;
+    return this;
+  }
+
+  getLocation(): string {
+    return this.codeContextStaerLine;
+  }
+
+  setLevel(defectLevel: number): ApiResultMessage {
+    this.defectLevel = defectLevel;
+    return this;
+  }
+
+  getLevel(): number {
+    return this.defectLevel;
+  }
+
+  setType(defectType: string): ApiResultMessage {
+    this.defectType = defectType;
+    return this;
+  }
+
+  getType(): string {
+    return this.defectType;
+  }
+
+  setFilePath(fileFilePath: string): ApiResultMessage {
+    this.buggyFilePath = fileFilePath;
+    return this;
+  }
+
+  getFilePath(): string {
+    return this.buggyFilePath;
+  }
+
+  setMessage(description: string): ApiResultMessage {
+    this.description = description;
+    return this;
+  }
+
+  getMessage(): string {
+    return this.description;
+  }
+  setMainBuggyCode(mainBuggyCode: string): ApiResultMessage {
+    this.mainBuggyCode = mainBuggyCode;
+    return this;
+  }
+
+  getMainBuggyCode(): string {
+    return this.mainBuggyCode;
+  }
+
+  setMainBuggyLine(mainBuggyLine: string): ApiResultMessage {
+    this.mainBuggyLine = mainBuggyLine;
+    return this;
+  }
+
+  getMainBuggyLine(): string {
+    return this.mainBuggyLine;
+  }
 }

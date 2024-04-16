@@ -14,12 +14,26 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
  *
  * @interface NodeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
+ *
+ * @interface NodeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 interface NodeContainerInterface {
   /**
@@ -31,6 +45,16 @@ interface NodeContainerInterface {
   * @crossplatform
   * @since 11
   */
+ /**
+  * Constructor parameters
+  *
+  * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
+  * @returns { NodeContainerAttribute }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
   (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
 }
 
@@ -41,6 +65,14 @@ interface NodeContainerInterface {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines the attribute of NodeContainer, extends from CommonMethod.
+ * @extends CommonMethod<NodeContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 
 /**
@@ -50,6 +82,14 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * @crossplatform
  * @since 11
  */
+/**
+ * Defines NodeContainer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare const NodeContainer: NodeContainerInterface;
 
 /**
@@ -58,5 +98,13 @@ declare const NodeContainer: NodeContainerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines NodeContainer Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare const NodeContainerInstance: NodeContainerAttribute;

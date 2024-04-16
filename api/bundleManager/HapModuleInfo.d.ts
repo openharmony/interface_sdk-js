@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AbilityInfo } from './AbilityInfo';
 import { ExtensionAbilityInfo } from './ExtensionAbilityInfo';
 import { Metadata } from './Metadata';
@@ -443,6 +448,27 @@ export interface HapModuleInfo {
    * @since 12
    */
   readonly routerMap: Array<RouterItem>;
+
+   /**
+   * Indicates the code path
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+   readonly codePath: string;
+
+  /**
+   * Indicates native library path.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly nativeLibraryPath: string;
 }
 
 /**

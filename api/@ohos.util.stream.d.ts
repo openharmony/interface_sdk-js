@@ -17,19 +17,21 @@
  * @file
  * @kit ArkTS
  */
-import { Callback } from './@ohos.base';
-import emitter from './@ohos.events.emitter';
-
-/**
- * Writeable is a stream that can be written to data. Transform is Duplex streams that can modify or transform the
- * data as it is written and read.Readable is streams from which data can be read.Duplex is streams that are both
- * Readable and Writable
- *
- * @namespace stream
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @since 12
- */
+ import { Callback } from './@ohos.base';
+ import emitter from './@ohos.events.emitter';
+ 
+ /**
+  * The stream module provides a comprehensive set of stream processing capabilities, including four types of streams:
+  * - Writable: streams designed for writing data to.
+  * - Readable: streams designed for reading data from.
+  * - Duplex: streams that are both readable and writable.
+  * - Transform: a specialized type of duplex stream that can modify or transform data as it's being written and read.
+  *
+  * @namespace stream
+  * @syscap SystemCapability.Utils.Lang
+  * @crossplatform
+  * @since 12
+  */
 declare namespace stream {
   /**
    * Streams to which data can be written.
@@ -62,7 +64,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
-     */
+    */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
     /**
      * Write the last chunk to Writable.
@@ -86,7 +88,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
-     */
+    */
     setDefaultEncoding(encoding?: string): boolean;
     /**
      * After the call, all Write operations will be forced to write to the buffer instead of being flushed.
@@ -110,13 +112,13 @@ declare namespace stream {
      * Registering Event Messages.
      *
      * @param { string } event - Register Event.
-     * @param { Callback } callback - event callbacks.
+     * @param { Callback<emitter.EventData> } callback - event callbacks.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    on(event: string, callback: Callback<EventData>): void;
+    on(event: string, callback: Callback<emitter.EventData>): void;
     /**
      * Cancel event message.
      *
@@ -128,7 +130,7 @@ declare namespace stream {
      */
     off(event: string): void;
     /**
-     * This method is invoked by the Writable method during initialization and should not be invoked actively.
+     * This method is invoked by the Writable method during initialization and must not be invoked directly.
      * After the resource is initialized in the doInitialize method, the callback () method is invoked.
      *
      * @param { Function } callback - Callback when the stream has completed the initial.
@@ -139,12 +141,12 @@ declare namespace stream {
      */
     doInitialize(callback: Function): void;
     /**
-     * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer should not be
-     * actively called. The call is controlled by Writable.write.
+     * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
+     * directly called. The call is controlled by Writable.write.
      *
-     * @param { string | Uint8Array } chunk - Data to be written.
-     * @param { string } encoding - Encoding type.
-     * @param { Function } callback - Callback after writing.
+     * @param { string | Uint8Array } [chunk] - Data to be written.
+     * @param { string } [encoding] - Encoding type.
+     * @param { Function } [callback] - Callback after writing.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -155,34 +157,39 @@ declare namespace stream {
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
      *
-     * @param { string[] | Uint8Array[] } chunk - Data to be written.
-     * @param { Function } callback - Callback after writing.
-     * @returns { Writable } Returns the Writable object.
+     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
+     * @param { Function } [callback] - Callback after writing.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    doWritev(chunk: string[] | Uint8Array[], callback: Function): void;
+    doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
     readonly writableObjectMode: boolean;
     /**
-     * Value of highWaterMark.
+     * Value of highWatermark.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    readonly writableHighWaterMark: number;
+    readonly writableHighWatermark: number;
     /**
-     * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, errored, or ended.
+     * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -191,30 +198,28 @@ declare namespace stream {
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-     readonly writableLength: number;
-    /**
-     * If the buffer of the stream is full and true, otherwise it is false.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-     readonly writableNeedDrain: boolean;
+    readonly writableLength: number;
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-     readonly writableCorked: number;
+    readonly writableCorked: number;
     /**
      * Whether Writable.end has been called.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -223,36 +228,24 @@ declare namespace stream {
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
     readonly writableFinished: boolean;
-    /**
-     * Returns error if the stream has been destroyed with an error.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    readonly errored: Error;
-    /**
-     * Writable completes destroyfile and returns true, otherwise returns false.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    readonly closed: boolean;
   }
-   /**
-   * Duplex streams that can modify or transform the data as it is written and read.
+  /**
+   * Transform stream is a Duplex stream where the output is computed in some way from the input.
+   * Transform implementations must implement the doTransform() method and may also implement the doFlush() method.
    *
+   * @extends Duplex
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
    */
-  class Transform {
+  class Transform extends Duplex {
     /**
      * The Transform constructor.
      *
@@ -264,7 +257,7 @@ declare namespace stream {
     /**
      * Convert the input data. After the conversion, Transform.push can be called to send the input to the read stream.
      * Transform.push should not be called Transform.write to call.
-     * 
+     *
      * @param { string } chunk - Input data to be converted.
      * @param { string } encoding - If the chunk is a string, then this is the encoding type. If chunk is a buffer,
      * then this is the special value 'buffer'. Ignore it in that case.
@@ -276,9 +269,9 @@ declare namespace stream {
      */
     doTransform(chunk: string, encoding: string, callback: Function): void;
     /**
-     * After all data is flushed to the write stream, you can use the Transform.doFlush writes some extra data, should
-     * not be called actively, only called by Writable after flushing all data.
-     * 
+     * After all data is flushed to the write stream, you can use the Transform.doFlush writes some extra data, must
+     * not be called directly, only called by Writable after flushing all data.
+     *
      * @param { Function } callback - Callback after flush completion.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -287,14 +280,14 @@ declare namespace stream {
      */
     doFlush(callback: Function): void;
   }
-   /**
+  /**
    * The stream from which data can be read.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
    */
-  class Readable {
+   class Readable {
     /**
      * The Readable constructor.
      *
@@ -306,10 +299,9 @@ declare namespace stream {
     /**
      * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
      * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.
-     * 
+     *
      * @param { number } size - Expected length of the data to be read.
-     * @returns { string | null } Read data from internal buffer and return. If there is no available data to
-     * read, return null.
+     * @returns { string | null } If no data is available to read, null is returned.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -318,23 +310,25 @@ declare namespace stream {
     read(size?: number): string | null;
     /**
      * Switch Readable to Streaming Mode.
-     * 
+     *
+     * @returns { Readable } Return this object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    resume(): boolean;
+    resume(): Readable;
     /**
      * Toggle Readable to Suspend Mode.
-     * 
+     *
+     * @returns { Readable } Return this object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    pause(): boolean;
+    pause(): Readable;
     /**
      * Sets the encoding format of the input binary data.Default: utf8.
-     * 
+     *
      * @param { string } [encoding] - Original Data Encoding Type.
      * @returns { boolean } Setting successful returns true, setting failed returns false.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -345,7 +339,7 @@ declare namespace stream {
     setEncoding(encoding?: string): boolean;
     /**
      * Query whether it is in pause state.
-     * 
+     *
      * @returns { boolean } Pause state returns true, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -353,20 +347,20 @@ declare namespace stream {
      */
     isPaused(): boolean;
     /**
-     * Concatenates a Writable to a Readable and switches the Readable to stream mode.
-     * 
+     * Concatenated a Writable to a Readable and switches the Readable to stream mode.
+     *
      * @param { Writable } destination - Output writable stream.
-     * @param { Object } [option] - Pipeline Options.
+     * @param { Object } [options] - Pipeline Options.
      * @returns { Writable } Returns the Writable object.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    pipe(destination: Writable, option?: Object): Writable;
+    pipe(destination: Writable, options?: Object): Writable;
     /**
      * Disconnect Writable from Readable.
-     * 
+     *
      * @param { Writable } [destination] - Writable Streams Needing to Be Disconnected.
      * @returns { Readable } Returns the Readable object.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -377,18 +371,18 @@ declare namespace stream {
     unpipe(destination?: Writable): Readable;
     /**
      * Registering Event Messages.
-     * 
+     *
      * @param { string } event - Registering Events.
-     * @param { Callback } callback - Event callback.
+     * @param { Callback<emitter.EventData> } callback - Event callback.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    on(event: string, callback: Callback<EventData>): void;
+    on(event: string, callback: Callback<emitter.EventData>): void;
     /**
      * Cancel event message.
-     * 
+     *
      * @param { string } event - Registering Events.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -397,9 +391,9 @@ declare namespace stream {
      */
     off(event: string): void;
     /**
-     * Called by the Readable during initialization. It should not be called actively. Call callback () after the
-     * resource has been initialized within the doInitialize, or call callback (err) when an error occurs.
-     * 
+     * It may be implemented by child classes, and if so, will be called by the Readable class methods only.
+     * It must not be called directly.
+     *
      * @param { Function } callback - Callback when the stream has completed the initial.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -408,11 +402,11 @@ declare namespace stream {
      */
     doInitialize(callback: Function): void;
     /**
-     * The specific implementation of data production should not be actively called. Readable.read controls the
-     * calling. After data production, Readable.push should be called to push the produced data into the buffer.
+     * The specific implementation of data production. It must not be actively called. 
+     * After data production, Readable.push should be called to push the produced data into the buffer.
      * If push is not called, doRead will not be called again.
      * 
-     * @param { number } size -Expected length of the data to be read.
+     * @param { number } size - Expected length of the data to be read.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -422,7 +416,7 @@ declare namespace stream {
     /**
      * Adds the generated data to the buffer. The return value indicates whether the data in the buffer has not
      * reached the highWaterMark (similar to Writable.write). If the chunk is null, all data has been generated.
-     * 
+     *
      * @param {  Uint8Array | string | null } chunk - Binary data to be stored in the buffer.
      * @param { string } [encoding] - Binary data encoding type.
      * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
@@ -436,6 +430,8 @@ declare namespace stream {
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -445,30 +441,38 @@ declare namespace stream {
      * Is true if it is safe to call readable.read(), which means
      * the stream has not been destroyed or emitted 'error' or 'end'.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
     readonly readable: boolean;
     /**
-     * Returns the value of highWaterMark passed when creating this Readable.
+     * Returns the value of highWatermark passed when creating this Readable.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    readonly readableHighWaterMark: number;
+    readonly readableHighWatermark: number
     /**
      * This property reflects the current state of the readable stream null/true/false.
      *
+     * @type { boolean | null }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    readonly readableFlowing: boolean;
+    readonly readableFlowing: boolean | null;
     /**
      * Size of the data that can be read, in bytes or objects.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -478,6 +482,8 @@ declare namespace stream {
      * Getter for the property encoding of a given Readable stream. The encoding property can be set using the
      * readable.setEncoding() method.
      *
+     * @type { string | null }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -486,38 +492,25 @@ declare namespace stream {
     /**
      * Whether all data has been generated.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
     readonly readableEnded: boolean;
-    /**
-     * Returns error if the stream has been destroyed with an error.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    readonly errored: Error;
-    /**
-     * Readable completes destroyfile and returns true, otherwise returns false.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    readonly closed: boolean;
   }
   /**
-   * The Duplex class contains all Writable functions.
+   * Duplex streams are streams that implement both the Readable streams and Writable streams interfaces.
    *
+   * @extends Readable
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 12
    */
   class Duplex extends Readable {
     /**
-     * The Duplex constructor.
+    * The Duplex constructor.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -584,23 +577,12 @@ declare namespace stream {
      */
     uncork(): boolean;
     /**
-     * This method is invoked by the Writable method during initialization and should not be invoked actively.
-     * After the resource is initialized in the doInitialize method, the callback () method is invoked.
+     * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
+     * directly called. The call is controlled by Writable.write.
      *
-     * @param { Function } callback - Callback when the stream has completed the initial.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    doInitialize(callback: Function): void;
-    /**
-     * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer should not be
-     * actively called. The call is controlled by Writable.write.
-     *
-     * @param { string | Uint8Array } chunk - Data to be written.
-     * @param { string } encoding - Encoding type.
-     * @param { Function } callback - Callback after writing.
+     * @param { string | Uint8Array } [chunk] - Data to be written.
+     * @param { string } [encoding] - Encoding type.
+     * @param { Function } [callback] - Callback after writing.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -611,34 +593,39 @@ declare namespace stream {
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
      *
-     * @param { string[] | Uint8Array[] } chunk - Data to be written.
-     * @param { Function } callback - Callback after writing.
-     * @returns { Writable } Returns the Writable object.
+     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
+     * @param { Function } [callback] - Callback after writing.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    doWritev(chunk: string[] | Uint8Array[], callback: Function): void;
+    doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
     readonly writableObjectMode: boolean;
     /**
-     * Value of highWaterMark.
+     * Value of highWatermark.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-    readonly writableHighWaterMark: number;
+    readonly writableHighWatermark: number;
     /**
-     * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, errored, or ended.
+     * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -647,30 +634,28 @@ declare namespace stream {
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-     readonly writableLength: number;
-    /**
-     * If the buffer of the stream is full and true, otherwise it is false.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-     readonly writableNeedDrain: boolean;
+    readonly writableLength: number;
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
+     * @type { number }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
-     readonly writableCorked: number;
+    readonly writableCorked: number;
     /**
      * Whether Writable.end has been called.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
@@ -679,27 +664,13 @@ declare namespace stream {
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 12
      */
     readonly writableFinished: boolean;
-    /**
-     * Returns error if the stream has been destroyed with an error.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    readonly errored: Error;
-    /**
-     * Writable completes destroyfile and returns true, otherwise returns false.
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 12
-     */
-    readonly closed: boolean;
   }
 }
 export default stream;

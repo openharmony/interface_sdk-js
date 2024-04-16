@@ -2349,11 +2349,6 @@ androgen
 androgenic
 androgynous
 androgyny
-android
-androidhive
-androidmanifest
-androidruntime
-androidx
 andromache
 andromeda
 andropov
@@ -3899,6 +3894,7 @@ ast
 astaire
 astarte
 astatine
+astc
 aster
 asteria
 asterisk
@@ -10703,9 +10699,6 @@ chromatogram
 chromatograph
 chromatographic
 chromatography
-chrome
-chromedriver
-chromeoptions
 chromic
 chromite
 chromium
@@ -14780,7 +14773,6 @@ cyst
 cystic
 cython
 cytochemistry
-cytochrome
 cytologist
 cytology
 cytolysis
@@ -19122,7 +19114,6 @@ eke
 eked
 ekg
 ekstrom
-ektachrome
 el
 elaborate
 elaborateness
@@ -25796,7 +25787,6 @@ glyph
 glyphicon
 glyphs
 gm
-gmail
 gmap
 gmaps
 gmp
@@ -25981,15 +25971,6 @@ goof
 goofiness
 goofy
 goog
-google
-googleapiclient
-googleapis
-googlecode
-googled
-googlemap
-googlemaps
-googlesource
-googleusercontent
 googling
 gooier
 gooiest
@@ -34193,7 +34174,6 @@ kobayashi
 kobe
 koch
 kochab
-kodachrome
 kodak
 kodaly
 kodiak
@@ -34600,7 +34580,6 @@ landon
 landowner
 landownership
 landowning
-landroid
 landry
 lands
 landsat
@@ -38691,7 +38670,6 @@ mercilessness
 merck
 mercurial
 mercuric
-mercurochrome
 mercury
 mercy
 mere
@@ -38960,7 +38938,6 @@ mfr
 mg
 mgm
 mgmt
-mgoogleapiclient
 mgr
 mh
 mhandler
@@ -41918,7 +41895,6 @@ nicholas
 nichole
 nicholle
 nicholson
-nichrome
 nick
 nickel
 nickelodeon
@@ -47565,7 +47541,6 @@ polyatomic
 polybutene
 polycarbonate
 polychemicals
-polychrome
 polyclinic
 polycrystalline
 polyelectrolytes
@@ -68781,7 +68756,6 @@ youthfulness
 youths
 youtrack
 youtu
-youtube
 yovonnda
 yow
 yowl

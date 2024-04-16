@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit LocalizationKit
+ */
+
+/**
  * Contains rawFile descriptor information.
  *
  * @interface RawFileDescriptor

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Parameters corresponding to mission.
  *
  * @typedef MissionDeviceInfo

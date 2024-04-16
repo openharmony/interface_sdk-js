@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * The options to help grid layout
  *
  * @interface GridLayoutOptions
@@ -100,6 +105,16 @@ declare interface GridLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Called to return the size of the grid items with the specified index in 
+   * [rowStart, columnStart, rowSpan, columnSpan].
+   *
+   * @type { ?function } onGetRectByIndex
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   onGetRectByIndex?: (index: number) => [number, number, number, number]
 }
@@ -1112,6 +1127,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead common.ScrollableCommonMethod#onDidScroll
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): GridAttribute;
 

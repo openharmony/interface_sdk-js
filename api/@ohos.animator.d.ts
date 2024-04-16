@@ -128,6 +128,7 @@ export interface AnimatorOptions {
    * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
+   * interpolating-spring(velocity, mass, stiffness, damping), interpolating spring curve.
    * The default value is ease.
    * @type {string}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -451,6 +452,7 @@ export interface AnimatorResult {
    */
   /**
    * Plays the animation in reverse direction.
+   * Invalid when using interpolating-spring curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -475,10 +477,20 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onFrame
    */
   onframe: (progress: number) => void;
 
   /**
+   * Trigger when vSync callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onFrame: (progress: number) => void;
+
+  /**
    * The animation is finished.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -495,10 +507,20 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onFinish
    */
   onfinish: () => void;
 
   /**
+   * The animation is finished.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onFinish: () => void;
+
+  /**
    * The animation is canceled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -515,8 +537,18 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onCancel
    */
   oncancel: () => void;
+
+  /**
+   * The animation is canceled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onCancel: () => void;
 
   /**
    * The animation is repeated.
@@ -535,8 +567,26 @@ export interface AnimatorResult {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.animator.onRepeat
    */
   onrepeat: () => void;
+
+  /**
+   * The animation is repeated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onRepeat: () => void;
+
+  /**
+   * The expected frame rate of dynamical of rate range.
+   * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 }
 
 /**

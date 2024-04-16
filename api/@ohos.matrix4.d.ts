@@ -650,6 +650,20 @@ declare namespace matrix4 {
     scale(options: ScaleOption): Matrix4Transit;
 
     /**
+     * Skew function of the Matrix, which can add the x-axis, y-axis skew effect to the current matrix.
+     * Skew function takes a generic point with coordinates (x0, y0, z0) to the point (x0 + x*y0, y0 + y*x0, z0), 
+     * where x, y are fixed parameters, called the shear factors.
+     *
+     * @param { number } x - the shear factor of x-axis.
+     * @param { number } y - the shear factor of y-axis.
+     * @returns { Matrix4Transit } Return to Matrix4Transit
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    skew(x: number, y: number): Matrix4Transit;
+
+    /**
      * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
      *
      * @param { RotateOption } options
@@ -713,6 +727,11 @@ declare namespace matrix4 {
    *
    * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
+   * The default value：
+   * [1, 0, 0, 0,
+   * 0, 1, 0, 0,
+   * 0, 0, 1, 0,
+   * 0, 0, 0, 1]
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -722,6 +741,11 @@ declare namespace matrix4 {
    *
    * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
+   * The default value：
+   * [1, 0, 0, 0,
+   * 0, 1, 0, 0,
+   * 0, 0, 1, 0,
+   * 0, 0, 0, 1]
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -732,6 +756,28 @@ declare namespace matrix4 {
    *
    * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
+   * The default value：
+   * [1, 0, 0, 0,
+   * 0, 1, 0, 0,
+   * 0, 0, 1, 0,
+   * 0, 0, 0, 1]
+   * Fourth-order matrix notes:
+   * m00 { number } -The x-axis scale value, the identity matrix defaults to 1.
+   * m01 { number } -The second value, the rotation of the xyz axis affects this value.
+   * m02 { number } -The third value, the rotation of the xyz axis affects this value.
+   * m03 { number } -Meaningless.
+   * m10 { number } -The fifth value, the rotation of the xyz axis affects this value.
+   * m11 { number } -The y-axis scales the value, and the identity matrix defaults to 1.
+   * m12 { number } -The 7th value, the rotation of the xyz axis affects this value.
+   * m13 { number } -Meaningless.
+   * m20 { number } -The 9th value, the rotation of the xyz axis affects this value.
+   * m21 { number } -The 10th value, xyz axis rotation affects this value.
+   * m22 { number } -The z-axis scale value, the identity matrix defaults to 1.
+   * m23 { number } -Meaningless.
+   * m30 { number } -The x-axis translation value in px, the identity matrix defaults to 0.
+   * m31 { number } -Y-axis translation value, in px, the identity matrix defaults to 0.
+   * m32 { number } -The z-axis translation value in px, the identity matrix defaults to 0.
+   * m33 { number } -It takes effect in homogeneous coordinates to produce a perspective projection effect.
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

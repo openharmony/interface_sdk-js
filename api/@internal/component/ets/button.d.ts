@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,6 +11,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit ArkUI
  */
 
 /**
@@ -154,6 +159,16 @@ declare enum ButtonType {
  * @since 11
  * @form
  */
+/**
+ * Enum for button style type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare enum ButtonStyleMode {
   /**
    * Normal button (with normal background color).
@@ -161,6 +176,15 @@ declare enum ButtonStyleMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * Normal button (with normal background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   NORMAL = 0,
@@ -173,6 +197,15 @@ declare enum ButtonStyleMode {
    * @since 11
    * @form
    */
+  /**
+   * Emphasized button (with emphasized background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   EMPHASIZED = 1,
 
   /**
@@ -183,7 +216,47 @@ declare enum ButtonStyleMode {
    * @since 11
    * @form
    */
+  /**
+   * Textual button (with none background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   TEXTUAL = 2,
+}
+
+/**
+ * Enum for button role.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare enum ButtonRole {
+  /**
+   * Normal button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  NORMAL = 0,
+
+  /**
+   * Error button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  ERROR = 1,
 }
 
 /**
@@ -195,6 +268,16 @@ declare enum ButtonStyleMode {
  * @since 11
  * @form
  */
+/**
+ * Enum for Control Size.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare enum ControlSize {
   /**
    * The component size is small.
@@ -202,6 +285,15 @@ declare enum ControlSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * The component size is small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   SMALL = 'small',
@@ -212,6 +304,15 @@ declare enum ControlSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * The component size is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   NORMAL = 'normal',
@@ -334,6 +435,17 @@ declare interface ButtonOptions {
    * @since 11
    * @form
    */
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonStyleMode }
+   * @default ButtonStyleMode.EMPHASIZED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   buttonStyle?: ButtonStyleMode;
 
   /**
@@ -346,7 +458,30 @@ declare interface ButtonOptions {
    * @since 11
    * @form
    */
+  /**
+   * Describes the button size.
+   *
+   * @type { ?ControlSize }
+   * @default ControlSize.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   controlSize?: ControlSize;
+
+  /**
+   * Describes the button role.
+   *
+   * @type { ?ButtonRole }
+   * @default ButtonRole.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+    role?: ButtonRole;
 }
 
 /**
@@ -763,6 +898,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
+  /**
+   * Describes the button style.
+   *
+   * @param { ButtonStyleMode } value - button style mode
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
   
   /** 
@@ -775,7 +921,30 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
+  /** 
+   * Set the Button size.
+   * 
+   * @param { ControlSize } value - control size
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   controlSize(value: ControlSize): ButtonAttribute;
+
+  /** 
+   * Set the Button role.
+   * 
+   * @param { ButtonRole } value - button role
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12 
+   */
+  role(value: ButtonRole): ButtonAttribute;
 
   /**
    * Text color.

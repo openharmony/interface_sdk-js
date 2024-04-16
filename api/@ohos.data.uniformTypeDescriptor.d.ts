@@ -143,6 +143,14 @@ declare namespace uniformTypeDescriptor {
     XML = 'general.xml',
 
     /**
+     * Real synchronized multimedia integration language.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SMIL = 'com.real.smil',
+
+    /**
      * Source code data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -261,6 +269,14 @@ declare namespace uniformTypeDescriptor {
      * @since 11
      */
     JAVA_SOURCE = 'general.java-source',
+
+    /**
+     * Markdown format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    MARKDOWN = 'general.markdown',
 
     /**
      * Ebook data type.
@@ -398,6 +414,70 @@ declare namespace uniformTypeDescriptor {
     AI_IMAGE = 'com.adobe.illustrator.ai-image',
 
     /**
+     * Base type for fax images.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    FAX = 'general.fax',
+
+    /**
+     *  J2 jConnect fax file format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    JFX_FAX = 'com.j2.jfx-fax',
+
+    /**
+     * The electronic fax document format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    EFX_FAX = 'com.js.efx-fax',
+
+    /**
+     * X bitmap image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    XBITMAP_IMAGE = 'general.xbitmap-image',
+
+    /**
+     * Tagged Graphics (TGA), a type of image format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    TGA_IMAGE = 'com.truevision.tga-image',
+
+    /**
+     * Silicon Graphics image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SGI_IMAGE = 'com.sgi.sgi-image',
+
+    /**
+     * OpenEXR image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENEXR_IMAGE = 'com.ilm.openexr-image',
+
+    /**
+     * FlashPix image.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    FLASHPIX_IMAGE = 'com.kodak.flashpix.image',
+
+    /**
      * Microsoft Word data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -525,6 +605,30 @@ declare namespace uniformTypeDescriptor {
     WINDOWS_MEDIA_WMP = 'com.microsoft.windows-media-wmp',
 
     /**
+     * Windows WVX video format data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
+
+    /**
+     * Windows WMX video format data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 11
+     */
+    WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
+
+    /**
+     * RealMedia.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    REALMEDIA = 'com.real.realmedia',
+
+    /**
      * Audio data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -612,28 +716,44 @@ declare namespace uniformTypeDescriptor {
     WAVEFORM_AUDIO = 'com.microsoft.waveform-audio',
 
     /**
-     * Windows WMX audio format data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
-
-    /**
-     * Windows WVX audio format data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
-
-    /**
      * Windows WAX audio format data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
     WINDOWS_MEDIA_WAX = 'com.microsoft.windows-media-wax',
+
+    /**
+     * Au file format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    AU_AUDIO = 'general.au-audio',
+
+    /**
+     * Audio Interchange File Format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    AIFC_AUDIO = 'general.aifc-audio',
+
+    /**
+     * Digidesign Sound Designer II audio.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SD2_AUDIO = 'com.digidesign.sd2-audio',
+
+    /**
+     * RealMedia audio.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    REALAUDIO = 'com.real.realaudio',
 
     /**
      * File data type.
@@ -754,12 +874,116 @@ declare namespace uniformTypeDescriptor {
     GNU_ZIP_TAR_ARCHIVE = 'org.gnu.gnu-zip-tar-archive',
 
     /**
+     * Office Open XML.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENXML = 'org.openxmlformats.openxml',
+
+    /**
+     * Office Open XML Document.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    WORDPROCESSINGML_DOCUMENT = 'org.openxmlformats.wordprocessingml.document',
+
+    /**
+     * Office Open XML Workbook.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SPREADSHEETML_SHEET = 'org.openxmlformats.spreadsheetml.sheet',
+
+    /**
+     * Office Open XML Presentation.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    PRESENTATIONML_PRESENTATION = 'org.openxmlformats.presentationml.presentation',
+
+    /**
+     * Open Document Format for Office Applications.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENDOCUMENT = 'org.oasis.opendocument',
+
+    /**
+     * OpenDocument Text.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENDOCUMENT_TEXT = 'org.oasis.opendocument.text',
+
+    /**
+     * OpenDocument Spreadsheet.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENDOCUMENT_SPREADSHEET = 'org.oasis.opendocument.spreadsheet',
+
+    /**
+     * OpenDocument Presentation.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENDOCUMENT_PRESENTATION = 'org.oasis.opendocument.presentation',
+
+    /**
+     * OpenDocument Graphics.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENDOCUMENT_GRAPHICS = 'org.oasis.opendocument.graphics',
+
+    /**
+     * OpenDocument Formulat.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENDOCUMENT_FORMULA = 'org.oasis.opendocument.formula',
+
+    /**
+     * Stuffit archive.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    STUFFIT_ARCHIVE = 'com.allume.stuffit-archive',
+
+    /**
      * Calendar data type.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
     CALENDAR = 'general.calendar',
+
+    /**
+     * VCalendar type, a type of calendar format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    VCS = 'general.vcs',
+
+    /**
+     * ICalendar type, a type of calendar format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    ICS = 'general.ics',
 
     /**
      * Contact data type.
@@ -786,6 +1010,30 @@ declare namespace uniformTypeDescriptor {
     MESSAGE = 'general.message',
 
     /**
+     * Base type for executable data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    EXECUTABLE = 'general.executable',
+
+    /**
+     * Microsoft Windows application.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    PORTABLE_EXECUTABLE = 'com.microsoft.portable-executable',
+
+    /**
+     * Java class.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    SUN_JAVA_CLASS = 'com.sun.java-class',
+
+    /**
      * A file format data type stand for electronic business card.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -808,6 +1056,62 @@ declare namespace uniformTypeDescriptor {
      * @since 11
      */
     LOCATION = 'general.location',
+
+    /**
+     * Base type for fonts.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    FONT = 'general.font',
+
+    /**
+     * TrueType font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    TRUETYPE_FONT = 'general.truetype-font',
+
+    /**
+     * TrueType collection font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    TRUETYPE_COLLECTION_FONT = 'general.truetype-collection-font',
+
+    /**
+     * OpenType font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENTYPE_FONT = 'general.opentype-font',
+
+    /**
+     * PostScript font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    POSTSCRIPT_FONT = 'com.adobe.postscript-font',
+
+    /**
+     * A Printer Font Binary version of Adobe's Type 1.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    POSTSCRIPT_PFB_FONT = 'com.adobe.postscript-pfb-font',
+
+    /**
+     * Adobe Type 1 font.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    POSTSCRIPT_PFA_FONT = 'com.adobe.postscript-pfa-font',
 
     /**
      * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
@@ -877,7 +1181,39 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
-    OPENHARMONY_HAP = 'openharmony.hap'
+    OPENHARMONY_HAP = 'openharmony.hap',
+
+    /**
+     * OpenHarmony system AppNotepad data format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENHARMONY_HDOC = 'openharmony.hdoc',
+
+    /**
+     * OpenHarmony system Notes data format.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENHARMONY_HINOTE = 'openharmony.hinote',
+
+    /**
+     * OpenHarmony system defined styled string.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENHARMONY_STYLED_STRING = 'openharmony.styled-string',
+
+    /**
+     * OpenHarmony system defined Want.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    OPENHARMONY_WANT = 'openharmony.want'
   }
 
   /**
@@ -937,6 +1273,26 @@ declare namespace uniformTypeDescriptor {
      * @since 11
      */
     readonly iconFile: string;
+
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+     readonly filenameExtensions: Array<string>;
+
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    readonly mimeTypes: Array<string>;
 
     /**
      * Checks whether the uniform data type belongs to the given uniform data type.
@@ -1001,7 +1357,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } filenameExtension - Filename extension.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type does not exist.
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
@@ -1014,7 +1370,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - A uniform data type ID it belongs to.
    * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or null if the uniform data type does not exist.
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11

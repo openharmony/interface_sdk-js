@@ -827,21 +827,6 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 7
-   */
-  /**
-   * Merge calls, merge two calls into conference calls.
-   *
-   * @param { number } callId - Indicates the identifier of the call.
-   * @param { AsyncCallback<void> } callback - The callback of combineConference.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300007 - The number of conference calls exceeds the limit.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -849,21 +834,6 @@ declare namespace call {
    */
   function combineConference(callId: number, callback: AsyncCallback<void>): void;
 
-  /**
-   * Merge calls, merge two calls into conference calls.
-   *
-   * @param { number } callId - Indicates the identifier of the call.
-   * @returns { Promise<void> } The promise returned by the combineConference.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 7
-   */
   /**
    * Merge calls, merge two calls into conference calls.
    *
@@ -1484,21 +1454,6 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  /**
-   * Split conference call.
-   *
-   * @param { number } callId - Indicates the identifier of the call.
-   * @param { AsyncCallback<void> } callback - The callback of separateConference.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300008 - Conference call is not active.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
@@ -1507,21 +1462,6 @@ declare namespace call {
    */
   function separateConference(callId: number, callback: AsyncCallback<void>): void;
 
-  /**
-   * Split conference call.
-   *
-   * @param { number } callId - Indicates the identifier of the call.
-   * @returns { Promise<void> } The promise returned by the separateConference.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
   /**
    * Split conference call.
    *
@@ -2615,6 +2555,26 @@ declare namespace call {
    * @since 10
    */
   function removeMissedIncomingCallNotification(): Promise<void>;
+
+  /**
+   * Send call ui event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } eventName - Indicates the event name.
+   * @returns { Promise<void> } The promise returned by the sendCallUiEvent.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function sendCallUiEvent(callId: number, eventName: string): Promise<void>;
 
   /**
    * Indicates the mode of the ims call.
@@ -3854,6 +3814,24 @@ declare namespace call {
      * @since 11
      */
     EVENT_SPLIT_CALL_FAILED,
+
+    /**
+     * Indicates show full screen.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_SHOW_FULL_SCREEN,
+
+    /**
+     * Indicates show float window.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_SHOW_FLOAT_WINDOW,
   }
 
   /**
@@ -3895,7 +3873,15 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6
      */
-    CALL_STATE_OFFHOOK = 2
+    CALL_STATE_OFFHOOK = 2,
+
+    /**
+     * Indicates that call is answered
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    CALL_STATE_ANSWERED = 3
   }
 
   /**

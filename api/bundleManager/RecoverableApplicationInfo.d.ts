@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * Indicates the RecoverableApplicationInfo
  *
  * @typedef RecoverableApplicationInfo

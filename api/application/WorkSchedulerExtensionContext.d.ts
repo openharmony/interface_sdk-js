@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BackgroundTasksKit
+ */
+
 import ExtensionContext from './ExtensionContext';
 
 /**

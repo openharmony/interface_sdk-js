@@ -1672,6 +1672,13 @@ declare namespace connection {
      * @since 11
      */
     BEARER_ETHERNET = 3,
+
+    /**
+     * Indicates that the network is based on a VPN network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    BEARER_VPN = 4,
   }
 
   /**
@@ -1874,6 +1881,22 @@ declare namespace connection {
      * @since 11
      */
     port: number;
+
+    /**
+     * Http proxy username.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    username?: string;
+
+    /**
+     * Http proxy password.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 12
+     */
+    password?: string;
 
     /**
      * Do not use a blocking list for proxy servers.

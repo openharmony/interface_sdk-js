@@ -5,7 +5,7 @@
       "apiType": "Interface",
       "definedText": " export interface Test",
       "pos": {
-        "line": 5,
+        "line": 20,
         "character": 1
       },
       "isExport": true,
@@ -16,6 +16,10 @@
       ],
       "isStruct": false,
       "syscap": "",
+      "currentVersion": "-1",
+      "jsDocText": "/*\r\n * Copyright (c) 2021-2023 Huawei Device Co., Ltd.\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");\r\n * you may not use this file except in compliance with the License.\r\n * You may obtain a copy of the License at\r\n *\r\n *     http://www.apache.org/licenses/LICENSE-2.0\r\n *\r\n * Unless required by applicable law or agreed to in writing, software\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n * See the License for the specific language governing permissions and\r\n * limitations under the License.\r\n */\r\n\r\n/**\r\n * the ut for jsdoc about example\r\n * \r\n */\r\n",
+      "isJoinType": false,
+      "genericInfo": [],
       "jsDocInfos": [
         {
           "description": "the ut for jsdoc about example",
@@ -30,7 +34,10 @@
           "permissions": "",
           "errorCodes": [],
           "typeInfo": "",
-          "isConstant": false
+          "isConstant": false,
+          "isAtomicService": false,
+          "kit": "",
+          "isFile": false
         }
       ],
       "parentClasses": [],
@@ -40,7 +47,7 @@
           "apiType": "Method",
           "definedText": "set(member: string, value: string): void;",
           "pos": {
-            "line": 9,
+            "line": 24,
             "character": 3
           },
           "isExport": false,
@@ -52,6 +59,10 @@
           ],
           "isStruct": false,
           "syscap": "",
+          "currentVersion": "-1",
+          "jsDocText": "\r\n  /**\r\n   * @example : Set(ImageVideoKey.TITLE, \"newTitle\"), call commitModify after set value\r\n   */\r\n  ",
+          "isJoinType": false,
+          "genericInfo": [],
           "jsDocInfos": [
             {
               "description": "",
@@ -66,7 +77,10 @@
               "permissions": "",
               "errorCodes": [],
               "typeInfo": "",
-              "isConstant": false
+              "isConstant": false,
+              "isAtomicService": false,
+              "kit": "",
+              "isFile": false
             }
           ],
           "callForm": "set(member: string, value: string): void",
@@ -79,7 +93,9 @@
                 "string"
               ],
               "isRequired": true,
-              "definedText": "member: string"
+              "definedText": "member: string",
+              "typeLocations": [],
+              "objLocations": []
             },
             {
               "apiType": "Param",
@@ -89,12 +105,17 @@
                 "string"
               ],
               "isRequired": true,
-              "definedText": "value: string"
+              "definedText": "value: string",
+              "typeLocations": [],
+              "objLocations": []
             }
           ],
           "returnValue": [],
           "isStatic": false,
-          "sync": ""
+          "sync": "",
+          "returnValueType": -1,
+          "typeLocations": [],
+          "objLocations": []
         }
       ]
     }

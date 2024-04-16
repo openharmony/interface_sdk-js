@@ -15,6 +15,7 @@
 import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
+import { execSync } from "child_process";
 import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
@@ -23,7 +24,7 @@ import { DiffHelper } from '../coreImpl/diff/diff';
 import { BasicDiffInfo, diffTypeMap, ApiDiffType } from '../typedef/diff/ApiInfoDiff';
 import { WriterHelper } from './writer';
 import { LocalEntry } from '../coreImpl/checker/local_entry';
-import { ApiResultSimpleInfo } from '../typedef/checker/result_type';
+import { ApiResultMessage, ApiResultSimpleInfo } from '../typedef/checker/result_type';
 import { NumberConstant } from '../utils/Constant';
 import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
@@ -39,15 +40,23 @@ export enum toolNameType {
   /**
    * 统计工具
    */
-  COOLECT = 'collect',
+  COLLECT = 'collect',
   /**
    * 检查工具
    */
   CHECK = 'check',
   /**
+   * 检查工具 线上版
+   */
+  CHECKONLINE = 'checkOnline',
+  /**
    * diff工具
    */
   DIFF = 'diff',
+  /**
+   * 标签漏标检查
+   */
+  LABELDETECTION = 'detection',
 }
 
 /**
@@ -61,6 +70,7 @@ export const toolNameSet: Set<string> = new Set(EnumUtils.enum2arr(toolNameType)
  * @enum { string }
  */
 export enum formatType {
+  NULL = '',
   JSON = 'json',
   EXCEL = 'excel',
   CHANGELOG = 'changelog',
@@ -79,11 +89,27 @@ export const Plugin: PluginType = {
     commands: [
       {
         isRequiredOption: true,
-        options: [`-N,--tool-name <${[...toolNameSet]}>`, 'tool name ', 'collect'],
+        options: [`-N,--tool-name <${[...toolNameSet]}>`, 'tool name ', 'checkOnline'],
       },
       {
         isRequiredOption: false,
         options: ['-C,--collect-path <string>', 'collect api path', './api'],
+      },
+      {
+        isRequiredOption: false,
+        options: ['-F,--collect-file <string>', 'collect api file array', ''],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--path <string>', 'check api path, split with comma', ''],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--checker <string>', 'check api rule, split with comma', 'all'],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--excel <string>', 'check api excel', 'false'],
       },
       {
         isRequiredOption: false,
@@ -129,6 +155,9 @@ export const Plugin: PluginType = {
     const options: OptionObjType = {
       toolName: toolName,
       collectPath: argv.collectPath,
+      collectFile: argv.collectFile,
+      path: argv.path,
+      checker: argv.checker,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -136,6 +165,7 @@ export const Plugin: PluginType = {
       output: argv.output,
       format: argv.format,
       changelogUrl: argv.changelogUrl,
+      excel: argv.excel,
     };
     const methodInfos: ToolNameValueType = method(options);
 
@@ -186,10 +216,14 @@ function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: To
  */
 function collectApi(options: OptionObjType): ToolNameValueType {
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
+  let collectFile: string = '';
+  if (options.collectFile !== '') {
+    collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+  }
   let allApis: FilesMap;
   try {
     if (FileUtils.isDirectory(fileDir)) {
-      allApis = Parser.parseDir(fileDir);
+      allApis = Parser.parseDir(fileDir, collectFile);
     } else {
       allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
     }
@@ -291,12 +325,13 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
 function checkApi(options: OptionObjType): ToolNameValueType {
   let allApis: FilesMap;
   try {
-    let fileContent: ApiResultSimpleInfo[] = [];
+    let fileContent: ApiResultMessage[] = [];
     if (process.env.NODE_ENV === 'development') {
-      fileContent = LocalEntry.checkEntryLocal();
+
+      fileContent = LocalEntry.checkEntryLocal([], [], "", 'false');
     } else if (process.env.NODE_ENV === 'production') {
     }
-    let finalData: (string | ApiResultSimpleInfo)[] = [];
+    let finalData: (string | ApiResultMessage)[] = [];
     if (options.format === formatType.JSON) {
       finalData = [JSON.stringify(fileContent, null, NumberConstant.INDENT_SPACE)];
     } else {
@@ -307,7 +342,29 @@ function checkApi(options: OptionObjType): ToolNameValueType {
     };
   } catch (exception) {
     const error = exception as Error;
-    LogUtil.e('error collect', error.stack ? error.stack : error.message);
+    LogUtil.e('error check', error.stack ? error.stack : error.message);
+    return {
+      data: [],
+    };
+  }
+}
+/**
+ * 收集api工具调用方法
+ *
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
+ */
+function checkOnline(options: OptionObjType): ToolNameValueType {
+  options.format = formatType.NULL
+  try {
+    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
+    return {
+      data: [],
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error check', error.stack ? error.stack : error.message);
+  } finally {
     return {
       data: [],
     };
@@ -353,6 +410,49 @@ function diffApi(options: OptionObjType): ToolNameValueType {
       callback: diffApiCallback as ToolNameExcelCallback,
     };
   }
+}
+function detectionApi(options: OptionObjType): ToolNameValueType {
+  process.env.NEED_DETECTION = "true";
+  options.format = formatType.NULL
+  const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
+  let collectFile: string = '';
+  if (options.collectFile !== '') {
+    collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+  }
+  let allApis: FilesMap;
+  let buffer: Buffer | string = Buffer.from('');
+  try {
+    if (FileUtils.isDirectory(fileDir)) {
+      allApis = Parser.parseDir(fileDir, collectFile);
+    } else {
+      allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
+    }
+    const fileContent: string = Parser.getParseResults(allApis);
+    WriterHelper.JSONReporter(
+      fileContent,
+      path.dirname(options.output),
+      'detection.json'
+    );
+    let runningCommand: string = '';
+
+    if (process.env.NODE_ENV === 'development') {
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+    } else if (process.env.NODE_ENV === 'production') {
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+    }
+    buffer = execSync(runningCommand, {
+      timeout: 120000,
+    });
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
+  } finally {
+    return {
+      data: []
+    }
+
+  }
+
 }
 
 /**
@@ -413,9 +513,11 @@ export function joinNewMessage(diffInfo: BasicDiffInfo): string {
  * 工具名称对应执行的方法
  */
 export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
-  [toolNameType.COOLECT, collectApi],
+  [toolNameType.COLLECT, collectApi],
   [toolNameType.CHECK, checkApi],
+  [toolNameType.CHECKONLINE, checkOnline],
   [toolNameType.DIFF, diffApi],
+  [toolNameType.LABELDETECTION, detectionApi],
 ]);
 
 /**
@@ -423,7 +525,10 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
  */
 export type OptionObjType = {
   toolName: toolNameType;
+  path: string;
+  checker: string;
   collectPath: string;
+  collectFile: string;
   old: string;
   new: string;
   oldVersion: string;
@@ -431,6 +536,7 @@ export type OptionObjType = {
   output: string;
   format: formatType;
   changelogUrl: string;
+  excel: string;
 };
 
 /**
@@ -459,7 +565,7 @@ export type ToolNameValueType = {
    */
   callback?: ToolNameExcelCallback;
 };
-export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultSimpleInfo | BasicDiffInfo)[];
+export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultMessage | BasicDiffInfo)[];
 
 /**
  * 各个工具调用方法

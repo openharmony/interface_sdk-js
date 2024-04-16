@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -223,6 +223,56 @@ declare namespace hiAppEvent {
      * @since 11
      */
     const APP_FREEZE: string;
+
+    /**
+     * launch event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const APP_LAUNCH: string;
+
+    /**
+     * scroll jank event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const SCROLL_JANK: string;
+
+    /**
+     * cpu usage high event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const CPU_USAGE_HIGH: string;
+
+    /**
+     * battery usage event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const BATTERY_USAGE: string;
+
+    /**
+     * resource overlimit event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const RESOURCE_OVERLIMIT: string;
   }
 
   /**
@@ -1180,6 +1230,26 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
+
+    /**
+     * The processor config id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    configId?: number;
+
+    /**
+     * The processor set custom config data.
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    customConfigs?: Record<string, string>;
   }
 
   /**

@@ -14,6 +14,56 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
+ * Surface Rectangle information.
+ *
+ * @interface SurfaceRect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface SurfaceRect {
+  /**
+   * The horizontal offset of the surface relative to XComponent.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  offsetX?: number;
+
+  /**
+   * The vertical offset of the surface relative to XComponent.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  offsetY?: number;
+
+  /**
+   * The width of the surface created by XComponent
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  surfaceWidth: number;
+
+  /**
+   * The height of the surface created by XComponent
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  surfaceHeight: number;
+}
+
+/**
  * Defines XComponentController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -53,10 +103,65 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Set the surface size created by XComponent.
+   *
+   * @param { object } value - surface size
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @deprecated since 12
+   * @useinstead setXComponentSurfaceRect
+   */
   setXComponentSurfaceSize(value: {
     surfaceWidth: number;
     surfaceHeight: number;
   }): void;
+
+  /**
+   * Set the rectangle information of surface created by XComponent.
+   *
+   * @param { SurfaceRect } rect - The surface rectangle information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setXComponentSurfaceRect(rect: SurfaceRect): void;
+
+  /**
+   * Get the rectangle information of Surface created by XComponent.
+   *
+   * @returns { SurfaceRect } The surface rectangle information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getXComponentSurfaceRect(): SurfaceRect;
+
+  /**
+   * Called after the surface is first created.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceCreated(surfaceId: string): void;
+
+  /**
+   * Called after the surface rectangle information is changed.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @param { SurfaceRect } rect - The rectangle information of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
+
+  /**
+   * Called when the surface is about to be destroyed.
+   *
+   * @param { string } surfaceId - The id of the surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onSurfaceDestroyed(surfaceId: string): void;
 }
 
 /**
