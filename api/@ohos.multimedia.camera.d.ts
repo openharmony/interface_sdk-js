@@ -28,6 +28,12 @@ import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @since 10
  */
+/**
+ * @namespace camera
+ * @syscap SystemCapability.Multimedia.Camera.Core
+ * @atomicservice
+ * @since 12
+ */
 declare namespace camera {
   /**
    * Creates a CameraManager instance.
