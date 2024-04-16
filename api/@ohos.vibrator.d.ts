@@ -219,6 +219,18 @@ declare namespace vibrator {
   function stopVibration(): Promise<void>;
 
   /**
+   * Stop any type of vibration.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 12
+   */
+  function stopVibrationSync(): void;
+
+  /**
    * Whether the preset vibration effect is supported.
    *
    * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
@@ -241,6 +253,18 @@ declare namespace vibrator {
    * @since 10
    */
   function isSupportEffect(effectId: string): Promise<boolean>;
+
+  /**
+   * Whether the preset vibration effect is supported.
+   *
+   * @param { string } effectId Indicate the specified effect of the preset, {@code EffectId}.
+   * @returns { boolean } Returns whether the effect is supported.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  function isSupportEffectSync(effectId: string): boolean;
 
   /**
    * Stop the motor from vibrating.
