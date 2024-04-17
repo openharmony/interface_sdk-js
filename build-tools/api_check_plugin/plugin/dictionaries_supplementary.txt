@@ -774,6 +774,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
