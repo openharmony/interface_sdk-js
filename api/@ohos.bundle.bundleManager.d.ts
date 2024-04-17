@@ -3309,6 +3309,7 @@ declare namespace bundleManager {
   /**
    * Indicates the information of preinstalled application.
    *
+   * @typedef { _PreinstalledApplicationInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
