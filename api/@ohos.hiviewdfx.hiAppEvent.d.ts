@@ -273,6 +273,16 @@ declare namespace hiAppEvent {
      * @since 12
      */
     const RESOURCE_OVERLIMIT: string;
+
+    /**
+     * address sanitizer event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const ADDRESS_SANITIZER: string;
   }
 
   /**
@@ -563,6 +573,33 @@ declare namespace hiAppEvent {
    * @since 11
    */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Indicates possible parameter types.
+   *
+   * @typedef {number | string | boolean | Array<string>}
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 12
+   */
+  type ParamType = number | string | boolean | Array<string>;
+
+  /**
+   * It is used to set custom parameters for events, including both system-subscribed events and custom events.
+   * Existing parameter will be overwritten, and non-existing parameter will be created.
+   *
+   * @param { Record<string, ParamType> } params The parameters of the event.
+   * @param { string } domain The domain of the event.
+   * @param { string } name The name of the event.
+   * @returns { Promise<void> } Return Promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 12
+   */
+  function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
 
   /**
    * Definition of the read event package.
@@ -1230,6 +1267,26 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
+
+    /**
+     * The processor config id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    configId?: number;
+
+    /**
+     * The processor set custom config data.
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    customConfigs?: Record<string, string>;
   }
 
   /**

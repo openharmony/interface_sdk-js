@@ -401,6 +401,22 @@ declare namespace drawing {
     drawTextBlob(blob: TextBlob, x: number, y: number): void;
 
     /**
+     * Draws the pixelmap base on the mesh which is evenly distributed across the pixelmap.
+     * @param { image.PixelMap } pixelmap - The pixelmap to draw using the mesh.
+     * @param { number } meshWidth - The number of columns in the mesh.
+     * @param { number } meshHeight - The number of rows in the mesh.
+     * @param { Array<number> } vertices - Array of vertices, specifying where the mesh should be drawn.
+     * @param { number } vertOffset - Number of vert elements to skip before drawing.
+     * @param { Array<number> } colors - Array of colors, specifying a color at each vertex.
+     * @param { number } colorOffset - Number of color elements to skip before drawing.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number,
+      vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void;
+
+    /**
      * Set pen to a canvas.
      * @param { Pen } pen - object.
      * @throws { BusinessError } 401 - Parameter error.

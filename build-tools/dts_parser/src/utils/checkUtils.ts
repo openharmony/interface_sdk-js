@@ -19,7 +19,7 @@ import ts, { LineAndCharacter } from 'typescript';
 import { ApiResultSimpleInfo, ApiResultInfo, ApiResultMessage } from '../typedef/checker/result_type';
 import { ApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
 import { FileUtils } from './FileUtils';
-import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json'
+import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json';
 
 
 export class PosOfNode {
@@ -157,10 +157,8 @@ export class ObtainFullPath {
         const status: Stats = fs.statSync(filePath);
         if (status.isDirectory()) {
           ObtainFullPath.getFullFiles(filePath, utFiles);
-        } else {
-          if (/\.d\.ts/.test(filePath) || /\.d\.ets/.test(filePath) || /\.ts/.test(filePath)) {
-            utFiles.push(filePath);
-          }
+        } else if (/\.d\.ts/.test(filePath) || /\.d\.ets/.test(filePath) || /\.ts/.test(filePath)) {
+          utFiles.push(filePath);
         }
       });
     } catch (e) {

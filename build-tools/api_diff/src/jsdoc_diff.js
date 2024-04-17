@@ -17,7 +17,7 @@ const ts = require('typescript');
 const { ApiDigestInfo } = require('./api_data');
 const { DiffReporter } = require('./reporter');
 const { StatusCode } = require('./reporter');
-const { getCheckApiVersion } = require('../../api_check_plugin/src/utils')
+const { getCheckApiVersion } = require('../../api_check_plugin/src/utils');
 
 class TagItem {
   constructor() { }
@@ -266,16 +266,16 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
 }
 
 function getLatestVersion(jsdocs) {
+  let apiLatestVersion = '';
   if (!jsdocs || jsdocs.length === 0) {
-    return;
+    return apiLatestVersion;
   }
   const jsdoc = jsdocs[jsdocs.length - 1];
-  let apiLatestVersion = '';
   jsdoc.tags?.forEach(tagObject => {
     if (tagObject.tag === 'since') {
       apiLatestVersion = tagObject.name;
     }
-  })
+  });
   return apiLatestVersion;
 }
 

@@ -31,6 +31,13 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @atomicservice
  * @since 11
  */
+/**
+ * Provides methods to operate or manage Wi-Fi.
+ * @namespace wifiManager
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace wifiManager {
   /**
    * Enable Wi-Fi.
@@ -828,7 +835,6 @@ declare namespace wifiManager {
    * @param { boolean } isHiLinkEnable - Indicates the HiLink enable or not.
    * @param { string } bssid - Indicates the Wi-Fi bssid.
    * @param { WifiDeviceConfig } config - Indicates the Wi-Fi device config.
-   * @returns { boolean } Returns {@code true} if the HiLink is enabled, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -837,7 +843,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): boolean;
+  function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): void;
 
   /**
    * Reset all saved device configure.
@@ -3212,6 +3218,22 @@ declare namespace wifiManager {
      * @since 10
      */
     wifiStandard: WifiStandard;
+
+    /**
+     * Supported wifi category
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    supportedWifiCategory: WifiCategory;
+
+    /**
+     * Whether the Wi-Fi hotspot is HiLink network.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 12
+     */
+    isHiLinkNetwork: boolean;
   }
 
   /**

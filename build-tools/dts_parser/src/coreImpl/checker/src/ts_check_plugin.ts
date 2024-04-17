@@ -88,27 +88,28 @@ export class TsSyntaxCheck {
     if (fileSuffix === '.ts') {
       const targetSourceFile: ts.SourceFile = node.getSourceFile();
       programSourceFiles.forEach((programSourceFile) => {
-        if (programSourceFile.fileName === targetSourceFile.fileName) {
-          const result: readonly ts.Diagnostic[] = program.getSemanticDiagnostics(programSourceFile);
-          result.forEach((item) => {
-            const filePath: string = item.file?.fileName as string;
-            const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.TS_SYNTAX_ERROR_ID,
-              ErrorLevel.MIDDLE,
-              fileName,
-              ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
-              ErrorType.TS_SYNTAX_ERROR,
-              LogType.LOG_API,
-              -1,
-              'NA',
-              'NA',
-              item.messageText as string,
-              tsResult,
-              checkErrorAllInfos
-            );
-          });
+        if (programSourceFile.fileName !== targetSourceFile.fileName) {
+          return;
         }
+        const result: readonly ts.Diagnostic[] = program.getSemanticDiagnostics(programSourceFile);
+        result.forEach((item) => {
+          const filePath: string = item.file?.fileName as string;
+          const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
+          AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.TS_SYNTAX_ERROR_ID,
+            ErrorLevel.MIDDLE,
+            fileName,
+            ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
+            ErrorType.TS_SYNTAX_ERROR,
+            LogType.LOG_API,
+            -1,
+            'NA',
+            'NA',
+            item.messageText as string,
+            tsResult,
+            checkErrorAllInfos
+          );
+        });
       });
     }
     // ArkTS诊断日志

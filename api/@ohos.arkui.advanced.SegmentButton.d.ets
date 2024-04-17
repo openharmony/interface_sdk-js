@@ -276,6 +276,16 @@ interface CommonSegmentButtonOptions {
    * @crossplatform
    * @since 11
    */
+   /**
+   * The font size of buttons.
+   *
+   * @type { ?DimensionNoPercentage }
+   * @default $r('sys.float.ohos_id_text_size_body2')
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontSize?: DimensionNoPercentage;
 
   /**
@@ -286,6 +296,16 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+   /**
+   * The font size of selected button.
+   *
+   * @type { ?DimensionNoPercentage }
+   * @default $r('sys.float.ohos_id_text_size_body2')
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   selectedFontSize?: DimensionNoPercentage;
 
@@ -565,6 +585,15 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+   /**
+   * The items of capsule type of SegmentButton.
+   *
+   * @type { SegmentButtonItemTuple }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   buttons: SegmentButtonItemTuple;
 
@@ -856,6 +885,15 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @crossplatform
    * @since 11
    */
+   /**
+   * The constructor used to create a SegmentButtonItemOptionsArray object.
+   *
+   * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   constructor(elements: SegmentButtonItemTuple);
 
   /**
@@ -972,6 +1010,16 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @crossplatform
    * @since 11
    */
+   /**
+   * The function used to create a SegmentButtonItemOptionsArray object.
+   *
+   * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
+   * @returns { SegmentButtonItemOptionsArray } Returns the a new SegmentButtonItemOptionsArray object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray;
 }
 
@@ -1086,6 +1134,15 @@ declare class SegmentButtonOptions {
    * @crossplatform
    * @since 11
    */
+   /**
+   * The font size of buttons.
+   *
+   * @type { DimensionNoPercentage }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontSize: DimensionNoPercentage;
 
   /**
@@ -1095,6 +1152,15 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+   /**
+   * The font size of selected button.
+   *
+   * @type { DimensionNoPercentage }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   selectedFontSize: DimensionNoPercentage;
 

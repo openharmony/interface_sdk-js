@@ -93,6 +93,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#addDeviceAccessRight
    */
   function addRight(bundleName: string, deviceName: string): boolean;
 
@@ -105,6 +107,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getFunctionsFromString
    */
   function usbFunctionsFromString(funcs: string): number;
 
@@ -117,6 +121,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getStringFromFunctions
    */
   function usbFunctionsToString(funcs: FunctionType): string;
 
@@ -130,6 +136,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#setDeviceFunctions
    */
   function setCurrentFunctions(funcs: FunctionType): Promise<void>;
 
@@ -140,6 +148,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
 
@@ -151,6 +161,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getPortList
    */
   function getPorts(): Array<USBPort>;
 
@@ -163,6 +175,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#getPortSupportModes
    */
   function getSupportedModes(portId: number): PortModeType;
 
@@ -177,6 +191,8 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#setPortRoleTypes
    */
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 

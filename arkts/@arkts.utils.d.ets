@@ -14,9 +14,12 @@
  */
 
 /**
- * @file
+ * @file Defines the utils for ArkTS
  * @kit ArkTS
  */
+
+import collections from './@arkts.collections';
+import lang from './@arkts.lang';
 
 /**
  * @namespace utils
@@ -42,8 +45,8 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
-    type AsyncLockCallback<T> = () => T|Promise<T>;
-  
+    type AsyncLockCallback<T> = () => T | Promise<T>;
+
     /**
      * Class to execute an asynchronous operation under lock.
      *
@@ -75,7 +78,7 @@ declare namespace utils {
        * @since 12
        */
       static request(name: string): AsyncLock;
-  
+
       /**
        * Query information about the specified lock.
        *
@@ -90,7 +93,7 @@ declare namespace utils {
        * @since 12
        */
       static query(name: string): AsyncLockState;
-  
+
       /**
        * Query information about all locks.
        *
@@ -102,13 +105,13 @@ declare namespace utils {
        * @since 12
        */
       static queryAll(): AsyncLockState[];
-  
+
       /**
        * Perform an operation with the acquired lock exclusively.
        * The method acquires the lock first, then calls the callback, and then releases the lock.
        * The callback is called asynchronously in the same thread where lockAsync was called.
        *
-       * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+       * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed.
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - No such lock.
@@ -118,13 +121,13 @@ declare namespace utils {
        * @since 12
        */
       lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>;
-  
+
       /**
        * Perform an operation with the acquired lock.
        * The method acquires the lock first, then calls the callback, and then releases the lock.
        * The callback is called asynchronously in the same thread where lockAsync was called.
        *
-       * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+       * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed or rejected.
        * @throws { BusinessError } 401 - The input parameters are invalid.
@@ -135,29 +138,32 @@ declare namespace utils {
        * @since 12
        */
       lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>;
-  
+
       /**
        * Perform an operation with the acquired lock.
        * The method acquires the lock first, then calls the callback, and then releases the lock.
        * The callback is called asynchronously in the same thread where lockAsync was called.
        * An optional timeout value can be provided in {@link AsyncLockOptions}. In this case, lockAsync will reject the
        * resulting promise with a BusinessError instance if the lock is not acquired before timeout exceeds.
-       * The error message, in this case, will contain the held and waited locks information and possible deadlock warnings.
+       * The error message, in this case, will contain the held and waited locks information and possible deadlock
+       * warnings.
        *
-       * @param { AsyncLockCallback } callback - function to call when the lock gets acquired.
+       * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @param { AsyncLockOptions<U> } options - lock operation options.
-       * @returns { Promise<T|U> } Promise that will be resolved after the callback gets executed or rejected in case timeout
-       * exceeded.
+       * @returns { Promise<T | U> } Promise that will be resolved after the callback gets executed or rejected in case
+       * timeout exceeded.
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200031 - Timeout exceeded.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode, options: AsyncLockOptions<U>): Promise<T|U>;
-  
+      lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode,
+        options: AsyncLockOptions<U>): Promise<T | U>;
+
       /**
        * Name of the lock.
        *
@@ -170,7 +176,7 @@ declare namespace utils {
        */
       readonly name: string;
     }
-  
+
     /**
      * Mode of lock operations.
      *
@@ -202,7 +208,7 @@ declare namespace utils {
        */
       EXCLUSIVE = 2,
     }
-  
+
     /**
      * Lock operation's options
      *
@@ -221,7 +227,7 @@ declare namespace utils {
        * @since 12
        */
       constructor();
-  
+
       /**
        * If the value is true and lockAsync cannot acquire the lock immediately, the operation is canceled.
        *
@@ -235,13 +241,13 @@ declare namespace utils {
       /**
        * The object used to abort the async operation. If signal.aborted is true, the callback will not be called.
        *
-       * @type { AbortSignal<T>|null }
+       * @type { AbortSignal<T> | null }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      signal: AbortSignal<T>|null;
+      signal: AbortSignal<T> | null;
       /**
        * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
        * when the timeout is exceeded.
@@ -254,7 +260,7 @@ declare namespace utils {
        */
       timeout: number;
     }
-  
+
     /**
      * Information about all lock operations on the AsyncLock instance.
      *
@@ -285,7 +291,7 @@ declare namespace utils {
        */
       pending: AsyncLockInfo[];
     }
-  
+
     /**
      * Information about a lock.
      *
@@ -326,7 +332,7 @@ declare namespace utils {
        */
       contextId: number;
     }
-  
+
     /**
      * Object used to abort an async operation.
      * An instance of this class must be accessed in the same thread where the instance is created.
@@ -348,7 +354,7 @@ declare namespace utils {
        * @since 12
        */
       aborted: boolean;
-  
+
       /**
        * Reason for the abort. This value will be used to reject the promise returned from lockAsync.
        *
@@ -360,6 +366,308 @@ declare namespace utils {
        */
       reason: T
     }
+  }
+
+  /**
+   * json utils.
+   *
+   * @namespace json
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 12
+   */
+  namespace json {
+    /**
+     * Redefines ISendable for convenience.
+     *
+     * @typedef { lang.ISendable } ISendable
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type ISendable = lang.ISendable;
+    /**
+     * Defines JSONValue
+     *
+     * @extends ISendable
+     * @interface JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    interface JSONValue extends ISendable {
+    }
+    /**
+     * Defines value type for JSONArray.
+     *
+     * @typedef { collections.Array<JSONValue> } JSONArrayType
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type JSONArrayType = collections.Array<JSONValue>;
+    /**
+     * Defines value type for JSONObject.
+     *
+     * @typedef { collections.Map<string, JSONValue> } JSONObjectType
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type JSONObjectType = collections.Map<string, JSONValue>;
+    /**
+     * Defines JSONObject
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONObject implements JSONValue {
+      /**
+       * Creates an instance of JSONObject.
+       * @param { JSONObjectType } value - The object of JSONObject.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
+       * @throws { BusinessError } 10200012 - The JSONObject's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: JSONObjectType);
+      /**
+       * Gets the JSONObject.
+       * @returns { JSONObjectType } The JSONObject.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): JSONObjectType;
+    }
+    /**
+     * Defines JSONArray
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONArray implements JSONValue {
+      /**
+       * Creates an instance of JSONArray.
+       * @param { JSONArrayType } value - The array of JSONArray.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
+       * @throws { BusinessError } 10200012 - The JSONArray's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: JSONArrayType);
+      /**
+       * Gets the JSONArray.
+       * @returns { JSONArrayType } The JSONArray.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): JSONArrayType;
+    }
+    /**
+     * Defines JSONString
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONString implements JSONValue {
+      /**
+       * Creates an instance of JSONString.
+       * @param { string } value - The text of JSONString.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
+       * @throws { BusinessError } 10200012 - The JSONString's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: string);
+      /**
+       * Gets the JSONString.
+       * @returns { string } The JSONString.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): string;
+    }
+    /**
+     * Defines JSONNumber
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONNumber implements JSONValue {
+      /**
+       * Creates an instance of JSONNumber.
+       * @param { number } value - The text of JSONNumber.
+       * @throws { BusinessError } 401 - Parameter error. Invalid init value.
+       * @throws { BusinessError } 10200012 - The JSONNumber's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor(value: number);
+      /**
+       * Gets the JSONNumber.
+       * @returns { number } The JSONNumber.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): number;
+    }
+    /**
+     * Defines JSONNull
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONNull implements JSONValue {
+      /**
+       * Creates an instance of JSONNull.
+       * @throws { BusinessError } 10200012 - The JSONNull's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor();
+      /**
+       * Gets the JSONNull.
+       * @returns { null } The JSONNull.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): null;
+    }
+    /**
+     * Defines JSONTrue
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONTrue implements JSONValue {
+      /**
+       * Creates an instance of JSONTrue.
+       * @throws { BusinessError } 10200012 - The JSONTrue's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor();
+      /**
+       * Gets the JSONTrue.
+       * @returns { boolean } The JSONTrue, always true.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): boolean;
+    }
+    /**
+     * Defines JSONFalse
+     *
+     * @implements JSONValue
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    @Sendable
+    class JSONFalse implements JSONValue {
+      /**
+       * Creates an instance of JSONFalse.
+       * @throws { BusinessError } 10200012 - The JSONFalse's constructor cannot be directly invoked.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      constructor();
+      /**
+       * Gets the JSONFalse.
+       * @returns { boolean } The JSONFalse, always false.
+       * @throws { BusinessError } 10200011 - The get method cannot be bound.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      get(): boolean;
+    }
+    /**
+     * Converts a JavaScript Object Notation (JSON) string into a JSONValue.
+     *
+     * @param { string } text - A valid JSON string.
+     * @returns { JSONValue } Return a JSONValue.
+     * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function parse(text: string): JSONValue;
+    /**
+     * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
+     *
+     * @param { ISendable | null | undefined } value - The value to stringify.
+     * @returns { string } The JSON string representation of the value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid JSONValue.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function stringify(value: ISendable | null | undefined): string;
   }
 }
 export default utils;

@@ -596,6 +596,15 @@ declare type EdgeWidths = {
  * @since 11
  * @form
  */
+/**
+ * Defines the outline width property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare type EdgeOutlineWidths = {
   /**
    * top outline width property.
@@ -790,6 +799,15 @@ declare type BorderRadiuses = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Defines the outline radius property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare type OutlineRadiuses = {
@@ -1128,6 +1146,15 @@ declare type EdgeStyles = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Defines the outline style property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare type EdgeOutlineStyles = {

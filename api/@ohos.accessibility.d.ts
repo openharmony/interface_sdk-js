@@ -494,35 +494,35 @@ declare namespace accessibility {
     fontFamily: CaptionsFontFamily;
     /**
      * Indicates the font scaling of captions.
-     *
+     * @type { number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
     fontScale: number;
     /**
      * Indicates the font color of captions.
-     *
+     * @type { number | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
     fontColor: number | string;
     /**
      * Indicates the edge type of the captions font.
-     *
+     * @type { CaptionsFontEdgeType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
     fontEdgeType: CaptionsFontEdgeType;
     /**
      * Indicates the background color of captions.
-     *
+     * @type { number | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
     backgroundColor: number | string;
     /**
      * Indicates the window color of captions.
-     *
+     * @type { number | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8
      */
@@ -539,7 +539,8 @@ declare namespace accessibility {
   interface AccessibilityAbilityInfo {
     /**
      * The ability id.
-     *
+     * @type { string }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -547,7 +548,8 @@ declare namespace accessibility {
 
     /**
      * The ability name.
-     * 
+     * @type { string }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -555,14 +557,16 @@ declare namespace accessibility {
 
     /**
      * The bundle name of the ability.
-     * 
+     * @type { string }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
     readonly bundleName: string;
     /**
      * The target bundle name for the observation.
-     * 
+     * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 9
      */
@@ -570,7 +574,8 @@ declare namespace accessibility {
 
     /**
      * The type of the ability.
-     *
+     * @type { Array<AbilityType> }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -578,7 +583,8 @@ declare namespace accessibility {
 
     /**
      * The capabilities of the ability.
-     *
+     * @type { Array<Capability> }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -586,7 +592,8 @@ declare namespace accessibility {
 
     /**
      * The description of the ability.
-     *
+     * @type { string }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -594,7 +601,8 @@ declare namespace accessibility {
 
     /**
      * The events which the accessibility ability wants to observe.
-     *
+     * @type { Array<EventType> }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -602,11 +610,21 @@ declare namespace accessibility {
 
     /**
      * Indicates whether the extended service needs to be hidden.
-     *
+     * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
     readonly needHide: boolean;
+
+    /**
+     * The label of the ability.
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly label: string;
   }
 
   /**
@@ -636,7 +654,7 @@ declare namespace accessibility {
     constructor(type: EventType, bundleName: string, triggerAction: Action);
     /**
      * The type of an accessibility event.
-     *
+     * @type { EventType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -644,7 +662,7 @@ declare namespace accessibility {
 
     /**
      * The type of the window change event.
-     *
+     * @type { ?WindowUpdateType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -652,7 +670,7 @@ declare namespace accessibility {
 
     /**
      * The bundle name of the target application.
-     *
+     * @type { string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -660,7 +678,7 @@ declare namespace accessibility {
 
     /**
      * The type of the event source component,such as button, chart.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -668,7 +686,7 @@ declare namespace accessibility {
 
     /**
      * The page id of the event source.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -676,7 +694,7 @@ declare namespace accessibility {
 
     /**
      * The accessibility event description.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -684,7 +702,7 @@ declare namespace accessibility {
 
     /**
      * The action that triggers the accessibility event, for example, clicking or focusing a view.
-     *
+     * @type { Action }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -692,7 +710,7 @@ declare namespace accessibility {
 
     /**
      * The movement step used for reading texts.
-     *
+     * @type { ?TextMoveUnit }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -700,7 +718,7 @@ declare namespace accessibility {
 
     /**
      * The content list.
-     *
+     * @type { ?Array<string> }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -708,7 +726,7 @@ declare namespace accessibility {
 
     /**
      * The content changed before.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -716,7 +734,7 @@ declare namespace accessibility {
 
     /**
      * The start index of listed items on the screen.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -724,7 +742,7 @@ declare namespace accessibility {
 
     /**
      * The index of the current item on the screen.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -732,7 +750,7 @@ declare namespace accessibility {
 
     /**
      * The end index of listed items on the screen.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -740,7 +758,7 @@ declare namespace accessibility {
 
     /**
      * The total of the items, talkback used it when scroll.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
@@ -748,7 +766,7 @@ declare namespace accessibility {
 
     /**
      * The id of element.
-     *
+     * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
@@ -756,11 +774,19 @@ declare namespace accessibility {
 
     /**
      * The content of announce accessibility text.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
     textAnnouncedForAccessibility?: string;
+
+    /**
+     * The customized element id.
+     * @type { ?string }
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    customId?: string;
   }
 }
 export default accessibility;

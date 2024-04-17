@@ -91,7 +91,7 @@ export class BasicApiInfo {
     return this.node;
   }
 
-  removeNode() {
+  removeNode(): void {
     this.node = undefined;
   }
 
@@ -214,7 +214,7 @@ export class BasicApiInfo {
     return this.jsDocText;
   }
 
-  setIsJoinType(jsJoinType: boolean) {
+  setIsJoinType(jsJoinType: boolean): void {
     this.isJoinType = jsJoinType;
   }
 
@@ -231,7 +231,7 @@ export class BasicApiInfo {
   }
 }
 
-export class ExportDefaultInfo extends BasicApiInfo { }
+export class ExportDefaultInfo extends BasicApiInfo {}
 
 export class ReferenceInfo extends BasicApiInfo {
   pathName: string = '';
@@ -287,24 +287,36 @@ export class ApiInfo extends BasicApiInfo {
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
-    let parentKitInfo = '';
+    let parentKitInfo: string = '';
+    let parentIsFile: boolean = false;
     if (parentApi) {
-      parentKitInfo = this.getKitInfoFromParent(parentApi);
+      parentKitInfo = this.getKitInfoFromParent(parentApi).kitInfo;
+      parentIsFile = this.getKitInfoFromParent(parentApi).isFile;
     }
-    const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node, apiType, parentKitInfo);
-    const jsDocText = node.getFullText().substring(0, node.getFullText().length - node.getText().length);
+    const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(
+      node,
+      apiType,
+      parentKitInfo,
+      parentIsFile
+    );
+    const jsDocText: string = node
+      .getFullText()
+      .substring(0, node.getFullText().length - node.getText().length)
+      .trim();
     this.setJsDocText(jsDocText);
     this.addJsDocInfos(jsDocInfos);
   }
 
-  getKitInfoFromParent(parentApi: BasicApiInfo): string {
+  getKitInfoFromParent(parentApi: BasicApiInfo): FileTag {
     const parentApiInfo = parentApi as ApiInfo;
     const jsDocInfos: Comment.JsDocInfo[] = parentApiInfo.getJsDocInfos();
     let kitInfo: string = '';
+    let isFile: boolean = false;
     jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
       kitInfo = jsDocInfo.getKit();
+      isFile = jsDocInfo.getIsFile();
     });
-    return kitInfo;
+    return { kitInfo, isFile };
   }
 
   getJsDocInfos(): Comment.JsDocInfo[] {
@@ -515,6 +527,9 @@ export class ConstantInfo extends ApiInfo {
 export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
+  returnType: string = ''; //type类型为function时的返回值
+  paramInfos: TypeParamInfo[] = []; //type类型为function时的参数名和参数类型
+  typeIsFunction: boolean = false; //type类型是否为function
 
   addType(type: string[]): void {
     this.type.push(...type);
@@ -531,6 +546,63 @@ export class TypeAliasInfo extends ApiInfo {
 
   getTypeName(): string {
     return this.typeName;
+  }
+
+  setReturnType(returnType: string): TypeAliasInfo {
+    this.returnType = returnType;
+    return this;
+  }
+
+  getReturnType() {
+    return this.returnType;
+  }
+
+  setParamInfos(paramInfo: TypeParamInfo) {
+    this.paramInfos.push(paramInfo);
+  }
+
+  getParamInfos(): TypeParamInfo[] {
+    return this.paramInfos;
+  }
+
+  setTypeIsFunction(typeIsFunction: boolean): TypeAliasInfo {
+    this.typeIsFunction = typeIsFunction;
+    return this;
+  }
+
+  getTypeIsFunction(): boolean {
+    return this.typeIsFunction;
+  }
+}
+
+/**
+ * type自定义类型为function时，解析参数
+ */
+export class TypeParamInfo {
+  //type类型为function时的参数名
+  paramName: string = '';
+  //type类型为function时的参数类型
+  paramType: string = '';
+
+  setParamName(paramName: string): TypeParamInfo {
+    this.paramName = paramName;
+    return this;
+  }
+
+  getParamName(): string {
+    return this.paramName;
+  }
+
+  setParamType(paramType: string | undefined): TypeParamInfo {
+    if (!paramType) {
+      return this;
+    }
+    this.paramType = paramType;
+    return this;
+  }
+
+  getParamType(): string {
+    return this.paramType;
   }
 }
 
@@ -597,7 +669,7 @@ export class MethodInfo extends ApiInfo {
   }
 
   addTypeLocations(typeLocation: Comment.JsDocInfo): void {
-    this.typeLocations.push(typeLocation)
+    this.typeLocations.push(typeLocation);
   }
 
   getTypeLocations(): Comment.JsDocInfo[] {
@@ -605,7 +677,7 @@ export class MethodInfo extends ApiInfo {
   }
 
   addObjLocations(ObjLocation: Comment.JsDocInfo): void {
-    this.objLocations.push(ObjLocation)
+    this.objLocations.push(ObjLocation);
   }
 
   getObjLocations(): Comment.JsDocInfo[] {
@@ -639,7 +711,7 @@ export class ParamInfo {
     return this.apiType;
   }
 
-  setApiName(apiName: string) {
+  setApiName(apiName: string): void {
     this.apiName = apiName;
   }
 
@@ -680,7 +752,7 @@ export class ParamInfo {
   }
 
   addTypeLocations(typeLocation: Comment.JsDocInfo): void {
-    this.typeLocations.push(typeLocation)
+    this.typeLocations.push(typeLocation);
   }
 
   getTypeLocations(): Comment.JsDocInfo[] {
@@ -688,7 +760,7 @@ export class ParamInfo {
   }
 
   addObjLocations(ObjLocation: Comment.JsDocInfo): void {
-    this.objLocations.push(ObjLocation)
+    this.objLocations.push(ObjLocation);
   }
 
   getObjLocations(): Comment.JsDocInfo[] {
@@ -700,18 +772,18 @@ export class GenericInfo {
   isGenericity: boolean = false;
   genericContent: string = '';
 
-  setIsGenericity(isGenericity: boolean) {
+  setIsGenericity(isGenericity: boolean): void {
     this.isGenericity = isGenericity;
   }
-  getIsGenericity() {
+  getIsGenericity(): boolean {
     return this.isGenericity;
   }
 
-  setGenericContent(genericContent: string) {
+  setGenericContent(genericContent: string): void {
     this.genericContent = genericContent;
   }
 
-  getGenericContent() {
+  getGenericContent(): string {
     return this.genericContent;
   }
 }
@@ -744,15 +816,15 @@ export class ParserParam {
   rootNames: string[] = [];
   tsProgram: ts.Program = ts.createProgram({
     rootNames: [],
-    options: {}
+    options: {},
   });
-  constructor() { }
+  constructor() {}
 
   getFileDir(): string {
     return this.fileDir;
   }
 
-  setFileDir(fileDir: string) {
+  setFileDir(fileDir: string): void {
     this.fileDir = fileDir;
   }
 
@@ -760,7 +832,7 @@ export class ParserParam {
     return this.filePath;
   }
 
-  setFilePath(filePath: string) {
+  setFilePath(filePath: string): void {
     this.filePath = filePath;
   }
 
@@ -768,7 +840,7 @@ export class ParserParam {
     return this.sdkPath;
   }
 
-  setSdkPath(sdkPath: string) {
+  setSdkPath(sdkPath: string): void {
     this.sdkPath = sdkPath;
   }
 
@@ -776,7 +848,7 @@ export class ParserParam {
     return this.rootNames;
   }
 
-  setRootNames(rootNames: string[]) {
+  setRootNames(rootNames: string[]): void {
     this.rootNames = rootNames;
   }
 
@@ -784,14 +856,14 @@ export class ParserParam {
     return this.tsProgram;
   }
 
-  getETSOptions(componentLibs: Array<string>) {
+  getETSOptions(componentLibs: Array<string>): any {
     const tsconfig = require('../../config/tsconfig.json');
     const etsConfig = tsconfig.compilerOptions.ets;
     etsConfig.libs = [...componentLibs];
     return etsConfig;
   }
 
-  setProgram(apiLibs: Array<string>) {
+  setProgram(apiLibs: Array<string>): void {
     const compilerOption = {
       target: ts.ScriptTarget.ES2017,
       ets: this.getETSOptions([]),
@@ -801,10 +873,9 @@ export class ParserParam {
     };
     this.tsProgram = ts.createProgram({
       rootNames: [...apiLibs, ...this.rootNames],
-      options: compilerOption
-    })
-  };
-
+      options: compilerOption,
+    });
+  }
 }
 
 export type ExportImportValue = { key: string; value: string };
@@ -816,6 +887,11 @@ export type PropertyNode = ts.PropertyDeclaration | ts.PropertySignature;
 
 export interface ModifierProcessorInterface {
   (propertyInfo: BasicApiInfo): void;
+}
+
+export interface FileTag {
+  kitInfo: string;
+  isFile: boolean;
 }
 
 /**

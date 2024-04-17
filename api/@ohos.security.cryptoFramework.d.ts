@@ -586,6 +586,20 @@ declare namespace cryptoFramework {
      * @since 11
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
+
+    /**
+     * Encode the private key object to binary data in DER format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { DataBlob } the binary data of the key object in DER format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    getEncodedDer(format: string): DataBlob;
   }
 
   /**
@@ -5122,6 +5136,56 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    keySize: number;
+  }
+
+  /**
+   * Specifies the HKDF parameters.
+   *
+   * @typedef HKDFSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 12
+   */
+  interface HKDFSpec extends KdfSpec {
+    /**
+     * Indicates the key parameter of HKDF.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    key: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of HKDF.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the info about the context of HKDF.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    info: Uint8Array;
+
+    /**
+     * Indicates the byte length of output key of HKDF.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
      */
     keySize: number;
   }

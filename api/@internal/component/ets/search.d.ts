@@ -277,6 +277,15 @@ declare enum SearchType {
    * @since 12
    */
   EMAIL = 5,
+
+  /**
+   * Number decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NUMBER_DECIMAL = 12,
 }
 
 /**
@@ -1260,7 +1269,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of Search
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of Search
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

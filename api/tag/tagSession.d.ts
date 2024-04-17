@@ -285,6 +285,7 @@ export interface TagSession {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -314,6 +315,7 @@ export interface TagSession {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12

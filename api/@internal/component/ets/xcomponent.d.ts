@@ -162,6 +162,27 @@ declare class XComponentController {
    * @since 12
    */
   onSurfaceDestroyed(surfaceId: string): void;
+
+  /**
+   * Start image analyzer.
+   *
+   * @param { ImageAnalyzerConfig } config - Image analyzer config.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
+   * @throws { BusinessError } 110002 - Image analysis is currently being executed.
+   * @throws { BusinessError } 110003 - Image analysis is stopped.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
+
+  /**
+   * Stop image analyzer.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  stopImageAnalyzer(): void;
 }
 
 /**
@@ -220,6 +241,16 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 8
    */
   onDestroy(event: () => void): XComponentAttribute;
+
+  /**
+   * Enable image analyzer for XComponent.
+   *
+   * @param { boolean } enable
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableAnalyzer(enable: boolean): XComponentAttribute;
 }
 
 /**

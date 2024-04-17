@@ -55,6 +55,15 @@ export { FrameNode } from './arkui/FrameNode';
 export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses } from './arkui/Graphics';
 
 /**
+ * Export Graphics. Defines the basic types related to the Graphics.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { LengthUnit, SizeT, LengthMetric, LengthMetrics, ColorMetrics } from './arkui/Graphics';
+
+/**
  * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

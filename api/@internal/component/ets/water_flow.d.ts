@@ -21,6 +21,9 @@
 /**
  * function that returns item main size by index.
  * 
+ * @typedef { function } GetItemMainSizeByIndex
+ * @param { number } index - the index of FlowItem
+ * @returns { number } main size of the FlowItem at index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12

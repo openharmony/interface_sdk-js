@@ -46,15 +46,15 @@ export class Parser {
       parserParam.setRootNames(files);
     }
     const apiMap: FilesMap = new Map();
-    let collectFiles: Array<string> = []
-    if (collectFile == '') {
+    let collectFiles: Array<string> = [];
+    if (collectFile === '') {
       collectFiles = files;
     } else if (FileUtils.isDirectory(collectFile)) {
       collectFiles = FileUtils.readFilesInDir(collectFile, (name) => {
         return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
       });
     } else if (FileUtils.isFile(collectFile)) {
-      collectFiles = [collectFile]
+      collectFiles = [collectFile];
     }
     collectFiles.forEach((filePath: string) => {
       Parser.parseFile(fileDir, filePath, apiMap);
@@ -88,9 +88,9 @@ export class Parser {
     const fileArr: Array<string> = [filePath];
     sourceFile.statements.forEach((statement: ts.Statement) => {
       if (ts.isImportDeclaration(statement) && statement.moduleSpecifier.getText().startsWith('./', 1)) {
-        fileArr.push(path.resolve(filePath, '..', statement.moduleSpecifier.getText().replace(/'|"/g, '')))
+        fileArr.push(path.resolve(filePath, '..', statement.moduleSpecifier.getText().replace(/'|"/g, '')));
       }
-    })
+    });
     if (Boolean(process.env.NEED_DETECTION)) {
       parserParam.setProgram(fileArr);
     }

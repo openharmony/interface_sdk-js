@@ -458,6 +458,21 @@ declare interface RichEditorTextStyle {
    * @since 12
    */
   lineHeight?: number | string | Resource;
+
+  /**
+   * Set font feature, advanced text styles and effects as designed by the font author.
+   * The format is the like the CSS font-feature-settings attribute.
+   *
+   * @type { ?string }
+   * normal | <feature-tag-value>,
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of RichEditor component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 
@@ -583,6 +598,16 @@ declare interface RichEditorParagraphStyle {
    * @since 12
    */
   wordBreak?: WordBreak;
+
+  /**
+   * Set line break strategy type.
+   *
+   * @type { ?LineBreakStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy?: LineBreakStrategy;
 }
 
 /**
@@ -1076,6 +1101,21 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   lineHeight?: number;
+
+  /**
+   * Set font feature, advanced text styles and effects as designed by the font author.
+   * The format is the like the CSS font-feature-settings attribute.
+   *
+   * @type { ?string }
+   * normal | <feature-tag-value>,
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * the values of <feature-tag-value> reference to doc of RichEditor component
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 /**
@@ -1857,7 +1897,7 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
- * Defines the Keyboard options of RichEditor.
+ * Defines the custom keyboard options of RichEditor.
  *
  * @interface KeyboardOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1866,7 +1906,7 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface KeyboardOptions {
   /**
-   * Indicates whether to support keyboard avoidance.
+   * Indicates whether to support custom keyboard avoidance.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2450,6 +2490,37 @@ declare interface RichEditorDeleteValue {
    */
   richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
+
+/**
+ * Provides an interface for changes in the text.
+ *
+ * @interface RichEditorChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface RichEditorChangeValue {
+  /**
+   * Spans to be replaced.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  originalSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * Spans to replace.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacedSpans: Array<RichEditorTextSpanResult>;
+}
+
 /**
  * Defines the options of RichEditor.
  *
@@ -2521,7 +2592,16 @@ declare interface SelectionMenuOptions {
    * @atomicservice
    * @since 11
    */
-  onAppear?: () => void;
+    /**
+   * Callback function when the selection menu appears.
+   * 
+   * @type { ?MenuOnAppearCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onAppear?: MenuOnAppearCallback;
 
   /**
    * Callback function when the selection menu disappears.
@@ -2853,6 +2933,7 @@ declare class RichEditorController {
    * @param { SelectionOptions } [options] - Indicates the options of selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
@@ -3118,7 +3199,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Define custom keyboard.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of RichEditor
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of RichEditor
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of RichEditor
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3256,12 +3337,94 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   onSubmit(callback: SubmitCallback): RichEditorAttribute;
+
+  /**
+   * Called before text changed.
+   *
+   * @param { Callback<RichEditorChangeValue, boolean> } callback - The triggered function before text content is about to change.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillChange(callback: Callback<RichEditorChangeValue, boolean>) : RichEditorAttribute;
+
+  /**
+   * Called after text changed.
+   *
+   * @param { Callback<Array<RichEditorTextSpanResult>> } callback - The triggered function after text content is about to change.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidChange(callback: Callback<Array<RichEditorTextSpanResult>>) : RichEditorAttribute;
+
+  /**
+    * Called before the cut event.
+    *
+    * @param { Callback<CutEvent> } callback - Called before the cut event.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  onCut(callback: Callback<CutEvent>): RichEditorAttribute;
+
+  /**
+    * Called before the copy event.
+    *
+    * @param { Callback<CopyEvent> } callback - Called before the copy event.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+}
+
+/**
+ * the callback of cut event.
+ * @interface CutEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CutEvent {
+  /**
+   * Prevent system cut event.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  preventDefault?: Callback<void>;
+}
+
+/**
+ * the callback of copy event.
+ * @interface CopyEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CopyEvent {
+  /**
+   * Prevent system cut event.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  preventDefault?: Callback<void>;
 }
 
 /**
  * callback of the listened enter key event.
  *
- * @typedef { Function } SubmitCallback
+ * @typedef { function } SubmitCallback
  * @param { EnterKeyType } enterKey - the enter key type of soft keyboard.
  * @param { SubmitEvent } event - Provides the method of keeping RichEditor editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3269,6 +3432,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
  * @since 12
  */
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
+ * Callback function when the selection menu appears.
+ *
+ * @typedef { function } MenuOnAppearCallback
+ * @param { number } start - Start offset of the selected content in rich editor.
+ * @param { number } end - End offset of the selected content in rich editor.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
  * Provides an interface for writing texts.

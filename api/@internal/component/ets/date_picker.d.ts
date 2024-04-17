@@ -579,6 +579,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
   textStyle?: PickerTextStyle;
 
   /**
+   * Text style of button items
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  buttonStyle?: PickerDialogButtonStyle;
+
+  /**
    * Text style of selected items
    *
    * @type { ?PickerTextStyle }
@@ -823,6 +833,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**

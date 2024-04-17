@@ -639,6 +639,55 @@ declare namespace connection {
   function disconnectAllowedProfiles(deviceId: string): Promise<void>;
 
   /**
+   * Modify remote device name.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { string } name - New device name. Max length is 64 bytes.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+    function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;
+
+  /**
+   * Set remote device custom type.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { DeviceType } type - Indicates device type.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  function setRemoteDeviceType(deviceId: string, type: DeviceType): Promise<void>;
+
+  /**
+   * Get remote device custom type.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @returns { Promise<DeviceType> } Returns the device type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  function getRemoteDeviceType(deviceId: string): Promise<DeviceType>;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -780,6 +829,13 @@ declare namespace connection {
      * @since 10
      */
     state: BondState;
+    /**
+     * Cause of unbond.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    cause: UnbondCause;
   }
 
   /**
@@ -1068,6 +1124,126 @@ declare namespace connection {
      * @since 12
      */
     deviceClass: DeviceClass;
+  }
+
+  /**
+   * Enum for the custom type of remote device.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  enum DeviceType {
+    /**
+     * Default type, the type is consistent with COD.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_DEFAULT = 0,
+    /**
+     * Car bluetooth.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_CAR = 1,
+    /**
+     * Headset bluetooth.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_HEADSET = 2,
+    /**
+     * Hearing Aid.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_HEARING = 3,
+    /**
+     * Glasses device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_GLASSES = 4,
+    /**
+     * Watch device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_WATCH = 5,
+    /**
+     * Speaker device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_SPEAKER = 6,
+    /**
+     * Others bluetooth.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    DEVICE_TYPE_OTHERS = 7
+  }
+
+  /**
+   * Enum for cause of unbond.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 12
+   */
+  enum UnbondCause {
+    /**
+     * User proactively removed device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    USER_REMOVED = 0,
+    /**
+     * Remote device shut down.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    REMOTE_DEVICE_DOWN = 1,
+    /**
+     * Wrong PIN code.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    AUTH_FAILURE = 2,
+    /**
+     * Remote device rejected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    AUTH_REJECTED = 3,
+    /**
+     * Internal error.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 12
+     */
+    INTERNAL_ERROR = 4
   }
 }
 export default connection;

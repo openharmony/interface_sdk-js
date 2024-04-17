@@ -184,7 +184,7 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
  */
 function hasFileByImportPath(importPath) {
   let fileDir = path.resolve(apiSourcePath);
-  if (importPath.startsWith("@arkts")) {
+  if (importPath.startsWith('@arkts')) {
     fileDir = path.resolve(apiSourcePath, '../arkts');
   }
   const flag = ['.d.ts', '.d.ets'].some(ext => {
@@ -223,7 +223,7 @@ function processFileNameWithoutExt(filePath) {
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
-    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || apiBaseName === 'common.d.ts') {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);

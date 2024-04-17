@@ -34,6 +34,13 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @atomicservice
  * @since 11
  */
+/**
+ * @namespace abilityAccessCtrl
+ * @syscap SystemCapability.Security.AccessToken
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace abilityAccessCtrl {
   /**
    * Obtains the AtManager instance.
@@ -207,6 +214,20 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Requests certain permissions from the user.
+     *
+     * @param { Context } context - The context that initiates the permission request.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @syscap SystemCapability.Security.AccessToken
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     requestPermissionsFromUser(
       context: Context,

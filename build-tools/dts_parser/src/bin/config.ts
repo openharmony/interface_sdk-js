@@ -15,7 +15,7 @@
 import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
-import { execSync } from "child_process";
+import { execSync } from 'child_process';
 import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
@@ -101,6 +101,10 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
+        options: ['-L,--check-labels <string>', 'detection check labels', ''],
+      },
+      {
+        isRequiredOption: false,
         options: ['--path <string>', 'check api path, split with comma', ''],
       },
       {
@@ -156,6 +160,7 @@ export const Plugin: PluginType = {
       toolName: toolName,
       collectPath: argv.collectPath,
       collectFile: argv.collectFile,
+      checkLabels: argv.checkLabels,
       path: argv.path,
       checker: argv.checker,
       old: argv.old,
@@ -263,26 +268,10 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
   const subsystemMap: Map<string, string> = FunctionUtils.readSubsystemFile().subsystemMap;
   sheet.name = 'JsApi';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = [
-    '模块名',
-    '类名',
-    '方法名',
-    '函数',
-    '类型',
-    '起始版本',
-    '废弃版本',
-    'syscap',
-    '错误码',
-    '是否为系统API',
-    '模型限制',
-    '权限',
-    '是否支持跨平台',
-    '是否支持卡片应用',
-    '是否为高阶API',
-    '装饰器',
-    'kit',
-    '文件路径',
-    '子系统',
+  sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '类型',
+    '起始版本', '废弃版本', 'syscap', '错误码', '是否为系统API',
+    '模型限制', '权限', '是否支持跨平台', '是否支持卡片应用', '是否为高阶API',
+    '装饰器', 'kit', '文件路径', '子系统',
   ];
   let lineNumber = 2;
   apiData.forEach((apiInfo: ApiStatisticsInfo) => {
@@ -290,7 +279,6 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
     if (apiRelationsSet.has(apiRelations)) {
       return;
     }
-
     sheet.getRow(lineNumber).values = [
       apiInfo.getPackageName(),
       apiInfo.getParentModuleName(),
@@ -328,7 +316,7 @@ function checkApi(options: OptionObjType): ToolNameValueType {
     let fileContent: ApiResultMessage[] = [];
     if (process.env.NODE_ENV === 'development') {
 
-      fileContent = LocalEntry.checkEntryLocal([], [], "", 'false');
+      fileContent = LocalEntry.checkEntryLocal([], [], '', 'false');
     } else if (process.env.NODE_ENV === 'production') {
     }
     let finalData: (string | ApiResultMessage)[] = [];
@@ -355,7 +343,7 @@ function checkApi(options: OptionObjType): ToolNameValueType {
  * @return { ToolNameValueType }
  */
 function checkOnline(options: OptionObjType): ToolNameValueType {
-  options.format = formatType.NULL
+  options.format = formatType.NULL;
   try {
     LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
     return {
@@ -365,10 +353,10 @@ function checkOnline(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e('error check', error.stack ? error.stack : error.message);
   } finally {
-    return {
-      data: [],
-    };
   }
+  return {
+    data: [],
+  };
 }
 
 /**
@@ -412,8 +400,8 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   }
 }
 function detectionApi(options: OptionObjType): ToolNameValueType {
-  process.env.NEED_DETECTION = "true";
-  options.format = formatType.NULL
+  process.env.NEED_DETECTION = 'true';
+  options.format = formatType.NULL;
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
   if (options.collectFile !== '') {
@@ -436,9 +424,9 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     let runningCommand: string = '';
 
     if (process.env.NODE_ENV === 'development') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     } else if (process.env.NODE_ENV === 'production') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     }
     buffer = execSync(runningCommand, {
       timeout: 120000,
@@ -447,11 +435,10 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
   } finally {
-    return {
-      data: []
-    }
-
   }
+  return {
+    data: [],
+  };
 
 }
 
@@ -464,7 +451,7 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
 function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?: string): void {
   sheet.name = 'api差异';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统'];
+  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
     const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
     sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
@@ -473,6 +460,8 @@ function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?:
       joinNewMessage(diffInfo),
       dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
+      SyscapProcessorHelper.getSingleKitInfo(diffInfo)
+      
     ];
   });
 
@@ -529,6 +518,7 @@ export type OptionObjType = {
   checker: string;
   collectPath: string;
   collectFile: string;
+  checkLabels: string;
   old: string;
   new: string;
   oldVersion: string;

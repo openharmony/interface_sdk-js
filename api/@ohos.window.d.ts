@@ -272,6 +272,15 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describes the type of avoid area
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum AvoidAreaType {
     /**
      * Default area of the system
@@ -285,6 +294,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Default area of the system
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TYPE_SYSTEM,
 
@@ -301,6 +318,14 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Notch
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     TYPE_CUTOUT,
 
     /**
@@ -315,6 +340,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Area for system gesture
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TYPE_SYSTEM_GESTURE,
 
@@ -331,6 +364,14 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Area for keyboard
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     TYPE_KEYBOARD,
 
     /**
@@ -339,6 +380,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Area for navigation indicator
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TYPE_NAVIGATION_INDICATOR
   }
@@ -479,12 +528,27 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 6
    */
+  /**
+   * Properties of status bar and navigation bar, it couldn't update automatically
+   *
+   * @interface SystemBarProperties
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12
+   */
   interface SystemBarProperties {
     /**
      * The color of the status bar.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
+     */
+    /**
+     * The color of the status bar.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
      */
     statusBarColor?: string;
 
@@ -494,6 +558,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * The light icon of the status bar.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     isStatusBarLightIcon?: boolean;
 
     /**
@@ -501,6 +572,13 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
+     */
+    /**
+     * The content color of the status bar
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
      */
     statusBarContentColor?: string;
 
@@ -510,6 +588,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
+    /**
+     * The color of the navigation bar.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     navigationBarColor?: string;
 
     /**
@@ -517,6 +602,13 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * The light icon of the navigation bar.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
      */
     isNavigationBarLightIcon?: boolean;
 
@@ -526,7 +618,32 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
      */
+    /**
+     * The content color of the navigation bar
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     navigationBarContentColor?: string;
+
+    /**
+     * Enable the animation of the status bar.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    enableStatusBarAnimation?: boolean;
+
+    /**
+     * Enable the animation of the navigation bar.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+    enableNavigationBarAnimation?: boolean;
   }
 
   /**
@@ -745,6 +862,15 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Avoid area
+   *
+   * @interface AvoidArea
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
@@ -778,6 +904,15 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Rectangle on the left of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     leftRect: Rect;
 
     /**
@@ -794,6 +929,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Rectangle on the top of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     topRect: Rect;
 
@@ -812,6 +956,15 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Rectangle on the right of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     rightRect: Rect;
 
     /**
@@ -828,6 +981,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Rectangle on the bottom of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     bottomRect: Rect;
   }
@@ -2267,7 +2429,47 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    LOCKED = 11
+    LOCKED = 11,
+
+    /**
+     * Follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    AUTO_ROTATION_UNSPECIFIED = 12,
+
+    /**
+     * Display in portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_PORTRAIT = 13,
+
+    /**
+     * Display in landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_LANDSCAPE = 14,
+
+    /**
+     * Display in inverted portrait orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_PORTRAIT_INVERTED = 15,
+
+    /**
+     * Display in inverted landscape orientation, and then, follow the rotation of the sensor, determined by the system, controlled by auto rotation lock.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    USER_ROTATION_LANDSCAPE_INVERTED = 16
   }
 
   /**
@@ -2406,6 +2608,14 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Specific system bar type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
@@ -3030,6 +3240,18 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the avoid area
+     *
+     * @param { AvoidAreaType } type - Type of the area
+     * @returns { AvoidArea } Area where the window cannot be displayed.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 
     /**
@@ -3193,7 +3415,22 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
+    /**
+     * Set specific system bar to have visible.
+     *
+     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
+     * @param {boolean} enableAnimation - Whether using animation during this setting, using animation if true or not using animation if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise<void>;
 
     /**
      * Set the properties of system bar
@@ -3231,6 +3468,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Set the properties of system bar
+     *
+     * @param { SystemBarProperties } systemBarProperties - The properties of system bar
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties, callback: AsyncCallback<void>): void;
 
     /**
@@ -3245,6 +3495,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Set the properties of system bar
+     *
+     * @param { SystemBarProperties } systemBarProperties - The properties of system bar
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
@@ -3255,6 +3518,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 12
      */
     getWindowSystemBarProperties(): SystemBarProperties;
@@ -3328,6 +3592,17 @@ declare namespace window {
      * @since 11
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+
+    /**
+     * Get the preferred orientation config of the window
+     *
+     * @returns { Orientation } orientation - The orientation config of the window
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    getPreferredOrientation(): Orientation;
 
     /**
      * Loads content
@@ -3826,6 +4101,34 @@ declare namespace window {
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
     /**
+     * Register the callback function that has no interaction for a long time.
+     *
+     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
+     * @param { number } timeout - The timeout(in seconds) of no interaction detection.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
+
+    /**
+     * Unregister the callback function that has no interaction for a long time.
+     *
+     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    off(type: 'noInteractionDetected', callback?: Callback<void>): void;
+
+    /**
      * Register the callback of screenshot, only the focused window called back
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
@@ -4235,6 +4538,23 @@ declare namespace window {
      * @useinstead ohos.window.Window#setWindowBrightness
      */
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether the main window is topmost.
+     *
+     * @param { boolean } isTopmost - Main window is topmost if true.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    setTopmost(isTopmost: boolean): Promise<void>;
 
     /**
      * Sets the brightness of window.
@@ -6157,6 +6477,20 @@ declare namespace window {
      * @since 9
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
+
+    /**
+     * Set whether to use default density.
+     *
+     * @param { boolean } enabled - Use default density if true, or follow system density change if false
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @since 12
+     */
+    setDefaultDensityEnabled(enabled: boolean): void;
   }
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -223,6 +223,178 @@ declare enum InputType {
    * @since 11
    */
   NUMBER_DECIMAL = 12,
+}
+
+/**
+ * Declare the type of input content
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare enum ContentType {
+  /**
+   * User name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  USER_NAME = 0,
+
+  /**
+   * Password content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PASSWORD = 1,
+
+  /**
+   * New password content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  NEW_PASSWORD = 2,
+
+  /**
+   * Full street address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  FULL_STREET_ADDRESS = 3,
+
+  /**
+   * House number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  HOUSE_NUMBER = 4,
+
+  /**
+   * District address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  DISTRICT_ADDRESS = 5,
+
+  /**
+   * City address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  CITY_ADDRESS = 6,
+
+  /**
+   * Province address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PROVINCE_ADDRESS = 7,
+
+  /**
+   * Country address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  COUNTRY_ADDRESS = 8,
+
+  /**
+   * Person full name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PERSON_FULL_NAME = 9,
+
+  /**
+   * Person last name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PERSON_LAST_NAME = 10,
+
+  /**
+   * Person first name content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PERSON_FIRST_NAME = 11,
+
+  /**
+   * Phone number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PHONE_NUMBER = 12,
+
+  /**
+   * Phone country code content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  PHONE_COUNTRY_CODE = 13,
+
+  /**
+   * Full phone number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  FULL_PHONE_NUMBER = 14,
+
+  /**
+   * Email address content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  EMAIL_ADDRESS = 15,
+
+  /**
+   * Bank card number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  BANK_CARD_NUMBER = 16,
+
+  /**
+   * ID card number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  ID_CARD_NUMBER = 17
 }
 
 /**
@@ -978,6 +1150,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   type(value: InputType): TextInputAttribute;
+
+  /**
+   * Called when the content type is set.
+   *
+   * @param { ContentType } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  contentType(value: ContentType): TextInputAttribute;
 
   /**
    * Called when the color of the placeholder is set.
@@ -1950,7 +2133,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
-   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextInput
+   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

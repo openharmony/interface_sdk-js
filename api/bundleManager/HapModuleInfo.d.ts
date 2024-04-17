@@ -593,16 +593,6 @@ export interface RouterItem {
    */
   readonly name: string;
   /**
-   * Indicates the name of the module to which the current page belongs
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly pageModule: string;
-  /**
    * Indicates the file path of the current page within the module
    *
    * @type { string }

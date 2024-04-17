@@ -5478,6 +5478,15 @@ declare enum ImageSize {
    * @form
    */
   Contain,
+
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FILL = 3,
 }
 
 /**
@@ -8085,6 +8094,51 @@ declare enum FunctionKey {
    * @since 11
    */
   F12,
+    
+  /**
+   * Tab key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  TAB,
+
+  /**
+   * Up arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_UP,
+
+  /**
+   * Down arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_DOWN,
+
+  /**
+   * Left arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_LEFT,
+
+  /**
+   * Right arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_RIGHT,
 }
 
 /**
@@ -8899,6 +8953,46 @@ declare enum WordBreak {
 }
 
 /**
+ * Enum of line break strategy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LineBreakStrategy  {
+  /**
+   * By default. Display as many characters as possible on each line until no more characters
+   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  GREEDY = 0,
+
+  /**
+   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
+   * add hyphens if necessary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  HIGH_QUALITY  = 1,
+
+  /**
+   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
+   * is the same, and if necessary, we will add conjunction
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BALANCED  = 2,
+}
+
+/**
  * Enum of ellipsisMode
  *
  * @enum { number }
@@ -9245,6 +9339,34 @@ declare enum EmbeddedType {
    * @since 12
    */
   EMBEDDED_UI_EXTENSION = 0,
+}
+
+/**
+ * Marquee scrolling strategy after text update
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MarqueeUpdateStrategy  {
+  /**
+   * Reset scroll position and restart scroll.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Preserve scroll position, just change to new text
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PRESERVE_POSITION = 1
 }
 
 declare module 'borderStyle' {
