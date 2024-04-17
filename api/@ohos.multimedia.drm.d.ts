@@ -473,11 +473,11 @@ declare namespace drm {
   
 /**
    * Name and UUID of DRM plugin.
-   * @interface MediaKeySystemMapInfo
+   * @interface MediaKeySystemDescription
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 12
    */
-  interface MediaKeySystemMapInfo {
+  interface MediaKeySystemDescription {
     /**
      * Name of DRM plugin.
      * @type { string }
@@ -496,13 +496,13 @@ declare namespace drm {
 
   /**
    * Get all media key systems supported.
-   * @returns { MediaKeySystemMapInfo[] } The MediaKeySystem name and uuid info list.
+   * @returns { MediaKeySystemDescription[] } The MediaKeySystem name and uuid info list.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 12
    */
-  function getMediaKeySystems(): MediaKeySystemMapInfo[];
+  function getMediaKeySystems(): MediaKeySystemDescription[];
 
   /**
    * Creates a MediaKeySystem instance.
