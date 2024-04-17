@@ -1342,6 +1342,19 @@ declare namespace cryptoFramework {
     init(key: SymKey): Promise<void>;
 
     /**
+     * Init hmac with given SymKey.
+     *
+     * @param { SymKey } key - indicates the SymKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    initSync(key: SymKey): void;
+
+    /**
      * Update hmac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
@@ -1388,6 +1401,19 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
+     * Update hmac with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(input: DataBlob): void;
+
+    /**
      * Output the result of hmac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
@@ -1428,6 +1454,21 @@ declare namespace cryptoFramework {
      * @since 11
      */
     doFinal(): Promise<DataBlob>;
+
+    /**
+     * Output the result of hmac calculation.
+     *
+     * @returns { DataBlob } the sync returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    doFinalSync(): DataBlob;
 
     /**
      * Output the length of hmac result.
@@ -1554,6 +1595,19 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
+     * Update md with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    updateSync(input: DataBlob): void;
+
+    /**
      * Output the result of md calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the digest function.
@@ -1594,6 +1648,21 @@ declare namespace cryptoFramework {
      * @since 11
      */
     digest(): Promise<DataBlob>;
+
+    /**
+     * Output the result of md calculation.
+     *
+     * @returns { DataBlob } the sync returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    digestSync(): DataBlob;
 
     /**
      * Output the length of md result.
@@ -5226,6 +5295,22 @@ declare namespace cryptoFramework {
      * @since 11
      */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
+
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { DataBlob } the sync used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    generateSecretSync(params: KdfSpec): DataBlob;
 
     /**
      * Indicates the algorithm name of the key derivation function.
