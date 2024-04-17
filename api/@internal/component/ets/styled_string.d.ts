@@ -19,15 +19,6 @@
  */
 
 /**
- * LengthMetric.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare type LengthMetric = import("../api/arkui/Graphics").LengthMetric;
-
-/**
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -314,12 +305,12 @@ declare interface TextStyleInterface {
     /**
      * The fontSize value of the font property object.
      *
-     * @type { ?LengthMetric }
+     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    fontSize?: LengthMetric;
+    fontSize?: LengthMetrics;
 
     /**
      * The fontWeight value of the font property object.
@@ -426,12 +417,12 @@ declare class BaselineOffsetStyle {
     /**
      * constructor.
      *
-     * @param { LengthMetric } value - baseline offset value.
+     * @param { LengthMetrics } value - baseline offset value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: LengthMetric);
+    constructor(value: LengthMetrics);
 
     /**
      * Get the baselineOffset value of the StyledString.
@@ -458,12 +449,12 @@ declare class LetterSpacingStyle {
     /**
      * constructor.
      *
-     * @param { LengthMetric } value - letter space value.
+     * @param { LengthMetrics } value - letter space value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: LengthMetric);
+    constructor(value: LengthMetrics);
 
     /**
      * Get the letterSpacing value of the StyledString.
