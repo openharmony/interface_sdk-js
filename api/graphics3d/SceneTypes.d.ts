@@ -291,7 +291,7 @@ export interface Rect {
 /**
  * 3D position information.
  *
- * @typedef Position3
+ * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -300,7 +300,7 @@ export type Position3 = Vec3;
 /**
  * 3D rotation info as euler angles.
  *
- * @typedef Rotation3
+ * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -309,7 +309,7 @@ export type Rotation3 = Vec3;
 /**
  * 3D scale information.
  *
- * @typedef Scale3
+ * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */

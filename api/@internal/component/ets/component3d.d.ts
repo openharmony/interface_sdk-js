@@ -21,7 +21,7 @@
 /**
  * Provides methods for controlling the 3d scene 
  *
- * @typedef Scene
+ * @typedef { import('../api/@ohos.graphics.scene').Scene }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 
  */
