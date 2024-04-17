@@ -1651,7 +1651,7 @@ declare class On {
    *
    * @param { boolean } [b] - the clickable status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1686,7 +1686,7 @@ declare class On {
    *
    * @param { boolean } [b] - the longClickable status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1721,7 +1721,7 @@ declare class On {
    *
    * @param { boolean } [b] - the scrollable status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1756,7 +1756,7 @@ declare class On {
    *
    * @param { boolean } [b] - the enabled status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1791,7 +1791,7 @@ declare class On {
    *
    * @param { boolean } [b] - the focused status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1826,7 +1826,7 @@ declare class On {
    *
    * @param { boolean } [b] the - selected status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1861,7 +1861,7 @@ declare class On {
    *
    * @param { boolean } [b] - the checked status.Set it default false if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1896,7 +1896,7 @@ declare class On {
    *
    * @param { boolean } [b] - the checkable status.Set it default false if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -2633,7 +2633,7 @@ declare class Component {
    *
    * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2674,7 +2674,7 @@ declare class Component {
    *
    * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
