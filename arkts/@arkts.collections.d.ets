@@ -866,7 +866,7 @@ declare namespace collections {
      * Default is buffer.length
      * @returns { ArrayBuffer } A new ArrayBuffer containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
+     * @throws { BusinessError } 10200011 - The slice method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
