@@ -21,6 +21,7 @@
 /**
  * Provides methods for controlling the 3d scene 
  *
+ * @typedef Scene
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 
  */
