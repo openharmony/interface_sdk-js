@@ -1233,6 +1233,28 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Select specific track to play.
+     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @returns { Promise<void> } A Promise instance used to return when select track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    selectTrack(index: number): Promise<void>;
+
+    /**
+     * Deselect specific track to play.
+     * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
+     * @returns { Promise<void> } A Promise instance used to return when deselect track completed.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    deselectTrack(index: number): Promise<void>;
+
+    /**
      * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
      * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
      * @param { PlaybackStrategy } strategy : Play strategy of the media source.
