@@ -19,6 +19,7 @@ import {
   ErrorMessage,
 } from '../../../typedef/checker/result_type';
 import { ApiInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { Comment } from '../../../typedef/parser/Comment';
 import { CommonFunctions } from '../../../utils/checkUtils';
 const nameDictionary = require('../config/name_dictionary.json');
 const nameScenarioScope = require('../config/name_scenario_scope.json');
@@ -34,10 +35,14 @@ export class ApiNamingCheck {
       state: true,
       errorInfo: '',
     };
-    const apiVersionToBeVerified: number = CommonFunctions.getCheckApiVersion();
+    const jsDocInfo: Comment.JsDocInfo[] = singleApi.getJsDocInfos();
+    const publishVersion: string = jsDocInfo[0].getSince();
+    const apiVersionToBeVerified: string = CommonFunctions.getCheckApiVersion();
     const lowIdentifier: string = singleApi.getDefinedText().toLowerCase();
-    ApiNamingCheck.checkApiNamingWords(lowIdentifier, tagNameCheckResult);
-    ApiNamingCheck.checkApiNamingScenario(lowIdentifier, tagNameCheckResult, singleApi);
+    if (publishVersion === apiVersionToBeVerified) {
+      ApiNamingCheck.checkApiNamingWords(lowIdentifier, tagNameCheckResult);
+      ApiNamingCheck.checkApiNamingScenario(lowIdentifier, tagNameCheckResult, singleApi);
+    }
     return tagNameCheckResult;
   }
 
@@ -54,7 +59,7 @@ export class ApiNamingCheck {
         continue;
       }
       const lowercaseIgnoreWordArr: string[] = value.ignore.map((word: string) => word.toLowerCase());
-      const internalWord: string = lowIdentifier.substr(prohibitedWordIndex, key.length);
+      const internalWord: string = lowIdentifier.substring(prohibitedWordIndex, prohibitedWordIndex + key.length);
       if (lowercaseIgnoreWordArr.length === 0) {
         tagNameCheckResult.state = false;
         tagNameCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_NAMING, [
@@ -88,7 +93,7 @@ export class ApiNamingCheck {
     for (const [key, value] of lowercaseNamingScenarioMap) {
       const prohibitedWordIndex: number = lowIdentifier.indexOf(key);
       if (prohibitedWordIndex !== -1 && !ApiNamingCheck.isInAllowedFiles(value.files, singleApi.getFilePath())) {
-        const internalWord = lowIdentifier.substr(prohibitedWordIndex, key.length);
+        const internalWord = lowIdentifier.substring(prohibitedWordIndex, key.length);
         tagNameCheckResult.state = false;
         tagNameCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_SCENARIO, [
           lowIdentifier,

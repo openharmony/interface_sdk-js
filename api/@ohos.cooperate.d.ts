@@ -243,6 +243,56 @@ declare namespace cooperate {
   }
 
   /**
+   *  MouseLocation
+   *
+   * @typedef MouseLocation
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface MouseLocation {
+    /**
+     * The mouse pointer is located at the X coordinate on the screen.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    displayX: number;
+
+    /**
+     * The mouse pointer is located at the Y coordinate on the screen.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    displayY: number;
+
+    /**
+     * Screen width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    displayWidth: number;
+
+    /**
+     * Screen height.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    displayHeight: number;
+  }
+
+  /**
    * Prepares for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
@@ -593,6 +643,40 @@ declare namespace cooperate {
    * @since 11
    */
   function off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>): void;
+
+  /**
+   * Enables listening for mouse pointer position information on the specified device.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
+   * @param { string } networkId - Specified device.
+   * @param { Callback<MouseLocation> } callback - Callback for receiving reported events.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function on(type: 'cooperateMouse', networkId: string, callback: Callback<MouseLocation>): void;
+
+ /**
+   * Disables listening for mouse pointer position information on the specified device.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
+   * @param { string } networkId - Specified device.
+   * @param { Callback<MouseLocation> } [callback] - Callback for receiving reported events.
+   * If no callback is specified, listening will be disabled for all **cooperateMouse** events of the device specified by **networkId**.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Not system application.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function off(type: 'cooperateMouse', networkId: string, callback?: Callback<MouseLocation>): void;
+
 }
 
 export default cooperate;

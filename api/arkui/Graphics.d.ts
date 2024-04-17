@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
 import { BorderStyle } from 'borderStyle'
@@ -25,6 +29,15 @@ import { BorderStyle } from 'borderStyle'
  * @crossplatform
  * @since 11
  */
+/**
+ * Size info.
+ *
+ * @interface Size
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export interface Size {
   /**
    * Get the width of the Size.
@@ -33,6 +46,15 @@ export interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get the width of the Size.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   width: number;
 
@@ -44,6 +66,15 @@ export interface Size {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Get the height of the Size.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   height: number;
 }
 
@@ -53,6 +84,14 @@ export interface Size {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Defines DrawContext.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export class DrawContext {
 
@@ -64,6 +103,15 @@ export class DrawContext {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Get size of the DrawContext.
+   *
+   * @returns { Size } The size of the DrawContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   get size(): Size;
 
   /**
@@ -73,6 +121,15 @@ export class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Get canvas of the DrawContext.
+   *
+   * @returns { drawing.Canvas } The canvas of the DrawContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   get canvas(): drawing.Canvas;
 }
@@ -85,6 +142,15 @@ export class DrawContext {
   * @crossplatform
   * @since 11
   */
+ /**
+  * Defined a vector with two values.
+  *
+  * @interface Vector2
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
 interface Vector2 {
   /**
    * Value for x-axis of the vector.
@@ -93,6 +159,15 @@ interface Vector2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   x: number
 
@@ -103,6 +178,15 @@ interface Vector2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   y: number
 }
@@ -124,6 +208,15 @@ interface Vector3 {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   x: number;
 
   /**
@@ -133,6 +226,15 @@ interface Vector3 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   y: number;
 
@@ -144,6 +246,15 @@ interface Vector3 {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Value for z-axis of the vector.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   z: number;
 }
 
@@ -153,6 +264,14 @@ interface Vector3 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * It's a 4x4 matrix, represent by number[].
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export type Matrix4 = [
   number,
@@ -180,6 +299,14 @@ export type Matrix4 = [
  * @crossplatform
  * @since 11
  */
+/**
+ * Offset info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Offset = Vector2;
 
 /**
@@ -198,6 +325,14 @@ export type Position = Vector2;
  * @crossplatform
  * @since 11
  */
+/**
+ * Pivot info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Pivot = Vector2;
 
 /**
@@ -206,6 +341,14 @@ export type Pivot = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Scale info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export type Scale = Vector2;
 
@@ -216,6 +359,14 @@ export type Scale = Vector2;
  * @crossplatform
  * @since 11
  */
+/**
+ * Translation info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export type Translation = Vector2;
 
 /**
@@ -224,6 +375,14 @@ export type Translation = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ */
+/**
+ * Rotation info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 export type Rotation = Vector3;
 
@@ -235,6 +394,15 @@ export type Rotation = Vector3;
  * @crossplatform
  * @since 11
  */
+/**
+ * Frame info, include the position info and size info.
+ *
+ * @interface Frame
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 export declare interface Frame {
   /**
    * Position value for x-axis of the frame info.
@@ -243,6 +411,15 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Position value for x-axis of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   x: number;
 
@@ -254,6 +431,15 @@ export declare interface Frame {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Position value for y-axis of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   y: number;
 
   /**
@@ -264,6 +450,15 @@ export declare interface Frame {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Size value for width of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   width: number;
 
   /**
@@ -273,6 +468,15 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Size value for height of the frame info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   height: number;
 }
@@ -325,6 +529,403 @@ export interface Edges<T> {
    * @since 12
    */
   bottom: T
+}
+
+/**
+ * Defines the Length Unit.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LengthUnit {
+  /**
+   * Logical pixel used in Ace1.0. It's based on frontend design width.
+   * For example, when a frontend with 750px design width running on a
+   * device with 1080 pixels width, 1px represents 1.44 pixels.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PX = 0,
+
+  /**
+   * Density independent pixels, one vp is one pixel on a 160 dpi screen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  VP = 1,
+
+  /**
+   * Scale independent pixels. This is like VP but will be scaled by
+   * user's font size preference.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FP = 2,
+
+  /**
+   * The percentage of either a value from the element's parent or from
+   * another property of the element itself.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PERCENT = 3,
+
+  /**
+   * Logic pixels used in ACE2.0 instead of PX, and PX is the physical pixels in ACE2.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  LPX = 4,
+}
+
+/**
+ * Defines the Size property.
+ *
+ * @interface SizeT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface SizeT<T> {
+  /**
+   * Width property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width: T;
+
+  /**
+   * Height property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  height: T;
+}
+
+/**
+ * Defines the Length Metric.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class LengthMetric {
+  /**
+   * Constructor.
+   *
+   * @param { number } value - The value of length.
+   * @param { LengthUnit } unit - The length unit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(value: number, unit?:LengthUnit);
+
+  /**
+   * Init a lengthMetric with px unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit px.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static px(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with vp unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } - Returns the lengthMetric object with unit vp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static vp(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with fp unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit fp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static fp(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with percent unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit percent.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static percent(value: number): LengthMetric;
+
+  /**
+   * Init a lengthMetric with lpx unit.
+   *
+   * @param { number } value - The value of the length metric.
+   * @returns { LengthMetric } Returns the lengthMetric object with unit lpx.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static lpx(value: number): LengthMetric;
+  
+  /**
+   * The unit of the LengthMetric. The default value is VP.
+   *
+   * @type { LengthUnit }
+   * @default VP
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public unit: LengthUnit;
+
+  /**
+   * The value of the LengthMetric.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public value: number;
+}
+
+/**
+ * Defines the Length Metrics.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class LengthMetrics {
+  /**
+   * Constructor.
+   *
+   * @param { number } value - The value of length.
+   * @param { LengthUnit } [unit] - The length unit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(value: number, unit?:LengthUnit);
+
+  /**
+   * Init a lengthMetrics with px unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static px(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with vp unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static vp(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with fp unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static fp(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with percent unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static percent(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with lpx unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static lpx(value: number): LengthMetrics;
+  
+  /**
+   * The unit of the LengthMetrics. The default value is VP.
+   *
+   * @type { LengthUnit }
+   * @default VP
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public unit: LengthUnit;
+
+  /**
+   * The value of the LengthMetrics.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public value: number;
+}
+
+/**
+* Defines the ColorMetrics class.
+* 
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare class ColorMetrics {
+  /**
+  * Instantiate the ColorMetrics class using color number 
+  * 
+  * @param { number } value - color number
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static numeric(value: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using color rgb
+  * 
+  * @param { number } red - red value of rgba
+  * @param { number } green - green value of rgba
+  * @param { number } blue - blue value of rgba
+  * @param { number } alpha - opacity value of rgba
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using ResourceColor
+  * 
+  * @param { ResourceColor } color - resource color
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static resourceColor(color: ResourceColor): ColorMetrics;
+	
+  /**
+  * blend color
+  * 
+  * @param { ColorMetrics } overlayColor - overlay color
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  blendColor(overlayColor: ColorMetrics): ColorMetrics;
+	
+  /**
+  * Get color of the ColorMetrics.
+  * 
+  * @returns { string } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get color(): string;
+
+  /**
+  * Get red value of the ColorMetrics.
+  * 
+  * @returns { number } The red value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get red(): number;
+
+  /**
+  * Get green value of the ColorMetrics.
+  * 
+  * @returns { number } The green value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get green(): number;
+
+  /**
+  * Get blue value of the ColorMetrics.
+  * 
+  * @returns { number } The blue value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get blue(): number;
+
+  /**
+  * Get opacity value of the ColorMetrics.
+  * 
+  * @returns { number } The opacity value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get alpha(): number;
 }
 
 /**
@@ -565,6 +1166,7 @@ export declare class ShapeMask {
    * The fill color of the ShapeMask.
    *
    * @type { number }
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -575,6 +1177,7 @@ export declare class ShapeMask {
    * The stroke color of the ShapeMask.
    *
    * @type { number }
+   * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -585,6 +1188,7 @@ export declare class ShapeMask {
    * The stroke width of the ShapeMask.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12

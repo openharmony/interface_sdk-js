@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  *
  * @interface CalendarDay

@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace browser
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 10
  */
 declare namespace browser {
@@ -105,6 +104,40 @@ declare namespace browser {
    * @since 10
    */
   function getPolicies(admin: Want, appId: string): Promise<string>;
+
+  /**
+   * Sets the browser policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } appId - appId indicates the id of the bundle that need to set policy.
+   * @param { string } policyName - policyName indicates the browser policy name that need to set.
+   * @param { string } policyValue - policyValue indicates the browser policy value that need to set.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setPolicySync(admin: Want, appId: string, policyName: string, policyValue: string): void;
+
+  /**
+   * Gets the browser policies.
+   * This function can be called by a super administrator.
+   *
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } appId - id of the bundle that need to set policies.
+   * @returns { string } the browser policies returned by the getPolicies.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+    function getPoliciesSync(admin: Want, appId: string): string;
 }
 
 export default browser;

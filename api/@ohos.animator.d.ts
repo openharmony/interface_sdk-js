@@ -452,6 +452,7 @@ export interface AnimatorResult {
    */
   /**
    * Plays the animation in reverse direction.
+   * Invalid when using interpolating-spring curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -578,6 +579,14 @@ export interface AnimatorResult {
    * @since 12
    */
   onRepeat: () => void;
+
+  /**
+   * The expected frame rate of dynamical of rate range.
+   * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 }
 
 /**

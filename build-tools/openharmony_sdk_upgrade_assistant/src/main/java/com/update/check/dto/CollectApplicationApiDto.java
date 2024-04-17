@@ -24,7 +24,7 @@ public class CollectApplicationApiDto {
     private String packageName;
     private String typeName;
     private String propertyName;
-    private String apiRawText;
+    private String apiText;
     private String deprecated;
     private String applicationFile;
     private String pos;
@@ -64,12 +64,12 @@ public class CollectApplicationApiDto {
         this.propertyName = propertyName;
     }
 
-    public String getApiRawText() {
-        return apiRawText;
+    public String getApiText() {
+        return apiText;
     }
 
-    public void setApiRawText(String apiRawText) {
-        this.apiRawText = apiRawText;
+    public void setApiText(String apiText) {
+        this.apiText = apiText;
     }
 
     public String getDeprecated() {
@@ -118,7 +118,7 @@ public class CollectApplicationApiDto {
                 "packageName='" + packageName + '\'' +
                 ", className='" + typeName + '\'' +
                 ", methodName='" + propertyName + '\'' +
-                ", methodText='" + apiRawText + '\'' +
+                ", methodText='" + apiText + '\'' +
                 ", deprecated='" + deprecated + '\'' +
                 ", applicationFile='" + applicationFile + '\'' +
                 ", pos='" + pos + '\'' +

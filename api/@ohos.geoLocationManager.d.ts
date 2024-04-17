@@ -20,6 +20,8 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
+import { ActionButton } from './@ohos.reminderAgentManager';
+import { SlotType } from './@ohos.notificationManager';
 
 /**
  * Provides interfaces for acquiring location information, managing location switches,
@@ -70,7 +72,25 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 11
    */
-  function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
+  /**
+   * Subscribe location changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { LocationRequest | ContinuousLocationRequest } request - Indicates the location request parameters.
+   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function on(type: 'locationChange', request: LocationRequest | ContinuousLocationRequest,
+  callback: Callback<Location>): void;
 
   /**
    * Unsubscribe location changed.
@@ -104,6 +124,38 @@ declare namespace geoLocationManager {
    * @since 11
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
+
+  /**
+   * Subscribe continuous location error changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<LocationError> } callback - Indicates the callback for reporting the continuous location error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function on(type: 'locationError', callback: Callback<LocationError>): void;
+
+  /**
+   * Unsubscribe continuous location error changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationError' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<LocationError> } [callback] - Indicates the callback for reporting the continuous location error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function off(type: 'locationError', callback?: Callback<LocationError>): void;
 
   /**
    * Subscribe location switch changed.
@@ -231,11 +283,11 @@ declare namespace geoLocationManager {
   function off(type: 'nmeaMessage', callback?: Callback<string>): void;
 
   /**
-   * Add a geofence and subscribe geo fence status changed.
+   * Add a geofence and subscribe geofence status changed.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
-   * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
    * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -249,11 +301,11 @@ declare namespace geoLocationManager {
   function on(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
   /**
-   * Remove a geofence and unsubscribe geo fence status changed.
+   * Remove a geofence and unsubscribe geofence status changed.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
-   * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
    * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -328,6 +380,34 @@ declare namespace geoLocationManager {
   function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
 
   /**
+   * Subscribe location icon status changed.
+   *
+   * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<LocationIconStatus> } callback - Indicates the callback for reporting the location icon status.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 12
+   */
+  function on(type: 'locationIconStatusChange', callback: Callback<LocationIconStatus>): void;
+
+  /**
+   * Unsubscribe location icon status changed.
+   *
+   * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<LocationIconStatus> } [callback] - Indicates the callback for reporting the location icon status.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 12
+   */
+  function off(type: 'locationIconStatusChange', callback?: Callback<LocationIconStatus>): void;
+
+  /**
    * Obtain current location.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
@@ -358,7 +438,24 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 11
    */
-  function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
+  /**
+   * Obtain current location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { CurrentLocationRequest | SingleLocationRequest } request - Indicates the location request parameters.
+   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function getCurrentLocation(request: CurrentLocationRequest | SingleLocationRequest,
+  callback: AsyncCallback<Location>): void;
 
   /**
    * Obtain current location.
@@ -422,7 +519,24 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 11
    */
-  function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
+  /**
+   * Obtain current location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { CurrentLocationRequest | SingleLocationRequest } [request] - Indicates the location request parameters.
+   * @returns { Promise<Location> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  function getCurrentLocation(request?: CurrentLocationRequest | SingleLocationRequest):
+  Promise<Location>;
 
   /**
    * Obtain last known location.
@@ -831,6 +945,62 @@ declare namespace geoLocationManager {
   function getLocatingRequiredData(config: LocatingRequiredDataConfig): Promise<Array<LocatingRequiredData>>;
 
   /**
+   * Add a geofence.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { GnssGeofenceRequest } fenceRequest - Indicates the Geofence configuration parameters.
+   * @returns { Promise<number> } The promise returned by the function, for reporting the ID of geofence.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  function addGnssGeofence(fenceRequest: GnssGeofenceRequest): Promise<number>;
+
+  /**
+   * Remove a geofence.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { number } geofenceId - Indicates the ID of geofence.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301602 - Failed to delete a geofence due to an incorrect ID.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  function removeGnssGeofence(geofenceId: number): Promise<void>;
+
+  /**
+   * Obtains the coordinate system types supported by geofence.
+   *
+   * @returns { Array<CoordinateSystemType> } Return the coordinate system types supported by geofence.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  function getGeofenceSupportedCoordTypes(): Array<CoordinateSystemType>;
+
+  /**
+   * Get location icon status.
+   *
+   * @returns { LocationIconStatus } The location icon status.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 12
+   */
+  function getLocationIconStatus(): LocationIconStatus;
+
+  /**
    * Configuration parameters for simulating reverse geocoding.
    *
    * @typedef ReverseGeocodingMockInfo
@@ -951,6 +1121,24 @@ declare namespace geoLocationManager {
      * @since 9
      */
     carrierFrequencies: Array<number>;
+
+    /**
+     * Satellite constellation type array.
+     *
+     * @type { Array<SatelliteConstellationCategory> }
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    satelliteConstellation: Array<SatelliteConstellationCategory>;
+
+    /**
+     * Satellite additional information array.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    satelliteAdditionalInfo: Array<number>;
   }
 
   /**
@@ -981,7 +1169,52 @@ declare namespace geoLocationManager {
   }
 
   /**
-   * Configuring parameters in geo fence requests.
+   * Configuring parameters in GNSS geofence requests.
+   *
+   * @typedef GnssGeofenceRequest
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export interface GnssGeofenceRequest {
+    /**
+     * Circular fence information.
+     *
+     * @type { Geofence }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    geofence: Geofence;
+
+    /**
+     * Indicates geofence transition status monitored.
+     *
+     * @type { Array<GeofenceTransitionEvent> }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    monitorTransitionEvents: Array<GeofenceTransitionEvent>;
+
+    /**
+     * Indicates the geofence reminder instance to publish.
+     *
+     * @type { ?Array<FenceNotificationRequest> }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    notifications?: Array<FenceNotificationRequest>;
+
+    /**
+     * Indicates the callback for reporting the geofence transition status.
+     *
+     * @type { AsyncCallback<GeofenceTransition> }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    geofenceTransitionCallback: AsyncCallback<GeofenceTransition>;
+  }
+
+  /**
+   * Configuring parameters in geofence requests.
    *
    * @typedef GeofenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
@@ -1034,6 +1267,15 @@ declare namespace geoLocationManager {
     longitude: number;
 
     /**
+     * Coordinate system type.
+     *
+     * @type { ?CoordinateSystemType }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    coordinateSystemType?: CoordinateSystemType;
+
+    /**
      * Radius of the circular fence.
      *
      * @type { number }
@@ -1068,6 +1310,15 @@ declare namespace geoLocationManager {
      * @since 9
      */
     locale?: string;
+
+    /**
+     * Indicates the country information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    country?: string;
 
     /**
      * Latitude for reverse geocoding query.
@@ -1113,6 +1364,15 @@ declare namespace geoLocationManager {
      * @since 9
      */
     locale?: string;
+
+    /**
+     * Indicates the country information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 12
+     */
+    country?: string;
 
     /**
      * Address information.
@@ -1210,7 +1470,7 @@ declare namespace geoLocationManager {
     locale?: string;
 
     /**
-     * Indicates landmark of the location.
+     * Indicates detailed address information.
      *
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
@@ -1543,6 +1803,246 @@ declare namespace geoLocationManager {
   }
 
   /**
+   * Geofence transition status.
+   *
+   * @typedef GeofenceTransition
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export interface GeofenceTransition {
+    /**
+     * ID of the geofence.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    geofenceId: number;
+
+    /**
+     * Indicates the geofence transition status.
+     *
+     * @type { GeofenceTransitionEvent }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    transitionEvent: GeofenceTransitionEvent;
+  }
+
+  /**
+   * Geofence notification information.
+   *
+   * @interface FenceNotificationRequest
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export interface FenceNotificationRequest {
+    /**
+     * Action button displayed on the reminder notification.
+     *
+     * @type { ?[ActionButton?, ActionButton?, ActionButton?] }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    actionButton?: [ActionButton?, ActionButton?, ActionButton?];
+
+    /**
+     * Information about the ability that is redirected to when the notification is clicked.
+     *
+     * @type { ?WantAgent }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * Ringing duration.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    ringDuration?: number;
+
+    /**
+     * Number of reminder snooze times.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    snoozeTimes?: number;
+
+    /**
+     * Reminder snooze interval, in seconds.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    timeInterval?: number;
+
+    /**
+     * Geofence notification title.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    title?: string;
+
+    /**
+     * Geofence notification content.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    content?: string;
+
+    /**
+     * Content to be displayed when the reminder is expired.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    expiredContent?: string;
+
+    /**
+     * Content to be displayed when the reminder is snoozing.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    snoozeContent?: string;
+
+    /**
+     * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    notificationId?: number;
+
+    /**
+     * If the same group ID is set for reminders, these reminders are canceled together.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    groupId?: string;
+
+    /**
+     * Type of the slot used by the geofence notification.
+     *
+     * @type { ?SlotType }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    slotType?: SlotType;
+
+    /**
+     * Whether the notification is automatically cleared.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    tapDismissed?: boolean;
+
+    /**
+     * Time when the notification is automatically cleared.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    autoDeletedTime?: number;
+
+    /**
+     * Type of the snoozeSlot used by the reminder.
+     *
+     * @type { ?SlotType }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    snoozeSlotType?: SlotType;
+
+    /**
+     * The directory of storing reminder announcements.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    customRingUri?: string;
+  }
+
+  /**
+   * Configuring parameters in continuous location requests.
+   *
+   * @typedef ContinuousLocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export interface ContinuousLocationRequest {
+    /**
+     * Location report interval, in seconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    interval: number;
+
+    /**
+     * Location scenario. You can select a user activity scenario or power consumption scenario.
+     *
+     * @type { UserActivityScenario | PowerConsumptionScenario }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    locationScenario: UserActivityScenario | PowerConsumptionScenario;
+  }
+
+  /**
+   * Configuring parameters in single location requests.
+   *
+   * @typedef SingleLocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export interface SingleLocationRequest {
+    /**
+     * Priority of the location request.
+     *
+     * @type { LocatingPriority }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    locatingPriority: LocatingPriority;
+
+    /**
+     * Timeout of a single location request, in milliseconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    locatingTimeoutMs: number;
+  }
+
+  /**
    * Provides information about geographic locations.
    *
    * @typedef Location
@@ -1720,6 +2220,16 @@ declare namespace geoLocationManager {
     additions?: Array<string>;
 
     /**
+     * Indicates additional information map.
+     *
+     * @type { ?Map<string, string> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    additionsMap?: Map<string, string>;
+
+    /**
      * Indicates the amount of additional descriptive information.
      *
      * @type { ?number }
@@ -1754,6 +2264,56 @@ declare namespace geoLocationManager {
      * @since 11
      */
     isFromMock?: Boolean;
+
+    /**
+     * Indicates vertical position accuracy in meters.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    altitudeAccuracy: number;
+
+    /**
+     * Indicates speed accuracy in meter per seconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    speedAccuracy: number;
+
+    /**
+     * Indicates direction accuracy in degrees.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    directionAccuracy: number;
+
+    /**
+     * Time uncertainty Of timeSinceBoot in nanosecond.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    uncertaintyOfTimeSinceBoot: number;
+
+    /**
+     * Indicates the source of the location.
+     *
+     * @type { LocationSourceType }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    sourceType: LocationSourceType;
   }
 
   /**
@@ -1946,6 +2506,398 @@ declare namespace geoLocationManager {
   }
 
   /**
+   * Enum for the source of the location.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum LocationSourceType {
+    /**
+     * The location is obtained from the GNSS.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    GNSS = 1,
+
+    /**
+     * The location comes from the network positioning technology.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    NETWORK = 2,
+
+    /**
+     * The location comes from the indoor positioning technology.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    INDOOR = 3,
+
+    /**
+     * The location comes from the GNSS RTK technology.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    RTK = 4
+  }
+
+  /**
+   * Enum for coordinate system type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export enum CoordinateSystemType {
+    /**
+     * WGS84 coordinates system.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    WGS84 = 1,
+
+    /**
+     * GCJ-02 coordinates system.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GCJ02 = 2
+  }
+
+  /**
+   * Enum for location icon status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 12
+   */
+  export enum LocationIconStatus {
+    /**
+     * The locating service is not started.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 12
+     */
+    LOCATING_NOT_STARTED = 0,
+
+    /**
+     * The normal locating service is started.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 12
+     */
+    LOCATING_STARTED = 1,
+
+    /**
+     * The HD locating service(RTK) is started.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 12
+     */
+    HD_LOCATING_STARTED = 2
+  }
+
+  /**
+   * Enum for location error code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum LocationError {
+    /**
+     * Default cause for location failure.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOCATING_FAILED_DEFAULT = -1,
+
+    /**
+     * Locating failed because the location permission fails to be verified.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOCATING_FAILED_LOCATION_PERMISSION_DENIED = -2,
+
+    /**
+     * Locating failed because the app is in the background and the background location permission verification failed.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOCATING_FAILED_BACKGROUND_PERMISSION_DENIED = -3,
+
+    /**
+     * Locating failed because the location switch is turned off.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOCATING_FAILED_LOCATION_SWITCH_OFF = -4,
+
+    /**
+     * Locating failed because internet access failure.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOCATING_FAILED_INTERNET_ACCESS_FAILURE = -5
+  }
+
+  /**
+   * Enum for geofence transition status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 12
+   */
+  export enum GeofenceTransitionEvent {
+    /**
+     * The device is within the geofence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GEOFENCE_TRANSITION_EVENT_ENTER = 1,
+
+    /**
+     * The device is out of the geofence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GEOFENCE_TRANSITION_EVENT_EXIT = 2,
+
+    /**
+     * The device is in the geographical fence for a period of time.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 12
+     */
+    GEOFENCE_TRANSITION_EVENT_DWELL = 4
+  }
+
+  /**
+   * Enum for satellite constellation category.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @since 12
+   */
+  export enum SatelliteConstellationCategory {
+    /**
+     * Invalid value.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_UNKNOWN = 0,
+
+    /**
+     * GPS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_GPS = 1,
+
+    /**
+     * SBAS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_SBAS = 2,
+
+    /**
+     * GLONASS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_GLONASS = 3,
+
+    /**
+     * QZSS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_QZSS = 4,
+
+    /**
+     * BEIDOU.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_BEIDOU = 5,
+
+    /**
+     * GALILEO.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_GALILEO = 6,
+
+    /**
+     * IRNSS.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    CONSTELLATION_CATEGORY_IRNSS = 7
+  }
+
+  /**
+   * Enum for satellite additional information.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @since 12
+   */
+  export enum SatelliteAdditionalInfo {
+    /**
+     * Default value.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_NULL = 0,
+
+    /**
+     * Ephemeris data exist.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_EPHEMERIS_DATA_EXIST = 1,
+
+    /**
+     * Almanac data exist.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_ALMANAC_DATA_EXIST = 2,
+
+    /**
+     * This satellite is being used in location fix.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_USED_IN_FIX = 4,
+
+    /**
+     * Carrier frequency exist.
+     *
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 12
+     */
+    SATELLITES_ADDITIONAL_INFO_CARRIER_FREQUENCY_EXIST = 8
+  }
+
+  /**
+   * Enum for user activity scenario.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum UserActivityScenario {
+    /**
+     * Navigation scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    NAVIGATION = 0x401,
+
+    /**
+     * Sport scenario. High positioning precision is required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    SPORT = 0x402,
+
+    /**
+     * Transport scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    TRANSPORT = 0x403,
+
+    /**
+     * Daily life scenarios. Low requirements on positioning precision.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    DAILY_LIFE_SERVICE = 0x404
+  }
+
+  /**
+   * Enum for locating priority.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum LocatingPriority {
+    /**
+     * Preferentially ensure the highest locating accuracy.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    PRIORITY_ACCURACY = 0x501,
+
+    /**
+     * Preferentially ensure the fastest locating speed.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    PRIORITY_LOCATING_SPEED = 0x502
+  }
+
+  /**
    * Enum for location priority.
    *
    * @enum { number }
@@ -2127,6 +3079,43 @@ declare namespace geoLocationManager {
      * @since 11
      */
     NO_POWER
+  }
+
+  /**
+   * Enum for power consumption scenario.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 12
+   */
+  export enum PowerConsumptionScenario {
+    /**
+     * High power consumption mode.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    HIGH_POWER_CONSUMPTION = 0x601,
+
+    /**
+     * Low power consumption mode.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOW_POWER_CONSUMPTION = 0x602,
+
+    /**
+     * Power saving scenarios.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 12
+     */
+    NO_POWER_CONSUMPTION = 0x603
   }
 
   /**

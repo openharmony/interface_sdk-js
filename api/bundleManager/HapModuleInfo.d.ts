@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AbilityInfo } from './AbilityInfo';
 import { ExtensionAbilityInfo } from './ExtensionAbilityInfo';
 import { Metadata } from './Metadata';
@@ -587,16 +592,6 @@ export interface RouterItem {
    * @since 12
    */
   readonly name: string;
-  /**
-   * Indicates the name of the module to which the current page belongs
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly pageModule: string;
   /**
    * Indicates the file path of the current page within the module
    *

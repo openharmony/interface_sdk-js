@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -411,7 +411,7 @@ declare namespace abilityManager {
    * Querying whether to allow embedded startup of atomic service.
    *
    * @param { Context } context - The context that initiates the query request.
-   * @param { string } appId - The ID of the application to which this bundle belongs.
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @returns { Promise<boolean> } Returns the result in the form of callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -426,8 +426,8 @@ declare namespace abilityManager {
    * Notifies the application of the assertion debugging result.
    *
    * @permission ohos.permission.NOTIFY_DEBUG_ASSERT_RESULT
-   * @param { sessionId } string - Indicates the request ID of AssertFault.
-   * @param { status } UserStatus - Operation status of the user.
+   * @param { string } sessionId - Indicates the request ID of AssertFault.
+   * @param { UserStatus } status - Operation status of the user.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not system application.

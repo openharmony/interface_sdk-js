@@ -52,7 +52,7 @@ function getMdFiles(url, isTestCase) {
     if (!pathElements.has('build-tools') || isTestCase) {
       mdFiles.push(filePath);
     }
-  })
+  });
   return mdFiles;
 }
 

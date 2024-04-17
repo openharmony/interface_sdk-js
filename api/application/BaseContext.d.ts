@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The base context of 'app.Context' for FA Mode or
  * 'application.Context' for Stage Mode.
  *

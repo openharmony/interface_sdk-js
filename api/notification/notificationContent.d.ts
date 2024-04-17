@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Some notification types and content
+ * @kit NotificationKit
+ */
+
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import type notificationManager from '../@ohos.notificationManager';

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,7 +17,6 @@
  * @file
  * @kit DeviceCertificateKit
  */
-
 import type { AsyncCallback } from './@ohos.base';
 import cryptoFramework from './@ohos.security.cryptoFramework';
 
@@ -1217,6 +1216,84 @@ declare namespace cert {
      * @since 11
      */
     match(param: X509CertMatchParameters): boolean;
+
+    /**
+     * Obtain CRL distribution points.
+     *
+     * @returns { DataArray } X509 cert CRL distribution points.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getCRLDistributionPoint(): DataArray;
+
+    /**
+     * Get X500 distinguished name of the issuer.
+     *
+     * @returns { X500DistinguishedName } X500 distinguished name object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getIssuerX500DistinguishedName(): X500DistinguishedName;
+
+    /**
+     * Get X500 distinguished name of the subject.
+     *
+     * @returns { X500DistinguishedName } X500 distinguished name object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getSubjectX500DistinguishedName(): X500DistinguishedName;
+
+    /**
+     * Get the string type data of the object.
+     *
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    toString(): string;
+
+    /**
+     * Get the hash value of DER format data.
+     *
+     * @returns { Uint8Array } the hash value of DER format data.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    hashCode(): Uint8Array;
+
+    /**
+     * Get the extension der encoding data for the corresponding entity.
+     *
+     * @returns { CertExtension } the certExtension object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getExtensionsObject(): CertExtension;
   }
 
   /**
@@ -1396,7 +1473,7 @@ declare namespace cert {
     checkCA(): number;
 
     /**
-     * Check If exists Unsupported critical extension.
+     * Check if exists Unsupported critical extension.
      *
      * @returns { boolean } true - exists unsupported critical extension, false - else.
      * @throws { BusinessError } 19020001 - memory error.
@@ -1634,7 +1711,7 @@ declare namespace cert {
     getExtensions(): DataBlob;
 
     /**
-     * Check If CRL Entry has extension .
+     * Check if CRL Entry has extension .
      *
      * @returns { boolean } true - CRL Entry has extension,  false - else.
      * @throws { BusinessError } 19020001 - memory error.
@@ -1645,6 +1722,58 @@ declare namespace cert {
      * @since 11
      */
     hasExtensions(): boolean;
+
+    /**
+     *  Get X500 distinguished name of the issuer.
+     *
+     * @returns { X500DistinguishedName } X500 distinguished name object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getCertIssuerX500DistinguishedName(): X500DistinguishedName;
+
+    /**
+     *  Get the string type data of the object.
+     *
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    toString(): string;
+
+    /**
+     *  Get the hash value of DER format data.
+     *
+     * @returns { Uint8Array } the hash value of DER format data.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    hashCode(): Uint8Array;
+
+    /**
+     *  Get the extension der encoding data for the corresponding entity.
+     *
+     * @returns { CertExtension } the certExtension object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getExtensionsObject(): CertExtension;
   }
 
   /**
@@ -2234,6 +2363,58 @@ declare namespace cert {
      * @since 11
      */
     match(param: X509CRLMatchParameters): boolean;
+
+    /**
+     * Get X500 distinguished name of the issuer.
+     *
+     * @returns { X500DistinguishedName } X500 distinguished name object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getIssuerX500DistinguishedName(): X500DistinguishedName;
+
+    /**
+     * Get the string type data of the object.
+     *
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    toString(): string;
+
+    /**
+     * Get the hash value of DER format data.
+     *
+     * @returns { Uint8Array } the hash value of DER format data.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    hashCode(): Uint8Array;
+
+    /**
+     * Get the extension der encoding data for the corresponding entity.
+     *
+     * @returns { CertExtension } the certExtension object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getExtensionsObject(): CertExtension;
   }
 
   /**
@@ -2410,6 +2591,127 @@ declare namespace cert {
   function createCertChainValidator(algorithm: string): CertChainValidator;
 
   /**
+   * Enum for general name use type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  enum GeneralNameType {
+    /**
+     * Indicates the name used for other.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_OTHER_NAME = 0,
+
+    /**
+     * Indicates the name used for RFC822.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_RFC822_NAME = 1,
+
+    /**
+     * Indicates the name used for DNS.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_DNS_NAME = 2,
+
+    /**
+     * Indicates the name used for X.400 address.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_X400_ADDRESS = 3,
+
+    /**
+     * Indicates the name used for X.500 directory.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_DIRECTORY_NAME = 4,
+
+    /**
+     * Indicates the name used for EDI.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_EDI_PARTY_NAME = 5,
+
+    /**
+     * Indicates the name used for URI.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_UNIFORM_RESOURCE_ID = 6,
+
+    /**
+     * Indicates the name used for IP address.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_IP_ADDRESS = 7,
+
+    /**
+     * Indicates the name used for registered ID.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    GENERAL_NAME_TYPE_REGISTERED_ID = 8
+  }
+
+  /**
+   * GeneralName object
+   *
+   * @typedef GeneralName
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface GeneralName {
+    /**
+     * The general name type.
+     *
+     * @type { GeneralNameType }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    type: GeneralNameType;
+
+    /**
+     * The general name in DER format
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    name?: Uint8Array;
+  }
+
+  /**
    * X509 Cert match parameters
    *
    * @typedef X509CertMatchParameters
@@ -2418,6 +2720,59 @@ declare namespace cert {
    * @since 11
    */
   interface X509CertMatchParameters {
+    /**
+     * To match SubjectAlternativeNames of cert extensions:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match after [matchAllSubjectAltNames]
+     *
+     * @type { ?Array<GeneralName> } SubjectAlternativeNames is in DER encoding format
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    subjectAlternativeNames?: Array<GeneralName>;
+
+    /**
+     * Indicate if match all subject alternate name:
+     * [Rule]
+     * true : match if [subjectAlternativeNames] is equal with all of [SubjectAlternativeNames of cert extensions]
+     * false : match if [subjectAlternativeNames] is only equal with one of [SubjectAlternativeNames of cert extensions]
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    matchAllSubjectAltNames?: boolean;
+
+    /**
+     * To match AuthorityKeyIdentifier of cert extensions in DER encoding:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match if it is equal with [AuthorityKeyIdentifier of cert extensions] in DER encoding
+     *
+     * @type { ?Uint8Array } the key identifier
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    authorityKeyIdentifier?: Uint8Array;
+
+    /**
+     * To match BaseConstraints.pathLenConstraint of cert extensions:
+     * [Rule]
+     * >=0 : The certificate must contain BaseConstraints extension, and the cA field in the extension takes.
+     * -2 : The cA field in the BaseConstraints extension of the certificate must be set to false or the certificate does not contain BaseConstraints extension.
+     * other : Do not match.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    minPathLenConstraint?: number;
+
     /**
      * To match X509Cert:
      * [Rule]
@@ -2458,7 +2813,63 @@ declare namespace cert {
     issuer?: Uint8Array;
 
     /**
-     * To match the KeyUsage of cert extensions: :
+     * To match the ExtendedKeyUsage of cert extensions:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [ExtendedKeyUsage of cert extensions] is null, or
+     *    [ExtendedKeyUsage of cert extensions] include [extendedKeyUsage].
+     *
+     * @type { ?Array<string> } array of oIDs.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    extendedKeyUsage?: Array<string>;
+
+    /**
+     * The X509Certificate must have subject and subject alternative names that meet the specified name constraints:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [NameConstraints of cert extensions] is null, or
+     *    [NameConstraints of cert extensions] include [nameConstraints].
+     *
+     * @type { ?Uint8Array } ASN.1 DER encoded form of nameConstraints
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    nameConstraints?: Uint8Array;
+
+    /**
+     * The X509Certificate must have subject and subject alternative names that meet the specified name constraints:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [Certificate Policies of cert extensions] is null, or
+     *    [Certificate Policies of cert extensions] include [certPolicy].
+     *
+     * @type { ?Array<string> } array of oIDs.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    certPolicy?: Array<string>;
+
+    /**
+     * The specified date must fall within the private key validity period for the X509Certificate:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if [Private Key Valid Period of cert extensions] is null, or
+     *    [privateKeyValid] fall in [Private Key Valid Period of cert extensions].
+     *
+     * @type { ?string } format is YYMMDDHHMMSSZ or YYYYMMDDHHMMSSZ
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    privateKeyValid?: string;
+
+    /**
+     * To match the KeyUsage of cert extensions:
      * [Rule]
      * null : Do not match.
      * NOT null : match ok if [KeyUsage of cert extensions] is null, or
@@ -2496,6 +2907,19 @@ declare namespace cert {
      * @since 11
      */
     subject?: Uint8Array;
+
+    /**
+     * The specified value must match the Subject Key Identifier extension for the X509Certificate:
+     * [Rule]
+     * null : Do not match.
+     * NOT null : match ok if it is equal with [Subject Key Identifier of cert extensions].
+     *
+     * @type { ?Uint8Array } subjectKeyIdentifier in DER encoding format ??
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    subjectKeyIdentifier?: Uint8Array;
 
     /**
      * The specified value must match the publicKey for the X509Certificate:
@@ -2558,6 +2982,45 @@ declare namespace cert {
      * @since 11
      */
     x509Cert?: X509Cert;
+
+    /**
+     * To match updateDateTime of CRL:
+     * [Rule]
+     * null : Do not verify.
+     * NOT null : verify if [thisUpdate in CRL] <= updateDateTime <= [nextUpdate in CRL]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    updateDateTime?: string;
+
+    /**
+     * To match the maximum of CRL number extension:
+     * [Rule]
+     * null : Do not verify.
+     * NOT null : verify if [CRL number extension] <= maxCRL.
+     *
+     * @type { ?bigint }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    maxCRL?: bigint;
+
+    /**
+     * To match the minimum of CRL number extension:
+     * [Rule]
+     * null : Do not verify.
+     * NOT null : verify if [CRL number extension] >= minCRL.
+     *
+     * @type { ?bigint }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    minCRL?: bigint;
   }
 
   /**
@@ -2703,6 +3166,32 @@ declare namespace cert {
      * @since 11
      */
     validate(param: CertChainValidationParameters, callback: AsyncCallback<CertChainValidationResult>): void;
+
+    /**
+     * Get the string type data of the object.
+     *
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    toString(): string;
+
+    /**
+     * Get the hash value of DER format data.
+     *
+     * @returns { Uint8Array } the hash value of DER format data.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    hashCode(): Uint8Array;
   }
 
   /**
@@ -2750,6 +3239,142 @@ declare namespace cert {
   function createX509CertChain(certs: Array<X509Cert>): X509CertChain;
 
   /**
+   * Create and validate a certificate chain with the build parameters.
+   *
+   * @param { CertChainBuildParameters } param - indicate the certificate chain build parameters.
+   * @returns { Promise<CertChainBuildResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - the certificate has expired.
+   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
+
+  /**
+   * Get trust anchor array from specified P12.
+   *
+   * @param { Uint8Array } keystore - the file path of the P12.
+   * @param { string } pwd - the password of the P12.
+   * @returns { Promise<Array<X509TrustAnchor>> } the promise returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - the certificate has expired.
+   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  function createTrustAnchorsWithKeyStore(keystore: Uint8Array, pwd: string): Promise<Array<X509TrustAnchor>>;
+
+  /**
+   * Create X500DistinguishedName object with the name in string format.
+   *
+   * @param { string } nameStr - the string format of the Name type defined by X509.
+   * @returns { Promise<X500DistinguishedName> } the promise returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - the certificate has expired.
+   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  function createX500DistinguishedName(nameStr: string): Promise<X500DistinguishedName>;
+
+  /**
+   * Create X500DistinguishedName object with the name in DER format.
+   *
+   * @param { Uint8Array } nameDer - the DER format of the Name type defined by X509.
+   * @returns { Promise<X500DistinguishedName> } the promise returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - the certificate has expired.
+   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - the key cannot be used for digital signature.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  function createX500DistinguishedName(nameDer: Uint8Array): Promise<X500DistinguishedName>;
+
+  /**
+   * Provides the x500 distinguished name type.
+   *
+   * @typedef X500DistinguishedName
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface X500DistinguishedName {
+    /**
+     * Get distinguished name string.
+     *
+     * @returns { string } distinguished name string.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getName(): string;
+
+    /**
+     * Get distinguished name string by type.
+     *
+     * @param { string } type - the specified type name.
+     * @returns { Array<string> } distinguished name string.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getName(type: string): Array<string>;
+
+    /**
+     * Get distinguished name in der coding format.
+     *
+     * @returns { EncodingBlob } distinguished name encoded data.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    getEncoded(): EncodingBlob;
+  }
+
+  /**
    * Provides the x509 trust anchor type.
    *
    * @typedef X509TrustAnchor
@@ -2787,6 +3412,255 @@ declare namespace cert {
      * @since 11
      */
     CASubject?: Uint8Array;
+
+    /**
+     * The name constraints in DER format.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    nameConstraints?: Uint8Array;
+  }
+
+  /**
+   * Enum for revocation check option.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  enum RevocationCheckOptions {
+    /**
+     * Indicates priority to use OCSP for verification.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    REVOCATION_CHECK_OPTION_PREFER_OCSP = 0,
+
+    /**
+     * Indicates support for verifying revocation status by accessing the network to obtain CRL or OCSP responses.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    REVOCATION_CHECK_OPTION_ACCESS_NETWORK,
+
+    /**
+     * Indicates when the 'REVOCATION_CHECK_OPTION_ACCESS_NETWORK' option is turned on, it is effective.
+     * If the preferred verification method is unable to verify the certificate status due to network reasons,
+     * an alternative solution will be used for verification.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    REVOCATION_CHECK_OPTION_FALLBACK_NO_PREFER,
+
+    /**
+     * Indicates when the 'REVOCATION_CHECK_OPTION_ACCESS_NETWORK' option is turned on, it is effective.
+     * If both the CRL and OCSP responses obtained online cannot verify the certificate status due to network reasons,
+     * the locally set CRL and OCSP responses will be used for verification.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    REVOCATION_CHECK_OPTION_FALLBACK_LOCAL
+  }
+
+  /**
+   * Enum for validation policy type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  enum ValidationPolicyType {
+    /**
+     * Indicates not need to verify the sslHostname field in the certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    VALIDATION_POLICY_TYPE_X509 = 0,
+
+    /**
+     * Indicates need to verify the sslHostname field in the certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    VALIDATION_POLICY_TYPE_SSL
+  }
+
+  /**
+   * Enum for validation keyusage type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  enum KeyUsageType {
+    /**
+     * Indicates the certificate public key can be used for digital signature operations.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_DIGITAL_SIGNATURE = 0,
+
+    /**
+     * Indicates certificate public key can be used for non repudiation operations, preventing the signer from denying their signature.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_NON_REPUDIATION,
+
+    /**
+     * Indicates certificate public key can be used for key encryption operations, for encrypting symmetric keys, etc.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_KEY_ENCIPHERMENT,
+
+    /**
+     * Indicates certificate public key can be used for data encryption operations, to encrypt data.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_DATA_ENCIPHERMENT,
+
+    /**
+     * Indicates certificate public key can be used for key negotiation operations, to negotiate shared keys.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_KEY_AGREEMENT,
+
+    /**
+     * Indicates certificate public key can be used for certificate signing operations.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_KEY_CERT_SIGN,
+
+    /**
+     * Indicates certificate public key can be used for signing operations on certificate revocation lists (CRLs).
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_CRL_SIGN,
+
+    /**
+     * Indicates the key can only be used for encryption operations and cannot be used for decryption operations.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_ENCIPHER_ONLY,
+
+    /**
+     * Indicates the key can only be used for decryption operations and cannot be used for encryption operations.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    KEYUSAGE_DECIPHER_ONLY
+  }
+
+  /**
+   * Provides the certificate chain validate revocation parameters.
+   *
+   * @typedef RevocationCheckParameter
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface RevocationCheckParameter {
+    /**
+     * The additional field for sending OCSP requests.
+     *
+     * @type { ?Array<Uint8Array> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    ocspRequestExtension?: Array<Uint8Array>;
+
+    /**
+     * The server URL address for sending requests to OCSP.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    ocspResponderURI?: string;
+
+    /**
+     * The signing certificate for verifying OCSP response signatures.
+     *
+     * @type { ?X509Cert }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    ocspResponderCert?: X509Cert;
+
+    /**
+     * The OCSP response message returned by an OCSP server.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    ocspResponses?: Uint8Array;
+
+    /**
+     * The URL address for downloading the CRL list.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    crlDownloadURI?: string;
+
+    /**
+     * The certificate revocation status verification option.
+     *
+     * @type { ?Array<RevocationCheckOptions> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    options?: Array<RevocationCheckOptions>;
   }
 
   /**
@@ -2827,6 +3701,46 @@ declare namespace cert {
      * @since 11
      */
     certCRLs?: Array<CertCRLCollection>;
+
+    /**
+     * The revocation parameters to verify the certificate chain revocation status.
+     *
+     * @type { ?RevocationCheckParameter }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    revocationCheckParam?: RevocationCheckParameter;
+
+    /**
+     * The policy to verify the certificate chain validity.
+     *
+     * @type { ?ValidationPolicyType }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    policy?: ValidationPolicyType;
+
+    /**
+     * The sslHostname to verify the certificate chain validity.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    sslHostname?: string;
+
+    /**
+     * The keyUsage to verify the certificate chain validity.
+     *
+     * @type { ?Array<KeyUsageType> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    keyUsage?: Array<KeyUsageType>;
   }
 
   /**
@@ -2859,6 +3773,78 @@ declare namespace cert {
      * @since 11
      */
     readonly entityCert: X509Cert;
+  }
+
+  /**
+   * Provides the certificate chain build parameters type.
+   *
+   * @typedef CertChainBuildParameters
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface CertChainBuildParameters {
+    /**
+     * The certificate match parameters to selects certificate from the certificate collection.
+     *
+     * @type { X509CertMatchParameters }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    certMatchParameters: X509CertMatchParameters;
+
+    /**
+     * The maximum length of the certificate chain to be built.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    maxLength?: number;
+
+    /**
+     * The CertChain validation parameters.
+     *
+     * @type { CertChainValidationParameters }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    validationParameters: CertChainValidationParameters;
+  }
+
+  /**
+   * Certification chain build result.
+   *
+   * @typedef CertChainBuildResult
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @since 12
+   */
+  interface CertChainBuildResult {
+    /**
+     * The certificate chain of build result.
+     *
+     * @type { X509CertChain }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    readonly certChain: X509CertChain;
+
+    /**
+     * The certificate chain validation result.
+     *
+     * @type { CertChainValidationResult }
+     * @readonly
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @since 12
+     */
+    readonly validationResult: CertChainValidationResult;
   }
 }
 

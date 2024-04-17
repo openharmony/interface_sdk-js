@@ -18,6 +18,8 @@ adts
 advertisements
 affinities
 agrees
+aiding
+aifc
 alerting
 algrithom
 aligns
@@ -61,12 +63,15 @@ attribs
 audios
 authenticates
 authinfo
+authmode
 autocorrect
+autosizing
 averr
 avoidareachange
 avrcp
 avsession
 backgrounding
+backpress
 backs
 base64
 bassboost
@@ -113,12 +118,16 @@ ccm
 cdma
 ce
 certsign
+cfa
+cfb
 cft
 channeldown
 channelup
 checkboxgroup
+checksum
 chload
 chromaticities
+chromaticity
 chrominance
 circled
 clamped
@@ -194,6 +203,8 @@ deregisters
 deselected
 designative
 desynchronized
+detaches
+detaching
 detents
 developtools
 devicemanager
@@ -201,6 +212,8 @@ dfactor
 dfx
 dialling
 differed
+digidesign
+digitized
 dimbehind
 dirent
 dirxml
@@ -217,10 +230,13 @@ dismissal
 dismissing
 dispatches
 displacement
+dlna
 dlp
 dnd
+dng
 dnses
 donot
+dop
 downlink
 downmix
 dpad
@@ -241,7 +257,9 @@ ebu
 ece
 edr
 efuse
+efx
 egid
+enhancing
 ehrpd
 ejectclosecd
 emption
@@ -283,12 +301,14 @@ fileio
 fileshare
 fillets
 flac
+flashpix
 flg
 flushes
 foiling
 foldable
 foregrounding
 formatable
+formulat
 forwardmail
 freesize
 fstat
@@ -305,6 +325,7 @@ glasses
 gnss
 goaway
 graphicseditor
+granting
 greate
 gtc
 hailing
@@ -322,6 +343,7 @@ haptic
 haptics
 hce
 hdcp
+hdoc
 headed
 headersreceive
 headphones
@@ -339,6 +361,7 @@ hidebug
 hierarchically
 hifi
 hilog
+hinote
 hisysevent
 hitrace
 hiview
@@ -403,6 +426,7 @@ issuers
 ivi
 iwlan
 jank
+jfx
 jis
 judged
 kaihong
@@ -432,6 +456,7 @@ lchown
 lclampf
 ldpi
 lenum
+leye
 lfloat
 libraryname
 lifted
@@ -519,6 +544,9 @@ nmea
 nnrt
 nopadding
 mori
+nodownload
+nofullscreen
+noremoteplayback
 normalizer
 notifies
 notifying
@@ -541,7 +569,10 @@ onmessageerror
 onrepeat
 oob
 oobinline
+opendocument
+openexr
 openharmony
+opentype
 oper
 operated
 operatorconfigs
@@ -549,10 +580,13 @@ opkey
 opl
 opname
 option
+opto
 originating
 osd
+ota
 ott
 ounted
+outlines
 overheated
 overlimit
 overline
@@ -560,6 +594,7 @@ owningproperties
 ows
 oximeter
 p2p
+paddings
 paginated
 paramcheck
 parameterf
@@ -581,8 +616,11 @@ persistently
 perso
 personalisation
 pertaining
+pfa
+pfb
 pgo
 photographing
+phonemes
 phy
 pickers
 pixelmap
@@ -607,6 +645,7 @@ preconnectable
 preconnecting
 preempted
 preferentially
+prefetched
 preinstalled
 prelaunch
 preloads
@@ -615,6 +654,7 @@ premultiplied
 premultiply
 prepares
 preresolve
+presentationml
 presently
 presistent
 prevgroup
@@ -678,6 +718,7 @@ retried
 revocation
 revoked
 rewinding
+reye
 rfcomm
 rfid
 rfkill
@@ -703,6 +744,7 @@ scdma
 scene
 sco
 scrambling
+screencapture
 screenlock
 screenoff
 screensaver
@@ -712,6 +754,7 @@ sdpi
 searchsetter
 sece
 secinfo
+securityguard
 seeked
 semicircles
 sendable
@@ -719,7 +762,9 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+seventh
 sfactor
+sgi
 sha1
 shadertype
 sharedarraybuffer
@@ -757,6 +802,7 @@ spellcheck
 spn
 spooler
 spp
+spreadsheetml
 spry
 spy
 srgb
@@ -767,6 +813,7 @@ stopcd
 storei
 storge
 stroked
+stuffit
 subassembies
 subassemblies
 subcomponents
@@ -778,6 +825,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subsec
 substate
 subtitles
 subtypes
@@ -818,6 +866,7 @@ textarget
 textblob
 textclock
 texttimer
+tga
 thirdparty
 throttled
 timeinterfaceimpl
@@ -855,7 +904,9 @@ unapply
 unassigned
 unauth
 unbinding
+unblock
 unblocking
+unbond
 uncalibrated
 uncategorized
 uncatergorized
@@ -890,9 +941,11 @@ unmarshalling
 unmountable
 unmounted
 unmute
+unmuted
 unmutes
 unobserve
 unperceivable
+unpremultiplied
 unpressed
 unregistered
 unregistering
@@ -955,6 +1008,7 @@ wma
 wmp
 wmv
 wmx
+wordprocessingml
 wordprocessor
 workscheduler
 woy
@@ -965,6 +1019,7 @@ wvx
 wwan
 x25519
 x509
+xbitmap
 xcomponent
 xfer
 xldpi
@@ -979,6 +1034,8 @@ zfail
 zoffset
 zoomin
 zoomout
+asr
+aec
 zoomreset
 zooms
 zpass
@@ -998,3 +1055,8 @@ beidou
 qzss
 glonass
 sbas
+uncertainty
+geofences
+gbk
+ocsp
+encipherment

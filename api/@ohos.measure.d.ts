@@ -170,6 +170,15 @@ export interface MeasureOptions {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   textIndent?: number | string;
 
   /**
@@ -179,6 +188,15 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   wordBreak?: WordBreak;
 }

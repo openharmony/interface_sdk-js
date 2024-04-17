@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides the interface for the marquee attributes.
  *
  * @interface MarqueeInterface
@@ -323,6 +328,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @form
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
+
+  /**
+   * Marquee scrolling strategy after text update.
+   *
+   * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.
+   * @returns { MarqueeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  marqueeUpdateStrategy(value: MarqueeUpdateStrategy): MarqueeAttribute;
 
   /**
    * Called when scrolling starts.

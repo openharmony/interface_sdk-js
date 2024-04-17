@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
+ * @kit NotificationKit
+ */
+
 import { NotificationRequest } from './notificationRequest';
 import { NotificationSortingMap } from './notificationSortingMap';
 import notification from '../@ohos.notification';
