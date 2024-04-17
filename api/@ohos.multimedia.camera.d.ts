@@ -3743,14 +3743,14 @@ declare namespace camera {
   }
 
   /**
-   * ManualExposure object.
+   * ManualExposure Query object.
    *
-   * @interface ManualExposure
+   * @interface ManualExposureQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since 12
    */
-  interface ManualExposure {
+  interface ManualExposureQuery {
     /**
      * Gets the supported manual exposure range.
      *
@@ -3763,17 +3763,28 @@ declare namespace camera {
      */
     /**
      * Gets the supported manual exposure range.
+     * Move to ManualExposureQuery from ManualExposure since 12.
      *
      * @returns { Array<number> } The array of manual exposure range.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
     getSupportedExposureRange(): Array<number>;
+  }
 
+  /**
+   * ManualExposure object.
+   *
+   * @interface ManualExposure
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 11
+   */
+  interface ManualExposure extends ManualExposureQuery {
     /**
      * Gets current exposure value.
      *
