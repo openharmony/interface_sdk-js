@@ -8160,38 +8160,21 @@ declare enum FunctionKey {
  */
 declare enum ImageSpanAlignment {
   /**
-   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  TOP = 1,
-
-  /**
-   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  CENTER = 2,
+  BASELINE,
 
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
@@ -8208,24 +8191,41 @@ declare enum ImageSpanAlignment {
    * @atomicservice
    * @since 11
    */
-  BOTTOM = 3,
+  BOTTOM,
 
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  BASELINE = 4,
+  CENTER,
+
+  /**
+   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  TOP,
 }
 
 /**

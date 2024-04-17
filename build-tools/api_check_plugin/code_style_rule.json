@@ -356,7 +356,8 @@
       "SystemCapability.Multimedia.Drm.Core",
       "SystemCapability.Graphics.Drawing",
       "SystemCapability.ResourceSchedule.SystemLoad",
-      "SystemCapability.Ability.AppStartup"
+      "SystemCapability.Ability.AppStartup",
+      "SystemCapability.MultimodalInput.Input.InfraredEmitter"
     ]
   },
   "administrators": [

@@ -185,6 +185,15 @@ declare interface TextDecorationOptions {
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
+ * Defining ComponentV2 ClassDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const ComponentV2: ClassDecorator
+
+/**
  * Defines the options of Entry ClassDecorator.
  *
  * @interface EntryOptions
@@ -403,6 +412,42 @@ declare const Require: PropertyDecorator;
  * @form
  */
 declare const BuilderParam: PropertyDecorator;
+
+/**
+ * Defining Local PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Local: PropertyDecorator;
+
+/**
+ * Defining Param PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Param: PropertyDecorator;
+
+/**
+ * Defining Once PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Once: PropertyDecorator;
+
+/**
+ * Defining Event PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Event: PropertyDecorator;
 
 /**
  * Defining State PropertyDecorator.
@@ -2339,6 +2384,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2346,6 +2392,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2354,6 +2401,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2365,6 +2413,7 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2372,6 +2421,7 @@ declare interface sharedTransitionOptions {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2380,6 +2430,7 @@ declare interface sharedTransitionOptions {
    * Animation curve.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2391,6 +2442,7 @@ declare interface sharedTransitionOptions {
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2398,6 +2450,7 @@ declare interface sharedTransitionOptions {
    * Animation delay time, in ms.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2406,6 +2459,7 @@ declare interface sharedTransitionOptions {
    * Animation delay time, in ms.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2469,6 +2523,7 @@ declare interface sharedTransitionOptions {
    * the animate type.
    *
    * @type { ?SharedTransitionEffectType }
+   * @default SharedTransitionEffectType.Exchange
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2476,6 +2531,7 @@ declare interface sharedTransitionOptions {
    * the animate type.
    *
    * @type { ?SharedTransitionEffectType }
+   * @default SharedTransitionEffectType.Exchange
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2484,6 +2540,7 @@ declare interface sharedTransitionOptions {
    * the animate type.
    *
    * @type { ?SharedTransitionEffectType }
+   * @default SharedTransitionEffectType.Exchange
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2514,6 +2571,7 @@ declare interface GeometryTransitionOptions {
    * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -2522,6 +2580,7 @@ declare interface GeometryTransitionOptions {
    * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -6073,6 +6132,27 @@ declare interface BackgroundEffectOptions {
 }
 
 /**
+ * Defines the options of ForegroundEffect
+ *
+ * @interface ForegroundEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ForegroundEffectOptions {
+ 
+  /**
+   * Define the radius size of ForegroundEffect.The range of this value is [0, ∞)
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+ radius: number;
+}
+
+/**
  * Provide an interface for the text style of picker
  *
  * @interface PickerTextStyle
@@ -6129,6 +6209,116 @@ declare interface PickerTextStyle {
    * @since 11
    */
   font?: Font;
+}
+
+/**
+ * Provide an interface for the button style of picker
+ *
+ * @interface PickerDialogButtonStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface PickerDialogButtonStyle {
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  type?: ButtonType;
+
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonStyleMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  style?: ButtonStyleMode;
+
+  /**
+   * Describes the button role.
+   *
+   * @type { ?ButtonRole }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  role?: ButtonRole;
+
+  /**
+   * Describes the button text size.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontSize?: Length;
+
+  /**
+   * Describes the button text color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontColor?: ResourceColor;
+
+  /**
+   * Describes the button font weight.
+   *
+   * @type { ?(FontWeight | number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontWeight?: FontWeight | number | string;
+
+  /**
+   * Describes the button font style.
+   *
+   * @type { ?FontStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontStyle?: FontStyle;
+
+  /**
+   * Describes the button font family.
+   *
+   * @type { ?(Resource | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFamily?: Resource | string;
+
+  /**
+   * Describes the button background color.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Describes the button border radius.
+   *
+   * @type { ?(Length | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderRadius?: Length | BorderRadiuses;
 }
 
 /**
@@ -13936,6 +14126,17 @@ declare class CommonMethod<T> {
   backgroundImageResizable(value: ResizableOptions): T;
 
   /**
+   * Foreground effect.
+   *
+   * @param { ForegroundEffectOptions } options - options indicates the effect options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  foregroundEffect(options: ForegroundEffectOptions): T;
+
+  /**
    * Foreground blur style.
    * blurStyle:Blur style type.
    *
@@ -17383,10 +17584,19 @@ declare class CommonMethod<T> {
    * Popup control
    *
    * @param { boolean } show
-   * @param { PopupOptions | CustomPopupOptions } popup
+   * @param { PopupOptions } popup
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Popup control
+   *
+   * @param { boolean } show
+   * @param { PopupOptions | CustomPopupOptions } popup
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
    */
   /**
    * Popup control

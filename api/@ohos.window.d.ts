@@ -272,6 +272,15 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describes the type of avoid area
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum AvoidAreaType {
     /**
      * Default area of the system
@@ -285,6 +294,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Default area of the system
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TYPE_SYSTEM,
 
@@ -301,6 +318,14 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Notch
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     TYPE_CUTOUT,
 
     /**
@@ -315,6 +340,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Area for system gesture
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TYPE_SYSTEM_GESTURE,
 
@@ -331,6 +364,14 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Area for keyboard
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     TYPE_KEYBOARD,
 
     /**
@@ -339,6 +380,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Area for navigation indicator
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TYPE_NAVIGATION_INDICATOR
   }
@@ -813,6 +862,15 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Avoid area
+   *
+   * @interface AvoidArea
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
@@ -846,6 +904,15 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Rectangle on the left of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     leftRect: Rect;
 
     /**
@@ -862,6 +929,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Rectangle on the top of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     topRect: Rect;
 
@@ -880,6 +956,15 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Rectangle on the right of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     rightRect: Rect;
 
     /**
@@ -896,6 +981,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Rectangle on the bottom of the screen
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     bottomRect: Rect;
   }
@@ -2515,6 +2609,14 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Specific system bar type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
@@ -3137,6 +3239,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the avoid area
+     *
+     * @param { AvoidAreaType } type - Type of the area
+     * @returns { AvoidArea } Area where the window cannot be displayed.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 

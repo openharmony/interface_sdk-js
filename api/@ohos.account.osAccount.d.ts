@@ -236,7 +236,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      * @deprecated since 9
-     * @useinstead osAccount.AccountManager#checkConstraintEnabled
+     * @useinstead osAccount.AccountManager#checkOsAccountConstraintEnabled
      */
     isOsAccountConstraintEnable(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
 
@@ -260,7 +260,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      * @deprecated since 9
-     * @useinstead osAccount.AccountManager#checkConstraintEnabled
+     * @useinstead osAccount.AccountManager#checkOsAccountConstraintEnabled
      */
     isOsAccountConstraintEnable(localId: number, constraint: string): Promise<boolean>;
 
@@ -2826,7 +2826,6 @@ declare namespace osAccount {
      * Authenticates the domain account bound to the current OS account with a popup.
      *
      * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2878,7 +2877,6 @@ declare namespace osAccount {
      *
      * @param { number } localId - Indicates the local ID of the specified OS account.
      * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.

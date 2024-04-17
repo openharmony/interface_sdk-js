@@ -722,6 +722,213 @@ declare class LengthMetric {
 }
 
 /**
+ * Defines the Length Metrics.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class LengthMetrics {
+  /**
+   * Constructor.
+   *
+   * @param { number } value - The value of length.
+   * @param { LengthUnit } [unit] - The length unit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(value: number, unit?:LengthUnit);
+
+  /**
+   * Init a lengthMetrics with px unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static px(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with vp unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static vp(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with fp unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static fp(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with percent unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static percent(value: number): LengthMetrics;
+
+  /**
+   * Init a lengthMetrics with lpx unit.
+   *
+   * @param { number } value - The value of the length metrics.
+   * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  static lpx(value: number): LengthMetrics;
+  
+  /**
+   * The unit of the LengthMetrics. The default value is VP.
+   *
+   * @type { LengthUnit }
+   * @default VP
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public unit: LengthUnit;
+
+  /**
+   * The value of the LengthMetrics.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  public value: number;
+}
+
+/**
+* Defines the ColorMetrics class.
+* 
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare class ColorMetrics {
+  /**
+  * Instantiate the ColorMetrics class using color number 
+  * 
+  * @param { number } value - color number
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static numeric(value: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using color rgb
+  * 
+  * @param { number } red - red value of rgba
+  * @param { number } green - green value of rgba
+  * @param { number } blue - blue value of rgba
+  * @param { number } alpha - opacity value of rgba
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using ResourceColor
+  * 
+  * @param { ResourceColor } color - resource color
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static resourceColor(color: ResourceColor): ColorMetrics;
+	
+  /**
+  * blend color
+  * 
+  * @param { ColorMetrics } overlayColor - overlay color
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  blendColor(overlayColor: ColorMetrics): ColorMetrics;
+	
+  /**
+  * Get color of the ColorMetrics.
+  * 
+  * @returns { string } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get color(): string;
+
+  /**
+  * Get red value of the ColorMetrics.
+  * 
+  * @returns { number } The red value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get red(): number;
+
+  /**
+  * Get green value of the ColorMetrics.
+  * 
+  * @returns { number } The green value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get green(): number;
+
+  /**
+  * Get blue value of the ColorMetrics.
+  * 
+  * @returns { number } The blue value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get blue(): number;
+
+  /**
+  * Get opacity value of the ColorMetrics.
+  * 
+  * @returns { number } The opacity value of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get alpha(): number;
+}
+
+/**
  * Defines the Corner property.
  *
  * @interface Corners

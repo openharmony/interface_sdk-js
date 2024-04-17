@@ -113,6 +113,17 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @since 12
    */
   textBackgroundStyle(style: TextBackgroundStyle): T;
+
+  /**
+   * Base line offset of the Span.
+   *
+   * @param { LengthMetrics } value - The base line offset of the Span.
+   * @returns { T } The attribute of the Span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    baselineOffset(value: LengthMetrics): T;
 }
 
 /**

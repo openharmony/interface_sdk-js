@@ -1405,6 +1405,16 @@ declare type LengthConstrain = {
 declare type VoidCallback  = () => void;
 
 /**
+ * Defines LengthMetrics.
+ *
+ * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
+
+/**
  * Defines the font used for text.
  *
  * @interface Font

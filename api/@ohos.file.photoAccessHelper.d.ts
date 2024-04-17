@@ -610,7 +610,7 @@ declare namespace photoAccessHelper {
     /**
      * Request video file
      *
-     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { Context } context - Hap context information
      * @param { PhotoAsset } asset - the photo asset requested
      * @param { RequestOptions } requestOptions - the request options

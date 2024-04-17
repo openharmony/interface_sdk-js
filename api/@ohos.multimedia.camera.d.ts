@@ -28,6 +28,12 @@ import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @since 10
  */
+/**
+ * @namespace camera
+ * @syscap SystemCapability.Multimedia.Camera.Core
+ * @atomicservice
+ * @since 12
+ */
 declare namespace camera {
   /**
    * Creates a CameraManager instance.
@@ -2107,48 +2113,51 @@ declare namespace camera {
   }
 
   /**
-   * Color Management object.
+   * Color Management Query object.
    *
-   * @interface ColorManagement
+   * @interface ColorManagementQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
-   * @since 11
+   * @since 12
    */
-  interface ColorManagement {
-    /**
-     * Gets the specific color space type.
-     *
-     * @returns { colorSpaceManager.ColorSpace } Current color space.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
-     */
-    getActiveColorSpace(): colorSpaceManager.ColorSpace;
-
+  interface ColorManagementQuery {
     /**
      * Gets the supported color space types.
      *
      * @returns { Array<colorSpaceManager.ColorSpace> } The array of the supported color space for the session.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     getSupportedColorSpaces(): Array<colorSpaceManager.ColorSpace>;
+  }
+
+  /**
+   * Color Management object.
+   *
+   * @interface ColorManagement
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 12
+   */
+  interface ColorManagement extends ColorManagementQuery {
+    /**
+     * Gets the specific color space type.
+     *
+     * @returns { colorSpaceManager.ColorSpace } Current color space.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveColorSpace(): colorSpaceManager.ColorSpace;
 
     /**
      * Sets a color space for the session.
      *
      * @param { colorSpaceManager.ColorSpace } colorSpace - The type of color space.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - The colorSpace does not match the format.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpace): void;
   }
@@ -2949,7 +2958,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom {
+  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement {
     /**
      * Subscribes to error events.
      *
@@ -3053,7 +3062,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization {
+  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement {
     /**
      * Subscribes to error events.
      *

@@ -216,5 +216,35 @@ export enum AutoFillType {
    * @StageModelOnly
    * @since 12
    */
-  ID_CARD_NUMBER = 18
+  ID_CARD_NUMBER = 18,
+
+  /**
+   * Indicates the type of nickname.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  NICKNAME = 24,
+
+  /**
+   * Indicates the type of detail info without street.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  DETAIL_INFO_WITHOUT_STREET = 25,
+
+  /**
+   * Indicates the type of format address.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  FORMAT_ADDRESS = 26
 }
