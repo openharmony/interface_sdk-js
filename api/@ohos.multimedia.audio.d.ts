@@ -465,6 +465,12 @@ declare namespace audio {
      */
     USB_HEADSET = 22,
     /**
+     * Display port device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    DISPLAY_PORT = 23,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
