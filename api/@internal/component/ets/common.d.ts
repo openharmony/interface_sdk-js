@@ -10161,6 +10161,26 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onDetentsDidChange?: Callback<number>;
+
+  /**
+   * Called when width of the sheet changed
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWidthDidChange?: Callback<number>;
+
+  /**
+   * Called when the sheet type changed
+   *
+   * @type { ?Callback<SheetType> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onTypeDidChange?: Callback<SheetType>;
 }
 
 /**
