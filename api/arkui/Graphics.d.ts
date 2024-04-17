@@ -199,6 +199,15 @@ interface Vector2 {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defined a vector with three values.
+ *
+ * @interface Vector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface Vector3 {
   /**
    * Value for x-axis of the vector.
