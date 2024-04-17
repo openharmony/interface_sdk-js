@@ -3408,7 +3408,8 @@ declare namespace relationalStore {
      * If this table does not support cloud, the {@link ModifyTime} will be empty.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The columnName must be not empty string. 5. The PRIKey must be number or string.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -3422,7 +3423,8 @@ declare namespace relationalStore {
      * If this table does not support cloud, the {@link ModifyTime} will be empty.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The columnName must be not empty string. 5. The PRIKey must be number or string.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -3439,7 +3441,8 @@ declare namespace relationalStore {
      * If this table does not support cloud, the {@link ModifyTime} will be empty.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The columnName must be not empty string. 5. The PRIKey must be number or string.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -3453,7 +3456,8 @@ declare namespace relationalStore {
      * If this table does not support cloud, the {@link ModifyTime} will be empty.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The columnName must be not empty string. 5. The PRIKey must be number or string.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -3475,7 +3479,8 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
@@ -3489,7 +3494,8 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
@@ -3503,7 +3509,8 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of clean.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
@@ -3514,7 +3521,8 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of clean.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
@@ -3532,7 +3540,8 @@ declare namespace relationalStore {
      * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
@@ -3547,7 +3556,8 @@ declare namespace relationalStore {
      * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
@@ -3563,7 +3573,8 @@ declare namespace relationalStore {
      * {@link ResultSet} is query result.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
@@ -3578,7 +3589,8 @@ declare namespace relationalStore {
      * {@link ResultSet} is query result.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The predicates must be an RdbPredicates.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
@@ -3594,7 +3606,8 @@ declare namespace relationalStore {
      * {@link ResultSet} is query result.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
+     * 3. The predicates must be an RdbPredicates. 4. The columns must be a string array.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
@@ -4038,7 +4051,8 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type. 5. The callback must be a function.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -4053,7 +4067,8 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -4069,7 +4084,8 @@ declare namespace relationalStore {
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type. 6. The callback must be a function.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -4090,7 +4106,8 @@ declare namespace relationalStore {
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -4105,7 +4122,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - The callback of cloudSync.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type. 6. The callback must be a function.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -4126,7 +4144,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : The promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
+     * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
      * application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4227,7 +4246,8 @@ declare namespace relationalStore {
      *
      * @param { 'autoSyncProgress' } event - Indicates the event must be string 'autoSyncProgress'.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 3  parameter(s)! 2. The RdbStore must be valid.
+     * 3. The event must be a not empty string. 4. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
@@ -4288,7 +4308,8 @@ declare namespace relationalStore {
      *
      * @param { 'autoSyncProgress' } event - indicates the event must be string 'autoSyncProgress'.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be valid.
+     * 3. The event must be a not empty string. 4. The progress must be function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
