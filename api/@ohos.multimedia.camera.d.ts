@@ -497,15 +497,6 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
-    /**
-     * Determine whether camera mute is supported.
-     *
-     * @returns { boolean } Is camera mute supported.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 202 - Not System Application.
-     * @systemapi
-     * @since 12
-     */
     isCameraMuteSupported(): boolean;
 
     /**
@@ -515,15 +506,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
-     */
-    /**
-     * Mute camera.
-     *
-     * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 202 - Not System Application.
-     * @systemapi
-     * @since 12
      */
     muteCamera(mute: boolean): void;
 
@@ -735,16 +717,6 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
-    /**
-     * Subscribes camera mute change event callback.
-     *
-     * @param { 'cameraMute' } type - Event type.
-     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
-     */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -755,16 +727,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
-     */
-    /**
-     * Subscribes camera mute change event callback.
-     *
-     * @param { 'cameraMute' } type - Event type.
-     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
      */
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
@@ -828,17 +790,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
-     */
-    /**
-     * Enable the camera to prelaunch and start.
-     * This function is called when the user clicks the system camera icon to start the camera application.
-     *
-     * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
      */
     prelaunch(): void;
 
@@ -4822,18 +4773,6 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
-    /**
-     * Subscribes to camera thumbnail events.
-     * This method is valid only after enableQuickThumbnail(true) is called.
-     *
-     * @param { 'quickThumbnail' } type - Event type.
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400104 - session is not running.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
-     */
     on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
 
     /**
@@ -4845,18 +4784,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
-     */
-    /**
-     * Unsubscribes from camera thumbnail events.
-     * This method is valid only after enableQuickThumbnail(true) is called.
-     *
-     * @param { 'quickThumbnail' } type - Event type.
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400104 - session is not running.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
      */
     off(type: 'quickThumbnail', callback?: AsyncCallback<image.PixelMap>): void;
   }
