@@ -2989,6 +2989,28 @@ declare namespace osAccount {
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
 
     /**
+     * Updates the information of the specified domain account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainAccountInfo } oldAccountInfo - Indicates the old domain account information.
+     * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - The new account info is invalid.
+     * @throws { BusinessError } 12300003 - The old account not found.
+     * @throws { BusinessError } 12300004 - The new account already exists.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
+
+    /**
      * Gets the specified domain account information.
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
