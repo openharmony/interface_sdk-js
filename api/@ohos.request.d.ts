@@ -634,6 +634,10 @@ declare namespace request {
    * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400001 - file operation error
    * @throws { BusinessError } 13400002 - bad file path
    * @throws { BusinessError } 13400003 - task service ability error
@@ -649,6 +653,10 @@ declare namespace request {
    * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400001 - file operation error
    * @throws { BusinessError } 13400002 - bad file path
    * @throws { BusinessError } 13400003 - task service ability error
@@ -681,6 +689,10 @@ declare namespace request {
    * @returns { Promise<DownloadTask> } the promise returned by the function.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400001 - file operation error
    * @throws { BusinessError } 13400002 - bad file path
    * @throws { BusinessError } 13400003 - task service ability error
@@ -696,6 +708,10 @@ declare namespace request {
    * @returns { Promise<DownloadTask> } the promise returned by the function.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400001 - file operation error
    * @throws { BusinessError } 13400002 - bad file path
    * @throws { BusinessError } 13400003 - task service ability error
@@ -728,6 +744,10 @@ declare namespace request {
    * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400002 - bad file path
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
@@ -741,6 +761,10 @@ declare namespace request {
    * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400002 - bad file path
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
@@ -771,6 +795,10 @@ declare namespace request {
    * @returns { Promise<UploadTask> } the promise returned by the function.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400002 - bad file path
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
@@ -784,6 +812,10 @@ declare namespace request {
    * @returns { Promise<UploadTask> } the promise returned by the function.
    * @throws { BusinessError } 201 - the permissions check fails
    * @throws { BusinessError } 401 - the parameters check fails
+   *         Possible causes:
+   *         1. Missing mandatory parameters
+   *         2. Incorrect parameter type
+   *         3. Parameter verification failed
    * @throws { BusinessError } 13400002 - bad file path
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
@@ -813,6 +845,7 @@ declare namespace request {
   interface DownloadConfig {
     /**
      * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
      *
      * @permission ohos.permission.INTERNET
      * @syscap SystemCapability.MiscServices.Download
@@ -820,6 +853,7 @@ declare namespace request {
      */
     /**
      * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
      *
      * @permission ohos.permission.INTERNET
      * @type { string }
@@ -1862,6 +1896,7 @@ declare namespace request {
   interface UploadConfig {
     /**
      * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
      *
      * @permission ohos.permission.INTERNET
      * @syscap SystemCapability.MiscServices.Upload
@@ -1869,6 +1904,7 @@ declare namespace request {
      */
     /**
      * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
      *
      * @permission ohos.permission.INTERNET
      * @type { string }
@@ -2694,6 +2730,7 @@ declare namespace request {
       action: Action;
       /**
        * The Universal Resource Locator for a task.
+       * Starting with http(s)://
        * The maximum length is 2048 characters.
        * Using raw `url` option, even url parameters in it.
        *
@@ -4577,6 +4614,10 @@ declare namespace request {
      * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Missing mandatory parameters
+     *         2. Incorrect parameter type
+     *         3. Parameter verification failed
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900004 - application task queue full error.
@@ -4595,6 +4636,10 @@ declare namespace request {
      * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Missing mandatory parameters
+     *         2. Incorrect parameter type
+     *         3. Parameter verification failed
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900004 - application task queue full error.
@@ -4620,6 +4665,10 @@ declare namespace request {
      * @returns { Promise<Task> } the promise returned by the function.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Missing mandatory parameters
+     *         2. Incorrect parameter type
+     *         3. Parameter verification failed
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900004 - application task queue full error.
@@ -4638,6 +4687,10 @@ declare namespace request {
      * @returns { Promise<Task> } the promise returned by the function.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Missing mandatory parameters
+     *         2. Incorrect parameter type
+     *         3. Parameter verification failed
      * @throws { BusinessError } 13400001 - file operation error.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900004 - application task queue full error.
@@ -4654,9 +4707,11 @@ declare namespace request {
      *
      * @param { BaseContext } context - context of the caller.
      * @param { string } id - the id of the task.
-     * @param { string } token - the token of the task.
+     * @param { string } token - the token of the task,length between 8 and 2048 bytes.
      * @returns { Promise<Task> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Parameter verification failed
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
@@ -4786,9 +4841,11 @@ declare namespace request {
      * Touches specified task with token.
      *
      * @param { string } id the task id.
-     * @param { string } token the in-application isolation key.
+     * @param { string } token the in-application isolation key,length between 8 and 2048 bytes.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Parameter verification failed
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
@@ -4813,9 +4870,11 @@ declare namespace request {
      * Touches specified task with token.
      *
      * @param { string } id the task id.
-     * @param { string } token the in-application isolation key.
+     * @param { string } token the in-application isolation key,length between 8 and 2048 bytes.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
+     *         Possible causes:
+     *         1. Parameter verification failed
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
