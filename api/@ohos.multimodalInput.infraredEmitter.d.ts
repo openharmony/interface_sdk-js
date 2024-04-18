@@ -54,7 +54,7 @@ declare namespace infraredEmitter {
   /**
    * Transmitted IR signal.
    *
-   * @permission ohos.permission.INPUT_INFRARED_EMITTE
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @param { number} infraredFrequency - IR infrared frequency, in Hz.
    * @param { Array<number>} pattern - Pattern of signal transmission in alternate on/off mode, in microseconds.
    * @throws { BusinessError } 201 - Permission denied.
@@ -69,7 +69,7 @@ declare namespace infraredEmitter {
   /**
    * Queries the infrared frequency supported by the IR emitter.
    *
-   * @permission ohos.permission.INPUT_INFRARED_EMITTE
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
