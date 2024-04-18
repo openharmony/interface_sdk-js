@@ -311,17 +311,6 @@ declare class SymbolEffect {
 }
 
 /**
- * Defines NoneSymbolEffect class.
- * 
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class NoneSymbolEffect extends SymbolEffect {
-}
-
-/**
  * Defines ScaleSymbolEffect class.
  *
  * @extends SymbolEffect
