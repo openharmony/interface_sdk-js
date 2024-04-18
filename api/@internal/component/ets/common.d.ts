@@ -20224,7 +20224,7 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @since 12
    */
-  queryNavigationInfo(): NavigationInfo | undefined
+  queryNavigationInfo(): NavigationInfo | undefined;
 }
 
 /**
