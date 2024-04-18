@@ -19710,6 +19710,16 @@ declare interface MeasureResult extends SizeResult {
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
 /**
+ * The navigation information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.NavigationInfo;
+
+/**
  * UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20205,6 +20215,16 @@ declare class CustomComponent extends CommonAttribute {
    * @since 12
    */
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
+
+  /**
+   * Query the navigation information of the current custom component.
+   * 
+   * @returns { NavigationInfo | undefined } The navigation information, or undefined if it is not available
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  queryNavigationInfo(): NavigationInfo | undefined
 }
 
 /**
