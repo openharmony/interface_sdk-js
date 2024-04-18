@@ -15231,6 +15231,17 @@ declare class CommonMethod<T> {
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
   /**
+   * Component motion blur interface.
+   * 
+   * @param { MotionBlurOptions } value - the attributes of motion blur.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  motionBlur(value: MotionBlurOptions):T;
+
+  /**
    * Adds a highlight effect to the current component.
    * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
    * The component is displayed as all white (percentage).
@@ -19186,6 +19197,60 @@ declare interface LinearGradientBlurOptions {
    * @since 10
    */
   direction: GradientDirection;
+}
+
+/**
+ * Define motion blur anchor coordinates.
+ * 
+ * @interface MotionBlurAnchor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MotionBlurAnchor {
+  /**
+   * Define anchor coordinate x-value.Value range [0.0, 1.0].
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  x: number;
+  /**
+   * Define anchor coordinate y-value.Value range [0.0, 1.0].
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  y: number;
+}
+
+/**
+ * Define motion blur options.
+ * 
+ * @interface MotionBlurOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MotionBlurOptions {
+  /**
+   * Define the size of motion blur radius.The range of this value is  [0.0, ∞).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  radius: number;
+  /**
+   * Define motion blur anchor coordinates.
+   * 
+   * @type { MotionBlurAnchor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  anchor: MotionBlurAnchor;
 }
 
 /**
