@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines the collections for ArkTS
  * @kit ArkTS
  */
 
