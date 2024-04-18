@@ -501,7 +501,7 @@ declare namespace drm {
    * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 12
-  */
+   */
   function getMediaKeySystems(): string[];
 
   /**
