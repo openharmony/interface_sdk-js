@@ -286,6 +286,39 @@ declare namespace vibrator {
   }
 
   /**
+   * Simple and universal vibration effects.
+   * 
+   * @enum { string }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  enum HapticFeedback {
+    /**
+     * Describes the soft vibration effect of the vibrator.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    EFFECT_SOFT = 'haptic.effect.soft',
+
+    /**
+     * Describes the hard vibration effect of the vibrator.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    EFFECT_HARD = 'haptic.effect.hard',
+
+    /**
+     * Describes the sharp vibration effect of the vibrator.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    EFFECT_SHARP = 'haptic.effect.sharp'
+  }
+
+  /**
    * Vibrator vibration stop mode.
    *
    * @enum { string }
@@ -473,7 +506,23 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
-    count: number;
+    /**
+     * The number of vibration repetitions.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    count?: number;
+
+    /**
+     * The intensity of vibration effect.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    intensity?: number;
   }
 
   /**
