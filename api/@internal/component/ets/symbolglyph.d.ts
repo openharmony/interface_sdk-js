@@ -199,14 +199,14 @@ declare enum SymbolEffectStrategy {
 }
 
 /**
- * The common subtype effect of symbol
+ * The dirction type of symbol effect
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare enum CommonSubType {
+declare enum DirectionType {
   /**
    * The scale down animation of symbol
    *
@@ -226,7 +226,7 @@ declare enum CommonSubType {
 }
 
 /**
- * Declare type scope type of the symbol
+ * Declare scope type of the symbol effect
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -334,12 +334,12 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * constructor.
    *
    * @param { ScopeType } [scope] -  The scope type of symbol effect.
-   * @param { CommonSubType } [subType] - The common subtype of symbol effect.
+   * @param { DirectionType } [direction] - The direction of symbol effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  constructor(scope?: ScopeType, subType?: CommonSubType);
+  constructor(scope?: ScopeType, direction?: DirectionType);
 
   /**
    * The scope type of symbol effect
@@ -352,14 +352,14 @@ declare class ScaleSymbolEffect extends SymbolEffect {
   scope?: ScopeType;
   
   /**
-   * The common subtype of symbol effect
+   * The direction of symbol effect
    *
-   * @type { ?CommonSubType }
+   * @type { ?DirectionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  subType?: CommonSubType;
+  direction?: DirectionType;
 }
 
 /**
@@ -465,12 +465,12 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * constructor.
    *
    * @param { ScopeType } [scope] -  The scope type of symbol effect.
-   * @param { CommonSubType } [subType] - The common subtype of symbol effect.
+   * @param { DirectionType } [direction] - The direction of symbol effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  constructor(scope?: ScopeType, subType?: CommonSubType);
+  constructor(scope?: ScopeType, direction?: DirectionType);
   
   /**
    * The scope type of symbol effect
@@ -483,14 +483,14 @@ declare class BounceSymbolEffect extends SymbolEffect {
   scope?: ScopeType;
   
   /**
-   * The common subtype of symbol effect
+   * The direction of symbol effect
    *
-   * @type { ?CommonSubType }
+   * @type { ?DirectionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  subType?: CommonSubType;
+  direction?: DirectionType;
 }
 
 /**
