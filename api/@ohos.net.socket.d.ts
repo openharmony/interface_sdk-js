@@ -69,6 +69,7 @@ declare namespace socket {
    * Creates a MulticastSocket object.
    * @returns { MulticastSocket } the MulticastSocket of the constructMulticastSocketInstance.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   function constructMulticastSocketInstance(): MulticastSocket;
@@ -123,6 +124,7 @@ declare namespace socket {
    * Creates a LocalSocket object.
    * @returns { LocalSocket } the LocalSocket of the constructLocalSocketInstance.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   function constructLocalSocketInstance(): LocalSocket;
@@ -131,6 +133,7 @@ declare namespace socket {
    * Creates a LocalSocketServer object.
    * @returns { LocalSocketServer } the LocalSocketServer of the constructLocalSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   function constructLocalSocketServerInstance(): LocalSocketServer;
@@ -422,6 +425,7 @@ declare namespace socket {
    * Defines the local socket connection information.
    * @interface LocalSocketMessageInfo
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalSocketMessageInfo {
@@ -429,6 +433,7 @@ declare namespace socket {
      * Message data.
      * @type {ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     message: ArrayBuffer;
@@ -437,6 +442,7 @@ declare namespace socket {
      * Bound local socket address.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     address: string;
@@ -445,6 +451,7 @@ declare namespace socket {
      * Length of the message, in bytes.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     size: number;
@@ -454,6 +461,7 @@ declare namespace socket {
    * Defines a local address.
    * @interface LocalAddress
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalAddress {
@@ -461,6 +469,7 @@ declare namespace socket {
      * LocalAddress address.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     address: string;
@@ -470,6 +479,7 @@ declare namespace socket {
    * Defines LocalSocket connection parameters.
    * @interface LocalConnectOptions
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalConnectOptions {
@@ -477,6 +487,7 @@ declare namespace socket {
      * Bound Local address.
      * @type {LocalAddress}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     address: LocalAddress;
@@ -485,6 +496,7 @@ declare namespace socket {
      * Timeout duration of the LocalSocket connection, in milliseconds.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     timeout?: number;
@@ -494,6 +506,7 @@ declare namespace socket {
    * Defines the parameters for sending data over the LocalSocket connection.
    * @interface LocalSendOptions
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalSendOptions {
@@ -501,6 +514,7 @@ declare namespace socket {
      * Data to send.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     data: string | ArrayBuffer;
@@ -509,6 +523,7 @@ declare namespace socket {
      * Character encoding format.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     encoding?: string;
@@ -865,6 +880,7 @@ declare namespace socket {
    * Defines a UDP MulticastSocket connection.
    * @interface MulticastSocket
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface MulticastSocket extends UDPSocket {
@@ -879,6 +895,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
@@ -893,6 +910,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     addMembership(multicastAddress: NetAddress): Promise<void>;
@@ -907,6 +925,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
@@ -921,6 +940,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     dropMembership(multicastAddress: NetAddress): Promise<void>;
@@ -933,6 +953,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     setMulticastTTL(ttl: number, callback: AsyncCallback<void>): void;
@@ -945,6 +966,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     setMulticastTTL(ttl: number): Promise<void>;
@@ -955,6 +977,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getMulticastTTL(callback: AsyncCallback<number>): void;
@@ -965,6 +988,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getMulticastTTL(): Promise<number>;
@@ -976,6 +1000,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
@@ -987,6 +1012,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     setLoopbackMode(flag: boolean): Promise<void>;
@@ -997,6 +1023,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getLoopbackMode(callback: AsyncCallback<boolean>): void;
@@ -1007,6 +1034,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getLoopbackMode(): Promise<boolean>;
@@ -1016,6 +1044,7 @@ declare namespace socket {
    * Defines a LocalSocket connection.
    * @interface LocalSocket
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalSocket {
@@ -1028,6 +1057,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301098 - Address already in use.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     bind(address: LocalAddress): Promise<void>;
@@ -1042,6 +1072,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301111 - Connection refused.
      * @throws { BusinessError } 2301099 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     connect(options: LocalConnectOptions): Promise<void>;
@@ -1053,6 +1084,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     send(options: LocalSendOptions): Promise<void>;
@@ -1062,6 +1094,7 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     close(): Promise<void>;
@@ -1070,6 +1103,7 @@ declare namespace socket {
      * Obtains the status of the LocalSocket connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getState(): Promise<SocketStateBase>;
@@ -1078,6 +1112,7 @@ declare namespace socket {
      * Obtains the file descriptor of the LocalSocket connection.
      * @returns { Promise<number> } The promise returns the file descriptor of the LocalSocket connection.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getSocketFd(): Promise<number>;
@@ -1089,6 +1124,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
@@ -1098,6 +1134,7 @@ declare namespace socket {
      * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
@@ -1108,6 +1145,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
@@ -1118,6 +1156,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
@@ -1128,6 +1167,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'connect', callback: Callback<void>): void;
@@ -1138,6 +1178,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'connect', callback?: Callback<void>): void;
@@ -1148,6 +1189,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'close', callback: Callback<void>): void;
@@ -1158,6 +1200,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'close', callback?: Callback<void>): void;
@@ -1168,6 +1211,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
@@ -1178,6 +1222,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
@@ -1187,6 +1232,7 @@ declare namespace socket {
    * Defines the connection of the LocalSocket client and server.
    * @interface LocalSocketConnection
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalSocketConnection {
@@ -1194,6 +1240,7 @@ declare namespace socket {
      * The id of a client connects to the LocalSocketServer.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     clientId: number;
@@ -1205,6 +1252,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     send(options: LocalSendOptions): Promise<void>;
@@ -1214,6 +1262,7 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     close(): Promise<void>;
@@ -1224,6 +1273,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
@@ -1234,6 +1284,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
@@ -1244,6 +1295,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'close', callback: Callback<void>): void;
@@ -1254,6 +1306,7 @@ declare namespace socket {
      * @param { Callback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'close', callback?: Callback<void>): void;
@@ -1264,6 +1317,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
@@ -1274,6 +1328,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
@@ -1283,6 +1338,7 @@ declare namespace socket {
    * Defines a LocalSocket server connection.
    * @interface LocalSocketServer
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface LocalSocketServer {
@@ -1298,6 +1354,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301098 - Address already in use.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     listen(address: LocalAddress): Promise<void>;
@@ -1306,6 +1363,7 @@ declare namespace socket {
      * Obtains the status of the LocalSocketServer connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getState(): Promise<SocketStateBase>;
@@ -1317,6 +1375,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
@@ -1326,6 +1385,7 @@ declare namespace socket {
      * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
@@ -1336,6 +1396,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketConnection> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'connect', callback: Callback<LocalSocketConnection>): void;
@@ -1346,6 +1407,7 @@ declare namespace socket {
      * @param { Callback<LocalSocketConnection> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'connect', callback?: Callback<LocalSocketConnection>): void;
@@ -1356,6 +1418,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
@@ -1366,6 +1429,7 @@ declare namespace socket {
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
@@ -3120,6 +3184,7 @@ declare namespace socket {
      * @param { Callback<SocketMessageInfo> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
@@ -3138,6 +3203,7 @@ declare namespace socket {
      * @param { Callback<SocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
@@ -3209,7 +3275,7 @@ declare namespace socket {
      */
     listen(address: NetAddress, callback: AsyncCallback<void>): void;
 
-    /** 
+    /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
      * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
@@ -3528,6 +3594,7 @@ declare namespace socket {
      * @param { Callback<SocketMessageInfo> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
@@ -3546,6 +3613,7 @@ declare namespace socket {
      * @param { Callback<SocketMessageInfo> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
@@ -3648,7 +3716,7 @@ declare namespace socket {
      */
     listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
-    /** 
+    /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
      * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
