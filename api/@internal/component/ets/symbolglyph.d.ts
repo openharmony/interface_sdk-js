@@ -208,7 +208,8 @@ declare enum SymbolEffectStrategy {
  */
 declare enum CommonSubType {
   /**
-   * The scale down animation of symbol 
+   * The scale down animation of symbol
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -216,6 +217,7 @@ declare enum CommonSubType {
   DOWN = 0,
   /**
    * The scale up animation of symbol
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -234,6 +236,7 @@ declare enum CommonSubType {
 declare enum ScopeType {
   /**
    * The layered animation of symbol
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -241,6 +244,7 @@ declare enum ScopeType {
   LAYER = 0,
   /**
    * The whole animation of symbol
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -259,6 +263,7 @@ declare enum ScopeType {
 declare enum FillStyle {
   /**
    * The cumulative fill style of symbol
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -267,6 +272,7 @@ declare enum FillStyle {
 
   /**
    * The iterative fill style of symbol
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -285,6 +291,8 @@ declare enum FillStyle {
 declare interface EffectOptions {
   /**
    * The active state of the effect
+   *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -335,6 +343,8 @@ declare class ScaleSymbolEffect extends SymbolEffect {
 
   /**
    * The scope type of symbol effect
+   *
+   * @type { ?ScopeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -343,6 +353,8 @@ declare class ScaleSymbolEffect extends SymbolEffect {
   
   /**
    * The common subtype of symbol effect
+   *
+   * @type { ?CommonSubType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -371,6 +383,8 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
   
   /**
    * The fill style of symbol effect
+   *
+   * @type { ?FillStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -399,6 +413,8 @@ declare class AppearSymbolEffect extends SymbolEffect {
   
   /**
    * The scope type of symbol effect
+   *
+   * @type { ?ScopeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -427,6 +443,8 @@ declare class DisappearSymbolEffect extends SymbolEffect {
   
   /**
    * The scope type of symbol effect
+   *
+   * @type { ?ScopeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -456,6 +474,8 @@ declare class BounceSymbolEffect extends SymbolEffect {
   
   /**
    * The scope type of symbol effect
+   *
+   * @type { ?ScopeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -464,6 +484,8 @@ declare class BounceSymbolEffect extends SymbolEffect {
   
   /**
    * The common subtype of symbol effect
+   *
+   * @type { ?CommonSubType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -492,6 +514,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
   
   /**
    * The scope type of symbol effect
+   *
+   * @type { ?ScopeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
