@@ -42,14 +42,19 @@ def judgement_dict_data(result, result_key):
             message_list = process_tag_dict(dict_data, check_label_list)
             if message_list:
                 result_list.extend(message_list)
-        if 'jsDocInfos' in dict_data:
-            if not get_js_doc_info(dict_data['jsDocInfos'])['deprecatedVersion']:
-                my_dict[dict_data['definedText']] = dict_data
+        get_data_info(dict_data, my_dict)
         dict_keys = dict_data.keys()
         if 'childApis' in dict_keys:  # 递归处理child
             judgement_dict_data(dict_data, 'childApis')
     # 校验成对函数漏标
     paired_function_omission_label(my_dict)
+
+
+def get_data_info(dict_data, my_dict):
+    if 'jsDocInfos' in dict_data:
+        if get_js_doc_info(dict_data['jsDocInfos']) is not None:
+            if not label_type_conversion(get_js_doc_info(dict_data['jsDocInfos'])['deprecatedVersion']):
+                my_dict[dict_data['definedText']] = dict_data
 
 
 def enum_label_detection(parent_enum_info: dict):
