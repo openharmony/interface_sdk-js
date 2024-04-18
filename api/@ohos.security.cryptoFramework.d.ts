@@ -84,6 +84,14 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates that function or algorithm is not supported.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     NOT_SUPPORT = 801,
 
     /**
@@ -114,6 +122,14 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates that runtime error.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     ERR_RUNTIME_ERROR = 17620002,
 
@@ -185,6 +201,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the ParamsSpec type, including the algorithm name.
+   *
+   * @typedef ParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ParamsSpec {
     /**
      * Indicates the algorithm name. Should be set before initialization of a cipher object.
@@ -200,6 +225,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name. Should be set before initialization of a cipher object.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     algName: string;
   }
@@ -219,6 +253,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the IvParamsSpec type, including the parameter iv.
+   *
+   * @typedef IvParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface IvParamsSpec extends ParamsSpec {
     /**
      * Indicates the algorithm parameters such as iv.
@@ -234,6 +277,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm parameters such as iv.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     iv: DataBlob;
   }
@@ -253,6 +305,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the GcmParamsSpec type, including the parameter iv, aad and authTag.
+   *
+   * @typedef GcmParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface GcmParamsSpec extends ParamsSpec {
     /**
      * Indicates the GCM algorithm parameters such as iv.
@@ -268,6 +329,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the GCM algorithm parameters such as iv.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     iv: DataBlob;
 
@@ -286,6 +356,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the additional Authenticated Data in GCM mode.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     aad: DataBlob;
 
     /**
@@ -302,6 +381,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the output tag from the encryption operation. The tag is used for integrity check.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     authTag: DataBlob;
   }
@@ -321,6 +409,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the CcmParamsSpec type, including the parameter iv, aad and authTag.
+   *
+   * @typedef CcmParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface CcmParamsSpec extends ParamsSpec {
     /**
      * Indicates the GCM algorithm parameters such as IV.
@@ -336,6 +433,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the GCM algorithm parameters such as IV.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     iv: DataBlob;
 
@@ -354,6 +460,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the Additional Authenticated Data in CCM mode.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     aad: DataBlob;
 
     /**
@@ -370,6 +485,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the output tag from the encryption operation. The tag is used for integrity check.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     authTag: DataBlob;
   }
@@ -580,6 +704,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the SymKey type, which is used for symmetric cryptography.
+   *
+   * @typedef SymKey
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface SymKey extends Key {
     /**
      * Reset the key data to zero in the memory.
@@ -593,6 +726,14 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Reset the key data to zero in the memory.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     clearMem(): void;
   }
@@ -1352,6 +1493,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the SymKeyGenerator type, which is used for generating symmetric key.
+   *
+   * @typedef SymKeyGenerator
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface SymKeyGenerator {
     /**
      * Generate a symmetric key object randomly.
@@ -1369,6 +1519,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Generate a symmetric key object randomly.
+     *
+     * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     generateSymKey(callback: AsyncCallback<SymKey>): void;
 
@@ -1389,6 +1549,16 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Generate a symmetric key object randomly.
+     *
+     * @returns { Promise<SymKey> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     generateSymKey(): Promise<SymKey>;
 
     /**
@@ -1398,6 +1568,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     generateSymKeySync(): SymKey;
@@ -1423,6 +1594,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
+     *
+     * @param { DataBlob } key - the key data blob.
+     * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
     /**
@@ -1446,6 +1629,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to convert symmetric key data to a symmetric key object.
+     *
+     * @param { DataBlob } key - the key data blob.
+     * @returns { Promise<SymKey> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     convertKey(key: DataBlob): Promise<SymKey>;
 
     /**
@@ -1457,6 +1652,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     convertKeySync(key: DataBlob): SymKey;
@@ -1477,6 +1673,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name of the SymKeyGenerator object.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     readonly algName: string;
   }
@@ -1540,6 +1746,18 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Create a symmetric key generator according to the given algorithm name.
+   *
+   * @param { string } algName - indicates the algorithm name.
+   * @returns { SymKeyGenerator } the symmetric key generator instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
   /**
@@ -1556,6 +1774,15 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Provides the Mac type, which is used for Mac generation.
+   *
+   * @typedef Mac
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface Mac {
     /**
@@ -1578,6 +1805,18 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Init hmac with given SymKey.
+     *
+     * @param { SymKey } key - indicates the SymKey.
+     * @param { AsyncCallback<void> } callback - the callback of the init function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     init(key: SymKey, callback: AsyncCallback<void>): void;
 
@@ -1602,6 +1841,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Init hmac with given SymKey.
+     *
+     * @param { SymKey } key - indicates the SymKey.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     init(key: SymKey): Promise<void>;
 
     /**
@@ -1625,6 +1876,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Update hmac with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @param { AsyncCallback<void> } callback - the callback of the update function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
@@ -1648,6 +1911,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Update hmac with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     update(input: DataBlob): Promise<void>;
 
     /**
@@ -1668,6 +1943,17 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Output the result of hmac calculation.
+     *
+     * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
@@ -1690,6 +1976,17 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Output the result of hmac calculation.
+     *
+     * @returns { Promise<DataBlob> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     doFinal(): Promise<DataBlob>;
 
     /**
@@ -1709,6 +2006,16 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Output the length of hmac result.
+     *
+     * @returns { number } returns the length of the hmac result.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getMacLength(): number;
 
     /**
@@ -1727,6 +2034,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     readonly algName: string;
   }
@@ -1752,6 +2069,18 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the mac create func.
+   *
+   * @param { string } algName - indicates the mac algorithm name.
+   * @returns { Mac } returns the created mac instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createMac(algName: string): Mac;
 
   /**
@@ -1768,6 +2097,15 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Provides the Md type, which is used for Md generation.
+   *
+   * @typedef Md
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface Md {
     /**
@@ -1791,6 +2129,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Update md with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @param { AsyncCallback<void> } callback - the callback of the update function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
@@ -1814,6 +2164,18 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Update md with DataBlob.
+     *
+     * @param { DataBlob } input - indicates the DataBlob.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     update(input: DataBlob): Promise<void>;
 
     /**
@@ -1834,6 +2196,17 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Output the result of md calculation.
+     *
+     * @param { AsyncCallback<DataBlob> } callback - the callback of the digest function.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     digest(callback: AsyncCallback<DataBlob>): void;
 
@@ -1856,6 +2229,17 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Output the result of md calculation.
+     *
+     * @returns { Promise<DataBlob> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     digest(): Promise<DataBlob>;
 
     /**
@@ -1875,6 +2259,16 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Output the length of md result.
+     *
+     * @returns { number } returns the length of the hmac result.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getMdLength(): number;
 
     /**
@@ -1893,6 +2287,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     readonly algName: string;
   }
@@ -1917,6 +2321,18 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Provides the md create func.
+   *
+   * @param { string } algName - indicates the md algorithm name.
+   * @returns { Md } returns the created md instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function createMd(algName: string): Md;
 
@@ -2070,6 +2486,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Enum for signature specified parameters, also used for verification.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   enum SignSpecItem {
     /**
      * Indicates the algorithm name of the message digest function. It is used in RSA signing and verifying process.
@@ -2083,6 +2508,14 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name of the message digest function. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     PSS_MD_NAME_STR = 100,
 
@@ -2098,6 +2531,14 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name of the mask generation function. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     PSS_MGF_NAME_STR = 101,
 
@@ -2116,6 +2557,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the message digest parameter for the MGF1 mask generation function.
+     * It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     PSS_MGF1_MD_STR = 102,
 
     /**
@@ -2130,6 +2580,14 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the salt length in bits. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     PSS_SALT_LEN_NUM = 103,
 
@@ -2146,6 +2604,14 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the value for the trailer field. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     PSS_TRAILER_FIELD_NUM = 104,
 
     /**
@@ -2154,6 +2620,14 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the value for user id. It is used in SM2 signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     SM2_USER_ID_UINT8ARR = 105
   }
@@ -2863,6 +3337,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Provides the Sign type, which is used for generating signatures.
+   *
+   * @typedef Sign
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface Sign {
     /**
      * Used to init environment.
@@ -2888,6 +3371,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to init environment.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { AsyncCallback<void> } callback - the call back function return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     init(priKey: PriKey, callback: AsyncCallback<void>): void;
 
@@ -2916,6 +3413,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to init environment.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @returns { Promise<void> } return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     init(priKey: PriKey): Promise<void>;
 
     /**
@@ -2942,6 +3453,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob } data - the data need to be signed.
+     * @param { AsyncCallback<void> } callback - the call back function return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -2970,6 +3495,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob } data - the data need to be signed.
+     * @returns { Promise<void> } return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     update(data: DataBlob): Promise<void>;
 
     /**
@@ -2996,6 +3535,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to sign message, include the update data.
+     *
+     * @param { DataBlob } data - the data need to be signed.
+     * @param { AsyncCallback<DataBlob> } callback - return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
@@ -3024,6 +3577,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to sign message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be signed.
+     * @param { AsyncCallback<DataBlob> } callback - return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
     /**
@@ -3051,6 +3618,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob } data - the private key.
+     * @returns { Promise<DataBlob> } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     sign(data: DataBlob): Promise<DataBlob>;
 
     /**
@@ -3077,6 +3658,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to append the message need to be signed.
+     *
+     * @param { DataBlob | null } data - the private key.
+     * @returns { Promise<DataBlob> } return the signed message.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
 
@@ -3107,6 +3702,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Set the specified parameter to the sign object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     setSignSpec(itemType: SignSpecItem, itemValue: number): void;
 
     /**
@@ -3122,6 +3732,21 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Set the specified parameter to the sign object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
@@ -3152,6 +3777,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Get the specified parameter from the sign object.
+     * Currently, only PSS parameters in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | number } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getSignSpec(itemType: SignSpecItem): string | number;
 
     /**
@@ -3171,6 +3811,16 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the algorithm name of the sign object.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     readonly algName: string;
   }
 
@@ -3188,6 +3838,15 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Provides the Verify interface, which is used for verifying signatures.
+   *
+   * @typedef Verify
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface Verify {
     /**
@@ -3214,6 +3873,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to init environment.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @param { AsyncCallback<void> } callback - return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     init(pubKey: PubKey, callback: AsyncCallback<void>): void;
 
@@ -3242,6 +3915,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to init environment.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @returns { Promise<void> } return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     init(pubKey: PubKey): Promise<void>;
 
     /**
@@ -3269,6 +3956,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to append the message need to be verified.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @param { AsyncCallback<void> } callback - return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
@@ -3295,6 +3996,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to append the message need to be verified.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @returns { Promise<void> } return nothing.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     update(data: DataBlob): Promise<void>;
 
@@ -3325,6 +4040,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @param { AsyncCallback<boolean> } callback - return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     verify(data: DataBlob, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
     /**
@@ -3353,6 +4083,21 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @param { AsyncCallback<boolean> } callback - return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
@@ -3383,6 +4128,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<boolean> } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
 
     /**
@@ -3412,6 +4172,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to verify message, include the update data.
+     *
+     * @param { DataBlob | null } data - the data need to be verified.
+     * @param { DataBlob } signatureData - the signature data.
+     * @returns { Promise<boolean> } return the verify result.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
 
     /**
@@ -3426,6 +4201,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
@@ -3442,6 +4218,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
@@ -3473,6 +4250,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     setVerifySpec(itemType: SignSpecItem, itemValue: number): void;
 
     /**
@@ -3488,6 +4280,21 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
@@ -3518,6 +4325,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Get the specified parameter from the verify object.
+     * Currently, only PSS parameters in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | number } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getVerifySpec(itemType: SignSpecItem): string | number;
 
     /**
@@ -3536,6 +4358,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name of the verify object.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     readonly algName: string;
   }
@@ -3563,6 +4395,19 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Create a sign object for generating signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Sign } the sign class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createSign(algName: string): Sign;
 
   /**
@@ -3588,6 +4433,19 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Create a verify object for verifying signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and the parameters.
+   * @returns { Verify } the verify class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createVerify(algName: string): Verify;
 
   /**
@@ -3604,6 +4462,15 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Provides key agreement function.
+   *
+   * @typedef KeyAgreement
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface KeyAgreement {
     /**
@@ -3632,6 +4499,21 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Used to generate secret.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { PubKey } pubKey - the public key.
+     * @param { AsyncCallback<DataBlob> } callback - return the secret.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback<DataBlob>): void;
 
@@ -3662,6 +4544,21 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Used to generate secret.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { PubKey } pubKey - the public key.
+     * @returns { Promise<DataBlob> } the promise used to return secret.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620002 - runtime error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
 
     /**
@@ -3680,6 +4577,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     readonly algName: string;
   }
@@ -3706,6 +4613,19 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Create a key agreement object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { KeyAgreement } the key agreement object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function createKeyAgreement(algName: string): KeyAgreement;
 
@@ -4585,6 +5505,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the set of parameters used in the DSA algorithm.
+   *
+   * @typedef DSACommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DSACommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates the DSA prime p.
@@ -4600,6 +5529,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DSA prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     p: bigint;
 
@@ -4618,6 +5556,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the DSA sub-prime q.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     q: bigint;
 
     /**
@@ -4634,6 +5581,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DSA base g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     g: bigint;
   }
@@ -4653,6 +5609,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the DSA public key with its associated parameters.
+   *
+   * @typedef DSAPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DSAPubKeySpec extends AsyKeySpec {
     /**
      * Indicates the DSA common parameters.
@@ -4668,6 +5633,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DSA common parameters.
+     *
+     * @type { DSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: DSACommonParamsSpec;
 
@@ -4685,6 +5659,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DSA public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: bigint;
   }
@@ -4704,6 +5687,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the DSA keypair with its associated parameters.
+   *
+   * @typedef DSAKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DSAKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the DSA common parameters.
@@ -4719,6 +5711,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DSA common parameters.
+     *
+     * @type { DSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: DSACommonParamsSpec;
 
@@ -4736,6 +5737,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DSA private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sk: bigint;
 
@@ -4754,6 +5764,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the DSA public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     pk: bigint;
   }
 
@@ -4771,6 +5790,15 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Specifies an elliptic curve finite field.
+   *
+   * @typedef ECField
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface ECField {
     /**
@@ -4790,6 +5818,16 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the type of an elliptic curve finite field.
+     * Currently, only Fp (elliptic curve prime finite field) is supported.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     fieldType: string;
   }
 
@@ -4808,6 +5846,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies an elliptic curve finite field with the prime p.
+   *
+   * @typedef ECFieldFp
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ECFieldFp extends ECField {
     /**
      * Indicates the prime p.
@@ -4823,6 +5870,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     p: bigint;
   }
@@ -4842,6 +5898,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Represents a point on an elliptic curve in affine coordinates.
+   *
+   * @typedef Point
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface Point {
     /**
      * Indicates the affine x-coordinate.
@@ -4857,6 +5922,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the affine x-coordinate.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     x: bigint;
 
@@ -4874,6 +5948,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the affine y-coordinate.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     y: bigint;
   }
@@ -4893,6 +5976,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the set of common parameters used in the ECC algorithm.
+   *
+   * @typedef ECCCommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ECCCommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates an elliptic curve finite field.
@@ -4908,6 +6000,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates an elliptic curve finite field.
+     *
+     * @type { ECField }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     field: ECField;
 
@@ -4926,6 +6027,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the first coefficient a of the elliptic curve.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     a: bigint;
 
     /**
@@ -4942,6 +6052,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the second coefficient b of the elliptic curve.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     b: bigint;
 
@@ -4960,6 +6079,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the base point g.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     g: Point;
 
     /**
@@ -4977,6 +6105,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the order of the base point g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     n: bigint;
 
     /**
@@ -4993,6 +6130,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the cofactor h.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     h: number;
   }
@@ -5012,6 +6158,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the ECC private key with its associated parameters.
+   *
+   * @typedef ECCPriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ECCPriKeySpec extends AsyKeySpec {
     /**
      * Indicates the ECC common parameters.
@@ -5027,6 +6182,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: ECCCommonParamsSpec;
 
@@ -5045,6 +6209,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     sk: bigint;
   }
 
@@ -5062,6 +6235,15 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Specifies the ECC public key with its associated parameters.
+   *
+   * @typedef ECCPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   interface ECCPubKeySpec extends AsyKeySpec {
     /**
@@ -5079,6 +6261,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     params: ECCCommonParamsSpec;
 
     /**
@@ -5095,6 +6286,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the public point of the ECC public key.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: Point;
   }
@@ -5114,6 +6314,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the ECC keypair with its associated parameters.
+   *
+   * @typedef ECCKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ECCKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the ECC common parameters.
@@ -5129,6 +6338,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: ECCCommonParamsSpec;
 
@@ -5147,6 +6365,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     sk: bigint;
 
     /**
@@ -5164,6 +6391,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the public point of the ECC public key.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     pk: Point;
   }
 
@@ -5173,6 +6409,14 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Key utilities for ECC Algorithm.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   class ECCKeyUtil {
     /**
@@ -5188,6 +6432,20 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Create the common parameter set based on the curve name.
+     *
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @returns { ECCCommonParamsSpec } the ECC common params spec obj.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
 
     /**
@@ -5202,6 +6460,7 @@ declare namespace cryptoFramework {
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
@@ -5219,6 +6478,7 @@ declare namespace cryptoFramework {
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Array;
@@ -5232,6 +6492,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the set of common parameters used in the DH algorithm.
+   *
+   * @typedef DHCommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DHCommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates the prime p.
@@ -5240,6 +6509,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     p: bigint;
 
@@ -5251,6 +6529,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the generator g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     g: bigint;
 
     /**
@@ -5260,6 +6547,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the byte length of the private key.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     l: number;
   }
@@ -5272,6 +6568,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the DH private key with its associated parameters.
+   *
+   * @typedef DHPriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DHPriKeySpec extends AsyKeySpec {
     /**
      * Indicates the DH common parameters.
@@ -5280,6 +6585,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DH common parameters.
+     *
+     * @type { DHCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: DHCommonParamsSpec;
 
@@ -5290,6 +6604,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the private value of the DH private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sk: bigint;
   }
@@ -5302,6 +6625,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the DH public key with its associated parameters.
+   *
+   * @typedef DHPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DHPubKeySpec extends AsyKeySpec {
     /**
      * Indicates the DH common parameters.
@@ -5310,6 +6642,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DH common parameters.
+     *
+     * @type { DHCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: DHCommonParamsSpec;
 
@@ -5320,6 +6661,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the public value of the DH public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: bigint;
   }
@@ -5332,6 +6682,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the DH keypair with its associated parameters.
+   *
+   * @typedef DHKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface DHKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the DH common parameters.
@@ -5340,6 +6699,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the DH common parameters.
+     *
+     * @type { DHCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     params: DHCommonParamsSpec;
 
@@ -5351,6 +6719,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the private value of the DH private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     sk: bigint;
 
     /**
@@ -5361,6 +6738,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the public value of the DH public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     pk: bigint;
   }
 
@@ -5370,6 +6756,14 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Key utilities for DH Algorithm.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   class DHKeyUtil {
     /**
@@ -5387,6 +6781,22 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Create the common parameter set.
+     *
+     * @param { number } pLen - indicates the byte length of the prime p.
+     * @param { number } [skLen] - indicates the byte length of the private key.
+     * @returns { DHCommonParamsSpec } the DH common params spec obj.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     static genDHCommonParamsSpec(pLen: number, skLen?: number): DHCommonParamsSpec;
   }
 
@@ -5398,6 +6808,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the ED25519 private key with its associated parameters.
+   *
+   * @typedef ED25519PriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ED25519PriKeySpec extends AsyKeySpec {
     /**
      * Indicates the private value of the ED25519 private key.
@@ -5406,6 +6825,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the private value of the ED25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sk: bigint;
   }
@@ -5418,6 +6846,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the ED25519 public key with its associated parameters.
+   *
+   * @typedef ED25519PubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ED25519PubKeySpec extends AsyKeySpec {
     /**
      * Indicates the public value of the ED25519 public key.
@@ -5426,6 +6863,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the public value of the ED25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: bigint;
   }
@@ -5438,6 +6884,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the ED25519 keypair with its associated parameters.
+   *
+   * @typedef ED25519KeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface ED25519KeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the private value of the ED25519 private key.
@@ -5446,6 +6901,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the private value of the ED25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sk: bigint;
 
@@ -5456,6 +6920,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the public value of the ED25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: bigint;
   }
@@ -5468,6 +6941,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the X25519 private key with its associated parameters.
+   *
+   * @typedef X25519PriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface X25519PriKeySpec extends AsyKeySpec {
     /**
      * Indicates the private value of the X25519 private key.
@@ -5476,6 +6958,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the private value of the X25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sk: bigint;
   }
@@ -5488,6 +6979,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the X25519 public key with its associated parameters.
+   *
+   * @typedef X25519PubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface X25519PubKeySpec extends AsyKeySpec {
     /**
      * Indicates the public value of the X25519 public key.
@@ -5496,6 +6996,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the public value of the X25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: bigint;
   }
@@ -5508,6 +7017,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the X25519 keypair with its associated parameters.
+   *
+   * @typedef X25519KeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface X25519KeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the private value of the X25519 private key.
@@ -5516,6 +7034,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the private value of the X25519 private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     sk: bigint;
 
@@ -5526,6 +7053,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the public value of the X25519 public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     pk: bigint;
   }
@@ -6117,6 +7653,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the key derivation function parameters.
+   *
+   * @typedef KdfSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface KdfSpec {
     /**
      * Indicates the algorithm name of key derivation function.
@@ -6125,6 +7670,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name of key derivation function.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     algName: string;
   }
@@ -6137,6 +7691,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Specifies the PBKDF2 parameters.
+   *
+   * @typedef PBKDF2Spec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface PBKDF2Spec extends KdfSpec {
     /**
      * Indicates the password parameter of PBKDF2.
@@ -6145,6 +7708,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the password parameter of PBKDF2.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     password: string | Uint8Array;
 
@@ -6156,6 +7728,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the salt parameter of PBKDF2.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     salt: Uint8Array;
 
     /**
@@ -6165,6 +7746,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the iteration number of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     iterations: number;
 
@@ -6176,6 +7766,15 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Indicates the byte length of output key of PBKDF2.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     keySize: number;
   }
 
@@ -6185,6 +7784,7 @@ declare namespace cryptoFramework {
    * @typedef HKDFSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   interface HKDFSpec extends KdfSpec {
@@ -6194,6 +7794,7 @@ declare namespace cryptoFramework {
      * @type { string | Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     key: string | Uint8Array;
@@ -6204,6 +7805,7 @@ declare namespace cryptoFramework {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     salt: Uint8Array;
@@ -6214,6 +7816,7 @@ declare namespace cryptoFramework {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     info: Uint8Array;
@@ -6224,6 +7827,7 @@ declare namespace cryptoFramework {
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     keySize: number;
@@ -6237,6 +7841,15 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * The key derivation function object provides the ability to derive key with its associated parameters.
+   *
+   * @typedef Kdf
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface Kdf {
     /**
      * Generate a dataBlob object of secret key.
@@ -6249,6 +7862,19 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
 
@@ -6264,6 +7890,19 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Generate a dataBlob object of secret key.
+     *
+     * @param { KdfSpec } params - the input params of key derivation function.
+     * @returns { Promise<DataBlob> } the promise used to return dataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
 
     /**
@@ -6274,6 +7913,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Indicates the algorithm name of the key derivation function.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     readonly algName: string;
   }
@@ -6290,6 +7939,19 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Create a key derivation function object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Kdf } the key derivation function object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createKdf(algName: string): Kdf;
 
   /**
@@ -6298,6 +7960,7 @@ declare namespace cryptoFramework {
    * @typedef SM2CipherTextSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   interface SM2CipherTextSpec {
@@ -6307,6 +7970,7 @@ declare namespace cryptoFramework {
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     xCoordinate: bigint;
@@ -6317,6 +7981,7 @@ declare namespace cryptoFramework {
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     yCoordinate: bigint;
@@ -6327,6 +7992,7 @@ declare namespace cryptoFramework {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     cipherTextData: Uint8Array;
@@ -6337,6 +8003,7 @@ declare namespace cryptoFramework {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     hashData: Uint8Array;
@@ -6347,6 +8014,7 @@ declare namespace cryptoFramework {
    *
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   class SM2CryptoUtil {
@@ -6362,6 +8030,7 @@ declare namespace cryptoFramework {
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
@@ -6378,6 +8047,7 @@ declare namespace cryptoFramework {
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
