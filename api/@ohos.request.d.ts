@@ -4707,7 +4707,7 @@ declare namespace request {
      *
      * @param { BaseContext } context - context of the caller.
      * @param { string } id - the id of the task.
-     * @param { string } token - the token of the task,length between 8 and 2048 bytes.
+     * @param { string } token - the token of the task, length between 8 and 2048 bytes.
      * @returns { Promise<Task> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      *         Possible causes:
@@ -4841,7 +4841,7 @@ declare namespace request {
      * Touches specified task with token.
      *
      * @param { string } id the task id.
-     * @param { string } token the in-application isolation key,length between 8 and 2048 bytes.
+     * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws { BusinessError } 401 - parameter error.
      *         Possible causes:
@@ -4870,7 +4870,7 @@ declare namespace request {
      * Touches specified task with token.
      *
      * @param { string } id the task id.
-     * @param { string } token the in-application isolation key,length between 8 and 2048 bytes.
+     * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      *         Possible causes:
