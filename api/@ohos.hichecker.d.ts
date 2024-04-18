@@ -118,7 +118,7 @@ declare namespace hichecker {
    * Add one or more rule.
    *
    * @param { bigint } rule
-   * @throws { BusinessError } 401 - the parameter check failed
+   * @throws { BusinessError } 401 - the parameter check failed, parameter must be existing rule
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9
    */
@@ -128,7 +128,7 @@ declare namespace hichecker {
    * Remove one or more rule.
    *
    * @param { bigint } rule
-   * @throws { BusinessError } 401 - the parameter check failed
+   * @throws { BusinessError } 401 - the parameter check failed, parameter must be existing rule
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9
    */
@@ -139,7 +139,7 @@ declare namespace hichecker {
    *
    * @param { bigint } rule
    * @returns { boolean } the result of whether the query rule is added.
-   * @throws { BusinessError } 401 - the parameter check failed
+   * @throws { BusinessError } 401 - the parameter check failed, parameter must be existing rule
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9
    */
