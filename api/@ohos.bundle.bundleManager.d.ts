@@ -1050,7 +1050,16 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
-    LOCKED
+    LOCKED,
+
+    /**
+     * Indicates the system automatically determines the sensor restricted mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    AUTO_ROTATION_UNSPECIFIED
   }
 
   /**
