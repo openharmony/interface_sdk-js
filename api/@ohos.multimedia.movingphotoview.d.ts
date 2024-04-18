@@ -12,13 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- /**
- * Provides methods to access moving photo data.
- *
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @crossplatform
- * @atomicservice
- * @since 12
+/**
+ * @file A component which support applications to show moving photo data 
+ * @kit MediaLibraryKit
  */
 declare type MovingPhoto = import('../api/@ohos.file.photoAccessHelper').default.MovingPhoto;
 
