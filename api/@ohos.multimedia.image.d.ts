@@ -2313,6 +2313,64 @@ declare namespace image {
   }
 
   /**
+   * Enumerates decoding dynamic range.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum DecodingDynamicRange {
+    /**
+     * Decoding according to the content of the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    AUTO = 0,
+
+    /**
+     * Decoding to standard dynamic range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    SDR = 1,
+
+    /**
+     * Decoding to high dynamic range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR = 2
+  }
+
+  /**
+   * Enumerates packing dynamic range.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum PackingDynamicRange {
+    /**
+     * Packing according to the content of the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    AUTO = 0,
+
+    /**
+     * Packing to standard dynamic range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    SDR = 1,
+  }
+
+  /**
    * Enum for image scale mode.
    *
    * @enum { number }
@@ -2936,6 +2994,15 @@ declare namespace image {
      * @since 12
      */
     mimeType: string;
+
+    /**
+     * Indicates whether the image high dynamic range
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    isHdr: boolean;
   }
 
   /**
@@ -3043,6 +3110,15 @@ declare namespace image {
      * @since 11
      */
     bufferSize?: number;
+
+    /**
+     * The desired dynamic range of the target image.
+     *
+     * @type { ?PackingDynamicRange }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    desiredDynamicRange?: PackingDynamicRange;
   }
 
   /**
@@ -3474,6 +3550,16 @@ declare namespace image {
      * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
+
+    
+    /**
+     * The desired dynamic range of the image pixelmap.
+     *
+     * @type { ?DecodingDynamicRange }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 12
+     */
+    desiredDynamicRange?: DecodingDynamicRange;
   }
 
   /**
