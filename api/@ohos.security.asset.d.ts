@@ -391,6 +391,13 @@ declare namespace asset {
      * @since 11
      */
     TRUSTED_DEVICE = 1 << 1,
+    /**
+     * An Asset with this attribute value can only be transferred out to devices logged in with trusted accounts.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    TRUSTED_ACCOUNT = 1 << 2,
   }
 
   /**
@@ -439,6 +446,30 @@ declare namespace asset {
      * @since 11
      */
     ATTRIBUTES = 1,
+  }
+
+  /**
+   * An enum type indicates the additional action to be performed during operation.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Asset
+   * @since 12
+   */
+  enum OperationType {
+    /**
+     * Synchronization is required during operation.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    NEED_SYNC = 0,
+    /**
+     * Logout is required during operation.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    NEED_LOGOUT = 1,
   }
 
   /**
@@ -609,6 +640,38 @@ declare namespace asset {
      */
     DATA_LABEL_NORMAL_4 = TagType.BYTES | 0x33,
     /**
+     * A local tag whose value is a byte array indicating the first user-defined Asset data label (allow to update).
+     * The information of a local tag will not be synchronized.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    DATA_LABEL_NORMAL_LOCAL_1 = TagType.BYTES | 0x34,
+    /**
+     * A local tag whose value is a byte array indicating the second user-defined Asset data label (allow to update).
+     * The information of a local tag will not be synchronized.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    DATA_LABEL_NORMAL_LOCAL_2 = TagType.BYTES | 0x35,
+    /**
+     * A local tag whose value is a byte array indicating the third user-defined Asset data label (allow to update).
+     * The information of a local tag will not be synchronized.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    DATA_LABEL_NORMAL_LOCAL_3 = TagType.BYTES | 0x36,
+    /**
+     * A local tag whose value is a byte array indicating the fourth user-defined Asset data label (allow to update).
+     * The information of a local tag will not be synchronized.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    DATA_LABEL_NORMAL_LOCAL_4 = TagType.BYTES | 0x37,
+    /**
      * A tag whose value is a 32-bit unsigned integer indicating the return type of the queried Asset.
      *
      * @syscap SystemCapability.Security.Asset
@@ -643,6 +706,20 @@ declare namespace asset {
      * @since 11
      */
     CONFLICT_RESOLUTION = TagType.NUMBER | 0x44,
+    /**
+     * A tag whose value is a byte array indicating the update time of an Asset.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    UPDATE_TIME = TagType.BYTES | 0x45,
+    /**
+     * A tag whose value is a 32-bit unsigned integer indicating the additional action to be performed during operation.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    OPERATION_TYPE = TagType.NUMBER | 0x46,
   }
 
   /**
