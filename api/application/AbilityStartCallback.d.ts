@@ -43,13 +43,13 @@ export default class AbilityStartCallback {
   onError(code: number, name: string, message: string): void;
   
   /**
-   * Called when UIExtensionAbility call TerminateSelfWithResult.
+   * Called when UIExtensionAbility call terminateSelfWithResult.
    *
-   * @type { ?function }
+   * @param { AbilityResult } parameter - The parameter returned if the UIExtensionAbility call terminateSelfWithResult.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 12
    */
-  onResult?: (parameter: AbilityResult) => void;
+  onResult?(parameter: AbilityResult): void;
 }
