@@ -751,6 +751,7 @@ screensaver
 scrolldown
 scrollup
 sdpi
+sdr
 searchsetter
 sece
 secinfo

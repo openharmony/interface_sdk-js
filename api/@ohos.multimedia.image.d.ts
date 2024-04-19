@@ -4981,6 +4981,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     writeBufferToPixelsSync(src: ArrayBuffer): void;
 
     /**
+     * Convert pixelmap to standard dynamic range.
+     * 
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980137 - Invalid image operation.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    toSdr(): Promise<void>;
+  
+    /**
      * Obtains pixel map information about this image. This method uses a promise to return the information.
      *
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
