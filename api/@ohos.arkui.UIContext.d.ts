@@ -969,7 +969,7 @@ export class PromptAction {
   /**
    * Open the custom dialog with frameNode.
    *
-   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.BaseDialogOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
@@ -979,12 +979,12 @@ export class PromptAction {
    * @crossplatform
    * @since 12
    */
-    openCustomDialog(dialogContent: ComponentContent, options?: promptAction.BaseDialogOptions): Promise<void>;
+    openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * Update the custom dialog with frameNode.
    *
-   * @param { ComponentContent } dialogContent - the content of custom dialog.
+   * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.BaseDialogOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
@@ -994,12 +994,12 @@ export class PromptAction {
    * @crossplatform
    * @since 12
    */
-    updateCustomDialog(dialogContent: ComponentContent, options: promptAction.BaseDialogOptions): Promise<void>;
+    updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
 
     /**
      * Close the custom dialog with frameNode.
      *
-     * @param { ComponentContent } dialogContent - the content of custom dialog.
+     * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the number of parameters or the type of parameters is incorrect.
      * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
@@ -1008,7 +1008,7 @@ export class PromptAction {
      * @crossplatform
      * @since 12
      */
-    closeCustomDialog(dialogContent: ComponentContent): Promise<void>;
+    closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 }
 
 /**
