@@ -53,6 +53,35 @@ declare namespace asset {
   function add(attributes: AssetMap): Promise<void>;
 
   /**
+   * Add an Asset to a specific user space.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to add an Asset.
+   * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
+   * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Invalid argument.
+   * @throws { BusinessError } 24000001 - Service unavailable.
+   * @throws { BusinessError } 24000003 - Data already exists.
+   * @throws { BusinessError } 24000005 - Device status mismatch.
+   * @throws { BusinessError } 24000006 - Out of memory.
+   * @throws { BusinessError } 24000007 - Data corrupted.
+   * @throws { BusinessError } 24000008 - Database operation failed.
+   * @throws { BusinessError } 24000009 - Key management service is abnormal.
+   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
+   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
+   * @throws { BusinessError } 24000012 - Account manager is abnormal.
+   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000014 - File operation failed.
+   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @since 12
+   */
+  function addAsUser(userId: number, attributes: AssetMap): Promise<void>;
+
+  /**
    * Add an Asset.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
@@ -97,6 +126,31 @@ declare namespace asset {
   function remove(query: AssetMap): Promise<void>;
 
   /**
+   * Remove one or more Assets that match a search query from a specific user space.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to remove one or more Assets.
+   * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
+   * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Invalid argument.
+   * @throws { BusinessError } 24000001 - Service unavailable.
+   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000006 - Out of memory.
+   * @throws { BusinessError } 24000007 - Data corrupted.
+   * @throws { BusinessError } 24000008 - Database operation failed.
+   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
+   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
+   * @throws { BusinessError } 24000012 - Account manager is abnormal.
+   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @since 12
+   */
+  function removeAsUser(userId: number, query: AssetMap): Promise<void>;
+
+  /**
    * Remove one or more Assets that match a search query.
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
@@ -138,6 +192,35 @@ declare namespace asset {
    * @since 11
    */
   function update(query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
+
+  /**
+   * Update an Asset that matches a search query in a specific user space.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to update an Asset.
+   * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
+   * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
+   * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Invalid argument.
+   * @throws { BusinessError } 24000001 - Service unavailable.
+   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000005 - Device status mismatch.
+   * @throws { BusinessError } 24000006 - Out of memory.
+   * @throws { BusinessError } 24000007 - Data corrupted.
+   * @throws { BusinessError } 24000008 - Database operation failed.
+   * @throws { BusinessError } 24000009 - Key management service is abnormal.
+   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
+   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
+   * @throws { BusinessError } 24000012 - Account manager is abnormal.
+   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000015 - Get system time failed.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @since 12
+   */
+  function updateAsUser(userId: number, query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
 
   /**
    * Update an Asset that matches a search query.
@@ -185,6 +268,36 @@ declare namespace asset {
    * @since 11
    */
   function preQuery(query: AssetMap): Promise<Uint8Array>;
+
+  /**
+   * Preprocessing (e.g. get challenge) for querying one or more Assets 
+   * that require user authentication in a specific user space.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to pre-query one or more Assets.
+   * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
+   * @returns { Promise<Uint8Array> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Invalid argument.
+   * @throws { BusinessError } 24000001 - Service unavailable.
+   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000005 - Device status mismatch.
+   * @throws { BusinessError } 24000006 - Out of memory.
+   * @throws { BusinessError } 24000007 - Data corrupted.
+   * @throws { BusinessError } 24000008 - Database operation failed.
+   * @throws { BusinessError } 24000009 - Key management service is abnormal.
+   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
+   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
+   * @throws { BusinessError } 24000012 - Account manager is abnormal.
+   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000016 - Capacity exceeds the limit.
+   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @since 12
+   */
+  function preQueryAsUser(userId: number, query: AssetMap): Promise<Uint8Array>;
 
   /**
    * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication.
@@ -235,6 +348,35 @@ declare namespace asset {
   function query(query: AssetMap): Promise<Array<AssetMap>>;
 
   /**
+   * Query one or more Assets that match a search query in a specific user space.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to query one or more Assets.
+   * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
+   * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Invalid argument.
+   * @throws { BusinessError } 24000001 - Service unavailable.
+   * @throws { BusinessError } 24000002 - Data not found.
+   * @throws { BusinessError } 24000004 - Access denied.
+   * @throws { BusinessError } 24000005 - Device status mismatch.
+   * @throws { BusinessError } 24000006 - Out of memory.
+   * @throws { BusinessError } 24000007 - Data corrupted.
+   * @throws { BusinessError } 24000008 - Database operation failed.
+   * @throws { BusinessError } 24000009 - Key management service is abnormal.
+   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
+   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
+   * @throws { BusinessError } 24000012 - Account manager is abnormal.
+   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @throws { BusinessError } 24000017 - Capability not supported.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @since 12
+   */
+  function queryAsUser(userId: number, query: AssetMap): Promise<Array<AssetMap>>;
+
+  /**
    * Query one or more Assets that match a search query.
    *
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
@@ -274,6 +416,29 @@ declare namespace asset {
    * @since 11
    */
   function postQuery(handle: AssetMap): Promise<void>;
+
+  /**
+   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication in a 
+   * specific user space.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - the user identifier to post-query one or more Assets.
+   * @param { AssetMap } handle - a map object containing the handle returned by {@link preQueryAsUser}.
+   * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Invalid argument.
+   * @throws { BusinessError } 24000001 - Service unavailable.
+   * @throws { BusinessError } 24000006 - Out of memory.
+   * @throws { BusinessError } 24000010 - IPC communication is abnormal.
+   * @throws { BusinessError } 24000011 - Bundle framework is abnormal.
+   * @throws { BusinessError } 24000012 - Account manager is abnormal.
+   * @throws { BusinessError } 24000013 - Access token manager is abnormal.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @since 12
+   */
+  function postQueryAsUser(userId:number, handle: AssetMap): Promise<void>;
 
   /**
    * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication.
@@ -646,7 +811,7 @@ declare namespace asset {
   }
 
   /**
-   *  An enum type containing the Asset error codes.
+   * An enum type containing the Asset error codes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -660,6 +825,13 @@ declare namespace asset {
      * @since 11
      */
     PERMISSION_DENIED = 201,
+    /**
+     * The error code indicates that the caller is not a system application.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 12
+     */
+    NOT_SYSTEM_APPLICATION = 202,
     /**
      * The error code indicates that the argument is invalid.
      *
