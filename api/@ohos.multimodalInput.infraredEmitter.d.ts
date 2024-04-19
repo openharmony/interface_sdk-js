@@ -67,7 +67,7 @@ declare namespace infraredEmitter {
   function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void;
 
   /**
-   * Queries the infrared frequency supported by the IR emitter.
+   * Obtains the infrared frequency supported by the IR emitter.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
