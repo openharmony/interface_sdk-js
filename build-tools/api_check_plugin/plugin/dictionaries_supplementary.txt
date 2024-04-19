@@ -542,6 +542,7 @@ nextgroup
 nlink
 nmea
 nnrt
+nnrtdevice
 nopadding
 mori
 nodownload
@@ -673,6 +674,7 @@ pss
 pssh
 puk
 pvr
+quant
 querier
 queriers
 racing
