@@ -115,17 +115,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     onStart(event: () => void): MovingPhotoViewAttribute;
     /**
-     * Called when the video is paused.
-     *
-     * @param { function } event
-     * @returns { MovingPhotoViewAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    onPause(event: () => void): MovingPhotoViewAttribute;
-    /**
      * Called when the video playback stoped.
      *
      * @param { function } event
@@ -195,16 +184,6 @@ export class MovingPhotoViewController {
      * @since 12
      */
     stopPlayback();
-    /**
-     * Update MovingPhotoView data source.
-     *
-     * @param { MovingPhoto } data
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    updateSource(data: MovingPhoto);
 }
 /**
  * Defines MovingPhotoView Component.
