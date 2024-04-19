@@ -750,8 +750,79 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   controlSize(value: ControlSize): SelectAttribute;
+
+  /**
+   * Register a ContentModifier for each menu item.
+   *
+   * @param { ContentModifier<MenuItemConfiguration> } modifier - The content modifier of select menu item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
 }
 
+/**
+ * MenuItemConfiguration used by menu item content modifier.
+ *
+ * @interface MenuItemConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
+  /**
+   * Indicates the text of this menu item.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: ResourceStr;
+
+  /**
+   * Indicates the icon of this menu item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  icon?: ResourceStr;
+
+  /**
+   * Indicates whether this menu item is selected or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selected: boolean;
+
+  /**
+   * Indicates the index of the menu item.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  index: number;
+
+  /**
+   * Select this menu item.
+   *
+   * @param { number } index - The value of menu item index.
+   * @param { string } value - The value of menu item text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerSelect(index: number, value: string): void;
+}
 /**
  * Defines Select Component.
  *
