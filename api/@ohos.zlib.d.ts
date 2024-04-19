@@ -31,6 +31,13 @@ import { AsyncCallback } from './@ohos.base';
  * @atomicservice
  * @since 11
  */
+/**
+ * @namespace zlib
+ * @syscap SystemCapability.BundleManager.Zlib
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace zlib {
   /**
    * ErrorCode
