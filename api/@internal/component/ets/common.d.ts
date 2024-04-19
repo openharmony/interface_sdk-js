@@ -10094,13 +10094,13 @@ declare interface SheetOptions extends BindOptions {
    /**
    * Defines the sheet prefer type
    *
-   * @type { ?(SheetType.CENTER | SheetType.POPUP) }
+   * @type { ?SheetType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  preferType?: SheetType.CENTER | SheetType.POPUP;
+  preferType?: SheetType;
 
   /**
    * Defines the sheet title
