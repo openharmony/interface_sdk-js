@@ -762,6 +762,16 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   range: [ResourceColor, ResourceColor];
 
   /**
+   * Distribution type of particle color.
+   * @type { ?DistributionType }
+   * @default DistributionType.UNIFORM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  distributionType?: DistributionType;
+
+  /**
    * Particle color property updater.
    * @type { ?object }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
@@ -1053,6 +1063,34 @@ declare enum ParticleEmitterShape {
    * @since 11
    */
   ELLIPSE = 'ellipse',
+}
+
+/**
+ * Enumerates the color distribution types of a particle.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DistributionType {
+  /**
+   * Uniform distribution.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  UNIFORM = 0,
+
+  /**
+   * Gaussian distribution.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  GAUSSIAN = 1,
 }
 
 /**
