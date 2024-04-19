@@ -391,7 +391,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output compressed file.
    * @param { Options } options - Indicates the options of compressing file.
    * @param { AsyncCallback<void> } callback - The callback of compressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -404,7 +404,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output compressed file.
    * @param { Options } options - Indicates the options of compressing file.
    * @param { AsyncCallback<void> } callback - The callback of compressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -421,7 +421,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output compressed file.
    * @param { Options } options - Indicates the options of compressing file.
    * @returns { Promise<void> } Returns the result of compressFile file.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -434,7 +434,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output compressed file.
    * @param { Options } options - Indicates the options of compressing file.
    * @returns { Promise<void> } Returns the result of compressFile file.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -451,7 +451,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output decompressed file.
    * @param { Options } options - Indicates the options of decompressing file.
    * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -464,7 +464,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output decompressed file.
    * @param { Options } options - Indicates the options of decompressing file.
    * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
@@ -478,7 +478,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output decompressed file.
    * @param { Options } options - Indicates the options of decompressing file.
    * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
@@ -495,7 +495,7 @@ declare namespace zlib {
    * @param { string } inFile - Indicates the path of the file to be decompressed.
    * @param { string } outFile - Indicates the path of the output decompressed file.
    * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
@@ -508,7 +508,7 @@ declare namespace zlib {
    * @param { string } inFile - Indicates the path of the file to be decompressed.
    * @param { string } outFile - Indicates the path of the output decompressed file.
    * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
@@ -526,7 +526,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output decompressing file.
    * @param { Options } options - Indicates the options of decompressing file.
    * @returns { Promise<void> } Returns the result of decompressing file.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -539,7 +539,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output decompressing file.
    * @param { Options } options - Indicates the options of decompressing file.
    * @returns { Promise<void> } Returns the result of decompressing file.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
@@ -553,7 +553,7 @@ declare namespace zlib {
    * @param { string } outFile - Indicates the path of the output decompressing file.
    * @param { Options } options - Indicates the options of decompressing file.
    * @returns { Promise<void> } Returns the result of decompressing file.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not ZIP format or damaged.
@@ -599,7 +599,7 @@ declare namespace zlib {
      * @param { number } adler - Initial value of Adler32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated checksum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -614,7 +614,7 @@ declare namespace zlib {
      * @param { number } adler2 - The second Adler32 checksum.
      * @param { number } len2 - The length of the data block associated with the second Adler32 checksum.
      * @returns { Promise<number> } Returns the Adler-32 checksum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -628,7 +628,7 @@ declare namespace zlib {
      * @param { number } crc - Initial value of CRC-32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-32.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -643,7 +643,7 @@ declare namespace zlib {
      * @param { number } crc2 - The second CRC-32 checksum.
      * @param { number } len2 - The length of the data block associated with the second CRC-32 checksum.
      * @returns { Promise<number> } Returns the CRC-32 check value.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -657,7 +657,7 @@ declare namespace zlib {
      * @param { number } crc - Initial value of CRC-64 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
      * @returns { Promise<number> } Return the updated CRC-64.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
