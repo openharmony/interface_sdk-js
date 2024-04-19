@@ -457,20 +457,9 @@ declare namespace distributedDataObject {
      * if object is saved in other device, it will delete data in local device.
      *
      * @returns { Promise<RevokeSaveSuccessResponse> } {RevokeSaveSuccessResponse}: The response of revokeSave.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
-     */
-    /**
-     * Revoke save object, delete saved object immediately, if object is saved in local device,
-     * it will delete saved data on all trusted device.
-     * if object is saved in other device, it will delete data in local device.
-     *
-     * @returns { Promise<RevokeSaveSuccessResponse> } {RevokeSaveSuccessResponse}: The response of revokeSave.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 12
      */
     revokeSave(): Promise<RevokeSaveSuccessResponse>;
 
