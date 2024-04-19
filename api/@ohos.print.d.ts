@@ -2153,6 +2153,7 @@ declare namespace print {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since 12
