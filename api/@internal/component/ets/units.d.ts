@@ -2069,6 +2069,36 @@ declare interface Position {
 }
 
 /**
+ * Defines the LocalizedPosition.
+ *
+ * @interface LocalizedPosition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface LocalizedPosition {
+  /**
+   * Coordinate start of the Position.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start?: LengthMetrics;
+
+  /**
+   * Coordinate top of the Position.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  top?: LengthMetrics;
+}
+
+/**
  * Defines the Edges.
  *
  * @interface Edges
@@ -2126,6 +2156,56 @@ declare interface Edges {
    * @form
    */
   right?: Dimension;
+}
+
+/**
+ * Defines the LocalizedEdges.
+ *
+ * @interface LocalizedEdges
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface LocalizedEdges {
+  /**
+   * top property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  top?: LengthMetrics;
+
+  /**
+   * start property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start?: LengthMetrics;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bottom?: LengthMetrics;
+
+  /**
+   * end property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  end?: LengthMetrics;
 }
 
 /**

@@ -16621,15 +16621,15 @@ declare class CommonMethod<T> {
   /**
    * position
    *
-   * @param { Position | Edges } value
+   * @param { Position | Edges | LocalizedEdges } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  position(value: Position | Edges): T;
+  position(value: Position | Edges | LocalizedEdges): T;
 
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
@@ -16669,7 +16669,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  markAnchor(value: Position): T;
+  /**
+   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   *
+   * @param { Position | LocalizedPosition} value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  markAnchor(value: Position | LocalizedPosition): T;
 
   /**
    * Coordinate offset relative to the layout completion position.
@@ -16717,15 +16728,15 @@ declare class CommonMethod<T> {
    * Coordinate offset relative to the layout completion position.
    * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
    *
-   * @param { Position | Edges } value
+   * @param { Position | Edges | LocalizedEdges } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  offset(value: Position | Edges): T;
+  offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
