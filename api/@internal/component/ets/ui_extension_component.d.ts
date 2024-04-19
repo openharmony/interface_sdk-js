@@ -49,6 +49,16 @@ declare interface UIExtensionOptions {
    * @since 12
    */
   placeholder?: ComponentContent;
+
+  /**
+   * Whether to follow the host densityDpi.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  densityDpi ?: boolean;
 }
 
 /**
