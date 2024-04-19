@@ -7354,7 +7354,17 @@ declare interface BorderImageOption {
    * @since 11
    * @form
    */
-  slice?: Length | EdgeWidths,
+  /**
+   * Border image slice
+   *
+   * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  slice?: Length | EdgeWidths | LocalizedEdgeWidths,
 
   /**
    * Border image repeat
@@ -7441,7 +7451,17 @@ declare interface BorderImageOption {
    * @since 11
    * @form
    */
-  width?: Length | EdgeWidths,
+  /**
+   * Border image width
+   *
+   * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  width?: Length | EdgeWidths | LocalizedEdgeWidths,
 
   /**
    * Border image outset
@@ -7470,7 +7490,17 @@ declare interface BorderImageOption {
    * @since 11
    * @form
    */
-  outset?: Length | EdgeWidths,
+  /**
+   * Border image outset
+   *
+   * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  outset?: Length | EdgeWidths | LocalizedEdgeWidths,
 
   /**
    * Border image center fill
@@ -10174,22 +10204,22 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Defines the sheet's border width.
    *
-   * @type { ?(Dimension | EdgeWidths) }
+   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderWidth?: Dimension | EdgeWidths;
+  borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
    * Defines the sheet's border color.
    *
-   * @type { ?(ResourceColor | EdgeColors) }
+   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderColor?: ResourceColor | EdgeColors;
+  borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
    * Defines the sheet's border style.
@@ -13833,7 +13863,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  padding(value: Padding | Length): T;
+  /**
+   * Inner margin.
+   *
+   * @param { Padding | Length | LocalizedPadding } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
    * Outer Margin.
@@ -13873,7 +13914,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  margin(value: Margin | Length): T;
+  /**
+   * Outer Margin.
+   *
+   * @param { Margin | Length | LocalizedMargin } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  margin(value: Margin | Length | LocalizedMargin): T;
 
   /**
    * Background.
@@ -14365,7 +14417,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  borderWidth(value: Length | EdgeWidths): T;
+  /**
+   * Border width
+   *
+   * @param { Length | EdgeWidths | LocalizedEdgeWidths } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  borderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T;
 
   /**
    * Border color
@@ -14405,7 +14468,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  borderColor(value: ResourceColor | EdgeColors): T;
+  /**
+   * Border color
+   *
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
   /**
    * Border radius
@@ -14445,7 +14519,18 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  borderRadius(value: Length | BorderRadiuses): T;
+  /**
+   * Border radius
+   *
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T;
 
   /**
    * Border image
@@ -14566,15 +14651,15 @@ declare class CommonMethod<T> {
   /**
    * Outline color
    *
-   * @param { ResourceColor | EdgeColors } value
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  outlineColor(value: ResourceColor | EdgeColors): T;
+  outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
   /**
    * Outline radius
