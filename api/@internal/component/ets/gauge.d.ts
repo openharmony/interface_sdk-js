@@ -488,7 +488,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   trackShadow(value: GaugeShadowOptions): GaugeAttribute;
 
