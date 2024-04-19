@@ -22,6 +22,7 @@ import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
+
 /**
  * systemPasteboard
  * @namespace pasteboard
