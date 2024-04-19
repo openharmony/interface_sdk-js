@@ -567,6 +567,16 @@ declare namespace uiObserver {
      * @since 12
      */
     state: RouterPageState;
+
+    /**
+     * The unique identifier of the router page.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+     pageId: string;
   }
 
   /**
