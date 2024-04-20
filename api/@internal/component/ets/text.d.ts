@@ -88,23 +88,11 @@ interface TextInterface {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-   /**
-   * Called when writing text.
-   *
-   * @param { string | Resource | StyledString } content
-   * @param { TextOptions } value
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   * @form
-   */
-   (content?: string | Resource | StyledString, value?: TextOptions): TextAttribute;
+  (content?: string | Resource, value?: TextOptions): TextAttribute;
   }
 
 /**
@@ -632,7 +620,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    * @form
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): TextAttribute;
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { DecorationStyleInterface } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  decoration(value: DecorationStyleInterface): TextAttribute;
 
   /**
    * Called when the distance between text fonts is set.
