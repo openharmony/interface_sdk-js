@@ -471,6 +471,12 @@ declare namespace audio {
      */
     DISPLAY_PORT = 23,
     /**
+     * A device type for rerouting audio to other remote devices by system application
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    REMOTE_CAST = 24,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -4512,6 +4518,14 @@ declare namespace audio {
      * @since 12
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
+
+    /**
+     * Remote cast source type.
+     * @permission ohos.permission.CAST_AUDIO_OUTPUT
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 12
+     */
+    SOURCE_TYPE_REMOTE_CAST = 11,
   }
 
   /**
