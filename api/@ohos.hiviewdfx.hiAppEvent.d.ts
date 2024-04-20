@@ -688,13 +688,14 @@ declare namespace hiAppEvent {
     data: string[];
 
     /**
-     * The events json format data contained in the package.
+     * The event json format data contained in the package.
      *
+     * @type { Array<AppEventInfo> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
      */
-    events: AppEventInfo[];
+    appEventInfos: Array<AppEventInfo>;
   }
 
   /**
@@ -748,18 +749,6 @@ declare namespace hiAppEvent {
      * @since 11
      */
     setSize(size: number): void;
-
-    /**
-     * Set the number of rows per read.
-     *
-     * @param { number } size Row size.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 11105001 - Invalid row value.
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @atomicservice
-     * @since 12
-     */
-    setRow(row: number): void;
 
     /**
      * Read the event data monitored by the watcher.
