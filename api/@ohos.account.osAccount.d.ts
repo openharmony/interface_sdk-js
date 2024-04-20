@@ -223,15 +223,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. The value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the constraint is enabled for the specified OS account.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
@@ -246,15 +242,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. The value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @returns { Promise<boolean> } Returns {@code true} if the constraint has been enabled for the OS account;
      *         returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
@@ -270,15 +262,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the constraint is enabled for the specified OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -297,15 +285,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the specified OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -322,15 +306,11 @@ declare namespace osAccount {
      * Checks whether the given constraint is enabled for the current OS account.
      *
      * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the current OS account.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -345,15 +325,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the specified OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -580,15 +556,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { Array<string> } constraints - Indicates the constraints to set for the OS account. The value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @param { boolean } enable - Specifies whether to enable the constraint.
      * @param { AsyncCallback<void> } callback - Indicates the callback for setting the specified OS account constraints.
      * @throws { BusinessError } 201 - Permission denied.
@@ -615,15 +587,11 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { Array<string> } constraints - Indicates the constraints to set for the OS account. The value can be:
-     *        <ul>
-     *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
-     *        </li>
-     *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
-     *        </li>
-     *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
-     *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
-     *        from unknown sources.</li>
-     *        </ul>
+     * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+     * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+     * <br> {@code constraint.calls.outgoing} - Indicates the constraint on making calls.
+     * <br> {@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+     * <br> from unknown sources.
      * @param { boolean } enable - Specifies whether to enable the constraint.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
