@@ -2127,6 +2127,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   wordBreak(value: WordBreak): TextInputAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * @returns { TextInputAttribute } The attribute of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy(strategy: LineBreakStrategy): TextInputAttribute;
+
+  /**
    * Define custom keyboard of the text input.
    *
    * @param { CustomBuilder } value
