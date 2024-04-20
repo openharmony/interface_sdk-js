@@ -686,6 +686,16 @@ declare namespace hiAppEvent {
      * @since 11
      */
     data: string[];
+
+    /**
+     * The event json format data contained in the package.
+     *
+     * @type { Array<AppEventInfo> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    appEventInfos: Array<AppEventInfo>;
   }
 
   /**
