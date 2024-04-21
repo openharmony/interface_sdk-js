@@ -534,6 +534,8 @@ declare namespace dataShare {
      * @param { 'dataChange' } type - Type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -560,6 +562,8 @@ declare namespace dataShare {
      * @param { 'dataChange' } type - Type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -575,7 +579,8 @@ declare namespace dataShare {
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -592,7 +597,8 @@ declare namespace dataShare {
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to unsubscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback to unsubscribe.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -621,7 +627,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the uri to add.
      * @param { string } subscriberId - The subscribe id to add..
      * @param { Template } template - The template to add.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700011 - The uri is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -649,7 +656,8 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the uri to delete.
      * @param { string } subscriberId - The subscribe id.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700011 - The uri is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -682,7 +690,8 @@ declare namespace dataShare {
      * @param { TemplateId } templateId - The template of on.
      * @param { AsyncCallback<RdbDataChangeNode> } callback - The callback of on.
      * @returns { Array<OperationResult> } : The operation result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -719,7 +728,8 @@ declare namespace dataShare {
      * @param { TemplateId } templateId - The template of off.
      * @param { AsyncCallback<RdbDataChangeNode> } callback - The callback of off.
      * @returns { Array<OperationResult> } : The operation result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -756,7 +766,8 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscriberId of on.
      * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of on.
      * @returns { Array<OperationResult> } : The operation result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -793,7 +804,8 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscriberId of off.
      * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of off.
      * @returns { Array<OperationResult> } : The operation result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -829,7 +841,8 @@ declare namespace dataShare {
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @param { AsyncCallback<Array<OperationResult>> } callback
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -864,7 +877,8 @@ declare namespace dataShare {
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { AsyncCallback<Array<OperationResult>> } callback
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -900,7 +914,8 @@ declare namespace dataShare {
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @returns { Promise<Array<OperationResult>> }
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -928,7 +943,8 @@ declare namespace dataShare {
      *
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { AsyncCallback<Array<PublishedItem>> } callback
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -956,7 +972,8 @@ declare namespace dataShare {
      *
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @returns { Promise<Array<PublishedItem>> }
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -987,7 +1004,8 @@ declare namespace dataShare {
      * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
      * @param { AsyncCallback<number> } callback - {number}: the index of the inserted data record.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1017,7 +1035,8 @@ declare namespace dataShare {
      * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
      * @returns { Promise<number> } {number}: the index of the inserted data record.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1034,7 +1053,8 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records deleted.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1047,7 +1067,8 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records deleted.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1077,7 +1098,8 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @returns { Promise<number> } {number}: the number of data records deleted.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1111,7 +1133,8 @@ declare namespace dataShare {
      * @param { Array<string> } columns - Indicates the columns to query.
      * If this parameter is null, all columns are queried.
      * @param { AsyncCallback<DataShareResultSet> } callback - {DataShareResultSet}: the query result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1150,7 +1173,8 @@ declare namespace dataShare {
      * @param { Array<string> } columns - Indicates the columns to query.
      * If this parameter is null, all columns are queried.
      * @returns { Promise<DataShareResultSet> } {DataShareResultSet}: the query result.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1186,7 +1210,8 @@ declare namespace dataShare {
      * You should define the processing logic when this parameter is null.
      * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records updated.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1223,7 +1248,8 @@ declare namespace dataShare {
      * You should define the processing logic when this parameter is null.
      * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
      * @returns { Promise<number> } {number}: the number of data records updated.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1238,7 +1264,8 @@ declare namespace dataShare {
      *
      * @param { Record<string, Array<UpdateOperation>> } operations - Indicates the data to update.
      * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700000 - Inner error.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -1255,7 +1282,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records inserted.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1267,7 +1295,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records inserted.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1295,7 +1324,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
      * @returns { Promise<number> } {number}: the number of data records inserted.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1330,6 +1360,8 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
      * @param { AsyncCallback<string> } callback - {string}: the normalized Uri,
      * if the DataShare supports uri normalization.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1361,6 +1393,8 @@ declare namespace dataShare {
      * to convert it to a denormalized uri that can be used only in the current environment.
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @returns { Promise<string> } {string}: the normalized Uri if the DataShare supports uri normalization;
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
@@ -1392,6 +1426,8 @@ declare namespace dataShare {
      * the denormalization is successful; returns the original {@code Uri} passed to this method if
      * there is nothing to do; returns {@code null} if the data identified by the normalized {@code Uri}
      * cannot be found in the current environment.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1422,6 +1458,8 @@ declare namespace dataShare {
      * is successful; returns the original {@code Uri} passed to this method if there is nothing to do;
      * returns {@code null} if the data identified by the normalized {@code Uri} cannot be found in the
      * current environment.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1446,6 +1484,7 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
      * @param { AsyncCallback<void> } callback - The callback of notifyChange.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1470,6 +1509,7 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1479,19 +1519,19 @@ declare namespace dataShare {
      */
     notifyChange(uri: string): Promise<void>;
 
-    /**
-    * Notifies the registered observers of the data change.
-    *
-    * @param { ChangeInfo } data - Indicates the data change information.
-    * @returns { Promise<void> } Promise that returns no value.
-    * @throws { BusinessError } 401 - Parameter error.
-    * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-    * @throws { BusinessError } 202 - Not System Application.
-    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-    * @systemapi
-    * @stagemodelonly
-    * @since 12
-    */
+     /**
+     * Notifies the registered observers of the data change.
+     *
+     * @param { ChangeInfo } data - Indicates the data change information.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
     notifyChange(data: ChangeInfo): Promise<void>;
 
     /**
