@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export enum TonemapType {
+export enum ToneMappingType {
   /**
    * The tone mapping type is ACES.
    *
@@ -54,19 +54,19 @@ export enum TonemapType {
 /**
  * Defines tone mapping parameters.
  *
- * @typedef TonemapSettings
+ * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export interface TonemapSettings {
+export interface ToneMappingSettings {
   /**
    * Type of the tone mapping.
    *
-   * @type { ?TonemapType }
+   * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  type?: TonemapType;
+  type?: ToneMappingType;
 
   /**
    * Exposure of the tone mapping.
@@ -89,9 +89,9 @@ export interface PostProcessSettings {
   /**
    * Tone mapping settings of the post processing settings.
    *
-   * @type { ?TonemapSettings }
+   * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  tonemap?: TonemapSettings;
+  toneMapping?: ToneMappingSettings;
 }

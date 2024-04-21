@@ -15,6 +15,7 @@
 
 import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
 import { Resource } from 'GlobalResource';
+import { Callback } from '../@ohos.base'
 
 /**
  * @file
@@ -339,20 +340,20 @@ export interface Animation extends SceneResource {
   /**
    * Register a callback when animation finished.
    *
-   * @param { function } callback - the callback invoked when animation finished
+   * @param { Callback<void> } callback - the callback invoked when animation finished
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  onFinished(callback: () => void): void;
+  onFinished(callback: Callback<void>): void;
 
   /**
    * Register a callback when animation started.
    *
-   * @param { function } callback - the callback invoked when animation started
+   * @param { Callback<void> } callback - the callback invoked when animation started
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  onStarted(callback: () => void): void;
+  onStarted(callback: Callback<void>): void;
 
   /**
    * Pause the animation.

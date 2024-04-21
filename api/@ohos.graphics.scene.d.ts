@@ -23,7 +23,7 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { TonemapType, TonemapSettings, PostProcessSettings } from './graphics3d/ScenePostProcessSettings';
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings } from './graphics3d/ScenePostProcessSettings';
 
 /**
  * Export scene types
