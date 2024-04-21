@@ -710,7 +710,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD_DETAILS
+    SUBSCRIBE_TYPE_CLOUD_DETAILS,
+
+    /**
+     * Subscription to local data changes details
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    SUBSCRIBE_TYPE_LOCAL_DETAILS
   }
 
   /**
@@ -4322,15 +4330,16 @@ declare namespace relationalStore {
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
     /**
-     * Registers an observer for the database. When data in the distributed database changes,
+     * Registers an observer for the database. When data in the distributed database or the local database changes,
      * the callback will be invoked.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * If its value is SUBSCRIBE_TYPE_LOCAL_DETAILS, the callback will be invoked for data changes in the local database.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
      * {Array<string>}: The observer of data change events in the distributed database.
-     * {Array<ChangeInfo>}: The change info of data change events in the distributed database.
+     * {Array<ChangeInfo>}: The change info of data change events in the distributed database or the local database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
