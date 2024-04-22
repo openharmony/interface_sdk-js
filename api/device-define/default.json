@@ -71,6 +71,7 @@
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.AVCast",
+    "SystemCapability.Multimedia.AVSession.ExtendedDisplayCast",
     "SystemCapability.Multimedia.Audio.Core",
     "SystemCapability.Multimedia.Audio.Renderer",
     "SystemCapability.Multimedia.Audio.Capturer",
