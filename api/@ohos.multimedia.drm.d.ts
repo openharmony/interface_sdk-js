@@ -470,16 +470,29 @@ declare namespace drm {
      */
     pssh: Uint8Array;
   }
-
-  /**
-   * Get all media key systems supported.
-   * @returns { string[] } The Digital Right Management name list.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+  
+/**
+   * Name and UUID of DRM plugin.
+   * @interface MediaKeySystemDescription
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @since 12
    */
-  function getMediaKeySystems(): string[];
+  interface MediaKeySystemDescription {
+    /**
+     * Name of DRM plugin.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 12
+     */
+    name: string;
+    /**
+     * UUID supported by DRM plugin.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Drm.Core
+     * @since 12
+     */
+    uuid: string;
+  }
 
   /**
    * Get a MediaKeySystem's UUID.
@@ -492,6 +505,16 @@ declare namespace drm {
    * @since 12
    */
   function getMediaKeySystemUuid(name: string): string;
+
+  /**
+   * Get all media key systems supported.
+   * @returns { MediaKeySystemDescription[] } The MediaKeySystem name and uuid info list.
+   * @throws { BusinessError } 24700101 - All unknown errors.
+   * @throws { BusinessError } 24700201 - Service fatal error e.g. service died.
+   * @syscap SystemCapability.Multimedia.Drm.Core
+   * @since 12
+   */
+  function getMediaKeySystems(): MediaKeySystemDescription[];
 
   /**
    * Creates a MediaKeySystem instance.
