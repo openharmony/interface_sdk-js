@@ -10292,6 +10292,16 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onTypeDidChange?: Callback<SheetType>;
+
+  /**
+   * The UIContext that the sheet belongs to
+   *
+   * @type { ?UIContext }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  uiContext?: UIContext;
 }
 
 /**
