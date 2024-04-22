@@ -476,8 +476,8 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000068 - The support process cache state cannot be set more than once.
-   * @systemapi
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @stagemodelonly
    * @since 12
    */
