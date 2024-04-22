@@ -191,6 +191,40 @@ interface Vector2 {
   y: number
 }
 
+ /**
+  * Defined a vector with two T type values.
+  *
+  * @interface Vector2T
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
+ interface Vector2T<T> {
+
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x: T
+
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y: T
+}
+
 /**
  * Defined a vector with three values.
  *
@@ -326,6 +360,15 @@ export type Offset = Vector2;
  * @since 11
  */
 export type Position = Vector2;
+
+/**
+ * PositionT info.
+ * @typedef {Vector2T<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export type PositionT<T> = Vector2T<T>;
 
 /**
  * Pivot info.
