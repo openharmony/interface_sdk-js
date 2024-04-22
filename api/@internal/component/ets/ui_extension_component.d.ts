@@ -51,7 +51,7 @@ declare interface UIExtensionOptions {
   placeholder?: ComponentContent;
 
   /**
-   * Whether to follow the host densityDpi.
+   * Whether to follow the host density DPI.
    *
    * @type { ?boolean }
    * @default true
@@ -59,7 +59,7 @@ declare interface UIExtensionOptions {
    * @systemapi
    * @since 12
    */
-  densityDpi ?: boolean;
+  enableDensityDPI?: boolean;
 }
 
 /**
