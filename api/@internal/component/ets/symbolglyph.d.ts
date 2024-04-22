@@ -55,7 +55,7 @@ interface SymbolGlyphInterface {
    * @atomicservice
    * @since 12
    */
-  (value: Resource): SymbolGlyphAttribute;
+  (value?: Resource): SymbolGlyphAttribute;
 }
 
 /**

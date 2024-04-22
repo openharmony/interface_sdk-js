@@ -13204,6 +13204,16 @@ declare enum DragPreviewMode {
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
 /**
+ * SymbolGlyphModifier
+ *
+ * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
+
+/**
  * Defines the preview options.
  *
  * @interface DragPreviewOptions
