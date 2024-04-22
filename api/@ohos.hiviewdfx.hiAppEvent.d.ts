@@ -377,7 +377,9 @@ declare namespace hiAppEvent {
    * Application event logging configuration interface.
    *
    * @param { ConfigOption } config Application event logging configuration item object.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @throws { BusinessError } 11103001 - Invalid max storage quota value.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -532,7 +534,9 @@ declare namespace hiAppEvent {
    *
    * @param { AppEventInfo } info Application event information to be written.
    * @returns { Promise<void> } Return Promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @throws { BusinessError } 11100001 - Function is disabled.
    * @throws { BusinessError } 11101001 - Invalid event domain.
    * @throws { BusinessError } 11101002 - Invalid event name.
@@ -569,7 +573,9 @@ declare namespace hiAppEvent {
    *
    * @param { AppEventInfo } info Application event information to be written.
    * @param { AsyncCallback<void> } callback Callback function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @throws { BusinessError } 11100001 - Function is disabled.
    * @throws { BusinessError } 11101001 - Invalid event domain.
    * @throws { BusinessError } 11101002 - Invalid event name.
@@ -602,7 +608,9 @@ declare namespace hiAppEvent {
    * @param { string } domain The domain of the event.
    * @param { string } name The name of the event.
    * @returns { Promise<void> } Return Promise.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -742,7 +750,9 @@ declare namespace hiAppEvent {
      * Set the threshold size per read.
      *
      * @param { number } size Threshold size.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
      * @throws { BusinessError } 11104001 - Invalid size value.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
@@ -1024,7 +1034,9 @@ declare namespace hiAppEvent {
    *
    * @param { Watcher } watcher Watcher object for monitoring events.
    * @returns { AppEventPackageHolder } Holder object, which is used to read the monitoring data of the watcher.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @throws { BusinessError } 11102001 - Invalid watcher name.
    * @throws { BusinessError } 11102002 - Invalid filtering event domain.
    * @throws { BusinessError } 11102003 - Invalid row value.
@@ -1051,7 +1063,9 @@ declare namespace hiAppEvent {
    * Remove event watcher.
    *
    * @param { Watcher } watcher Watcher object for monitoring events.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @throws { BusinessError } 11102001 - Invalid watcher name.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1082,7 +1096,9 @@ declare namespace hiAppEvent {
    *
    * @param { string } name The key of the user ID.
    * @param { string } value The value of the user ID.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1095,7 +1111,9 @@ declare namespace hiAppEvent {
    *
    * @param { string } name The key of the user ID.
    * @returns { string } the user ID value.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1108,7 +1126,9 @@ declare namespace hiAppEvent {
    *
    * @param { string } name The key of the user property.
    * @param { string } value The value of the user property.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1121,7 +1141,9 @@ declare namespace hiAppEvent {
    *
    * @param { string } name The key of the user property.
    * @returns { string } the user property value.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1314,7 +1336,9 @@ declare namespace hiAppEvent {
    *
    * @param { Processor } processor The instance which report the event
    * @returns { number }  The processor unique ID.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1326,7 +1350,9 @@ declare namespace hiAppEvent {
    * Remove the processor.
    *
    * @param { number } id The processor unique ID.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                           1.The limit parameter is too small;
+   *                           2.The parameter type error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
