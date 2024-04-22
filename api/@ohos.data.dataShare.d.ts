@@ -63,7 +63,8 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   *         2. Incorrect parameters types.
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
@@ -78,7 +79,8 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   *         2. Incorrect parameters types.
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
@@ -112,7 +114,8 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   *         2. Incorrect parameters types.
    * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
@@ -131,7 +134,8 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the uri of the data share silent proxy resource.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   *         2. Incorrect parameters types.
    * @throws { BusinessError } 15700011 - The uri is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
@@ -146,7 +150,8 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the uri of the data share silent proxy resource.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   *         2. Incorrect parameters types.
    * @throws { BusinessError } 15700011 - The uri is not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
