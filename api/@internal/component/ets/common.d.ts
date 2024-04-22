@@ -12045,6 +12045,16 @@ declare interface ContextMenuOptions {
   preview?: MenuPreviewMode | CustomBuilder;
 
   /**
+   * Defines the border radius of menu.
+   *
+   * @type { ?(Length | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderRadius?: Length | BorderRadiuses;
+
+  /**
    * Callback function when the context menu appears.
    *
    * @type { ?function }
