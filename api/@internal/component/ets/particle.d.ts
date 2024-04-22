@@ -1206,6 +1206,28 @@ declare enum ParticleUpdater {
   CURVE = 'curve',
 }
 
+ /**
+ * Defines the SizeT type.
+ *
+ * @typedef { import('../../../../api/arkui/Graphics').SizeT<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type SizeT<T> = import('../../../../api/arkui/Graphics').SizeT<T>;
+
+ /**
+ * Defines the PositionT type.
+ *
+ * @typedef { import('../../../../api/arkui/Graphics').PositionT<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type PositionT<T> = import('../../../../api/arkui/Graphics').PositionT<T>;
+
 /**
  * Defines the Particle component attribute functions.
  * @extends CommonMethod<ParticleAttribute>
@@ -1233,6 +1255,17 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @since 12
    */
   emitter(value : Array<EmitterProperty>) : ParticleAttribute;
+
+  /**
+   * Particle disturbance Field.
+   *
+   * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
+  * @returns { ParticleAttribute } Returns the particle attribute.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 }
 
 /**
@@ -1249,3 +1282,146 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
  * @since 11
  */
 declare const Particle: ParticleInterface;
+
+/**
+ * Defines particle disturbance Field params.
+ * @interface DisturbanceFieldOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DisturbanceFieldOptions {
+
+  /**
+   * Strength of the repulsive force from the center outward,
+   * with positive numbers indicating outward repulsion and negative numbers indicating
+   * inward attraction.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strength?: number;
+
+  /**
+   * Disturbance filed shape.
+   *
+   * @type { ?DisturbanceFieldShape }
+   * @default DisturbanceFieldShape.RECT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shape?: DisturbanceFieldShape;
+
+  /**
+   * Disturbance filed size width value width, height.
+   *
+   * @type { ?SizeT<number> }
+   * @default {width:0,height:0}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  size?: SizeT<number>;
+
+  /**
+   * Disturbance filed position width value x, y.
+   *
+   * @type { ?PositionT<number> }
+   * @default {x:0,y:0}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  position?: PositionT<number>;
+
+  /**
+   * Attenuation degree of the field from the center point to the field boundary.
+   * ranging from 0 to 100 integers. If 0, it indicates that the field is a rigid body,
+   * and all particles within the range will be excluded.
+   * a larger feather value indicates a greater degree of relaxation in the field,
+   * and more particles near the center point will appear in the field strength range. The default value is 0.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  feather?: number;
+
+  /**
+   * Scaling parameter is used to control the overall size of noise, with a value greater or equal 0.
+   *
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  noiseScale?: number;
+
+   /**
+   * Noise frequency with a value greater or equal 0.
+   *
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  noiseFrequency?: number;
+
+  /**
+   * NoiseAmplitude fluctuation range of noise,  value,
+   *
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  noiseAmplitude?: number;
+}
+
+/**
+ * Defines particle disturbance shape.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DisturbanceFieldShape {
+
+  /**
+   * Shape rect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  RECT,
+
+   /**
+   * Shape circle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  CIRCLE,
+
+  /**
+   * Shape eclipse.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ELLIPSE
+
+}
