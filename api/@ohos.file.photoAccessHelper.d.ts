@@ -313,6 +313,7 @@ declare namespace photoAccessHelper {
    *
    * @enum { number } RecommendationType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
    * @since 11
    */
   enum RecommendationType {
@@ -655,6 +656,14 @@ declare namespace photoAccessHelper {
    * @interface PhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
+   */
+  /**
+   * Defines the photo asset
+   *
+   * @interface PhotoAsset
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 11
    */
   interface PhotoAsset {
     /**
