@@ -302,6 +302,16 @@ declare namespace promptAction {
      * @since 11
      */
     color: string | Resource;
+    /**
+     * Define whether the button responds to Enter/Space key by default.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    primary?: boolean;
   }
 
   /**
