@@ -1211,7 +1211,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Enable image analyzer.
    *
-   * @param { boolean } enable
+   * @param { boolean} enable
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 12
