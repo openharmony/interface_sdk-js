@@ -192,6 +192,27 @@ declare namespace appManager {
   }
 
   /**
+   * Enum for the preload mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export enum PreloadMode {
+    /**
+     * Preload application when press the app icon down.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    PRESS_DOWN
+  }
+
+  /**
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -769,6 +790,28 @@ declare namespace appManager {
    * @since 11
    */
   function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Preload the target application, create process and initialize resources.
+   * 
+   * @permission ohos.permission.PRELOAD_APPLICATION
+   * @param { string } bundleName - The bundle name of the application to preload.
+   * @param { number } userId - Indicates the user identification.
+   * @param { PreloadMode } mode - Preload application mode.
+   * @param { number } [appIndex] - The index of application clone.
+   * @returns { Promise<void> } Returns the result of preloadApplication.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16300005 - The target bundle does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function preloadApplication(bundleName: string, userId: number, mode: PreloadMode, appIndex?: number): Promise<void>;
 
   /**
    * The ability or extension state data.
