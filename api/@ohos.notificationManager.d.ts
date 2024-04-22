@@ -59,6 +59,21 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @syscap SystemCapability.Notification.Notification
  * @since 9
  */
+/**
+ * Manages notifications.
+ * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
+ * You can specify the content of a notification to be published and the content is carried by
+ * {@link NotificationRequest}. A notification ID is unique in an application and must be specified
+ * when using {@link NotificationRequest} to carry the notification content. If a notification
+ * with this ID has been published and you need to use this ID to publish another notification,
+ * the original notification will be updated. In addition, the notification ID can be used to cancel
+ * a notification by calling the {@link #cancel(int)} method.
+ *
+ * @namespace notificationManager
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
 declare namespace notificationManager {
   /**
    * Publishes a notification.
@@ -100,6 +115,30 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network is unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
+   */
+  /**
+   * Publishes a notification.
+   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
+   * this method will update the notification.
+   *
+   * @param { NotificationRequest } request - notification request
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -143,6 +182,30 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network is unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
+   */
+  /**
+   * Publishes a notification.
+   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
+   * this method will update the notification.
+   *
+   * @param { NotificationRequest } request - notification request
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -340,6 +403,20 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Cancel a notification with the specified ID.
+   *
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -356,6 +433,21 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Cancel a notification with the specified label and ID.
+   *
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { string } label - Label of the notification to cancel.
+   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -371,6 +463,21 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Cancel a notification with the specified label and ID.
+   *
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { string } [label] - Label of the notification to cancel.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function cancel(id: number, label?: string): Promise<void>;
 
@@ -476,6 +583,18 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Cancel all notifications of the current application.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of cancelAll.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   function cancelAll(callback: AsyncCallback<void>): void;
 
   /**
@@ -488,6 +607,18 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Cancel all notifications of the current application.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function cancelAll(): Promise<void>;
 
@@ -828,6 +959,20 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
+  /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -857,6 +1002,20 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
+   */
+  /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -1544,6 +1703,20 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
   /**
@@ -1599,6 +1772,20 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function requestEnableNotification(): Promise<void>;
 
@@ -2154,6 +2341,20 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 10
    */
+  /**
+   * Set badge number.
+   *
+   * @param { number } badgeNumber - Badge number.
+   * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   function setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -2168,6 +2369,20 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 10
+   */
+  /**
+   * Set badge number.
+   *
+   * @param { number } badgeNumber - Badge number.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   function setBadgeNumber(badgeNumber: number): Promise<void>;
 
@@ -2603,12 +2818,27 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Describes notification content types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   export enum ContentType {
     /**
      * Normal text notification.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * Normal text notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
@@ -2617,6 +2847,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * Long text notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
 
@@ -2641,6 +2878,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * Multi-line text notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
      */
     NOTIFICATION_CONTENT_MULTILINE,
 
@@ -3003,6 +3247,13 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Describes a normal text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification3
+   * @crossplatform
+   * @since 12
+   */
   export type NotificationBasicContent = _NotificationBasicContent;
 
   /**
@@ -3011,6 +3262,13 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Describes notification types.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
+   */
   export type NotificationContent = _NotificationContent;
 
   /**
@@ -3018,6 +3276,13 @@ declare namespace notificationManager {
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Describes a long text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
@@ -3035,6 +3300,13 @@ declare namespace notificationManager {
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Describes a multi-line text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   export type NotificationMultiLineContent = _NotificationMultiLineContent;
 
@@ -3077,6 +3349,13 @@ declare namespace notificationManager {
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Defines a NotificationRequest instance.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 12
    */
   export type NotificationRequest = _NotificationRequest;
 
