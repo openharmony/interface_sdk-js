@@ -149,6 +149,7 @@ cone
 conferencing
 confpersist
 connectable
+consecutively
 contentful
 contex
 controlpanel
@@ -980,6 +981,7 @@ utimes
 uuids
 uwb
 uids
+unpipe
 v9
 varyings
 viewframe
@@ -1023,6 +1025,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+writev
 wukong
 wvx
 wwan
