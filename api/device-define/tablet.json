@@ -119,7 +119,6 @@
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
     "SystemCapability.Security.AccessToken",
-    "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
