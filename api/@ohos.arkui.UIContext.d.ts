@@ -46,7 +46,7 @@ import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import { MeasureOptions } from './@ohos.measure';
 import type dragController from './@ohos.arkui.dragController';
-import image from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image';
 import { LocalStorage } from 'StateManagement';
 import type common from './@ohos.app.ability.common';
 import { GestureEvent } from 'GestureEventModule';
