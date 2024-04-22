@@ -8264,6 +8264,15 @@ declare enum ClickEffectLevel {
  * @atomicservice
  * @since 11
  */
+/**
+ * The type of XComponent
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum XComponentType {
   /**
    * Surface type. The default type is used.
@@ -8277,6 +8286,14 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Surface type. The default type is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   SURFACE,
 
