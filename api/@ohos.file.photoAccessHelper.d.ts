@@ -631,6 +631,25 @@ declare namespace photoAccessHelper {
       fileUri: string,
       dataHandler: MediaAssetDataHandler<boolean>
     ): Promise<string>;
+
+    /**
+     * Load moving photo
+     *
+     * @param { Context } context - Hap context information
+     * @param { string } imageFileUri - image file uri of the moving photo to be loaded
+     * @param { string } videoFileUri - video file uri of the moving photo to be loaded
+     * @returns { Promise<MovingPhoto> } Returns moving photo
+     * @throws { BusinessError } 401 - Invalid parameter
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    static loadMovingPhoto(
+      context: Context,
+      imageFileUri: string,
+      videoFileUri: string
+    ): Promise<MovingPhoto>;
   }
 
   /**
