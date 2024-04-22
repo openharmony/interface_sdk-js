@@ -67,7 +67,7 @@ export default shortKey;
  */
 export declare enum FingerprintAction {
   /**
-   * This action represents the user placing their finger down, initiating the sliding action.
+   * This action represents the user placing their finger down.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -75,7 +75,7 @@ export declare enum FingerprintAction {
   DOWN = 0,
 
   /**
-   * This action represents the user lifting their finger, and the sliding action has ended.
+   * This action represents the user lifting their finger.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -84,7 +84,6 @@ export declare enum FingerprintAction {
 
   /**
    * This action signifies that the user is currently engaged in sliding.
-   * The sequnces of "DOWN, SLIDE, UP" constitutes a complete sliding process.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -92,12 +91,20 @@ export declare enum FingerprintAction {
   SLIDE = 2,
 
   /**
+   * This action represents the retouch event.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 12
+   */
+  RETOUCH = 3,
+
+  /**
    * This action corresponds to a click event
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
    */
-  CLICK = 3,
+  CLICK = 4,
 }
 
 /**
@@ -115,7 +122,6 @@ export declare interface FingerprintEvent {
    * @since 12
    */
   action: FingerprintAction;
-
 
   /**
    * This field represents the percentage of relative sliding distance on X-axis
