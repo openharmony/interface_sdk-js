@@ -715,17 +715,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   textOverflow(value: TextOverflow): TextAreaAttribute;
 
   /**
-   * Called when the baseline offset is set.
-   *
-   * @param { Dimension } value
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  baselineOffset(value: Dimension): TextAreaAttribute;
-
-  /**
    * Specify the indentation of the first line in a text-block.
    *
    * @param { Dimension } value - The length of text indent.
@@ -1261,6 +1250,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   letterSpacing(value: number | string | Resource): TextAreaAttribute;
+
+  /**
+   * Set font line spacing.
+   *
+   * @param { LengthMetrics } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineSpacing(value: LengthMetrics): TextAreaAttribute;
 
   /**
    * Called when the line height of the font is set.

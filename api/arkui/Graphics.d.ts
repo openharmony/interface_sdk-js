@@ -199,6 +199,15 @@ interface Vector2 {
  * @crossplatform
  * @since 11
  */
+/**
+ * Defined a vector with three values.
+ *
+ * @interface Vector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface Vector3 {
   /**
    * Value for x-axis of the vector.
@@ -618,107 +627,6 @@ export interface SizeT<T> {
    * @since 12
    */
   height: T;
-}
-
-/**
- * Defines the Length Metric.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class LengthMetric {
-  /**
-   * Constructor.
-   *
-   * @param { number } value - The value of length.
-   * @param { LengthUnit } unit - The length unit.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  constructor(value: number, unit?:LengthUnit);
-
-  /**
-   * Init a lengthMetric with px unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit px.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static px(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with vp unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } - Returns the lengthMetric object with unit vp.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static vp(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with fp unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit fp.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static fp(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with percent unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit percent.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static percent(value: number): LengthMetric;
-
-  /**
-   * Init a lengthMetric with lpx unit.
-   *
-   * @param { number } value - The value of the length metric.
-   * @returns { LengthMetric } Returns the lengthMetric object with unit lpx.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  static lpx(value: number): LengthMetric;
-  
-  /**
-   * The unit of the LengthMetric. The default value is VP.
-   *
-   * @type { LengthUnit }
-   * @default VP
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  public unit: LengthUnit;
-
-  /**
-   * The value of the LengthMetric.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  public value: number;
 }
 
 /**

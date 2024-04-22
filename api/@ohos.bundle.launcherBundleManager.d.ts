@@ -20,7 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
-import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant } from './bundleManager/ShortcutInfo';
+import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 import { StartOptions } from './@ohos.app.ability.StartOptions';
 
 /**
@@ -218,6 +218,15 @@ declare namespace launcherBundleManager {
    * @since 9
    */
   export type ShortcutWant = _ShortcutWant;
+  /**
+   * Indicates the custom parameters in shortcut want.
+   *
+   * @typedef { _ParameterItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  export type ParameterItem = _ParameterItem;
 }
 
 export default launcherBundleManager;

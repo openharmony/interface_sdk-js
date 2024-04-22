@@ -75,7 +75,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -96,7 +96,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -120,7 +120,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -141,7 +141,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -169,7 +169,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -338,7 +338,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -360,7 +360,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -385,7 +385,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -407,7 +407,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -436,7 +436,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -462,7 +462,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -496,7 +496,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -522,7 +522,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000013 - queried credential does not exist
@@ -572,7 +572,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -598,7 +598,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -621,7 +621,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -669,7 +669,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -699,7 +699,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -722,7 +722,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -769,7 +769,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -790,7 +790,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -811,7 +811,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
@@ -836,7 +836,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
@@ -857,7 +857,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
@@ -905,7 +905,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
@@ -926,7 +926,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
@@ -950,7 +950,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
@@ -971,7 +971,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
@@ -999,7 +999,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
@@ -1051,10 +1051,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1074,10 +1074,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1092,7 +1092,7 @@ declare namespace huks {
    *
    * @param { number } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
@@ -1101,10 +1101,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1123,7 +1123,7 @@ declare namespace huks {
    *
    * @param { number } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
@@ -1132,10 +1132,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1147,7 +1147,7 @@ declare namespace huks {
    *
    * @param { number } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
@@ -1156,10 +1156,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1208,10 +1208,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1231,10 +1231,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1249,7 +1249,7 @@ declare namespace huks {
    *
    * @param { number } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
@@ -1258,10 +1258,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1280,7 +1280,7 @@ declare namespace huks {
    *
    * @param { number } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
@@ -1289,10 +1289,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1304,7 +1304,7 @@ declare namespace huks {
    *
    * @param { number } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
@@ -1313,10 +1313,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1362,7 +1362,7 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
@@ -1378,7 +1378,7 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
@@ -1397,7 +1397,7 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
@@ -1413,7 +1413,7 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
@@ -1437,7 +1437,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1463,7 +1463,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1488,7 +1488,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1510,7 +1510,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1536,7 +1536,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -1559,7 +1559,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
@@ -3351,7 +3351,7 @@ declare namespace huks {
      */
     HUKS_TAG_INVALID = HuksTagType.HUKS_TAG_TYPE_INVALID | 0,
 
-    /* Base algrithom TAG: 1 - 200 */
+    /* Base algorithm TAG: 1 - 200 */
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
@@ -3755,7 +3755,7 @@ declare namespace huks {
     /*
      * Other reserved TAG: 601 - 1000
      *
-     * Extention TAG: 1001 - 9999
+     * Extension TAG: 1001 - 9999
      */
 
     /**
@@ -3912,7 +3912,7 @@ declare namespace huks {
     HUKS_TAG_OS_PATCHLEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 10102,
 
     /*
-     * Reversed TAGs for SOTER: 11000 - 12000
+     * Reserved TAGs: 11000 - 12000
      *
      * Other TAGs: 20001 - N
      * TAGs used for paramSetOut

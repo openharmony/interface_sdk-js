@@ -661,7 +661,7 @@ declare namespace utils {
      *
      * @param { ISendable | null | undefined } value - The value to stringify.
      * @returns { string } The JSON string representation of the value.
-     * @throws { BusinessError } 401 - Parameter error. Invalid JSONValue.
+     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

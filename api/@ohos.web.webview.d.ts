@@ -4525,6 +4525,16 @@ declare namespace webview {
      * @since 12
      */
     static clearHostIP(hostName: string): void;
+
+    /**
+     * Warmup the registered service worker associated the url.
+     * @param { string } url - The url.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static warmupServiceWorker(url: string): void;
   }
 
   /**

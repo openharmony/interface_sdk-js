@@ -57,4 +57,3 @@ class ErrorType(enum.Enum):
     RETURN_NO_TAG = 'return_missing_label'
     PARAM_OBJ_NO_TAG = 'param_anonymous_object_missing_label'
     RETURN_OBJ_NO_TAG = 'return_anonymous_object_missing_label'
-

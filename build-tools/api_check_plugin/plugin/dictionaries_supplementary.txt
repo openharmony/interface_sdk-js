@@ -657,6 +657,7 @@ preresolve
 presentationml
 presently
 presistent
+previewed
 prevgroup
 prikey
 primaries
@@ -754,7 +755,6 @@ sdpi
 searchsetter
 sece
 secinfo
-securityguard
 seeked
 semicircles
 sendable
@@ -991,6 +991,7 @@ wallpapers
 wantagent
 wapi
 wappush
+warmup
 watchers
 waterflow
 wcdma
@@ -1060,3 +1061,4 @@ geofences
 gbk
 ocsp
 encipherment
+reconfirmed

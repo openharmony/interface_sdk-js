@@ -1504,6 +1504,47 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @form
    */
   style(value: Style): ProgressAttribute<Type>;
+
+  /**
+   * Set the contentModifier of progress.
+   *
+   * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
+   * @returns { ProgressAttribute<Type> } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute<Type>;
+}
+
+/**
+ * ProgressConfiguration used by progress contentModifier
+ *
+ * @interface ProgressConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
+  /**
+   * The value of Progress.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: number;
+
+  /**
+   * The total of Progress.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  total: number;
 }
 
 /**

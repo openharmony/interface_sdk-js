@@ -336,6 +336,57 @@ interface ParticleConfigs {
 }
 
 /**
+ * Defines the emitter property.
+ *
+ * @interface EmitterProperty
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface EmitterProperty {
+
+  /**
+   * Emitter index.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  index : number;
+
+  /**
+   * Emitter emission rate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  emitRate?: number;
+
+  /**
+   * Emitter emission rate. Only support number type.
+   *
+   * @type { ?PositionT<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  position?: PositionT<number>;
+
+  /**
+   * Emitter emission window size. Only support number type.
+   *
+   * @type { ?SizeT<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  size?: SizeT<number>;
+}
+
+/**
  * Defines the emitter Options.
  * @interface EmitterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -762,6 +813,16 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   range: [ResourceColor, ResourceColor];
 
   /**
+   * Distribution type of particle color.
+   * @type { ?DistributionType }
+   * @default DistributionType.UNIFORM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  distributionType?: DistributionType;
+
+  /**
    * Particle color property updater.
    * @type { ?object }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
@@ -1056,6 +1117,34 @@ declare enum ParticleEmitterShape {
 }
 
 /**
+ * Enumerates the color distribution types of a particle.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DistributionType {
+  /**
+   * Uniform distribution.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  UNIFORM = 0,
+
+  /**
+   * Gaussian distribution.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  GAUSSIAN = 1,
+}
+
+/**
  * Enumerates the updater types of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1132,7 +1221,19 @@ declare enum ParticleUpdater {
  * @atomicservice
  * @since 11
  */
-declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {}
+declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
+
+  /**
+   * Add particle animation component properties.
+   *
+   * @param { Array<EmitterProperty> } value - The emitter property.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  emitter(value : Array<EmitterProperty>) : ParticleAttribute;
+}
 
 /**
  * Defines Particle Component.

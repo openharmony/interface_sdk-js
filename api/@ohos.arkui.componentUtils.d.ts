@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -61,6 +61,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * component size.
+    * @type {Size}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     size: Size
 
     /**
@@ -75,6 +83,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Obtain attribute information relative to the local.
+    * @type {Offset}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     localOffset: Offset
 
@@ -91,6 +107,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Obtain attribute information relative to the window.
+    * @type {Offset}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     windowOffset: Offset
 
     /**
@@ -105,6 +129,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Obtain attribute information relative to the screen.
+    * @type {Offset}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     screenOffset: Offset
 
@@ -121,6 +153,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Obtain attribute information for translation.
+    * @type {TranslateResult}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     translate: TranslateResult
 
     /**
@@ -135,6 +175,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Obtain attribute information for scale.
+    * @type {ScaleResult}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     scale: ScaleResult
 
@@ -151,6 +199,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Obtain attribute information for rotate.
+    * @type {RotateResult}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     rotate: RotateResult
 
     /**
@@ -165,6 +221,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Obtain attribute information of the transformation matrix.
+    * @type {Matrix4Result}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     transform: Matrix4Result
   }
@@ -197,6 +261,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Defines the width property.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     width: number
 
     /**
@@ -211,6 +283,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Defines the height property.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     height: number
   }
@@ -228,6 +308,14 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 11
   */
+  /**
+  * Defines the offset property.
+  * @typedef Offset
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
   interface Offset {
 
     /**
@@ -243,6 +331,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Coordinate x of the Position.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     x: number
 
     /**
@@ -257,6 +353,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Coordinate y of the Position.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     y: number
   }
@@ -289,6 +393,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Indicates the translation distance of the x-axis, in vp.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     x: number
 
     /**
@@ -304,6 +416,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Indicates the translation distance of the y-axis, in vp.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     y: number
 
     /**
@@ -318,6 +438,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Indicates the translation distance of the z-axis, in vp.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     z: number
   }
@@ -350,6 +478,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Zoom factor of the x-axis.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     x: number
 
     /**
@@ -364,6 +500,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Zoom factor of the y-axis.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     y: number
 
@@ -380,6 +524,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Zoom factor of the z-axis.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     z: number
 
     /**
@@ -395,6 +547,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Transform the x-axis coordinate of the center point.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     centerX: number
 
     /**
@@ -409,6 +569,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Transform the y-axis coordinate of the center point.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     centerY: number
   }
@@ -441,6 +609,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Axis of rotation vector x coordinate.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     x: number
 
     /**
@@ -455,6 +631,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Axis of rotation vector y coordinate.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     y: number
 
@@ -471,6 +655,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Axis of rotation vector z coordinate.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     z: number
 
     /**
@@ -485,6 +677,14 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Transform the x-axis coordinate of the center point.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
     */
     centerX: number
 
@@ -501,6 +701,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Transform the y-axis coordinate of the center point.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     centerY: number
 
     /**
@@ -516,6 +724,14 @@ declare namespace componentUtils {
     * @atomicservice
     * @since 11
     */
+    /**
+    * Rotation angle.
+    * @type {number}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
     angle: number
   }
 
@@ -530,6 +746,13 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
+  */
+  /**
+  * The matrix is column-first fourth-order matrix.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
   */
   type Matrix4Result = [
     number,

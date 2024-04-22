@@ -465,6 +465,12 @@ declare namespace audio {
      */
     USB_HEADSET = 22,
     /**
+     * Display port device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    DISPLAY_PORT = 23,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -1000,6 +1006,24 @@ declare namespace audio {
      * @since 9
      */
     INTERRUPT_REQUEST_TYPE_DEFAULT = 0,
+  }
+
+  /**
+   * Enumerates volume related operations.
+   * Flags should be powers of 2!
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 12
+   */
+  enum VolumeFlag {
+    /**
+     * Show system volume bar.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    FLAG_SHOW_SYSTEM_UI = 1,
   }
 
   /**
@@ -2490,6 +2514,17 @@ declare namespace audio {
      * @since 10
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
+    /**
+     * user disable the safe media volume state.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @returns {Promise<void>} Promise used to return the result.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 12
+     */
+    disableSafeMediaVolume(): Promise<void>;
   }
 
   /**
@@ -2597,6 +2632,21 @@ declare namespace audio {
      * @since 9
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
+
+    /**
+     * Sets the volume for a stream. This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { number } flags - volume flags used to enable different operations, can be union of {@link VolumeFlag}
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    setVolumeWithFlag(volumeType: AudioVolumeType, volume: number, flags: number): Promise<void>;
 
     /**
      * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
