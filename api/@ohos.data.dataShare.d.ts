@@ -562,10 +562,10 @@ declare namespace dataShare {
      * @param { 'dataChange' } type - Type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -579,10 +579,10 @@ declare namespace dataShare {
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1360,10 +1360,10 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
      * @param { AsyncCallback<string> } callback - {string}: the normalized Uri,
      * if the DataShare supports uri normalization.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1393,11 +1393,11 @@ declare namespace dataShare {
      * to convert it to a denormalized uri that can be used only in the current environment.
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *         2. Incorrect parameters types.
      * @returns { Promise<string> } {string}: the normalized Uri if the DataShare supports uri normalization;
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1426,10 +1426,10 @@ declare namespace dataShare {
      * the denormalization is successful; returns the original {@code Uri} passed to this method if
      * there is nothing to do; returns {@code null} if the data identified by the normalized {@code Uri}
      * cannot be found in the current environment.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1458,10 +1458,10 @@ declare namespace dataShare {
      * is successful; returns the original {@code Uri} passed to this method if there is nothing to do;
      * returns {@code null} if the data identified by the normalized {@code Uri} cannot be found in the
      * current environment.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+     *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1484,9 +1484,9 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
      * @param { AsyncCallback<void> } callback - The callback of notifyChange.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1509,9 +1509,9 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1519,14 +1519,14 @@ declare namespace dataShare {
      */
     notifyChange(uri: string): Promise<void>;
 
-     /**
+    /**
      * Notifies the registered observers of the data change.
      *
      * @param { ChangeInfo } data - Indicates the data change information.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
