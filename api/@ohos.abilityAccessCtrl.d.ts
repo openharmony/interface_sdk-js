@@ -193,7 +193,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Requests certain permissions from the user.
      *
-     * @param { Context } context - The context that initiates the permission request. The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
+     * @param { Context } context - The context that initiates the permission request.
+     * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -206,6 +207,7 @@ declare namespace abilityAccessCtrl {
      * Requests certain permissions from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
+     * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -219,6 +221,7 @@ declare namespace abilityAccessCtrl {
      * Requests certain permissions from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
+     * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -239,6 +242,7 @@ declare namespace abilityAccessCtrl {
      * Requests certain permissions from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
+     * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -251,6 +255,7 @@ declare namespace abilityAccessCtrl {
      * Requests certain permissions from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
+     * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -264,6 +269,7 @@ declare namespace abilityAccessCtrl {
      * Requests certain permissions from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
+     * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
