@@ -469,17 +469,17 @@ export default class ApplicationContext extends Context {
    * Set the state about whether the application supports process cache or not.
    *
    * @permission ohos.permission.SET_PROCESS_CACHE_STATE
-   * @param { boolean } isSupport - Indicates the process cache support state.
+   * @param { boolean } isSupported - Indicates the process cache support state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - The input parameter is not a valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000068 - The support process cache state cannot be set more than once.
+   * @throws { BusinessError } 16000068 - The supported process cache state cannot be set more than once.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  setSupportProcessCache(isSupport : boolean): void;
+  setSupportProcessCache(isSupported : boolean): void;
 }
